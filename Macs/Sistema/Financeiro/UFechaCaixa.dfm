@@ -1,0 +1,306 @@
+inherited FFechaCaixa: TFFechaCaixa
+  Left = 98
+  Top = 104
+  Caption = 'FFechaCaixa'
+  ClientHeight = 276
+  ClientWidth = 562
+  OldCreateOrder = True
+  OnActivate = FormActivate
+  OnClose = nil
+  OnCreate = nil
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel [0]
+    Left = 91
+    Top = 106
+    Width = 94
+    Height = 20
+    Caption = 'Fechamento:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel [1]
+    Left = 207
+    Top = 106
+    Width = 94
+    Height = 20
+    Caption = 'Fechamento:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel [2]
+    Left = 47
+    Top = 154
+    Width = 86
+    Height = 20
+    Caption = 'Saldo Atual:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Transparent = True
+  end
+  object Label5: TLabel [3]
+    Left = 202
+    Top = 154
+    Width = 65
+    Height = 20
+    Caption = 'Retirada:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Transparent = True
+  end
+  object Label6: TLabel [4]
+    Left = 357
+    Top = 154
+    Width = 94
+    Height = 20
+    Caption = 'Saldo Fecha:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Transparent = True
+  end
+  inherited PComunica: TPanel
+    Left = 74
+    Top = 82
+    Width = 383
+    Height = 73
+  end
+  object GroupBox1: TGroupBox
+    Left = 56
+    Top = 50
+    Width = 433
+    Height = 41
+    Caption = 'Fechar Caixa'
+    Color = clWhite
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentColor = False
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 1
+    object LCAIXA: TLabel
+      Left = 8
+      Top = 16
+      Width = 313
+      Height = 19
+      AutoSize = False
+      Caption = 'CAIXA'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'BankGothic Md BT'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object EDHora: TEdit
+    Left = 91
+    Top = 124
+    Width = 113
+    Height = 28
+    Color = 15658717
+    Ctl3D = False
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 2
+    Text = '00:00:00'
+  end
+  object EDData: TEdit
+    Left = 295
+    Top = 124
+    Width = 141
+    Height = 28
+    Color = 15658717
+    Ctl3D = False
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 3
+    Text = '01/01/1948'
+  end
+  object EdSaldoAtual: TColorEditFloat
+    Left = 47
+    Top = 178
+    Width = 150
+    Height = 28
+    Color = clMenu
+    Ctl3D = False
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -19
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 4
+    Text = '0,00'
+    ValueFormat = '#,##0.00'
+    ValueInteger = 0
+    NotFoundText = 'N'#227'o Existe'
+    InputText = 'Por favor entre na procura pelo crit'#233'rio'
+    ButtonCaption = 'Ok'
+  end
+  object EdRetirada: TColorEditFloat
+    Left = 202
+    Top = 178
+    Width = 150
+    Height = 28
+    Color = clMenu
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -19
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 5
+    Text = '0,00'
+    OnExit = EdRetiradaExit
+    ValueFormat = '#,##0.00'
+    ValueInteger = 0
+    NotFoundText = 'N'#227'o Existe'
+    InputText = 'Por favor entre na procura pelo crit'#233'rio'
+    ButtonCaption = 'Ok'
+  end
+  object EdSaldoFecha: TColorEditFloat
+    Left = 357
+    Top = 178
+    Width = 150
+    Height = 28
+    Color = clMenu
+    Ctl3D = False
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGreen
+    Font.Height = -19
+    Font.Name = 'BankGothic Md BT'
+    Font.Style = []
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 6
+    Text = '0,00'
+    ValueFormat = '#,##0.00'
+    ValueInteger = 0
+    NotFoundText = 'N'#227'o Existe'
+    InputText = 'Por favor entre na procura pelo crit'#233'rio'
+    ButtonCaption = 'Ok'
+  end
+  object BTNOK: TBitBtn
+    Left = 144
+    Top = 218
+    Width = 97
+    Height = 25
+    Caption = '&Ok'
+    TabOrder = 7
+    OnClick = BTNOKClick
+    Glyph.Data = {
+      66030000424D6603000000000000360000002800000010000000110000000100
+      18000000000030030000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+      BFBFBFFFFF000000007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F7F0000007F7F7F7F
+      7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFFFFF007F7F7F7F7F000000007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+      7F7F7F7F7F7F7FBFBFBF0000000000000000000000007F7F7F7F7F007F7F0000
+      00007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFFFFF00
+      7F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F
+      7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F
+      7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F000000
+      00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F
+      7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F
+      007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F
+      007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F
+      007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBF}
+  end
+  object BTNCANCELAR: TBitBtn
+    Left = 272
+    Top = 218
+    Width = 97
+    Height = 25
+    Caption = '&Cancelar'
+    TabOrder = 8
+    OnClick = BTNCANCELARClick
+    Glyph.Data = {
+      26040000424D2604000000000000360000002800000012000000120000000100
+      180000000000F0030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF60606060606060606060606060
+      6060606060606060606060606060606060606060606060606060FFFFFFFFFFFF
+      0000FFFFFFFFFFFF1F80B01F80B0107FB0107FAF107FAF0F70AF0F70A00F70A0
+      006FA0006F9F006F9F00609F00609F606060606060FFFFFF0000FFFFFF2080BF
+      60CFFF1F80BF9FFFFF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0
+      FF3FA0D09FFFFF00609F606060FFFFFF0000FFFFFF208FBF60CFFF208FBF9FFF
+      FF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF3FA0D09FFFFF00
+      609F606060FFFFFF0000FFFFFF208FC060CFFF2F90C09FFFFFFF8F6FFF8F6FFF
+      8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6F00609FDF0000FFFFFF
+      0000FFFFFF2F8FC060CFFF309FCF9FFFFFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFF
+      D0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00609FDF0000FFFFFF0000FFFFFF2F90C0
+      6FD0FF309FCF9FFFFFFF8F6FD0FFFFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+      CFCFCFCFCFCFCF00609FDF0000FFFFFF0000FFFFFF2F90C07FE0FF2F90C0FFFF
+      FFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00
+      609FDF0000FFFFFF0000FFFFFF3090CF80EFFF80E0FF2F90C02F90C02F90C02F
+      90C02F90C02F90C02F90C02F90C02F90C02F90C02F90C0E0E0E0DF0000FFFFFF
+      0000FFFFFF309FCF90F0FF8FF0FF8FF0FFDF0000E0E0E0F0FFFFF0FFFFF0FFFF
+      F0FFFFF0FFFFF0FFFFF0FFFFF0FFFFE0E0E0DF0000FFFFFF0000FFFFFF309FCF
+      FFFFFF9FFFFF9FFFFFDF0000E0E0E0CFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+      CFCFCFCFCFCFCFE0E0E0DF0000FFFFFF0000FFFFFFFFFFFF309FCFFFFFFFFFFF
+      FFDF0000E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+      E0E0DF0000FFFFFF0000FFFFFFFFFFFFFFFFFF309FCF309FCFDF0000FF5020FF
+      5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020DF0000FFFFFF
+      0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF0000FF5020FF5020FF5020FF5020
+      FF5020FF5020FFAF8FFFAF8F2050FF004FDFDF0000FFFFFF0000FFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF8F6FFF5020FF5020FF5020FF5020FF5020FF5020FF50
+      20FF5020FF5020FF5020FF8F6FFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFF0000}
+  end
+end
