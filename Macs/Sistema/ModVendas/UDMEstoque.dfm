@@ -1,9 +1,9 @@
 object DMESTOQUE: TDMESTOQUE
   OldCreateOrder = False
-  Left = 2
-  Top = 1
-  Height = 438
-  Width = 638
+  Left = 838
+  Top = 189
+  Height = 590
+  Width = 764
   object UPGrupo: TIBUpdateSQL
     RefreshSQL.Strings = (
       'Select '
@@ -3485,6 +3485,8 @@ object DMESTOQUE: TDMESTOQUE
     object WSimilarESTFISICO: TFloatField
       FieldName = 'ESTFISICO'
       Origin = 'VWSIMILAR.ESTFISICO'
+      DisplayFormat = '#,##0.####'
+      EditFormat = '#,##0.####'
     end
     object WSimilarVENDVARP: TIBBCDField
       FieldName = 'VENDVARP'
