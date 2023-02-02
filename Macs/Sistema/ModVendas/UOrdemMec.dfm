@@ -1,6 +1,6 @@
 inherited FOrdemMec: TFOrdemMec
-  Left = 393
-  Top = 80
+  Left = 517
+  Top = 152
   Caption = ' '
   ClientHeight = 580
   ClientWidth = 800
@@ -72636,6 +72636,7 @@ inherited FOrdemMec: TFOrdemMec
           Expanded = False
           FieldName = 'FISCO'
           Title.Caption = 'F'
+          Width = 64
           Visible = True
         end
         item
@@ -72649,6 +72650,7 @@ inherited FOrdemMec: TFOrdemMec
           Expanded = False
           FieldName = 'NUMFISCALNFSE'
           Title.Caption = 'N'#186' NFSe'
+          Width = 64
           Visible = True
         end
         item
@@ -72711,12 +72713,14 @@ inherited FOrdemMec: TFOrdemMec
           Expanded = False
           FieldName = 'DTFECH'
           Title.Caption = 'Fechamento'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'TIPOPAG'
           Title.Caption = 'Cobran'#231'a'
+          Width = 64
           Visible = True
         end>
     end
@@ -75282,9 +75286,9 @@ inherited FOrdemMec: TFOrdemMec
           Left = 423
         end
         inherited EdDescricao: TFlatEdit
-          Left = 168
+          Left = 196
           Top = 7
-          Width = 217
+          Width = 189
           Height = 24
           TabStop = False
           ColorFlat = 16318450
@@ -75927,6 +75931,41 @@ inherited FOrdemMec: TFOrdemMec
               Visible = True
             end>
         end
+      end
+      object SearchPlaca: TBitBtn
+        Left = 532
+        Top = 15
+        Width = 21
+        Height = 25
+        Action = ActSearchPlaca
+        TabOrder = 24
+        Glyph.Data = {
+          36030000424D3603000000000000360000002800000010000000100000000100
+          1800000000000003000000000000000000000000000000000000FF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFEAE0E1D9C8CAFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFDED3D6905C
+          5F9C5754D8C6C8FF00FFFF00FFFF00FFFF00FFFF00FFFFFEFEE7CCC3E2B49FDE
+          AA94E2BEB2FBF8F6DED3D67D8AA9737494905152EAE0E1FF00FFFF00FFFF00FF
+          FF00FFF0DFD9DF9973F19456E0996FD99673DE8555D47F579765636D799E8173
+          89DFD4D6FF00FFFF00FFFF00FFFF00FFF2E4E0E79664E0A17EE0BFA7F3DDBFF3
+          DDBFE7CAAED8A388DA7D4E985E59DED3D6FF00FFFF00FFFF00FFFF00FFFF00FF
+          E1A184E3A078F2DCBEFAE9C9EFDABAF2DDBEF4DFC0F3DDBFD8A388D27F56FAF7
+          F5FF00FFFF00FFFF00FFFF00FFF8F1F0EA915AE0BBA3FBEACAEFDABAA2B27CA7
+          AB7BF4E0C0F4DFC0E7CAAEDE8555E1BDB1FF00FFFF00FFFF00FFFF00FFE7CDC6
+          F4A26BEBD1BAF8E6C7A2A77694BE7C90C37BA7AB7BF2DDBEF3DDBFDA9774DEAB
+          95FF00FFFF00FFFF00FFFF00FFEAD4CFF3B388ECD5C2FCEFD7C8B893DCC8A6D1
+          BF9C90C37BB3A67FF3DDBFE0976EE2B49FFF00FFFF00FFFF00FFFF00FFFCFAFA
+          E5A381E0BAA3FCF0DAFBEACAFBEACAFBEACAD5C09FEDD9B9E0BFA7F19456E7CC
+          C3FF00FFFF00FFFF00FFFF00FFFF00FFDFAF9AEEB08AEED8C4FDF5E6FCEED5FB
+          EBCCFBEACAF2DCBEE0A17EDE9773FFFEFEFF00FFFF00FFFF00FFFF00FFFF00FF
+          FCF9F8DB9F83EDB08AE1B9A3EDD7C5EBD2BAE0BAA3E3A078E79664F0DFD9FF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFCF9F8DFAE9BE5A381F4B489F5
+          A46DEA915AE1A184F2E4DFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFCFAFAEAD5D0E6CCC4F8F2F1FF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
       end
     end
     object PTOPCADASTRO: TPanel
@@ -76925,6 +76964,16 @@ inherited FOrdemMec: TFOrdemMec
     object comissionadoserv: TMenuItem
       Caption = 'Mostrar comissionados'
       OnClick = comissionadoservClick
+    end
+  end
+  object actMain: TActionList
+    Images = DMPESSOA.il16x16
+    Left = 232
+    Top = 134
+    object ActSearchPlaca: TAction
+      ImageIndex = 1
+      OnExecute = ActSearchPlacaExecute
+      OnUpdate = ActSearchPlacaUpdate
     end
   end
 end

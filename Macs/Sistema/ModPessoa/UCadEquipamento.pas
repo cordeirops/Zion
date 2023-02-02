@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   UCadPadraoDesc, TFlatHintUnit, Grids, DBGrids, TFlatEditUnit, StdCtrls,
   Buttons, Mask, DBCtrls, DBColorEdit, jpeg, ExtCtrls, DBColorComboBox,
-  DrLabel, UFrmBusca, ColorMaskEdit, Menus;
+  DrLabel, UFrmBusca, ColorMaskEdit, Menus, cxLookAndFeelPainters,
+  ActnList, cxButtons;
 
 type
   TFCadEquipamento = class(TFCadPadraoDesc)
@@ -95,6 +96,9 @@ type
     DBColorEdit20: TDBColorEdit;
     DBGEletronico: TDBGrid;
     CBTodos: TCheckBox;
+    cxButton1: TcxButton;
+    actMain: TActionList;
+    ActSearchPlaca: TAction;
     procedure BtnGravarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure DBColorComboBox1KeyPress(Sender: TObject; var Key: Char);
@@ -146,6 +150,8 @@ type
       Shift: TShiftState);
     procedure BtnFiltrarClick(Sender: TObject);
     procedure CBTodosClick(Sender: TObject);
+    procedure ActSearchPlacaUpdate(Sender: TObject);
+    procedure ActSearchPlacaExecute(Sender: TObject);
 
   private
     { Private declarations }
@@ -164,7 +170,7 @@ implementation
 
 uses UDMPessoa, AlxMessage, UDMMacs, UCadPadrao, UServico, UDmServ,
   Alxor32, UPadrao, UMenu, UFuncionario, UConsPlncta, UDMConta, DB,
-  UOrdemPet, UCliente, UMDO;
+  UOrdemPet, UCliente, UMDO, DBClient;
 
 {$R *.DFM}
 
@@ -647,46 +653,11 @@ end;
 
 procedure TFCadEquipamento.BtnNovoClick(Sender: TObject);
 begin
-	 Try
-       // busca a maior pk
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('select max(equipamento.cod_equipamento) as maximo from equipamento');
-       MDO.QConsulta.Open;
-
-       //Atualiza a tabela código
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' update codigo set codigo.cod_equipamento=:CodigoEquipamento ');
-       MDO.Query.ParamByName('CodigoEquipamento').AsInteger:=MDO.QConsulta.FieldByName('maximo').AsInteger+1;
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-
-
-     	XCOD_EQUIPAMENTO := MDO.QConsulta.FieldByName('maximo').AsInteger+1;
-
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add('insert into EQUIPAMENTO');
-       MDO.Query.SQL.Add('(COD_EQUIPAMENTO, ATIVO)');
-       MDO.Query.SQL.Add('values');
-       MDO.Query.SQL.Add('(:COD_EQUIPAMENTO, 1)');
-       MDO.Query.ParamByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO;
-       MDO.Query.ExecSQL;
-
-       MDO.Transac.CommitRetaining;
-       //DMPESSOA.TransacPessoa.CommitRetaining;
-
-     	FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', IntToStr(XCOD_EQUIPAMENTO), '');
-
-     	//DMPESSOA.TEquip.First;
-     	//DMPESSOA.TEquip.Edit;
-    Except
-        Mensagem('Mzr Sistemas - INFORMAÇÃO', 'Falha na tentativa de inserção de novo equipamento. Se o problema persistir reinicie o sistema.', '', 1, 1, false, 'i');
-         // - 28/04/2009: fechar possiveis transações abertas
-        MDO.Transac.RollbackRetaining;
-        Exit;
-    End;
+	try
+    XCOD_EQUIPAMENTO := MDO.InsertNewEquipamento;
+  except
+    Exit;
+  end;
 
 
     PConsulta.Visible:=False;
@@ -1725,6 +1696,30 @@ begin
    ELSE BEGIN
        LiberaDados;
    END;
+end;
+
+procedure TFCadEquipamento.ActSearchPlacaUpdate(Sender: TObject);
+begin
+  inherited;
+  ActSearchPlaca.Enabled := Length(Trim(EDPlaca.Text)) > 0;
+end;
+
+procedure TFCadEquipamento.ActSearchPlacaExecute(Sender: TObject);
+var
+  cds: TClientDataSet;
+begin
+  inherited;
+  cds := GetPlacaInfo(Trim(EDPlaca.Text));
+  try
+    DBPRIMEIRO.Text := cds.FieldByNAme('MARCAMODELO').AsString;
+    DBDESC.Text := cds.FieldByNAme('MARCA').AsString;
+    DBColorEdit1.Text := cds.FieldByNAme('MODELO').AsString;
+    DBColorEdit2.Text := cds.FieldByNAme('ANO').AsString;
+    DBColorEdit3.Text := cds.FieldByNAme('COR').AsString;
+    DBColorEdit4.Text := cds.FieldByNAme('CHASSI').AsString;
+  finally
+    cds.Free;
+  end;
 end;
 
 end.

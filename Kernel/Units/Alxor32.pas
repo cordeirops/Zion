@@ -428,6 +428,9 @@ Procedure CalculoLucrativadeProduto(xCodEstoque: Integer);
 function Get(AUrl, AHeader: SockString): string;
 function GetCNPJInfo(const ACNPJ: string): TClientDataSet;
 
+function FilterJustAlphaNum(const AValue: String): String;
+function GetPlacaInfo(const APlaca: string): TClientDataSet;
+
 implementation
 
 uses
@@ -12514,6 +12517,67 @@ begin
       Result.FieldByName('codigo_uf').Value := Json.ibge.codigo_uf;
   end;
 
+  Result.Post;
+end;
+
+function FilterJustAlphaNum(const AValue: String): String;
+const
+  CHARS = ['0'..'9', 'a'..'z', 'A'..'Z'];
+var
+  I: Integer;
+  Valor: String;
+begin
+  Valor := Trim(AValue);
+  for I := 1 to Length(Valor) do
+    if (Valor[I] in CHARS) then
+      Result := Result + Valor[I];
+
+  Result := Trim(Result);
+end;
+
+function GetPlacaInfo(const APlaca: string): TClientDataSet;
+const
+  Url = 'https://wdapi.com.br/placas/%s/%s';
+  Token = '';
+var
+  GetResultado: string;
+  Json: Variant;
+begin
+  GetResultado := Get(Format(url, [FilterJustAlphaNum(APlaca), Token]), '');
+
+  Json := _Json(StringToUTF8(GetResultado));
+  if ((Json.Exists('status')) and (Json.Exists('message')) and (Json.status = 'ERROR')) then
+    raise Exception.Create('Erro ao buscar o CNPJ! Erro: ' + Json.message);
+
+  Result := TClientDataSet.Create(Application);
+  Result.FieldDefs.Add('MARCA', ftString, 255);
+  Result.FieldDefs.Add('MODELO', ftString, 255);
+  Result.FieldDefs.Add('MARCAMODELO', ftString, 255);
+  Result.FieldDefs.Add('ANO', ftString, 255);
+  Result.FieldDefs.Add('COR', ftString, 255);
+  Result.FieldDefs.Add('CHASSI', ftString, 255);
+  Result.FieldDefs.Add('MOTOR', ftString, 255);
+  Result.CreateDataSet;
+
+  Result.Append;
+  if Json.Exists('MARCA') then
+    Result.FieldByName('MARCA').Value := Json.MARCA;
+  if Json.Exists('MODELO') then
+    Result.FieldByName('MODELO').Value := Json.MODELO;
+  if Json.Exists('MARCAMODELO') then
+    Result.FieldByName('MARCAMODELO').Value := Json.MARCAMODELO;
+  if Json.Exists('ANO') then
+    Result.FieldByName('ANO').Value := Json.ANO;
+  if Json.Exists('COR') then
+    Result.FieldByName('COR').Value := Json.COR;
+  if Json.Exists('EXTRA') then
+  begin
+    if Json.Exists('CHASSI') then
+      Result.FieldByName('CHASSI').Value := Json.EXTRA.CHASSI;
+    if Json.Exists('MOTOR') then
+      Result.FieldByName('MOTOR').Value := Json.EXTRA.MOTOR;
+  end;
+  
   Result.Post;
 end;
 

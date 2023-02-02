@@ -429,7 +429,9 @@ type
     { Private declarations }
   public
     { Public declarations }
-	 IndexAniver: Integer;
+	  IndexAniver: Integer;
+    procedure InsertNewEquipamento(const ACodEquip, ACodCliente, ADesc, AMarca, AModelo, AAno, ACor, AChassi, APlaca,
+      ADtAquisicao, AKmAtual, AAtivo, ADtAtivo: Variant);
   end;
 
   {Procedures/Funções Externas}
@@ -443,7 +445,7 @@ var
 
 implementation
 
-uses Alxor32, UMenu, UDMMacs;
+uses Alxor32, UMenu, UDMMacs, UMDO;
 
 {$R *.DFM}
 
@@ -513,6 +515,43 @@ begin
    Except
        Accept := False;
    End;
+end;
+
+procedure TDMPESSOA.InsertNewEquipamento(const ACodEquip, ACodCliente, ADesc, AMarca, AModelo, AAno, ACor, AChassi, APlaca,
+  ADtAquisicao, AKmAtual, AAtivo, ADtAtivo: Variant);
+begin
+  TEquip.Close;
+  TEquip.SQL.Clear;
+  TEquip.SQL.Add(' insert into EQUIPAMENTO (');
+  TEquip.SQL.Add('   COD_EQUIPAMENTO, COD_CLIENTE, DESCRICAO, MARCA, MODELO, ANO, COR, CHASSI, PLACA, DTAQUISICAO, KMATUAL, ATIVO, DTATIVO');
+  TEquip.SQL.Add(' ) values (');
+  TEquip.SQL.Add('   :COD_EQUIPAMENTO, :COD_CLIENTE, :DESCRICAO, :MARCA, :MODELO, :ANO, :COR, :CHASSI, :PLACA, :DTAQUISICAO, :KMATUAL, :ATIVO, :DTATIVO');
+  TEquip.SQL.Add(' )');
+  TEquip.ParamByName('COD_EQUIPAMENTO').Value := ACodEquip;
+  TEquip.ParamByName('COD_CLIENTE').Value := ACodCliente;
+  TEquip.ParamByName('DESCRICAO').Value := ADesc;
+  TEquip.ParamByName('MARCA').Value := AMarca;
+  TEquip.ParamByName('MODELO').Value := AModelo;
+  TEquip.ParamByName('ANO').Value := AAno;
+  TEquip.ParamByName('COR').Value := ACor;
+  TEquip.ParamByName('CHASSI').Value := AChassi;
+  TEquip.ParamByName('PLACA').Value := APlaca;
+  TEquip.ParamByName('DTAQUISICAO').Value := APlaca;
+  TEquip.ParamByName('KMATUAL').Value := APlaca;
+  TEquip.ParamByName('ATIVO').Value := APlaca;
+  TEquip.ParamByName('DTATIVO').Value := APlaca;
+  TEquip.ExecSQL;
+
+  DMMACS.TCodigo.Edit;
+  DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger + 1;
+  DMMACS.TCodigo.Post;
+  DMMACS.IBTCodigo.CommitRetaining;
+
+  TEquip.Close;
+  TEquip.SQL.Clear;
+  TEquip.SQL.Add(' Select * from EQUIPAMENTO E where E.cod_equipamento = :codigo');
+  TEquip.ParamByName('codigo').AsInteger := ACodEquip;
+  TEquip.Open;
 end;
 
 end.

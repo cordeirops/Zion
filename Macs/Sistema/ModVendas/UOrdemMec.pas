@@ -11,7 +11,7 @@ uses
   ColorMaskEdit, cxGraphics, IBQuery, DB, Ibdatabase, FashionPanel, DateUtils,
   FR_Class, FR_DSet, FR_DBSet, UInfoClienteEquip, ClipBrd, FR_Shape, UCadPlaca,
   QRCtrls, QuickRpt, TransBtn, RpDefine, RpBase, RpSystem, RpRave,
-  RpRender, RpRenderRTF, AppEvnts;
+  RpRender, RpRenderRTF, AppEvnts, ActnList, ImgList;
 
 type
   TFOrdemMec = class(TFPadrao)
@@ -1817,6 +1817,9 @@ type
     QRLabel405: TQRLabel;
     QRSubTotalOrdem21: TQRLabel;
     QRLabel408: TQRLabel;
+    SearchPlaca: TBitBtn;
+    actMain: TActionList;
+    ActSearchPlaca: TAction;
     procedure FormActivate(Sender: TObject);
     procedure CBFILTROPropertiesChange(Sender: TObject);
     procedure DBGridConsultaDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -2087,6 +2090,8 @@ type
     procedure comissionadoservClick(Sender: TObject);
     procedure Mostrarcomissionados1Click(Sender: TObject);
     procedure ProdutovendidovalorcustoNFe1Click(Sender: TObject);
+    procedure ActSearchPlacaUpdate(Sender: TObject);
+    procedure ActSearchPlacaExecute(Sender: TObject);
     //procedure GBPRINCIPALCADASTROClick(Sender: TObject);
 
   private
@@ -2372,7 +2377,7 @@ uses AlxMessage, Alxor32, UMenu, UDmServ, UDMEstoque, UDMMacs, UDMPessoa,
   UPadraoFiscal, UListaNfe, UMDO, URelOrdem, UFServico, URelData, ComObj,
   UOrcamentoMac, UMzrNFSe, UEscolhaServico, UServico, Cripto, StrUtils,
   UOrcamento3, UConsProduto, ULancTroco {, UPadraoContas}, UDevolucao,
-  UFuncionario, URelComissaoProd;
+  UFuncionario, URelComissaoProd, DBClient;
 
 {$R *.dfm}
 
@@ -20671,6 +20676,32 @@ begin
     FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfComissaoVendaProdutoMultiplosVendedores.frf');
     FSRel.ShowReport;
   except
+  end;
+end;
+
+procedure TFOrdemMec.ActSearchPlacaUpdate(Sender: TObject);
+begin
+  inherited;
+  ActSearchPlaca.Enabled := ((XCOD_CLIENTE >= 0) and (XCOD_EQUIPAMENTO < 0) and (Length(Trim(FBEquipPlaca.EDCodigo.Text)) > 0));
+end;
+
+procedure TFOrdemMec.ActSearchPlacaExecute(Sender: TObject);
+var
+  cds: TClientDataSet;
+begin
+  inherited;
+  cds := GetPlacaInfo(Trim(FBEquipPlaca.EDCodigo.Text));
+  try
+    DMPESSOA.InsertNewEquipamento(MDO.InsertNewEquipamento, DMPESSOA.WCliente.FieldByNAme('COD_CLIENTE').Value,
+      cds.FieldByNAme('MARCAMODELO').Value, cds.FieldByNAme('MARCA').Value, cds.FieldByNAme('MODELO').Value,
+      cds.FieldByNAme('ANO').Value, cds.FieldByNAme('COR').Value, cds.FieldByNAme('CHASSI').Value,
+      Trim(FBEquipPlaca.EDCodigo.Text), Null, Null, 1, Null
+    );
+
+    if FBEquipPlaca.EDCodigo.Text <> '' then
+      PesquisaCodigoEquipamento(FBEquipPlaca.EDCodigo.Text, true);
+  finally
+    cds.Free;
   end;
 end;
 
