@@ -10,7 +10,543 @@ inherited FCadEquipamento: TFCadEquipamento
     Left = 90
     Top = 123
   end
-  inherited PCadastro: TPanel [1]
+  inherited PConsulta: TPanel [1]
+    Left = 6
+    Top = 7
+    Width = 669
+    Height = 420
+    object Bevel1: TBevel [0]
+      Left = 8
+      Top = 72
+      Width = 561
+      Height = 3
+    end
+    object Bevel2: TBevel [1]
+      Left = 8
+      Top = 68
+      Width = 641
+      Height = 3
+    end
+    object DBText1: TDBText [2]
+      Left = 5
+      Top = 50
+      Width = 476
+      Height = 23
+      DataField = 'NOME'
+      DataSource = DMPESSOA.DSVWCliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGray
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      Transparent = True
+    end
+    object DBText2: TDBText [3]
+      Left = 7
+      Top = 50
+      Width = 618
+      Height = 23
+      Color = 5789784
+      DataField = 'NOME'
+      DataSource = DMPESSOA.DSVWCliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+    end
+    object DBGridAnimal: TDBGrid [4]
+      Left = 2
+      Top = 128
+      Width = 658
+      Height = 269
+      Color = 15794175
+      Ctl3D = False
+      FixedColor = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ParentCtl3D = False
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      ReadOnly = True
+      TabOrder = 4
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'COD_EQUIPAMENTO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Title.Caption = 'N'#186' Animal'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Nome do Animal'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MARCA'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO'
+          Title.Caption = 'Ra'#231'a'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'ANO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COR'
+          Title.Caption = 'Cor'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOME'
+          Title.Caption = 'Propriet'#225'rio'
+          Width = 173
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO_GUINCHO'
+          Title.Caption = 'Obs'
+          Visible = True
+        end>
+    end
+    object DBGObra: TDBGrid [5]
+      Left = 2
+      Top = 128
+      Width = 661
+      Height = 269
+      Color = 15794175
+      Ctl3D = False
+      DataSource = DMPESSOA.DSALX
+      FixedColor = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ParentCtl3D = False
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      ReadOnly = True
+      TabOrder = 5
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Title.Caption = 'C'#243'digo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Obra'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO_GUINCHO'
+          Title.Caption = 'Observa'#231#227'o'
+          Visible = True
+        end>
+    end
+    object DBGEletronico: TDBGrid [6]
+      Left = 2
+      Top = 128
+      Width = 661
+      Height = 269
+      Color = 15794175
+      Ctl3D = False
+      DataSource = DMPESSOA.DEquip
+      FixedColor = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ParentCtl3D = False
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      ReadOnly = True
+      TabOrder = 6
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'CHASSI'
+          Title.Caption = 'Num. S'#233'rie'
+          Width = 101
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Title.Caption = 'Controle'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Equipamento'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MARCA'
+          Title.Caption = 'Voltagem'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO'
+          Title.Caption = 'Modelo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'OBS'
+          Title.Caption = 'Observa'#231#227'o'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO_GUINCHO'
+          Title.Caption = 'Local'
+          Visible = True
+        end>
+    end
+    object DBGridLocacao: TDBGrid [7]
+      Left = 2
+      Top = 128
+      Width = 658
+      Height = 269
+      Hint = 'Pressione <ctrl+A> para ativar e <ctrl+D> para desativar'
+      Ctl3D = False
+      DataSource = DMPESSOA.DEquip
+      FixedColor = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ParentCtl3D = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      OnDrawColumnCell = DBGridLocacaoDrawColumnCell
+      OnKeyDown = DBGridLocacaoKeyDown
+      OnTitleClick = DBGridLocacaoTitleClick
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'COD_SERVICO'
+          Title.Alignment = taCenter
+          Title.Caption = 'C'#243'd. Servi'#231'o'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Alignment = taCenter
+          Title.Caption = 'Equipamento'
+          Width = 230
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Title.Alignment = taCenter
+          Title.Caption = 'Placa'
+          Width = 63
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MARCA'
+          Title.Alignment = taCenter
+          Title.Caption = 'Marca'
+          Width = 137
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO'
+          Title.Alignment = taCenter
+          Title.Caption = 'Modelo'
+          Width = 116
+          Visible = True
+        end>
+    end
+    inherited DBGridCadastroPadrao: TDBGrid
+      Top = 128
+      Width = 658
+      Height = 269
+      PopupMenu = PopupMenu1
+      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      OnTitleClick = DBGridCadastroPadraoTitleClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'COD_EQUIPAMENTO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'NUM_FROTA'
+          Title.Caption = 'N'#186' DA FROTA'
+          Width = 91
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Width = 67
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Width = 265
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MARCA'
+          Width = 123
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'ANO'
+          Width = 54
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COR'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'CHASSI'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTAQUISICAO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'CONCESSIONARIA'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'MOTOR'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'ANOMOTOR'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'CHASSIMOTOR'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KMATUAL'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'UNIDRODAGEM'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'MODELO_GUINCHO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'ALTURAMAX'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'PESOMAX'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'SERVICO'
+          Visible = False
+        end>
+    end
+    inherited Painel: TPanel
+      Left = 0
+      Top = 0
+      Width = 665
+      inherited BtnFiltrar: TBitBtn
+        Width = 143
+        Caption = 'Transferir Propriet'#225'rio'
+        OnClick = BtnFiltrarClick
+      end
+    end
+    inherited GroupBox1: TGroupBox
+      Top = 77
+      Width = 662
+      inherited EdNome: TFlatEdit
+        Left = 155
+        Width = 396
+        Text = 'Nome/Descri'#231#227'o'
+      end
+      inherited BtnSelecionar: TBitBtn
+        Left = 553
+        Top = 19
+        Width = 103
+      end
+      object EDFrota: TFlatEdit
+        Left = 6
+        Top = 19
+        Width = 65
+        Height = 25
+        Hint = 
+          'Digite aqui o numero da frota do ve'#237'culo, para ser localizado co' +
+          'm maior facilidade.'
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        Text = 'Frota'
+        OnEnter = EDFrotaEnter
+        OnExit = EDFrotaExit
+        OnKeyDown = EDFrotaKeyDown
+      end
+      object MEPlaca: TFlatEdit
+        Left = 74
+        Top = 19
+        Width = 78
+        Height = 25
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. '
+        ColorFlat = clWhite
+        ParentColor = True
+        CharCase = ecUpperCase
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        MaxLength = 8
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Text = 'PLACA'
+        OnEnter = MEPlaEnter
+        OnExit = MEPlaExit
+        OnKeyDown = MEPlaKeyDown
+        OnKeyPress = MEPlaKeyPress
+      end
+    end
+    object CBTodos: TCheckBox
+      Left = 601
+      Top = 32
+      Width = 97
+      Height = 17
+      Caption = 'Todos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 7
+      OnClick = CBTodosClick
+    end
+  end
+  inherited PCadastro: TPanel
     Left = 6
     Top = 7
     Width = 675
@@ -1349,542 +1885,6 @@ inherited FCadEquipamento: TFCadEquipamento
         Font.Style = []
         ParentFont = False
       end
-    end
-  end
-  inherited PConsulta: TPanel [2]
-    Left = 6
-    Top = 7
-    Width = 669
-    Height = 420
-    object Bevel1: TBevel [0]
-      Left = 8
-      Top = 72
-      Width = 561
-      Height = 3
-    end
-    object Bevel2: TBevel [1]
-      Left = 8
-      Top = 68
-      Width = 641
-      Height = 3
-    end
-    object DBText1: TDBText [2]
-      Left = 5
-      Top = 50
-      Width = 476
-      Height = 23
-      DataField = 'NOME'
-      DataSource = DMPESSOA.DSVWCliente
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGray
-      Font.Height = -16
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold, fsItalic]
-      ParentFont = False
-      Transparent = True
-    end
-    object DBText2: TDBText [3]
-      Left = 7
-      Top = 50
-      Width = 618
-      Height = 23
-      Color = 5789784
-      DataField = 'NOME'
-      DataSource = DMPESSOA.DSVWCliente
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold, fsItalic]
-      ParentColor = False
-      ParentFont = False
-      Transparent = True
-    end
-    object DBGridAnimal: TDBGrid [4]
-      Left = 2
-      Top = 128
-      Width = 658
-      Height = 269
-      Color = 15794175
-      Ctl3D = False
-      FixedColor = clSkyBlue
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-      ParentCtl3D = False
-      ParentFont = False
-      PopupMenu = PopupMenu1
-      ReadOnly = True
-      TabOrder = 4
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clBlack
-      TitleFont.Height = -11
-      TitleFont.Name = 'MS Sans Serif'
-      TitleFont.Style = [fsBold]
-      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'COD_EQUIPAMENTO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Title.Caption = 'N'#186' Animal'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Title.Caption = 'Nome do Animal'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MARCA'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO'
-          Title.Caption = 'Ra'#231'a'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ANO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COR'
-          Title.Caption = 'Cor'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NOME'
-          Title.Caption = 'Propriet'#225'rio'
-          Width = 173
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO_GUINCHO'
-          Title.Caption = 'Obs'
-          Visible = True
-        end>
-    end
-    object DBGObra: TDBGrid [5]
-      Left = 2
-      Top = 128
-      Width = 661
-      Height = 269
-      Color = 15794175
-      Ctl3D = False
-      DataSource = DMPESSOA.DSALX
-      FixedColor = clSkyBlue
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-      ParentCtl3D = False
-      ParentFont = False
-      PopupMenu = PopupMenu1
-      ReadOnly = True
-      TabOrder = 5
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clBlack
-      TitleFont.Height = -11
-      TitleFont.Name = 'MS Sans Serif'
-      TitleFont.Style = [fsBold]
-      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Title.Caption = 'C'#243'digo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Title.Caption = 'Obra'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO_GUINCHO'
-          Title.Caption = 'Observa'#231#227'o'
-          Visible = True
-        end>
-    end
-    object DBGEletronico: TDBGrid [6]
-      Left = 2
-      Top = 128
-      Width = 661
-      Height = 269
-      Color = 15794175
-      Ctl3D = False
-      DataSource = DMPESSOA.DEquip
-      FixedColor = clSkyBlue
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-      ParentCtl3D = False
-      ParentFont = False
-      PopupMenu = PopupMenu1
-      ReadOnly = True
-      TabOrder = 6
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clBlack
-      TitleFont.Height = -11
-      TitleFont.Name = 'MS Sans Serif'
-      TitleFont.Style = [fsBold]
-      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'CHASSI'
-          Title.Caption = 'Num. S'#233'rie'
-          Width = 101
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Title.Caption = 'Controle'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Title.Caption = 'Equipamento'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MARCA'
-          Title.Caption = 'Voltagem'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO'
-          Title.Caption = 'Modelo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'OBS'
-          Title.Caption = 'Observa'#231#227'o'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO_GUINCHO'
-          Title.Caption = 'Local'
-          Visible = True
-        end>
-    end
-    object DBGridLocacao: TDBGrid [7]
-      Left = 2
-      Top = 128
-      Width = 658
-      Height = 269
-      Hint = 'Pressione <ctrl+A> para ativar e <ctrl+D> para desativar'
-      Ctl3D = False
-      DataSource = DMPESSOA.DEquip
-      FixedColor = clSkyBlue
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-      ParentCtl3D = False
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 3
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'MS Sans Serif'
-      TitleFont.Style = [fsBold]
-      OnDrawColumnCell = DBGridLocacaoDrawColumnCell
-      OnKeyDown = DBGridLocacaoKeyDown
-      OnTitleClick = DBGridLocacaoTitleClick
-      Columns = <
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'COD_SERVICO'
-          Title.Alignment = taCenter
-          Title.Caption = 'C'#243'd. Servi'#231'o'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Title.Alignment = taCenter
-          Title.Caption = 'Equipamento'
-          Width = 230
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Title.Alignment = taCenter
-          Title.Caption = 'Placa'
-          Width = 63
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MARCA'
-          Title.Alignment = taCenter
-          Title.Caption = 'Marca'
-          Width = 137
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO'
-          Title.Alignment = taCenter
-          Title.Caption = 'Modelo'
-          Width = 116
-          Visible = True
-        end>
-    end
-    inherited DBGridCadastroPadrao: TDBGrid
-      Top = 128
-      Width = 658
-      Height = 269
-      PopupMenu = PopupMenu1
-      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      OnTitleClick = DBGridCadastroPadraoTitleClick
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'COD_EQUIPAMENTO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'NUM_FROTA'
-          Title.Caption = 'N'#186' DA FROTA'
-          Width = 91
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Width = 67
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Width = 265
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MARCA'
-          Width = 123
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'ANO'
-          Width = 54
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COR'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'CHASSI'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTAQUISICAO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'CONCESSIONARIA'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'MOTOR'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'ANOMOTOR'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'CHASSIMOTOR'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'KMATUAL'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'UNIDRODAGEM'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'MODELO_GUINCHO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'ALTURAMAX'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'PESOMAX'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'SERVICO'
-          Visible = False
-        end>
-    end
-    inherited Painel: TPanel
-      Left = 0
-      Top = 0
-      Width = 665
-      inherited BtnFiltrar: TBitBtn
-        Width = 143
-        Caption = 'Transferir Propriet'#225'rio'
-        OnClick = BtnFiltrarClick
-      end
-    end
-    inherited GroupBox1: TGroupBox
-      Top = 77
-      Width = 662
-      inherited EdNome: TFlatEdit
-        Left = 155
-        Width = 396
-        Text = 'Nome/Descri'#231#227'o'
-      end
-      inherited BtnSelecionar: TBitBtn
-        Left = 553
-        Top = 19
-        Width = 103
-      end
-      object EDFrota: TFlatEdit
-        Left = 6
-        Top = 19
-        Width = 65
-        Height = 25
-        Hint = 
-          'Digite aqui o numero da frota do ve'#237'culo, para ser localizado co' +
-          'm maior facilidade.'
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 2
-        Text = 'Frota'
-        OnEnter = EDFrotaEnter
-        OnExit = EDFrotaExit
-        OnKeyDown = EDFrotaKeyDown
-      end
-      object MEPlaca: TFlatEdit
-        Left = 74
-        Top = 19
-        Width = 78
-        Height = 25
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. '
-        ColorFlat = clWhite
-        ParentColor = True
-        CharCase = ecUpperCase
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        MaxLength = 8
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 3
-        Text = 'PLACA'
-        OnEnter = MEPlaEnter
-        OnExit = MEPlaExit
-        OnKeyDown = MEPlaKeyDown
-        OnKeyPress = MEPlaKeyPress
-      end
-    end
-    object CBTodos: TCheckBox
-      Left = 601
-      Top = 32
-      Width = 97
-      Height = 17
-      Caption = 'Todos'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Verdana'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 7
-      OnClick = CBTodosClick
     end
   end
   object PopupMenu1: TPopupMenu

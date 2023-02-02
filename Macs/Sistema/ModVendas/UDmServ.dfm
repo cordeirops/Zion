@@ -1,9 +1,9 @@
 object DMServ: TDMServ
   OldCreateOrder = False
-  Left = 4
-  Top = 3
-  Height = 438
-  Width = 638
+  Left = 466
+  Top = 65
+  Height = 465
+  Width = 1068
   object DbServ: TIBDatabase
     DatabaseName = 'note:C:\MZR\MACS\DBMACS.GDB'
     Params.Strings = (

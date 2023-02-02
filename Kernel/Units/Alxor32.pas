@@ -12538,7 +12538,7 @@ end;
 function GetPlacaInfo(const APlaca: string): TClientDataSet;
 const
   Url = 'https://wdapi.com.br/placas/%s/%s';
-  Token = '';
+  Token = '243b63ed539ad2c0b6af58c2f00137b9';
 var
   GetResultado: string;
   Json: Variant;

@@ -522,11 +522,21 @@ procedure TDMPESSOA.InsertNewEquipamento(const ACodEquip, ACodCliente, ADesc, AM
 begin
   TEquip.Close;
   TEquip.SQL.Clear;
-  TEquip.SQL.Add(' insert into EQUIPAMENTO (');
-  TEquip.SQL.Add('   COD_EQUIPAMENTO, COD_CLIENTE, DESCRICAO, MARCA, MODELO, ANO, COR, CHASSI, PLACA, DTAQUISICAO, KMATUAL, ATIVO, DTATIVO');
-  TEquip.SQL.Add(' ) values (');
-  TEquip.SQL.Add('   :COD_EQUIPAMENTO, :COD_CLIENTE, :DESCRICAO, :MARCA, :MODELO, :ANO, :COR, :CHASSI, :PLACA, :DTAQUISICAO, :KMATUAL, :ATIVO, :DTATIVO');
-  TEquip.SQL.Add(' )');
+  TEquip.SQL.Add('update EQUIPAMENTO set');
+  TEquip.SQL.Add('  COD_CLIENTE = :COD_CLIENTE,');
+  TEquip.SQL.Add('  DESCRICAO = :DESCRICAO,');
+  TEquip.SQL.Add('  MARCA = :MARCA,');
+  TEquip.SQL.Add('  MODELO = :MODELO,');
+  TEquip.SQL.Add('  ANO = :ANO,');
+  TEquip.SQL.Add('  COR = :COR,');
+  TEquip.SQL.Add('  CHASSI = :CHASSI,');
+  TEquip.SQL.Add('  PLACA = :PLACA,');
+  TEquip.SQL.Add('  DTAQUISICAO = :DTAQUISICAO,');
+  TEquip.SQL.Add('  KMATUAL = :KMATUAL,');
+  TEquip.SQL.Add('  ATIVO = :ATIVO,');
+  TEquip.SQL.Add('  DTATIVO = :DTATIVO');
+  TEquip.SQL.Add('where');
+  TEquip.SQL.Add('  COD_EQUIPAMENTO = :COD_EQUIPAMENTO');
   TEquip.ParamByName('COD_EQUIPAMENTO').Value := ACodEquip;
   TEquip.ParamByName('COD_CLIENTE').Value := ACodCliente;
   TEquip.ParamByName('DESCRICAO').Value := ADesc;
@@ -536,11 +546,12 @@ begin
   TEquip.ParamByName('COR').Value := ACor;
   TEquip.ParamByName('CHASSI').Value := AChassi;
   TEquip.ParamByName('PLACA').Value := APlaca;
-  TEquip.ParamByName('DTAQUISICAO').Value := APlaca;
-  TEquip.ParamByName('KMATUAL').Value := APlaca;
-  TEquip.ParamByName('ATIVO').Value := APlaca;
-  TEquip.ParamByName('DTATIVO').Value := APlaca;
+  TEquip.ParamByName('DTAQUISICAO').Value := ADtAquisicao;
+  TEquip.ParamByName('KMATUAL').Value := AKmAtual;
+  TEquip.ParamByName('ATIVO').Value := AAtivo;
+  TEquip.ParamByName('DTATIVO').Value := ADtAtivo;
   TEquip.ExecSQL;
+  TEquip.Transaction.CommitRetaining;
 
   DMMACS.TCodigo.Edit;
   DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger + 1;
