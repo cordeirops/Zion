@@ -1,10 +1,10 @@
 object DMSAIDA: TDMSAIDA
   OldCreateOrder = False
-  Top = 14
+  Top = 16
   Height = 430
   Width = 640
   object IBDB: TIBDatabase
-    DatabaseName = 'serv:C:\MZR\DataBase\JD\DBMACS.GDB'
+    DatabaseName = 'NOTE:C:\MZR\MACS\dbmacs.gdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -1344,6 +1344,8 @@ object DMSAIDA: TDMSAIDA
     object WLancSaiQUANTIDADE: TFloatField
       FieldName = 'QUANTIDADE'
       Origin = 'VWLANCSAI.QUANTIDADE'
+      DisplayFormat = '#,###,####0.0000'
+      EditFormat = '#,##0.####'
     end
     object WLancSaiCTRLINT: TIBStringField
       FieldName = 'CTRLINT'
@@ -1365,6 +1367,7 @@ object DMSAIDA: TDMSAIDA
       Size = 120
     end
     object WLancSaiQTD4CASAS: TIBStringField
+      Alignment = taRightJustify
       FieldName = 'QTD4CASAS'
       Origin = 'VWLANCSAI.QTD4CASAS'
       Size = 15
@@ -2661,6 +2664,48 @@ object DMSAIDA: TDMSAIDA
       FixedChar = True
       Size = 1
     end
+    object TFiscPVNFEVRETPIS: TIBBCDField
+      FieldName = 'NFEVRETPIS'
+      Origin = 'DOCFISSAIDA.NFEVRETPIS'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVRETCOFINS: TIBBCDField
+      FieldName = 'NFEVRETCOFINS'
+      Origin = 'DOCFISSAIDA.NFEVRETCOFINS'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVRETCSLL: TIBBCDField
+      FieldName = 'NFEVRETCSLL'
+      Origin = 'DOCFISSAIDA.NFEVRETCSLL'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVBCIRRF: TIBBCDField
+      FieldName = 'NFEVBCIRRF'
+      Origin = 'DOCFISSAIDA.NFEVBCIRRF'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVIRRF: TIBBCDField
+      FieldName = 'NFEVIRRF'
+      Origin = 'DOCFISSAIDA.NFEVIRRF'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVBCRETPREV: TIBBCDField
+      FieldName = 'NFEVBCRETPREV'
+      Origin = 'DOCFISSAIDA.NFEVBCRETPREV'
+      Precision = 18
+      Size = 2
+    end
+    object TFiscPVNFEVRETPREV: TIBBCDField
+      FieldName = 'NFEVRETPREV'
+      Origin = 'DOCFISSAIDA.NFEVRETPREV'
+      Precision = 18
+      Size = 2
+    end
   end
   object UFiscPV: TIBUpdateSQL
     RefreshSQL.Strings = (
@@ -2735,7 +2780,14 @@ object DMSAIDA: TDMSAIDA
       '  VALORTOTALTRIBUTA,'
       '  VALORTOTALTRIBUTAESTADUAL,'
       '  URL_QRCODE,'
-      '  CONTINGENCIA'
+      '  CONTINGENCIA,'
+      '  NFEVRETPIS,'
+      '  NFEVRETCOFINS,'
+      '  NFEVRETCSLL,'
+      '  NFEVBCIRRF,'
+      '  NFEVIRRF,'
+      '  NFEVBCRETPREV,'
+      '  NFEVRETPREV'
       'from DOCFISSAIDA '
       'where'
       '  COD_DOCFISC = :COD_DOCFISC')
@@ -2812,72 +2864,96 @@ object DMSAIDA: TDMSAIDA
       '  VALORTOTALTRIBUTA = :VALORTOTALTRIBUTA,'
       '  VALORTOTALTRIBUTAESTADUAL = :VALORTOTALTRIBUTAESTADUAL,'
       '  URL_QRCODE = :URL_QRCODE,'
-      '  CONTINGENCIA = :CONTINGENCIA'
+      '  CONTINGENCIA = :CONTINGENCIA,'
+      '  NFEVRETPIS = :NFEVRETPIS,'
+      '  NFEVRETCOFINS = :NFEVRETCOFINS,'
+      '  NFEVRETCSLL = :NFEVRETCSLL,'
+      '  NFEVBCIRRF = :NFEVBCIRRF,'
+      '  NFEVIRRF = :NFEVIRRF,'
+      '  NFEVBCRETPREV = :NFEVBCRETPREV,'
+      '  NFEVRETPREV = :NFEVRETPREV'
       'where'
       '  COD_DOCFISC = :OLD_COD_DOCFISC')
     InsertSQL.Strings = (
       'insert into DOCFISSAIDA'
-      '  (COD_DOCFISC, COD_PEDIDO, NUMDOCFIS, TIPODOCFIS, NUMDOCANT, '
-      'SERIE, DTEMISSAO, '
-      '   DTENTSAID, HORASAID, COD_CFOP, COD_TRANSP, OBS, FRETECONTA, '
-      'PLACA, UFPLACA, '
-      '   CPFPLACA, QUANTFRETE, ESPECIEFRETE, MARCAFRETE, PESOBRUTO, '
-      'PESOLIQ, '
-      '   COD_COTA, NF, BASEICMS, VLRICMS, BASCALSUBS, VLRICMSUBS, '
-      'VLRTOTPROD, '
-      '   VLRFRETE, VLRICMSFRETE, VLRSEG, VLRTOTIPI, VLRTOTICMS, '
-      'VLRTOTDOCNF, '
-      '   VLROUTRASDESP, FRETECOMP, VLREMB, TIPOGERADOR, NUMCONHEC, '
-      'VLRISENTOICMS, '
+      
+        '  (COD_DOCFISC, COD_PEDIDO, NUMDOCFIS, TIPODOCFIS, NUMDOCANT, SE' +
+        'RIE, DTEMISSAO, '
+      
+        '   DTENTSAID, HORASAID, COD_CFOP, COD_TRANSP, OBS, FRETECONTA, P' +
+        'LACA, UFPLACA, '
+      
+        '   CPFPLACA, QUANTFRETE, ESPECIEFRETE, MARCAFRETE, PESOBRUTO, PE' +
+        'SOLIQ, '
+      
+        '   COD_COTA, NF, BASEICMS, VLRICMS, BASCALSUBS, VLRICMSUBS, VLRT' +
+        'OTPROD, '
+      
+        '   VLRFRETE, VLRICMSFRETE, VLRSEG, VLRTOTIPI, VLRTOTICMS, VLRTOT' +
+        'DOCNF, '
+      
+        '   VLROUTRASDESP, FRETECOMP, VLREMB, TIPOGERADOR, NUMCONHEC, VLR' +
+        'ISENTOICMS, '
       
         '   MODELONF, NFECHAVE, NFELOTE, NFERECIBO, NFEERRO, NFEPROTOCOLO' +
-        ', '
-      'NFESTATUS, '
+        ', NFESTATUS, '
       
         '   NFESERIE, OBS2, GERARDADOSADIC, ANTT, CFOPPEDIDO, NFEAMBIENTE' +
-        ', '
-      'NFEXML, '
-      '   NFETPEMIS, XMLAUTORIZACAO, COD_PERIODOFISCAL, COD_CFOP1, '
-      'COD_CFOP2, '
+        ', NFEXML, '
+      
+        '   NFETPEMIS, XMLAUTORIZACAO, COD_PERIODOFISCAL, COD_CFOP1, COD_' +
+        'CFOP2, '
       
         '   RESERVFISC01, NUMDOCFISINT, DADOSAD01, VLRDESCONTO, TIPOIMPFI' +
-        'SC, '
-      'NFEXMLDIST, '
-      '   NFEXMLCANCEL, ALIQUOTATOTALTRIBUTA, VALORTOTALTRIBUTA, '
-      'VALORTOTALTRIBUTAESTADUAL, '
-      '   URL_QRCODE, CONTINGENCIA)'
+        'SC, NFEXMLDIST, '
+      
+        '   NFEXMLCANCEL, ALIQUOTATOTALTRIBUTA, VALORTOTALTRIBUTA, VALORT' +
+        'OTALTRIBUTAESTADUAL, '
+      
+        '   URL_QRCODE, CONTINGENCIA, NFEVRETPIS, NFEVRETCOFINS, NFEVRETC' +
+        'SLL, NFEVBCIRRF, '
+      '   NFEVIRRF, NFEVBCRETPREV, NFEVRETPREV)'
       'values'
       
         '  (:COD_DOCFISC, :COD_PEDIDO, :NUMDOCFIS, :TIPODOCFIS, :NUMDOCAN' +
-        'T, '
-      ':SERIE, '
+        'T, :SERIE, '
       
         '   :DTEMISSAO, :DTENTSAID, :HORASAID, :COD_CFOP, :COD_TRANSP, :O' +
-        'BS, '
-      ':FRETECONTA, '
-      '   :PLACA, :UFPLACA, :CPFPLACA, :QUANTFRETE, :ESPECIEFRETE, '
-      ':MARCAFRETE, '
-      '   :PESOBRUTO, :PESOLIQ, :COD_COTA, :NF, :BASEICMS, :VLRICMS, '
-      ':BASCALSUBS, '
-      '   :VLRICMSUBS, :VLRTOTPROD, :VLRFRETE, :VLRICMSFRETE, :VLRSEG, '
-      ':VLRTOTIPI, '
+        'BS, :FRETECONTA, '
+      
+        '   :PLACA, :UFPLACA, :CPFPLACA, :QUANTFRETE, :ESPECIEFRETE, :MAR' +
+        'CAFRETE, '
+      
+        '   :PESOBRUTO, :PESOLIQ, :COD_COTA, :NF, :BASEICMS, :VLRICMS, :B' +
+        'ASCALSUBS, '
+      
+        '   :VLRICMSUBS, :VLRTOTPROD, :VLRFRETE, :VLRICMSFRETE, :VLRSEG, ' +
+        ':VLRTOTIPI, '
       
         '   :VLRTOTICMS, :VLRTOTDOCNF, :VLROUTRASDESP, :FRETECOMP, :VLREM' +
-        'B, '
-      ':TIPOGERADOR, '
-      '   :NUMCONHEC, :VLRISENTOICMS, :MODELONF, :NFECHAVE, :NFELOTE, '
-      ':NFERECIBO, '
-      '   :NFEERRO, :NFEPROTOCOLO, :NFESTATUS, :NFESERIE, :OBS2, '
-      ':GERARDADOSADIC, '
-      '   :ANTT, :CFOPPEDIDO, :NFEAMBIENTE, :NFEXML, :NFETPEMIS, '
-      ':XMLAUTORIZACAO, '
-      '   :COD_PERIODOFISCAL, :COD_CFOP1, :COD_CFOP2, :RESERVFISC01, '
-      ':NUMDOCFISINT, '
-      '   :DADOSAD01, :VLRDESCONTO, :TIPOIMPFISC, :NFEXMLDIST, '
-      ':NFEXMLCANCEL, '
-      '   :ALIQUOTATOTALTRIBUTA, :VALORTOTALTRIBUTA, '
-      ':VALORTOTALTRIBUTAESTADUAL, '
-      '   :URL_QRCODE, :CONTINGENCIA)')
+        'B, :TIPOGERADOR, '
+      
+        '   :NUMCONHEC, :VLRISENTOICMS, :MODELONF, :NFECHAVE, :NFELOTE, :' +
+        'NFERECIBO, '
+      
+        '   :NFEERRO, :NFEPROTOCOLO, :NFESTATUS, :NFESERIE, :OBS2, :GERAR' +
+        'DADOSADIC, '
+      
+        '   :ANTT, :CFOPPEDIDO, :NFEAMBIENTE, :NFEXML, :NFETPEMIS, :XMLAU' +
+        'TORIZACAO, '
+      
+        '   :COD_PERIODOFISCAL, :COD_CFOP1, :COD_CFOP2, :RESERVFISC01, :N' +
+        'UMDOCFISINT, '
+      
+        '   :DADOSAD01, :VLRDESCONTO, :TIPOIMPFISC, :NFEXMLDIST, :NFEXMLC' +
+        'ANCEL, '
+      
+        '   :ALIQUOTATOTALTRIBUTA, :VALORTOTALTRIBUTA, :VALORTOTALTRIBUTA' +
+        'ESTADUAL, '
+      
+        '   :URL_QRCODE, :CONTINGENCIA, :NFEVRETPIS, :NFEVRETCOFINS, :NFE' +
+        'VRETCSLL, '
+      '   :NFEVBCIRRF, :NFEVIRRF, :NFEVBCRETPREV, :NFEVRETPREV)')
     DeleteSQL.Strings = (
       'delete from DOCFISSAIDA'
       'where'

@@ -1635,11 +1635,13 @@ inherited FPadraoContas: TFPadraoContas
             item
               Expanded = False
               FieldName = 'NUMPARC'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'VALOR'
+              Width = 64
               Visible = True
             end
             item
@@ -1650,6 +1652,7 @@ inherited FPadraoContas: TFPadraoContas
             item
               Expanded = False
               FieldName = 'DTDEBITO'
+              Width = 64
               Visible = True
             end
             item
@@ -1675,11 +1678,13 @@ inherited FPadraoContas: TFPadraoContas
             item
               Expanded = False
               FieldName = 'VALORPG'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'COBRANCA'
+              Width = 64
               Visible = True
             end
             item
@@ -1695,6 +1700,7 @@ inherited FPadraoContas: TFPadraoContas
             item
               Expanded = False
               FieldName = 'CLASSIFICACAO'
+              Width = 64
               Visible = True
             end
             item

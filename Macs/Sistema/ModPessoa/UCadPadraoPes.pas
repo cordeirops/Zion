@@ -161,6 +161,9 @@ type
     btnanexopf: TButton;
     eddocpj: TFlatEdit;
     eddocpf: TFlatEdit;
+    CBOrgao_Municipal_Estadual: TCheckBox;
+    cbOrgao_Federal: TCheckBox;
+    lbOrgaoPessoa: TLabel;
     procedure TCPessoaTabChanged(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure PTipoPessoaExit(Sender: TObject);
@@ -247,6 +250,8 @@ type
     procedure Abrirpas1Click(Sender: TObject);
     procedure btnanexopfClick(Sender: TObject);
     procedure btnanexopjClick(Sender: TObject);
+    procedure CBOrgao_Municipal_EstadualClick(Sender: TObject);
+    procedure cbOrgao_FederalClick(Sender: TObject);
   private
     { Private declarations }
     Function SelectPessoa(CODPESSOA:INTEGER): Boolean;
@@ -553,6 +558,9 @@ begin
     XCod_Regiao:=-1;
     FrmRegiao.EDCodigo.Text:='';
     FrmRegiao.EdDescricao.Text:='';
+
+    CBOrgao_Municipal_Estadual.Checked := False;
+    cbOrgao_Federal.Checked := False;
 
     PTipoPessoa.Visible:=True;
     PTipoPessoa.BringToFront;
@@ -867,6 +875,17 @@ begin
     LimpaCampoEmail;
     AtualizaEmail;
 
+    If PESSOAFISICA = False
+    Then Begin
+       if DMPESSOA.TPessoaJ.FieldByName('ORGAO_MUNICIPAL_ESTADUAL').AsString = 'S' then
+           CBOrgao_Municipal_Estadual.Checked := True
+       else
+           CBOrgao_Municipal_Estadual.Checked := False;
+       if DMPESSOA.TPessoaJ.FieldByName('ORGAO_FEDERAL').AsString = 'S' then
+           cbOrgao_Federal.Checked := True
+       else
+           cbOrgao_Federal.Checked := False;
+    End; 
 end;
 
 procedure TFCadPadraoPes.BtnCancelarClick(Sender: TObject);
@@ -2478,6 +2497,29 @@ begin
   inherited;
   	if OPD.Execute then
    	eddocpj.Text := ExtractFilePath(OPD.FileName);
+end;
+
+procedure TFCadPadraoPes.CBOrgao_Municipal_EstadualClick(Sender: TObject);
+begin
+  inherited;
+   DMPESSOA.TPessoaJ.Edit;
+   If CBOrgao_Municipal_Estadual.Checked then
+       DMPESSOA.TPessoaJ.FieldByName('ORGAO_MUNICIPAL_ESTADUAL').AsString := 'S'
+   else
+       DMPESSOA.TPessoaJ.FieldByName('ORGAO_MUNICIPAL_ESTADUAL').AsString := 'N';
+   DMPESSOA.TPessoaJ.Post;
+
+end;
+
+procedure TFCadPadraoPes.cbOrgao_FederalClick(Sender: TObject);
+begin
+  inherited;
+   DMPESSOA.TPessoaJ.Edit;
+   If cbOrgao_Federal.Checked then
+       DMPESSOA.TPessoaJ.FieldByName('ORGAO_FEDERAL').AsString := 'S'
+   else
+       DMPESSOA.TPessoaJ.FieldByName('ORGAO_FEDERAL').AsString := 'N';
+   DMPESSOA.TPessoaJ.Post;
 end;
 
 end.

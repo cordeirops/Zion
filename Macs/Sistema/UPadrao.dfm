@@ -1,6 +1,6 @@
 object FPadrao: TFPadrao
-  Left = 0
-  Top = 47
+  Left = 166
+  Top = 118
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   ClientHeight = 368

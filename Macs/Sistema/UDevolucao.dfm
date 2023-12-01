@@ -226,6 +226,21 @@ inherited FDevolucao: TFDevolucao
     ParentColor = False
     ParentFont = False
   end
+  object Label2: TLabel [15]
+    Left = 23
+    Top = 226
+    Width = 32
+    Height = 16
+    Caption = '% ST'
+    Color = clWhite
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+  end
   inherited PComunica: TPanel
     Left = 706
     Top = 16
@@ -489,7 +504,7 @@ inherited FDevolucao: TFDevolucao
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
-    TabOrder = 13
+    TabOrder = 14
     Text = '0,00'
     OnExit = EdDevQuantExit
     ValueFormat = '##,##0.00'
@@ -506,7 +521,7 @@ inherited FDevolucao: TFDevolucao
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 13
     Text = '0,00'
     OnExit = EdDevQuantExit
     ValueFormat = '##,##0.00'
@@ -523,7 +538,7 @@ inherited FDevolucao: TFDevolucao
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 12
     Text = '0,00'
     OnExit = EdDevQuantExit
     ValueFormat = '##,##0.00'
@@ -540,7 +555,7 @@ inherited FDevolucao: TFDevolucao
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 11
     Text = '0,00'
     OnExit = EdDevQuantExit
     ValueFormat = '##,##0.00'
@@ -551,7 +566,7 @@ inherited FDevolucao: TFDevolucao
     Top = 247
     Width = 20
     Height = 20
-    TabOrder = 14
+    TabOrder = 16
     OnClick = btnAdicionarDevolvidoClick
     Glyph.Data = {
       DE000000424DDE0000000000000076000000280000000D0000000D0000000100
@@ -568,7 +583,7 @@ inherited FDevolucao: TFDevolucao
     Top = 247
     Width = 20
     Height = 20
-    TabOrder = 15
+    TabOrder = 17
     OnClick = btnRemoverDevolvidoClick
     Glyph.Data = {
       DE000000424DDE0000000000000076000000280000000D0000000D0000000100
@@ -598,7 +613,7 @@ inherited FDevolucao: TFDevolucao
     ParentCtl3D = False
     ParentFont = False
     ReadOnly = True
-    TabOrder = 16
+    TabOrder = 18
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clBlack
     TitleFont.Height = -11
@@ -682,7 +697,7 @@ inherited FDevolucao: TFDevolucao
     Width = 75
     Height = 25
     Caption = 'Devolver'
-    TabOrder = 18
+    TabOrder = 20
     OnClick = btnDevolverItensClick
   end
   object btnCancelarDevolucao: TBitBtn
@@ -691,7 +706,7 @@ inherited FDevolucao: TFDevolucao
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 17
+    TabOrder = 19
     OnClick = btnCancelarDevolucaoClick
   end
   object btnDevolucaoCompleta: TBitBtn
@@ -700,7 +715,7 @@ inherited FDevolucao: TFDevolucao
     Width = 104
     Height = 20
     Caption = 'Devolu'#231#227'o Total'
-    TabOrder = 19
+    TabOrder = 21
     OnClick = btnDevolucaoCompletaClick
     Glyph.Data = {
       DE000000424DDE0000000000000076000000280000000D0000000D0000000100
@@ -726,7 +741,24 @@ inherited FDevolucao: TFDevolucao
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 20
+    TabOrder = 15
     OnKeyDown = edCstKeyDown
+  end
+  object EdDevAliqST: TFloatEdit
+    Left = 7
+    Top = 245
+    Width = 51
+    Height = 24
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 10
+    Text = '0,00'
+    OnExit = EdDevQuantExit
+    ValueFormat = '##,##0.00'
+    ValueInteger = 0
   end
 end

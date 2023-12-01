@@ -1019,7 +1019,14 @@ Begin
    	//PASSA VALORES PARA O COMPONENTE DE BOLETO
 		Titulo := ACBrBoleto.CriarTituloNaLista;
        ACBrBoleto.ACBrBoletoFC.LayOut := lPadrao;
-       ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR.fr3';//caminho do relatorio do boleto
+       if DMCONTA.TAlx.FieldByName('COD_BANCO').AsInteger = 104 then
+       begin
+          ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR_caixa.fr3';//caminho do relatorio do boleto
+       end else
+       begin
+          ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR.fr3';//caminho do relatorio do boleto
+       end;
+
 
        //ACBrBoleto.Cedente.TipoInscricao := pJuridica;
        if DMBANCO.TCtaCor.FieldByName('CPFCNPJ_BOLETO').AsString <> '' then
@@ -1440,7 +1447,13 @@ Begin
    	//PASSA VALORES PARA O COMPONENTE DE BOLETO
 		Titulo := ACBrBoleto.CriarTituloNaLista;
        ACBrBoleto.ACBrBoletoFC.LayOut := lPadrao;
-       ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR.fr3';//caminho do relatorio do boleto
+       if DMCONTA.TAlx.FieldByName('COD_BANCO').AsInteger = 104 then
+       begin
+          ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR_caixa.fr3';//caminho do relatorio do boleto
+       end else
+       begin
+          ACBrBoletoFCFR.FastReportFile := 'C:\MZR\Macs\Rel\BoletoFR.fr3';//caminho do relatorio do boleto
+       end;
        
        ACBrBoleto.Cedente.TipoInscricao:=pJuridica;
 

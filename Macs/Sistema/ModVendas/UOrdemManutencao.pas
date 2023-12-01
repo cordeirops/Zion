@@ -676,9 +676,6 @@ begin
        //e da baixa no estoque
        if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(xCodEstoque), '') then
        begin
-   		DMESTOQUE.TEstoque.Edit;
-   		DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger - EdQtde.ValueInteger;
-   		DMESTOQUE.TEstoque.Post;
        	//lança estoque para correção
        	LancaEstoqueCorrecaoGeneric('S', EdQtde.ValueNumeric, xCodEstoque, 'Saída do produto para manutenção. Ordem Nº '+EdNumero.Text);
        end;
@@ -928,9 +925,6 @@ begin
        //Edmar - 09/02/2015 - Busca o estoque do produto para corrigir a quantidade de estoque
        if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(xCodEstoque), '') then
        begin
-       	DMESTOQUE.TEstoque.Edit;
-           DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger + DMESTOQUE.TSlave.FieldByName('QTDEPROD').AsInteger;
-           DMESTOQUE.TEstoque.Post;
            //lança estoque de correção
            LancaEstoqueCorrecaoGeneric('E', DMESTOQUE.TSlave.FieldByName('QTDEPROD').AsFloat, xCodEstoque, 'Retorno de produto da manuteção. Ordem Nº '+EdNumero.Text);
        end;
@@ -1012,9 +1006,6 @@ Begin
            //Produto em manutenção
            if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMSAIDA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger), '') then
            begin
-           	DMESTOQUE.TEstoque.Edit;
-               DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger + 1;
-               DMESTOQUE.TEstoque.Post;
                //lança estoque para correção
                LancaEstoqueCorrecaoGeneric('E', 1, DMSAIDA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger, 'Retorno de produto da manuteção. Ordem Nº '+EdNumero.Text);
            end;
@@ -1022,9 +1013,6 @@ Begin
            //da baixa no estoque do novo produto selecionado
            if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(xCodEstoqueProduto), '') then
            begin
-           	DMESTOQUE.TEstoque.Edit;
-               DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger - 1;
-               DMESTOQUE.TEstoque.Post;
                //lança estoque para correção
                LancaEstoqueCorrecaoGeneric('S', 1, xCodEstoqueProduto, 'Saída do produto para manutenção. Ordem Nº '+EdNumero.Text);
        	end;
@@ -1074,9 +1062,6 @@ begin
                //filtra buscando o estoque do produto em manutenção para retornar a quantidade de estoque do mesmo
                if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMSAIDA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger), '') then
                begin
-               	DMESTOQUE.TEstoque.Edit;
-                   DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger + 1;
-                   DMESTOQUE.TEstoque.Post;
                    //lança estoque para correção
                    LancaEstoqueCorrecaoGeneric('E', 1, DMSAIDA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger, 'Retorno de produto da manuteção. Ordem Nº '+EdNumero.Text);
                end;
@@ -1360,9 +1345,6 @@ begin
        	//filtra buscando o estoque do produto em manutenção para retornar a quantidade de estoque do mesmo
        	if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMENTRADA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger), '') then
        	begin
-           	DMESTOQUE.TEstoque.Edit;
-           	DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger + 1;
-           	DMESTOQUE.TEstoque.Post;
            	//lança estoque para correção
            	LancaEstoqueCorrecaoGeneric('E', 1, DMENTRADA.TAlx.FieldByName('COD_PRODMANUTENCAO').AsInteger, 'Fechamento ordem de manuteção Nº '+DMENTRADA.TAlx.FieldByName('NUMPED').AsString);
        	end;
@@ -1374,9 +1356,6 @@ begin
                //busca o estoque do produto para corrigir a quantidade de estoque
                if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(xCodEstoque), '') then
                begin
-                   DMESTOQUE.TEstoque.Edit;
-                   DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger + DMESTOQUE.TSlave.FieldByName('QTDEPROD').AsInteger;
-                   DMESTOQUE.TEstoque.Post;
                    //lança estoque de correção
                    LancaEstoqueCorrecaoGeneric('E', DMESTOQUE.TSlave.FieldByName('QTDEPROD').AsFloat, xCodEstoque, 'Fechamento ordem de manuteção Nº '+DMENTRADA.TAlx.FieldByName('NUMPED').AsString);
                end;

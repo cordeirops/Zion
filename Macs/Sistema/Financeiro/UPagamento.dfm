@@ -1,6 +1,6 @@
 object FPagamento: TFPagamento
-  Left = 255
-  Top = 16
+  Left = 133
+  Top = 89
   Width = 792
   Height = 588
   Caption = 'Pagamento'
@@ -594,7 +594,7 @@ object FPagamento: TFPagamento
     OnExit = PEditaParcelaExit
     object Shape21: TShape
       Left = 3
-      Top = 3
+      Top = 43
       Width = 615
       Height = 302
       Brush.Color = clMoneyGreen
@@ -4429,7 +4429,7 @@ object FPagamento: TFPagamento
     Visible = False
     OnExit = PEditaParcelaExit
     object Shape19: TShape
-      Left = 3
+      Left = -1
       Top = 3
       Width = 691
       Height = 128

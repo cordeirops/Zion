@@ -1,8 +1,8 @@
 object DMFINANC: TDMFINANC
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 4
-  Top = 1
+  Left = 6
+  Top = 2
   Height = 438
   Width = 638
   object DataBase: TIBDatabase

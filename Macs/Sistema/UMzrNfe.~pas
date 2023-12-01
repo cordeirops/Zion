@@ -234,6 +234,7 @@ type
        Function SetDadosExportacao: Boolean;
        //Função utilizada para validar e setar as infos de autorização da nfe
        function SetDadosAutorizacaoXML: Boolean;
+       function SetDadosImpostosRetidos: Boolean;
 		//
        Function FiltraDadosImportacaoExportacao: Boolean;
        //Edmar - 27/11/2015 - Função para mostrar o novo painel para mostrar as falhas de NF-e ou NFC-e
@@ -383,6 +384,7 @@ var
    XSetBaseIcms, XSetVlrIcms, XSetVlrIpi, XSetBaseIcmsSt, XSetVlrIcmsSt, XSetVlrProduto, XSetVlrFrete, XSetVlrSeguro, XSetDesconto, XSetVlrII: Real;
    XSetVlrOutros, XSetVlrNotaFiscal, XSetVlrTotalTributacao: Real;
    XSetVlrIcmsUfDest, XSetVlrIcmsUfRemet, XSetVlrFcpUfDest, xSetVlrFcp, xSetVlrTotalIpiDevolvido: Real;
+
    //Variaveis para controle da função que retorna lista de Nfe do Sefaz
 	XSetLstMes, XSetLstFim, XSetLstAno: WideString;
    XSetRefUri: WideString;
@@ -425,6 +427,7 @@ var
    XNfeDataConti: String;
    XNfeTextoConti: String;
    XEnviaPdf: String;
+   xContemImpostosRetidos: Boolean;
 
 
    XUfLocal: String;
@@ -1413,6 +1416,53 @@ begin
    end;
 end;
 
+function TFMzrNfe.SetDadosImpostosRetidos: Boolean;
+begin
+   Result:=True;
+	try
+      	If XSetInTipoPedido='PEDV'
+      	Then Begin
+           MDO.Transac.CommitRetaining;
+           MDO.QConsulta.Close;
+           MDO.QConsulta.SQL.Clear;
+           mdo.QConsulta.SQL.Add(' SELECT DOCFISSAIDA.NFEVRETPIS, DOCFISSAIDA.NFEVRETCOFINS, DOCFISSAIDA.NFEVRETCSLL, ');
+           mdo.QConsulta.SQL.Add(' DOCFISSAIDA.NFEVBCIRRF, DOCFISSAIDA.NFEVIRRF, DOCFISSAIDA.NFEVBCRETPREV, DOCFISSAIDA.NFEVRETPREV ');
+           mdo.QConsulta.SQL.Add(' from DOCFISSAIDA WHERE docfissaida.COD_PEDIDO = :Codigo ');
+           mdo.QConsulta.ParamByName('Codigo').AsInteger := XSetCodigoPedido;
+           mdo.QConsulta.Open;
+
+           If (MDO.QConsulta.FieldByName('NFEVRETPIS').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVRETCOFINS').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVRETCSLL').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVBCIRRF').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVIRRF').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVBCRETPREV').AsCurrency > 0) or
+               (MDO.QConsulta.FieldByName('NFEVRETPREV').AsCurrency > 0)
+           Then Begin
+               xContemImpostosRetidos := True;
+   	        XDadosNfe.TributoRetido := TTributoRetido.Create;
+               XDadosNfe.TributoRetido.VlrRetPIS := MDO.QConsulta.FieldByName('NFEVRETPIS').AsCurrency;
+               XDadosNfe.TributoRetido.VlrRetCOFINS := MDO.QConsulta.FieldByName('NFEVRETCOFINS').AsCurrency;
+               XDadosNfe.TributoRetido.VlrRetCSLL := MDO.QConsulta.FieldByName('NFEVRETCSLL').AsCurrency;
+               XDadosNfe.TributoRetido.VlrBCIRRF := MDO.QConsulta.FieldByName('NFEVBCIRRF').AsCurrency;
+               XDadosNfe.TributoRetido.VlrIRRF := MDO.QConsulta.FieldByName('NFEVIRRF').AsCurrency;
+               XDadosNfe.TributoRetido.VlrBCRetPrev := MDO.QConsulta.FieldByName('NFEVBCRETPREV').AsCurrency;
+               XDadosNfe.TributoRetido.VlrRetPrev := MDO.QConsulta.FieldByName('NFEVRETPREV').AsCurrency;
+           End
+           Else Begin
+               xContemImpostosRetidos := False;
+           End;
+       End
+       Else Begin
+           xContemImpostosRetidos := False;
+       End;
+   except
+       xContemImpostosRetidos := False;
+   	Result := False;
+   end;
+end;
+
+
 function TFMzrNfe.SetDadosAutorizacaoXML: Boolean;
 begin
    Result := True;
@@ -1791,7 +1841,7 @@ Begin
                   XDadosNfe.Produtos[i].Imposto.ICMS.ModBDST := 4;
                   XDadosNfe.Produtos[i].Imposto.ICMS.ValorBCST := DMESTOQUE.TSlave.FieldByName('BASEICMSSUBS').AsCurrency; // base de calculo icms de ST
                   XDadosNfe.Produtos[i].Imposto.ICMS.ValorST := DMESTOQUE.TSlave.FieldByName('VLRICMSSUBS').AsCurrency; // valor de icms de ST
-                  //  XDadosNfe.Produtos[i].Imposto.ICMS.PercValorST := DMESTOQUE.TSlave.FieldByName('IPNMVA').AsCurrency;
+                  XDadosNfe.Produtos[i].Imposto.ICMS.PercValorST := DMESTOQUE.TSlave.FieldByName('IPNMVA').AsCurrency;
                End
                Else Begin
                    XDadosNfe.Produtos[i].Imposto.ICMS.ValorBCST := 0;
@@ -2256,6 +2306,7 @@ Begin
                XDadosNfe.Destinatario.Nome := ValidaAcentos(DMMACS.TALX.FieldByName('NOME').AsString);
            //endereço do destinatário
            XDadosNfe.Destinatario.Logradouro := TiraCaracter(ValidaAcentos(DMMACS.TALX.FieldByName('ENDERECO').AsString), '.');
+           XDadosNfe.Destinatario.CEP := TiraCaracter(ValidaAcentos(DMMACS.TALX.FieldByName('CEP').AsString), '-');           
            //bairro do destinatário
            XDadosNfe.Destinatario.Bairro := TiraCaracter(ValidaAcentos(DMMACS.TALX.FieldByName('BAIRRO').AsString), '.');
            //Verifica numero do predio/residencia destinatario
@@ -2691,7 +2742,7 @@ Var
    XImportacao: TImportacao;
    XAdicaoImportacao: TAdicao;
    lacre, transp, transportador, vol, reboque, veicTransp, detalhe, retTransp, transporta, adicionais, imposto, COFINS, COFINSST, emit, II: String;
-   codCOFINS, PIS,PISST, codPIS, dest, referenciada, ide, produtos, TotalIss, totalICMS, total, especifico, produto, auxiliar, combustivel, autXml, infRespTec: String;
+   codCOFINS, PIS,PISST, codPIS, dest, referenciada, ide, produtos, TotalIss, totalICMS, RetTrib, total, especifico, produto, auxiliar, combustivel, autXml, infRespTec: String;
 	exportacao, pagamento, detPag: String;   
    ICMS, IPI, codST: String;
    F, XTotalMed, modFrete, tamArray, XTotalAdicao: Integer;
@@ -2957,7 +3008,21 @@ Begin
                XTotalNfe.VlrTotalIcmsUfRemet, XTotalNfe.VlrTotalFcpUfDest, XTotalNfe.VlrTotalFcp, XTotalNfe.VlrTotalFcpSt,
                XTotalNfe.VlrTotalFcpStRet, XTotalNfe.VlrTotalIpiDevolvido);
 
-       total := Util.total(totalICMS, ''{TotalIss}, '');
+       If xContemImpostosRetidos = True
+       Then Begin
+           RetTrib := Util.tributoRetido(  XDadosNfe.TributoRetido.VlrRetPIS,
+                                           XDadosNfe.TributoRetido.VlrRetCOFINS,
+                                           XDadosNfe.TributoRetido.VlrRetCSLL,
+                                           XDadosNfe.TributoRetido.VlrBCIRRF,
+                                           XDadosNfe.TributoRetido.VlrIRRF,
+                                           XDadosNfe.TributoRetido.VlrBCRetPrev,
+                                           XDadosNfe.TributoRetido.VlrRetPrev);
+
+           total := Util.total(totalICMS, '', RetTrib);
+       End
+       Else Begin
+           total := Util.total(totalICMS, '', '');
+       End;
 
 
        XTransporte := XDadosNfe.Transporte;
@@ -3137,8 +3202,12 @@ Begin
                              	if SetDadosExportacao = False then
                                	Result := False
                                else begin
-                                   if SetDadosAutorizacaoXML = False then
-                                       Result := False;
+                             	    if SetDadosImpostosRetidos = False then
+                               	    Result := False
+                                   else begin
+                                       if SetDadosAutorizacaoXML = False then
+                                           Result := False;
+                                   End;
                                end;
                              End;
                        End;
@@ -4588,6 +4657,12 @@ begin
    end;
    DMMACS.TALX.ParamByName('CODIGO').AsInteger := XSetCodigoPedido;
    DMMACS.TALX.Open;
+
+   If DMMACS.TALX.IsEmpty
+   Then Begin
+       MessageDlg('O documento não contém nota fiscal válida', mtWarning, [mbOK], 0);
+       Exit;
+   End;
 
    if DMMACS.TALX.FieldByName('MODELONF').AsString = '65' then
    begin
@@ -6409,6 +6484,9 @@ Begin
            
            while ContConsultaNfe <= 5 do
            begin
+
+               Information('Consultando resultado da transmissão [' + IntToStr(ContConsultaNfe) + ']...');
+
                //Consulta Nfe para verificar status
                if {NfeConsultarNotaFiscal} BuscaResultadoEnvioNFe = True then
                begin
@@ -7779,10 +7857,10 @@ Begin
            begin
            	if DMMACS.TLoja.FieldByName('EMAIL_EMPRESA').AsString = '' then
                begin
-                   SMTPxml.Username := 'xmlnfe@mzrsistemas.com';
-                   XEmail := 'xmlnfe@mzrsistemas.com';
-                   SMTPxml.Password :='M357ZR'; // senha do usuario
-                   SMTPxml.Host :=  'smtp.mzrsistemas.com';
+                   SMTPxml.Username := 'noreply@resulterp.com.br';
+                   XEmail := 'noreply@resulterp.com.br';
+                   SMTPxml.Password :='Mzrking@771'; // senha do usuario
+                   SMTPxml.Host :=  'smtp.resulterp.com.br';
                    SMTPxml.Port := 587;
                    //
                    SMTPxml.UseTLS := utNoTLSSupport;                   

@@ -1,9 +1,8 @@
 object DMESTOQUE: TDMESTOQUE
   OldCreateOrder = False
-  Left = 838
-  Top = 189
-  Height = 590
-  Width = 764
+  Left = 765
+  Height = 404
+  Width = 776
   object UPGrupo: TIBUpdateSQL
     RefreshSQL.Strings = (
       'Select '
@@ -687,6 +686,12 @@ object DMESTOQUE: TDMESTOQUE
       Origin = 'SUBPRODUTO.CODIGOBENEFICIOFISCAL'
       Size = 10
     end
+    object TSubProdRETEM_PIS_COFINS: TIBStringField
+      FieldName = 'RETEM_PIS_COFINS'
+      Origin = 'SUBPRODUTO.RETEM_PIS_COFINS'
+      FixedChar = True
+      Size = 1
+    end
   end
   object UPSubProd: TIBUpdateSQL
     RefreshSQL.Strings = (
@@ -748,7 +753,8 @@ object DMESTOQUE: TDMESTOQUE
       '  COD_CFOPFORAESTADO,'
       '  EST_PERMANENTE,'
       '  DESCRICAO_ANP,'
-      '  CODIGOBENEFICIOFISCAL'
+      '  CODIGOBENEFICIOFISCAL,'
+      '  RETEM_PIS_COFINS'
       'from SUBPRODUTO '
       'where'
       '  COD_SUBPRODUTO = :COD_SUBPRODUTO')
@@ -812,7 +818,8 @@ object DMESTOQUE: TDMESTOQUE
       '  COD_CFOPFORAESTADO = :COD_CFOPFORAESTADO,'
       '  EST_PERMANENTE = :EST_PERMANENTE,'
       '  DESCRICAO_ANP = :DESCRICAO_ANP,'
-      '  CODIGOBENEFICIOFISCAL = :CODIGOBENEFICIOFISCAL'
+      '  CODIGOBENEFICIOFISCAL = :CODIGOBENEFICIOFISCAL,'
+      '  RETEM_PIS_COFINS = :RETEM_PIS_COFINS'
       'where'
       '  COD_SUBPRODUTO = :OLD_COD_SUBPRODUTO')
     InsertSQL.Strings = (
@@ -841,7 +848,9 @@ object DMESTOQUE: TDMESTOQUE
       
         '   CTRL_HORA, CTRL_DESGASTE, COMPONENTE, ANP, COD_CFOPDENTROESTA' +
         'DO, COD_CFOPFORAESTADO, '
-      '   EST_PERMANENTE, DESCRICAO_ANP, CODIGOBENEFICIOFISCAL)'
+      
+        '   EST_PERMANENTE, DESCRICAO_ANP, CODIGOBENEFICIOFISCAL, RETEM_P' +
+        'IS_COFINS)'
       'values'
       
         '  (:COD_SUBPRODUTO, :CODCOMPOSTO, :DESCRICAO, :CODBARRA, :CODPRO' +
@@ -870,7 +879,9 @@ object DMESTOQUE: TDMESTOQUE
       
         '   :CTRL_DESGASTE, :COMPONENTE, :ANP, :COD_CFOPDENTROESTADO, :CO' +
         'D_CFOPFORAESTADO, '
-      '   :EST_PERMANENTE, :DESCRICAO_ANP, :CODIGOBENEFICIOFISCAL)')
+      
+        '   :EST_PERMANENTE, :DESCRICAO_ANP, :CODIGOBENEFICIOFISCAL, :RET' +
+        'EM_PIS_COFINS)')
     DeleteSQL.Strings = (
       'delete from SUBPRODUTO'
       'where'
@@ -1590,10 +1601,6 @@ object DMESTOQUE: TDMESTOQUE
       '  ESTMIN,'
       '  ICMS,'
       '  FRETE,'
-      '  ESTFISICO,'
-      '  ESTRESERV,'
-      '  ESTPED,'
-      '  ESTSALDO,'
       '  CVVPROAT,'
       '  CVPPROAT,'
       '  CVVPROVAR,'
@@ -1682,10 +1689,6 @@ object DMESTOQUE: TDMESTOQUE
       '  ESTMIN = :ESTMIN,'
       '  ICMS = :ICMS,'
       '  FRETE = :FRETE,'
-      '  ESTFISICO = :ESTFISICO,'
-      '  ESTRESERV = :ESTRESERV,'
-      '  ESTPED = :ESTPED,'
-      '  ESTSALDO = :ESTSALDO,'
       '  CVVPROAT = :CVVPROAT,'
       '  CVPPROAT = :CVPPROAT,'
       '  CVVPROVAR = :CVVPROVAR,'
@@ -1849,14 +1852,6 @@ object DMESTOQUE: TDMESTOQUE
     Left = 128
     Top = 271
   end
-  object Alx: TIBQuery
-    Tag = 5
-    Database = DBEstoque
-    Transaction = TransacEstoque
-    BufferChunks = 1000
-    CachedUpdates = False
-    Left = 168
-  end
   object DSAlx: TDataSource
     DataSet = Alx
     Left = 200
@@ -1989,7 +1984,7 @@ object DMESTOQUE: TDMESTOQUE
     Top = 367
   end
   object DBEstoque: TIBDatabase
-    DatabaseName = 'NOTE:C:\MZR\MACS\DBMACS_Multiplantas.GDB'
+    DatabaseName = 'NOTE:C:\MZR\MACS\DBMACS.GDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -3485,30 +3480,34 @@ object DMESTOQUE: TDMESTOQUE
     object WSimilarESTFISICO: TFloatField
       FieldName = 'ESTFISICO'
       Origin = 'VWSIMILAR.ESTFISICO'
-      DisplayFormat = '#,##0.####'
+      DisplayFormat = '#,###,####0.0000'
       EditFormat = '#,##0.####'
     end
     object WSimilarVENDVARP: TIBBCDField
       FieldName = 'VENDVARP'
       Origin = 'VWSIMILAR.VENDVARP'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
     object WSimilarVANDATAP: TIBBCDField
       FieldName = 'VANDATAP'
       Origin = 'VWSIMILAR.VANDATAP'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
     object WSimilarVENDATAV: TIBBCDField
       FieldName = 'VENDATAV'
       Origin = 'VWSIMILAR.VENDATAV'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
     object WSimilarVENDVARV: TIBBCDField
       FieldName = 'VENDVARV'
       Origin = 'VWSIMILAR.VENDVARV'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
@@ -3542,6 +3541,7 @@ object DMESTOQUE: TDMESTOQUE
     object WSimilarVLRUNITCOMPRA: TIBBCDField
       FieldName = 'VLRUNITCOMPRA'
       Origin = 'VWSIMILAR.VLRUNITCOMPRA'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
@@ -3586,6 +3586,7 @@ object DMESTOQUE: TDMESTOQUE
     object WSimilarVLRCUSTONFE: TIBBCDField
       FieldName = 'VLRCUSTONFE'
       Origin = 'VWSIMILAR.VLRCUSTONFE'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
@@ -4481,5 +4482,74 @@ object DMESTOQUE: TDMESTOQUE
     DataSet = TCustoItemPedido
     Left = 240
     Top = 608
+  end
+  object Alx: TIBQuery
+    Tag = 5
+    Database = DBEstoque
+    Transaction = TransacEstoque
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from movimentoestoque')
+    Left = 168
+  end
+  object TItensContagem: TIBQuery
+    Database = DBEstoque
+    Transaction = TransacEstoque
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      
+        ' SELECT ESTOQUE.COD_ESTOQUE, SUBPRODUTO.CONTRINT, SUBPRODUTO.COD' +
+        'PRODFABR, SUBPRODUTO.DESCRICAO,'
+      ' ESTOQUE.ESTFISICO, ESTOQUE.CONTAGEM, ESTOQUE.EXPORTAR'
+      ' FROM SUBPRODUTO'
+      
+        ' LEFT JOIN ESTOQUE ON ESTOQUE.COD_SUBPROD = SUBPRODUTO.COD_SUBPR' +
+        'ODUTO')
+    Left = 352
+    Top = 520
+    object TItensContagemCOD_ESTOQUE: TIntegerField
+      FieldName = 'COD_ESTOQUE'
+      Origin = 'ESTOQUE.COD_ESTOQUE'
+    end
+    object TItensContagemCONTRINT: TIBStringField
+      FieldName = 'CONTRINT'
+      Origin = 'SUBPRODUTO.CONTRINT'
+      Size = 15
+    end
+    object TItensContagemCODPRODFABR: TIBStringField
+      FieldName = 'CODPRODFABR'
+      Origin = 'SUBPRODUTO.CODPRODFABR'
+      Size = 25
+    end
+    object TItensContagemDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'SUBPRODUTO.DESCRICAO'
+      Size = 60
+    end
+    object TItensContagemESTFISICO: TFloatField
+      FieldName = 'ESTFISICO'
+      Origin = 'ESTOQUE.ESTFISICO'
+      DisplayFormat = '#,###,####0.0000'
+      EditFormat = '#,##0.####'
+    end
+    object TItensContagemCONTAGEM: TIBBCDField
+      FieldName = 'CONTAGEM'
+      Origin = 'ESTOQUE.CONTAGEM'
+      Precision = 18
+      Size = 3
+    end
+    object TItensContagemEXPORTAR: TIBStringField
+      FieldName = 'EXPORTAR'
+      Origin = 'ESTOQUE.EXPORTAR'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object dItensContagem: TDataSource
+    DataSet = TItensContagem
+    Left = 354
+    Top = 570
   end
 end

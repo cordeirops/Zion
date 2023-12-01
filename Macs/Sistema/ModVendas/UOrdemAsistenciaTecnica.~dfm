@@ -2,7 +2,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
   Left = 303
   Top = 127
   Caption = ']'
-  ClientHeight = 649
+  ClientHeight = 645
   ClientWidth = 1020
   KeyPreview = True
   OldCreateOrder = True
@@ -1862,7 +1862,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
               Left = 3
               Top = 24
               Width = 286
-              Height = 29
+              Height = 19
               CharCase = ecUpperCase
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1908,7 +1908,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
               Left = 1
               Top = 25
               Width = 288
-              Height = 29
+              Height = 19
               BiDiMode = bdRightToLeft
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -2077,7 +2077,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
             Left = 564
             Top = 34
             Width = 59
-            Height = 29
+            Height = 19
             Color = 15329769
             Ctl3D = False
             Font.Charset = ANSI_CHARSET
@@ -2101,7 +2101,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
             Left = 633
             Top = 34
             Width = 113
-            Height = 29
+            Height = 19
             Color = 15329769
             Ctl3D = False
             Font.Charset = ANSI_CHARSET
@@ -2125,7 +2125,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
             Left = 755
             Top = 34
             Width = 98
-            Height = 29
+            Height = 19
             Color = 15329769
             Ctl3D = False
             Font.Charset = ANSI_CHARSET
@@ -2149,7 +2149,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
             Left = 861
             Top = 34
             Width = 128
-            Height = 29
+            Height = 19
             Hint = 
               'Para alterar o desconto de acordo com o Total que voc'#234' alterou, ' +
               'informe o valor em total e pressione <ENTER>'
@@ -2248,7 +2248,7 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
             Left = 350
             Top = 34
             Width = 203
-            Height = 29
+            Height = 19
             CharCase = ecUpperCase
             Ctl3D = False
             Font.Charset = ANSI_CHARSET

@@ -427,6 +427,19 @@ type
            Lacres: Array of TLacre;
   end;
 
+  ////Tributos Retidos
+  TTributoRetido = class
+       public
+           VlrRetPIS: Double;
+           VlrRetCOFINS: Double;
+           VlrRetCSLL: Double;
+           VlrBCIRRF: Double;
+           VlrIRRF: Double;
+           VlrBCRetPrev: Double;
+           VlrRetPrev: Double;
+  end;
+
+
   ////Valores totais da NF-e
   TTotalICMS = class
        public
@@ -518,6 +531,7 @@ type
            Destinatario: TDestinatario;
            Produtos: Array of TItem;
            TotalIss: TTotalISS;
+           TributoRetido: TTributoRetido;
            Total: TTotalICMS;
            Transporte :TTransporte;
            InfAdicionais :String;

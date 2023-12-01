@@ -494,11 +494,7 @@ begin
        DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsString:=DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsString;
        DMENTRADA.TLancENT.FieldByName('QTDANT').AsString:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
        DMENTRADA.TLancEnt.POST;
-       DMESTOQUE.TEstoque.Edit;
-       DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-       DMESTOQUE.TEstoque.POST;
        DMENTRADA.IBT.CommitRetaining;
-       DMESTOQUE.TransacEstoque.CommitRetaining;
        DMSAIDA.IBT.CommitRetaining;
        FiltraSlave;
    End;
@@ -542,11 +538,7 @@ begin
        DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsString:=DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsString;
        DMENTRADA.TLancENT.FieldByName('QTDANT').AsString:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
        DMENTRADA.TLancEnt.POST;
-       DMESTOQUE.TEstoque.Edit;
-       DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-       DMESTOQUE.TEstoque.POST;
        DMENTRADA.IBT.CommitRetaining;
-       DMESTOQUE.TransacEstoque.CommitRetaining;
        DMSAIDA.IBT.CommitRetaining;
        FiltraSlave;
        LVlrDevolvido.Caption:=FormatFloat('0.00', XVLRTROCA);
@@ -733,12 +725,6 @@ begin
        DMEstoque.TEstoque.edit;
        	If DMMacs.TLoja.FieldByName('ATUAESTOQUE').AsString='1'
            Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
-           	//atualiza estoque físico
-               If DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString='' Then
-               	DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=(EDQuantidade2.ValueNumeric) * -1
-               Else
-					DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-EDQuantidade2.ValueNumeric;
-
                //informa que o registro atualizou estoque
                DMSAIDA.TItemPV.edit;
                DMSAIDA.TItemPV.FieldByName('ATUEST').AsString:='1';
@@ -858,24 +844,7 @@ begin
 		FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
 		FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
        FiltraTabela(DMSAIDA.TItemPV, 'ITENSPEDVEN', 'COD_ITENSPEDVEN', DMESTOQUE.TSlave.FieldByName('COD_ITENSPEDVEN').AsString, '');
-	    //Atualiza Estoque
-	    DMEstoque.TEstoque.edit;
-       If DMMacs.TLoja.FieldByName('ATUAESTOQUE').AsString='1'
-       Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
-           //atualiza estoque físico
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMSAIDA.TItemPV.FieldByName('QTDEPROD').Value;
-       End
-       Else Begin
-           //atualiza estoque reservado e saldo
-           DMEstoque.TEstoque.FieldByName('ESTRESERV').Value:=DMEstoque.TEstoque.FieldByName('ESTRESERV').Value-DMSAIDA.TItemPV.FieldByName('QTDEPROD').Value;
-       End;
-
-       //Atualiza saldo de estoque
-       //calcula saldo de estoque
-       Try
-	  		DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTPED').AsCurrency-DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency)+DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
-       Except
-       End;
+       DMEstoque.TEstoque.Edit;
        DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
 		DMEstoque.TEstoque.Post;
 	    DMEstoque.TransacEstoque.CommitRetaining;

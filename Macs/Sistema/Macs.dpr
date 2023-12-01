@@ -59,9 +59,6 @@ uses
   UPedidoPadrao in 'ModVendas\UPedidoPadrao.pas' {FPedidoPadrao},
   UPedCompra in 'ModVendas\UPedCompra.pas' {FPedCompra},
   UPedVenda in 'ModVendas\UPedVenda.pas' {FPedVenda},
-  ULancEstPadrao in 'ModVendas\ULancEstPadrao.pas' {FLancEstPadrao},
-  ULancSai in 'ModVendas\ULancSai.pas' {FLancSai},
-  ULancEnt in 'ModVendas\ULancEnt.pas' {FLancEnt},
   UAbCaixa in 'Financeiro\UAbCaixa.pas' {FABCaixa},
   ULancCaixa in 'Financeiro\ULancCaixa.pas' {FLancCaixa},
   UFechaCaixa in 'Financeiro\UFechaCaixa.pas' {FFechaCaixa},
@@ -216,262 +213,279 @@ uses
   NFSe_Util_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFSe_Util_TLB.pas',
   URelProdutosNcm in 'Relatórios\estoque\URelProdutosNcm.pas' {FRelProdutosNcm},
   UCredDev in 'ModVendas\UCredDev.pas' {FCredDev},
-  UPagamento in 'Financeiro\UPagamento.pas' {FPagamento},
   UControleSaida in 'ModVendas\UControleSaida.pas' {FControleSaida},
   UContagemEstoque in 'UContagemEstoque.pas' {FContagemEstoque},
   UAntecipaCR in 'Financeiro\UAntecipaCR.pas' {FAntecipaCR},
   NFe_Util_2G_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFe_Util_2G_TLB.pas',
-  URelServicosPet in 'ModVendas\URelServicosPet.pas' {FRelServicosPet};
+  URelServicosPet in 'ModVendas\URelServicosPet.pas' {FRelServicosPet},
+  ULancamentoEstoque in 'ULancamentoEstoque.pas' {FLancamentoEstoque},
+  uOrdemMecanica in 'ModVendas\uOrdemMecanica.pas' {frmOrdemMecanica},
+  URelOrdemServMec in 'ModVendas\URelOrdemServMec.pas' {FRelOrdemMecanica},
+  UControllerRelOrdemVendaMec in 'Relatórios\UControllerRelOrdemVendaMec.pas',
+  UPgto in 'UPgto.pas' {FPgto},
+  UPagamentosRealizados in 'Financeiro\UPagamentosRealizados.pas' {FPagamentosRealizados},
+  UFechamento in 'Financeiro\UFechamento.pas' {frmFechamento},
+  UHistoricoMovimentoEstoque in 'ModVendas\UHistoricoMovimentoEstoque.pas' {frmHistoricoMovimentoEstoque},
+  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa};
 
 {FExpedicao}
 
 {$R *.RES}
 
-VAR
- 	 XVERSION: String;
-	 XPATHEXE: String;
-    XFLAG: Integer;//Controla conexao de banco se flag=1 o sistema irá utilizar conexao sem necessidade da TRILL
+var
+  XPATHEXE: string;
+  XFLAG: Integer;
+    //Controla conexao de banco se flag=1 o sistema irá utilizar conexao sem necessidade da TRILL
 begin
-   Application.Initialize;
-	//SETA FORMATO DE DATA PARA O SISTEMA
-	Application.UpdateFormatSettings := false;
-	ShortDateFormat := 'dd/mm/yyyy';
-	DecimalSeparator := ',';//Edmar - 16/01/2014 - Deixa padrão o , como separador decimal
+  Application.Initialize;
+  //SETA FORMATO DE DATA PARA O SISTEMA
+  Application.UpdateFormatSettings := false;
+  ShortDateFormat := 'dd/mm/yyyy';
+  DecimalSeparator := ',';
+    //Edmar - 16/01/2014 - Deixa padrão o , como separador decimal
 
-   XVERSION:= '22.11.06';
+  XVersaoSistema := '23.11.011';
 
-   Application.Title := 'ZION';
-   Application.CreateForm(TFMenu, FMenu);
-   Application.CreateForm(TFSplash, FSplash);
-   Application.CreateForm(TFResultadoValidacoesTestes, FResultadoValidacoesTestes);
-   Application.CreateForm(TFRelGeralMovimentacoesFinanceiras, FRelGeralMovimentacoesFinanceiras);
-   Application.CreateForm(TFOrcamentoMac, FOrcamentoMac);
-   Application.CreateForm(TFPagamento, FPagamento);
-   Application.CreateForm(TFControleSaida, FControleSaida);
-   Application.CreateForm(TFContagemEstoque, FContagemEstoque);
-   Application.CreateForm(TFRelServicosPet, FRelServicosPet);
-   FSplash.LVERSAO.Caption:=XVERSION;
-   FMenu.Caption:='Versão: '+ XVERSION;
-   FSplash.Show;
-   FSplash.barra.Position:=0;
-   FSplash.Update;
-
-   //CRIA DMMACS
-   FSplash.LArquivos.Caption:='Carregando Configurações';
-   Try
-       Application.CreateForm(TDMMACS, DMMACS);
-   Except
-   On E:Exception do
-   Begin
-   	MessageDlg('Erro ao abrir DMMacs: '+E.Message, mtError, [mbOK], 0);
+  try
+       XVersaoCompilacao := StrToInt(ExtraiNumeros(XVersaoSistema));
+  except
+       MessageDlg('Versão do sistema descontinuada.', mtWarning, [mbOK], 0);
        Application.Terminate;
-   end;
-   End;
-
-   // PASSO 1 DE CONEXÃO
-   //SE FOR ENCONTRADO UM DBMACS.GDB NO MESMO ENDEREÇO DO EXEC O SIS SE CONECTARÁ A ELES
-   XFLAG:=0;
-
-   XPATHEXE:=ExtractFilePath(Application.ExeName);
-   IF FileExists(XPATHEXE+'DBMACS.GDB')
-   Then Begin
-		XFLAG:=1;
-		FMenu.XTRILL:=XPATHEXE+'DBMACS.GDB';
-   End;
-
-  	//PASSO 2 DE CONEXAO
-  	//SE FOR NECESSÁRIO UTILIZAR - SE DA TRILL QUE DEVE ESTAR NO MESMO LOCAL DO EXE
-  	If XFLAG=0
-  	Then Begin
-		FMenu.XTRILL:='';
-	    XPATHEXE:=ExtractFilePath(Application.ExeName);
-  		IF FileExists(XPATHEXE+'TRILL.GDB')
-  		Then Begin
-       	//TENTA SE CONECTAR AO TRILL QUE DEVE ESTAR NO MESMO LOCAL DO EXE
-			Try
-       		//Conecta DataBases e Transactions
-          		DMMACS.IBTTRILL.Active:=False;
-          		DMMACS.DBTrill.Connected:=False;
-      			DMMACS.DBTrill.DatabaseName:=XPATHEXE+'TRILL.GDB';
-          		DMMACS.DBTrill.Connected:=True;
-          		DMMACS.IBTTRILL.Active:=True;
-               DMMACS.BASE.Active:=True;
-       	Except
-           	MessageDlg('Falha trill', mtError, [mbOK], 0);
-           End;
-	  		FMenu.XCOUNRECORD:=0;
-			//Mostra todas as bases de dados cadastradas e válidas
-	  		DMMACS.BASE.Close;
-	  		DMMACS.BASE.SQL.Clear;
-	  		DMMACS.BASE.SQL.Add('SELECT * FROM BASE');
-	  		DMMACS.BASE.Open;
-
-	  		While Not DMMACS.BASE.Eof do
-	  		Begin
-	      		FMenu.XTRILL:=DMMACS.BASE.FIELDBYNAME('ENDFILE').AsString;
-	    		IF FileExists(FMenu.XTRILL)
-	    		Then Begin
-		       		DMMACS.BASE.Edit;
-		       		DMMACS.BASE.FieldByName('SHOW').AsString:='1';
-		       		DMMACS.BASE.Post;
-		           	FMenu.XCOUNRECORD:=FMENU.XCOUNRECORD+1;
-	    		End
-	    		Else Begin
-		       		DMMACS.BASE.Edit;
-		       		DMMACS.BASE.FieldByName('SHOW').AsString:='0';
-		       		DMMACS.BASE.Post;
-	    		End;
-		       	DMMACS.BASE.Next;
-			End;
-
-   		//agora mostra somente os registros válidos onde foram encontrado bases
-			DMMACS.BASE.ApplyUpdates;
-		   	DMMACS.IBTTRILL.CommitRetaining;
-		   	DMMACS.BASE.Close;
-		   	DMMACS.BASE.SQL.Clear;
-		   	DMMACS.BASE.SQL.Add('SELECT * FROM BASE where SHOW=1');
-		   	DMMACS.BASE.Open;
-
-			//se conter apenas um registro ele pega automaticamente este
-		   	If FMENU.XCOUNRECORD=1
-		   	Then Begin
-		       	FMenu.XTRILL:=DMMACS.BASE.FieldByName('RUMOR').AsString;
-		       	FMenu.XSERVER:=DMMACS.BASE.FieldByName('SERVER').AsString;
-   			If FMenu.XSERVER<>'' Then
-           		FMenu.XTRILL:=FMenu.XSERVER+':'+FMenu.XTRILL;
-		       	ConectBd(DMMACS);
-		   	End
-		   	Else Begin
-	    		If DMMACS.BASE.RecordCount<>0
-	    		Then Begin
-	  				Application.CreateForm(TFAcessBase, FAcessBase);
-	  				FAcessBase.ShowModal;
-		       	End;
-	  		End;
-       End;
   End;
 
-  //PASSO 03 - Se ainda não ocorreu uma conexão, é configurado um acesso por xml
-  If FMenu.XTRILL=''
-  Then Begin
-  		FMenu.XTRILL:=RecuperaCaminhoBancoXml;
-  		XFLAG:=1;
-  End;
-  //Incrementa barra de gauge
-  FSplash.barra.Position:=FSplash.barra.Position+10;
-  If (DMMACS.BASE.RecordCount<>0) or (XFLAG=1)
-  Then Begin
-     //CRIA DMMACS
-     FSplash.LArquivos.Caption:='Carregando Configurações';
-     //reconecta macs
-     ConectBd(DMMacs);
-     //CRIA MENU e DMPessoa
-     FSplash.LArquivos.Caption:='Carregando Módulo de Pessoas';
-     Application.CreateForm(TDMPESSOA, DMPESSOA);
-     ConectBd(DMPessoa);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+    Application.Title := 'ZION';
+    Application.CreateForm(TFMenu, FMenu);
+  Application.CreateForm(TFSplash, FSplash);
+  Application.CreateForm(TFResultadoValidacoesTestes, FResultadoValidacoesTestes);
+  Application.CreateForm(TFRelGeralMovimentacoesFinanceiras, FRelGeralMovimentacoesFinanceiras);
+  Application.CreateForm(TFOrcamentoMac, FOrcamentoMac);
+  Application.CreateForm(TFControleSaida, FControleSaida);
+  Application.CreateForm(TFContagemEstoque, FContagemEstoque);
+  Application.CreateForm(TFRelServicosPet, FRelServicosPet);
+  Application.CreateForm(TfrmHistoricoMovimentoEstoque, frmHistoricoMovimentoEstoque);
+  Application.CreateForm(TfrmAntecipa, frmAntecipa);
+  FSplash.LVERSAO.Caption := XVersaoSistema;
+    FMenu.Caption := 'Versão: ' + XVersaoSistema;
+    FSplash.Show;
+    FSplash.barra.Position := 0;
+    FSplash.Update;
 
-     //CRIA MDO
-     Application.CreateForm(TMDO, MDO);
-     ConectBd(MDO);
-     Application.CreateForm(TDMFAST, DMFAST);
-     ConectBd(DMFAST);
+    //CRIA DMMACS
+    FSplash.LArquivos.Caption := 'Carregando Configurações';
+    try
+      Application.CreateForm(TDMMACS, DMMACS);
+    except
+      on E: Exception do
+      begin
+        MessageDlg('Erro ao abrir DMMacs: ' + E.Message, mtError, [mbOK], 0);
+        Application.Terminate;
+      end;
+    end;
 
-     //CRIA DMGEOGRAFIA
-     FSplash.LArquivos.Caption:='Carregando Módulo Geográfico';
-     Application.CreateForm(TDMGeografia, DMGeografia);
-     ConectBd(DMGeografia);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+    // PASSO 1 DE CONEXÃO
+    //SE FOR ENCONTRADO UM DBMACS.GDB NO MESMO ENDEREÇO DO EXEC O SIS SE CONECTARÁ A ELES
+    XFLAG := 0;
 
-     //CRIA DMbancos
-     FSplash.LArquivos.Caption:='Carregando Módulo Financeiro';
-     Application.CreateForm(TDMBanco, DMBanco);
-     Application.CreateForm(TDMFINANC, DMFINANC);
-     ConectBd(DMBANCO);
+    XPATHEXE := ExtractFilePath(Application.ExeName);
+    if FileExists(XPATHEXE + 'DBMACS.GDB') then
+    begin
+      XFLAG := 1;
+      FMenu.XTRILL := XPATHEXE + 'DBMACS.GDB';
+    end;
 
-     ConectBd(DMFINANC);
+    //PASSO 2 DE CONEXAO
+    //SE FOR NECESSÁRIO UTILIZAR - SE DA TRILL QUE DEVE ESTAR NO MESMO LOCAL DO EXE
+    if XFLAG = 0 then
+    begin
+      FMenu.XTRILL := '';
+      XPATHEXE := ExtractFilePath(Application.ExeName);
+      if FileExists(XPATHEXE + 'TRILL.GDB') then
+      begin
+        //TENTA SE CONECTAR AO TRILL QUE DEVE ESTAR NO MESMO LOCAL DO EXE
+        try
+          //Conecta DataBases e Transactions
+          DMMACS.IBTTRILL.Active := False;
+          DMMACS.DBTrill.Connected := False;
+          DMMACS.DBTrill.DatabaseName := XPATHEXE + 'TRILL.GDB';
+          DMMACS.DBTrill.Connected := True;
+          DMMACS.IBTTRILL.Active := True;
+          DMMACS.BASE.Active := True;
+        except
+          MessageDlg('Falha trill', mtError, [mbOK], 0);
+        end;
+        FMenu.XCOUNRECORD := 0;
+        //Mostra todas as bases de dados cadastradas e válidas
+        DMMACS.BASE.Close;
+        DMMACS.BASE.SQL.Clear;
+        DMMACS.BASE.SQL.Add('SELECT * FROM BASE');
+        DMMACS.BASE.Open;
 
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+        while not DMMACS.BASE.Eof do
+        begin
+          FMenu.XTRILL := DMMACS.BASE.FIELDBYNAME('ENDFILE').AsString;
+          if FileExists(FMenu.XTRILL) then
+          begin
+            DMMACS.BASE.Edit;
+            DMMACS.BASE.FieldByName('SHOW').AsString := '1';
+            DMMACS.BASE.Post;
+            FMenu.XCOUNRECORD := FMENU.XCOUNRECORD + 1;
+          end
+          else
+          begin
+            DMMACS.BASE.Edit;
+            DMMACS.BASE.FieldByName('SHOW').AsString := '0';
+            DMMACS.BASE.Post;
+          end;
+          DMMACS.BASE.Next;
+        end;
 
-     //CRIA DMcaixa
-     FSplash.LArquivos.Caption:='Carregando Módulo de Caixa';
-     Application.CreateForm(TDMCaixa, DMCaixa);
-     ConectBd(DMCaixa);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+5;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+        //agora mostra somente os registros válidos onde foram encontrado bases
+        DMMACS.BASE.ApplyUpdates;
+        DMMACS.IBTTRILL.CommitRetaining;
+        DMMACS.BASE.Close;
+        DMMACS.BASE.SQL.Clear;
+        DMMACS.BASE.SQL.Add('SELECT * FROM BASE where SHOW=1');
+        DMMACS.BASE.Open;
 
-     //CRIA DMconta
-     FSplash.LArquivos.Caption:='Carregando Contas';
-     Application.CreateForm(TDMConta, DMConta);
-     ConectBd(DMConta);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+5;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+        //se conter apenas um registro ele pega automaticamente este
+        if FMENU.XCOUNRECORD = 1 then
+        begin
+          FMenu.XTRILL := DMMACS.BASE.FieldByName('RUMOR').AsString;
+          FMenu.XSERVER := DMMACS.BASE.FieldByName('SERVER').AsString;
+          if FMenu.XSERVER <> '' then
+            FMenu.XTRILL := FMenu.XSERVER + ':' + FMenu.XTRILL;
+          ConectBd(DMMACS);
+        end
+        else
+        begin
+          if DMMACS.BASE.RecordCount <> 0 then
+          begin
+            Application.CreateForm(TFAcessBase, FAcessBase);
+            FAcessBase.ShowModal;
+          end;
+        end;
+      end;
+    end;
 
-     //CRIA DMEstoque
-     FSplash.LArquivos.Caption:='Carregando Módulo de Estoque';
-     Application.CreateForm(TDMEstoque, DMEstoque);
-     ConectBd(DMEstoque);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+17;
-     FSplash.barra.Position:=FSplash.barra.Position+20;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+    //PASSO 03 - Se ainda não ocorreu uma conexão, é configurado um acesso por xml
+    if FMenu.XTRILL = '' then
+    begin
+      FMenu.XTRILL := RecuperaCaminhoBancoXml;
+      XFLAG := 1;
+    end;
+    //Incrementa barra de gauge
+    FSplash.barra.Position := FSplash.barra.Position + 10;
+    if (DMMACS.BASE.RecordCount <> 0) or (XFLAG = 1) then
+    begin
+      //CRIA DMMACS
+      FSplash.LArquivos.Caption := 'Carregando Configurações';
+      //reconecta macs
+      ConectBd(DMMacs);
+      //CRIA MENU e DMPessoa
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Pessoas';
+      Application.CreateForm(TDMPESSOA, DMPESSOA);
+      ConectBd(DMPessoa);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
 
-     //CRIA DMSERVICO
-     FSplash.LArquivos.Caption:='Carregando Módulo de Serviços';
-     Application.CreateForm(TDMSERV, DMSERV);
-     ConectBd(DMSERV);
+      //CRIA MDO
+      Application.CreateForm(TMDO, MDO);
+      ConectBd(MDO);
+      Application.CreateForm(TDMFAST, DMFAST);
+      ConectBd(DMFAST);
 
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+      //CRIA DMGEOGRAFIA
+      FSplash.LArquivos.Caption := 'Carregando Módulo Geográfico';
+      Application.CreateForm(TDMGeografia, DMGeografia);
+      ConectBd(DMGeografia);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
 
-     //CRIA DMEXPORTA
-     FSplash.LArquivos.Caption:='Carregando Módulo de Exportações';
-     Application.CreateForm(TDMExporta, DMExporta);
-     //CRIA DMEntrada
-     FSplash.LArquivos.Caption:='Carregando Módulos de Entradas';
-     Application.CreateForm(TDMEntrada, DMEntrada);
-     ConectBd(DMEntrada);
+      //CRIA DMbancos
+      FSplash.LArquivos.Caption := 'Carregando Módulo Financeiro';
+      Application.CreateForm(TDMBanco, DMBanco);
+      Application.CreateForm(TDMFINANC, DMFINANC);
+      ConectBd(DMBANCO);
 
+      ConectBd(DMFINANC);
 
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
 
- 	  FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.ImgBarra.Update;
-     FSplash.Update;
+      //CRIA DMcaixa
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Caixa';
+      Application.CreateForm(TDMCaixa, DMCaixa);
+      ConectBd(DMCaixa);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 5;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
 
-     //CRIA DMSaida
-     FSplash.LArquivos.Caption:='Carregando Módulo de Saídas';
-     Application.CreateForm(TDMSaida, DMSaida);
-     Application.CreateForm(TDMFISCAL, DMFiscal);
-     ConectBd(DMSaida);
+      //CRIA DMconta
+      FSplash.LArquivos.Caption := 'Carregando Contas';
+      Application.CreateForm(TDMConta, DMConta);
+      ConectBd(DMConta);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 5;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
 
-     ConectBd(DMFISCAL);
-     FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-     FSplash.barra.Position:=FSplash.barra.Position+10;
-     FSplash.Update;
-  END;
-  //CRIA FGERENCIADOR
-  FSplash.LArquivos.Caption:='Carregando Gerenciador do Sistema';
-  Application.CreateForm(TFGERENCIADOR, FGERENCIADOR);
-  FSplash.ImgBarra.Width:=FSplash.ImgBarra.Width+11;
-  FSplash.ImgBarra.Update;
-  FSplash.Update;
-  FSplash.Release;
-  FSplash:=nil;
-  Application.Run;
-end.
+      //CRIA DMEstoque
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Estoque';
+      Application.CreateForm(TDMEstoque, DMEstoque);
+      ConectBd(DMEstoque);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 17;
+      FSplash.barra.Position := FSplash.barra.Position + 20;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
+
+      //CRIA DMSERVICO
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Serviços';
+      Application.CreateForm(TDMSERV, DMSERV);
+      ConectBd(DMSERV);
+
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
+
+      //CRIA DMEXPORTA
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Exportações';
+      Application.CreateForm(TDMExporta, DMExporta);
+      //CRIA DMEntrada
+      FSplash.LArquivos.Caption := 'Carregando Módulos de Entradas';
+      Application.CreateForm(TDMEntrada, DMEntrada);
+      ConectBd(DMEntrada);
+
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.ImgBarra.Update;
+      FSplash.Update;
+
+      //CRIA DMSaida
+      FSplash.LArquivos.Caption := 'Carregando Módulo de Saídas';
+      Application.CreateForm(TDMSaida, DMSaida);
+      Application.CreateForm(TDMFISCAL, DMFiscal);
+      ConectBd(DMSaida);
+
+      ConectBd(DMFISCAL);
+      FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+      FSplash.barra.Position := FSplash.barra.Position + 10;
+      FSplash.Update;
+    end;
+    //CRIA FGERENCIADOR
+    FSplash.LArquivos.Caption := 'Carregando Gerenciador do Sistema';
+    Application.CreateForm(TFGERENCIADOR, FGERENCIADOR);
+    FSplash.ImgBarra.Width := FSplash.ImgBarra.Width + 11;
+    FSplash.ImgBarra.Update;
+    FSplash.Update;
+    FSplash.Release;
+    FSplash := nil;
+    Application.Run;
+  end.

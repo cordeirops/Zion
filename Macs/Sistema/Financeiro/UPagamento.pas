@@ -1224,9 +1224,9 @@ Begin
 				Result := False;
 
 		If Result = False Then
-           xResultadoPagamento := False
+           xResultadoPagamento := 'ERRO'
 		Else
-           xResultadoPagamento := True;
+           xResultadoPagamento := 'SUCESSO';
 
 		//Comitamos as informações geradas
        MDO.Transac.CommitRetaining;
@@ -1952,7 +1952,7 @@ Begin
        DmSaida.IBT.CommitRetaining;
        MDO.Transac.CommitRetaining;
 
-       xResultadoPagamento := False;
+       xResultadoPagamento := 'ERRO';
 
 		ResetaValores;
        DesmarcarChequesTrocoMarcado;

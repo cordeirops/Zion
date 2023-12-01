@@ -2768,7 +2768,7 @@ Begin
                    end
                    Else Begin
                        ImpRelCaixaBS_RetornaValoresPrazoRecebido;
-                       xBsLinhaValorPrazo := DMServ.TAlx1.FieldByName('valor').AsCurrency;
+                       xBsLinhaValorPrazo :=  DMServ.TAlx1.FieldByName('valor').AsCurrency - (DMServ.TAlx1.FieldByName('valor').AsCurrency * xbsProposrionalPago )/100;
                    end;
                End;
            End;
@@ -2792,7 +2792,7 @@ Begin
                    end
                    Else Begin
                        ImpRelCaixaBS_RetornaValoresPrazoRecebido;
-                       xBsLinhaValorPrazo := DMServ.TAlx1.FieldByName('valor').AsCurrency;
+                       xBsLinhaValorPrazo := DMServ.TAlx1.FieldByName('valor').AsCurrency - (DMServ.TAlx1.FieldByName('valor').AsCurrency * xbsProposrionalPago )/100;
                    end;
                End;
            End;

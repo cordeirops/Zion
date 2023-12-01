@@ -216,59 +216,59 @@ End;
 //Seleciona lançamentos de acordo com a aba do flat control
 Procedure TFLanCHPadrao.SelectLanc(TipoCons: String);
 VAR
-   XTabelaAux1, XTabelaAux2: TIBQuery;
+   XTabelaAux1: TIBQuery;
 Begin
    Try
 		EDTotal.ValueNumeric:=0;
 		If XTIPOLANC='S' Then Begin
            XTabelaAux1 := DMBANCO.WMovB;
-           XTabelaAux2 := DMBANCO.TAlx;
+           //XTabelaAux2 := DMBANCO.TAlx;
        End
        Else Begin
            XTabelaAux1 := DMBANCO.WChequeRec;
-           XTabelaAux2 := DMFINANC.TAlx;
+           //XTabelaAux2 := DMFINANC.TAlx;
        End;
        XTabelaAux1.Close;
        XTabelaAux1.SQL.Clear;
 
 
-       XTabelaAux2.Close;
-       XTabelaAux2.SQL.Clear;
+       //XTabelaAux2.Close;
+       //XTabelaAux2.SQL.Clear;
 
        If XTIPOLANC='S'
        Then Begin
            XTabelaAux1.SQL.Add(' SELECT * FROM VWMOVBANCO WHERE (vwMOVBANCO.COD_CTACOR=:CODCTACOR)  AND ((VER<>'+#39+'1'+#39+') OR (VER IS NULL))   AND ((COBRANCA='+#39+'CHEQUE'+#39+') or (COBRANCA='+#39+'T. CX CHQ'+#39+')) AND (TIPOOP='+#39+'SAIDA'+#39+') ');
            XTabelaAux1.ParamByName('CODCTACOR').AsString:=DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsString;
 
-           XTabelaAux2.SQL.Add('SELECT SUM(VWMOVBANCO.VALOR) AS TOTAL  FROM VWMOVBANCO WHERE (vwMOVBANCO.COD_CTACOR=:CODCTACOR)  AND ((VER<>'+#39+'1'+#39+') OR (VER IS NULL))   AND (COBRANCA='+#39+'CHEQUE'+#39+') AND (TIPOOP='+#39+'SAIDA'+#39+') ');
-           XTabelaAux2.ParamByName('CODCTACOR').AsString:=DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsString;
+           //XTabelaAux2.SQL.Add('SELECT SUM(VWMOVBANCO.VALOR) AS TOTAL  FROM VWMOVBANCO WHERE (vwMOVBANCO.COD_CTACOR=:CODCTACOR)  AND ((VER<>'+#39+'1'+#39+') OR (VER IS NULL))   AND (COBRANCA='+#39+'CHEQUE'+#39+') AND (TIPOOP='+#39+'SAIDA'+#39+') ');
+           //XTabelaAux2.ParamByName('CODCTACOR').AsString:=DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsString;
 
            If TCConsultCH.ActiveTab=0
            Then Begin
                XTabelaAux1.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'N'+#39+') AND (VWMOVBANCO.DTVENC<=:DTVENC) ');
                XTabelaAux1.ParamByName('DTVENC').AsDate:=Date();
-               XTabelaAux2.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'N'+#39+') AND (VWMOVBANCO.DTVENC<=:DTVENC) ');
-               XTabelaAux2.ParamByName('DTVENC').AsDate:=Date();
+               //XTabelaAux2.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'N'+#39+') AND (VWMOVBANCO.DTVENC<=:DTVENC) ');
+               //XTabelaAux2.ParamByName('DTVENC').AsDate:=Date();
            End;
 
            If TCConsultCH.ActiveTab=1
            Then Begin
                XTabelaAux1.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'S'+#39+')  ');
-               XTabelaAux2.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'S'+#39+')  ');
+               //XTabelaAux2.SQL.Add(' AND (VWMOVBANCO.FECH='+#39+'S'+#39+')  ');
            End;
 
            If TCConsultCH.ActiveTab=2
            Then Begin
                XTabelaAux1.SQL.Add(' AND ((VWMOVBANCO.FECH='+#39+'N'+#39+') OR (VWMOVBANCO.FECH IS NULL)) ');
-               XTabelaAux2.SQL.Add(' AND ((VWMOVBANCO.FECH='+#39+'N'+#39+') OR (VWMOVBANCO.FECH IS NULL)) ');
+               //XTabelaAux2.SQL.Add(' AND ((VWMOVBANCO.FECH='+#39+'N'+#39+') OR (VWMOVBANCO.FECH IS NULL)) ');
            End;
 
            If TipoCons='NUMCHEQUE'
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwmovbanco.numcheque=:NUMCHEQUE)');
                    XTabelaAux1.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwmovbanco.numcheque=:NUMCHEQUE)');
-                   XTabelaAux2.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwmovbanco.numcheque=:NUMCHEQUE)');
+                   //XTabelaAux2.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
            End;
            If TipoCons='ONUMCHEQUE'
            Then Begin
@@ -279,8 +279,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwmovbanco.dtlanc=:DTLANC)');
                    XTabelaAux1.ParamByName('DTLANC').AsString:=EDLANC.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtlanc=:DTLANC)');
-                   XTabelaAux2.ParamByName('DTLANC').AsString:=EDLANC.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtlanc=:DTLANC)');
+                   //XTabelaAux2.ParamByName('DTLANC').AsString:=EDLANC.Text;
            End;
            If TipoCons='OLANCAMENTO'
            Then Begin
@@ -290,8 +290,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwmovbanco.dtvenc=:DTVENC)');
                    XTabelaAux1.ParamByName('DTVENC').AsString:=EDVENC.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtvenc=:DTVENC)');
-                   XTabelaAux2.ParamByName('DTVENC').AsString:=EDVENC.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtvenc=:DTVENC)');
+                   //XTabelaAux2.ParamByName('DTVENC').AsString:=EDVENC.Text;
            End;
            If TipoCons='OVENCIMENTO'
            Then Begin
@@ -302,8 +302,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwmovbanco.dtmov=:DTMOV)');
                    XTabelaAux1.ParamByName('DTMOV').AsString:=EdDtMov.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtmov=:DTMOV)');
-                   XTabelaAux2.ParamByName('DTMOV').AsString:=EdDtMov.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwmovbanco.dtmov=:DTMOV)');
+                   //XTabelaAux2.ParamByName('DTMOV').AsString:=EdDtMov.Text;
            End;
            If TipoCons='OMOVIMENTO'
            Then Begin
@@ -313,7 +313,7 @@ Begin
            If TipoCons='HISTORICO'            {(upper('+XCampo+') like upper('+#39+EdNome.Text+'%'+#39+'))}
            Then Begin
               	XTabelaAux1.SQL.Add(' AND (upper(vwmovbanco.historico) like upper('+#39+EdHist.Text+'%'+#39+'))');
-              	XTabelaAux2.SQL.Add(' AND (upper(vwmovbanco.historico) like upper('+#39+EdHist.Text+'%'+#39+'))');
+              	//XTabelaAux2.SQL.Add(' AND (upper(vwmovbanco.historico) like upper('+#39+EdHist.Text+'%'+#39+'))');
 //                  	XTabelaAux1.SQL.Add(' AND (upper(vwmovbanco.historico) like upper('+#39+EdHistorico.Text+'%'+#39+'))');
 //                  	XTabelaAux2.SQL.Add(' AND (upper(vwmovbanco.historico) like upper('+#39+EdHistorico.Text+'%'+#39+'))');
            End;
@@ -328,43 +328,43 @@ Begin
            End;
 
            XTabelaAux1.SQL.Text;
-           XTabelaAux2.SQL.Text;
+           //XTabelaAux2.SQL.Text;
 
            XTabelaAux1.Open;
-           XTabelaAux2.Open;
+           //XTabelaAux2.Open;
 
-           EDTotal.ValueNumeric:=XTabelaAux2.FieldByName('TOTAL').AsCurrency;
+           //EDTotal.ValueNumeric:=XTabelaAux2.FieldByName('TOTAL').AsCurrency;
        End
        Else Begin
            XTabelaAux1.SQL.Add(' SELECT * FROM VWCHEQUEREC ');
-           XTabelaAux2.SQL.Add(' SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC ');
+           //XTabelaAux2.SQL.Add(' SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC ');
 
            If TCConsultCH.ActiveTab=0
            Then Begin
-               XTabelaAux1.SQL.Add('  WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH<>'+#39+'S'+#39+') OR (FECH IS NULL)) ');
+               XTabelaAux1.SQL.Add('  WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH = '+#39+'N'+#39+')) ');
                XTabelaAux1.ParamByName('DTVENC').AsDate:=Date();
-               XTabelaAux2.SQL.Add('  WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH<>'+#39+'S'+#39+') OR (FECH IS NULL)) ');
-               XTabelaAux2.ParamByName('DTVENC').AsDate:=Date();
+               //XTabelaAux2.SQL.Add('  WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH = '+#39+'N'+#39+')) ');
+               //XTabelaAux2.ParamByName('DTVENC').AsDate:=Date();
            End;
 
            If TCConsultCH.ActiveTab=1
            Then Begin
                XTabelaAux1.SQL.Add('  WHERE  (FECH='+#39+'S'+#39+') ');
-               XTabelaAux2.SQL.Add('  WHERE  (FECH='+#39+'S'+#39+') ');
+               //XTabelaAux2.SQL.Add('  WHERE  (FECH='+#39+'S'+#39+') ');
            End;
 
            If TCConsultCH.ActiveTab=2
            Then Begin
-               XTabelaAux1.SQL.Add(' WHERE (FECH<>'+#39+'S'+#39+') ');
-               XTabelaAux2.SQL.Add(' WHERE (FECH<>'+#39+'S'+#39+') ');
+               XTabelaAux1.SQL.Add(' WHERE (FECH = '+#39+'N'+#39+') ');
+               //XTabelaAux2.SQL.Add(' WHERE (FECH = '+#39+'N'+#39+') ');
            End;
 
            If TipoCons='NUMCHEQUE'
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwchequerec.numcheque=:NUMCHEQUE)');
                    XTabelaAux1.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwchequerec.numcheque=:NUMCHEQUE)');
-                   XTabelaAux2.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwchequerec.numcheque=:NUMCHEQUE)');
+                   //XTabelaAux2.ParamByName('NUMCHEQUE').AsString:=EDNUMCHQ.Text;
            End;
            If TipoCons='ONUMCHEQUE'
            Then Begin
@@ -375,8 +375,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwchequerec.dtlanc=:DTLANC)');
                    XTabelaAux1.ParamByName('DTLANC').AsString:=EDLANC.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwchequerec.dtlanc=:DTLANC)');
-                   XTabelaAux2.ParamByName('DTLANC').AsString:=EDLANC.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwchequerec.dtlanc=:DTLANC)');
+                   //XTabelaAux2.ParamByName('DTLANC').AsString:=EDLANC.Text;
            End;
            If TipoCons='OLANCAMENTO'
            Then Begin
@@ -387,8 +387,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwchequerec.dtvenc=:DTVENC)');
                    XTabelaAux1.ParamByName('DTVENC').AsString:=EDVENC.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwchequerec.dtvenc=:DTVENC)');
-                   XTabelaAux2.ParamByName('DTVENC').AsString:=EDVENC.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwchequerec.dtvenc=:DTVENC)');
+                   //XTabelaAux2.ParamByName('DTVENC').AsString:=EDVENC.Text;
            End;
            If TipoCons='OVENCIMENTO'
            Then Begin
@@ -399,8 +399,8 @@ Begin
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND (vwchequerec.dtmov=:DTMOV)');
                    XTabelaAux1.ParamByName('DTMOV').AsString:=EdDtMov.Text;
-                  	XTabelaAux2.SQL.Add(' AND (vwchequerec.dtmov=:DTMOV)');
-                   XTabelaAux2.ParamByName('DTMOV').AsString:=EdDtMov.Text;
+                  	//XTabelaAux2.SQL.Add(' AND (vwchequerec.dtmov=:DTMOV)');
+                   //XTabelaAux2.ParamByName('DTMOV').AsString:=EdDtMov.Text;
            End;
            If TipoCons='OMOVIMENTO'
            Then Begin
@@ -409,7 +409,7 @@ Begin
            If TipoCons='HISTORICO'
            Then Begin
                   	XTabelaAux1.SQL.Add(' AND ((upper(vwchequerec.historico) like upper('+#39+EdHist.Text+'%'+#39+')))');
-                  	XTabelaAux2.SQL.Add(' AND ((upper(vwchequerec.historico) like upper('+#39+EdHist.Text+'%'+#39+')))');
+                  	//XTabelaAux2.SQL.Add(' AND ((upper(vwchequerec.historico) like upper('+#39+EdHist.Text+'%'+#39+')))');
            End;
            If TipoCons='OHISTORICO'
            Then Begin
@@ -417,12 +417,12 @@ Begin
            End;
 
            XTabelaAux1.SQL.Text;
-           XTabelaAux2.SQL.Text;
+           //XTabelaAux2.SQL.Text;
 
            XTabelaAux1.Open;
-           XTabelaAux2.Open;
+           //XTabelaAux2.Open;
 
-           EDTotal.ValueNumeric:=XTabelaAux2.FieldByName('TOTAL').AsCurrency;
+           //EDTotal.ValueNumeric:=XTabelaAux2.FieldByName('TOTAL').AsCurrency;
        End;
    Except
    End
@@ -446,13 +446,13 @@ Begin
 			 	//TOTALIZA CHEQUES
             	DMFINANC.TAlx.Close;
             	DMFINANC.TAlx.SQL.Clear;
-            	DMFINANC.TAlx.SQL.Add('SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH<>'+#39+'S'+#39+') OR (FECH IS NULL))');
+            	DMFINANC.TAlx.SQL.Add('SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH = '+#39+'N'+#39+'))');
 				DMFINANC.TAlx.ParamByName('DTVENC').AsString:=DateToStr(Date());
 			 	DMFINANC.TAlx.Open;
           		EDTotal.ValueNumeric:=DMFINANC.TAlx.FieldByName('TOTAL').AsCurrency;
             	DMBANCO.WChequeRec.Close;
             	DMBANCO.WChequeRec.SQL.Clear;
-            	DMBANCO.WChequeRec.SQL.Add('SELECT * FROM VWCHEQUEREC WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH<>'+#39+'S'+#39+') OR (FECH IS NULL))');
+            	DMBANCO.WChequeRec.SQL.Add('SELECT * FROM VWCHEQUEREC WHERE (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH = '+#39+'N'+#39+'))');
             	DMBANCO.WChequeRec.ParamByName('DTVENC').AsString:=DateToStr(Date());
             	DMBANCO.WChequeRec.Open;
         	End;
@@ -473,10 +473,10 @@ Begin
 			 	//TOTALIZA CHEQUES
             	DMFINANC.TAlx.Close;
             	DMFINANC.TAlx.SQL.Clear;
-            	DMFINANC.TAlx.SQL.Add('SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC WHERE (FECH<>'+#39+'S'+#39+')');
+            	DMFINANC.TAlx.SQL.Add('SELECT SUM(VWCHEQUEREC.VALOR) AS TOTAL FROM VWCHEQUEREC WHERE (FECH = '+#39+'N'+#39+')');
 			 	DMFINANC.TAlx.Open;
           		EDTotal.ValueNumeric:=DMFINANC.TAlx.FieldByName('TOTAL').AsCurrency;
-               FiltraTabela(DMBANCO.WChequeRec, 'VWCHEQUEREC', 'COD_LOJA', '', ' (FECH<>'+#39+'S'+#39+') ORDER BY VWCHEQUEREC.COD_CHEQUEREC');
+               FiltraTabela(DMBANCO.WChequeRec, 'VWCHEQUEREC', 'COD_LOJA', '', ' (FECH = '+#39+'N'+#39+') ORDER BY VWCHEQUEREC.COD_CHEQUEREC');
         	End;
        End;
    except

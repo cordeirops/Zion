@@ -351,6 +351,9 @@ type
     LiquidarSelecionadas2: TMenuItem;
     MarcarContaparaAntecipao1: TMenuItem;
     N8: TMenuItem;
+    Bevel7: TBevel;
+    Label55: TLabel;
+    LTotSemJurMultaCalc: TLabel;
 
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -978,6 +981,7 @@ Var
    XPARACONTA, flag: Integer;
 Begin
    LTotJurMultaCalc.Caption:='R$ 0,00';
+   LTotSemJurMultaCalc.Caption:='R$ 0,00';
    LTotMultaCalc.Caption:='R$ 0,00';
    LTotJuroCalc.Caption:='R$ 0,00';
    LTotMulta.Caption:='R$ 0,00';
@@ -1175,6 +1179,7 @@ Begin
    End;
    DBGridCadastroPadrao.DataSource.DataSet.EnableControls;
    LTotJurMultaCalc.Caption:='R$ '+FormatFloat('0.00', XTOTCORR);
+   LTotSemJurMultaCalc.Caption:='R$ '+FormatFloat('0.00', XTOTACUMLADO);
    LTotMultaCalc.Caption:='R$ '+FormatFloat('0.00', XTOTMULTA);
    LTotJuroCalc.Caption:='R$ '+FormatFloat('0.00', XTOTJUROS);
    QRLabel85.Caption:=LTotJurMultaCalc.Caption;
@@ -2347,9 +2352,10 @@ var
 	xCodCedenteBlt, xDigCedenteBlt, xCodCarteiraBlt, xNossoNumBlt, xProxRemessa: String;
    xCpfCnpjExibicao, xNomeExibicao: String;
 Begin
-	xCodCtaCor := DMBANCO.TCtaCor.FieldByName('COD_CTACOR').AsInteger;
-   FiltraTabela(DMBANCO.TAgencia, 'AGENCIA', 'COD_AGENCIA', DMBANCO.TCtaCor.FieldByName('COD_AGENCIA').AsString, '');
-   
+	xCodCtaCor := DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger;
+   FiltraTabela(DMBANCO.TAgencia, 'AGENCIA', 'COD_AGENCIA', IntToStr(xCodCtaCor), '');
+   FiltraTabela(DMBANCO.TCtaCor, 'ctacor', 'cod_ctacor', IntToStr(xCodCtaCor),'');
+
 	// Edmar - 07/06/2016 - Verifica se a conta está configurada da nova forma.
    if (DMBANCO.TCtaCor.FieldByName('CODCEDENTEBLT_REG').AsString <> '') then
    begin
@@ -2396,6 +2402,17 @@ Begin
       	ACBrBoleto.NomeArqRemessa := XNomeRemessa;
    end;
 
+   if DMBANCO.TCtaCor.FieldByName('CPFCNPJ_BOLETO').AsString <> ''
+   Then Begin
+       xCpfCnpjExibicao    := DMBANCO.TCtaCor.FieldByName('CPFCNPJ_BOLETO').AsString;
+       xNomeExibicao       := DMBANCO.TCtaCor.FieldByName('nome_exibicao_boleto').AsString;
+
+   End
+   Else Begin
+       xCpfCnpjExibicao := DMMACS.TEmpresa.FieldByName('CNPJ').AsString;
+       xNomeExibicao    := DMMACS.TEmpresa.FieldByName('razao_social').AsString;
+   End;
+
    if DMBANCO.WAgencia.FieldByName('NUMBANC').AsString = '756' then
    begin // SICOOB
    	{
@@ -2418,11 +2435,6 @@ Begin
 
     	ACBrBoleto.Banco.Digito := 0;
     	ACBrBoleto.Banco.Numero;
-       
-       if DMBANCO.TCtaCor.FieldByName('CPFCNPJ_BOLETO').AsString <> '' then
-           xCpfCnpjExibicao := DMBANCO.TCtaCor.FieldByName('CPFCNPJ_BOLETO').AsString
-       else
-           xCpfCnpjExibicao := DMMACS.TEmpresa.FieldByName('CNPJ').AsString;
 
        if DMBANCO.TCtaCor.FieldByName('NOME_EXIBICAO_BOLETO').AsString <> '' then
            xNomeExibicao := DMBANCO.TCtaCor.FieldByName('NOME_EXIBICAO_BOLETO').AsString
@@ -2446,7 +2458,7 @@ Begin
            ACBrBoleto.Cedente.Nome := DMBANCO.TCtaCor.FieldByName('NOME_EXIBICAO_BOLETO').AsString
        else
    	    ACBrBoleto.Cedente.Nome := DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString;}
-       
+
     	ACBrBoleto.Cedente.Modalidade := xModalidade; // DMBANCO.TCtaCor.FieldByName('CODEMPRESABLT').AsString;
        if DMBANCO.TCtaCor.FieldByName('COBRANCA_BANCOOB').AsString = '1' then
        begin
@@ -2469,7 +2481,14 @@ Begin
    if DMBANCO.WAgencia.FieldByName('NUMBANC').AsString = '104' then//CAIXA
    begin
        case (DMBANCO.WAgencia.FieldByName('NUMBANC').AsInteger) of
-       	104 : ACBrBoleto.Banco.TipoCobranca := cobCaixaEconomica;
+       	104 :
+              begin
+                  ACBrBoleto.Banco.TipoCobranca := cobCaixaEconomica;
+                  ACBrBoleto.LayoutRemessa := c240;
+                  //codigo do cedente com 7 digitos
+                  ACBrBoleto.Banco.LayoutVersaoArquivo := 107;
+                  ACBrBoleto.Banco.LayoutVersaoLote := 67;
+              end;
        	else
            	ShowMessage('Banco não encontrado!');
        end;
@@ -2481,9 +2500,17 @@ Begin
    		//Edmar - 26/08/2014 - Senão, usa o caminho padrão
 			xCaminhoRemessa := 'C:\MZR\Arquivos\Remessa';
 
-       ACBrBoleto.Banco.Digito := 0;
+       ACBrBoleto.Banco.Digito := StrToIntDef(DMBANCO.TCtaCor.FieldByName('DIGAGENCBLT').AsString, 0);
+       if DMBANCO.TCtaCor.FieldByName('DIGAGENCBLT').AsString = '' then
+       begin
+          ACBrBoleto.Banco.Digito := 0;
+       end;
+
        ACBrBoleto.Banco.Numero;
-   	ACBrBoleto.Cedente.Nome := DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString;
+//   	ACBrBoleto.Cedente.Nome := DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString;
+       ACBrBoleto.Cedente.CNPJCPF := xCpfCnpjExibicao;
+       ACBrBoleto.Cedente.Nome := xNomeExibicao;
+
     	ACBrBoleto.Cedente.Modalidade := xModalidade; // DMBANCO.TCtaCor.FieldByName('CODEMPRESABLT').AsString;
 
        if xDigCedenteBlt {DMBANCO.TCtaCor.FieldByName('DIGCODCEDENTEBLT').AsString} <> '' then
@@ -2552,7 +2579,8 @@ Begin
    	Mensagem('A V I S O', 'Os boletos '+xConcBltVencidos+'não foram incluídos na remessa por já estarem vencidos.','', 1, 1, true, 'I');
 
    try
-   	 ACBrBoleto.GerarRemessa(0);
+   	 //ACBrBoleto.GerarRemessa(0);
+        ACBrBoleto.GerarRemessa(StrToInt(xProxRemessa))
    except
    end;
 
@@ -2577,10 +2605,10 @@ Begin
    if StrToInt(xProxRemessa) <=0 Then
    	xProxRemessa := '1'
    else
-   	if StrToInt(xProxRemessa) >= 99 then
-   		xProxRemessa := '1'
-   	else
-    		xProxRemessa := IntToStr(StrToInt(xProxRemessa) + 1);
+   	//if StrToInt(xProxRemessa) >= 99 then
+   	//	xProxRemessa := '1'
+   	//else
+       xProxRemessa := IntToStr(StrToInt(xProxRemessa) + 1);
 
    try
    	MDO.Query.Close;
@@ -2705,9 +2733,11 @@ begin
            if (DMFINANC.TAlx.FieldByName('DIAS_PROTESTO').AsString <> '-1')
                AND (DMFINANC.TAlx.FieldByName('DIAS_PROTESTO').AsString <> '') then
            begin
-               Titulo.DataProtesto := DMFINANC.TAlx.FieldByName('DIAS_PROTESTO').AsDateTime;
+             Titulo.DataProtesto := IncDay(Titulo.Vencimento, DMFINANC.TAlx.FieldByName('DIAS_PROTESTO').AsInteger);
+             Titulo.TipoDiasProtesto := diCorridos;
            end
        end;
+
        xEnderecoCompletoAux := Copy(TiraAcentos(DMFINANC.TAlx.FieldByName('endereco').AsString), 0, 36-Length(Trim(DMFINANC.TAlx.FieldByName('ENDNUMERO').AsString)))+' N.'+DMFINANC.TAlx.FieldByName('ENDNUMERO').AsString;
        Titulo.Sacado.Logradouro := xEnderecoCompletoAux;
        Titulo.Sacado.Bairro := TiraAcentos(DMFINANC.talx.FieldByName('bairro').AsString);

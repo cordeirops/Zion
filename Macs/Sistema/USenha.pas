@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   UPadrao, StdCtrls, Mask, ColorMaskEdit, TFlatHintUnit, Buttons, jpeg,
-  ExtCtrls, DrLabel, TFlatButtonUnit, TFlatEditUnit, frxpngimage;
+  ExtCtrls, DrLabel, TFlatButtonUnit, TFlatEditUnit, frxpngimage, pngimage;
 
 type
   TFSenha = class(TFPadrao)

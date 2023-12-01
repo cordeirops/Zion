@@ -1866,9 +1866,9 @@ begin
        //Then Begin
            If PVenc.Visible = true
            Then Begin
-               DMBANCO.WChequeRec.SQL.Add(' AND (VWCHEQUEREC.FECH<>'+#39+'S'+#39+') AND (VWCHEQUEREC.DTVENC<=:DTVENC) ');
+               DMBANCO.WChequeRec.SQL.Add(' AND (VWCHEQUEREC.FECH = '+#39+'N'+#39+') AND (VWCHEQUEREC.DTVENC<=:DTVENC) ');
                DMBANCO.WChequeRec.ParamByName('DTVENC').AsDate:=Date();
-               DMFINANC.TAlx.SQL.Add(' and (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH<>'+#39+'S'+#39+') OR (FECH IS NULL)) ');
+               DMFINANC.TAlx.SQL.Add(' and (VWCHEQUEREC.DTVENC<=:DTVENC) AND ((FECH = '+#39+'N'+#39+')) ');
                DMFINANC.TAlx.ParamByName('DTVENC').AsDate:=Date();
            End;
            If PMov.Visible = true

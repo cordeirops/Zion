@@ -43,6 +43,8 @@ type
     Label1: TLabel;
     edCst: TEdit;
     lbDescCst: TLabel;
+    Label2: TLabel;
+    EdDevAliqST: TFloatEdit;
     procedure EdCodigoDevolKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure EdDescDevolKeyDown(Sender: TObject; var Key: Word;
@@ -364,6 +366,7 @@ begin
            DMMACS.TMP.FieldByName('VLR9').AsCurrency   := EdDevAliqIIcms.ValueNumeric; //Aliquota Icms
            DMMACS.TMP.FieldByName('VLR10').AsCurrency  := EdDevAliqIpi.ValueNumeric; //Aliquota Ipi
            DMMACS.TMP.FieldByName('VLR11').AsCurrency  := (EdDevVlrTot.ValueNumeric / xXValorPedidoDevolvido) * 100;
+           DMMACS.TMP.FieldByName('VLR12').AsCurrency  := EdDevAliqST.ValueNumeric;
            DMMACS.TMP.Post;
 			
            DMMACS.Transaction.CommitRetaining;
@@ -416,6 +419,7 @@ begin
        EdDevVlrSubst.Text := '0,00';
        EdDevAliqIpi.Text := '0,00';
        EdDevIpi.Text := '0,00';
+       EdDevAliqST.Text := '0,00';
        lbCst.Caption := '0';
        lbDescCst.Caption := '';
        edCst.Text := '';
@@ -634,6 +638,7 @@ begin
        EdDevVlrSubst.Text := '0,00';
        EdDevAliqIpi.Text := '0,00';
        EdDevIpi.Text := '0,00';
+       EdDevAliqST.Text := '0,00';       
 
        FiltraItensDevolvidos;
        FiltraItensDevolucao('', '');

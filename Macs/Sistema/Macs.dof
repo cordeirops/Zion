@@ -124,6 +124,8 @@ DLL=0
 Locale=1046
 CodePage=1252
 [Excluded Packages]
+c:\program files (x86)\borland\delphi7\Projects\Bpl\FISCAL.bpl=(untitled)
+c:\program files (x86)\borland\delphi7\Bin\dclindy70.bpl=Internet Direct (Indy) for D7 Property and Component Editors
 C:\Program Files (x86)\Developer Express Inc\ExpressLayout Control\Delphi 7\Lib\dxLayoutControldxEditAdaptersD7.bpl=ExpressLayoutControl Adapters for ExpressEditors Library by Developer Express Inc.
 C:\Program Files (x86)\Developer Express Inc\ExpressLayout Control\Delphi 7\Lib\dxLayoutControlcxEditAdaptersD7.bpl=ExpressLayoutControl Adapters for ExpressEditors Library 4 by Developer Express Inc.
 C:\Program Files (x86)\Developer Express Inc\ExpressPrinting System\Delphi 7\Lib\dxPSPrVwAdvD7.bpl=ExpressPrinting System Advanced Preview Window by Developer Express Inc.

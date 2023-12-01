@@ -10,7 +10,7 @@ object FrmBusca: TFrmBusca
   object LTextoBusca: TLabel
     Left = 1
     Top = 0
-    Width = 38
+    Width = 37
     Height = 16
     Caption = 'Texto'
     Font.Charset = ANSI_CHARSET

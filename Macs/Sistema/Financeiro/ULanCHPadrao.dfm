@@ -240,7 +240,7 @@ inherited FLanCHPadrao: TFLanCHPadrao
       object Label3: TLabel
         Left = 17
         Top = 112
-        Width = 83
+        Width = 79
         Height = 18
         Caption = 'Vlr. Total:'
         Font.Charset = ANSI_CHARSET
@@ -896,6 +896,7 @@ inherited FLanCHPadrao: TFLanCHPadrao
       ReadOnly = True
       TabOrder = 4
       Text = '0,00'
+      Visible = False
       ValueFormat = '#,##0.00'
       ValueInteger = 0
     end

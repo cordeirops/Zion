@@ -1461,15 +1461,6 @@ begin
                begin
                	if DMESTOQUE.TSlave.FieldByName('OPERACAO').AsString <> 'COMP' then
                    begin//Edmar - 12/01/2015 - Se o produto em questão não for um componente
-                   	//executa, o processo normalmente
-                       
-                   	//Edmar - 20/10/2014 - Atualiza o estoque aumentando a quantidade do produto com base no que foi produzido
-                       MDO.Query.Close;
-                       MDO.Query.SQL.Clear;
-                       MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO +'+DMESTOQUE.TSlave.FieldByName('QTD').AsString+' WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-                       MDO.Query.ParamByName('ESTOQUE').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
-                       MDO.Query.ExecSQL;
-
                        //Edmar - 28/10/2014 - Chama função que lança o estoque para correção
                        LancaEstoqueCorrecao('E', 'F', DMESTOQUE.TSlave.FieldByName('QTD').AsFloat, DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger);
                            
@@ -1519,13 +1510,6 @@ begin
                        DMESTOQUE.Alx1.SQL.Add(' SELECT ITPRODORD.COD_ESTOQUE, ITPRODORD.QTD, ITPRODORD.OPERACAO FROM ITPRODORD WHERE ITPRODORD.COD_ITPRODORD = :ITEM ');
                        DMESTOQUE.Alx1.ParamByName('ITEM').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsInteger;
                        DMESTOQUE.Alx1.Open;
-
-                       //Edmar - 12/01/2015 - Atualiza o estoque do componente adicional
-                       MDO.Query.Close;
-                       MDO.Query.SQL.Clear;
-                       MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO - '+ DMESTOQUE.Alx1.FieldByName('QTD').AsString +' WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-                       MDO.Query.ParamByName('ESTOQUE').AsInteger := DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsInteger;
-                       MDO.Query.ExecSQL;
 
                        LancaEstoqueCorrecao('S', 'F', DMESTOQUE.Alx1.FieldByName('QTD').AsFloat, DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsInteger);
 
@@ -1598,12 +1582,6 @@ begin
 	try
 		try
                 xQtdBaixar:= xQuery.FieldByName('QUANTIDADE').AsFloat * XQtde;
-                MDO.Query.Close;
-                MDO.Query.SQL.Clear;
-                MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO - '+FloatToStr(xQtdBaixar)+' WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-                MDO.Query.ParamByName('ESTOQUE').AsInteger := xQuery.FieldByName('COD_ESTOQUE').AsInteger;
-                MDO.Query.ExecSQL;
-
                 LancaEstoqueCorrecao('S', 'F', (xQuery.FieldByName('QUANTIDADE').AsFloat * XQtde), xQuery.FieldByName('COD_ESTOQUE').AsInteger);
 		Except
 			MessageDlg('Ocorreu um erro ao atualizar o estoque de um componente. Será necessário atualizar o estoque manualmente.', mtWarning, [mbOK], 0);
@@ -1620,16 +1598,6 @@ end;
 procedure TFOrdemProduc.AumentaEstoqueComponente(xQuery: TIBQuery; XQtde: Real);
 begin
 	try
-   	MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO + (:QTDNEC * :QTDPROD) WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-       //QUANTIDADE NECESSÁRIA PARA PRODUZIR O ITEM
-       MDO.Query.ParamByName('QTDNEC').AsFloat := xQuery.FieldByName('QUANTIDADE').AsFloat;
-       //QUANTIDADE PRODUZIDA DO ITEM
-       MDO.Query.ParamByName('QTDPROD').AsFloat := XQtde;
-       MDO.Query.ParamByName('ESTOQUE').AsInteger := xQuery.FieldByName('COD_ESTOQUE').AsInteger;
-       MDO.Query.ExecSQL;
-       
        //Edmar - 04/02/2015 - Chama função que lança o estoque para correção
        LancaEstoqueCorrecao('E', 'C', (xQuery.FieldByName('QUANTIDADE').AsFloat * XQtde), xQuery.FieldByName('COD_ESTOQUE').AsInteger);
    except
@@ -1687,15 +1655,6 @@ begin
                begin
                	if DMESTOQUE.TSlave.FieldByName('OPERACAO').AsString <> 'COMP' then
                    begin//Edmar - 12/01/2015 - Se o produto em questão não for um componente
-                   	//executa, o processo normalmente
-                   	//Edmar - 20/10/2014 - Atualiza o estoque retornando a quantidade do produto com base no que foi produzido
-                       DMESTOQUE.Alx.Close;
-                       DMESTOQUE.Alx.SQL.Clear;
-                       DMESTOQUE.Alx.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO - :QTDPROD WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-                       DMESTOQUE.Alx.ParamByName('QTDPROD').AsFloat := DMESTOQUE.TSlave.FieldByName('QTD').AsFloat;
-                       DMESTOQUE.Alx.ParamByName('ESTOQUE').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
-                       DMESTOQUE.Alx.ExecSQL;
-
                        //Edmar - 28/10/2014 - Chama função que lança o estoque para correção
                        LancaEstoqueCorrecao('S', 'C', DMESTOQUE.TSlave.FieldByName('QTD').AsFloat, DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger);                   
 
@@ -1744,14 +1703,6 @@ begin
                        DMESTOQUE.Alx1.SQL.Add(' SELECT ITPRODORD.COD_ESTOQUE, ITPRODORD.QTD, ITPRODORD.OPERACAO FROM ITPRODORD WHERE ITPRODORD.COD_ITPRODORD = :ITEM ');
                        DMESTOQUE.Alx1.ParamByName('ITEM').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsInteger;
                        DMESTOQUE.Alx1.Open;
-
-                       //Edmar - 12/01/2015 - Atualiza o estoque do componente adicional
-                       MDO.Query.Close;
-                       MDO.Query.SQL.Clear;
-                       MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO + :QTDPROD WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-                       MDO.Query.ParamByName('QTDPROD').AsFloat := DMESTOQUE.Alx1.FieldByName('QTD').AsFloat;
-                       MDO.Query.ParamByName('ESTOQUE').AsInteger := DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsInteger;
-                       MDO.Query.ExecSQL;
 
                        LancaEstoqueCorrecao('E', 'C', DMESTOQUE.Alx1.FieldByName('QTD').AsFloat, DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsInteger);
 

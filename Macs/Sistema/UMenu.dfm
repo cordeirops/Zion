@@ -1,13 +1,13 @@
 object FMenu: TFMenu
-  Left = -8
-  Top = -8
+  Left = 6
+  Top = 4
   Align = alClient
   AutoScroll = False
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Menu'
-  ClientHeight = 617
-  ClientWidth = 1280
-  Color = 7298822
+  ClientHeight = 344
+  ClientWidth = 940
+  Color = 5526569
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -2424,7 +2424,7 @@ object FMenu: TFMenu
           44.979166666666670000
           1510.770833333333000000
           2.645833333333333000
-          383.645833333333400000)
+          383.645833333333300000)
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
@@ -2492,7 +2492,7 @@ object FMenu: TFMenu
           39.687500000000000000
           7.937500000000000000
           5.291666666666667000
-          66.145833333333340000)
+          66.145833333333330000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -2521,7 +2521,7 @@ object FMenu: TFMenu
         Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
-          899.583333333333400000
+          899.583333333333300000
           5.291666666666667000
           230.187500000000000000)
         Alignment = taLeftJustify
@@ -2717,7 +2717,7 @@ object FMenu: TFMenu
         Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
-          1772.708333333334000000
+          1772.708333333333000000
           0.000000000000000000
           121.708333333333300000)
         Alignment = taRightJustify
@@ -2750,7 +2750,7 @@ object FMenu: TFMenu
           39.687500000000000000
           5.291666666666667000
           0.000000000000000000
-          60.854166666666680000)
+          60.854166666666670000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -2818,7 +2818,7 @@ object FMenu: TFMenu
           39.687500000000000000
           1457.854166666667000000
           5.291666666666667000
-          76.729166666666680000)
+          76.729166666666670000)
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
@@ -2849,7 +2849,7 @@ object FMenu: TFMenu
           39.687500000000000000
           1050.395833333333000000
           5.291666666666667000
-          76.729166666666680000)
+          76.729166666666670000)
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
@@ -2880,7 +2880,7 @@ object FMenu: TFMenu
           39.687500000000000000
           1815.041666666667000000
           5.291666666666667000
-          76.729166666666680000)
+          76.729166666666670000)
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
@@ -3013,7 +3013,7 @@ object FMenu: TFMenu
   object PTitulo: TFlatPanel
     Left = 0
     Top = 0
-    Width = 1280
+    Width = 940
     Height = 51
     Caption = '  MZR Zion'
     Font.Charset = ANSI_CHARSET
@@ -3042,7 +3042,7 @@ object FMenu: TFMenu
       ParentFont = False
     end
     object PAtalhosAdicionais: TFlatPanel
-      Left = 1136
+      Left = 796
       Top = 1
       Width = 143
       Height = 49
@@ -3725,8 +3725,8 @@ object FMenu: TFMenu
   end
   object PRodape: TFlatPanel
     Left = 0
-    Top = 592
-    Width = 1280
+    Top = 319
+    Width = 940
     Height = 25
     Color = 4142595
     ColorHighLight = 4142595
@@ -3804,8 +3804,8 @@ object FMenu: TFMenu
   end
   object Cripto: TCriptografa
     Key = 'A20JCGX'
-    Left = 960
-    Top = 392
+    Left = 143
+    Top = 384
   end
   object Extenso: TExtenso
     Moeda = 'real'
@@ -3814,16 +3814,16 @@ object FMenu: TFMenu
     PluralFracao = 'centavos'
     Numero = '52,00'
     Extenso = 'cinq'#252'enta e dois reais '
-    Left = 1000
-    Top = 392
+    Left = 183
+    Top = 384
   end
   object CriptBloqued: TCriptografa
     CriptoBin = '# 6SJ'
     CriptoHex = '232036534A'
     Key = 'KERB29'
     Text = 'teste'
-    Left = 928
-    Top = 392
+    Left = 111
+    Top = 384
   end
   object PrnCodBarra: TABarraPrinter
     Digito = '1'
@@ -3835,8 +3835,8 @@ object FMenu: TFMenu
     Codigo = '7898013180610'
     Largura = 10
     Comprimento = 50
-    Left = 928
-    Top = 432
+    Left = 111
+    Top = 424
   end
   object PrnEan8: TABarraPrinter
     Digito = '0'
@@ -3848,16 +3848,16 @@ object FMenu: TFMenu
     Codigo = '7898013180610'
     Largura = 10
     Comprimento = 50
-    Left = 928
-    Top = 464
+    Left = 111
+    Top = 456
   end
   object IdSMTP1: TIdSMTP
     Host = 'smtp.mzrsistemas.com'
     Password = 'spmzr771'
     SASLMechanisms = <>
     Username = 'suporte@mzrsistemas.com'
-    Left = 960
-    Top = 576
+    Left = 143
+    Top = 568
   end
   object IdMessage1: TIdMessage
     AttachmentEncoding = 'MIME'
@@ -3872,8 +3872,8 @@ object FMenu: TFMenu
     Recipients = <>
     ReplyTo = <>
     ConvertPreamble = True
-    Left = 928
-    Top = 576
+    Left = 111
+    Top = 568
   end
   object ABarraPrinter1: TABarraPrinter
     LinhaPrinter = 0
@@ -3883,8 +3883,8 @@ object FMenu: TFMenu
     Tipo = cdEAN13
     Largura = 0
     Comprimento = 0
-    Left = 928
-    Top = 496
+    Left = 111
+    Top = 488
   end
   object IdFTP1: TIdFTP
     IPVersion = Id_IPv4
@@ -3896,12 +3896,12 @@ object FMenu: TFMenu
     ProxySettings.ProxyType = fpcmNone
     ProxySettings.Port = 0
     ReadTimeout = 0
-    Left = 928
-    Top = 544
+    Left = 111
+    Top = 536
   end
   object IdAntiFreeze1: TIdAntiFreeze
-    Left = 928
-    Top = 608
+    Left = 111
+    Top = 600
   end
   object TSinc: TTimer
     Interval = 900000
@@ -3917,8 +3917,8 @@ object FMenu: TFMenu
     Tipo = cdEAN13
     Largura = 0
     Comprimento = 0
-    Left = 960
-    Top = 464
+    Left = 143
+    Top = 456
   end
   object ABarraPrinter2: TABarraPrinter
     LinhaPrinter = 0
@@ -3928,17 +3928,17 @@ object FMenu: TFMenu
     Tipo = cdEAN13
     Largura = 0
     Comprimento = 0
-    Left = 960
-    Top = 496
+    Left = 143
+    Top = 488
   end
   object XmlConfig: TXMLDocument
-    Left = 928
-    Top = 336
+    Left = 111
+    Top = 328
     DOMVendorDesc = 'MSXML'
   end
   object XmlCaminhoBanco: TXMLDocument
-    Left = 960
-    Top = 336
+    Left = 143
+    Top = 328
     DOMVendorDesc = 'MSXML'
   end
   object RvFaturas: TRvSystem
@@ -3954,8 +3954,8 @@ object FMenu: TFMenu
     SystemPrinter.UnitsFactor = 1.000000000000000000
     OnPrint = RvFaturasPrint
     OnBeforePrint = RvFaturasBeforePrint
-    Left = 928
-    Top = 224
+    Left = 111
+    Top = 216
   end
   object Menu: TMainMenu
     Left = 8
@@ -4560,12 +4560,8 @@ object FMenu: TFMenu
         end
       end
       object EntradasparaCorreo1: TMenuItem
-        Caption = 'Entradas para Corre'#231#227'o'
+        Caption = 'Lan'#231'amento de corre'#231#227'o de estoque'
         OnClick = EntradasparaCorreo1Click
-      end
-      object SadasparaCorreo1: TMenuItem
-        Caption = 'Sa'#237'das para Corre'#231#227'o'
-        OnClick = SadasparaCorreo1Click
       end
       object ContagemdeEstoque1: TMenuItem
         Caption = 'Contagem de Estoque'
@@ -4972,17 +4968,17 @@ object FMenu: TFMenu
     NATKeepAlive.IntervalMS = 0
     ProxySettings.ProxyType = fpcmNone
     ProxySettings.Port = 0
-    Left = 960
-    Top = 608
+    Left = 143
+    Top = 600
   end
   object PrintDialog1: TPrintDialog
     Options = [poPrintToFile]
-    Left = 961
-    Top = 224
+    Left = 144
+    Top = 216
   end
   object XMLDocument1: TXMLDocument
-    Left = 992
-    Top = 336
+    Left = 175
+    Top = 328
     DOMVendorDesc = 'MSXML'
   end
   object FTP: TIdFTP
@@ -4999,15 +4995,41 @@ object FMenu: TFMenu
   end
   object FDSCaixa: TfrDBDataSet
     DataSource = DMESTOQUE.DRel
-    Left = 1000
+    Left = 875
     Top = 63
   end
   object FSRel: TfrReport
     Dataset = FDSCaixa
     InitialZoom = pzDefault
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
-    Left = 1032
+    Left = 823
     Top = 64
     ReportForm = {18000000}
+  end
+  object Fds_Mdo_QConsulta: TfrDBDataSet
+    DataSource = MDO.DConsulta
+    Left = 943
+    Top = 63
+  end
+  object Fds_Mdo_Query1: TfrDBDataSet
+    DataSource = MDO.Ds01
+    Left = 943
+    Top = 111
+  end
+  object Fds_Mdo_Query2: TfrDBDataSet
+    DataSource = MDO.DS02
+    Left = 943
+    Top = 163
+  end
+  object Fds_Mdo_Query3: TfrDBDataSet
+    DataSource = MDO.DS03
+    Left = 943
+    Top = 215
+  end
+  object tControleMestre: TTimer
+    Interval = 600000
+    OnTimer = tControleMestreTimerTimer
+    Left = 944
+    Top = 312
   end
 end

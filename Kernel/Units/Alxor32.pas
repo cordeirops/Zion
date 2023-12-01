@@ -37,9 +37,12 @@ type
     **DECLARAÇÃO DE VARIAVEIS  **
     ***************************** }
 Var
+  xControleFechaTela: Boolean;
+  xCod_PedidoAdiantamento: Integer;
   xCod_PedidoPagamento: Integer;
   xTipoPedidoPagamento: String;
-  xResultadoPagamento: Boolean;
+  xResultadoPagamento: String;
+  xDataFechamento: String;
   XPATHEXE_CEPRUA: String;
   XmlCaminhoBanco: TXMLDocument; // Variaveis para controle de nodos do xml acima
   XUrlNoticias: String; // Variavel para armazenar urlda noticia selecionada
@@ -90,6 +93,10 @@ Var
   XVlr1, XVlr2, XVlr3, XVlr4, XVlr5: String;
   Flag: Boolean;
   XAlx: Integer;
+  XVersaoCompilacao: Integer;
+  XVersaoSistema: String;
+  XTimeoutMestre: Integer;
+  xNome_Cliente: String;
   // Variaveis utilizados para controles de pagamento
 
   // fim de variaveis de controle de pagamento
@@ -98,6 +105,7 @@ Var
     ************************** }
   // Alex 19/05/2017: Função Utilizada para iniciar o método de pamentos
 Function IniciaPagamento(xModulo: String; xCodigoModulo: Integer): Boolean;
+Function ListarPagamentosRealizados(xModulo: String; xCodigoModulo: Integer): Boolean;
 // Alex 31/05/2017: Cancelar os Pagamentos feitos e reabrir pedido
 Function IniciaCancelamento(xModulo: String; xCodigoModulo: Integer): Boolean;
 // Alex 31/05/2017: Verifica se os lançamentos podem realmente ser cancelados
@@ -249,6 +257,7 @@ function UserNamerede: String;
 Function GetUserCompany: String;
 // Pega o nome do computador através do Registry. (Não esqueça de adicionar a unit Registry ao seu projeto)
 function getcomputer: string;
+function getcomputer1:String;
 // Descobre o N de serie do Hd
 Function SerialNum(FDrive: String): String;
 // Função utilizada para remover algum caracter da string
@@ -280,6 +289,7 @@ Function Verifica_NotaFiscal(xTipo: String; XCodigo: Integer; XArqExistente: Boo
 Function EscreveTXT(XTitulo, Descricao: String): Boolean;
 // verifica se eh necessario rgistrar o nome do produto no arquivo TXT. Se XLibera for diferente de '1' eh pq eh necessario registrar produto
 Function RegistraProdutoTXT(XLibera, XProduto, XCod_Produto: string): Boolean;
+Procedure FiltraRegistraRelatorio(Comando, Cod_Modulo: String);
 // Função utilizada para recalcular os impostos fiscais das ordens de serviço
 Function RecalcFiscalOS(xTipo: String; XCodigo: Integer): Boolean;
 // Função utilizada para fechar conta
@@ -291,7 +301,7 @@ function Extrair_Tamanho_Arquivo(Arquivo: string): Integer;
 // Função Utilizada para cancelar itens de venda, onde a nota foi cancelada e os itens deve ser devolvidos
 Function CancelaItensVenda(CodigoPedido: Integer): Boolean;
 // Função Utilizada para cancelar itens de compra, onde a nota foi cancelada e os itens devem ser devolvidos
-Function CancelaItensCompra(CodigoPedido: Integer): Boolean;
+//Function CancelaItensCompra(CodigoPedido: Integer): Boolean;
 // Paulo 18/11/2010: Função Utilizada para cancelar itens da ordem, onde a nota foi cancelada e os itens deve ser devolvidos
 Function CancelaItensOrdem(CodigoPedido: Integer): Boolean;
 // Função utilizada para acessar ou configurar caminho de acesso ao banco pelo xml de acesso
@@ -365,10 +375,15 @@ Procedure CalcPercent(Percento: Real; Valor: Real; Calculo: Real; Tipo: Char);
 Procedure CalcLuc(XVALVEND: Real; XDESC: Real; QTD: Real);
 // REGISTRA OS PRINCIPAIS COMANDOS DADO PELO USUÁRIO NO SISTEMA
 Procedure Registra(Modulo: String; Comando: String; DataMod: String; Texto: String; Field1: String);
+Procedure RegistraAcoes(Modulo: String; Cod_Modulo: String; Comando: String; DataMod: String; Texto: String; Field1: String);
 // PROCEDURE P/ ENVIAR EMAIL
 procedure EnviaEmail;
 // Função para desconectar banco
 Function DesconectBanco: Boolean;
+
+Function LancarAdiantamentos(xModulo: String; xCodigoModulo: Integer): Boolean;
+
+Function IniciaFechamento(xModulo: String; xCodigoModulo: Integer): Boolean;
 // DJ 05/03/2010: Gera script para atualizacao de banco de dados
 Procedure GeraScriptVisualizacao;
 // DJ 05/03/2010: Seleciona dados de tabelas onde tem que trazer todo seu conteudo
@@ -436,7 +451,7 @@ implementation
 uses
   SynCommons, IdMessage, UPrecoServ, Math, UFechaConta, UDMExporta, UnitDeclaracoes,
   Alxorprn, UCadReducaoZ, UMDO, UCartaCorrecaoEletronica, UDMFAST, PngImage, HTTPApp,
-  Variants, TypInfo, StrUtils, UPagamento;
+  Variants, TypInfo, StrUtils, UPgto, UFechamento, UAntecipa;
 
 type
   TQrImage_ErrCorrLevel = (L, M, Q, H);
@@ -449,13 +464,88 @@ const
     **DECLARAÇÃO DE FUNÇÕES **
     ************************** }
   // Alex 19/05/2017: Função Utilizada para iniciar o método de pamentos
+Function ListarPagamentosRealizados(xModulo: String; xCodigoModulo: Integer): Boolean;
+Begin
+   Try
+       Result := True;
+
+       xResultadoPagamento    := 'ERRO';
+       xCod_PedidoPagamento   := xCodigoModulo;
+       xTipoPedidoPagamento   := xModulo;
+       xControleFechaTela     := False;
+
+       MDO.Transac.CommitRetaining;
+       DMESTOQUE.TransacEstoque.CommitRetaining;
+
+       If xTipoPedidoPagamento = 'ORDEM'
+       Then Begin
+           DMESTOQUE.TRel.Close;
+           DMESTOQUE.TRel.SQL.Clear;
+           DMESTOQUE.TRel.SQL.Add(' select vwordem.numero, vwordem.dtfech as data, ');
+           DMESTOQUE.TRel.SQL.Add('        vwcliente.cpfcnpj, vwcliente.nome from vwordem ');
+           DMESTOQUE.TRel.SQL.Add('        left join vwcliente on vwordem.cod_cliente = vwcliente.cod_cliente ');
+           DMESTOQUE.TRel.SQL.Add(' where vwordem.cod_ordem = :codigo ');
+           DMESTOQUE.TRel.ParamByName('codigo').AsInteger := xCod_PedidoPagamento;
+           DMESTOQUE.TRel.Open;
+
+           If DMESTOQUE.TRel.IsEmpty
+           Then Begin
+               Exit;
+           End;
+       End;
+       //Resultados para contas a receber
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add(' select vwparcr.cod_parcelacr, vwparcr.dtvenc, vwparcr.numparc, vwparcr.valor, vwparcr.cobranca, vwparcr.valorpg, vwparcr.historico, vwparcr.fech from vwparcr ');
+       MDO.QConsulta.SQL.Add(' left join ctareceber on vwparcr.cod_ctareceber = ctareceber.cod_ctareceber ');
+       MDO.QConsulta.SQL.Add(' where (ctareceber.cod_gerador = :Codigo) ');
+       MDO.QConsulta.SQL.Add('     and (ctareceber.tipogerador = ' + #39 + xModulo + #39 + ') ');
+       MDO.QConsulta.ParamByName('Codigo').AsInteger := xCod_PedidoPagamento;
+       MDO.QConsulta.Open;
+
+
+       //Resultados para contas a pagar
+       MDO.Query1.Close;
+       MDO.Query1.SQL.Clear;
+       MDO.Query1.SQL.Add(' select vwparcp.cod_parcelacp, vwparcp.dtvenc,  vwparcp.numparc, vwparcp.valor, vwparcp.valorpg, vwparcp.cobranca, vwparcp.historico, vwparcp.fech from vwparcp ');
+       MDO.Query1.SQL.Add('  left join ctapagar on vwparcp.cod_ctapagar = ctapagar.cod_ctapagar ');
+       MDO.Query1.SQL.Add('   where (ctapagar.cod_gerador = :Codigo) and (ctapagar.tipogerador = ' + #39 + xModulo + #39 + ') ');
+       MDO.Query1.ParamByName('Codigo').AsInteger := xCod_PedidoPagamento;
+       MDO.Query1.Open;
+
+       //Resultados para caixa
+       MDO.Query2.Close;
+       MDO.Query2.SQL.Clear;
+       MDO.Query2.SQL.Add('  select vwlancaixa.cod_lanc, vwlancaixa.dtlanc, vwlancaixa.doc, vwlancaixa.valor, vwlancaixa.historico,  vwlancaixa.dtlanc from vwlancaixa ');
+       MDO.Query2.SQL.Add('  where (vwlancaixa.cod_gerador = :Codigo) and (vwlancaixa.tipogerador = '  + #39 + xModulo + #39 + ') ');
+       MDO.Query2.ParamByName('Codigo').AsInteger := xCod_PedidoPagamento;
+       MDO.Query2.Open;
+
+       //Resultados para banco
+       MDO.Query3.Close;
+       MDO.Query3.SQL.Clear;
+       MDO.Query3.SQL.Add('   select vwmovbanco.cod_movbanco, vwmovbanco.dtlanc, vwmovbanco.numcheque, vwmovbanco.valor, vwmovbanco.historico from vwmovbanco ');
+       MDO.Query3.SQL.Add('   left join movbanco on vwmovbanco.cod_movbanco = movbanco.cod_movbanco ');
+       MDO.Query3.SQL.Add('   where (movbanco.cod_gerador = :Codigo) and (movbanco.tipogerador = '  + #39 + xModulo + #39 + ') ');
+       MDO.Query3.ParamByName('Codigo').AsInteger := xCod_PedidoPagamento;
+       MDO.Query3.Open;
+
+       FMenu.FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfListaHistoricoPagamentosOS.frf');
+       FMenu.FSRel.ShowReport();
+
+   Except
+       Result := False;
+   End;
+End;
+
+
 Function IniciaPagamento(xModulo: String; xCodigoModulo: Integer): Boolean;
 Begin
   Try
-    xResultadoPagamento := False;
-    xCod_PedidoPagamento := xCodigoModulo;
-    xTipoPedidoPagamento := xModulo;
-    xControleFechaTela := False;
+    xResultadoPagamento    := 'ERRO';
+    xCod_PedidoPagamento   := xCodigoModulo;
+    xTipoPedidoPagamento   := xModulo;
+    xControleFechaTela     := False;
 
     // Controla as possibilidades de abrir pagamentos
     MDO.Transac.CommitRetaining;
@@ -489,19 +579,14 @@ Begin
       MessageDlg('Somente pedidos ABERTOS, podem receber pagamentos.', mtWarning, [mbOK], 0);
       xControleFechaTela := True;
     End;
-    If MDO.Query.FieldByName('USO').AsString = '1'
-    Then
-    Begin
-      MessageDlg('O pedido selecionado para pagamento, se encontra em uso por outro terminal.' + #13 + 'Use Ctrl+D para desbloquear.', mtWarning, [mbOK], 0);
-      xControleFechaTela := True;
-    End;
 
     If xControleFechaTela = False Then
-      Fpagamento.Showmodal;
+       AbrirForm(TFPgto, FPgto, 0);
   Except
 
   End;
 End;
+
 
 // Verifica se o caixa escolhido esta e retorna o codigo de abcaixa
 Function VerificaCaixaAberto(xVerificaCodigoCaixa: Integer): Integer;
@@ -1323,7 +1408,7 @@ End;
 Function IniciaCancelamento(xModulo: String; xCodigoModulo: Integer): Boolean;
 Begin
   Try
-    xResultadoPagamento := False;
+    xResultadoPagamento := 'ERRO';
     xCod_PedidoPagamento := xCodigoModulo;
     xTipoPedidoPagamento := xModulo;
 
@@ -1333,34 +1418,34 @@ Begin
     Begin
       // Registra o Usuário que esta cancelando o pedido
       If IniciaCancelamentoRegitraUsuario = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
       // =>Cancela Pagamentos em Dinheiro
       If IniciaCancelamentoDinheiro = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
 
       // =>Cancela Duplicatas
       If IniciaCancelamentoDuplicatas = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
       // =>Cancela Cheques
       // =>Cancela Banco
       If IniciaCancelamentoBanco = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
       // =>Cancela Débito
       // =>Cancela Créditos
 
       // =>Cancela Troco em cheque
       If IniciaCancelamentoCheques = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
 
       // =>Cancela Troco em Dinheiro
       If IniciaCancelamentoTrocoDinheiro = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
 
       // Reabre os pedidos
       If IniciaCancelamentoReabrePedido = True Then
-        xResultadoPagamento := True;
+        xResultadoPagamento := 'SUCESSO';
 
-      If xResultadoPagamento = True
+      If xResultadoPagamento = 'SUCESSO'
       Then
       Begin
         MDO.Transac.CommitRetaining;
@@ -1839,8 +1924,58 @@ End;
 // Alex - 02/01/2015: Função generica para lançar itens de entrada ou saida para correção
 function LancaEstoqueCorrecaoGeneric(xOperacao: String; xQtde: Real; xCodEstoque: Integer; xHistorico: String): Boolean;
 var
+  xCod_PK: Integer;
   xCodLanc, xQtdeAnterior: Real;
 begin
+   Try
+       MDO.QAlx1.Close;
+       MDO.QAlx1.SQL.Clear;
+
+       MDO.Query.close;
+       MDO.Query.SQL.Clear;
+
+       If xOperacao = 'E'
+       Then Begin
+           MDO.QAlx1.SQL.Add('select max(lancent.cod_lanent)  as PK  from lancent');
+           MDO.Query.SQL.Add('INSERT INTO LANCENT (COD_LANENT, ');
+       end
+       Else Begin
+           MDO.QAlx1.SQL.Add('select max(lancsai.cod_lancsai) as PK from lancsai');
+           MDO.Query.SQL.Add('INSERT INTO LANCSAI (cod_lancsai,  ');
+       End;
+
+       MDO.QAlx1.Open;
+       If MDO.QAlx1.IsEmpty Then
+           xCod_PK:=1
+       Else
+           xCod_PK := MDO.QAlx1.FieldByName('PK').AsInteger + 1;
+
+       MDO.Query.SQL.Add('  COD_ESTOQUE, COD_LOJA, COD_USUARIO, NUMNOTA, MOTIVO, ');
+       MDO.Query.SQL.Add('  DT_LANCAMENTO, DT_ESTOQUE, QUANTIDADE, QTDANT, COD_LOTE, QTD4CASAS) ');
+       MDO.Query.SQL.Add('VALUES (:COD_LANCAMENTO, ');
+       MDO.Query.SQL.Add('  :COD_ESTOQUE, :COD_LOJA, :COD_USUARIO, :NUMNOTA, :MOTIVO, ');
+       MDO.Query.SQL.Add('  :DT_LANCAMENTO, :DT_ESTOQUE, :QUANTIDADE, :QTDANT, :COD_LOTE, :QTD4CASAS) ');
+       MDO.Query.ParamByName('COD_LANCAMENTO').AsInteger := xCod_PK;
+       MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := xCodEstoque;
+       MDO.Query.ParamByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
+       MDO.Query.ParamByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
+       MDO.Query.ParamByName('NUMNOTA').AsString := '';
+       MDO.Query.ParamByName('MOTIVO').AsString := xHistorico;
+       MDO.Query.ParamByName('DT_LANCAMENTO').AsString := DateToStr(Date());
+       MDO.Query.ParamByName('DT_ESTOQUE').AsString :=  DateToStr(Date());
+       MDO.Query.ParamByName('QUANTIDADE').AsCurrency := xQtde;
+       MDO.Query.ParamByName('QTDANT').AsCurrency := 0;
+       MDO.Query.ParamByName('COD_LOTE').AsInteger := -1;
+       MDO.Query.ParamByName('QTD4CASAS').AsCurrency:=xQtde;
+       MDO.Query.ExecSQL;
+   Except
+       On E: Exception do
+       begin
+           Raise Exception.Create(E.Message);
+       end;
+   End;
+
+{
   try
     // SQL para buscar qual é o atual estoque fisico do produto
     DMESTOQUE.Alx.Close;
@@ -1848,14 +1983,7 @@ begin
     DMESTOQUE.Alx.SQL.Add('SELECT ESTOQUE.ESTFISICO EST FROM ESTOQUE WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE');
     DMESTOQUE.Alx.ParamByName('ESTOQUE').AsInteger := xCodEstoque;
     DMESTOQUE.Alx.Open;
-    {
-      //se a operação foi saida para correção
-      if xOperacao = 'S' then//soma o estoque fisico a quantidade de saida para buscar o estoque anterior
-      xQtdeAnterior := DMESTOQUE.Alx.FieldByName('EST').AsCurrency  + xQtde
-      else
-      //caso contrario, subtrai
-      xQtdeAnterior := DMESTOQUE.Alx.FieldByName('EST').AsCurrency - xQtde;
-    }
+
     // se a operação foi saida para correção
     if xOperacao = 'S' then // soma o estoque fisico a quantidade de saida para buscar o estoque anterior
       xQtdeAnterior := DMESTOQUE.Alx.FieldByName('EST').AsCurrency + xQtde
@@ -1901,6 +2029,7 @@ begin
       Raise Exception.Create(E.Message);
     end;
   end;
+  }
 end;
 
 // Função utilizada para acessar ou configurar caminho de acesso ao banco de exportação pelo xml de acesso
@@ -1981,7 +2110,7 @@ Begin
     FMenu.XmlCaminhoBanco.SaveToFile(ExtractFilePath(Application.EXEName) + '\caminhobanco.xml');
   End;
 End;
-
+{
 // Função Utilizada para cancelar itens de compra, onde a nota foi cancelada e os itens devem ser devolvidos
 Function CancelaItensCompra(CodigoPedido: Integer): Boolean;
 Var
@@ -2025,9 +2154,6 @@ Begin
         DmSaida.TLancSai.FieldByName('QUANTIDADE').AsString := DMEntrada.TItemPC.FieldByName('QTDEPROD').AsString;
         DmSaida.TLancSai.FieldByName('QTDANT').AsString := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
         DmSaida.TLancSai.Post;
-        DMESTOQUE.TEstoque.Edit;
-        DMESTOQUE.TEstoque.FieldByName('ESTFISICO').Value := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').Value - DmSaida.TLancSai.FieldByName('QUANTIDADE').AsCurrency;
-        DMESTOQUE.TEstoque.Post;
         DMESTOQUE.TransacEstoque.CommitRetaining;
         DMESTOQUE.Alx.Next;
       End;
@@ -2039,7 +2165,7 @@ Begin
     Result := False;
   End;
 End;
-
+}
 // Função Utilizada para cancelar itens de venda, onde a nota foi cancelada e os itens deve ser devolvidos
 Function CancelaItensVenda(CodigoPedido: Integer): Boolean;
 Var
@@ -2095,18 +2221,7 @@ Begin
             DMEntrada.TLancEnt.FieldByName('QUANTIDADE').AsString := DmSaida.TItemPV.FieldByName('QTDEPROD').AsString;
           DMEntrada.TLancEnt.FieldByName('QTDANT').AsString := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
           DMEntrada.TLancEnt.Post;
-          {
-            DMESTOQUE.TEstoque.Edit;
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-            DMESTOQUE.TEstoque.POST;
-            DMESTOQUE.TransacEstoque.CommitRetaining;
-          }
-          MDO.Query.Close;
-          MDO.Query.SQL.Clear;
-          MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO + :ESTOQUE WHERE ESTOQUE.COD_ESTOQUE = :COD_ESTOQUE ');
-          MDO.Query.ParamByName('ESTOQUE').Value := DMEntrada.TLancEnt.FieldByName('QUANTIDADE').AsCurrency;
-          MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsInteger;
-          MDO.Query.ExecSQL;
+
         End;
         DMESTOQUE.Alx.Next;
       End;
@@ -2173,18 +2288,6 @@ Begin
           DMEntrada.TLancEnt.FieldByName('QUANTIDADE').AsString := DmServ.TPOrd.FieldByName('QTD').AsString;
           DMEntrada.TLancEnt.FieldByName('QTDANT').AsString := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
           DMEntrada.TLancEnt.Post;
-          {
-            DMESTOQUE.TEstoque.Edit;
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-            DMESTOQUE.TEstoque.POST;
-            DMESTOQUE.TransacEstoque.CommitRetaining;
-          }
-          MDO.Query.Close;
-          MDO.Query.SQL.Clear;
-          MDO.Query.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO + :ESTOQUE WHERE ESTOQUE.COD_ESTOQUE = :COD_ESTOQUE ');
-          MDO.Query.ParamByName('ESTOQUE').Value := DMEntrada.TLancEnt.FieldByName('QUANTIDADE').AsCurrency;
-          MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsInteger;
-          MDO.Query.ExecSQL;
         End;
         DMESTOQUE.Alx.Next;
       End;
@@ -2535,6 +2638,7 @@ Begin
     // DMEXPORTA.DBExporta.Close;
     // DMEXPORTA.Destroy;
     // Data Modules com uso de MDO
+    MDO.Transac.Active := false;
     MDO.DB.Close;
     MDO.DB.Destroy;
     DMFAST.MDODataBase.Close;
@@ -2545,6 +2649,88 @@ Begin
     // MessageDlg('Base de dados não pode ser fechada', mtWarning, [mbOK], 0);
   End;
 End;
+
+Function IniciaFechamento(xModulo: String; xCodigoModulo: Integer): Boolean;
+Begin
+  Try
+    xResultadoPagamento    := 'ERRO';
+    xCod_PedidoPagamento   := xCodigoModulo;
+    xTipoPedidoPagamento   := xModulo;
+    xControleFechaTela     := False;
+
+    // Controla as possibilidades de abrir pagamentos
+    MDO.Transac.CommitRetaining;
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    If xTipoPedidoPagamento = 'PEDVENDA'
+    Then
+    Begin
+      MDO.Query.SQL.Add(' select vwpedv.cod_pedvenda, pedvenda.EDIT as USO, vwpedv.cod_cliente as CodigoCliente, vwpedv.nomecli as cliente, vwpedv.cod_vendedor as CodigoVendedor, vwpedv.numped as NumeroDocumento,  ');
+      MDO.Query.SQL.Add(' vwpedv.cod_formpag as CodigoFormaPagamento, vwpedv.situacao as SITUACAO, vwpedv.cod_pedvenda as CODIGO, vwpedv.numped as NUMERO, vwpedv.valor AS TOTAL from vwpedv ');
+      MDO.Query.SQL.Add(' left join pedvenda on vwpedv.cod_pedvenda = pedvenda.cod_pedvenda where vwpedv.cod_pedvenda = :codigo  ');
+      MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
+      xTipoGerador := 'PEDVENDA';
+    End;
+    If xTipoPedidoPagamento = 'ORDEM'
+    Then
+    Begin
+      MDO.Query.SQL.Add('   select vwordem.cod_ordem, ordem.Edit as USO,  vwordem.cod_cliente as CodigoCliente, vwordem.cliente as cliente, vwordem.cod_vendedor as CodigoVendedor, vwordem.numero as NumeroDocumento, ');
+      MDO.Query.SQL.Add('    vwordem.formapag as CodigoFormaPagamento, vwordem.status as SITUACAO, vwordem.cod_ordem as CODIGO, vwordem.numero as NUMERO, vwordem.total  AS TOTAL, ordem.totprod as TOTALPRODUTO, ordem.totserv as TOTALSERVICO ');
+      MDO.Query.SQL.Add('    from vwordem ');
+      MDO.Query.SQL.Add('    left join ordem on vwordem.cod_ordem = ordem.cod_ordem ');
+      MDO.Query.SQL.Add('    where vwordem.cod_ordem = :codigo ');
+      MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
+      xTipoGerador := 'ORDEM';
+    End;
+    MDO.Query.SQL.Text;
+    MDO.Query.Open;
+    If MDO.Query.FieldByName('SITUACAO').AsString <> 'ABERTO'
+    Then
+    Begin
+      MessageDlg('Somente pedidos ABERTOS, podem receber pagamentos.', mtWarning, [mbOK], 0);
+      xControleFechaTela := True;
+    End;
+
+    If xControleFechaTela = False Then
+       AbrirForm(TfrmFechamento, frmFechamento, 0);
+  Except
+
+  End;
+End;
+
+Function LancarAdiantamentos(xModulo: String; xCodigoModulo: Integer): Boolean;
+Begin
+  Try
+    xResultadoPagamento    := 'ERRO';
+    xCod_PedidoPagamento   := xCodigoModulo;
+    xTipoPedidoPagamento   := xModulo;
+    xControleFechaTela     := False;
+    MDO.Transac.CommitRetaining;
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    If xTipoPedidoPagamento = 'ORDEM'
+    Then
+    Begin
+      MDO.Query.SQL.Add('   select vwordem.cod_ordem, ordem.Edit as USO,  vwordem.cod_cliente as CodigoCliente, vwordem.cliente as cliente, vwordem.cod_vendedor as CodigoVendedor, vwordem.numero as NumeroDocumento, ');
+      MDO.Query.SQL.Add('    vwordem.formapag as CodigoFormaPagamento, vwordem.status as SITUACAO, vwordem.cod_ordem as CODIGO, vwordem.numero as NUMERO, vwordem.total  AS TOTAL, ordem.totprod as TOTALPRODUTO, ordem.totserv as TOTALSERVICO ');
+      MDO.Query.SQL.Add('    from vwordem ');
+      MDO.Query.SQL.Add('    left join ordem on vwordem.cod_ordem = ordem.cod_ordem ');
+      MDO.Query.SQL.Add('    where vwordem.cod_ordem = :codigo');;
+      MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
+      xTipoGerador := 'ORDEM';
+    End;
+    MDO.Query.SQL.Text;
+    MDO.Query.Open;
+    // Agora, atribuir o nome do cliente à variável XNome_Cliente
+    XNome_Cliente := MDO.Query.FieldByName('cliente').AsString;
+    
+    If xControleFechaTela = False Then
+       AbrirForm(TfrmAntecipa, frmAntecipa, 0);
+  Except
+
+  End;
+End;
+
 
 // Função utilizada para fechar conta (TIPO=C para compra, TIPO=V para vendas e ordens de serviços)
 Function FecConta(Tipo: String; Cod_Pedido: Integer; Valor: Real; ValorProd: Real; ValorServ: Real; Cod_ContaProd: Integer; Cod_ContaServ: Integer; Data: TDateTime): Boolean;
@@ -5688,6 +5874,16 @@ begin
   end;
 end;
 
+function getcomputer1():String;
+var
+  ComputerName: Array [0 .. 256] of char;
+  Size: DWORD;
+begin
+  Size := 256;
+  GetComputerName(ComputerName, Size);
+  Result := ComputerName;
+end;
+
 // Pega o nome do computador através do Registry. (Não esqueça de adicionar a unit Registry ao seu projeto)
 function getcomputer: string;
 var
@@ -6696,6 +6892,26 @@ End;
 // Função Utilizada para inserir novo registro e atualizar tabela de códigos
 Function Inserir(Xtabela: TIBQuery; XSqlTabela: String; XPK: String): Integer;
 Begin
+   Try
+       MDO.Transac.CommitRetaining;
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add(' select codigo.' + XPK + ' from codigo ');
+       MDO.QConsulta.Open;
+
+       Result :=  MDO.QConsulta.FieldByName(XPK).AsInteger + 1;
+
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' update codigo set codigo.' + XPK + ' = :Valor ');
+       MDO.Query.ParamByName('Valor').AsInteger := Result;
+       MDO.Query.ExecSQL;
+
+       MDO.Transac.CommitRetaining;
+   Except
+       Inserir := -1;
+   End;
+   {
   DMMACS.TCodigo.Close;
   DMMACS.TCodigo.Open; // é necessário fechar e abrir para atualizar a tabela em caso de transações da rede
   If DMMACS.TCodigo.FieldByName(XPK).AsInteger = 0 Then
@@ -6708,6 +6924,7 @@ Begin
   DMMACS.TCodigo.FieldByName(XPK).AsInteger := DMMACS.TCodigo.FieldByName(XPK).AsInteger + 1;
   DMMACS.TCodigo.Post;
   DMMACS.IBTCodigo.CommitRetaining;
+  }
 End;
 
 // Função Utilizada para fazer lançamentos automáticos em controle de cheques Recebidos
@@ -9623,6 +9840,28 @@ begin
   end;
 end;
 
+Procedure FiltraRegistraRelatorio(Comando, Cod_Modulo: String);
+Begin
+   Try
+       DMESTOQUE.TransacEstoque.CommitRetaining;
+       DMESTOQUE.TRel.Close;
+       DMESTOQUE.TRel.SQL.Clear;
+       DMESTOQUE.TRel.SQL.Add(' select * from registro ');
+       If Comando <> ''
+       Then Begin
+           DMESTOQUE.TRel.SQL.Add(' WHERE (registro.modulo = :Modulo) AND (registro.cod_modulo = :cod_modulo) ');
+           DMESTOQUE.TRel.ParamByName('Modulo').AsString := Comando;
+           DMESTOQUE.TRel.ParamByName('cod_modulo').AsString := Cod_Modulo;
+       End; 
+       DMESTOQUE.TRel.SQL.Add('  order by registro.data DESC, registro.hora DESC ');
+       DMESTOQUE.TRel.Open;
+       FMenu.FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfAuditoriaUsuario.frf');
+       FMenu.FSRel.ShowReport();
+   Except
+
+   End;
+End;
+
 // REGISTRA OS PRINCIPAIS COMANDOS DADO PELO USUÁRIO NO SISTEMA
 Procedure Registra(Modulo: String; Comando: String; DataMod: String; Texto: String; Field1: String);
 VAR
@@ -9649,7 +9888,41 @@ Begin
     MDO.Query.ParamByName('COMANDO').AsString := Comando;
     MDO.Query.ParamByName('DT_MODULO').AsString := DataMod;
     MDO.Query.ParamByName('TEXTO').AsString := copy(Texto, 0, 30);
-    MDO.Query.ParamByName('FIELD1').AsString := copy(Field1, 0, 200);
+    MDO.Query.ParamByName('FIELD1').AsString := copy(Field1, 0, 500);
+    MDO.Query.ExecSQL;
+    MDO.Transac.CommitRetaining;
+  Except
+    MDO.Transac.RollbackRetaining;
+  End;
+End;
+
+Procedure RegistraAcoes(Modulo: String; Cod_Modulo: String; Comando: String; DataMod: String; Texto: String; Field1: String);
+VAR
+  XCOD_REGISTRO: Integer;
+Begin
+  Try
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add(' select max(registro.cod_registro) as CODIGO from registro ');
+    MDO.QConsulta.Open;
+
+    XCOD_REGISTRO := MDO.QConsulta.FieldByName('CODIGO').AsInteger + 1;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add(' insert into registro(COD_REGISTRO, DATA, HORA, COD_USUARIO, USUARIO, MODULO, COD_MODULO, COMANDO, DT_MODULO, TEXTO, FIELD1) ');
+    MDO.Query.SQL.Add('        values (:COD_REGISTRO, :DATA, :HORA, :COD_USUARIO, :USUARIO, :MODULO, :COD_MODULO, :COMANDO, :DT_MODULO, :TEXTO, :FIELD1) ');
+    MDO.Query.ParamByName('COD_REGISTRO').AsInteger := XCOD_REGISTRO;
+    MDO.Query.ParamByName('DATA').AsDateTime := Date();
+    MDO.Query.ParamByName('HORA').AsDateTime := Time();
+    MDO.Query.ParamByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
+    MDO.Query.ParamByName('USUARIO').AsString := FMenu.EdUsuario.Text;
+    MDO.Query.ParamByName('MODULO').AsString := Modulo;
+    MDO.Query.ParamByName('COMANDO').AsString := Comando;
+    MDO.Query.ParamByName('COD_MODULO').AsString := Cod_Modulo;
+    MDO.Query.ParamByName('DT_MODULO').AsString := DataMod;
+    MDO.Query.ParamByName('TEXTO').AsString := copy(Texto, 0, 30);
+    MDO.Query.ParamByName('FIELD1').AsString := copy(Field1, 0, 500);
     MDO.Query.ExecSQL;
     MDO.Transac.CommitRetaining;
   Except
@@ -9938,14 +10211,6 @@ Begin
         MDO.Query.ParamByName('VALORTOTAL').AsCurrency := DMEntrada.TAlx.FieldByName('valor').AsCurrency;
         MDO.Query.SQL.Text;
         MDO.Query.ExecSQL;
-        // Alex 07/03/2016 - Atualiza estoque
-        MDO.Query.Close; // 05/05/2009:  sql na unha
-        MDO.Query.SQL.Clear;
-        MDO.Query.SQL.Add(' update estoque set estoque.estfisico=estoque.estfisico+:ESTOQUE where estoque.cod_estoque=:CodigoEstoque ');
-        MDO.Query.ParamByName('estoque').AsCurrency := 1;
-        MDO.Query.ParamByName('CodigoEstoque').AsInteger := DMEntrada.TAlx.FieldByName('cod_estoque').AsInteger;
-        MDO.Query.ExecSQL;
-        MDO.Transac.CommitRetaining;
         DMEntrada.TAlx.Next;
       End;
     End;
@@ -9981,13 +10246,6 @@ Begin
         If not DMESTOQUE.Alx.IsEmpty
         Then
         Begin
-          MDO.Query.Close;
-          MDO.Query.SQL.Clear;
-          MDO.Query.SQL.Add('  update estoque set estoque.estfisico=:Estoque where estoque.cod_estoque=:CodigoEstoque  ');
-          MDO.Query.ParamByName('Estoque').AsCurrency := DMESTOQUE.Alx.FieldByName('estfisico').AsCurrency - DMEntrada.TAlx.FieldByName('qtdeprod').AsCurrency;
-          MDO.Query.ParamByName('CodigoEstoque').AsInteger := DMEntrada.TAlx.FieldByName('cod_estoque').AsInteger;
-          MDO.Query.ExecSQL;
-
           MDO.Query.Close;
           MDO.Query.SQL.Clear;
           MDO.Query.SQL.Add('  delete from itenspedc where itenspedc.cod_itenspedc=:CodigoItem  ');
@@ -11374,10 +11632,6 @@ Begin
       DMESTOQUE.Alx.ParamByName('DESCONTO').AsFloat := StrToFloat(Trim(copy(XLinha, 226, 12)));
       DMESTOQUE.Alx.ParamByName('DTCAD').AsDateTime := StrToDateTime(Trim(copy(XLinha, 238, 12)));
       DMESTOQUE.Alx.ParamByName('ESTANTCONT').AsFloat := StrToFloat(Trim(copy(XLinha, 250, 12)));
-      {
-        DMESTOQUE.Alx.ParamByName('ESTCALC').AsFloat := StrToFloat(Trim(Copy(XLinha,262,12)));
-        DMESTOQUE.Alx.ParamByName('ESTFISICO').AsFloat := StrToFloat(Trim(Copy(XLinha,274,10)));
-      }
       DMESTOQUE.Alx.ParamByName('ESTINI').AsFloat := StrToFloat(Trim(copy(XLinha, 284, 10)));
       DMESTOQUE.Alx.ParamByName('ESTMAX').AsFloat := StrToFloat(Trim(copy(XLinha, 294, 10)));
       DMESTOQUE.Alx.ParamByName('ESTMIN').AsFloat := StrToFloat(Trim(copy(XLinha, 304, 10)));
@@ -12447,7 +12701,7 @@ var
 begin
   Result := UTF8ToString(TWinHTTP.Get(AUrl, AHeader, True, @OHeader, @OStatus));
   if ((OStatus <> 200) and (OStatus <> 199)) then
-    raise Exception.Create('Erro no Get - Response: ' + Result);
+    raise Exception.Create('Erro na consulta da placa, tente mais tarde ' {+ Result});
 end;
 
 function GetCNPJInfo(const ACNPJ: string): TClientDataSet;
@@ -12551,6 +12805,7 @@ begin
 
   Result := TClientDataSet.Create(Application);
   Result.FieldDefs.Add('MARCA', ftString, 255);
+  Result.FieldDefs.Add('PLACA', ftString, 255);
   Result.FieldDefs.Add('MODELO', ftString, 255);
   Result.FieldDefs.Add('MARCAMODELO', ftString, 255);
   Result.FieldDefs.Add('ANO', ftString, 255);
@@ -12562,6 +12817,8 @@ begin
   Result.Append;
   if Json.Exists('MARCA') then
     Result.FieldByName('MARCA').Value := Json.MARCA;
+  if Json.Exists('PLACA') then
+    Result.FieldByName('PLACA').Value := Json.PLACA;
   if Json.Exists('MODELO') then
     Result.FieldByName('MODELO').Value := Json.MODELO;
   if Json.Exists('MARCAMODELO') then

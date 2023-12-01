@@ -1,6 +1,6 @@
 inherited FProduto: TFProduto
-  Left = 237
-  Top = 77
+  Left = 247
+  Top = 78
   BorderIcons = [biSystemMenu, biMinimize, biHelp]
   Caption = 'Produtos'
   ClientHeight = 564
@@ -14,112 +14,6 @@ inherited FProduto: TFProduto
     Top = 5
     Width = 774
     Height = 556
-    object PNovaFaixaPreco: TPanel [0]
-      Left = 72
-      Top = 433
-      Width = 248
-      Height = 94
-      Color = clActiveCaption
-      TabOrder = 3
-      Visible = False
-      object FashionPanel1: TFashionPanel
-        Left = 2
-        Top = 2
-        Width = 244
-        Height = 89
-        BevelOuter = bvNone
-        Color = 16772332
-        TabOrder = 0
-        RoundRect = True
-        About = 'Orion Software'
-        ShadowDepth = 2
-        ShadowSpace = 5
-        ShowShadow = False
-        ShadowColor = clBlack
-        TitleColor = clSkyBlue
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
-        TitleFont.Height = -13
-        TitleFont.Name = 'Arial'
-        TitleFont.Style = [fsBold]
-        Title = 'Adicionar Nova Faixa de Pre'#231'o'
-        LineWidth = 0
-        LineColor = clBlack
-        Theme = ttCustom
-        object Label26: TLabel
-          Left = 40
-          Top = 64
-          Width = 58
-          Height = 13
-          Caption = 'Quantidade:'
-        end
-        object EdNovaFaixaPreco: TEdit
-          Left = 8
-          Top = 24
-          Width = 193
-          Height = 26
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -15
-          Font.Name = 'Verdana'
-          Font.Style = []
-          MaxLength = 15
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = False
-          TabOrder = 0
-        end
-        object BitBtn7: TBitBtn
-          Left = 208
-          Top = 25
-          Width = 28
-          Height = 25
-          Hint = 
-            'Pressione para inserir o produto selecionado e suas informa'#231#245'es ' +
-            'na lista (ALT + I)'
-          Caption = 'Ok'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 2
-          OnClick = BitBtn7Click
-          Layout = blGlyphRight
-          Spacing = 10
-        end
-        object BitBtn8: TBitBtn
-          Left = 220
-          Top = 3
-          Width = 15
-          Height = 15
-          Hint = 
-            'Pressione para remover o produto selecionado na lista da mesma (' +
-            'ALT + E)'
-          Caption = 'X'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 3
-          OnClick = BitBtn8Click
-          Layout = blGlyphRight
-          Spacing = 10
-        end
-        object EdQuantDias: TFloatEdit
-          Left = 132
-          Top = 54
-          Width = 69
-          Height = 26
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -15
-          Font.Name = 'Verdana'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-          Text = '0'
-          EditType = fltInteger
-          ValueFormat = '##,##0.00'
-          ValueInteger = 0
-        end
-      end
-    end
     inherited Panel4: TPanel
       Top = 31
       Width = 770
@@ -399,6 +293,112 @@ inherited FProduto: TFProduto
         end
       end
     end
+    object PNovaFaixaPreco: TPanel [1]
+      Left = 72
+      Top = 433
+      Width = 248
+      Height = 94
+      Color = clActiveCaption
+      TabOrder = 3
+      Visible = False
+      object FashionPanel1: TFashionPanel
+        Left = 2
+        Top = 2
+        Width = 244
+        Height = 89
+        BevelOuter = bvNone
+        Color = 16772332
+        TabOrder = 0
+        RoundRect = True
+        About = 'Orion Software'
+        ShadowDepth = 2
+        ShadowSpace = 5
+        ShowShadow = False
+        ShadowColor = clBlack
+        TitleColor = clSkyBlue
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWhite
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = [fsBold]
+        Title = 'Adicionar Nova Faixa de Pre'#231'o'
+        LineWidth = 0
+        LineColor = clBlack
+        Theme = ttCustom
+        object Label26: TLabel
+          Left = 40
+          Top = 64
+          Width = 58
+          Height = 13
+          Caption = 'Quantidade:'
+        end
+        object EdNovaFaixaPreco: TEdit
+          Left = 8
+          Top = 24
+          Width = 193
+          Height = 26
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Verdana'
+          Font.Style = []
+          MaxLength = 15
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 0
+        end
+        object BitBtn7: TBitBtn
+          Left = 208
+          Top = 25
+          Width = 28
+          Height = 25
+          Hint = 
+            'Pressione para inserir o produto selecionado e suas informa'#231#245'es ' +
+            'na lista (ALT + I)'
+          Caption = 'Ok'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          OnClick = BitBtn7Click
+          Layout = blGlyphRight
+          Spacing = 10
+        end
+        object BitBtn8: TBitBtn
+          Left = 220
+          Top = 3
+          Width = 15
+          Height = 15
+          Hint = 
+            'Pressione para remover o produto selecionado na lista da mesma (' +
+            'ALT + E)'
+          Caption = 'X'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          OnClick = BitBtn8Click
+          Layout = blGlyphRight
+          Spacing = 10
+        end
+        object EdQuantDias: TFloatEdit
+          Left = 132
+          Top = 54
+          Width = 69
+          Height = 26
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -15
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Text = '0'
+          EditType = fltInteger
+          ValueFormat = '##,##0.00'
+          ValueInteger = 0
+        end
+      end
+    end
     object PespecificacaoProduto: TPanel [2]
       Left = 7
       Top = 34
@@ -434,7 +434,7 @@ inherited FProduto: TFProduto
           Transparent = True
         end
         object Label136: TLabel
-          Left = 382
+          Left = 352
           Top = 67
           Width = 74
           Height = 16
@@ -634,8 +634,8 @@ inherited FProduto: TFProduto
           ParentFont = False
         end
         object Label18: TLabel
-          Left = 643
-          Top = 11
+          Left = 649
+          Top = 12
           Width = 77
           Height = 21
           Caption = 'ESTOQUE'
@@ -715,7 +715,7 @@ inherited FProduto: TFProduto
         object DBGRUPO: TEdit
           Left = 72
           Top = 84
-          Width = 270
+          Width = 239
           Height = 24
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
@@ -727,9 +727,9 @@ inherited FProduto: TFProduto
           TabOrder = 7
         end
         object DbSubGrupo: TEdit
-          Left = 431
+          Left = 401
           Top = 84
-          Width = 270
+          Width = 294
           Height = 24
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
@@ -741,7 +741,7 @@ inherited FProduto: TFProduto
           TabOrder = 10
         end
         object EDCODSUBGRUPO: TEdit
-          Left = 382
+          Left = 352
           Top = 84
           Width = 49
           Height = 24
@@ -868,7 +868,7 @@ inherited FProduto: TFProduto
         object DBColorEdit26: TDBColorEdit
           Left = 594
           Top = 134
-          Width = 129
+          Width = 135
           Height = 26
           Hint = 'Local de aramazenagem do produto no dep'#243'sito ou estante'
           Color = clWhite
@@ -893,7 +893,7 @@ inherited FProduto: TFProduto
         object DBColorEdit25: TDBColorEdit
           Left = 23
           Top = 225
-          Width = 701
+          Width = 706
           Height = 26
           Hint = 'Local para especifica'#231#227'o de uso do produto'
           Color = clWhite
@@ -918,7 +918,7 @@ inherited FProduto: TFProduto
         object DBDESCRICAOSIM: TDBColorEdit
           Left = 23
           Top = 181
-          Width = 701
+          Width = 706
           Height = 26
           Hint = 
             'Descri'#231#227'o do produto, este campo ser'#225' impresso em notas e relat'#243 +
@@ -1110,7 +1110,7 @@ inherited FProduto: TFProduto
         object DBColorEdit16: TDBColorEdit
           Left = 638
           Top = 270
-          Width = 88
+          Width = 91
           Height = 21
           Hint = 'Nomenclatura comun do Mercosul'
           Color = clWhite
@@ -1164,10 +1164,10 @@ inherited FProduto: TFProduto
           ButtonCaption = 'Ok'
         end
         object DBColorEdit3: TDBColorEdit
-          Left = 643
-          Top = 32
-          Width = 79
-          Height = 29
+          Left = 572
+          Top = 40
+          Width = 34
+          Height = 24
           Hint = 'Estoque real existente na empresa (armazenado).'
           Color = 12312063
           Ctl3D = True
@@ -1176,8 +1176,8 @@ inherited FProduto: TFProduto
           Enabled = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -19
-          Font.Name = 'Courier New'
+          Font.Height = -13
+          Font.Name = 'Arial'
           Font.Style = []
           ParentCtl3D = False
           ParentFont = False
@@ -1185,6 +1185,7 @@ inherited FProduto: TFProduto
           ReadOnly = True
           ShowHint = True
           TabOrder = 5
+          Visible = False
           FocusColor = 12312063
           NotFoundText = 'N'#227'o Existe'
           InputText = 'Por favor entre na procura pelo crit'#233'rio'
@@ -1193,7 +1194,7 @@ inherited FProduto: TFProduto
         object PGrade: TPanel
           Left = 11
           Top = 16
-          Width = 365
+          Width = 334
           Height = 48
           BevelOuter = bvNone
           TabOrder = 0
@@ -1212,7 +1213,7 @@ inherited FProduto: TFProduto
             Transparent = True
           end
           object BtnProduto: TBitBtn
-            Left = 332
+            Left = 301
             Top = 19
             Width = 30
             Height = 23
@@ -1232,7 +1233,7 @@ inherited FProduto: TFProduto
           object DBDESPROD: TEdit
             Left = 61
             Top = 19
-            Width = 270
+            Width = 240
             Height = 24
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
@@ -1284,8 +1285,8 @@ inherited FProduto: TFProduto
           Layout = blGlyphBottom
         end
         object cbInativaProd: TCheckBox
-          Left = 433
-          Top = 23
+          Left = 353
+          Top = 24
           Width = 178
           Height = 17
           Caption = 'Produto Inativo'
@@ -1298,8 +1299,8 @@ inherited FProduto: TFProduto
           TabOrder = 2
         end
         object cbCtrlDesgaste: TCheckBox
-          Left = 433
-          Top = 39
+          Left = 353
+          Top = 40
           Width = 202
           Height = 17
           Caption = 'Controle de Desgaste'
@@ -1313,7 +1314,7 @@ inherited FProduto: TFProduto
           Visible = False
         end
         object cbCtrlHora: TCheckBox
-          Left = 433
+          Left = 353
           Top = 54
           Width = 202
           Height = 17
@@ -1353,8 +1354,8 @@ inherited FProduto: TFProduto
           ButtonCaption = 'Ok'
         end
         object cbAcessorio: TCheckBox
-          Left = 433
-          Top = 8
+          Left = 353
+          Top = 9
           Width = 178
           Height = 17
           Caption = 'Acess'#243'rio'
@@ -1368,7 +1369,7 @@ inherited FProduto: TFProduto
           OnClick = cbAcessorioClick
         end
         object BtnGrupo: TBitBtn
-          Left = 342
+          Left = 312
           Top = 83
           Width = 30
           Height = 23
@@ -1386,7 +1387,7 @@ inherited FProduto: TFProduto
             C0CFD0C0CFD0C0CFD0C0CFD0C0CFD0C0CFD0C0CFD0C0CFD00000}
         end
         object BtnSubGrupo: TBitBtn
-          Left = 701
+          Left = 698
           Top = 84
           Width = 30
           Height = 23
@@ -1450,6 +1451,23 @@ inherited FProduto: TFProduto
           NotFoundText = 'N'#227'o Existe'
           InputText = 'Por favor entre na procura pelo crit'#233'rio'
           ButtonCaption = 'Ok'
+        end
+        object edEstoqueFisico: TFloatEdit
+          Left = 609
+          Top = 36
+          Width = 121
+          Height = 30
+          Color = clMoneyGreen
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 34
+          Text = '0,0000'
+          ValueFormat = '##,####0.0000'
+          ValueInteger = 0
         end
       end
       object PcAdicionais: TPageControl
@@ -2884,7 +2902,7 @@ inherited FProduto: TFProduto
               inline pCfopDentroEstado: TFrmBusca
                 Left = 0
                 Top = 1
-                Width = 345
+                Width = 249
                 Height = 37
                 Color = 16772332
                 ParentColor = False
@@ -2897,35 +2915,35 @@ inherited FProduto: TFProduto
                   Font.Name = 'Courier New'
                 end
                 inherited LUZOPEN: TShape
-                  Left = 296
+                  Left = 201
                 end
                 inherited LUZMINUS: TShape
-                  Left = 317
+                  Left = 222
                 end
                 inherited EdDescricao: TFlatEdit
-                  Left = 67
-                  Width = 230
+                  Left = 53
+                  Width = 150
                   Height = 20
                   Font.Name = 'Courier New'
                 end
                 inherited BTNOPEN: TBitBtn
-                  Left = 298
+                  Left = 203
                   OnClick = pCfopDentroEstadoBTNOPENClick
                 end
                 inherited BTNMINUS: TBitBtn
-                  Left = 318
+                  Left = 223
                   OnClick = pCfopDentroEstadoBTNMINUSClick
                 end
                 inherited EDCodigo: TFlatEdit
-                  Width = 65
+                  Width = 50
                   Height = 20
                   Font.Name = 'Courier New'
                 end
               end
               inline pCfopForaEstado: TFrmBusca
-                Left = 391
+                Left = 254
                 Top = 1
-                Width = 344
+                Width = 246
                 Height = 37
                 Color = 16772332
                 ParentColor = False
@@ -2938,27 +2956,27 @@ inherited FProduto: TFProduto
                   Font.Name = 'Courier New'
                 end
                 inherited LUZOPEN: TShape
-                  Left = 296
+                  Left = 200
                 end
                 inherited LUZMINUS: TShape
-                  Left = 317
+                  Left = 221
                 end
                 inherited EdDescricao: TFlatEdit
-                  Left = 67
-                  Width = 230
+                  Left = 52
+                  Width = 150
                   Height = 20
                   Font.Name = 'Courier New'
                 end
                 inherited BTNOPEN: TBitBtn
-                  Left = 298
+                  Left = 202
                   OnClick = pCfopForaEstadoBTNOPENClick
                 end
                 inherited BTNMINUS: TBitBtn
-                  Left = 319
+                  Left = 223
                   OnClick = pCfopForaEstadoBTNMINUSClick
                 end
                 inherited EDCodigo: TFlatEdit
-                  Width = 65
+                  Width = 50
                   Height = 20
                   Font.Name = 'Courier New'
                 end
@@ -3130,6 +3148,20 @@ inherited FProduto: TFProduto
                 NotFoundText = 'N'#227'o Existe'
                 InputText = 'Por favor entre na procura pelo crit'#233'rio'
                 ButtonCaption = 'Ok'
+              end
+              object cbRetemPisCofins: TCheckBox
+                Left = 565
+                Top = 8
+                Width = 151
+                Height = 17
+                Caption = 'Retem Pis/Cofins'
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Courier New'
+                Font.Style = [fsBold]
+                ParentFont = False
+                TabOrder = 9
               end
             end
             object TabSheet18: TTabSheet
@@ -3329,32 +3361,6 @@ inherited FProduto: TFProduto
             Font.Style = []
             ParentFont = False
           end
-          object Label12: TLabel
-            Left = 336
-            Top = 66
-            Width = 47
-            Height = 18
-            Caption = 'Inicial:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -15
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label27: TLabel
-            Left = 10
-            Top = 36
-            Width = 73
-            Height = 18
-            Caption = 'Estoque:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
           object Label30: TLabel
             Left = 606
             Top = 10
@@ -3383,7 +3389,7 @@ inherited FProduto: TFProduto
           end
           object Label13: TLabel
             Left = 336
-            Top = 10
+            Top = 66
             Width = 68
             Height = 18
             Caption = 'Dt. Cad.:'
@@ -3395,8 +3401,8 @@ inherited FProduto: TFProduto
             ParentFont = False
           end
           object Label68: TLabel
-            Left = 185
-            Top = 10
+            Left = 337
+            Top = 18
             Width = 100
             Height = 18
             Caption = 'Qtd Atacado:'
@@ -3425,7 +3431,7 @@ inherited FProduto: TFProduto
             ParentFont = False
             ParentShowHint = False
             ShowHint = False
-            TabOrder = 4
+            TabOrder = 2
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
@@ -3448,56 +3454,7 @@ inherited FProduto: TFProduto
             ParentFont = False
             ParentShowHint = False
             ShowHint = False
-            TabOrder = 5
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBEstIni: TDBColorEdit
-            Left = 336
-            Top = 86
-            Width = 105
-            Height = 26
-            Color = clWhite
-            Ctl3D = True
-            DataField = 'ESTINI'
-            DataSource = DMESTOQUE.DSEstoque
-            Enabled = False
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -15
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = False
             TabOrder = 3
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBESTFISICO: TDBColorEdit
-            Left = 10
-            Top = 55
-            Width = 105
-            Height = 26
-            Color = 12312063
-            Ctl3D = True
-            DataField = 'ESTFISICO'
-            DataSource = DMESTOQUE.DSEstoque
-            Enabled = False
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 0
-            FocusColor = 12312063
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
@@ -3521,7 +3478,7 @@ inherited FProduto: TFProduto
             ParentShowHint = False
             ReadOnly = True
             ShowHint = False
-            TabOrder = 6
+            TabOrder = 4
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
@@ -3545,14 +3502,14 @@ inherited FProduto: TFProduto
             ParentShowHint = False
             ReadOnly = True
             ShowHint = False
-            TabOrder = 7
+            TabOrder = 5
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
           end
           object DBDtCad: TDBColorEdit
             Left = 336
-            Top = 30
+            Top = 86
             Width = 105
             Height = 26
             Ctl3D = True
@@ -3569,14 +3526,14 @@ inherited FProduto: TFProduto
             ParentShowHint = False
             ReadOnly = True
             ShowHint = False
-            TabOrder = 2
+            TabOrder = 1
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
           end
           object DBColorEdit33: TDBColorEdit
-            Left = 184
-            Top = 30
+            Left = 336
+            Top = 38
             Width = 105
             Height = 26
             Color = clWhite
@@ -3590,7 +3547,7 @@ inherited FProduto: TFProduto
             Font.Style = []
             ParentCtl3D = False
             ParentFont = False
-            TabOrder = 1
+            TabOrder = 0
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
@@ -4408,528 +4365,218 @@ inherited FProduto: TFProduto
         object TabSheet6: TTabSheet
           Caption = 'Hist'#243'rico'
           ImageIndex = 5
-          object Shape4: TShape
-            Left = 8
-            Top = 8
-            Width = 118
-            Height = 127
-            Brush.Color = clSilver
-            Pen.Color = clSilver
-          end
-          object Label100: TLabel
-            Left = 8
-            Top = 17
-            Width = 118
-            Height = 19
-            Alignment = taCenter
-            AutoSize = False
-            Caption = 'Estoque F'#237's.'
-            Font.Charset = DEFAULT_CHARSET
+          object Label27: TLabel
+            Left = 12
+            Top = 3
+            Width = 140
+            Height = 13
+            Caption = 'Intervalo de lan'#231'amento'
+            Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
             ParentFont = False
-            Transparent = True
           end
-          object LEstFisico: TLabel
-            Left = 8
-            Top = 34
-            Width = 118
-            Height = 22
-            Alignment = taCenter
-            AutoSize = False
-            Caption = '0'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Transparent = True
+          object SpeedButton1: TSpeedButton
+            Left = 136
+            Top = 60
+            Width = 30
+            Height = 30
+            Cursor = crHandPoint
+            Hint = 'Hist'#243'rico de compras e vendas'
+            Glyph.Data = {
+              F6060000424DF606000000000000360000002800000018000000180000000100
+              180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFF6C47DA7656EAC1B2F6FFF4F4FFEDEDFFEDEEFFFFFFFFFFFFA4D6FD
+              48B1FC61C4FDFDFCFDFFEDEEFFEDEDFFF6F6FFFFFFFFFFFFFFFDFCFFAF7BFF8E
+              4DFFA267FFF2E9FFFFFFFFFFFF5E35D5623DE8AE9BF3FFF4F4FFEDEDFFEDEDFF
+              EDEDFFF6F689CBFE37ABFC3FB7FCFAFBFDFFEDEDFFEDEDFFEDEDFFEDEEFFFFFF
+              FFA76EFF7F3EFF954DFFAB5CFFC994FFFFFFFFFFFFC6BEEACAC5EDF2F0FCFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFEFF8FFB6E0FED6F0FEFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFBD92FF7F3EFF974EFFB965FFB965FFC682FFFFFFFFFFFF69AC2D
+              6BCC45B8E6A6FFF4F4FFEDEDFFEDEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFD6B9FF813FFF8D47FFB864FFB965FFB965FFDBB0FF
+              FFFFFFFFFF69AC2D6BCC46B7E6A5FFF4F4FFEDEDFFEDEDFFEDEDFFF6F6FFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBDBFF8543FF8642FFB462FFB965FFB9
+              65FFD6A5FFFEFDFFFFFFFFFFFFF4FAF0F3FBF0FDFEFDFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F3FF8F4DFF8240FFAF5E
+              FFB965FFBB69FFE4C3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFDED6D68F747487656487605D9066639F7977BDA3A1D3C8C7695154A3725CFF
+              7F3EFFA356FFB965FFC075FFF0DEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFDFCFC876E6E694545885C598B5F5C966A67976B698D605D8B5E5B8C5F
+              5C805C5B4D30329B6148FFB361FFC988FFF8F0FFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFEFDFD6E51536D4748946765CBA3A3F5D1D2FFDDDEFFDDDE
+              F8D5D6D2ABAB996D6A8B5E5B855D5B4D3032A28170FFFDFBFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8D7474623F409E7371F1CDCEA57FDC67
+              3ED76039DF6D49E5AA9ACDF1DBD0F7D4D5A87D7C8B5E5B805C5B644C4EFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE6DEDE5032358A5F5DF0CC
+              CD855ED9592FD6613CE8623DE8623DE88AC27579CE54EDDBCCF8D5D6996E6B8B
+              5F5CD0C3C2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF92797A
+              603E3FC39C9ACDA9DC562BD0613CE6623DE8623DE88079C16BCC466BCC4698D1
+              74FFDDDED3ADAC8B5E5BBBA19FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFF67494B714A4AEBC7C7845CD95A30D8623DE8623DE8623DE886C66B
+              6BCC466BCC466CCC47F8DDD7F9D6D78D605D9C7673FFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFF5A3C3D795150FCDADB764DD75C33DB623DE862
+              3DE87E60DEC4D7A1C4D7A1C4D7A1C4D7A1F6DCD5FFDDDE996E6B8F6461FFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5A3C3E78504FFCDADA8D65
+              D95A30D8623DE8623DE88560E684C5F13EB7FC3EB7FC3EB7FC78C3F3FFDDDE98
+              6C69906461FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF694C4D
+              6F4949E8C4C4E1BFDD572CD1613CE7623DE88560E684C5F13EB7FC3EB7FC3EB7
+              FCA7CBECF6D4D48C605D9E7976FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFF9780815E3C3EBE9695FFDDDEAA84DB5B32D7623DE88560E684C5F1
+              3EB7FC3EB7FC57BCF8F5DBE0CEA7A78B5E5BBEA5A3FFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFEDE9E9513235855B58EAC5C6FFDDDED2AFDD89
+              62DC9D78E284C5F13EB7FC69BFF6E6D8E2F3D0D0956A678C605DECE5E5FFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9A82835D3C3D986B
+              68EAC6C6FFDDDEFFDDDEFFDDDED6D5E4DBD6E3FFDDDEF2CFCFA076738B5E5BC0
+              A7A6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFF7D62626844438E6360BF9795E9C5C5FDDBDCFEDCDDEDC9CAC69F9E9367
+              648B5E5BAE8F8DFDFCFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFF998383664445845A578B5E5B8B5F5C8C605D
+              8B5E5B8B5E5B8F6360C4ADABFEFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFECE9E99B84848F
+              706F926F6C9B7573A98886C8B3B1F2EDEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            OnClick = SpeedButton1Click
           end
-          object Label102: TLabel
-            Left = 8
-            Top = 51
-            Width = 118
-            Height = 19
-            Alignment = taCenter
-            AutoSize = False
-            Caption = 'Estoque Calc.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Transparent = True
-          end
-          object LEstCalc: TLabel
-            Left = 8
-            Top = 67
-            Width = 118
-            Height = 22
-            Alignment = taCenter
-            AutoSize = False
-            Caption = '0'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Transparent = True
-          end
-          object PageControl2: TPageControl
-            Left = 128
+          object DBGrid2: TDBGrid
+            Left = 180
             Top = 0
-            Width = 614
+            Width = 562
             Height = 141
-            ActivePage = TabSheet7
+            Hint = 'Entrada de Corre'#231#227'o'
+            Color = 15794175
+            Ctl3D = False
+            DataSource = DMESTOQUE.DSAlx
+            FixedColor = 11039232
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+            ParentCtl3D = False
+            ParentFont = False
+            ParentShowHint = False
+            ReadOnly = True
+            ShowHint = True
             TabOrder = 0
-            object TabSheet7: TTabSheet
-              Caption = 'Entradas'
-              object DBGrid2: TDBGrid
-                Left = 0
-                Top = 0
-                Width = 606
-                Height = 110
-                Hint = 'Entrada de Corre'#231#227'o'
-                Align = alClient
-                Color = 15794175
-                Ctl3D = False
-                DataSource = DMESTOQUE.DSAlx
-                FixedColor = 11039232
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-                ParentCtl3D = False
-                ParentFont = False
-                ParentShowHint = False
-                ReadOnly = True
-                ShowHint = True
-                TabOrder = 0
-                TitleFont.Charset = DEFAULT_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -11
-                TitleFont.Name = 'MS Sans Serif'
-                TitleFont.Style = [fsBold]
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMNOTA'
-                    Title.Caption = 'Doc.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'DT_LANCAMENTO'
-                    Title.Caption = 'Data'
-                    Visible = True
-                  end
-                  item
-                    Alignment = taCenter
-                    Expanded = False
-                    FieldName = 'QUANTIDADE'
-                    Title.Caption = 'Qtd.'
-                    Width = 33
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'MOTIVO'
-                    Title.Caption = 'Hist'#243'rico'
-                    Visible = True
-                  end>
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clBlack
+            TitleFont.Height = -11
+            TitleFont.Name = 'MS Sans Serif'
+            TitleFont.Style = [fsBold]
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'OPERACAO'
+                Title.Caption = 'Opera'#231#227'o'
+                Visible = True
               end
-            end
-            object TabSheet8: TTabSheet
-              Caption = 'Compras'
-              ImageIndex = 1
-              object DBGrid5: TDBGrid
-                Left = 0
-                Top = 0
-                Width = 606
-                Height = 110
-                Hint = 'Pedido de Compra'
-                Align = alClient
-                Color = 15794175
-                Ctl3D = False
-                DataSource = DMESTOQUE.DSAlx3
-                FixedColor = 11039232
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-                ParentCtl3D = False
-                ParentFont = False
-                ParentShowHint = False
-                ReadOnly = True
-                ShowHint = True
-                TabOrder = 0
-                TitleFont.Charset = DEFAULT_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -11
-                TitleFont.Name = 'MS Sans Serif'
-                TitleFont.Style = [fsBold]
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMPED'
-                    Title.Caption = 'Doc.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'data'
-                    Title.Caption = 'Dt. Pedido'
-                    Visible = True
-                  end
-                  item
-                    Alignment = taCenter
-                    Expanded = False
-                    FieldName = 'QTDEPROD'
-                    Title.Caption = 'Qtd.'
-                    Width = 35
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'qtdest'
-                    Title.Caption = 'Qtd. Est.'
-                    Width = 57
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'UNITARIO'
-                    Title.Caption = 'Vlr. Unit.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'TOTPROD'
-                    Title.Caption = 'Valor'
-                    Width = 52
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'NOME'
-                    Title.Caption = 'Fornecedor'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'CPFCNPJ'
-                    Title.Caption = 'CPF/CNPJ'
-                    Visible = True
-                  end>
+              item
+                Expanded = False
+                FieldName = 'DATAMOVIMENTO'
+                Title.Caption = 'Data'
+                Visible = True
               end
-            end
-            object TabSheet9: TTabSheet
-              Caption = 'Sa'#237'das'
-              ImageIndex = 2
-              object DBGrid3: TDBGrid
-                Left = 0
-                Top = 0
-                Width = 606
-                Height = 110
-                Hint = 'Sa'#237'da de Corre'#231#227'o'
-                Align = alClient
-                Color = 15658717
-                Ctl3D = False
-                DataSource = DMESTOQUE.DSAlx1
-                FixedColor = 11039232
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-                ParentCtl3D = False
-                ParentFont = False
-                ParentShowHint = False
-                ReadOnly = True
-                ShowHint = True
-                TabOrder = 0
-                TitleFont.Charset = DEFAULT_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -11
-                TitleFont.Name = 'MS Sans Serif'
-                TitleFont.Style = [fsBold]
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMNOTA'
-                    Title.Caption = 'Doc.'
-                    Visible = True
-                  end
-                  item
-                    Alignment = taCenter
-                    Expanded = False
-                    FieldName = 'DT_LANCAMENTO'
-                    Title.Caption = 'Data'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'QUANTIDADE'
-                    Title.Caption = 'Qtd.'
-                    Width = 40
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'MOTIVO'
-                    Title.Caption = 'Hist'#243'rico'
-                    Visible = True
-                  end>
+              item
+                Expanded = False
+                FieldName = 'HORAMOVIMENTO'
+                Title.Caption = 'Hora'
+                Visible = True
               end
-            end
-            object TabSheet10: TTabSheet
-              Caption = 'Vendas'
-              ImageIndex = 3
-              object DBGrid4: TDBGrid
-                Left = 0
-                Top = 0
-                Width = 606
-                Height = 110
-                Hint = 'Pedido de Venda'
-                Align = alClient
-                Color = 15658717
-                Ctl3D = False
-                DataSource = DMESTOQUE.DSAlx2
-                FixedColor = 11039232
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-                ParentCtl3D = False
-                ParentFont = False
-                ParentShowHint = False
-                ReadOnly = True
-                ShowHint = True
-                TabOrder = 0
-                TitleFont.Charset = DEFAULT_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -11
-                TitleFont.Name = 'MS Sans Serif'
-                TitleFont.Style = [fsBold]
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMPED'
-                    Title.Caption = 'Doc.'
-                    Width = 60
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'DTPEDVEN'
-                    Title.Caption = 'Dt. Pedido'
-                    Visible = True
-                  end
-                  item
-                    Alignment = taCenter
-                    Expanded = False
-                    FieldName = 'QTDEPROD'
-                    Title.Caption = 'Qtd.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'OPERACAO'
-                    Title.Caption = 'ST'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'UNITARIO'
-                    Title.Caption = 'Vlr. Unit.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'TOTPROD'
-                    Title.Caption = 'Valor'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'NOMECLI'
-                    Title.Caption = 'Cliente'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'CPFCNPJ'
-                    Title.Caption = 'CPF/CNPJ'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'LOTE'
-                    Visible = True
-                  end>
+              item
+                Expanded = False
+                FieldName = 'COD_USUARIO'
+                Title.Caption = 'Usu'#225'rio'
+                Visible = True
               end
-            end
-            object TabSheet11: TTabSheet
-              Caption = 'O.S.'
-              ImageIndex = 4
-              object DBGrid6: TDBGrid
-                Left = 0
-                Top = 0
-                Width = 606
-                Height = 110
-                Hint = 'Ordem de Servi'#231'o'
-                Align = alClient
-                Color = 15658717
-                Ctl3D = False
-                DataSource = DMESTOQUE.DSAlx4
-                FixedColor = 11039232
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -11
-                Font.Name = 'MS Sans Serif'
-                Font.Style = []
-                Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-                ParentCtl3D = False
-                ParentFont = False
-                ParentShowHint = False
-                ReadOnly = True
-                ShowHint = True
-                TabOrder = 0
-                TitleFont.Charset = DEFAULT_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -11
-                TitleFont.Name = 'MS Sans Serif'
-                TitleFont.Style = [fsBold]
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMERO'
-                    Title.Caption = 'Ordem'
-                    Width = 66
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'NUMREQ'
-                    Title.Caption = 'Req.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'CODPRODFABR'
-                    Title.Caption = 'Fabric.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'QTD'
-                    Title.Caption = 'Qtd.'
-                    Width = 34
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'DESCRICAO'
-                    Title.Caption = 'Produto'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'UNITARIO'
-                    Title.Caption = 'Vlr. Unit.'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'TOTAL'
-                    Title.Caption = 'Total'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'CLIENTE'
-                    Title.Caption = 'Cliente'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'DATA'
-                    Title.Caption = 'Dt. Abertura'
-                    Visible = True
-                  end>
+              item
+                Expanded = False
+                FieldName = 'QUANTIDADEMOVIMENTADO'
+                Title.Caption = 'Quantidade'
+                Width = 69
+                Visible = True
               end
-            end
-            object TabSheet16: TTabSheet
-              Caption = 'Custo Final do Item'
-              ImageIndex = 5
-              object DbGCustoEstoqueEmpresa: TDBGrid
-                Left = 0
-                Top = 8
-                Width = 601
-                Height = 100
-                DataSource = DMENTRADA.DSCustoNFeListagem
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -13
-                Font.Name = 'Courier New'
-                Font.Style = []
-                Options = [dgEditing, dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
-                ParentFont = False
-                TabOrder = 0
-                TitleFont.Charset = ANSI_CHARSET
-                TitleFont.Color = clWindowText
-                TitleFont.Height = -13
-                TitleFont.Name = 'Courier New'
-                TitleFont.Style = [fsBold, fsItalic]
-                OnExit = DbGCustoEstoqueEmpresaExit
-                Columns = <
-                  item
-                    Expanded = False
-                    FieldName = 'NUMPED'
-                    ReadOnly = True
-                    Title.Caption = 'Num. compra'
-                    Width = 100
-                    Visible = True
-                  end
-                  item
-                    Alignment = taRightJustify
-                    Expanded = False
-                    FieldName = 'DATA'
-                    ReadOnly = True
-                    Title.Alignment = taRightJustify
-                    Title.Caption = 'Data Entrada'
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'VALORUNITARIOCUSTO'
-                    Title.Alignment = taRightJustify
-                    Title.Caption = 'Vlr. Custo'
-                    Width = 88
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
-                    FieldName = 'QUANTIDADEDISPONIVELVENDA'
-                    Title.Alignment = taRightJustify
-                    Title.Caption = 'Qtde. Dispon'#237'vel'
-                    Width = 133
-                    Visible = True
-                  end>
+              item
+                Expanded = False
+                FieldName = 'ORIGEM_TIPO'
+                Title.Caption = 'Origem'
+                Width = 58
+                Visible = True
               end
-            end
+              item
+                Expanded = False
+                FieldName = 'HISTORICO'
+                Title.Caption = 'Hist'#243'rico'
+                Visible = True
+              end>
+          end
+          object edFiltroHistoricoIni: TMaskEdit
+            Left = 12
+            Top = 17
+            Width = 76
+            Height = 21
+            EditMask = '!99/99/0000;1;_'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            MaxLength = 10
+            ParentFont = False
+            TabOrder = 1
+            Text = '  /  /    '
+          end
+          object edFiltroHistoricoFim: TMaskEdit
+            Left = 92
+            Top = 17
+            Width = 76
+            Height = 21
+            EditMask = '!99/99/0000;1;_'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            MaxLength = 10
+            ParentFont = False
+            TabOrder = 2
+            Text = '  /  /    '
+          end
+          object BitBtn16: TBitBtn
+            Left = 12
+            Top = 114
+            Width = 155
+            Height = 25
+            Caption = 'Aplicar Filtro'
+            TabOrder = 3
+            OnClick = BitBtn16Click
+          end
+          object RgFiltroTipoHistorico: TRadioGroup
+            Left = 12
+            Top = 44
+            Width = 105
+            Height = 65
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Courier New'
+            Font.Style = []
+            ItemIndex = 0
+            Items.Strings = (
+              'Todos'
+              'Entradas'
+              'Sa'#237'das')
+            ParentFont = False
+            TabOrder = 4
           end
         end
         object TabSheet12: TTabSheet
@@ -6174,377 +5821,7 @@ inherited FProduto: TFProduto
       ParentFont = False
       Transparent = True
     end
-    object PAguarde: TPanel [3]
-      Left = 122
-      Top = 138
-      Width = 471
-      Height = 97
-      BevelInner = bvLowered
-      BevelWidth = 2
-      Caption = 'A G U A R D E . . .'
-      Color = clGradientInactiveCaption
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 5
-      Visible = False
-    end
-    inherited DBGridCadastroPadrao: TDBGrid [4]
-      Left = 6
-      Top = 101
-      Width = 763
-      Height = 121
-      TabOrder = 3
-      OnCellClick = DBGridCadastroPadraoCellClick
-      OnKeyUp = DBGridCadastroPadraoKeyUp
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'CI_GRUPO'
-          Title.Caption = 'Grupo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'CI_SUBGRUPO'
-          Title.Caption = 'SubGrupo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_INTERNO'
-          Title.Caption = 'C'#243'digo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PRODUTO'
-          Title.Caption = 'Grade'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'APLICACAO'
-          Title.Caption = 'Aplica'#231#227'o'
-          Visible = True
-        end>
-    end
-    inherited GroupBox1: TGroupBox [5]
-      Left = 6
-      Top = 53
-      Width = 763
-      Height = 47
-      Caption = 'Listagem de Grades'
-      Font.Charset = ANSI_CHARSET
-      Font.Name = 'Verdana'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 1
-      inherited EdNome: TFlatEdit
-        Width = 19
-        TabOrder = 1
-        Visible = False
-      end
-      inherited BtnSelecionar: TBitBtn
-        Left = 616
-        Top = 18
-        Width = 144
-        TabOrder = 0
-      end
-      object EDProduto: TMaskEdit
-        Left = 8
-        Top = 20
-        Width = 601
-        Height = 24
-        Hint = 
-          'Informe o c'#243'digo de composi'#231#227'o. Pressione <ENTER> para seleciona' +
-          'r e <ESC> para liberar'
-        Ctl3D = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 2
-        OnEnter = EDProdutoEnter
-        OnExit = EDProdutoExit
-        OnKeyDown = EDProdutoKeyDown
-      end
-    end
-    object PContEst: TPanel [6]
-      Left = 394
-      Top = 516
-      Width = 377
-      Height = 41
-      BevelOuter = bvNone
-      BevelWidth = 2
-      BorderWidth = 1
-      Color = clBtnHighlight
-      TabOrder = 6
-      object lbquntEst: TLabel
-        Left = 2
-        Top = 4
-        Width = 127
-        Height = 13
-        Alignment = taCenter
-        BiDiMode = bdRightToLeft
-        Caption = 'Estoque na Grade 0'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clTeal
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentBiDiMode = False
-        ParentFont = False
-      end
-      object lbQtdGrade: TLabel
-        Left = 256
-        Top = 4
-        Width = 113
-        Height = 13
-        Alignment = taRightJustify
-        Caption = 'Itens na Grade: 0'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clTeal
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object LQtdItem2: TLabel
-        Left = 250
-        Top = 27
-        Width = 119
-        Height = 13
-        Alignment = taRightJustify
-        Caption = 'Itens Cadastrados'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clTeal
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lbProdMarcados: TLabel
-        Left = 2
-        Top = 27
-        Width = 127
-        Height = 13
-        Alignment = taCenter
-        BiDiMode = bdRightToLeft
-        Caption = 'Estoque na Grade 0'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clTeal
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentBiDiMode = False
-        ParentFont = False
-      end
-    end
-    inherited Painel: TPanel [7]
-      Top = -1
-      Width = 769
-      Height = 52
-      TabOrder = 0
-      inherited BtnNovo: TBitBtn
-        Width = 109
-      end
-      inherited BtnApagar: TBitBtn
-        Left = 111
-        Width = 110
-      end
-      inherited BtnConsultar: TBitBtn
-        Left = 220
-        Width = 110
-      end
-      inherited BtnRelatorio: TBitBtn
-        Left = 329
-        Width = 110
-        OnClick = BtnRelatorioClick
-      end
-      inherited BtnFiltrar: TBitBtn
-        Left = 438
-        Width = 110
-        Hint = 'Pressione este bot'#227'o para demarcar os itens marcados'
-        Caption = 'Desmarcar [X]'
-        OnClick = BtnFiltrarClick
-      end
-      object PPromocao: TBitBtn
-        Left = 547
-        Top = 2
-        Width = 110
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Atualiza a lista de produtos para o terminal.'
-        Caption = 'Contas'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 5
-        OnClick = PPromocaoClick
-        Glyph.Data = {
-          32040000424D3204000000000000360000002800000013000000110000000100
-          180000000000FC03000000000000000000000000000000000000D8E9ECD8E9EC
-          D8E9ECD8E9ECE9E5E2E3DEDCD5D7D9CBCFD0C6C8C9C4C5C7C6C6C6CCCBCBD4D3
-          D3DDDDDDE7E7E7F0EFEFD8E9ECD8E9ECD8E9EC000000D8E9ECD8E9ECE9E7E7DF
-          C0B8E4AFA2DDABA2C19F98A8928D908B86878886888A8B8C909097999AA9A9AA
-          BBBBBBCDCDCDDEDEDEEDEDEDD8E9EC000000D8E9ECD8E9ECDAD0D0DFAFA2FCC5
-          B2F3BDACF3B6A6EBAD9EDB9E92C29286A8857B927D7A887F7C8E8F8EA5A6A6B8
-          B7B7CACBCBDEDFDED8E9EC000000D8E9ECD8E9ECE0CAC8EEB3A5F2D3C6F8EFE5
-          F5E0D4F6D4C2F9C9B6F8BFABF5B5A2ECA89AD99F8DB68A81AB9390BCBFBDD4D2
-          D2E4E4E4D8E9EC000000D8E9ECD8E9ECECC8C0EFB8A3F9EEE7FFFFFFFDFFFFFD
-          FFFFFCF9F5F9EFE7F7E2D4F9D3C2E2B2A1C68F81B8837ADAD0CDECEEEED8E9EC
-          D8E9EC000000D8E9ECD8E9ECEBBBADF4C4AFFAFAF6FDFDFDFCFFFEFEFFFFFEFF
-          FFFEFFFFFFFFFFE9EBECCEC9C7C19B8ABE8D82F5F0EDD8E9ECD8E9ECD8E9EC00
-          0000D8E9ECF7EDEAECAEA0F5D5C5FCFEFFFBFFFFFBFBF8FAEFE9FCFBF8FDFFFF
-          F3F3F4D2D1D3CCCBCBB88D7ED0ABA3D8E9ECD8E9ECD8E9ECD8E9EC000000D8E9
-          ECF0D5CFEDAF9CF4E4DBF8F6F1F2D5C5F2B9A0F3B18EF8E0CEFBFFFFE0DFE0CE
-          D1D1CFC4BDCC8E7EEDD5CDD8E9ECD8E9ECD8E9ECD8E9EC000000D8E9ECEEBEB4
-          EAB6A4F7F2EDE9C1B2E5936EEEAA89EDAE8BF3B89CEAD8CFDCD0CDF0F4F4EACD
-          C0E6A493FAF2EED8E9ECD8E9ECD8E9ECD8E9EC000000D8E9ECE8AB9CEAC5B6F6
-          F7F5F1DED7F0D0C4F6EFECF2D6C7EDA07DE9B99FA49793B9BBBADAB3A9ECBFAA
-          D8E9ECD8E9ECD8E9ECD8E9ECD8E9EC000000EFDDD9E4A492ECD9CEFBFCFDF8FB
-          FBF7FBFCF3F8FAF4F2F1ECAC92EAA584BBAEA97E82809D979CBBB4D0EEF0FED8
-          E9ECD8E9ECD8E9ECD8E9EC000000EAC3BAE2A594F4EFE9FFFFFFFCFCFDFAFBFA
-          F9F7F8F8F9FBF1D8CAE28A69E6B5A3ACB2B4504DB34541C8A8B2D7F3F4F4D8E9
-          ECD8E9ECD8E9EC000000E5A99CDFB19FFAFCFAFFFFFFFFFFFFFFFFFFFEFEFEF9
-          FDFCFAFAF8EECABFF2D6C8D8C9CC615DDC6361A09A9798C1C0BFDDDDEAD8E9EC
-          D8E9EC000000E2A498DCA491DFBFB2E4D4CAEFE8E2F7F7F5FEFFFFFFFFFFFFFF
-          FFFFFFFFF9F9F5D1A195A289C4979AB382858194948F8E8DBB8584E2D8E9EC00
-          0000EFD8D6EBB9ADE5A898DA9F8DD69E8CD4A899D7BBADDFCFC4E9E5DEF7F7F6
-          E5D6CDD49D8AF3E1DDE8E6EBBEBFBB8A8A8B8C8C8F6D6FC2807CE1000000D8E9
-          ECD8E9ECF9F0EEF6DFDBEECCC6EAB8AFE0A899D89E8DD19C8ACEA596CD9E8DE6
-          B4A6D8E9ECD8E9ECD8E9ECD0D1D19694918B8A8C8283B8000000D8E9ECD8E9EC
-          D8E9ECD8E9ECD8E9ECD8E9ECFBF2EFF7E2DEF4D1C9EABEB4E6BAB0F5E0DDD8E9
-          ECD8E9ECD8E9ECD8E9ECDDDFDE9F9E9D868885000000}
-      end
-      object BtnSolicitaCompra: TBitBtn
-        Left = 2
-        Top = 26
-        Width = 109
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Atualiza a lista de produtos para o terminal.'
-        Caption = 'Solicita'#231#227'o Compra'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 6
-        OnClick = BtnSolicitaCompraClick
-      end
-      object btnFichaTecnica: TBitBtn
-        Left = 111
-        Top = 26
-        Width = 110
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Pressione este bot'#227'o para obter novo cadastro'
-        Caption = 'Ficha T'#233'cnica'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 7
-        OnClick = btnFichaTecnicaClick
-      end
-      object btnhelp: TBitBtn
-        Left = 677
-        Top = 2
-        Width = 90
-        Height = 25
-        Cursor = crHandPoint
-        Hint = '[F1] - Clique aqui para obter ajuda do manual'
-        Caption = 'Ajuda - F1'
-        DragCursor = crHandPoint
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 8
-        OnClick = btnhelpClick
-        Glyph.Data = {
-          26040000424D2604000000000000360000002800000012000000120000000100
-          180000000000F003000000000000000000000000000000000000F2F2F2F2F2F2
-          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2
-          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F20000F2F2F2F0F0F0F0F0F0F0F0F0F0F0
-          F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
-          F0F0F0F0F0F2F2F20000F2F2F2F0F0F0F0F0F0F0F0F0F0F0F0D9D9E0B9BCBBA2
-          A6A48D92908D9290A2A6A4B9BCBBD9D9E0F0F0F0F0F0F0F0F0F0F0F0F0F2F2F2
-          0000F2F2F2F0F0F0F0F0F0EFEFEF8182BA1919AAA9ADC7D0D5D3E0E4E2E0E4E2
-          CFD4D2A8ABC61818AA8182B9EFEFEFF0F0F0F0F0F0F2F2F20000F2F2F2F0F0F0
-          EFEFEF3F41AA3737C28E8EF49FA1EDD8DFDBD8DEDBD8DEDBD8DEDB9B9EEC8585
-          F33334C13C3EA9EFEFEFF0F0F0F2F2F20000F2F2F2F0F0F08586BF3939C29696
-          F74949F16E6FF0F4F5F7FCFCFCFCFDFCF7F8F98688F04646F18A8AF63334C181
-          82B9F0F0F0F2F2F20000F2F2F2DCDDE31B1BAD9797F54B4BF27E7FF4CDCDF6A0
-          A3C39EA2A09EA1A0A7A9C5E8E9F99D9DF54646F18888F31919AAD9D9E0F2F2F2
-          0000F2F2F2C8CBCAB7BAD3A8A9F16A6BF2C4C5F53436A77D7EBCEAEBEAEAEAEA
-          7C7DBB3536A6E2E3F78686F2A2A3F0A9ADC7B9BCBBF2F2F20000F2F2F2B9BEBD
-          DCE1DFEEF1F0F9F9FD9D9EC27F80BEF0F0F0F0F0F0F0F0F0F0F0F07D7EBBA0A3
-          C1FCFCFEEEF1EFD3D7D5A4A8A6F2F2F20000F2F2F2B0B6B3EDF0EFF7F8F8FBFB
-          FBADB3B0EBEBEBF0F0F0F0F0F0F0F0F0F0F0F0EAEBEBA2A6A5FCFCFCF7F8F8E6
-          EAE8949997F2F2F20000F2F2F2B4BBB7F0F2F1FDFDFDF9FAFAB1B6B4EBECECF0
-          F0F0F0F0F0F0F0F0F0F0F0EBEBEBA5A9A7FAFBFBFDFDFDEAEDEC989E9CF2F2F2
-          0000F2F2F2C4C9C7E7EAE9FEFEFEEEEFF97678CF7E80C2F0F0F0F0F0F0F0F0F0
-          F0F0F07B7DC0797ACDF0F1F9FEFEFEDEE1E0AEB3B1F2F2F20000F2F2F2D4D8D6
-          D0D4DEC5C5F93E3EF16060F21A1BB77F81C4ECECECECECEC7D7FC21B1BB77171
-          F34545F1C7C8F8C2C5D1C5C8C7F2F2F20000F2F2F2E1E2E72F30AEDADAF77070
-          F54141F15B5BF17577D0B7BEBBB5BCB97678CF6767F24B4BF18383F5CECFF426
-          28A9DDDDE3F2F2F20000F2F2F2F0F0F09396CA6A6CC2E6E6FC7272F43C3CF1E7
-          E8F2F0F2F2F1F2F2E7E9F33F3FF08484F4DCDCFB5C5DBB8B8DC3F0F0F0F2F2F2
-          0000F2F2F2F0F0F0F0F0F0575BB86D6FC4E4E4FACFCFFBF9FAFAF6F7F7F6F7F7
-          F9FAFACFCFFAD7D8F85E61BD5153B1EFEFEFF0F0F0F2F2F20000F2F2F2F0F0F0
-          F0F0F0F0F0F09598CC3032B0DBDEE9F5F6F6FDFDFDFDFDFDF3F4F3D5D7E32C2D
-          AD9092C7EFEFEFF0F0F0F0F0F0F2F2F20000F2F2F2F2F2F2F2F2F2F2F2F2F2F2
-          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2
-          F2F2F2F2F2F2F2F20000}
-      end
-    end
-    object Panel6: TPanel
-      Left = 6
-      Top = 475
-      Width = 763
-      Height = 41
-      BevelInner = bvRaised
-      BevelOuter = bvLowered
-      Color = 16772332
-      TabOrder = 4
-      object Label113: TLabel
-        Left = 3
-        Top = 2
-        Width = 72
-        Height = 10
-        Caption = 'ESPECIFICA'#199#195'O'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -8
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object DBText1: TDBText
-        Left = 8
-        Top = 13
-        Width = 60
-        Height = 16
-        AutoSize = True
-        DataField = 'ESPECIFICACAO'
-        DataSource = DMESTOQUE.DWSimilar
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object ProgressBar1: TProgressBar
-        Left = 8
-        Top = 29
-        Width = 745
-        Height = 8
-        TabOrder = 0
-      end
-    end
-    object GBSIMILAR: TGroupBox
+    object GBSIMILAR: TGroupBox [3]
       Left = 6
       Top = 53
       Width = 762
@@ -6931,6 +6208,376 @@ inherited FProduto: TFProduto
         OnClick = RGFiltroClick
       end
     end
+    object PAguarde: TPanel [4]
+      Left = 122
+      Top = 138
+      Width = 471
+      Height = 97
+      BevelInner = bvLowered
+      BevelWidth = 2
+      Caption = 'A G U A R D E . . .'
+      Color = clGradientInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+      Visible = False
+    end
+    inherited DBGridCadastroPadrao: TDBGrid [5]
+      Left = 6
+      Top = 101
+      Width = 763
+      Height = 121
+      TabOrder = 3
+      OnCellClick = DBGridCadastroPadraoCellClick
+      OnKeyUp = DBGridCadastroPadraoKeyUp
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'CI_GRUPO'
+          Title.Caption = 'Grupo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'CI_SUBGRUPO'
+          Title.Caption = 'SubGrupo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_INTERNO'
+          Title.Caption = 'C'#243'digo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PRODUTO'
+          Title.Caption = 'Grade'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'APLICACAO'
+          Title.Caption = 'Aplica'#231#227'o'
+          Visible = True
+        end>
+    end
+    inherited GroupBox1: TGroupBox [6]
+      Left = 6
+      Top = 53
+      Width = 763
+      Height = 47
+      Caption = 'Listagem de Grades'
+      Font.Charset = ANSI_CHARSET
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      inherited EdNome: TFlatEdit
+        Width = 19
+        TabOrder = 1
+        Visible = False
+      end
+      inherited BtnSelecionar: TBitBtn
+        Left = 616
+        Top = 18
+        Width = 144
+        TabOrder = 0
+      end
+      object EDProduto: TMaskEdit
+        Left = 8
+        Top = 20
+        Width = 601
+        Height = 24
+        Hint = 
+          'Informe o c'#243'digo de composi'#231#227'o. Pressione <ENTER> para seleciona' +
+          'r e <ESC> para liberar'
+        Ctl3D = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        OnEnter = EDProdutoEnter
+        OnExit = EDProdutoExit
+        OnKeyDown = EDProdutoKeyDown
+      end
+    end
+    object PContEst: TPanel [7]
+      Left = 394
+      Top = 516
+      Width = 377
+      Height = 41
+      BevelOuter = bvNone
+      BevelWidth = 2
+      BorderWidth = 1
+      Color = clBtnHighlight
+      TabOrder = 6
+      object lbquntEst: TLabel
+        Left = 2
+        Top = 4
+        Width = 127
+        Height = 13
+        Alignment = taCenter
+        BiDiMode = bdRightToLeft
+        Caption = 'Estoque na Grade 0'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clTeal
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentBiDiMode = False
+        ParentFont = False
+      end
+      object lbQtdGrade: TLabel
+        Left = 256
+        Top = 4
+        Width = 113
+        Height = 13
+        Alignment = taRightJustify
+        Caption = 'Itens na Grade: 0'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clTeal
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object LQtdItem2: TLabel
+        Left = 250
+        Top = 27
+        Width = 119
+        Height = 13
+        Alignment = taRightJustify
+        Caption = 'Itens Cadastrados'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clTeal
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbProdMarcados: TLabel
+        Left = 2
+        Top = 27
+        Width = 127
+        Height = 13
+        Alignment = taCenter
+        BiDiMode = bdRightToLeft
+        Caption = 'Estoque na Grade 0'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clTeal
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentBiDiMode = False
+        ParentFont = False
+      end
+    end
+    inherited Painel: TPanel [8]
+      Top = -1
+      Width = 769
+      Height = 52
+      TabOrder = 0
+      inherited BtnNovo: TBitBtn
+        Width = 109
+      end
+      inherited BtnApagar: TBitBtn
+        Left = 111
+        Width = 110
+      end
+      inherited BtnConsultar: TBitBtn
+        Left = 220
+        Width = 110
+      end
+      inherited BtnRelatorio: TBitBtn
+        Left = 329
+        Width = 110
+        OnClick = BtnRelatorioClick
+      end
+      inherited BtnFiltrar: TBitBtn
+        Left = 438
+        Width = 110
+        Hint = 'Pressione este bot'#227'o para demarcar os itens marcados'
+        Caption = 'Desmarcar [X]'
+        OnClick = BtnFiltrarClick
+      end
+      object PPromocao: TBitBtn
+        Left = 547
+        Top = 2
+        Width = 110
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Atualiza a lista de produtos para o terminal.'
+        Caption = 'Contas'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 5
+        OnClick = PPromocaoClick
+        Glyph.Data = {
+          32040000424D3204000000000000360000002800000013000000110000000100
+          180000000000FC03000000000000000000000000000000000000D8E9ECD8E9EC
+          D8E9ECD8E9ECE9E5E2E3DEDCD5D7D9CBCFD0C6C8C9C4C5C7C6C6C6CCCBCBD4D3
+          D3DDDDDDE7E7E7F0EFEFD8E9ECD8E9ECD8E9EC000000D8E9ECD8E9ECE9E7E7DF
+          C0B8E4AFA2DDABA2C19F98A8928D908B86878886888A8B8C909097999AA9A9AA
+          BBBBBBCDCDCDDEDEDEEDEDEDD8E9EC000000D8E9ECD8E9ECDAD0D0DFAFA2FCC5
+          B2F3BDACF3B6A6EBAD9EDB9E92C29286A8857B927D7A887F7C8E8F8EA5A6A6B8
+          B7B7CACBCBDEDFDED8E9EC000000D8E9ECD8E9ECE0CAC8EEB3A5F2D3C6F8EFE5
+          F5E0D4F6D4C2F9C9B6F8BFABF5B5A2ECA89AD99F8DB68A81AB9390BCBFBDD4D2
+          D2E4E4E4D8E9EC000000D8E9ECD8E9ECECC8C0EFB8A3F9EEE7FFFFFFFDFFFFFD
+          FFFFFCF9F5F9EFE7F7E2D4F9D3C2E2B2A1C68F81B8837ADAD0CDECEEEED8E9EC
+          D8E9EC000000D8E9ECD8E9ECEBBBADF4C4AFFAFAF6FDFDFDFCFFFEFEFFFFFEFF
+          FFFEFFFFFFFFFFE9EBECCEC9C7C19B8ABE8D82F5F0EDD8E9ECD8E9ECD8E9EC00
+          0000D8E9ECF7EDEAECAEA0F5D5C5FCFEFFFBFFFFFBFBF8FAEFE9FCFBF8FDFFFF
+          F3F3F4D2D1D3CCCBCBB88D7ED0ABA3D8E9ECD8E9ECD8E9ECD8E9EC000000D8E9
+          ECF0D5CFEDAF9CF4E4DBF8F6F1F2D5C5F2B9A0F3B18EF8E0CEFBFFFFE0DFE0CE
+          D1D1CFC4BDCC8E7EEDD5CDD8E9ECD8E9ECD8E9ECD8E9EC000000D8E9ECEEBEB4
+          EAB6A4F7F2EDE9C1B2E5936EEEAA89EDAE8BF3B89CEAD8CFDCD0CDF0F4F4EACD
+          C0E6A493FAF2EED8E9ECD8E9ECD8E9ECD8E9EC000000D8E9ECE8AB9CEAC5B6F6
+          F7F5F1DED7F0D0C4F6EFECF2D6C7EDA07DE9B99FA49793B9BBBADAB3A9ECBFAA
+          D8E9ECD8E9ECD8E9ECD8E9ECD8E9EC000000EFDDD9E4A492ECD9CEFBFCFDF8FB
+          FBF7FBFCF3F8FAF4F2F1ECAC92EAA584BBAEA97E82809D979CBBB4D0EEF0FED8
+          E9ECD8E9ECD8E9ECD8E9EC000000EAC3BAE2A594F4EFE9FFFFFFFCFCFDFAFBFA
+          F9F7F8F8F9FBF1D8CAE28A69E6B5A3ACB2B4504DB34541C8A8B2D7F3F4F4D8E9
+          ECD8E9ECD8E9EC000000E5A99CDFB19FFAFCFAFFFFFFFFFFFFFFFFFFFEFEFEF9
+          FDFCFAFAF8EECABFF2D6C8D8C9CC615DDC6361A09A9798C1C0BFDDDDEAD8E9EC
+          D8E9EC000000E2A498DCA491DFBFB2E4D4CAEFE8E2F7F7F5FEFFFFFFFFFFFFFF
+          FFFFFFFFF9F9F5D1A195A289C4979AB382858194948F8E8DBB8584E2D8E9EC00
+          0000EFD8D6EBB9ADE5A898DA9F8DD69E8CD4A899D7BBADDFCFC4E9E5DEF7F7F6
+          E5D6CDD49D8AF3E1DDE8E6EBBEBFBB8A8A8B8C8C8F6D6FC2807CE1000000D8E9
+          ECD8E9ECF9F0EEF6DFDBEECCC6EAB8AFE0A899D89E8DD19C8ACEA596CD9E8DE6
+          B4A6D8E9ECD8E9ECD8E9ECD0D1D19694918B8A8C8283B8000000D8E9ECD8E9EC
+          D8E9ECD8E9ECD8E9ECD8E9ECFBF2EFF7E2DEF4D1C9EABEB4E6BAB0F5E0DDD8E9
+          ECD8E9ECD8E9ECD8E9ECDDDFDE9F9E9D868885000000}
+      end
+      object BtnSolicitaCompra: TBitBtn
+        Left = 2
+        Top = 26
+        Width = 109
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Atualiza a lista de produtos para o terminal.'
+        Caption = 'Solicita'#231#227'o Compra'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 6
+        OnClick = BtnSolicitaCompraClick
+      end
+      object btnFichaTecnica: TBitBtn
+        Left = 111
+        Top = 26
+        Width = 110
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Pressione este bot'#227'o para obter novo cadastro'
+        Caption = 'Ficha T'#233'cnica'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+        OnClick = btnFichaTecnicaClick
+      end
+      object btnhelp: TBitBtn
+        Left = 677
+        Top = 2
+        Width = 90
+        Height = 25
+        Cursor = crHandPoint
+        Hint = '[F1] - Clique aqui para obter ajuda do manual'
+        Caption = 'Ajuda - F1'
+        DragCursor = crHandPoint
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 8
+        OnClick = btnhelpClick
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F003000000000000000000000000000000000000F2F2F2F2F2F2
+          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2
+          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F20000F2F2F2F0F0F0F0F0F0F0F0F0F0F0
+          F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+          F0F0F0F0F0F2F2F20000F2F2F2F0F0F0F0F0F0F0F0F0F0F0F0D9D9E0B9BCBBA2
+          A6A48D92908D9290A2A6A4B9BCBBD9D9E0F0F0F0F0F0F0F0F0F0F0F0F0F2F2F2
+          0000F2F2F2F0F0F0F0F0F0EFEFEF8182BA1919AAA9ADC7D0D5D3E0E4E2E0E4E2
+          CFD4D2A8ABC61818AA8182B9EFEFEFF0F0F0F0F0F0F2F2F20000F2F2F2F0F0F0
+          EFEFEF3F41AA3737C28E8EF49FA1EDD8DFDBD8DEDBD8DEDBD8DEDB9B9EEC8585
+          F33334C13C3EA9EFEFEFF0F0F0F2F2F20000F2F2F2F0F0F08586BF3939C29696
+          F74949F16E6FF0F4F5F7FCFCFCFCFDFCF7F8F98688F04646F18A8AF63334C181
+          82B9F0F0F0F2F2F20000F2F2F2DCDDE31B1BAD9797F54B4BF27E7FF4CDCDF6A0
+          A3C39EA2A09EA1A0A7A9C5E8E9F99D9DF54646F18888F31919AAD9D9E0F2F2F2
+          0000F2F2F2C8CBCAB7BAD3A8A9F16A6BF2C4C5F53436A77D7EBCEAEBEAEAEAEA
+          7C7DBB3536A6E2E3F78686F2A2A3F0A9ADC7B9BCBBF2F2F20000F2F2F2B9BEBD
+          DCE1DFEEF1F0F9F9FD9D9EC27F80BEF0F0F0F0F0F0F0F0F0F0F0F07D7EBBA0A3
+          C1FCFCFEEEF1EFD3D7D5A4A8A6F2F2F20000F2F2F2B0B6B3EDF0EFF7F8F8FBFB
+          FBADB3B0EBEBEBF0F0F0F0F0F0F0F0F0F0F0F0EAEBEBA2A6A5FCFCFCF7F8F8E6
+          EAE8949997F2F2F20000F2F2F2B4BBB7F0F2F1FDFDFDF9FAFAB1B6B4EBECECF0
+          F0F0F0F0F0F0F0F0F0F0F0EBEBEBA5A9A7FAFBFBFDFDFDEAEDEC989E9CF2F2F2
+          0000F2F2F2C4C9C7E7EAE9FEFEFEEEEFF97678CF7E80C2F0F0F0F0F0F0F0F0F0
+          F0F0F07B7DC0797ACDF0F1F9FEFEFEDEE1E0AEB3B1F2F2F20000F2F2F2D4D8D6
+          D0D4DEC5C5F93E3EF16060F21A1BB77F81C4ECECECECECEC7D7FC21B1BB77171
+          F34545F1C7C8F8C2C5D1C5C8C7F2F2F20000F2F2F2E1E2E72F30AEDADAF77070
+          F54141F15B5BF17577D0B7BEBBB5BCB97678CF6767F24B4BF18383F5CECFF426
+          28A9DDDDE3F2F2F20000F2F2F2F0F0F09396CA6A6CC2E6E6FC7272F43C3CF1E7
+          E8F2F0F2F2F1F2F2E7E9F33F3FF08484F4DCDCFB5C5DBB8B8DC3F0F0F0F2F2F2
+          0000F2F2F2F0F0F0F0F0F0575BB86D6FC4E4E4FACFCFFBF9FAFAF6F7F7F6F7F7
+          F9FAFACFCFFAD7D8F85E61BD5153B1EFEFEFF0F0F0F2F2F20000F2F2F2F0F0F0
+          F0F0F0F0F0F09598CC3032B0DBDEE9F5F6F6FDFDFDFDFDFDF3F4F3D5D7E32C2D
+          AD9092C7EFEFEFF0F0F0F0F0F0F2F2F20000F2F2F2F2F2F2F2F2F2F2F2F2F2F2
+          F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2
+          F2F2F2F2F2F2F2F20000}
+      end
+    end
+    object Panel6: TPanel
+      Left = 6
+      Top = 475
+      Width = 763
+      Height = 41
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      Color = 16772332
+      TabOrder = 4
+      object Label113: TLabel
+        Left = 3
+        Top = 2
+        Width = 72
+        Height = 10
+        Caption = 'ESPECIFICA'#199#195'O'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -8
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object DBText1: TDBText
+        Left = 8
+        Top = 13
+        Width = 60
+        Height = 16
+        AutoSize = True
+        DataField = 'ESPECIFICACAO'
+        DataSource = DMESTOQUE.DWSimilar
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object ProgressBar1: TProgressBar
+        Left = 8
+        Top = 29
+        Width = 745
+        Height = 8
+        TabOrder = 0
+      end
+    end
   end
   object PCodigos: TPanel [2]
     Left = 274
@@ -7181,8 +6828,8 @@ inherited FProduto: TFProduto
     OnClick = Button3Click
   end
   object PMESTOQUE: TPopupMenu
-    Left = 702
-    Top = 175
+    Left = 558
+    Top = 227
     object HistricodeVendas1: TMenuItem
       Caption = 'Hist'#243'rico de Vendas'
       OnClick = HistricodeVendas1Click
@@ -7248,8 +6895,8 @@ inherited FProduto: TFProduto
     end
   end
   object PMCadastro: TPopupMenu
-    Left = 665
-    Top = 175
+    Left = 521
+    Top = 227
     object CadastrarNovoProduto1: TMenuItem
       Caption = 'CADASTRAR NOVO PRODUTO'
     end
@@ -7259,8 +6906,8 @@ inherited FProduto: TFProduto
     end
   end
   object MEscolheProc: TPopupMenu
-    Left = 628
-    Top = 174
+    Left = 484
+    Top = 226
     object ControleInterno1: TMenuItem
       Caption = 'Controle Interno'
     end
@@ -7272,8 +6919,8 @@ inherited FProduto: TFProduto
     end
   end
   object PMSubProduto: TPopupMenu
-    Left = 735
-    Top = 175
+    Left = 591
+    Top = 227
     object MarcarDesmarcar1: TMenuItem
       Caption = 'Desmarcar Todos'
       OnClick = MarcarDesmarcar1Click
@@ -7290,42 +6937,25 @@ inherited FProduto: TFProduto
       Caption = 'Criar c'#243'pia deste item'
       OnClick = CriarCpiadesteItem1Click
     end
-  end
-  object RvSystem1: TRvSystem
-    TitleSetup = 'Output Options'
-    TitleStatus = 'Report Status'
-    TitlePreview = 'Report Preview'
-    SystemFiler.StatusFormat = 'Generating page %p'
-    SystemPreview.FormState = wsMaximized
-    SystemPreview.ZoomFactor = 100.000000000000000000
-    SystemPrinter.MarginBottom = 1.000000000000000000
-    SystemPrinter.MarginLeft = 1.000000000000000000
-    SystemPrinter.MarginRight = 1.000000000000000000
-    SystemPrinter.MarginTop = 1.000000000000000000
-    SystemPrinter.Orientation = poLandScape
-    SystemPrinter.ScaleX = 100.000000000000000000
-    SystemPrinter.ScaleY = 100.000000000000000000
-    SystemPrinter.StatusFormat = 'Printing page %p'
-    SystemPrinter.Title = 'ReportPrinter Report'
-    SystemPrinter.Units = unCM
-    SystemPrinter.UnitsFactor = 2.540000000000000000
-    OnPrint = RvSystem1Print
-    OnPrintHeader = RvSystem1PrintHeader
-    OnPrintFooter = RvSystem1PrintFooter
-    Left = 633
-    Top = 375
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object AjustarEstoque1: TMenuItem
+      Caption = 'Ajustar Estoque'
+      OnClick = AjustarEstoque1Click
+    end
   end
   object FSDSRel: TfrDBDataSet
     DataSet = DMESTOQUE.TRel
     Left = 382
-    Top = 23
+    Top = 7
   end
   object FSRel: TfrReport
     Dataset = FSDSRel
     InitialZoom = pzDefault
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
-    Left = 726
-    Top = 375
+    Left = 734
+    Top = 343
     ReportForm = {18000000}
   end
   object FSDSProdVend: TfrDBDataSet
@@ -7364,23 +6994,23 @@ inherited FProduto: TFProduto
   object frDBDataSet1: TfrDBDataSet
     DataSource = DMESTOQUE.DRel
     Left = 349
-    Top = 22
+    Top = 6
   end
   object frDBEntradas: TfrDBDataSet
     DataSource = DMESTOQUE.DSAlx
     Left = 417
-    Top = 23
+    Top = 7
   end
   object frDBSaidas: TfrDBDataSet
     DataSource = DMESTOQUE.DSAlx1
     Left = 449
-    Top = 23
+    Top = 7
   end
   object frCustoDetalhado: TfrReport
     InitialZoom = pzDefault
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
     Left = 487
-    Top = 23
+    Top = 7
     ReportForm = {18000000}
   end
   object frxRelatorioProduto: TfrxReport
@@ -7423,8 +7053,8 @@ inherited FProduto: TFProduto
       ''
       'begin'
       'end.')
-    Left = 618
-    Top = 279
+    Left = 494
+    Top = 271
     Datasets = <
       item
         DataSet = frxInfoEmpresa
@@ -7848,21 +7478,42 @@ inherited FProduto: TFProduto
     UserName = 'frxProdFichaTecnica'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 650
-    Top = 279
+    Left = 526
+    Top = 271
   end
   object frxItensFichaTecnica: TfrxDBDataset
     UserName = 'frxItensFichaTecnica'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 682
-    Top = 279
+    Left = 558
+    Top = 271
   end
   object frxInfoEmpresa: TfrxDBDataset
     UserName = 'frxInfoEmpresa'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 711
-    Top = 280
+    Left = 587
+    Top = 272
+  end
+  object RvSystem1: TRvSystem
+    TitleSetup = 'Output Options'
+    TitleStatus = 'Report Status'
+    TitlePreview = 'Report Preview'
+    SystemFiler.StatusFormat = 'Generating page %p'
+    SystemPreview.FormState = wsMaximized
+    SystemPreview.ZoomFactor = 100.000000000000000000
+    SystemPrinter.MarginBottom = 1.000000000000000000
+    SystemPrinter.MarginLeft = 1.000000000000000000
+    SystemPrinter.MarginRight = 1.000000000000000000
+    SystemPrinter.MarginTop = 1.000000000000000000
+    SystemPrinter.Orientation = poLandScape
+    SystemPrinter.ScaleX = 100.000000000000000000
+    SystemPrinter.ScaleY = 100.000000000000000000
+    SystemPrinter.StatusFormat = 'Printing page %p'
+    SystemPrinter.Title = 'ReportPrinter Report'
+    SystemPrinter.Units = unCM
+    SystemPrinter.UnitsFactor = 2.540000000000000000
+    Left = 689
+    Top = 335
   end
 end

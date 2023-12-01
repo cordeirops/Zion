@@ -61,7 +61,6 @@ type
     Documentos1: TMenuItem;
     AnexarDocumentos1: TMenuItem;
     AbrirPasta1: TMenuItem;
-    SearchCNPJ: TSpeedButton;
     ActionList1: TActionList;
     actSearchCNPJ: TAction;
     btnBuscaCnpj: TBitBtn;
@@ -110,6 +109,7 @@ type
     procedure actSearchCNPJUpdate(Sender: TObject);
     procedure actSearchCNPJExecute(Sender: TObject);
     procedure btnBuscaCnpjClick(Sender: TObject);
+    procedure DBCnpjExit(Sender: TObject);
     
   private
     { Private declarations }
@@ -857,6 +857,12 @@ begin
   end;
 
 end;
+procedure TFFornecedor.DBCnpjExit(Sender: TObject);
+begin
+  inherited;
+   btnBuscaCnpj.SetFocus;
+end;
+
 END.
 
 

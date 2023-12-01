@@ -8,7 +8,7 @@ inherited FOrdemManutencao: TFOrdemManutencao
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PComunica: TPanel
+  inherited PComunica: TPanel [0]
     Left = 285
     Top = 191
   end
@@ -560,7 +560,7 @@ inherited FOrdemManutencao: TFOrdemManutencao
       end
     end
   end
-  inherited PCadastro: TPanel [2]
+  inherited PCadastro: TPanel
     Left = 4
     Width = 941
     Height = 552

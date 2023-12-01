@@ -392,6 +392,7 @@ Type
     edNumItemPedCompraNfe: TEdit;
     btnConfPedCompraNfe: TButton;
     sadasdasdzx12: TLabel;
+    Button1: TButton;
         Procedure BtnNovoClick(Sender: TObject);
         Procedure EdCodCliKeyDown(Sender: TObject; Var Key: Word;
             Shift: TShiftState);
@@ -650,6 +651,12 @@ Type
         //Função Utilizada para Inserir o Item com retorno de true ou false
         Function InsereItem : Boolean;
 
+        Function InserirItensCompra: Boolean;
+        Function InserirItensVenda: Boolean;
+        Function SetarGeneratorItemCompra: Boolean;
+        Function SetarGeneratorItemVenda: Boolean;
+        Function CalculaComissaoVenda: Boolean;
+
         Procedure verificaDescontoFormpag;
   		 //Função para calculo de base de icms substituição tributária e valor, aramazenando em variavei temporarias
         Procedure ReturnDadosIcmsSubsituicao;
@@ -747,6 +754,7 @@ Var
     XCodCstST: Integer; }
     XUsoConsumo: String;
     XFornecedorEstrangeiro: Boolean;
+    xComissaoItem: Real;
 
 Implementation
 
@@ -942,16 +950,7 @@ Begin
                 DMENTRADA.TLancEnt.FieldByName('QUANTIDADE').Asinteger := 1;
                 DMENTRADA.TLancEnt.Post;
                 FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMESTOQUE.Alx5.FieldByName('COD_ESTOQUE').AsInteger), '');
-     			 //Alex 02/08/2012: Atualiza Estoque
-                DMESTOQUE.TEstoque.Edit;
-                DMEstoque.TEstoque.FieldByName('ULTCOMPRA').AsString := DateToStr(Date());
-                If (DMMACS.TLoja.FieldByName('NAOATUALIZAESTOQUEPC').AsString <> '1') Or (DMMACS.TLoja.FieldByName('NAOATUALIZAESTOQUEPC').AsString = Null)
-                Then Begin
-                    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + 1;
-                    DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
-                    DMESTOQUE.TEstoque.Post;
-                End;
-                   //Alex 02/08/2012: linka o veiculo de entrada com o lancamento de entrada
+                //Alex 02/08/2012: linka o veiculo de entrada com o lancamento de entrada
                 FiltraTabela(DMSAIDA.TVeiculoEnt, 'VEICULOENTRADA', 'COD_VEIC_ENT', IntToStr(DMESTOQUE.Alx5.FieldByName('COD_VEIC_ENT').AsInteger), '');
                 DMSAIDA.TVeiculoEnt.Edit;
                 DMSAIDA.TVeiculoEnt.FieldByName('COD_PEDCOMP').AsInteger := XCodLancEntrada;
@@ -2542,10 +2541,11 @@ Begin
                 DMESTOQUE.TSlave.sql.Add(', tmp.desc1');
             End;
 
-            DMESTOQUE.TSlave.sql.Add('FROM itenspedven join estoque on itenspedven.cod_estoque = estoque.cod_estoque ');
-            DMESTOQUE.TSlave.sql.Add('join subproduto on estoque.cod_subprod = subproduto.cod_subproduto ');
-            DMESTOQUE.TSlave.sql.Add('LEFT Join LOTE on itenspedven.cod_lote = LOTE.COD_LOTE ');
-            DMESTOQUE.TSlave.sql.Add('join produto on subproduto.cod_produto = produto.cod_produto ');
+            DMESTOQUE.TSlave.sql.Add(' FROM itenspedven ');
+            DMESTOQUE.TSlave.sql.Add(' left Join estoque on itenspedven.cod_estoque = estoque.cod_estoque ');
+            DMESTOQUE.TSlave.sql.Add(' left join subproduto on estoque.cod_subprod = subproduto.cod_subproduto ');
+            DMESTOQUE.TSlave.sql.Add(' LEFT Join LOTE on itenspedven.cod_lote = LOTE.COD_LOTE ');
+            DMESTOQUE.TSlave.sql.Add(' left join produto on subproduto.cod_produto = produto.cod_produto ');
 
             If (XConvUnitVenda) Or (XConvUnitEmb) Then
                 DMESTOQUE.TSlave.sql.Add('LEFT Join unidade on SubProduto.cod_unidVenda = unidade.cod_unidade ')
@@ -2565,6 +2565,7 @@ Begin
 
             DMESTOQUE.TSlave.sql.Add('Where (itenspedven.cod_pedven = :CODPED) ' + {and (Itenspedven.OPERACAO<>'+#39+'DVL'+#39+')} ' ORDER BY Subproduto.Descricao, itenspedven.DATA');
             DMESTOQUE.TSlave.ParamByName('CODPED').AsInteger := COD_PEDIDO;
+            DMESTOQUE.TSlave.sql.Text;
             DMESTOQUE.TSlave.Open;
 
            //Paulo 09/03/2011: Seleciona dados do veiculo de entrada
@@ -3077,7 +3078,6 @@ Begin
                    			 //Atualiza data da ultima venda
                                 DMEstoque.TEstoque.Edit;
                                 DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString := DateToStr(Date());
-                                DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - XTabSlave.FieldByName('QTDEPROD').AsCurrency;
                                 DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency - XTabSlave.FieldByName('QTDEPROD').AsCurrency;
                                 DMESTOQUE.TEstoque.Post;
                                 DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -3090,7 +3090,6 @@ Begin
                                 Then Begin
                                     DMESTOQUE.TEstoque.Edit;
                                     DMEstoque.TEstoque.FieldByName('ULTCOMPRA').AsString := DateToStr(Date());
-                                    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + XTabSlave.FieldByName('QTDEPROD').AsCurrency;
                                     DMESTOQUE.TEstoque.Post;
                                     DMESTOQUE.TransacEstoque.CommitRetaining;
                                 End;
@@ -4331,10 +4330,11 @@ Begin
         DMESTOQUE.TSlave.SQL.Add(' Select itenspedven.cod_itenspedven, lote.numero, itenspedven.cod_lote, itenspedven.cod_pedven, itenspedven.cod_estoque,  itenspedven.qtdeprod,  itenspedven.QTD4CASAS, ItensPedVen.ValorTotal, itenspedven.vlricmssubs, ItensPedVen.COMISSAO, ');
         DMESTOQUE.TSlave.SQL.Add(' itenspedven.aliqicms, itenspedven.vlricms, itenspedven.controleretorno, cst.cod_sit_trib as CST, itenspedven.cfop, itenspedven.vlripi, subproduto.ncm, itenspedven.numpedcompranfe, itenspedven.numitempedcompranfe, ');
         DMESTOQUE.TSlave.SQL.Add(' itenspedven.descpro, itenspedven.DESCNF as DESCONTONF, itenspedven.qtddev AS QTDDEV, itenspedven.cod_funcionario, itenspedven.qtdemb, itenspedven.unidemb, itenspedven.qtdnaemb, pessoa.nome, ');
-        DMESTOQUE.TSlave.SQL.Add(' itenspedven.valunit, subproduto.descricao, subproduto.marca, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS CONTRINT, itenspedven.data, itenspedven.operacao ');
+        DMESTOQUE.TSlave.SQL.Add(' itenspedven.valunit, subproduto.descricao, subproduto.marca, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS CONTRINT, itenspedven.data, itenspedven.operacao, ');
+        DMESTOQUE.TSlave.SQL.Add(' itenspedven.baseicms AS Nbcicms, itenspedven.aliqicms as NALIQICMS, itenspedven.vlricms AS NVLRICMS, itenspedven.baseicmssubs AS NBCICMSST, itenspedven.vlricms AS NVLRICMSST ');
         DMESTOQUE.TSlave.SQL.Add(' From itenspedven left Join estoque on itenspedven.cod_estoque = estoque.cod_estoque ');
         DMESTOQUE.TSlave.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod ');
-        DMESTOQUE.TSlave.SQL.Add('  left join cst on itenspedven.cod_cst = cst.cod_cst ');
+        DMESTOQUE.TSlave.SQL.Add(' left join cst on itenspedven.cod_cst = cst.cod_cst ');
         DMESTOQUE.TSlave.SQL.Add(' left join lote on itenspedven.cod_lote = lote.cod_lote ');
         DMESTOQUE.TSlave.SQL.Add(' Left Join funcionario on funcionario.cod_func = itenspedven.cod_funcionario ');
         DMESTOQUE.TSlave.SQL.Add(' Left Join pessoa on funcionario.cod_pessoa = pessoa.COD_PESSOA ');
@@ -4361,7 +4361,8 @@ Begin
         DMESTOQUE.TSlave.SQL.Add(' itenspedc.qtdeprod, itenspedc.QTDEEXP, itenspedc.qtdest, ItensPedc.valortotal, itenspedc.descpro, itenspedc.QTD4CASAS,  itenspedc.valunit, itenspedc.descnf as DESCONTONF, ');
         DMESTOQUE.TSlave.SQL.Add(' itenspedc.aliqicms, itenspedc.vlricms, itenspedc.aliqipi, itenspedc.vlripi, itenspedc.obs, itenspedc.AGRUP,cst.cod_sit_trib as CST, itenspedc.numpedcompranfe, itenspedc.numitempedcompranfe, ');
         DMESTOQUE.TSlave.SQL.Add(' subproduto.descricao, subproduto.marca, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS CODPRODFABR, ');
-        DMESTOQUE.TSlave.SQL.Add(' itenspedc.basecalcii, itenspedc.outdespii, itenspedc.valorii, itenspedc.valoriof ');
+        DMESTOQUE.TSlave.SQL.Add(' itenspedc.basecalcii, itenspedc.outdespii, itenspedc.valorii, itenspedc.valoriof, ');
+        DMESTOQUE.TSlave.SQL.Add(' itenspedc.baseicms AS Nbcicms, itenspedc.aliqicms as NALIQICMS, itenspedc.vlricms AS NVLRICMS, itenspedc.baseicmssubs AS NBCICMSST, itenspedc.vlricms AS NVLRICMSST ');
         DMESTOQUE.TSlave.SQL.Add(' From itenspedc left Join estoque on itenspedc.cod_estoque = estoque.cod_estoque ');
         DMESTOQUE.TSlave.SQL.Add(' left join lote on itenspedc.cod_lote = lote.cod_lote ');
         DMESTOQUE.TSlave.SQL.Add(' left join cst on itenspedc.cod_cst = cst.cod_cst ');
@@ -6047,6 +6048,345 @@ Begin
    	Result:=False;
    End;
 End;
+
+Function TFPedidoPadrao.CalculaComissaoVenda: Boolean;
+Begin
+   Try
+       Result := True;
+
+       xComissaoItem := 0;
+
+       If (DMMACS.TLoja.FieldByName('ALTCOMPROD').AsString = '0') And (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0')
+       Then Begin
+           If FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', '', ' COD_FUNCIONARIO = ' + #39 + INTTOSTR(XCodVendedor) + #39 + ' ORDER BY COD_FUNCARGO') = True
+           Then Begin
+               DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
+               If EDFORMPAG.Text = 'À VISTA'
+               Then Begin //1300*4.5/100
+                   xComissaoItem := (EDTotal.ValueNumeric * XEDCOMISS) / 100;
+               End
+               Else Begin
+                   xComissaoItem := (EDTotal.ValueNumeric * XEDCOMISS) / 100;
+               End;
+           End;
+       end
+       Else Begin
+           If DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '1'
+           Then Begin
+                   FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', IntToStr(XCodFormPag), '');
+                   FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(XCOD_ESTOQUE), '');
+                   //24/04/2009: só gera comissão sobre produto se no cadastro de produto não estiver marcado a opção: não gerar financeiro (aba financeiro) campo GERACOMIS na tabela estoque
+                   If DMESTOQUE.Alx4.FieldByName('GERACOMIS').AsString <> '1'
+                   Then Begin
+                       If DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA'
+                       Then Begin //1300*4.5/100
+                           XVLRCOMIS := (EDTotal.ValueNumeric * DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) / 100;
+                           xComissaoItem := XVLRCOMIS;
+                       End
+                       Else Begin
+                           XVLRCOMIS := (EDTotal.ValueNumeric * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
+                           xComissaoItem := XVLRCOMIS;
+                       End;
+                   End;
+           End
+           Else Begin
+               xComissaoItem := (EDTotal.ValueNumeric * EdComiss.ValueNumeric) / 100;
+           End;
+       End;
+       If (FMenu.XOutrosFisc=true) Then
+           MessageDlg('Verifique a necessidade de controlar o retorno desse item.'+#13+#10+'(Clicando com o botão direito do mouse, sobre o item na grade, escolhendo a opção de marcação)', mtWarning, [mbOK], 0);
+   Except
+       Result := False;
+   End;
+End;
+
+Function TFPedidoPadrao.InserirItensCompra: Boolean;
+Begin
+   Try
+       Result := True;
+       MDO.Query.Close; //05/05/2009:  sql na unha
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' insert into itenspedc (itenspedc.obs, itenspedc.ALIQICMS, itenspedc.baseicms, itenspedc.VLRICMS, itenspedc.REDUCBASEICMS, ');
+       MDO.Query.SQL.Add('   itenspedc.BASEICMSSUBS, itenspedc.vlricmssubs, itenspedc.ALIQIPI, itenspedc.VLRIPI, ');
+       MDO.Query.SQL.Add('   itenspedc.FRETE, itenspedc.EMBPROD, itenspedc.COD_PEDCOMPRA, itenspedc.COD_CST, itenspedc.DATA, itenspedc.ATUEST, ');
+       MDO.Query.SQL.Add('   itenspedc.qtdest, itenspedc.cod_unidade, itenspedc.cod_estoque, ');
+       MDO.Query.SQL.Add('   itenspedc.qtdeprod, itenspedc.QTD4CASAS, itenspedc.valunit, itenspedc.valortotal, itenspedc.descpro, ');
+       MDO.Query.SQL.Add('   itenspedc.cod_lote, itenspedc.qtdbruta, itenspedc.qtddescarte, itenspedc.motivodescarte, ');
+       MDO.Query.SQL.Add('   itenspedc.basecalcii, itenspedc.outdespii, itenspedc.valorii, itenspedc.valoriof ) ');
+       MDO.Query.SQL.Add(' VALUES (:obs, :ALIQICMS, :baseicms, :VLRICMS, :REDUCBASEICMS, ');
+       MDO.Query.SQL.Add('   :BASEICMSSUBS, :vlricmssubs, :ALIQIPI, :VLRIPI, ');
+       MDO.Query.SQL.Add('   :FRETE, :EMBPROD, :COD_PEDCOMPRA, :COD_CST, :DATA,  :ATUEST,');
+       MDO.Query.SQL.Add('   :qtdest, :cod_unidade, :cod_estoque, ');
+       MDO.Query.SQL.Add('   :qtdeprod, :QTD4CASAS, :valunit, :valortotal, :descpro, ');
+       MDO.Query.SQL.Add('   :cod_lote, :qtdbruta, :qtddescarte, :motivodescarte, ');
+       MDO.Query.SQL.Add('   :bcii, :outdespii, :valorii, :valoriof) ');
+
+       MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
+       MDO.Query.ParamByName('OBS').AsString := XObsItem;
+       MDO.Query.ParamByName('ALIQICMS').AsCurrency := EdimpIcms.ValueNumeric;
+       MDO.Query.ParamByName('BASEICMS').AsCurrency := EdBCIcms.ValueNumeric;
+       MDO.Query.ParamByName('VLRICMS').AsCurrency := EdImpVlrIcms.ValueNumeric;
+       MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := 0;
+       if pValoresImportacao.Visible then
+       begin
+           MDO.Query.ParamByName('bcii').AsCurrency := edBcII.ValueNumeric;
+           MDO.Query.ParamByName('outdespii').AsCurrency := edOutDespII.ValueNumeric;
+           MDO.Query.ParamByName('valorii').AsCurrency := edValorII.ValueNumeric;
+           MDO.Query.ParamByName('valoriof').AsCurrency := edValorIof.ValueNumeric;
+       end
+       else begin
+           MDO.Query.ParamByName('bcii').AsCurrency := 0;
+           MDO.Query.ParamByName('outdespii').AsCurrency := 0;
+           MDO.Query.ParamByName('valorii').AsCurrency := 0;
+           MDO.Query.ParamByName('valoriof').AsCurrency := 0;
+       end;
+
+       If XFlagNfe = 1 Then
+       Begin
+           MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := XBaseST;
+           MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := XIcmsST;
+       End
+       Else Begin//Jônatas 03/10/2013 - Else acrescentado pois estava zerando os valores toda vez
+           MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := 0;
+           MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := 0;
+       End;
+       MDO.Query.ParamByName('ALIQIPI').AsCurrency := EdImpIpi.ValueNumeric;
+       MDO.Query.ParamByName('VLRIPI').AsCurrency := EdImpVlrIpi.ValueNumeric;
+       MDO.Query.ParamByName('FRETE').AsCurrency := XFRETE;
+       MDO.Query.ParamByName('EMBPROD').AsCurrency := XEMB;
+       MDO.Query.ParamByName('COD_PEDCOMPRA').AsInteger := StrToInt(XCodPedido);
+       MDO.Query.ParamByName('COD_CST').AsInteger := XCodCst;
+       MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCod_Estoque;
+       MDO.Query.ParamByName('DATA').AsString := DateToStr(Date());
+       If (DMMACS.TLoja.FieldByName('ATUALIZAESTOQUEPC').AsString <>'1') Then
+           MDO.Query.ParamByName('ATUEST').AsString:='0'
+       Else
+           MDO.Query.ParamByName('ATUEST').AsString:='1';
+
+       If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
+       Then Begin
+           MDO.Query.ParamByName('QTDEST').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
+       End
+       Else Begin
+           MDO.Query.ParamByName('QTDEST').AsCurrency := EDQuantidade.ValueNumeric;
+       End;
+       If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
+       Then Begin
+           //Se a empresa utilizar conversão unitária determinamos que a quantidade que entra em estoque eh a quantidade con
+           MDO.Query.ParamByName('COD_UNIDADE').AsInteger := XCodUnidItenProd;
+           MDO.Query.ParamByName('QTDEST').AsCurrency := xqtdconv;
+       End
+       Else Begin
+           MDO.Query.ParamByName('COD_UNIDADE').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
+       End;
+
+       If EdQuantExp.Text <> ''  Then//19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric)
+       Else
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := EDQuantidade.ValueNumeric;
+
+       MDO.Query.ParamByName('QTD4CASAS').AsString := EdQtd4Casas.Text;
+       If EDQuantidade.ValueNumeric=0 Then
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency:=StrToFloat(EdQtd4Casas.Text);
+
+       If EdQuantExp.Text <> '' Then//19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric)
+       Else
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := EDQuantidade.ValueNumeric;
+
+       MDO.Query.ParamByName('QTD4CASAS').AsString := EdQtd4Casas.Text;
+       If EDQuantidade.ValueNumeric=0 Then
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency:=StrToFloat(EdQtd4Casas.Text);
+       MDO.Query.ParamByName('DESCPRO').AsCurrency := EDDesc.ValueNumeric;
+       MDO.Query.ParamByName('VALUNIT').AsCurrency := EDValUnit.ValueNumeric;
+       MDO.Query.ParamByName('VALORTOTAL').AsCurrency := EDTotal.ValueNumeric;
+       xCustoNfe_QtdeDisponivel := MDO.Query.ParamByName('QTDEPROD').AsCurrency;
+       xCustoNfe_ValorFinal := EDValUnit.ValueNumeric + (EdImpVlrIpi.ValueNumeric/xCustoNfe_QtdeDisponivel) + (MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency/xCustoNfe_QtdeDisponivel);
+
+       MDO.Query.ExecSQL;
+       MDO.Transac.CommitRetaining;
+   Except
+       MDO.Transac.RollbackRetaining;
+       Result := False;
+   End;
+End;
+
+Function TFPedidoPadrao.InserirItensVenda: Boolean;
+Begin
+   Try
+       Try
+           //Validando chave primária do item testando o generator com possíveis dados já inseridos
+           MDO.Transac.CommitRetaining;
+           MDO.QConsulta.Close;
+           MDO.QConsulta.SQL.Clear;
+           MDO.QConsulta.SQL.Add('  select gen_id(GEN_ITENSPEDVEN_ID, 0) as codigo from rdb$database ');
+           MDO.QConsulta.Open;
+
+           If not MDO.QConsulta.IsEmpty
+           Then Begin
+               mdo.QAlx1.Close;
+               MDO.QAlx1.SQL.Clear;
+               MDO.QAlx1.SQL.Add(' select itenspedven.cod_itenspedven from itenspedven ');
+               MDO.QAlx1.SQL.Add(' where itenspedven.cod_itenspedven = :codigo ');
+               MDO.QAlx1.ParamByName('codigo').AsInteger := MDO.QConsulta.FieldByName('codigo').AsInteger;
+               MDO.QAlx1.Open;
+               If Not (MDO.QAlx1.IsEmpty)
+               Then Begin
+                   SetarGeneratorItemVenda;
+               End;
+           end
+           Else Begin
+               SetarGeneratorItemVenda;
+           End;
+       Except
+           SetarGeneratorItemVenda;
+       End;
+       MDO.Transac.CommitRetaining;
+       Result := True;
+       MDO.Query.Close; //05/05/2009:  sql na unha
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add('insert into ITENSPEDVEN');
+       MDO.Query.SQL.Add('(COD_PEDVEN, COD_ESTOQUE, QTDEPROD, QTD4CASAS, DESCPRO, COD_FUNCIONARIO,');
+       MDO.Query.SQL.Add('VALUNIT, VALCUSTO, VALORTOTAL,COD_LOTE, ATUEST, VALREP, COEFDIV, VALCOMP, COD_CST, LUCPER,');
+       MDO.Query.SQL.Add('LUCMOE, DATA, COMISSAO, OPERACAO, LUCREL, VLRVENDBD, QTDDEV, NUMITEM,');
+       MDO.Query.SQL.Add(' ALIQICMS, BASEICMS, VLRICMS, BASEICMSSUBS, VLRIPI, ALIQIPI,');
+       MDO.Query.SQL.Add('REDUCBASEICMS, VLRICMSSUBS, VLRUNITDEV, QTDENTREGUE, COD_UNIDADE, QTDEMB,');
+       MDO.Query.SQL.Add('UNIDEMB, QTDNAEMB, CFOP, TIPOLISTA, IPNPMC, IPNMVA, CONTROLERETORNO)');
+       MDO.Query.SQL.Add('values');
+       MDO.Query.SQL.Add('(:COD_PEDVEN, :COD_ESTOQUE, :QTDEPROD, :QTD4CASAS, :DESCPRO, :COD_FUNCIONARIO,');
+       MDO.Query.SQL.Add(':VALUNIT, :VALCUSTO, :VALORTOTAL, :COD_LOTE, :ATUEST, :VALREP, :COEFDIV, :VALCOMP, :COD_CST, ');
+       MDO.Query.SQL.Add(':LUCPER, :LUCMOE, :DATA, :COMISSAO, :OPERACAO, :LUCREL, :VLRVENDBD,');
+       MDO.Query.SQL.Add(':QTDDEV, :NUMITEM, :ALIQICMS, :BASEICMS, :VLRICMS, :BASEICMSSUBS,');
+       MDO.Query.SQL.Add(':VLRIPI, :ALIQIPI, :REDUCBASEICMS, :VLRICMSSUBS, :VLRUNITDEV, :QTDENTREGUE,');
+       MDO.Query.SQL.Add(':COD_UNIDADE, :QTDEMB, :UNIDEMB, :QTDNAEMB, :CFOP, :TIPOLISTA, :IPNPMC, :IPNMVA, :CONTROLERETORNO)');
+
+       MDO.Query.ParamByName('COD_PEDVEN').AsInteger := StrToInt(XCodPedido);
+       MDO.Query.ParamByName('COD_FUNCIONARIO').AsInteger := XCodVendItem;
+       MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCod_Estoque;       
+       MDO.Query.ParamByName('DATA').AsDate := Date();
+       MDO.Query.ParamByName('OPERACAO').AsString := 'VND';
+       MDO.Query.ParamByName('CONTROLERETORNO').AsString := 'SEM CONTROLE';
+       If (FMenu.XRemessaGarantia=True) Then
+           MDO.Query.ParamByName('CONTROLERETORNO').AsString := 'CONTROLANDO';
+       MDO.Query.ParamByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
+       MDO.Query.ParamByName('VALREP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
+       MDO.Query.ParamByName('COEFDIV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
+       MDO.Query.ParamByName('VALCOMP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency * EDQuantidade.ValueNumeric;
+       MDO.Query.ParamByName('COD_CST').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger;
+       //21/04/2009: calculo lucro modificado..
+       If DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency <> 0
+       Then Begin
+           MDO.Query.ParamByName('LUCMOE').AsCurrency := EDTotal.ValueNumeric - ((DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency / DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency) * EDQuantidade.ValueNumeric);
+           If (MDO.Query.ParamByName('LUCMOE').AsCurrency <> 0) And (EDTotal.ValueNumeric <> 0) Then
+               MDO.Query.ParamByName('LUCPER').AsCurrency := (MDO.Query.ParamByName('LUCMOE').AsCurrency * 100) / EDTotal.ValueNumeric
+           Else
+               MDO.Query.ParamByName('LUCMOE').AsCurrency := 0;
+       End;
+
+       MDO.Query.ParamByName('LUCREL').AsCurrency := ALXLUCREAL;
+       MDO.Query.ParamByName('COMISSAO').AsCurrency := xComissaoItem;
+       MDO.Query.ParamByName('VLRVENDBD').AsCurrency := XVLRPRODBD;
+       MDO.Query.ParamByName('ALIQICMS').AsCurrency := EdimpIcms.ValueNumeric;
+       MDO.Query.ParamByName('BASEICMS').AsCurrency := EdBCIcms.ValueNumeric;
+       MDO.Query.ParamByName('VLRICMS').AsCurrency := EdImpVlrIcms.ValueNumeric;
+                //Verifica se esta aplicando redução
+       If DMESTOQUE.TEstoque.FieldByName('REDUCBASE').AsCurrency > 0 Then
+           MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := EDTotal.ValueNumeric -  EdBCIcms.ValueNumeric
+       else
+           MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := 0;
+       MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := FMenu.xBaseIcmsSt;
+       MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := FMenu.xVlrIcmsSt;
+       MDO.Query.ParamByName('ALIQIPI').AsCurrency := EdImpIpi.ValueNumeric;
+       MDO.Query.ParamByName('VLRIPI').AsCurrency := EdImpVlrIpi.ValueNumeric;
+       If XConvUnitEmb
+       Then Begin
+                	// - 26/01/2009: se for conversao unitaria de embalagens
+           MDO.Query.ParamByName('QTDEMB').AsCurrency := edQntEmb.ValueNumeric;
+           MDO.Query.ParamByName('UNIDEMB').AsInteger := CBUnidEmb.KeyValue;
+           MDO.Query.ParamByName('QTDNAEMB').AsCurrency := edQntUnitEmb.ValueNumeric;
+       End;
+       If XConvUnitVenda
+       Then Begin
+                	// - 26/01/2009: se for conversao unitaria p/ venda
+           MDO.Query.ParamByName('QTDEMB').AsCurrency := edQntConvertVenda.ValueNumeric;
+           MDO.Query.ParamByName('UNIDEMB').AsInteger := cbConvUnitVendaConv.KeyValue;
+           MDO.Query.ParamByName('QTDNAEMB').AsCurrency := edQntConvert.ValueNumeric;
+       End;
+
+       If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
+       Then Begin
+           MDO.Query.ParamByName('COD_UNIDADE').AsInteger := XCodUnidItenProd;
+           MDO.Query.ParamByName('QTDENTREGUE').AsCurrency := xqtdconvert;
+       End
+       Else Begin
+           MDO.Query.ParamByName('COD_UNIDADE').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
+           MDO.Query.ParamByName('QTDENTREGUE').AsCurrency := EDQuantidade.ValueNumeric;
+       End;
+
+       MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
+       If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
+       Then Begin
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
+       End
+       Else Begin
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency := EDQuantidade.ValueNumeric;
+       End;
+       MDO.Query.ParamByName('QTD4CASAS').AsString := EdQtd4Casas.Text;
+       If (EDQuantidade.ValueNumeric = 0) AND (EdQtd4Casas.Text <> '') Then
+           MDO.Query.ParamByName('QTDEPROD').AsCurrency:=StrToFloat(EdQtd4Casas.Text);
+       MDO.Query.ParamByName('DESCPRO').AsCurrency := EDDesc.ValueNumeric;
+       MDO.Query.ParamByName('VALUNIT').AsCurrency := EDValUnit.ValueNumeric;
+       MDO.Query.ParamByName('VALORTOTAL').AsCurrency := EDTotal.ValueNumeric;
+       xCustoNfe_QtdeDisponivel := MDO.Query.ParamByName('QTDEPROD').AsCurrency;
+
+       MDO.Query.ExecSQL;
+       MDO.Transac.CommitRetaining;
+   Except
+       Result := False;
+   End;
+End;
+
+Function TFPedidoPadrao.SetarGeneratorItemVenda: Boolean;
+Begin
+   Try
+       Result := True;
+       //se tivermos encontrado algum registro igual setamos o generator para nova posição
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add(' SELECT MAX(ITENSPEDVEN.COD_ITENSPEDVEN) CODIGO FROM ITENSPEDVEN ');
+       MDO.QConsulta.Open;
+
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' SET GENERATOR GEN_ITENSPEDVEN_ID  TO ' + IntToStr(MDO.QConsulta.FieldByName('CODIGO').AsInteger + 10));
+       MDO.Query.ExecSQL;
+       MDO.Transac.CommitRetaining;
+   Except
+       Result := False;
+   End;
+End;
+
+Function TFPedidoPadrao.SetarGeneratorItemCompra: Boolean;
+Begin
+   Try
+       Result := True;
+       //se tivermos encontrado algum registro igual setamos o generator para nova posição
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add('  select max(itenspedc.cod_itenspedc) as codigo from itenspedc ');
+       MDO.QConsulta.Open;
+
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' SET GENERATOR GEN_ITENSPEDC_ID  TO ' + IntToStr(MDO.QConsulta.FieldByName('codigo').AsInteger + 1));
+       MDO.Query.ExecSQL;
+       MDO.Transac.CommitRetaining;
+   Except
+       Result := false;
+       MDO.Transac.RollbackRetaining;
+   End;
+End;
+
 Procedure TFPedidoPadrao.BtnInsertProdClick(Sender: TObject);
 Var
     XitensVenda: String;
@@ -6055,618 +6395,83 @@ Begin
     //Se todos os itens forem validados para inserção, continua
 	 If ValidacoesParaInserir=True
     Then Begin
-        Try
-            //Inserir Produto a lista do pedido
-            //05/05/2009: apenas para compra usado
-            //XCodSlave:=InserReg(XTabSlave, XSQLTabSlave, XpkTabSlave);
-            //XTabSlave.FieldByName(XpkTabSlave).AsInteger:=XCodSlave;
-            If XSQLTABELA = 'PEDVENDA'
-            Then Begin //se trabalhando com vendas
-                MDO.Query.Close; //05/05/2009:  sql na unha
-                MDO.Query.SQL.Clear;
-                MDO.Query.SQL.Add('insert into ITENSPEDVEN');
-                MDO.Query.SQL.Add('(COD_PEDVEN, COD_ESTOQUE, QTDEPROD, QTD4CASAS, DESCPRO, COD_FUNCIONARIO,');
-                MDO.Query.SQL.Add('VALUNIT, VALCUSTO, VALORTOTAL,COD_LOTE, ATUEST, VALREP, COEFDIV, VALCOMP, COD_CST, LUCPER,');
-                MDO.Query.SQL.Add('LUCMOE, DATA, COMISSAO, OPERACAO, LUCREL, VLRVENDBD, QTDDEV, NUMITEM,');
-                MDO.Query.SQL.Add(' ALIQICMS, BASEICMS, VLRICMS, BASEICMSSUBS, VLRIPI, ALIQIPI,');
-                MDO.Query.SQL.Add('REDUCBASEICMS, VLRICMSSUBS, VLRUNITDEV, QTDENTREGUE, COD_UNIDADE, QTDEMB,');
-                MDO.Query.SQL.Add('UNIDEMB, QTDNAEMB, CFOP, TIPOLISTA, IPNPMC, IPNMVA, CONTROLERETORNO)');
-                MDO.Query.SQL.Add('values');
-                MDO.Query.SQL.Add('(:COD_PEDVEN, :COD_ESTOQUE, :QTDEPROD, :QTD4CASAS, :DESCPRO, :COD_FUNCIONARIO,');
-                MDO.Query.SQL.Add(':VALUNIT, :VALCUSTO, :VALORTOTAL, :COD_LOTE, :ATUEST, :VALREP, :COEFDIV, :VALCOMP, :COD_CST, ');
-                MDO.Query.SQL.Add(':LUCPER, :LUCMOE, :DATA, :COMISSAO, :OPERACAO, :LUCREL, :VLRVENDBD,');
-                MDO.Query.SQL.Add(':QTDDEV, :NUMITEM, :ALIQICMS, :BASEICMS, :VLRICMS, :BASEICMSSUBS,');
-                MDO.Query.SQL.Add(':VLRIPI, :ALIQIPI, :REDUCBASEICMS, :VLRICMSSUBS, :VLRUNITDEV, :QTDENTREGUE,');
-                MDO.Query.SQL.Add(':COD_UNIDADE, :QTDEMB, :UNIDEMB, :QTDNAEMB, :CFOP, :TIPOLISTA, :IPNPMC, :IPNMVA, :CONTROLERETORNO)');
+       If XSQLTABELA = 'PEDVENDA'
+       Then Begin
+           If InserirItensVenda = True
+           Then Begin
+               //If EDQuantidade.ValueNumeric>0 Then
+               //    CalcLuc(EDTotal.ValueNumeric, EDDesc.ValueNumeric, EDQuantidade.ValueNumeric);
 
-                MDO.Query.ParamByName('COD_PEDVEN').AsInteger := StrToInt(XCodPedido);
-                MDO.Query.ParamByName('COD_FUNCIONARIO').AsInteger := XCodVendItem;
-                MDO.Query.ParamByName('DATA').AsDate := Date();
-                MDO.Query.ParamByName('OPERACAO').AsString := 'VND';
-                MDO.Query.ParamByName('CONTROLERETORNO').AsString := 'SEM CONTROLE';
-				 If (FMenu.XRemessaGarantia=True) Then
-				 	MDO.Query.ParamByName('CONTROLERETORNO').AsString := 'CONTROLANDO';
-                MDO.Query.ParamByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
-                MDO.Query.ParamByName('VALREP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
-                MDO.Query.ParamByName('COEFDIV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
-                MDO.Query.ParamByName('VALCOMP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency * EDQuantidade.ValueNumeric;
-                MDO.Query.ParamByName('COD_CST').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger;
-                If EDQuantidade.ValueNumeric>0 Then
-                   CalcLuc(EDTotal.ValueNumeric, EDDesc.ValueNumeric, EDQuantidade.ValueNumeric);
-           	 //21/04/2009: calculo lucro modificado..
-                If DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency <> 0
-                Then Begin
-                    MDO.Query.ParamByName('LUCMOE').AsCurrency := EDTotal.ValueNumeric - ((DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency / DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency) * EDQuantidade.ValueNumeric);
-                    If (MDO.Query.ParamByName('LUCMOE').AsCurrency <> 0) And (EDTotal.ValueNumeric <> 0)
-                        Then Begin
-                    //DMSAIDA.TAlx.ParamByName('LUCMOE').AsCurrency := EDTotal.ValueNumeric-(DMSAIDA.TAlx.ParamByName('LUCMOE').AsCurrency);
-                        MDO.Query.ParamByName('LUCPER').AsCurrency := (MDO.Query.ParamByName('LUCMOE').AsCurrency * 100) / EDTotal.ValueNumeric;
-                    End;
-                End
-                Else
-                    MDO.Query.ParamByName('LUCMOE').AsCurrency := 0;
+               DMESTOQUE.TSubProd.Edit;
+               DMESTOQUE.TSubProd.FieldByName('MARK').AsString := '';
+               DMESTOQUE.TSubProd.Post;
+           End
+           Else Begin
+               MessageDlg('Falha ao inserir item de venda!'+#13+#10+'Verifique o lançamento e o estoque do item.', mtError, [mbOK], 0);
+           End;
+       End
+       Else Begin
+           If InserirItensCompra = True
+           Then Begin
+               DMESTOQUE.TSubProd.Edit;
+               DMESTOQUE.TSubProd.FieldByName('LOCALESTANTE').AsString := EdLocal.text;
+               DMESTOQUE.TSubProd.FieldByName('MARK').AsString := '';
+               DMESTOQUE.TSubProd.Post;
+               LQtdConvert.Caption := '';
 
-                MDO.Query.ParamByName('LUCREL').AsCurrency := ALXLUCREAL;
-                MDO.Query.ParamByName('VLRVENDBD').AsCurrency := XVLRPRODBD;
-                MDO.Query.ParamByName('ALIQICMS').AsCurrency := EdimpIcms.ValueNumeric;
-                MDO.Query.ParamByName('BASEICMS').AsCurrency := EdBCIcms.ValueNumeric;
-                MDO.Query.ParamByName('VLRICMS').AsCurrency := EdImpVlrIcms.ValueNumeric;
-                //Verifica se esta aplicando redução
-                If DMESTOQUE.TEstoque.FieldByName('REDUCBASE').AsCurrency > 0 Then
-                   MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := EDTotal.ValueNumeric -  EdBCIcms.ValueNumeric
-                else
-                   MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := 0;
-                MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := FMenu.xBaseIcmsSt;
-                MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := FMenu.xVlrIcmsSt;
-                MDO.Query.ParamByName('ALIQIPI').AsCurrency := EdImpIpi.ValueNumeric;
-                MDO.Query.ParamByName('VLRIPI').AsCurrency := EdImpVlrIpi.ValueNumeric;
-                If XConvUnitEmb
-                Then Begin
-                	// - 26/01/2009: se for conversao unitaria de embalagens
-                    MDO.Query.ParamByName('QTDEMB').AsCurrency := edQntEmb.ValueNumeric;
-                    MDO.Query.ParamByName('UNIDEMB').AsInteger := CBUnidEmb.KeyValue;
-                    MDO.Query.ParamByName('QTDNAEMB').AsCurrency := edQntUnitEmb.ValueNumeric;
-                End;
-                If XConvUnitVenda
-                Then Begin
-                	// - 26/01/2009: se for conversao unitaria p/ venda
-                    MDO.Query.ParamByName('QTDEMB').AsCurrency := edQntConvertVenda.ValueNumeric;
-                    MDO.Query.ParamByName('UNIDEMB').AsInteger := cbConvUnitVendaConv.KeyValue;
-                    MDO.Query.ParamByName('QTDNAEMB').AsCurrency := edQntConvert.ValueNumeric;
-                End;
+               DMESTOQUE.TEstoque.Edit;
+               DMEstoque.TEstoque.FieldByName('ULTCOMPRA').AsString := DateToStr(Date());
+               DMESTOQUE.TEstoque.Post;
+           End
+           Else Begin
+               MessageDlg('Falha ao inserir item de compra!'+#13+#10+'Verifique o lançamento e o estoque do item.', mtError, [mbOK], 0);
+           End;
+       End;
+       DMESTOQUE.TEstoque.Edit;
+       DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
+       DMESTOQUE.TEstoque.Post;
+       Try
+           DMESTOQUE.TransacEstoque.CommitRetaining ;
+       Except
+           DMESTOQUE.TransacEstoque.RollbackRetaining
+       end;
+    End;
 
-                If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
-                Then Begin
-                    MDO.Query.ParamByName('COD_UNIDADE').AsInteger := XCodUnidItenProd;
-                    MDO.Query.ParamByName('QTDENTREGUE').AsCurrency := xqtdconvert;
-                End
-                Else Begin
-                    MDO.Query.ParamByName('COD_UNIDADE').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
-                    MDO.Query.ParamByName('QTDENTREGUE').AsCurrency := EDQuantidade.ValueNumeric;
-                End;
+    XLIBDESCPROD := False; //reatribui à variável de controle de desconto de produto como false
 
-           	 // --- //05/05/2009: manteve -- inicio!
-                DMESTOQUE.TSubProd.Edit;
-                DMESTOQUE.TSubProd.FieldByName('MARK').AsString := '';
-                DMESTOQUE.TSubProd.Post;
-           	 // //05/05/2009:   fim !
-                Try
-                    If (DMMACS.TLoja.FieldByName('ALTCOMPROD').AsString = '0') And (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0')
-                    Then Begin
-           			 //FILTRA VENDEDOR PARA CALCULAR A COMISSAO DO VENDEDOR
-                        If FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', '', ' COD_FUNCIONARIO = ' + #39 + INTTOSTR(XCodVendedor) + #39 + ' ORDER BY COD_FUNCARGO') = True
-                        Then Begin
-                            DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
-                            If EDFORMPAG.Text = 'À VISTA'
-                            Then Begin //1300*4.5/100
-          						//FORMA DE PAGAMENTO À VISTA É CALCULA COMISSÃO REFERENTE A VISTA
-          						//DMSAIDA.TAlx.ParamByName('COMISSAO').AsCurrency := (EDTotal.ValueNumeric*DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVPRO').AsCurrency)/100;
-                               MDO.Query.ParamByName('COMISSAO').AsCurrency := (EDTotal.ValueNumeric * XEDCOMISS) / 100;
-                            End
-                            Else Begin
-          						 //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                                MDO.Query.ParamByName('COMISSAO').AsCurrency := (EDTotal.ValueNumeric * XEDCOMISS) / 100;
-                            End;
-                        End;
-                    End
-                    Else Begin
-                        If DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '1'
-                        Then Begin
-                            FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', IntToStr(XCodFormPag), '');
-                       	 // filtra estoque para buscar os valores das porcentagens das comissoes
-                            FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(XCOD_ESTOQUE), '');
+    //VERIFICA QUAL COMPONENETE DEVE RECEBER O FOCUS
+    If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'BP' Then
+           BtnProcProd.SetFocus;
+    If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'CB' Then
+           EDCodBarra.SetFocus;
+    If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'CA'
+    Then Begin
+       if pPesqBarraInterno.Visible then
+       begin
+           //Caso o focus deve cair sobre um código auxiliar. verificar qual o código em Questão
+           If DMMacs.Tloja.FieldByName('CAMPOPESQITEMPED').AsString = 'CI'
+           Then Begin
+               Try
+                   EDCodInterno.Text := '';
+                   EDCodInterno.SetFocus;
+               Except
+               End;
+           End;
 
-                       	 //24/04/2009: só gera comissão sobre produto se no cadastro de produto não estiver marcado a opção: não gerar financeiro (aba financeiro) campo GERACOMIS na tabela estoque
-                            If DMESTOQUE.Alx4.FieldByName('GERACOMIS').AsString <> '1'
-                            Then Begin
-                                If DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA'
-                                Then Begin //1300*4.5/100
-                               	 //FORMA DE PAGAMENTO À VISTA É CALCULA COMISSÃO REFERENTE A VISTA
-                                    XVLRCOMIS := (EDTotal.ValueNumeric * DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) / 100;
-                                    MDO.Query.ParamByName('COMISSAO').AsCurrency := XVLRCOMIS;
-                                End
-                                Else Begin
-                               //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                                    XVLRCOMIS := (EDTotal.ValueNumeric * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
-                                    MDO.Query.ParamByName('COMISSAO').AsCurrency := XVLRCOMIS;
-                                End;
-                            End;
-                        End
-                        Else Begin
-                            MDO.Query.ParamByName('COMISSAO').AsCurrency := (EDTotal.ValueNumeric * EdComiss.ValueNumeric) / 100;
-                        End;
-                    End;
-                Except
-                    MDO.Query.ParamByName('COMISSAO').AsCurrency := 0;
-                End;
-				 If (FMenu.XOutrosFisc=true) Then
-				 	MessageDlg('Verifique a necessidade de controlar o retorno desse item.'+#13+#10+'(Clicando com o botão direito do mouse, sobre o item na grade, escolhendo a opção de marcação)', mtWarning, [mbOK], 0);
-            End
-            Else Begin
-                MDO.Query.Close; //05/05/2009:  sql na unha
-                MDO.Query.SQL.Clear;
-                MDO.Query.SQL.Add(' insert into itenspedc (itenspedc.obs, itenspedc.ALIQICMS, itenspedc.baseicms, itenspedc.VLRICMS, itenspedc.REDUCBASEICMS, ');
-                MDO.Query.SQL.Add('   itenspedc.BASEICMSSUBS, itenspedc.vlricmssubs, itenspedc.ALIQIPI, itenspedc.VLRIPI, ');
-                MDO.Query.SQL.Add('   itenspedc.FRETE, itenspedc.EMBPROD, itenspedc.COD_PEDCOMPRA, itenspedc.COD_CST, itenspedc.DATA, itenspedc.ATUEST, ');
-                MDO.Query.SQL.Add('   itenspedc.qtdest, itenspedc.cod_unidade, itenspedc.cod_estoque, ');
-                MDO.Query.SQL.Add('   itenspedc.qtdeprod, itenspedc.QTD4CASAS, itenspedc.valunit, itenspedc.valortotal, itenspedc.descpro, ');
-                MDO.Query.SQL.Add('   itenspedc.cod_lote, itenspedc.qtdbruta, itenspedc.qtddescarte, itenspedc.motivodescarte, ');
-                MDO.Query.SQL.Add('   itenspedc.basecalcii, itenspedc.outdespii, itenspedc.valorii, itenspedc.valoriof ) ');
-                MDO.Query.SQL.Add(' VALUES (:obs, :ALIQICMS, :baseicms, :VLRICMS, :REDUCBASEICMS, ');
-                MDO.Query.SQL.Add('   :BASEICMSSUBS, :vlricmssubs, :ALIQIPI, :VLRIPI, ');
-                MDO.Query.SQL.Add('   :FRETE, :EMBPROD, :COD_PEDCOMPRA, :COD_CST, :DATA,  :ATUEST,');
-                MDO.Query.SQL.Add('   :qtdest, :cod_unidade, :cod_estoque, ');
-                MDO.Query.SQL.Add('   :qtdeprod, :QTD4CASAS, :valunit, :valortotal, :descpro, ');
-                MDO.Query.SQL.Add('   :cod_lote, :qtdbruta, :qtddescarte, :motivodescarte, ');
-                MDO.Query.SQL.Add('   :bcii, :outdespii, :valorii, :valoriof) ');
+           If DMMacs.Tloja.FieldByName('CAMPOPESQITEMPED').AsString = 'CF'
+           Then Begin
+               Try
+                   EDCodFab.Text := '';
+                   EDCodFab.SetFocus;
+               Except
+               End;
+           End;
+       end;
+    End;
+    BtnInsertProd.Tag := 1;
 
-                MDO.Query.ParamByName('OBS').AsString := XObsItem;
-                MDO.Query.ParamByName('ALIQICMS').AsCurrency := EdimpIcms.ValueNumeric;
-                MDO.Query.ParamByName('BASEICMS').AsCurrency := EdBCIcms.ValueNumeric;
-                MDO.Query.ParamByName('VLRICMS').AsCurrency := EdImpVlrIcms.ValueNumeric;
-                MDO.Query.ParamByName('REDUCBASEICMS').AsCurrency := 0;
-                if pValoresImportacao.Visible then
-                begin
-                     MDO.Query.ParamByName('bcii').AsCurrency := edBcII.ValueNumeric;
-                     MDO.Query.ParamByName('outdespii').AsCurrency := edOutDespII.ValueNumeric;
-                     MDO.Query.ParamByName('valorii').AsCurrency := edValorII.ValueNumeric;
-                     MDO.Query.ParamByName('valoriof').AsCurrency := edValorIof.ValueNumeric;
-                end
-                else begin
-                     MDO.Query.ParamByName('bcii').AsCurrency := 0;
-                     MDO.Query.ParamByName('outdespii').AsCurrency := 0;
-                     MDO.Query.ParamByName('valorii').AsCurrency := 0;
-                     MDO.Query.ParamByName('valoriof').AsCurrency := 0;
-                end;
-                
-                If XFlagNfe = 1 Then
-                Begin
-                    MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := XBaseST;
-                    MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := XIcmsST;
-                End
-                Else Begin//Jônatas 03/10/2013 - Else acrescentado pois estava zerando os valores toda vez
-                    MDO.Query.ParamByName('BASEICMSSUBS').AsCurrency := 0;
-                    MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency := 0;
-                End;
-                MDO.Query.ParamByName('ALIQIPI').AsCurrency := EdImpIpi.ValueNumeric;
-                MDO.Query.ParamByName('VLRIPI').AsCurrency := EdImpVlrIpi.ValueNumeric;
-                MDO.Query.ParamByName('FRETE').AsCurrency := XFRETE;
-                MDO.Query.ParamByName('EMBPROD').AsCurrency := XEMB;
-                MDO.Query.ParamByName('COD_PEDCOMPRA').AsInteger := StrToInt(XCodPedido);
-                MDO.Query.ParamByName('COD_CST').AsInteger := XCodCst;
-                MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCod_Estoque;
-                MDO.Query.ParamByName('DATA').AsString := DateToStr(Date());
-                If (DMMACS.TLoja.FieldByName('ATUALIZAESTOQUEPC').AsString <>'1') Then
-		         	MDO.Query.ParamByName('ATUEST').AsString:='0'
-                Else
-                	MDO.Query.ParamByName('ATUEST').AsString:='1';
-
-                If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
-                Then Begin
-                    MDO.Query.ParamByName('QTDEST').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
-                End
-                Else Begin
-                    MDO.Query.ParamByName('QTDEST').AsCurrency := EDQuantidade.ValueNumeric;
-                End;
-                If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
-                Then Begin
-                    //Se a empresa utilizar conversão unitária determinamos que a quantidade que entra em estoque eh a quantidade con
-                    MDO.Query.ParamByName('COD_UNIDADE').AsInteger := XCodUnidItenProd;
-                    MDO.Query.ParamByName('QTDEST').AsCurrency := xqtdconv;
-                End
-                Else Begin
-                    MDO.Query.ParamByName('COD_UNIDADE').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
-                End;
-                DMESTOQUE.TSubProd.Edit;
-                DMESTOQUE.TSubProd.FieldByName('LOCALESTANTE').AsString := EdLocal.text;
-                DMESTOQUE.TSubProd.FieldByName('MARK').AsString := '';
-                DMESTOQUE.TSubProd.Post;
-                LQtdConvert.Caption := '';
-            End;
-
-            //Tenta gravar as informações
-            Try
-                If XSQLTABELA = 'PEDVENDA'
-                Then Begin
-                    MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
-                    If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
-                    Then Begin
-                        MDO.Query.ParamByName('QTDEPROD').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
-                    End
-                    Else Begin
-                        MDO.Query.ParamByName('QTDEPROD').AsCurrency := EDQuantidade.ValueNumeric;
-                    End;
-                    MDO.Query.ParamByName('QTD4CASAS').AsString := EdQtd4Casas.Text;
-                    If (EDQuantidade.ValueNumeric = 0) AND (EdQtd4Casas.Text <> '') Then
-                       MDO.Query.ParamByName('QTDEPROD').AsCurrency:=StrToFloat(EdQtd4Casas.Text);
-                    MDO.Query.ParamByName('DESCPRO').AsCurrency := EDDesc.ValueNumeric;
-                    MDO.Query.ParamByName('VALUNIT').AsCurrency := EDValUnit.ValueNumeric;
-                    MDO.Query.ParamByName('VALORTOTAL').AsCurrency := EDTotal.ValueNumeric;
-                    xCustoNfe_QtdeDisponivel := MDO.Query.ParamByName('QTDEPROD').AsCurrency;
-                End
-                Else Begin
-                    MDO.Query.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
-                    If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
-                    Then Begin
-                        MDO.Query.ParamByName('QTDEPROD').AsCurrency := (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
-                    End
-                    Else Begin
-                        MDO.Query.ParamByName('QTDEPROD').AsCurrency := EDQuantidade.ValueNumeric;
-                    End;
-                    MDO.Query.ParamByName('QTD4CASAS').AsString := EdQtd4Casas.Text;
-                    If EDQuantidade.ValueNumeric=0 Then
-                       MDO.Query.ParamByName('QTDEPROD').AsCurrency:=StrToFloat(EdQtd4Casas.Text);
-                   //Paulo 24/11/2010: para salvar os dados do lote
-                    If DMMACS.TLoja.FieldByName('USAOBSITEMCOMPRA').AsString = '1'
-                    Then Begin
-                        MDO.Query.ParamByName('COD_LOTE').AsCurrency := XLote;
-                        MDO.Query.ParamByName('QTDBRUTA').AsCurrency := XQtdBruta;
-                        MDO.Query.ParamByName('QTDDESCARTE').AsCurrency := XQtdDescarte;
-                        MDO.Query.ParamByName('MOTIVODESCARTE').AsString := XMotivoDesc;
-                    End
-                    Else Begin
-                        MDO.Query.ParamByName('COD_LOTE').AsCurrency := XLote;
-                        MDO.Query.ParamByName('QTDBRUTA').AsCurrency := XQtdBruta;
-                        MDO.Query.ParamByName('QTDDESCARTE').AsCurrency := XQtdDescarte;
-                        MDO.Query.ParamByName('MOTIVODESCARTE').AsString := XMotivoDesc;
-                    End;
-                    MDO.Query.ParamByName('DESCPRO').AsCurrency := EDDesc.ValueNumeric;
-                    MDO.Query.ParamByName('VALUNIT').AsCurrency := EDValUnit.ValueNumeric;
-                    MDO.Query.ParamByName('VALORTOTAL').AsCurrency := EDTotal.ValueNumeric;
-                    xCustoNfe_QtdeDisponivel := MDO.Query.ParamByName('QTDEPROD').AsCurrency;
-                    xCustoNfe_ValorFinal := EDValUnit.ValueNumeric + (EdImpVlrIpi.ValueNumeric/xCustoNfe_QtdeDisponivel) + (MDO.Query.ParamByName('VLRICMSSUBS').AsCurrency/xCustoNfe_QtdeDisponivel);
-                End;
-                //Atualiza lOTE
-                If XSQLTABELA = 'PEDVENDA'
-                Then Begin
-                    If DMMACS.TLoja.FieldByName('USAOBSITEMCOMPRA').AsString = '1'
-                    Then Begin
-                        //Paulo 25/11/2010: VERIFICA SE O LOTE JA SE ENCONTRA CADASTRADO
-                        DMESTOQUE.TEstoqueLote.Close;
-                        DMESTOQUE.TEstoqueLote.SQL.Clear;
-                        DMESTOQUE.TEstoqueLote.SQL.Add('SELECT * FROM ESTOQUELOTE EL WHERE (EL.COD_LOTE=:LOTE) AND (EL.COD_ESTOQUE=:CODESTOQUE)');
-                        DMESTOQUE.TEstoqueLote.ParamByName('LOTE').AsInteger := XLote;
-                        DMESTOQUE.TEstoqueLote.ParamByName('CODESTOQUE').AsInteger := XCOD_ESTOQUE;
-                        DMESTOQUE.TEstoqueLote.Open;
-                        If Not DMESTOQUE.TEstoqueLote.IsEmpty
-                        Then Begin
-                            Mensagem('INFORMAÇÃO', 'A Qtd foi lançada em um lote já cadastrado!', '', 1, 1, False, 'i');
-                            If Not DMESTOQUE.TEstoqueLote.IsEmpty
-                            Then Begin
-                                DMESTOQUE.TEstoqueLote.Edit;
-                                DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency := DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency - EDQuantidade.ValueNumeric;
-                                DMESTOQUE.TEstoqueLote.Post;
-                            End;
-                            MDO.Query.ParamByName('COD_LOTE').AsCurrency := XLote;
-                        End
-                        Else Begin
-                            Mensagem('lOTE', 'Não foi encontrado Lote para esse produto', '', 1, 1, false, 'c');
-                        End;
-                        //Paulo 24/11/2010: Limpa os campos e as variaveis de lote
-                        XLote := 0;
-                        XQuantLote := 0;
-                    End;
-                    //Paulo 30/11/2010: NFe Complementação não gera financeiro
-                    If Not (FMenu.XComplementacao = True)
-                    Then Begin
-                        If DMMacs.TLoja.FieldByName('ATUAESTOQUE').AsString = '1'
-                        Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
-                            //atualiza estoque físico
-                            DMESTOQUE.TEstoque.Edit;
-                            If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
-                            Then Begin
-                                DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - xqtdconvert;
-                            End
-                            Else Begin
-                                DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - EDQuantidade.ValueNumeric;
-                            End;
-                            DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString := DateToStr(Date());
-                            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
-                            DMESTOQUE.TEstoque.Post;
-
-                            //informa que o registro atualizou estoque
-                            MDO.Query.ParamByName('ATUEST').AsString := '1';
-                            DMESTOQUE.CalcCustMed(DMESTOQUE.TEstoque.FieldByNAme('COD_ESTOQUE').AsInteger, 'S', MDO.Query.ParamByName('QTDEPROD').AsCurrency, MDO.Query.ParamByName('QTDEPROD').AsCurrency * DMEstoque.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency);
-                        End
-                        Else Begin
-                            DMESTOQUE.TransacEstoque.CommitRetaining;
-                            MDO.Query.ParamByName('ATUEST').AsString := '0';
-                        End;
-                    End;
-                End
-                Else Begin
-                    //Paulo 30/11/2010: NFe Complementação não gera financeiro
-                    If Not (FMenu.XComplementacao = True)
-                    Then Begin
-                        //If DMMacs.TLoja.FieldByName('ATUAESTOQUE').AsString = '1'
-                        //Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
-                       	 //atualiza data da ultima compra
-                            DMESTOQUE.TEstoque.Edit;
-                            DMEstoque.TEstoque.FieldByName('ULTCOMPRA').AsString := DateToStr(Date());
-                            DMESTOQUE.TEstoque.Post;
-
-                            If ((DMMACS.TLoja.FieldByName('NAOATUALIZAESTOQUEPC').AsString <> '1') Or (DMMACS.TLoja.FieldByName('NAOATUALIZAESTOQUEPC').AsString = Null)) and (DMMACS.TLoja.FieldByName('ATUALIZAESTOQUEPC').AsString = '1')
-                            Then Begin
-                                DMESTOQUE.TEstoque.Edit;
-                                If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
-                                Then Begin
-                                    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + xqtdconv; //28/02/2009: sempre entra a quantidade convertida porque sempre vai importar o estoque em barra
-                                End
-                                Else Begin
-                                    If EdQuantExp.Text <> '' //19/02/2009: caso o campo de qtd exportada for preenchido só entra no estoque a diferença entre o comprado (edquantidade) e o valor exportado (edquantexp)
-                                    Then Begin
-                                        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + (EDQuantidade.ValueNumeric - EdQuantExp.ValueNumeric);
-                                    End
-                                    Else Begin
-                                        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + EDQuantidade.ValueNumeric;
-                                    End;
-                                End;
-                                DMESTOQUE.TEstoque.Post;
-                            End;
-                        //End;
-                    End;
-                    If DMMACS.TLoja.FieldByName('USAOBSITEMCOMPRA').AsString = '1'
-                    Then Begin
-                        //Paulo 25/11/2010: VERIFICA SE O LOTE JA SE ENCONTRA CADASTRADO
-                        DMESTOQUE.TEstoqueLote.Close;
-                        DMESTOQUE.TEstoqueLote.SQL.Clear;
-                        DMESTOQUE.TEstoqueLote.SQL.Add('SELECT * FROM ESTOQUELOTE EL WHERE (EL.COD_LOTE=:LOTE) AND (EL.COD_ESTOQUE=:CODESTOQUE)');
-                        DMESTOQUE.TEstoqueLote.ParamByName('LOTE').AsInteger := XLote;
-                        DMESTOQUE.TEstoqueLote.ParamByName('CODESTOQUE').AsInteger := XCOD_ESTOQUE;
-                        DMESTOQUE.TEstoqueLote.Open;
-                        If Not DMESTOQUE.TEstoqueLote.IsEmpty
-                        Then Begin
-                            Mensagem('INFORMAÇÃO', 'A Qtd foi lançada em um lote já cadastrado!', '', 1, 1, False, 'i');
-                            If Not DMESTOQUE.TEstoqueLote.IsEmpty
-                                Then Begin
-                                DMESTOQUE.TEstoqueLote.Edit;
-                                DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency := DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency + EDQuantidade.ValueNumeric;
-                                DMESTOQUE.TEstoqueLote.Post;
-                            End;
-                        End
-                        Else Begin
-                           //INSERE LOTE
-                            XCOD_LOTE := InserReg(DMESTOQUE.TEstoqueLote, 'ESTOQUELOTE', 'COD_ESTOQUELOTE');
-                            DMESTOQUE.TEstoqueLote.FieldByName('COD_ESTOQUELOTE').AsInteger := XCOD_LOTE;
-                            DMESTOQUE.TEstoqueLote.FieldByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
-                            DMESTOQUE.TEstoqueLote.FieldByName('COD_LOTE').AsInteger := XLote;
-                            DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency := EDQuantidade.ValueNumeric;
-                            DMESTOQUE.TEstoqueLote.Post;
-
-                        End;
-                        //Paulo 24/11/2010: Limpa os campos e as variaveis de lote
-                        XQtdBruta := 0.00;
-                        XQtdDescarte := 0.00;
-                        XQtdEnt := 0.00;
-                        XMotivoDesc := '';
-                        XLote := 0;
-                        XQuantLote := 0;
-                    End;
-                End;
-                DMESTOQUE.TEstoque.Edit;
-                DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
-                DMESTOQUE.TEstoque.Post;
-                Try
-                   MDO.Query.ExecSQL;
-                   
-                   //Alex: 27/02/2019 - Chamada de função para inserir o custo final do item baseado em pedido de compra
-                   if XSQLTABELA = 'PEDCOMPRA' then
-                   begin
-                       //só insere o custo por aqui quando for um pedido de compra manual
-                       //do contrario, insere o custo no momento da gravação
-                       if XImportNfe <> 1 then
-                       begin
-                           //Buscamos o codigo de item que acabou de ser salvo
-                           MDO.QConsulta.Close;
-                           MDO.QConsulta.SQL.Clear;
-                           MDO.QConsulta.SQL.Add('  select gen_id(GEN_ITENSPEDC_ID, 0) as codigo from rdb$database ');
-                           MDO.QConsulta.Open;
-                           xCustoNfe_CodigoItem := MDO.QConsulta.FieldByName('CODIGO').AsInteger;
-
-                           if not InserirItemCustoProduto(XCod_Estoque, xCustoNfe_CodigoItem, xCustoNfe_ValorFinal, xCustoNfe_QtdeDisponivel, Date(), 'PEDCOMPRA') then
-                           begin
-                               MDO.Transac.RollbackRetaining;
-                               FiltraSlave;
-                               Exit;
-                           end;
-                           //
-                       end;
-                   end
-                   else begin//Venda
-                       //Buscamos o codigo de item que acabou de ser salvo
-                       MDO.QConsulta.Close;
-                       MDO.QConsulta.SQL.Clear;
-                       MDO.QConsulta.SQL.Add('  select gen_id(GEN_ITENSPEDVEN_ID, 0) as codigo from rdb$database ');
-                       MDO.QConsulta.Open;
-                       xCustoNfe_CodigoItem := MDO.QConsulta.FieldByName('CODIGO').AsInteger;
-                       
-                       //Busca os custos mais antigos do estoque em questão para dar saida
-                       //quando o estoque não for suficiente, busca do proximo
-                       if(AplicaSaidaCustoEstoque(xCod_Estoque, xCustoNfe_CodigoItem, 'PEDVENDA', xCustoNfe_QtdeDisponivel{EDQuantidade.ValueNumeric}) = False) then
-                       begin
-                           MDO.Transac.RollbackRetaining;
-                           FiltraSlave;
-                           Exit;
-                       end;
-                   end;
-                   
-                   MDO.Transac.CommitRetaining;
-                Except On e: exception Do
-                    Begin
-                        MessageDlg('Falha: 5920 - Verifique o gerador de código' + #13 + E.Message, mtWarning, [mbOK], 0);
-                        MDO.Transac.RollbackRetaining;
-                        if XSQLTABELA <> 'PEDVENDA' then
-                        begin
-                            //Vamos verificar se o generator esta correto
-                            //verificamos o proximo generator
-                            MDO.Transac.CommitRetaining;
-                            MDO.QConsulta.Close;
-                            MDO.QConsulta.SQL.Clear;
-                            MDO.QConsulta.SQL.Add('  select gen_id(GEN_ITENSPEDC_ID, 0) as codigo from rdb$database ');
-                            MDO.QConsulta.Open;
-                            FMenu.XNFe := MDO.QConsulta.FieldByName('codigo').AsInteger;
-                            MDO.Transac.CommitRetaining;
-                            //comparamos para ver se tem algum registro igual ao generator
-                            MDO.QConsulta.Close;
-                            MDO.QConsulta.SQL.Clear;
-                            MDO.QConsulta.SQL.Add('  select itenspedc.cod_pedcompra from itenspedc where itenspedc.cod_itenspedc=:codigo ');
-                            MDO.QConsulta.ParamByName('codigo').AsInteger := FMenu.XNFe;
-                            MDO.QConsulta.Open;
-                            If Not MDO.QConsulta.IsEmpty
-                            Then Begin
-                                //se tivermos encontrado algum registro igual setamos o generator para nova posição
-                                MDO.QConsulta.Close;
-                                MDO.QConsulta.SQL.Clear;
-                                MDO.QConsulta.SQL.Add('  select max(itenspedc.cod_itenspedc) as codigo from itenspedc ');
-                                MDO.QConsulta.Open;
-
-                                MDO.Query.Close;
-                                MDO.Query.SQL.Clear;
-                                MDO.Query.SQL.Add(' SET GENERATOR GEN_ITENSPEDC_ID  TO ' + IntToStr(MDO.QConsulta.FieldByName('codigo').AsInteger));
-                                MDO.Query.ExecSQL;
-                                MDO.Transac.CommitRetaining;
-                                //Edmar - 14/04/2015 - Depois de corrigir a pk do item do pedido, manda inserir o item novamente.
-                                BtnInsertProdClick(sender);
-                                Exit;
-                                //MessageDlg('Foi encontrado e corrigido uma falha de generator ao código. Você pode inserir o item novamente.', mtInformation, [mbOK], 0);
-                            End;
-                        end
-                        else begin//Edmar - 10/02/2015 - tratamento do gerador para os itens do pedido de venda
-                           //Vamos verificar se o generator esta correto
-                           //verificamos o proximo generator
-                        	MDO.Transac.CommitRetaining;
-                           MDO.QConsulta.Close;
-                           MDO.QConsulta.SQL.Clear;
-                           MDO.QConsulta.SQL.Add(' SELECT GEN_ID(GEN_ITENSPEDVEN_ID, 0) AS CODIGO FROM RDB$DATABASE ');
-                           MDO.QConsulta.Open;
-                           FMenu.XNFe := MDO.QConsulta.FieldByName('CODIGO').AsInteger;
-                           MDO.Transac.CommitRetaining;
-                           //comparamos para ver se tem algum registro igual ao generator
-                           MDO.QConsulta.Close;
-                           MDO.QConsulta.SQL.Clear;
-                           MDO.QConsulta.SQL.Add(' SELECT ITENSPEDVEN.COD_ITENSPEDVEN FROM ITENSPEDVEN WHERE ITENSPEDVEN.COD_ITENSPEDVEN = :CODIGO ');
-                           MDO.QConsulta.ParamByName('CODIGO').AsInteger := FMenu.XNFe;
-                           MDO.QConsulta.Open;
-                           if not MDO.QConsulta.IsEmpty then
-                           begin
-                           	//se tivermos encontrado algum registro igual setamos o generator para nova posição
-                               MDO.QConsulta.Close;
-                               MDO.QConsulta.SQL.Clear;
-                               MDO.QConsulta.SQL.Add(' SELECT MAX(ITENSPEDVEN.COD_ITENSPEDVEN) CODIGO FROM ITENSPEDVEN ');
-                               MDO.QConsulta.Open;
-
-                               MDO.Query.Close;
-                               MDO.Query.SQL.Clear;
-                               MDO.Query.SQL.Add(' SET GENERATOR GEN_ITENSPEDVEN_ID  TO ' + IntToStr(MDO.QConsulta.FieldByName('CODIGO').AsInteger));
-                               MDO.Query.ExecSQL;
-                               MDO.Transac.CommitRetaining;
-                               //Edmar - 14/04/2015 - Depois de corrigir a pk do item do pedido, manda inserir o item novamente.
-                               BtnInsertProdClick(sender);
-                               Exit;
-                               //MessageDlg('Foi encontrado e corrigido uma falha de generator ao código. Você pode tentar inserir o item novamente.', mtInformation, [mbOK], 0);
-							end;
-                        end;
-                    End;
-                End;
-                Try
-                   DMENTRADA.IBT.CommitRetaining;
-                Except
-                    MessageDlg('Falha: 5925', mtWarning, [mbOK], 0);
-                    DMENTRADA.IBT.RollbackRetaining;
-                End;
-                Try
-                    DMMACS.IBTCodigo.CommitRetaining;
-                Except
-                    MessageDlg('Falha: 5930', mtWarning, [mbOK], 0);
-                    DMMACS.IBTCodigo.RollbackRetaining;
-                End;
-                Try
-                    DMMACS.Transaction.CommitRetaining;
-                Except
-                    MessageDlg('Falha: 5935', mtWarning, [mbOK], 0);
-                    DMMACS.Transaction.RollbackRetaining;
-                End;
-                Try
-                    DMESTOQUE.TransacEstoque.CommitRetaining;
-                Except
-                    MessageDlg('Falha: 5940', mtWarning, [mbOK], 0);
-                    DMESTOQUE.TransacEstoque.RollbackRetaining;
-                End;
-                XLIBDESCPROD := False; //reatribui à variável de controle de desconto de produto como false
-
-         		 //VERIFICA QUAL COMPONENETE DEVE RECEBER O FOCUS
-                If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'BP' Then
-                    BtnProcProd.SetFocus;
-                If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'CB' Then
-                    EDCodBarra.SetFocus;
-                If DMMacs.Tloja.FieldByName('FOCUITEMPED').AsString = 'CA'
-                    Then Begin
-                    if pPesqBarraInterno.Visible then
-                    begin
-                        //Caso o focus deve cair sobre um código auxiliar. verificar qual o código em Questão
-                        If DMMacs.Tloja.FieldByName('CAMPOPESQITEMPED').AsString = 'CI'
-                        Then Begin
-                            Try
-                                EDCodInterno.Text := '';
-                                EDCodInterno.SetFocus;
-                            Except
-                            End;
-                        End;
-
-                        If DMMacs.Tloja.FieldByName('CAMPOPESQITEMPED').AsString = 'CF'
-                        Then Begin
-                            Try
-                                EDCodFab.Text := '';
-                                EDCodFab.SetFocus;
-                            Except
-                            End;
-                        End;
-                    end;
-                End;
-                BtnInsertProd.Tag := 1;
-            Except
-                XTransaction.RollbackRetaining;
-                DMSAIDA.IBT.RollbackRetaining;
-                DMENTRADA.IBT.RollbackRetaining;
-                DMESTOQUE.TransacEstoque.RollbackRetaining;
-                DMMACS.IBTCodigo.RollbackRetaining;
-                DMMACS.Transaction.RollbackRetaining;
-
-                If XSQLTABELA <> 'PEDVENDA' Then
-                    XTabSlave.CancelUpdates;
-
-            End;
-        Except
-            XTransaction.RollbackRetaining;
-            DMSAIDA.IBT.RollbackRetaining;
-            DMENTRADA.IBT.RollbackRetaining;
-            DMMACS.IBTCodigo.RollbackRetaining;
-            DMMACS.Transaction.RollbackRetaining;
-            DMESTOQUE.TransacEstoque.RollbackRetaining;
-        End;
-
-        if XSQLTABELA = 'PEDCOMPRA' then
-        begin
+    if XSQLTABELA = 'PEDCOMPRA' then
+    begin
 			DMESTOQUE.Alx.Close;
            DMESTOQUE.Alx.SQL.Clear;
            DMESTOQUE.Alx.SQL.Add(' SELECT SUBPRODUTO.COMPONENTE FROM ESTOQUE ');
@@ -6678,48 +6483,42 @@ Begin
            if DMESTOQUE.Alx.FieldByName('COMPONENTE').AsString = '1' then
 				AtualizaValorCustoProduto(-1, XCOD_ESTOQUE)
            else
-				AtualizaValorCustoProduto(XCOD_ESTOQUE, -1);           
-        end;        
+				AtualizaValorCustoProduto(XCOD_ESTOQUE, -1);
+    end;
 
-     	 //Filtra slaves e calcula total
-        FiltraSlave;
-     	 //limpa labels de seleção
-        LimpaLabels;
+    FiltraSlave;
 
-        XMotivoDesc := '';
+    LimpaLabels;
 
-        If DMMACS.TLoja.FieldByName('BUSCANPRODS').AsString = '1'
-        Then Begin
-            DMESTOQUE.Alx.Close;
-            DMESTOQUE.Alx.SQL.Clear;
-            DMESTOQUE.Alx.SQL.Add(' Select * from vwsimilar Where vwsimilar.mark=' + #39 + 'X' + #39);
-            DMESTOQUE.Alx.Open;
-            If Not DMESTOQUE.Alx.IsEmpty
-                Then Begin
-                If MessageDlg('Existe mais um produto a ser inserido:' + #13 + #10 + DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString + #13 + #10 + 'Deseja inserí-lo?', mtConfirmation, [mbYes, MbNo], 0) = MrYes
-                    Then Begin
-                    If FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsString, '') = True
-                        Then Begin
-                        EscreveLabels;
-                        EDQuantidade.SetFocus;
-                    End;
-                End;
-            End;
-        End;
-        PSelectCliente.Repaint;
+    XMotivoDesc := '';
 
-        EdQuantExp.Text := '';
-        xqtdconvert := 0;
-        xqtdconv := 0;
+    If DMMACS.TLoja.FieldByName('BUSCANPRODS').AsString = '1'
+    Then Begin
+       DMESTOQUE.Alx.Close;
+       DMESTOQUE.Alx.SQL.Clear;
+       DMESTOQUE.Alx.SQL.Add(' Select * from vwsimilar Where vwsimilar.mark=' + #39 + 'X' + #39);
+       DMESTOQUE.Alx.Open;
+       If Not DMESTOQUE.Alx.IsEmpty
+       Then Begin
+           If MessageDlg('Existe mais um produto a ser inserido:' + #13 + #10 + DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString + #13 + #10 + 'Deseja inserí-lo?', mtConfirmation, [mbYes, MbNo], 0) = MrYes
+           Then Begin
+               If FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsString, '') = True
+               Then Begin
+                   EscreveLabels;
+                   EDQuantidade.SetFocus;
+               End;
+           End;
+       End;
+    End;
+    PSelectCliente.Repaint;
 
-        If XSQLTABELA = 'PEDVENDA'
-        Then Begin
+    EdQuantExp.Text := '';
+    xqtdconvert := 0;
+    xqtdconv := 0;
+
+    If XSQLTABELA = 'PEDVENDA' Then
             If XImpI = 0 Then
-            // importaItensAgrupados;
-        End;
-        
-        XUsoConsumo := '';
-	End;
+               XUsoConsumo := '';
 End;
 
 Procedure TFPedidoPadrao.EDQuantidadeExit(Sender: TObject);
@@ -7687,13 +7486,11 @@ Begin
                 If DMMACS.TLoja.FieldByName('CONVERTUNID').AsString = '1'
                     Then Begin
                     DMEstoque.TEstoque.edit;
-                    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + XTabSlave.FieldByName('QTDENTREGUE').AsCurrency;
                     DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
                     DMEstoque.TEstoque.Post;
                 End
                 Else Begin
                     DMEstoque.TEstoque.edit;
-                    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + XTabSlave.FieldByName('QTDEPROD').AsCurrency;
                     DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
                     DMEstoque.TEstoque.Post;
                 End;
@@ -7742,7 +7539,6 @@ Begin
             If DMMacs.TLoja.FieldByName('ATUALIZAESTOQUEPC').AsString = '1'
             Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
                 DMEstoque.TEstoque.edit;
-                DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - XTabSlave.FieldByName('QTDEST').AsCurrency;
                 DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
                 DMEstoque.TEstoque.Post;
             End
@@ -7803,12 +7599,23 @@ Begin
            DesfazSaidaCustoEstoque(DMEstoque.TSlave.FieldByName('COD_ITENSPEDVEN').AsInteger, 'PEDVENDA');
         
         //APAGA ITEM
-        XTabSlave.Delete;
+        MDO.Query.Close;
+        MDO.Query.SQL.Clear;
+        If XSQLTABELA = 'PEDCOMPRA'
+        Then Begin
+           MDO.Query.SQL.Add(' delete FROM itenspedc where itenspedc.cod_itenspedc = :codigo ');
+           MDO.Query.ParamByName('codigo').AsInteger := XTabSlave.FieldByName('cod_itenspedc').AsInteger;
+        End
+        Else Begin
+           MDO.Query.SQL.Add(' delete FROM itenspedven where itenspedven.cod_itenspedven = :codigo ');
+           MDO.Query.ParamByName('codigo').AsInteger := XTabSlave.FieldByName('cod_itenspedven').AsInteger;
+        End;
+        MDO.Query.ExecSQL;
 
         //CONFIRMA TRANZAÇÃO
         Try
-            XTransaction.CommitRetaining;
             MDO.Transac.CommitRetaining;
+            XTransaction.CommitRetaining;
         Except
             XTransaction.RollbackRetaining;
             MDO.Transac.RollbackRetaining;
@@ -9690,7 +9497,6 @@ Begin
    DMENTRADA.TLancENT.FieldByName('QTDANT').AsString:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
            DMENTRADA.TLancEnt.POST;
            DMESTOQUE.TEstoque.Edit;
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
            DMESTOQUE.TEstoque.POST;
            DMENTRADA.IBT.CommitRetaining;
            DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -12551,7 +12357,7 @@ begin
        MessageDlg('Não foi possível atualizar as informações de compra do pedido.', mtWarning, [mbOK], 0);
        MDO.Transac.RollbackRetaining;
    end;
-     
+
    pInfoCompraNfe.Visible := False;
    pInfoCompraNfe.SendToBack;
 end;

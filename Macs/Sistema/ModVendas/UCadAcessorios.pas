@@ -167,8 +167,8 @@ begin
    MDO.Query.SQL.Add('                values(:COD_ESTOQUE, :cod_subprod, :estini, :estfisico, :cod_loja) ');
    MDO.Query.ParamByName('COD_ESTOQUE').AsInteger:=XCOD_ESTOQUE;
    MDO.Query.ParambyName('cod_subprod').AsInteger:=XCOD_SIMILAR;
-   MDO.Query.ParambyName('estini').AsCurrency:=EdEstoque.ValueNumeric;
-   MDO.Query.ParambyName('estfisico').AsCurrency:=EdEstoque.ValueNumeric;
+   MDO.Query.ParambyName('estini').AsCurrency:=0;
+   MDO.Query.ParambyName('estfisico').AsCurrency:=0;
    MDO.Query.ParambyName('cod_loja').AsString:=FMenu.LCODLOJA.Caption;
    MDO.Query.ExecSQL;
    MDO.Transac.CommitRetaining;

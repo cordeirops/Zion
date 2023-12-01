@@ -1,6 +1,6 @@
 inherited FContagemEstoque: TFContagemEstoque
-  Left = 327
-  Top = 149
+  Left = 207
+  Top = 156
   Caption = 'Contagem de Estoque'
   ClientHeight = 408
   ClientWidth = 717
@@ -23,9 +23,9 @@ inherited FContagemEstoque: TFContagemEstoque
       object lPesquisa: TLabel
         Left = 8
         Top = 8
-        Width = 70
+        Width = 94
         Height = 16
-        Caption = 'Pesquisa:'
+        Caption = 'Ctrl. Interno:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -33,10 +33,70 @@ inherited FContagemEstoque: TFContagemEstoque
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object edPesquisa: TFlatEdit
+      object Label2: TLabel
+        Left = 122
+        Top = 8
+        Width = 80
+        Height = 16
+        Caption = 'C'#243'd. Fabr.:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 236
+        Top = 8
+        Width = 76
+        Height = 16
+        Caption = 'Descri'#231#227'o:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 618
+        Top = 13
+        Width = 85
+        Height = 16
+        Cursor = crHandPoint
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'F9'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = Label4Click
+      end
+      object Label5: TLabel
+        Left = 618
+        Top = 29
+        Width = 85
+        Height = 16
+        Cursor = crHandPoint
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Para inserir'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = Label4Click
+      end
+      object edCtrInt: TFlatEdit
         Left = 8
-        Top = 26
-        Width = 423
+        Top = 25
+        Width = 109
         Height = 22
         ColorBorder = clBlack
         ColorFlat = clWhite
@@ -48,7 +108,8 @@ inherited FContagemEstoque: TFContagemEstoque
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        OnKeyDown = edPesquisaKeyDown
+        OnEnter = edCtrIntEnter
+        OnKeyDown = edCtrIntKeyDown
       end
       object DBGrid: TDBGrid
         Left = 8
@@ -57,7 +118,7 @@ inherited FContagemEstoque: TFContagemEstoque
         Height = 319
         Color = 15794175
         Ctl3D = False
-        DataSource = DMESTOQUE.DSAlx
+        DataSource = DMESTOQUE.dItensContagem
         FixedColor = clSkyBlue
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -75,7 +136,6 @@ inherited FContagemEstoque: TFContagemEstoque
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = [fsBold]
         OnCellClick = GridCellClick
-        OnDrawColumnCell = DBGridDrawColumnCell
         OnDblClick = DBGridDblClick
         OnKeyDown = DBGridKeyDown
         OnKeyUp = DBGridKeyUp
@@ -172,6 +232,42 @@ inherited FContagemEstoque: TFContagemEstoque
           ValueInteger = 0
         end
       end
+      object edFabricante: TFlatEdit
+        Left = 122
+        Top = 25
+        Width = 109
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnEnter = edFabricanteEnter
+        OnKeyDown = edFabricanteKeyDown
+      end
+      object edDescricao: TFlatEdit
+        Left = 236
+        Top = 25
+        Width = 369
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnEnter = edDescricaoEnter
+        OnKeyDown = edDescricaoKeyDown
+      end
     end
     inherited Panel1: TPanel
       Width = 716
@@ -197,6 +293,7 @@ inherited FContagemEstoque: TFContagemEstoque
         Height = 25
         Caption = 'Ajustar Estoque Calculado'
         TabOrder = 3
+        Visible = False
         OnClick = BtnAjustarEstClick
       end
     end

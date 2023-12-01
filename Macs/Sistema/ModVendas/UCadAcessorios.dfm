@@ -1,6 +1,6 @@
 inherited FCadAcessorios: TFCadAcessorios
-  Left = 532
-  Top = 196
+  Left = 275
+  Top = 175
   Caption = 'Acess'#243'rios'
   ClientHeight = 474
   ClientWidth = 540

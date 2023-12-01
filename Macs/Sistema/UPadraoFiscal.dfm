@@ -1,6 +1,6 @@
 inherited FPadraoFiscal: TFPadraoFiscal
-  Left = 293
-  Top = 112
+  Left = 71
+  Top = 74
   Caption = 'result'
   ClientHeight = 568
   ClientWidth = 913
@@ -798,7 +798,7 @@ inherited FPadraoFiscal: TFPadraoFiscal
         OnClick = comCpfClick
       end
       object semCpf: TCheckBox
-        Left = 127
+        Left = 123
         Top = -1
         Width = 106
         Height = 17
@@ -2129,7 +2129,7 @@ inherited FPadraoFiscal: TFPadraoFiscal
           Left = 7
           Top = 14
           Width = 409
-          Height = 80
+          Height = 89
           ScrollBars = ssVertical
           TabOrder = 0
         end
@@ -2137,7 +2137,7 @@ inherited FPadraoFiscal: TFPadraoFiscal
           Left = 472
           Top = 14
           Width = 409
-          Height = 80
+          Height = 89
           ScrollBars = ssVertical
           TabOrder = 1
         end
@@ -2722,6 +2722,319 @@ inherited FPadraoFiscal: TFPadraoFiscal
           end
         end
       end
+      object TabSheet5: TTabSheet
+        Caption = 'Outros Impostos'
+        ImageIndex = 4
+        object Shape48: TShape
+          Left = 104
+          Top = 9
+          Width = 105
+          Height = 40
+        end
+        object Shape46: TShape
+          Left = 0
+          Top = 9
+          Width = 105
+          Height = 40
+        end
+        object Label65: TLabel
+          Left = 2
+          Top = 10
+          Width = 99
+          Height = 14
+          AutoSize = False
+          Caption = 'PIS Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Shape47: TShape
+          Left = 548
+          Top = 9
+          Width = 152
+          Height = 40
+        end
+        object Label67: TLabel
+          Left = 551
+          Top = 10
+          Width = 147
+          Height = 14
+          AutoSize = False
+          Caption = 'BC Previd'#234'ncia Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Label66: TLabel
+          Left = 106
+          Top = 10
+          Width = 99
+          Height = 14
+          AutoSize = False
+          Caption = 'COFINS Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Shape49: TShape
+          Left = 208
+          Top = 9
+          Width = 105
+          Height = 40
+        end
+        object Label68: TLabel
+          Left = 210
+          Top = 10
+          Width = 99
+          Height = 14
+          AutoSize = False
+          Caption = 'CSLL Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Shape50: TShape
+          Left = 312
+          Top = 9
+          Width = 109
+          Height = 40
+        end
+        object Label69: TLabel
+          Left = 315
+          Top = 10
+          Width = 106
+          Height = 14
+          AutoSize = False
+          Caption = 'BC IRRF Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Shape51: TShape
+          Left = 420
+          Top = 9
+          Width = 129
+          Height = 40
+        end
+        object Label70: TLabel
+          Left = 423
+          Top = 10
+          Width = 147
+          Height = 14
+          AutoSize = False
+          Caption = 'Valor IRRF Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Shape52: TShape
+          Left = 699
+          Top = 9
+          Width = 183
+          Height = 40
+        end
+        object Label71: TLabel
+          Left = 702
+          Top = 10
+          Width = 175
+          Height = 14
+          AutoSize = False
+          Caption = 'Valor Previd'#234'ncia Retido'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object edPISRetido: TColorEditFloat
+          Left = 4
+          Top = 31
+          Width = 97
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edBCPrevidenciaRetido: TColorEditFloat
+          Left = 552
+          Top = 31
+          Width = 144
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 5
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edCofinsRetido: TColorEditFloat
+          Left = 108
+          Top = 31
+          Width = 97
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edCsllRetido: TColorEditFloat
+          Left = 212
+          Top = 31
+          Width = 97
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 2
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edBCRetido: TColorEditFloat
+          Left = 316
+          Top = 31
+          Width = 97
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edIrrfRetido: TColorEditFloat
+          Left = 424
+          Top = 31
+          Width = 117
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 4
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object edValorPrevidenciaRetido: TColorEditFloat
+          Left = 703
+          Top = 31
+          Width = 174
+          Height = 17
+          BorderStyle = bsNone
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 6
+          Text = '1,00'
+          ValueFormat = '##,##0.00'
+          ValueNumeric = 1.000000000000000000
+          ValueInteger = 1
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object cbDeduzirRetencoes: TCheckBox
+          Left = 584
+          Top = 59
+          Width = 297
+          Height = 17
+          Caption = 'Deduzir reten'#231#245'es do total da nota'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Courier New'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 7
+          OnClick = cbDeduzirRetencoesClick
+        end
+      end
     end
     object PageControl1: TPageControl
       Left = 8
@@ -2898,6 +3211,36 @@ inherited FPadraoFiscal: TFPadraoFiscal
               FieldName = 'VALORDESP'
               Title.Caption = 'Out. Desp.'
               Width = 73
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'nbcicms'
+              Title.Caption = 'B. Icms'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'nALIQICMS'
+              Title.Caption = 'Aliq. Icms'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'nVLRICMS'
+              Title.Caption = 'Vlr. Icms'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'nBCICMSST'
+              Title.Caption = 'B. Icms ST'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'nVLRICMSST'
+              Title.Caption = 'Vlr. Icms ST'
               Visible = True
             end>
         end

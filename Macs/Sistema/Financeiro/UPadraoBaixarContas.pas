@@ -254,7 +254,7 @@ Begin
    DMBANCO.WChequeRec.Close;
    DMBANCO.WChequeRec.SQL.Clear;
    DMBANCO.WChequeRec.SQL.Add(' select * from vwchequerec ');
-   DMBANCO.WChequeRec.SQL.Add(' Where (vwchequerec.fech<>'+#39+'S'+#39+') Or (vwchequerec.fech Is Null)');
+   DMBANCO.WChequeRec.SQL.Add(' Where (vwchequerec.fech = '+#39+'N'+#39+')');
 	DMBANCO.WChequeRec.Open;
 
    DMBANCO.TAlx.Close;

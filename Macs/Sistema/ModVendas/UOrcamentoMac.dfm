@@ -1,13 +1,195 @@
 inherited FOrcamentoMac: TFOrcamentoMac
-  Left = 378
-  Top = 12
+  Left = 117
+  Top = 54
   Caption = ''
   ClientHeight = 547
   ClientWidth = 809
   OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PCadastro: TPanel [0]
+  inherited PComunica: TPanel [0]
+    Left = 205
+    Top = 203
+    Height = 102
+  end
+  inherited PConsulta: TPanel [1]
+    Left = 9
+    Top = 7
+    Width = 792
+    Height = 546
+    inherited GroupBox1: TGroupBox
+      Width = 783
+      TabOrder = 2
+      inherited EdNome: TFlatEdit
+        Left = 120
+        Top = 16
+        Width = 425
+        TabOrder = 1
+      end
+      inherited BtnSelecionar: TBitBtn
+        Left = 664
+        Top = 15
+        TabOrder = 3
+      end
+      object EdDataAbertura: TFlatEdit
+        Left = 550
+        Top = 16
+        Width = 107
+        Height = 25
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. <Ctrl+Espa'#231'o> para pesquisar parte do registro '
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        Text = 'Data Abertura'
+        OnEnter = EdDataAberturaEnter
+        OnExit = EdDataAberturaExit
+        OnKeyPress = EdDataAberturaKeyPress
+      end
+      object EDNumeroOrcMec: TFlatEdit
+        Left = 8
+        Top = 16
+        Width = 105
+        Height = 25
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. <Ctrl+Espa'#231'o> para pesquisar parte do registro '
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Text = 'N'#186' Or'#231'amento'
+        OnEnter = EDNumeroOrcMecEnter
+        OnExit = EDNumeroOrcMecExit
+        OnKeyDown = EDNumeroOrcMecKeyDown
+      end
+    end
+    inherited Painel: TPanel
+      Width = 783
+      TabOrder = 0
+      inherited BtnRelatorio: TBitBtn
+        OnClick = BtnRelatorioClick
+      end
+    end
+    inherited DBGridCadastroPadrao: TDBGrid
+      Top = 113
+      Width = 783
+      Height = 424
+      PopupMenu = PopupMenu1
+      TabOrder = 1
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'COD_ORCAMENTO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMORC'
+          Title.Caption = 'N'#250'mero'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Or'#231'amento'
+          Width = 175
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOMECLI'
+          Title.Caption = 'Cliente'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_FORMPAG'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_USUARIO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTABERT'
+          Title.Caption = 'Abert.'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DTVALID'
+          Title.Caption = 'Validade'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VLRTOTAL'
+          Title.Caption = 'Total'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FORMPAG'
+          Title.Caption = 'Forma Pagamento'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_LOJA'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'FUNCIONARIO'
+          Visible = False
+        end>
+    end
+    object CbMostrarOrcamentosexportados: TCheckBox
+      Left = 574
+      Top = 94
+      Width = 209
+      Height = 17
+      Caption = 'Mostrar Or'#231'amentos Exportados'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 3
+      OnClick = CbMostrarOrcamentosexportadosClick
+    end
+  end
+  inherited PCadastro: TPanel
     Left = 9
     Top = 7
     Width = 792
@@ -1605,188 +1787,6 @@ inherited FOrcamentoMac: TFOrcamentoMac
       end
     end
   end
-  inherited PConsulta: TPanel [1]
-    Left = 9
-    Top = 7
-    Width = 792
-    Height = 546
-    inherited GroupBox1: TGroupBox
-      Width = 783
-      TabOrder = 2
-      inherited EdNome: TFlatEdit
-        Left = 120
-        Top = 16
-        Width = 425
-        TabOrder = 1
-      end
-      inherited BtnSelecionar: TBitBtn
-        Left = 664
-        Top = 15
-        TabOrder = 3
-      end
-      object EdDataAbertura: TFlatEdit
-        Left = 550
-        Top = 16
-        Width = 107
-        Height = 25
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. <Ctrl+Espa'#231'o> para pesquisar parte do registro '
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 2
-        Text = 'Data Abertura'
-        OnEnter = EdDataAberturaEnter
-        OnExit = EdDataAberturaExit
-        OnKeyPress = EdDataAberturaKeyPress
-      end
-      object EDNumeroOrcMec: TFlatEdit
-        Left = 8
-        Top = 16
-        Width = 105
-        Height = 25
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. <Ctrl+Espa'#231'o> para pesquisar parte do registro '
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 0
-        Text = 'N'#186' Or'#231'amento'
-        OnEnter = EDNumeroOrcMecEnter
-        OnExit = EDNumeroOrcMecExit
-        OnKeyDown = EDNumeroOrcMecKeyDown
-      end
-    end
-    inherited Painel: TPanel
-      Width = 783
-      TabOrder = 0
-      inherited BtnRelatorio: TBitBtn
-        OnClick = BtnRelatorioClick
-      end
-    end
-    inherited DBGridCadastroPadrao: TDBGrid
-      Top = 113
-      Width = 783
-      Height = 424
-      PopupMenu = PopupMenu1
-      TabOrder = 1
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'COD_ORCAMENTO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMORC'
-          Title.Caption = 'N'#250'mero'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCRICAO'
-          Title.Caption = 'Or'#231'amento'
-          Width = 175
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NOMECLI'
-          Title.Caption = 'Cliente'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_FORMPAG'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_USUARIO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTABERT'
-          Title.Caption = 'Abert.'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DTVALID'
-          Title.Caption = 'Validade'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VLRTOTAL'
-          Title.Caption = 'Total'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'FORMPAG'
-          Title.Caption = 'Forma Pagamento'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_LOJA'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'FUNCIONARIO'
-          Visible = False
-        end>
-    end
-    object CbMostrarOrcamentosexportados: TCheckBox
-      Left = 574
-      Top = 94
-      Width = 209
-      Height = 17
-      Caption = 'Mostrar Or'#231'amentos Exportados'
-      Checked = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      State = cbChecked
-      TabOrder = 3
-      OnClick = CbMostrarOrcamentosexportadosClick
-    end
-  end
-  inherited PComunica: TPanel [2]
-    Left = 205
-    Top = 203
-    Height = 102
-  end
   object ApplicationEvents1: TApplicationEvents
     OnMessage = ApplicationEvents1Message
     Left = 267
@@ -1843,7 +1843,7 @@ inherited FOrcamentoMac: TFOrcamentoMac
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 41934.633196342600000000
-    ReportOptions.LastChange = 44664.398515671300000000
+    ReportOptions.LastChange = 45170.037173437500000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'VAR'
@@ -1944,17 +1944,10 @@ inherited FOrcamentoMac: TFOrcamentoMac
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object ReportTitle1: TfrxReportTitle
-        Height = 440.693184330000000000
+        Height = 342.425404330000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         OnAfterPrint = 'ReportTitle1OnAfterPrint'
-        object Shape10: TfrxShapeView
-          Left = 3.779527560000000000
-          Top = 370.393940000000000000
-          Width = 712.819131970000000000
-          Height = 62.740184330000000000
-          ShowHint = False
-        end
         object Memo2: TfrxMemoView
           Left = 268.346630000000000000
           Top = 7.559060000000000000
@@ -2586,34 +2579,10 @@ inherited FOrcamentoMac: TFOrcamentoMac
           Transparent = False
           TransparentColor = clWhite
         end
-        object Memo74: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 350.496290000000000000
-          Width = 200.315090000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'Observa'#195#167#195#181'es do or'#195#167'amento:')
-          ParentFont = False
-        end
-        object mObservacao: TfrxMemoView
-          Left = 6.779530000000000000
-          Top = 374.393940000000000000
-          Width = 706.772110000000000000
-          Height = 56.692950000000000000
-          ShowHint = False
-          Memo.UTF8 = (
-            '[frxOrcamentoMac."obs"]')
-        end
       end
       object MasterData1: TfrxMasterData
         Height = 22.677180000000000000
-        Top = 585.827150000000000000
+        Top = 487.559370000000000000
         Width = 718.110700000000000000
         OnAfterPrint = 'MasterData1OnAfterPrint'
         DataSet = frxOrcamentoMac
@@ -2774,124 +2743,13 @@ inherited FOrcamentoMac: TFOrcamentoMac
         end
       end
       object Footer1: TfrxFooter
-        Height = 90.708514960000000000
-        Top = 767.244590000000000000
+        Height = 7.558854960000000000
+        Top = 668.976810000000000000
         Width = 718.110700000000000000
-        object Line9: TfrxLineView
-          Left = 1.779530000000000000
-          Top = 69.827073750000000000
-          Width = 715.091836660000000000
-          ShowHint = False
-          Frame.Width = 1.500000000000000000
-          Diagonal = True
-        end
-        object Memo44: TfrxMemoView
-          Left = 1.779530000000000000
-          Top = 49.842465980000000000
-          Width = 150.715213340000000000
-          Height = 17.500000000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'Condi'#195#167#195#163'o de Pagamento:')
-          ParentFont = False
-        end
-        object frxORCAMENTOfrxORCAMENTO: TfrxMemoView
-          Left = 154.999239860000000000
-          Top = 49.842465980000000000
-          Width = 215.433210000000000000
-          Height = 17.385826770000000000
-          ShowHint = False
-          DataSetName = 'frxORCAMENTO'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[frxOrcamentoMac."descricaoformpag"]')
-          ParentFont = False
-        end
-        object Line12: TfrxLineView
-          Top = 86.456710000000000000
-          Width = 723.267918390000000000
-          ShowHint = False
-          Frame.Width = 0.100000000000000000
-          Diagonal = True
-        end
-        object Memo70: TfrxMemoView
-          Left = 532.913730000000000000
-          Width = 99.023600080000000000
-          Height = 15.118107800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8 = (
-            'Valor Servi'#195#167'os:')
-          ParentFont = False
-        end
-        object Memo71: TfrxMemoView
-          Left = 634.592553390000000000
-          Top = 0.643690860000000000
-          Width = 81.376241010000000000
-          Height = 15.118110240000000000
-          OnBeforePrint = 'Memo71OnBeforePrint'
-          ShowHint = False
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          ParentFont = False
-        end
-        object Memo72: TfrxMemoView
-          Left = 532.913730000000000000
-          Top = 51.133890000000000000
-          Width = 99.023600080000000000
-          Height = 15.118107800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8 = (
-            'Valor Total:')
-          ParentFont = False
-        end
-        object Memo73: TfrxMemoView
-          Left = 634.592553390000000000
-          Top = 51.777580860000000000
-          Width = 81.376241010000000000
-          Height = 15.118110240000000000
-          OnBeforePrint = 'Memo73OnBeforePrint'
-          ShowHint = False
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          ParentFont = False
-        end
       end
       object Header1: TfrxHeader
         Height = 41.574830000000000000
-        Top = 521.575140000000000000
+        Top = 423.307360000000000000
         Width = 718.110700000000000000
         object Shape1: TfrxShapeView
           Left = 1.779530000000000000
@@ -3049,7 +2907,7 @@ inherited FOrcamentoMac: TFOrcamentoMac
       end
       object Header2: TfrxHeader
         Height = 71.811070000000000000
-        Top = 631.181510000000000000
+        Top = 532.913730000000000000
         Width = 718.110700000000000000
         object Memo47: TfrxMemoView
           Left = 3.779530000000000000
@@ -3202,43 +3060,10 @@ inherited FOrcamentoMac: TFOrcamentoMac
             'Equipe:')
           ParentFont = False
         end
-        object Memo41: TfrxMemoView
-          Left = 532.913730000000000000
-          Top = 0.356309140000000000
-          Width = 99.023600080000000000
-          Height = 15.118107800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8 = (
-            'Valor Produtos:')
-          ParentFont = False
-        end
-        object Memo46: TfrxMemoView
-          Left = 634.592553390000000000
-          Top = 1.000000000000000000
-          Width = 81.376241010000000000
-          Height = 15.118110240000000000
-          OnBeforePrint = 'Memo46OnBeforePrint'
-          ShowHint = False
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          ParentFont = False
-        end
       end
       object MasterData2: TfrxMasterData
         Height = 17.763779530000000000
-        Top = 725.669760000000000000
+        Top = 627.401980000000000000
         Width = 718.110700000000000000
         OnAfterPrint = 'MasterData2OnAfterPrint'
         DataSet = FrxOrcMacServico
@@ -3393,6 +3218,156 @@ inherited FOrcamentoMac: TFOrcamentoMac
           Height = 16.629921259842500000
           ShowHint = False
           Frame.Typ = [ftLeft]
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        Height = 86.929190000000000000
+        Top = 737.008350000000000000
+        Width = 718.110700000000000000
+        object Line9: TfrxLineView
+          Left = 1.779530000000000000
+          Top = 5.575063749999999000
+          Width = 715.091836660000000000
+          ShowHint = False
+          Frame.Width = 1.500000000000000000
+          Diagonal = True
+        end
+        object Memo44: TfrxMemoView
+          Left = 1.779530000000000000
+          Top = 8.267635980000006000
+          Width = 150.715213340000000000
+          Height = 17.500000000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            'Condi'#195#167#195#163'o de Pagamento:')
+          ParentFont = False
+        end
+        object frxORCAMENTOfrxORCAMENTO: TfrxMemoView
+          Left = 0.038509860000000000
+          Top = 27.165285980000000000
+          Width = 215.433210000000000000
+          Height = 17.385826770000000000
+          ShowHint = False
+          DataSetName = 'frxORCAMENTO'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxOrcamentoMac."descricaoformpag"]')
+          ParentFont = False
+        end
+        object Line12: TfrxLineView
+          Top = 84.677180000000010000
+          Width = 723.267918390000000000
+          ShowHint = False
+          Frame.Width = 0.100000000000000000
+          Diagonal = True
+        end
+        object Memo71: TfrxMemoView
+          Left = 630.813023390000000000
+          Top = 39.438990860000000000
+          Width = 81.376241010000000000
+          Height = 15.118110240000000000
+          OnBeforePrint = 'Memo71OnBeforePrint'
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          ParentFont = False
+        end
+        object Memo73: TfrxMemoView
+          Left = 630.813023390000000000
+          Top = 64.116170860000000000
+          Width = 81.376241010000000000
+          Height = 15.118110240000000000
+          OnBeforePrint = 'Memo73OnBeforePrint'
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          ParentFont = False
+        end
+        object Memo46: TfrxMemoView
+          Left = 630.813023390000000000
+          Top = 13.338590000000000000
+          Width = 81.376241010000000000
+          Height = 15.118110240000000000
+          OnBeforePrint = 'Memo46OnBeforePrint'
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          ParentFont = False
+        end
+        object Memo74: TfrxMemoView
+          Left = 529.134200000000000000
+          Top = 38.438990860000000000
+          Width = 99.023600080000000000
+          Height = 15.118107800000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Valor Servi'#195#167'os:')
+          ParentFont = False
+        end
+        object Memo75: TfrxMemoView
+          Left = 529.134200000000000000
+          Top = 63.116170860000000000
+          Width = 99.023600080000000000
+          Height = 15.118107800000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Valor Total:')
+          ParentFont = False
+        end
+        object Memo76: TfrxMemoView
+          Left = 529.134200000000000000
+          Top = 12.338590000000000000
+          Width = 99.023600080000000000
+          Height = 15.118107800000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Valor Produtos:')
+          ParentFont = False
         end
       end
     end

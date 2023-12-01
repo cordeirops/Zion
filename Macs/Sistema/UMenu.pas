@@ -17,7 +17,7 @@ uses
   abfComponents, UFrmatalho, IdAntiFreezeBase, IdAntiFreeze, IdFTP,
   msxmldom, midaslib, MSNPopUp, MDOCustomDataSet, RpDefine, RpBase,
   RpSystem, TLHelp32, TFlatPanelUnit, frxpngimage, TFlatEditUnit, ZipMstr,
-  pngimage, IdExplicitTLSClientServerBase, IdSMTPBase;
+  pngimage, IdExplicitTLSClientServerBase, IdSMTPBase, IniFiles;
   	//função utilizada para abrir gaveta atraves da impressora elgin
   //	function Wind_AcionaGaveta:integer; stdcall; External 'Elgin.DLL';
 type
@@ -313,7 +313,6 @@ type
     CancelarFatura1: TMenuItem;
     Produtos4: TMenuItem;
     EntradasparaCorreo1: TMenuItem;
-    SadasparaCorreo1: TMenuItem;
     Industrializao1: TMenuItem;
     Relatrios8: TMenuItem;
     CadastrarProdutos1: TMenuItem;
@@ -388,6 +387,11 @@ type
     FDSCaixa: TfrDBDataSet;
     FSRel: TfrReport;
     VerificarservicepackeNetframework1: TMenuItem;
+    Fds_Mdo_QConsulta: TfrDBDataSet;
+    Fds_Mdo_Query1: TfrDBDataSet;
+    Fds_Mdo_Query2: TfrDBDataSet;
+    Fds_Mdo_Query3: TfrDBDataSet;
+    tControleMestre: TTimer;
     procedure SpeedButton1Click(Sender: TObject);
     procedure IniciaData;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -413,8 +417,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure IBSQLMonitor1SQL(EventText: String; EventTime: TDateTime);
     procedure FormActivate(Sender: TObject);
-    procedure Sadas1Click(Sender: TObject);
-    procedure Entradas1Click(Sender: TObject);
     procedure CadastrarProduto1Click(Sender: TObject);
     procedure Grupo1Click(Sender: TObject);
     procedure SubGrupo1Click(Sender: TObject);
@@ -741,6 +743,8 @@ type
     procedure ListadeProdutosClassificados1Click(Sender: TObject);
     procedure PosiodeEstoque4casas1Click(Sender: TObject);
     procedure VerificarservicepackeNetframework1Click(Sender: TObject);
+    procedure tControleMestreTimerTimer(Sender: TObject);
+    procedure CarregaConfigIni;    
   private
     { Private declarations }
     //Procedure Utilizada para trazer as primeiras informações sobre o usuário informado
@@ -870,6 +874,7 @@ type
     procedure MostraRSS;
     function resourceExists(url:string):boolean; //26/01/2009: verifica se link existe
     procedure LimpaPreSelecao; //16/02/2009:  limpa as variaveis XPreSel:= false,XFieldPesqPreSel = '',XCodPesqPresSel=''
+    procedure RegistraAcessoBanco;
     //Função para retornar se existem cartões a serem baixados e efetuar a baixa automatica
     function RetornaCartaoBaixa : Integer;
 
@@ -919,8 +924,8 @@ uses USPlash, ULogoff,AlxMessage, UDMMacs, Alxor32, Alxorprn, UGerenciador, Uban
   UDesligar, UCadRegiao, UCadEstado, UCadCidade, UCadLoja, UCadEmpresa,
   UCtaCor, UCadCST, UCadGrupo, UCadMoeda, UCadSubgrupo, UCadUnidade,
   UFormPag, UConsPlncta, UCadCFOP, UCadCaixa, UCliente, UFORNECEDOR,
-  UFuncionario, UCadUsuario, UProduto, UPedVenda, UPedCompra, ULancSai,
-  ULancEnt, UDMFinanc, UAbCaixa, UDMCONTA, UDMCaixa, ULancCaixa, UFechaCaixa,
+  UFuncionario, UCadUsuario, UProduto, UPedVenda, UPedCompra,
+  UDMFinanc, UAbCaixa, UDMCONTA, UDMCaixa, ULancCaixa, UFechaCaixa,
   UCtasPagar, UCtaReceber, URelCaixa, URelEstoque, URelCtaPR, UMovBanco,
   URelPadraoped, URelEtiqEstoque, ULanCHSaida, ULanCHEntr, UServico,
   UOrdem, UDMEntrada, URelMovBanco, URelChequeEmit, URelOrdem,
@@ -940,7 +945,7 @@ uses USPlash, ULogoff,AlxMessage, UDMMacs, Alxor32, Alxorprn, UGerenciador, Uban
   UOrdemLoca, UOrdemRetifica, UMDO, UOrdemManutencao, USped, UOrcamento3,
   USolicitarCompra, UOrdemProduc, URelGeralMovimentacoesFinanceiras,
   URelProdutos,URLMON, UOrdemAsistenciaTecnica, UExpVenda, Validacoes,
-  UAjuda, UContagemEstoque;
+  UAjuda, UContagemEstoque, ULancamentoEstoque, uOrdemMecanica;
 
 {$R *.DFM}
 
@@ -994,6 +999,51 @@ begin
 	end;
 	Application.ProcessMessages;
 end;
+
+procedure TFMenu.RegistraAcessoBanco;
+var
+  xDataAcesso: TDateTime;
+  xDataAcessoSeteDiasAtras: TDateTime;
+  xHoraAcesso: TDateTime;
+begin
+   try
+       MDO.Transac.CommitRetaining;
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+
+       // PEGAR A HORA DE ACESSO, DATA E DATA DE SETE DIAS ATRAS
+       xHoraAcesso := Now;
+       xDataAcesso := Date;
+       xDataAcessoSeteDiasAtras := xDataAcesso - 7;
+
+          // DELETA REGISTROS MAIORES QUE SETE DIAS
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add('DELETE FROM acessobanco WHERE NOME_COMPUTADOR = :NomeComputador AND DATA_ACESSO < :dataAcessoSeteDiasAtras');
+       MDO.Query.ParamByName('NomeComputador').AsString := getcomputer1;
+       MDO.Query.ParamByName('dataAcessoSeteDiasAtras').AsDateTime := xDataAcessoSeteDiasAtras;
+       MDO.Query.ExecSQL;
+
+       // INSERE NOVO REGISTRO
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add('INSERT INTO acessobanco (LOGIN, HORA_ACESSO, DATA_ACESSO, NOME_COMPUTADOR, CAMINHO_BANCO, VERSAO_SISTEMA, VERSAO_COMPILACAO) VALUES (:LOGIN, :HORA_ACESSO, :dataAcesso, :NOME_COMPUTADOR, :CAMINHO_BANCO, :VERSAO_SISTEMA, :VERSAO_COMPILACAO)');
+       MDO.Query.ParamByName('LOGIN').AsString := edusuario.Text;
+       MDO.Query.ParamByName('HORA_ACESSO').AsDateTime := xHoraAcesso;
+       MDO.Query.ParamByName('dataAcesso').AsDateTime := xDataAcesso;
+       MDO.Query.ParamByName('NOME_COMPUTADOR').AsString := getcomputer1;
+       MDO.Query.ParamByName('CAMINHO_BANCO').AsString := MDO.DB.DatabaseName;
+       MDO.Query.ParamByName('VERSAO_SISTEMA').AsString := XVersaoSistema;
+       MDO.Query.ParamByName('VERSAO_COMPILACAO').AsInteger := XVersaoCompilacao;
+       MDO.Query.ExecSQL;
+       MDO.Transac.CommitRetaining;
+   except
+       on E: Exception do
+       begin
+           MDO.Transac.RollbackRetaining;
+       end;
+   end;
+end;
+
 //Função para retornar se existem cartões a serem baixados e efetuar a baixa automatica
 function TFMenu.RetornaCartaoBaixa : Integer;
 Begin
@@ -1365,6 +1415,9 @@ Begin
        /////////////////
        // INICIALIZAÇÕES
        /////////////////
+       XTimeoutMestre := 1;
+       CarregaConfigIni;
+
        XFMENS:=0;
        XTipoRel:='';//Paulo 09/08/2011: Para controle de relatórios na tela de RelLancContas
        FMenu.XPedFatura:=''; //limpa variável para q não afete geração de notas fiscais direto dos pedidos
@@ -1453,10 +1506,14 @@ begin
    InicializaVariaveis;
 
    //Paulo 04/04/2012: Para usuário mestre mostra o menu de atualiza Base de Dados
-   If LCODUSUARIO.Caption = '111522' then
-       AtualizaodoBancodeDados1.Visible:=True
-   else
+   If LCODUSUARIO.Caption = '111522'
+   then Begin
+       AtualizaodoBancodeDados1.Visible:=True;
+   end
+   else Begin
        AtualizaodoBancodeDados1.Visible:=False;
+       RegistraAcessoBanco; 
+   End;
 
    //Atualiza a tela do menu
    FMenu.Update;
@@ -1484,24 +1541,6 @@ begin
    	Close;
        Application.Terminate;
    end;
-end;
-
-procedure TFMenu.Sadas1Click(Sender: TObject);
-begin
-	//EFETUA CONTROLE DE ACESSO
-   If ControlAccess('ACERTESTOQUE', 'M')=False Then
-  		Exit;
-
-    AbrirForm(TFLancSai, FLancSai, 0);
-end;
-
-procedure TFMenu.Entradas1Click(Sender: TObject);
-begin
-	//EFETUA CONTROLE DE ACESSO
-   If ControlAccess('ACERTESTOQUE', 'M')=False Then
-  		Exit;
-
-    AbrirForm(TFLancEnt, FLancEnt, 0);
 end;
 
 procedure TFMenu.CadastrarProduto1Click(Sender: TObject);
@@ -3060,6 +3099,7 @@ end;
 
 procedure TFMenu.FormCreate(Sender: TObject);
 begin
+   Color := $006F5F06;
    xCtrThread:=False;
 	XLOGOFFINI:=0;
 end;
@@ -3765,6 +3805,8 @@ end;
 
 procedure TFMenu.OrdemdeServios1Click(Sender: TObject);
 begin
+   If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA' Then
+       AbrirForm(TfrmOrdemMecanica, frmOrdemMecanica, 0);
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE' Then
        AbrirForm(TFOrdemMec, FOrdemMec, 0);
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'DESPACHANTE' Then
@@ -3782,8 +3824,8 @@ begin
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MANUTENÇÃO' Then
        AbrirForm(TFOrdemAssitenciaTecnica, FOrdemAssitenciaTecnica, 0);       
 
-   If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MANUTENÇÃO') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'DESPACHANTE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE')  and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'INDUSTRIA') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'PETSHOP')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'RETIFICA')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'LOCAÇÃO')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'GRAFICA') Then
-       AbrirForm(TFOrdem, FOrdem, 0);
+//   If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MANUTENÇÃO') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'DESPACHANTE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE')  and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'INDUSTRIA') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'PETSHOP')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'RETIFICA')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'LOCAÇÃO')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'GRAFICA') Then
+//       AbrirForm(TFOrdem, FOrdem, 0);
 end;
 
 procedure TFMenu.abeladeServios1Click(Sender: TObject);
@@ -4567,6 +4609,9 @@ end;
 
 procedure TFMenu.IconOrdemClick(Sender: TObject);
 begin
+   If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA' Then
+       AbrirForm(TfrmOrdemMecanica, frmOrdemMecanica, 0);
+
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE' Then
        AbrirForm(TFOrdemMec, FOrdemMec, 0);
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'DESPACHANTE' Then
@@ -4584,8 +4629,8 @@ begin
    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MANUTENÇÃO' Then
        AbrirForm(TFOrdemAssitenciaTecnica, FOrdemAssitenciaTecnica, 0);
 
-   If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MANUTENÇÃO') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'DESPACHANTE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'INDUSTRIA')  and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'PETSHOP')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'RETIFICA')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'LOCAÇÃO')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'GRAFICA') Then
-       AbrirForm(TFOrdem, FOrdem, 0);
+//   If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MANUTENÇÃO') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'DESPACHANTE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE') and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'INDUSTRIA')  and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'PETSHOP')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'RETIFICA')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'LOCAÇÃO')   and (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'GRAFICA') Then
+//       AbrirForm(TFOrdem, FOrdem, 0);
 end;
 
 procedure TFMenu.IconOrcamentoClick(Sender: TObject);
@@ -5247,7 +5292,8 @@ begin
    If ControlAccess('ACERTESTOQUE', 'M')=False Then
   		Exit;
 
-    AbrirForm(TFLancEnt, FLancEnt, 0);
+   AbrirForm(TFLancamentoEstoque, FLancamentoEstoque, 0);
+   // AbrirForm(TFLancEnt, FLancEnt, 0);
 end;
 
 procedure TFMenu.SadasparaCorreo1Click(Sender: TObject);
@@ -5256,7 +5302,8 @@ begin
    If ControlAccess('ACERTESTOQUE', 'M')=False Then
   		Exit;
 
-    AbrirForm(TFLancSai, FLancSai, 0);
+   AbrirForm(TFLancamentoEstoque, FLancamentoEstoque, 0);       
+   // AbrirForm(TFLancSai, FLancSai, 0);
 end;
 
 procedure TFMenu.FichaTcnica3Click(Sender: TObject);
@@ -5665,6 +5712,38 @@ begin
        ShowMessage('Service pack OK e .NET Framework '+xResult)
    else
        ShowMessage(Win32CSDVersion+' e .NET Framework '+xResult);
+end;
+
+procedure TFMenu.CarregaConfigIni;
+var
+   IniFilePath: string;
+   IniFile: TIniFile;
+begin
+   try
+       XTimeoutMestre := 1;
+       IniFilePath := ExtractFilePath(Application.ExeName) + 'config.ini';
+       if SysUtils.FileExists(IniFilePath)
+       then begin
+           try
+               IniFile := TIniFile.Create(IniFilePath);
+               XTimeoutMestre := IniFile.ReadInteger('PARAMETROS', 'TIMEOUT_MESTRE', 1);
+           finally
+               IniFile.Free;
+           end;
+       end;
+   except on
+       E: Exception do ShowMessage('Erro: ' + E.Message);
+   end;
+end;
+
+procedure TFMenu.tControleMestreTimerTimer(Sender: TObject);
+begin
+   If (FMenu.EdUsuario.Text = 'SYSTEM LORD') and (XTimeoutMestre = 1)
+   Then Begin
+       tControleMestre.Enabled := false;
+       AbrirForm(TFLogoff1, FLogoff1, 1);
+       tControleMestre.Enabled := true;
+   end;
 end;
 
 End.

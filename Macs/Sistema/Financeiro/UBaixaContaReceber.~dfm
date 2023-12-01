@@ -30,41 +30,39 @@ inherited FBaixaContaReceber: TFBaixaContaReceber
   inherited Label18: TLabel
     Top = 452
   end
-  inherited PCartoes: TPanel [9]
+  inherited PChqTerceiro: TPanel [9]
+  end
+  inherited PCartoes: TPanel [10]
     Color = clMoneyGreen
   end
-  inherited pPerguntaVlrMaior: TPanel [10]
+  inherited pPerguntaVlrMaior: TPanel [11]
   end
-  inherited pPerguntaVlrMenor: TPanel [11]
+  inherited pPerguntaVlrMenor: TPanel [12]
     Left = 11
   end
-  inherited PComunica: TPanel [12]
+  inherited PComunica: TPanel [13]
     Top = 90
-  end
-  inherited PJUROS: TPanel [13]
-    Top = 50
   end
   inherited Panel1: TPanel [14]
     Top = 110
     Color = clWhite
-    inherited PChqTerceiro: TPanel [4]
+    inherited PBanco: TPanel [4]
     end
-    inherited PBanco: TPanel [5]
+    inherited PMultiplo: TPanel [5]
     end
-    inherited PMultiplo: TPanel [6]
+    inherited PMostraCta: TPanel [6]
     end
-    inherited PMostraCta: TPanel [7]
+    inherited EDVALORPAGO: TColorEditFloat [7]
     end
-    inherited EDVALORPAGO: TColorEditFloat [8]
+    inherited DBMOEDA: TDBLookupComboBox [8]
     end
-    inherited DBMOEDA: TDBLookupComboBox [9]
-    end
-    inherited FrmConta: TFrmBusca [10]
+    inherited FrmConta: TFrmBusca [9]
       Color = clWhite
     end
-    inherited DBCOB: TComboBox [11]
+    inherited DBCOB: TComboBox [10]
       Items.Strings = (
         'Carteira'
+        'Pix'
         'Banco'
         'Cheque'
         'Chq. Terc.'
@@ -74,9 +72,9 @@ inherited FBaixaContaReceber: TFBaixaContaReceber
         'C - Cart'#227'o'
         'D - Cart'#227'o')
     end
-    inherited CBImpRecibo: TCheckBox [12]
+    inherited CBImpRecibo: TCheckBox [11]
     end
-    inherited CBCheque: TCheckBox [13]
+    inherited CBCheque: TCheckBox [12]
     end
   end
   inherited PDESCONTO: TPanel [15]
@@ -381,5 +379,8 @@ inherited FBaixaContaReceber: TFBaixaContaReceber
     end
   end
   inherited PCartao: TPanel [26]
+  end
+  inherited PJUROS: TPanel [27]
+    Top = 50
   end
 end

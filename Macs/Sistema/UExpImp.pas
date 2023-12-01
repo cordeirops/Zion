@@ -1005,10 +1005,6 @@ Begin
                DMESTOQUE.TEstoque.SQL.Add(' select * from estoque Where estoque.cod_estoque=:CODESTOQUE ');
                DMESTOQUE.TEstoque.ParamByName('CODESTOQUE').AsInteger:=TItemPC.FieldByName('COD_ESTOQUE').AsInteger;
                DMESTOQUE.TEstoque.Open;
-               DMESTOQUE.TEstoque.Edit;
-               DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency+TItemPC.FieldByName('QTDEPROD').AsCurrency;
-               DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-               DMESTOQUE.TEstoque.Post;
                DMENTRADA.IBT.CommitRetaining;
                DMESTOQUE.TransacEstoque.CommitRetaining;
            End;
@@ -2139,7 +2135,7 @@ begin
      xtbrecebe.SQL.Clear;
      xtbrecebe.SQL.Add('insert into ESTOQUE');
      xtbrecebe.SQL.Add('(COD_ESTOQUE, COD_LOJA, COD_SUBPROD, ULTCOMPRA, ULTVENDA, ESTMAX, ESTMIN,');
-     xtbrecebe.SQL.Add('ICMS, FRETE, ESTFISICO, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
+     xtbrecebe.SQL.Add('ICMS, FRETE, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
      xtbrecebe.SQL.Add('CVVPROVAR, CVPPROVAR, VENDATAP, VENDATAV, VENDVARP, VENDVARV, VALUNIT,');
      xtbrecebe.SQL.Add('VALREP, VALCUSTO, AVVPROAT, AVPPROAT, AVVPROVAR, AVPPROVAR, LUCRATIVIDADE,');
      xtbrecebe.SQL.Add('COEFDIV, VALOREST, OUTROS, QUANT2, DTCAD, ESTINI, VALCUSDESP, ESTANTCONT,');
@@ -2149,7 +2145,7 @@ begin
      xtbrecebe.SQL.Add('PRECOOFERTA, DATAOFERTA, VENCIMENTOOFERTA)');
      xtbrecebe.SQL.Add('values');
      xtbrecebe.SQL.Add('(:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTMAX,');
-     xtbrecebe.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTFISICO, :ESTRESERV, :ESTPED, :ESTSALDO,');
+     xtbrecebe.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTRESERV, :ESTPED, :ESTSALDO,');
      xtbrecebe.SQL.Add(':CVVPROAT, :CVPPROAT, :CVVPROVAR, :CVPPROVAR, :VENDATAP, :VENDATAV,');
      xtbrecebe.SQL.Add(':VENDVARP, :VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVPPROAT,');
      xtbrecebe.SQL.Add(':AVVPROVAR, :AVPPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS,');
@@ -2168,7 +2164,6 @@ begin
      xtbrecebe.ParamByName('ESTMIN').AsFloat := xtbexporta.FieldByName('ESTMIN').AsFloat;
      xtbrecebe.ParamByName('ICMS').AsFloat := xtbexporta.FieldByName('ICMS').AsFloat;
      xtbrecebe.ParamByName('FRETE').AsFloat := xtbexporta.FieldByName('FRETE').AsFloat;
-     xtbrecebe.ParamByName('ESTFISICO').AsInteger := DMEXPORTA.TItemPC.FieldByName('QTD').AsInteger;
      xtbrecebe.ParamByName('ESTRESERV').AsInteger := 0;
      xtbrecebe.ParamByName('ESTPED').AsInteger := 0;
      xtbrecebe.ParamByName('ESTSALDO').AsInteger := DMEXPORTA.TItemPC.FieldByName('QTD').AsInteger;
@@ -3856,10 +3851,6 @@ begin
                                                DMESTOQUE.TEstoqueLote.Edit;
                                                DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency := DMESTOQUE.TEstoqueLote.FieldByName('QUANTIDADE').AsCurrency - 1;
                                                DMESTOQUE.TEstoqueLote.Post;
-
-                                               DMESTOQUE.TEstoque.Edit;
-                                               DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency - 1;
-                                               DMESTOQUE.TEstoque.Post;
                                            End;
                                        End;
 
@@ -3901,10 +3892,6 @@ begin
                            End
                            Else Begin
                                XFlagLote:=0;// Libera do laço de controle de lote;
-                               //diminui a quantidade de estoque
-                               DMESTOQUE.TEstoque.Edit;
-                               DMESTOQUE.TEstoque.FieldByName('estfisico').AsCurrency:=DMESTOQUE.TEstoque.FieldByName('estfisico').AsCurrency-XQuantLote;
-                               DMESTOQUE.TEstoque.Post;
                            End;
 
                            /////////////////////////////
@@ -4695,15 +4682,6 @@ begin
                        Then Begin
                            XNumAtu := XNumAtu + 0;
                        End;}
-
-                       If Not DMESTOQUE.TEstoque.IsEmpty
-                       Then Begin
-                         DMESTOQUE.TEstoque.Edit;
-                         DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:= DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency-DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
-                         DMESTOQUE.TEstoque.FieldByName('ESTSALDO').AsCurrency:= DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency;
-                         DMESTOQUE.TEstoque.Post;
-                       End;
-
                    //proximo item
                    DMEXPORTA.Alx2.Next;
                    end;

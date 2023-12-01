@@ -21,7 +21,1816 @@ inherited FOrdem: TFOrdem
     Font.Style = [fsBold]
     ParentFont = False
   end
-  inherited PCadastro: TPanel [1]
+  object PFinanceiro: TPanel [1]
+    Left = 172
+    Top = 56
+    Width = 497
+    Height = 369
+    BevelWidth = 4
+    Color = clBlack
+    TabOrder = 4
+    Visible = False
+    object FPFinanceiro: TFashionPanel
+      Left = 6
+      Top = 6
+      Width = 485
+      Height = 357
+      BevelOuter = bvNone
+      Color = 16772332
+      TabOrder = 0
+      RoundRect = True
+      About = 'Orion Software'
+      ShadowDepth = 2
+      ShadowSpace = 5
+      ShowShadow = False
+      ShadowColor = clBlack
+      TitleColor = clSkyBlue
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -11
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      Title = 'Informa'#231#245'es para o financeiro'
+      LineWidth = 0
+      LineColor = clBlack
+      Theme = ttCustom
+      object Label25: TLabel
+        Left = 8
+        Top = 113
+        Width = 116
+        Height = 20
+        Caption = 'Pagamento em :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label24: TLabel
+        Left = 289
+        Top = 117
+        Width = 70
+        Height = 16
+        Caption = 'Dt. Entraga:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 385
+        Top = 117
+        Width = 69
+        Height = 16
+        Caption = 'Hs Entrega:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object BtnMoedaOK: TBitBtn
+        Left = 150
+        Top = 327
+        Width = 75
+        Height = 25
+        Caption = '&Ok'
+        TabOrder = 8
+        OnClick = BtnMoedaOKClick
+        Glyph.Data = {
+          66030000424D6603000000000000360000002800000010000000110000000100
+          18000000000030030000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+          BFBFBFFFFF000000007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F7F0000007F7F7F7F
+          7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFFFFF007F7F7F7F7F000000007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+          7F7F7F7F7F7F7FBFBFBF0000000000000000000000007F7F7F7F7F007F7F0000
+          00007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFFFFF00
+          7F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F
+          7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F
+          7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F000000
+          00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F
+          7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F
+          007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F
+          007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F
+          007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+          BFBFBFBFBFBFBFBFBFBF}
+      end
+      object BtnMoedaCancelar: TBitBtn
+        Left = 262
+        Top = 327
+        Width = 97
+        Height = 25
+        Caption = 'C&ancelar'
+        TabOrder = 9
+        OnClick = BtnMoedaCancelarClick
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF60606060606060606060606060
+          6060606060606060606060606060606060606060606060606060FFFFFFFFFFFF
+          0000FFFFFFFFFFFF1F80B01F80B0107FB0107FAF107FAF0F70AF0F70A00F70A0
+          006FA0006F9F006F9F00609F00609F606060606060FFFFFF0000FFFFFF2080BF
+          60CFFF1F80BF9FFFFF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0
+          FF3FA0D09FFFFF00609F606060FFFFFF0000FFFFFF208FBF60CFFF208FBF9FFF
+          FF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF3FA0D09FFFFF00
+          609F606060FFFFFF0000FFFFFF208FC060CFFF2F90C09FFFFFFF8F6FFF8F6FFF
+          8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6F00609FDF0000FFFFFF
+          0000FFFFFF2F8FC060CFFF309FCF9FFFFFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFF
+          D0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00609FDF0000FFFFFF0000FFFFFF2F90C0
+          6FD0FF309FCF9FFFFFFF8F6FD0FFFFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+          CFCFCFCFCFCFCF00609FDF0000FFFFFF0000FFFFFF2F90C07FE0FF2F90C0FFFF
+          FFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00
+          609FDF0000FFFFFF0000FFFFFF3090CF80EFFF80E0FF2F90C02F90C02F90C02F
+          90C02F90C02F90C02F90C02F90C02F90C02F90C02F90C0E0E0E0DF0000FFFFFF
+          0000FFFFFF309FCF90F0FF8FF0FF8FF0FFDF0000E0E0E0F0FFFFF0FFFFF0FFFF
+          F0FFFFF0FFFFF0FFFFF0FFFFF0FFFFE0E0E0DF0000FFFFFF0000FFFFFF309FCF
+          FFFFFF9FFFFF9FFFFFDF0000E0E0E0CFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+          CFCFCFCFCFCFCFE0E0E0DF0000FFFFFF0000FFFFFFFFFFFF309FCFFFFFFFFFFF
+          FFDF0000E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+          E0E0DF0000FFFFFF0000FFFFFFFFFFFFFFFFFF309FCF309FCFDF0000FF5020FF
+          5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020DF0000FFFFFF
+          0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF0000FF5020FF5020FF5020FF5020
+          FF5020FF5020FFAF8FFFAF8F2050FF004FDFDF0000FFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFF8F6FFF5020FF5020FF5020FF5020FF5020FF5020FF50
+          20FF5020FF5020FF5020FF8F6FFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFF0000}
+      end
+      object CBPagamento: TComboBox
+        Left = 9
+        Top = 134
+        Width = 176
+        Height = 24
+        Ctl3D = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'BankGothic Md BT'
+        Font.Style = []
+        ItemHeight = 16
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Carteira'
+        OnExit = CBPagamentoExit
+        Items.Strings = (
+          'Carteira'
+          'Cheque'
+          'Cart'#227'o')
+      end
+      inline FrmMoeda: TFrmBusca
+        Left = 6
+        Top = 68
+        Width = 478
+        Height = 43
+        Enabled = False
+        Color = 16772332
+        ParentColor = False
+        TabOrder = 1
+        inherited LTextoBusca: TLabel
+          Width = 168
+          Caption = 'Moeda para Lan'#231'amento:'
+        end
+        inherited LUZOPEN: TShape
+          Left = 430
+        end
+        inherited LUZMINUS: TShape
+          Left = 454
+        end
+        inherited EdDescricao: TFlatEdit
+          Width = 354
+          ColorFlat = 15794169
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 428
+          OnClick = FrmMoedaBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 450
+          OnClick = FrmMoedaBTNMINUSClick
+        end
+        inherited EDCodigo: TFlatEdit
+          ColorFlat = 14221052
+        end
+      end
+      inline FrmConta: TFrmBusca
+        Left = 7
+        Top = 167
+        Width = 472
+        Height = 64
+        Color = 16772332
+        ParentColor = False
+        TabOrder = 6
+        inherited LTextoBusca: TLabel
+          Width = 248
+          Caption = 'Conta para Lan'#231'amento de Produtos:'
+        end
+        inherited LUZOPEN: TShape
+          Left = 426
+          Top = 39
+        end
+        inherited LUZMINUS: TShape
+          Left = 450
+          Top = 39
+        end
+        inherited EdDescricao: TFlatEdit
+          Left = 2
+          Top = 42
+          Width = 423
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 425
+          Top = 42
+          OnClick = FrmContaBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 447
+          Top = 42
+          OnClick = FrmContaBTNMINUSClick
+        end
+        inherited EDCodigo: TFlatEdit
+          Width = 151
+          OnKeyPress = FrmContaEDCodigoKeyPress
+        end
+      end
+      inline FrmFormPag: TFrmBusca
+        Left = 7
+        Top = 23
+        Width = 478
+        Height = 43
+        Color = 16772332
+        ParentColor = False
+        TabOrder = 0
+        OnExit = FrmFormPagExit
+        inherited LTextoBusca: TLabel
+          Width = 145
+          Caption = 'Forma de pagamento:'
+        end
+        inherited LUZOPEN: TShape
+          Left = 429
+        end
+        inherited LUZMINUS: TShape
+          Left = 453
+        end
+        inherited EdDescricao: TFlatEdit
+          Width = 354
+          ColorFlat = 16318450
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 431
+          Width = 18
+          OnClick = FrmFormPagBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 450
+          OnClick = FrmFormPagBTNMINUSClick
+        end
+        inherited EDCodigo: TFlatEdit
+          ColorFlat = 15269845
+          OnKeyDown = FrmFormPagEDCodigoKeyDown
+          OnKeyPress = FrmFormPagEDCodigoKeyPress
+        end
+      end
+      object DBDATAENTREGA: TColorMaskEdit
+        Left = 290
+        Top = 134
+        Width = 87
+        Height = 22
+        Color = 15597546
+        Ctl3D = False
+        EditMask = '!99/99/0000;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        MaxLength = 10
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 3
+        Text = '  /  /    '
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object DBHORAENTREGA: TColorMaskEdit
+        Left = 386
+        Top = 134
+        Width = 87
+        Height = 22
+        Color = 15597546
+        Ctl3D = False
+        EditMask = '!90:00;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        MaxLength = 5
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 4
+        Text = '  :  '
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      inline FrmContaServ: TFrmBusca
+        Left = 6
+        Top = 240
+        Width = 472
+        Height = 64
+        Color = 16772332
+        ParentColor = False
+        TabOrder = 7
+        inherited LTextoBusca: TLabel
+          Width = 246
+          Caption = 'Conta para Lan'#231'amento de Servi'#231'os:'
+        end
+        inherited LUZOPEN: TShape
+          Left = 426
+          Top = 39
+        end
+        inherited LUZMINUS: TShape
+          Left = 450
+          Top = 39
+        end
+        inherited EdDescricao: TFlatEdit
+          Left = 2
+          Top = 42
+          Width = 423
+          ColorFlat = clWhite
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 425
+          Top = 42
+          OnClick = FrmContaServBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 447
+          Top = 42
+          OnClick = FrmContaServBTNMINUSClick
+        end
+        inherited EDCodigo: TFlatEdit
+          Width = 151
+          ColorFlat = 15329769
+          OnKeyPress = FrmContaServEDCodigoKeyPress
+        end
+      end
+      object Panel7: TPanel
+        Left = 286
+        Top = 157
+        Width = 163
+        Height = 39
+        BevelOuter = bvNone
+        Color = 16772332
+        TabOrder = 5
+        object LTextoBusca: TLabel
+          Left = 3
+          Top = 1
+          Width = 93
+          Height = 16
+          Caption = 'Dt Fechamento:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+        end
+        object EdDtFech: TColorMaskEdit
+          Left = 3
+          Top = 16
+          Width = 97
+          Height = 22
+          Color = 15597546
+          Ctl3D = False
+          EditMask = '!99/99/0000;1;_'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          MaxLength = 10
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 0
+          Text = '  /  /    '
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+      end
+      object CBGeraFinanceiro: TCheckBox
+        Left = 162
+        Top = 186
+        Width = 123
+        Height = 17
+        Caption = 'N'#227'o gerar financeiro'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -9
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 10
+      end
+    end
+    object PBanco: TPanel
+      Left = 197
+      Top = 203
+      Width = 266
+      Height = 108
+      BevelWidth = 3
+      Color = 16772332
+      TabOrder = 1
+      Visible = False
+      object Label115: TLabel
+        Left = 8
+        Top = 8
+        Width = 95
+        Height = 16
+        Caption = 'Cta. Corrente:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object DBGCTA: TDBGrid
+        Left = 5
+        Top = 24
+        Width = 252
+        Height = 73
+        Hint = 'Pressione ENTER para confirmar e abandonar este pa'#237'nel'
+        Color = 16121836
+        Ctl3D = False
+        DataSource = DMBANCO.DWCtaCor
+        Options = [dgTitles, dgColumnResize, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit]
+        ParentCtl3D = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnKeyDown = DBGCTAKeyDown
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'NUMAGENCIA'
+            Title.Caption = 'Ag'#234'ncia'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NUMCTACOR'
+            Title.Caption = 'Conta'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESCBANCO'
+            Title.Caption = 'Banco'
+            Width = 214
+            Visible = True
+          end>
+      end
+    end
+  end
+  inherited PConsulta: TPanel
+    Left = 9
+    Top = 9
+    Width = 781
+    Height = 492
+    object Label46: TLabel [0]
+      Left = 9
+      Top = 64
+      Width = 39
+      Height = 16
+      Caption = 'Filtro:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label47: TLabel [1]
+      Left = 113
+      Top = 64
+      Width = 48
+      Height = 16
+      Caption = 'Ordem:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+    end
+    object PDevParc: TPanel [2]
+      Left = 5
+      Top = 0
+      Width = 778
+      Height = 492
+      BevelWidth = 4
+      Color = clBlack
+      TabOrder = 8
+      Visible = False
+      object FashionPanel2: TFashionPanel
+        Left = 5
+        Top = 5
+        Width = 768
+        Height = 482
+        BevelOuter = bvNone
+        Caption = '$00FFECEC'
+        Color = 16772332
+        TabOrder = 0
+        RoundRect = True
+        About = 'Orion Software'
+        ShadowDepth = 2
+        ShadowSpace = 5
+        ShowShadow = False
+        ShadowColor = clBlack
+        TitleColor = clSkyBlue
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWhite
+        TitleFont.Height = -11
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = [fsBold]
+        Title = 'Devolu'#231#227'o Parcial'
+        LineWidth = 0
+        LineColor = clBlack
+        Theme = ttCustom
+        object DRLabel1: TDRLabel
+          Left = 5
+          Top = 240
+          Width = 149
+          Height = 18
+          Caption = 'Itens devolvidos:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          ParentFont = False
+          HiColor = clBlue
+          LoColor = clNavy
+          Border = boNone
+          Ctl3D = True
+          BlinkInterval = 300
+          Blink = blNone
+          Deep = 1
+        end
+        object Label119: TLabel
+          Left = 439
+          Top = 206
+          Width = 90
+          Height = 13
+          Caption = 'Qtd. Devolvida:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label120: TLabel
+          Left = 559
+          Top = 206
+          Width = 72
+          Height = 13
+          Caption = 'Vlr. Unit'#225'rio:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label116: TLabel
+          Left = 3
+          Top = 196
+          Width = 236
+          Height = 13
+          Caption = 'Selecione o produto na lista acima para devolver.'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = 10304777
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object DBGrid6: TDBGrid
+          Left = 4
+          Top = 258
+          Width = 757
+          Height = 170
+          Color = clCaptionText
+          Ctl3D = False
+          DataSource = DMESTOQUE.DSAlx
+          FixedColor = clSilver
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ParentCtl3D = False
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 5
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clBlack
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = [fsBold]
+          OnDrawColumnCell = DBGrid6DrawColumnCell
+          OnKeyDown = DBGrid6KeyDown
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'OPERACAO'
+              Title.Alignment = taCenter
+              Title.Caption = 'ST'
+              Width = 31
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CONTRINT'
+              Title.Caption = 'C'#243'd.'
+              Width = 53
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DATA'
+              Title.Caption = 'Data'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DESCRICAO'
+              Title.Caption = 'Produto'
+              Width = 306
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'QTDEPROD'
+              Title.Caption = 'Quant.'
+              Width = 45
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALUNIT'
+              Title.Caption = 'Unit'#225'rio ($)'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORTOTAL'
+              Title.Caption = 'Total ($)'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DESCPRO'
+              Title.Caption = 'Desc (%)'
+              Width = 58
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'COMISSAO'
+              Title.Caption = 'Comis.'
+              Width = 43
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'MARCA'
+              Title.Caption = 'Marca'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NOME'
+              Title.Caption = 'Vendedor'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'QTDDEV'
+              Title.Caption = 'Qtd. Dev'
+              Visible = True
+            end>
+        end
+        object BitBtn9: TBitBtn
+          Left = 546
+          Top = 440
+          Width = 94
+          Height = 25
+          Hint = 'Pressione para confirmar a devolu'#231#227'o parcial'
+          Caption = '&Ok'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          OnClick = BitBtn9Click
+          Glyph.Data = {
+            66030000424D6603000000000000360000002800000010000000110000000100
+            18000000000030030000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+            BFBFBFFFFF000000007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F7F0000007F7F7F7F
+            7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFFFFF007F7F7F7F7F000000007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+            7F7F7F7F7F7F7FBFBFBF0000000000000000000000007F7F7F7F7F007F7F0000
+            00007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFFFFF00
+            7F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F
+            7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F
+            7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F000000
+            00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F
+            7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F
+            007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F
+            007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F
+            007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBF}
+        end
+        object BitBtn10: TBitBtn
+          Left = 650
+          Top = 439
+          Width = 97
+          Height = 26
+          Hint = 'Pressione para cancelar a devolu'#231#227'o parcial'
+          Caption = 'C&ancelar'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          OnClick = BitBtn10Click
+          Glyph.Data = {
+            26040000424D2604000000000000360000002800000012000000120000000100
+            180000000000F0030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF60606060606060606060606060
+            6060606060606060606060606060606060606060606060606060FFFFFFFFFFFF
+            0000FFFFFFFFFFFF1F80B01F80B0107FB0107FAF107FAF0F70AF0F70A00F70A0
+            006FA0006F9F006F9F00609F00609F606060606060FFFFFF0000FFFFFF2080BF
+            60CFFF1F80BF9FFFFF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0
+            FF3FA0D09FFFFF00609F606060FFFFFF0000FFFFFF208FBF60CFFF208FBF9FFF
+            FF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF3FA0D09FFFFF00
+            609F606060FFFFFF0000FFFFFF208FC060CFFF2F90C09FFFFFFF8F6FFF8F6FFF
+            8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6F00609FDF0000FFFFFF
+            0000FFFFFF2F8FC060CFFF309FCF9FFFFFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFF
+            D0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00609FDF0000FFFFFF0000FFFFFF2F90C0
+            6FD0FF309FCF9FFFFFFF8F6FD0FFFFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+            CFCFCFCFCFCFCF00609FDF0000FFFFFF0000FFFFFF2F90C07FE0FF2F90C0FFFF
+            FFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00
+            609FDF0000FFFFFF0000FFFFFF3090CF80EFFF80E0FF2F90C02F90C02F90C02F
+            90C02F90C02F90C02F90C02F90C02F90C02F90C02F90C0E0E0E0DF0000FFFFFF
+            0000FFFFFF309FCF90F0FF8FF0FF8FF0FFDF0000E0E0E0F0FFFFF0FFFFF0FFFF
+            F0FFFFF0FFFFF0FFFFF0FFFFF0FFFFE0E0E0DF0000FFFFFF0000FFFFFF309FCF
+            FFFFFF9FFFFF9FFFFFDF0000E0E0E0CFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+            CFCFCFCFCFCFCFE0E0E0DF0000FFFFFF0000FFFFFFFFFFFF309FCFFFFFFFFFFF
+            FFDF0000E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+            E0E0DF0000FFFFFF0000FFFFFFFFFFFFFFFFFF309FCF309FCFDF0000FF5020FF
+            5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020DF0000FFFFFF
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF0000FF5020FF5020FF5020FF5020
+            FF5020FF5020FFAF8FFFAF8F2050FF004FDFDF0000FFFFFF0000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFF8F6FFF5020FF5020FF5020FF5020FF5020FF5020FF50
+            20FF5020FF5020FF5020FF8F6FFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFF0000}
+        end
+        object Panel14: TPanel
+          Left = 310
+          Top = 117
+          Width = 163
+          Height = 39
+          BevelOuter = bvNone
+          Color = 16772332
+          TabOrder = 0
+        end
+        object DBGrid7: TDBGrid
+          Left = 4
+          Top = 31
+          Width = 754
+          Height = 164
+          Hint = 'Selecione o produto na lista para devolver.'
+          Color = 15794175
+          Ctl3D = False
+          DataSource = DMESTOQUE.DSSlave
+          FixedColor = clInfoBk
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ParentCtl3D = False
+          ParentFont = False
+          ParentShowHint = False
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 1
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clBlack
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          OnCellClick = DBGrid7CellClick
+          OnDrawColumnCell = DBGrid7DrawColumnCell
+          OnKeyDown = DBGrid7KeyDown
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'OPERACAO'
+              Title.Alignment = taCenter
+              Title.Caption = 'ST'
+              Width = 31
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CONTRINT'
+              Title.Caption = 'C'#243'd.'
+              Width = 53
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DATA'
+              Title.Caption = 'Data'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DESCRICAO'
+              Title.Caption = 'Produto'
+              Width = 306
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'QTD'
+              Title.Caption = 'Quant.'
+              Width = 45
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VLRUNIT'
+              Title.Caption = 'Unit'#225'rio ($)'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'TOTAL'
+              Title.Caption = 'Total ($)'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DESCONTO'
+              Title.Caption = 'Desc (%)'
+              Width = 58
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'COMISSAO'
+              Title.Caption = 'Comis.'
+              Width = 43
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'MARCA'
+              Title.Caption = 'Marca'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NOME'
+              Title.Caption = 'Vendedor'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'QTDDEV'
+              Title.Caption = 'Qtd. Dev'
+              Visible = True
+            end>
+        end
+        object BtnDevolveItem: TBitBtn
+          Left = 652
+          Top = 217
+          Width = 105
+          Height = 26
+          Hint = 
+            'Selecione o produto na lista acima, informe a quantidade a ser d' +
+            'evolvida e o valor unit'#225'rio e clique aqui para realizar a devolu' +
+            #231#227'o. '
+          Caption = 'Devolver'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          OnClick = BtnDevolveItemClick
+          Glyph.Data = {
+            8E050000424D8E05000000000000360000002800000017000000130000000100
+            1800000000005805000000000000000000000000000000000000FFC891FFC891
+            FFC891ACB095846546896D4E896D4E896D4E896D4E896D4E896D4E896D4E896D
+            4E896D4E896D4E896D4E896D4E896D4E856E4D86834EFFC891FFC891FFC89100
+            0000FFC891FFC891F2F8F2004D000D69160C68140C68140C68140C68140C6814
+            0C68140C68140C68140C69140C69140C68140C68140B6C150C3D04664428FFC8
+            91FFC891FFC891000000FFC891FFC891F6F5F4007B0000D33600CC3300CC3300
+            CC3300CC3300CC3300CC3300CB3200D434008C4E002E0700DF3700CC3300D435
+            068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891F6F5F4007B0000D3
+            3600CC3300CC3300CC3300D13300D83600DE3700E23700ED3D00CDB700000000
+            4B1300EB3A00D535068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891
+            F6F5F4007B0000D33600CC3300CE3200D03200AF2F00661A0025090000000000
+            0000000000000000000000390E00D334068B1E6B422AFFC891FFC891FFC89100
+            0000FFC891FFC891F6F5F4007B0000D33600CD3200CF35008831000F09000000
+            00000000000000000000000000000000000000150500C431068D1E6B422AFFC8
+            91FFC891FFC891000000FFC891FFC891F6F5F4007B0000D33600D23700954400
+            0709000000002622008D7200D3AA00E9BA00987B00000000140500D43500D936
+            068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891F6F5F4007B0000D5
+            3300CB57002423000000005F3700E06600DC3C00CE2700D72D00AFA000040000
+            E13800D03400D435068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891
+            8B8A9500000800061000000000050500020200030616281E24853B10BF3B01D1
+            3500D33400D03400CD3300CC3300D435068A1D6B422AFFC891FFC891FFC89100
+            0000FFC891596779000619002A44001C322A6E80002C41001923000405000000
+            00040909160503460A00831800A12300BF2D00CD3200D434068A1D6B422AFFC8
+            91FFC891FFC891000000C0C5CC001B3600537B008CC600121ED0FFFF005F8300
+            4561001D2600010003362900A68800A68D00A57800B06100C54300CF3900D335
+            068A1D6B422AFFC891FFC891FFC891000000314F6100538100A9E400DFFF001C
+            27DEF2F8006E9600688E003E58001B160307042D68461AB44602D33900D23700
+            CD3400CC3300D334068A1D6B422AFFC891FFC891FFC89100000002335100567A
+            56F2FF89FFFF81A0A6F5FEFF80C9DD8FD5E838A0B8002D430001062349311FA5
+            3E01CA3100CC3200CB3200CB3200D434068A1D6B422AFFC891FFC891FFC89100
+            000000456E01293A271D163E2725332B2AF0E9E73E26204A2F281F434A00405F
+            00070D1C4A2D1CAE4101CE3500D03400CF3400CF3400D736068B1F6A3E26FFC8
+            91FFC891FFC891000000185B7B00B6F122F3FF2AFFFF002A2FE4FEFF00BEF700
+            C1F50087B000364F00080D124F2100921E00A51200A51200A51200A51200AB13
+            007100716142FFC891FFC891FFC89100000081A5B9009DDB67EFFFD2FFFF192D
+            2ABBFFFF00C7F304DCFF00769D00283D080D0FA5B5A7A4BFA09DBB989DBB989D
+            BB999DBB999DBB9994BC92DCF1E1FFC891FFC891FFC891000000F2E9E94782A3
+            78E2FBABFFFF1C525407354100CEFF009BC5004160000009878686FFC891FFC8
+            91FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC89100
+            0000FFC891F2D3D4927287309AC201C2FF00A5DB0079A5003E5C000914636466
+            FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC8
+            91FFC891FFC891000000FFC891FFC891FDE3E3C2878F534963003F6004293A41
+            4B51C0C3C6FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891
+            FFC891FFC891FFC891FFC891FFC891000000}
+        end
+        object EdQtdProdDev: TColorEditFloat
+          Left = 443
+          Top = 221
+          Width = 84
+          Height = 22
+          Hint = 'Informe a quantidade a ser devolvida.'
+          Color = 15329769
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          MaxLength = 13
+          ParentCtl3D = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Text = '0,00'
+          OnExit = EDQuantidadeExit
+          ValueFormat = '#,##0.00'
+          ValueInteger = 0
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+        object EdvlrUnitProdDev: TColorEditFloat
+          Left = 545
+          Top = 221
+          Width = 84
+          Height = 22
+          Hint = 'Informe o valor unit'#225'rio do produto.'
+          Color = 15329769
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          MaxLength = 13
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 3
+          Text = '0,00'
+          OnExit = EDQuantidadeExit
+          ValueFormat = '#,##0.00'
+          ValueInteger = 0
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+      end
+    end
+    inherited GroupBox1: TGroupBox
+      Left = 253
+      Top = 58
+      Width = 524
+      inherited EdNome: TFlatEdit
+        Left = 4
+        Top = 13
+        Width = 89
+        Height = 23
+        Font.Height = -15
+        Text = 'N'#250'mero'
+        OnKeyUp = EdNomeKeyUp
+      end
+      inherited BtnSelecionar: TBitBtn
+        Left = 525
+        Width = 38
+        TabOrder = 3
+      end
+      object EdCliente: TFlatEdit
+        Left = 276
+        Top = 13
+        Width = 245
+        Height = 23
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. '
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -15
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        Text = 'Cliente'
+        OnEnter = EdClienteEnter
+        OnExit = EdClienteExit
+        OnKeyDown = EdClienteKeyDown
+        OnKeyUp = EdClienteKeyUp
+      end
+      object EdEquipamento: TFlatEdit
+        Left = 96
+        Top = 13
+        Width = 177
+        Height = 23
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. '
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -15
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        Text = 'Equipamento'
+        OnEnter = EdEquipamentoEnter
+        OnExit = EdEquipamentoExit
+        OnKeyDown = EdEquipamentoKeyDown
+        OnKeyUp = EdEquipamentoKeyUp
+      end
+    end
+    object GBPlaca: TGroupBox [4]
+      Left = 253
+      Top = 58
+      Width = 524
+      Height = 49
+      Caption = 'Localizar - F2'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      object EDCliente1: TFlatEdit
+        Left = 232
+        Top = 16
+        Width = 280
+        Height = 25
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. '
+        ColorBorder = clBlack
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Text = 'Cliente'
+        OnEnter = EDCliente1Enter
+        OnExit = EDCliente1Exit
+        OnKeyDown = EDCliente1KeyDown
+        OnKeyUp = EDCliente1KeyUp
+      end
+      object EDNum: TFlatEdit
+        Left = 8
+        Top = 16
+        Width = 73
+        Height = 24
+        Hint = 
+          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
+          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
+          ' liberar todos. '
+        ColorBorder = clBlack
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Text = 'N'#250'mero'
+        OnEnter = EDNumEnter
+        OnExit = EDNumExit
+        OnKeyDown = EDNumKeyDown
+        OnKeyUp = EDNumKeyUp
+      end
+      object MEPlaca: TMaskEdit
+        Left = 144
+        Top = 16
+        Width = 81
+        Height = 26
+        Color = 16772332
+        Ctl3D = False
+        EditMask = 'AAA-0000;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        MaxLength = 8
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        Text = '   -    '
+        OnKeyDown = MEPlacaKeyDown
+        OnKeyUp = MEPlacaKeyUp
+      end
+      object EDBox: TFlatEdit
+        Left = 89
+        Top = 16
+        Width = 48
+        Height = 24
+        ColorBorder = clBlack
+        ColorFlat = clWhite
+        ParentColor = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Box'
+        OnEnter = EDBoxEnter
+        OnExit = EDBoxExit
+        OnKeyDown = EDBoxKeyDown
+        OnKeyUp = EDBoxKeyUp
+      end
+    end
+    object PExp: TPanel [5]
+      Left = 112
+      Top = 273
+      Width = 577
+      Height = 45
+      TabOrder = 7
+      Visible = False
+      object PBExport: TProgressBar
+        Left = 30
+        Top = 13
+        Width = 516
+        Height = 20
+        TabOrder = 0
+      end
+    end
+    inherited Painel: TPanel
+      Left = 4
+      Top = 0
+      Width = 772
+      TabOrder = 3
+      inherited BtnNovo: TBitBtn
+        Width = 114
+      end
+      inherited BtnApagar: TBitBtn
+        Left = 115
+        Width = 110
+      end
+      inherited BtnConsultar: TBitBtn
+        Left = 224
+        Width = 110
+      end
+      inherited BtnRelatorio: TBitBtn
+        Left = 333
+        Width = 110
+        OnClick = BtnRelatorioClick
+      end
+      inherited BtnFiltrar: TBitBtn
+        Left = 442
+        Width = 110
+        Caption = '&Fiscal'
+        PopupMenu = PMBtnFiscal
+        OnClick = BtnFiltrarClick
+      end
+      object BtnFechaPed: TBitBtn
+        Left = 551
+        Top = 2
+        Width = 110
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Fecha a ordem de servi'#231'o  selecionada na tela abaixo'
+        Caption = 'F&echar'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 5
+        OnClick = BtnFechaPedClick
+        Glyph.Data = {
+          B6030000424DB603000000000000360000002800000012000000100000000100
+          18000000000080030000C40E0000C40E00000000000000000000C0C0C000FF00
+          00FF0000FF0000FF0000FF0000FF0000FF0000000000000000FF0000FF0000FF
+          0000FF0000FF0000FF0000FF00C0C0C00000C0C0C0C0C0C000FF0000FF0000FF
+          0000FF0000FF0000000000000000000000000000FF0000FF0000FF0000FF0000
+          FF00C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C000FF0000FF0000FF0000FF0000
+          FF0000FF0000FF0000000000FF0000FF0000FF0000FF00C0C0C0C0C0C0C0C0C0
+          0000C0C0C0C0C0C0C0C0C0C0C0C000FF0000FF0000FF00000000000000000000
+          00000000FF0000FF0000FF00C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
+          BFBFBFBFBFBFBFBFBF00FF0000FF0000000000FF0000FF0000FF0000FF0000FF
+          00BFBFBFBFBFBFC0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0BFBFBFBFBFBFBFBF
+          BFC0C0C000FF0000000000000000000000000000FF00BFBFBFBFBFBFBFBFBFBF
+          BFBFC0C0C0C0C0C00000C0C0C0C0C0C000FF0000FF0000FF0000FF0000FF0000
+          FF0000000000000000FF0000FF0000FF0000FF0000FF0000FF00C0C0C0C0C0C0
+          0000C0C0C0C0C0C0C0C0C0C0C0C0007F0000FF0000FF0000FF00000000000000
+          00FF0000FF0000FF00007F00C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
+          C0C0C08080807F7F7F7F7F00007F0000FF0000FF0000FF0000FF007F7F007F7F
+          7F000000C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080
+          80FF00007F00007F000000FF0000FF007F00007F00007F7F7F7F7F7FC0C0C0C0
+          C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C0808080808080FF00007F00007F
+          00007F00007F00007F00007F00007F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C0
+          0000C0C0C0C0C0C0C0C0C0808080808080FF00007F00007F00007F00007F0000
+          7F00007F00007F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
+          C0C0C0808080808080FF00007F00007F00007F00007F00007F00007F00007F7F
+          7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080
+          807F0000FF00007F00007F00007F00007F00007F00007F7F7F7F7F7FC0C0C0C0
+          C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080807F7F7F7F7F7F7F
+          7F7F7F7F7F7F7F7F7F7F7F7F7F7F8080807F7F7FC0C0C0C0C0C0C0C0C0C0C0C0
+          0000C0C0C0C0C0C0C0C0C0C0C0C08080807F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+          7F7F7F7F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C0C0C0C00000}
+      end
+      object BitBtn8: TBitBtn
+        Left = 660
+        Top = 2
+        Width = 110
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Possibilita a troca de produtos dos pedido selecionado'
+        Caption = 'Or'#231'amento'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 6
+        OnClick = BitBtn8Click
+        Glyph.Data = {
+          06030000424D060300000000000036000000280000000F0000000F0000000100
+          180000000000D002000000000000000000000000000000000000EFEBEFEFEBEF
+          EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEB
+          EFEFEBEFEFEBEF000000EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEF
+          EBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEF000000EFEBEFEFEBEF
+          6361636B696B636163636163EFEBEFEFEBEFEFEBEF6361636B6163636163EFEB
+          EFEFEBEFEFEBEF000000EFEBEF6B61639C86848471736B61637B797B6B6163EF
+          EBEF6B6163CEAEADA58E8C8471736B696BEFEBEFEFEBEF000000EFEBEF636163
+          DEDFDED6BEBDBD9694847173636163EFEBEF6B696BD6C7C6CEB6B5BD96949C71
+          73636163EFEBEF000000EFEBEFEFEBEFBDA6A5D6AEADB586849C86849CA6946B
+          6163CEC7C6D6C7C6C69694C69694A58E8C636163EFEBEF000000EFEBEFBDA6A5
+          F7C77BD69694DEAE843971395238316B51529C965AD6A6A5CE696B94696B7371
+          73EFEBEFEFEBEF000000EFEBEFBDA6A5FFBE4AE7AE42D6A64A31613139A62152
+          3831735118BD8E31DEAE84B586846B6163EFEBEFEFEBEF000000EFEBEFBDA6A5
+          FFCF6B31613139A62139713921C74A08A618524110735118BD8E31F7AE42BD8E
+          31636163EFEBEF000000EFEBEFBDA6A5FFE7943971394AE77B31D76B21BE4A18
+          B63110AE21524110A57942E7B663C67973636163EFEBEF000000EFEBEFBDA6A5
+          EFE7BD3161315AF78C4AE77B31D76B21BE4A18B631009E00D6BE84F7C77B9C96
+          5A6B6163EFEBEF000000EFEBEFEFEBEFBDA6A539713939A62139A621009E0031
+          D76B009E00D6BE84F7DF9CFFE794636163EFEBEFEFEBEF000000EFEBEFEFEBEF
+          EFEBEFEFEBEFEFEBEFEFEBEF009E00009E009C8684BDA6A5BDA6A5E7CFA56361
+          63EFEBEFEFEBEF000000EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEF009E00EF
+          EBEFEFEBEFEFEBEFEFEBEFBDA6A5BDA6A5EFEBEFEFEBEF000000EFEBEFEFEBEF
+          EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEB
+          EFEFEBEFEFEBEF000000}
+      end
+    end
+    inherited DBGridCadastroPadrao: TDBGrid
+      Top = 133
+      Width = 774
+      Height = 358
+      Font.Charset = ANSI_CHARSET
+      Font.Height = -12
+      Font.Name = 'Verdana'
+      PopupMenu = PMFisco
+      TabOrder = 4
+      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
+      OnDblClick = DBGridCadastroPadraoDblClick
+      OnKeyDown = DBGridCadastroPadraoKeyDown
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'EXPORTADO'
+          Title.Alignment = taCenter
+          Title.Caption = '  '
+          Width = 57
+          Visible = True
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'EXP'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          Title.Alignment = taCenter
+          Title.Caption = ' X '
+          Width = 21
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMORC'
+          Title.Caption = 'N'#186' Or'#231'.'
+          Width = 49
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMERO'
+          Title.Caption = 'N'#186
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMFISCAL'
+          Title.Caption = 'N'#186' Fiscal'
+          Width = 60
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'BOX'
+          Title.Caption = 'Box'
+          Width = 48
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PLACA'
+          Title.Caption = 'Placa'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'CLIENTE'
+          Title.Caption = 'Cliente'
+          Width = 183
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'EQUIPAMENTO'
+          Title.Caption = 'Equipamento'
+          Width = 80
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FORMAPAG'
+          Title.Caption = 'Pagamento'
+          Width = 80
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'STATUS'
+          Title.Caption = 'Status'
+          Width = 60
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'TOTAL'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTABERT'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTPREV'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTABERT'
+          Title.Caption = 'Abertura'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'TOTAL'
+          Title.Caption = 'Vlr. Total'
+          Width = 70
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DTPREV'
+          Title.Caption = 'Previs'#227'o'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'CI_CLIENTE'
+          Title.Caption = 'C'#243'd. Cliente'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'TIPOPAG'
+          Title.Caption = 'Tipo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_ORDEM'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_EQUIPAMENTO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_FUNCIONARIO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_VENDEDOR'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMERO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'STATUS'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'CI_CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'CLIENTE'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EQUIPAMENTO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'COD_LOJA'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'GARANT'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMORC'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'MARK'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'FISCO'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'NUMFISCAL'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'FORMAPAG'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'TIPOPAG'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'DTFECH'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'TIPO'
+          Title.Caption = 'Tipo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DTAGENDADO'
+          Title.Caption = 'Agendado'
+          Visible = True
+        end>
+    end
+    object Panel5: TPanel
+      Left = 4
+      Top = 29
+      Width = 772
+      Height = 29
+      BevelInner = bvLowered
+      Color = 16772332
+      TabOrder = 5
+      object BitBtn2: TBitBtn
+        Left = 551
+        Top = 2
+        Width = 110
+        Height = 25
+        Caption = '&Comissionados'
+        TabOrder = 1
+        OnClick = BitBtn2Click
+        Glyph.Data = {
+          42010000424D4201000000000000760000002800000011000000110000000100
+          040000000000CC00000000000000000000001000000010000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+          7777700000007777777770000000000000007777777770FFFFFF000000007777
+          777770F8888F000000007777777770FFFFFF000000007777777770F8888F0000
+          00007444444440FFFFFF000000007488888880F8888F000000007477777770FF
+          FFFF000000007470070070000000000000007477777777774777700000007470
+          0700700747777000000074777777777747747000000074444444444447444000
+          000074F44F44F44F477470000000744444444444477770000000777777777777
+          777770000000}
+      end
+      object BtnCancelamentos: TBitBtn
+        Left = 442
+        Top = 2
+        Width = 110
+        Height = 25
+        Cursor = crHandPoint
+        Hint = 'Possibilita a troca de produtos dos pedido selecionado'
+        Caption = 'Cancelamentos'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnClick = BtnCancelamentosClick
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000130B0000130B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+          333333333333337FF3333333333333903333333333333377FF33333333333399
+          03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+          99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+          99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+          03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+          33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+          33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+          3333777777333333333333333333333333333333333333333333}
+        NumGlyphs = 2
+      end
+      object BitBtn15: TBitBtn
+        Left = 660
+        Top = 2
+        Width = 110
+        Height = 25
+        Caption = 'Gaveta'
+        TabOrder = 2
+        OnClick = BitBtn15Click
+        Glyph.Data = {
+          E6010000424DE601000000000000360000002800000010000000090000000100
+          180000000000B001000000000000000000000000000000000000C0C0C0948E8E
+          7B73737B73737B73737B73737B73737B73737B73737B73737B73737B73737B73
+          737B73739F9999C0C0C0A29B9B5E5959B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4
+          AFB0B4AFB0B4AFB0B4AFB0B4AFB097C6A5B4AFB05E5959A29B9B7B7373B4AFB0
+          D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D87975753DB1
+          625F5C5CB4AFB07B73737B7373B4AFB0D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5
+          D9D8E5D9D8E5D9D8E5D9D8618E6E0AEA54545151B4AFB07B73737B7373BDB8B9
+          D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D879757531C0
+          60646563B5B0B17B73737B7373C4BFBFD8D6D5FFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFC9F7D9D9D6D6C6C2C17B7373CECBCBBCB8B8
+          B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B5B0
+          B1B4AFB0BCB8B8CECBCBC0C0C0E7E6E6D7D5D4C9C6C5E1E0E1EBEBEDEDEDEFED
+          EDEFEDEDEFEDEDEFECECEEDFDEDFC9C6C5D7D5D4E7E6E6C0C0C0C0C0C0C0C0C0
+          C0C0C0C0C0C0DDDBDBD4D2D1CFCDCCCFCDCCCFCDCCCFCDCCD6D4D3DDDBDBC0C0
+          C0C0C0C0C0C0C0C0C0C0}
+      end
+      object BtnDevolucao: TBitBtn
+        Left = 334
+        Top = 2
+        Width = 108
+        Height = 25
+        Cursor = crHandPoint
+        Caption = 'Devolu'#231#227'o'
+        PopupMenu = PMDev
+        TabOrder = 3
+        OnClick = BtnDevolucaoClick
+        Glyph.Data = {
+          EE030000424DEE03000000000000360000002800000012000000110000000100
+          180000000000B803000000000000000000000000000000000000FFFFFFFFFFFF
+          FFFFFFA59E9C5A555A5A5D637B797BA5A2A5ADA6ADADAAADB5AEB5848284524D
+          526B696BD6CBCEFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF7B797B6B656BA5A2
+          ADCEC3C6D6C7C6F7E3DEDECBBDBDAAA5BDAEA5E7D7D6DEDBDE94929C4A494AAD
+          A6ADFFFFFFFFFFFF0000FFFFFF8C8A8C8C8A8CADA6ADB5A29CC6B2A5C6B2ADAD
+          9A8C394D5A184D6B1838526B615AC6B2ADE7DFDEC6BAC64A494AB5AEADFFFFFF
+          0000C6BEBDA59AA5A59E9C94796B947D6B5A4D396345183930211875AD31A6E7
+          2175AD103410424129B5927BD6CBC6BDB6BD424142E7D7D60000B5AEB5A59EA5
+          635139946D4A5A4529A57508DE9608735D18298AC631A2DE2986BD2175182149
+          088C61399C7552D6CFCE7B798473716B0000BDBAC663514A6B45187B5121634D
+          21F7AE21EFA610946D1818699431A2E72175AD297518295510844D217B4D189C
+          795AD6D3D63938390000A59A9C5A38106B3C00733C00634518D6A221E7A2106B
+          5518216994319EDE297DBD215D292949087341087B41086B3C089C8A73737173
+          00008C7D736B38086B3800734108523C18C68E18DE9E08525D52299EDE319EDE
+          319ADE296D631845086B38107B4500733C005A28009C928C0000947D73633400
+          6B3C006B3C088C6921EFAA10DE9A0852614A299ADE319EDE399EE7317563216D
+          085230088449006B3C0063300084757300008475636B38086B38007341109471
+          21F7AE18E79E0852614A2192D6298AC6298ACE316D52216D0863380884450073
+          3C085A30008C7D7B00007B7173522C006B3C006B3C089C7D39EFAA18D68E088C
+          6D294A6D8C4A596B2949392986082179105230087B45086B38005A3408847D7B
+          0000B5B2BD4228106B3800734108BDA284B59E845A49395A3C18BDAAADCEC3CE
+          4A4942294D213941106B3C087341006B3C08948A845A555A0000E7E3EF5A514A
+          5A30006B38007B5129A59EADB5AABD393831B5A294D6D3DE8479847B7184522C
+          107B45006B38006B4D29B5B2BD524D520000FFFFFFBDB6BD4A30187B49189C7D
+          5AD6CFCEB5AEBD5A514AA5825AE7CFC6D6CFD6847984735D4AA5754A5A30009C
+          8E8C7B797BA59A9C0000FFFFFFFFFFFF9C969C634D39BD9E8CD6C7BDA59694B5
+          A294D6BEADD6BEADBDAAA5A5968CD6B6A5846D52736563A5A6AD736D73FFFFFF
+          0000FFFFFFFFFFFFFFFFFFA59EA563594A8C715ABD9E84D6B6A5D6BAADCEB6A5
+          C6AA94AD8E736B51396B6563B5B2BD8C868CFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFFC6C3CE736D6B5A45297B55317B55317B5129735129524939948A
+          94BDBABDB5AAADFFFFFFFFFFFFFFFFFF0000}
+      end
+    end
+    object CBFILTRO: TComboBox
+      Left = 8
+      Top = 80
+      Width = 97
+      Height = 21
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ItemHeight = 13
+      ParentFont = False
+      TabOrder = 1
+      Text = 'TODAS'
+      OnClick = CBFILTROClick
+      OnExit = CBORDEMExit
+      OnSelect = CBORDEMExit
+      Items.Strings = (
+        'TODAS'
+        'ABERTAS'
+        'FECHADAS'
+        'TERMINADAS'
+        'FINALIZADO'
+        'AGENDADO')
+    end
+    object CBORDEM: TComboBox
+      Left = 112
+      Top = 80
+      Width = 97
+      Height = 21
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ItemHeight = 13
+      ParentFont = False
+      TabOrder = 2
+      Text = 'DATA'
+      OnClick = CBORDEMClick
+      OnExit = CBORDEMExit
+      OnSelect = CBORDEMExit
+      Items.Strings = (
+        'CADASTRO'
+        'N'#218'MERO'
+        'CLIENTE'
+        'DATA'
+        'BOX')
+    end
+    object BtnSelecionaOrdem: TBitBtn
+      Left = 668
+      Top = 108
+      Width = 108
+      Height = 23
+      Caption = 'Selecionar - F9'
+      TabOrder = 9
+      Visible = False
+      OnClick = BtnSelecionaOrdemClick
+      Glyph.Data = {
+        42010000424D4201000000000000760000002800000011000000110000000100
+        040000000000CC00000000000000000000001000000010000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+        7777700000007777777777777777700000007777777774F77777700000007777
+        7777444F77777000000077777774444F777770000000700000444F44F7777000
+        000070FFF444F0744F777000000070F8884FF0774F777000000070FFFFFFF077
+        74F77000000070F88888F077774F7000000070FFFFFFF0777774F000000070F8
+        8777F07777774000000070FFFF00007777777000000070F88707077777777000
+        000070FFFF007777777770000000700000077777777770000000777777777777
+        777770000000}
+    end
+  end
+  inherited PCadastro: TPanel [3]
     Width = 782
     Height = 495
     object PLocacao: TPanel [0]
@@ -2486,6 +4295,1476 @@ inherited FOrdem: TFOrdem
         ActiveTab = 1
         TabOrder = 8
         OnTabChanged = TCCadastroTabChanged
+        object PDespesas: TPanel
+          Left = 2
+          Top = 20
+          Width = 759
+          Height = 335
+          BevelOuter = bvNone
+          Color = 16772332
+          TabOrder = 2
+          OnEnter = PProdServEnter
+          OnExit = PProdServExit
+          object Shape13: TShape
+            Left = 2
+            Top = 4
+            Width = 755
+            Height = 328
+            Brush.Color = 16772332
+            Pen.Color = clLightGreen
+            Pen.Style = psInsideFrame
+            Pen.Width = 2
+          end
+          object LQTDDESP: TLabel
+            Left = 567
+            Top = 315
+            Width = 172
+            Height = 16
+            Hint = 'Informa a quantidade total de itens inseridos neste pedido'
+            Alignment = taRightJustify
+            AutoSize = False
+            Caption = 'LOCAL:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object PCabDesp: TPanel
+            Left = 16
+            Top = 19
+            Width = 727
+            Height = 89
+            BevelOuter = bvNone
+            Color = 16772332
+            TabOrder = 0
+            object Shape15: TShape
+              Left = 1
+              Top = 1
+              Width = 725
+              Height = 74
+              Brush.Color = 16772332
+              Pen.Color = clGray
+              Pen.Width = 2
+            end
+            object Label35: TLabel
+              Left = 7
+              Top = 8
+              Width = 150
+              Height = 16
+              Caption = 'Descri'#231#227'o da despesa:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+              Transparent = True
+            end
+            object Label36: TLabel
+              Left = 370
+              Top = 8
+              Width = 43
+              Height = 16
+              Caption = 'Qtde.:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+              Transparent = True
+            end
+            object Label37: TLabel
+              Left = 419
+              Top = 8
+              Width = 69
+              Height = 16
+              Caption = 'Vlr. Custo:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+              Transparent = True
+            end
+            object Label38: TLabel
+              Left = 490
+              Top = 8
+              Width = 85
+              Height = 16
+              Caption = 'Vlr. Cobrado:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+              Transparent = True
+            end
+            object Label39: TLabel
+              Left = 651
+              Top = 8
+              Width = 64
+              Height = 16
+              Caption = 'Vlr. Total:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+              Transparent = True
+            end
+            object Label43: TLabel
+              Left = 153
+              Top = 55
+              Width = 46
+              Height = 16
+              Caption = 'Marca:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label44: TLabel
+              Left = 357
+              Top = 55
+              Width = 28
+              Height = 16
+              Caption = 'Un.:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label45: TLabel
+              Left = 587
+              Top = 8
+              Width = 43
+              Height = 16
+              Caption = 'Desc.:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object EdDescD: TColorEditFloat
+              Left = 7
+              Top = 24
+              Width = 341
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              MaxLength = 40
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 0
+              Text = '0,00'
+              EditType = fltString
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdQtdD: TColorEditFloat
+              Left = 350
+              Top = 24
+              Width = 62
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 2
+              Text = '0,00'
+              OnExit = EdQtdDExit
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdVlrCustoD: TColorEditFloat
+              Left = 414
+              Top = 24
+              Width = 75
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 4
+              Text = '0,00'
+              OnExit = EdQtdDExit
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdVlrCobradoD: TColorEditFloat
+              Left = 491
+              Top = 24
+              Width = 85
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 5
+              Text = '0,00'
+              OnExit = EdQtdDExit
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdVlrTotD: TColorEditFloat
+              Left = 632
+              Top = 24
+              Width = 85
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 7
+              Text = '0,00'
+              OnExit = EdVlrTotDExit
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object BitBtn3: TBitBtn
+              Left = 577
+              Top = 49
+              Width = 70
+              Height = 21
+              Hint = 
+                'Pressione para inserir o produto selecionado e suas informa'#231#245'es ' +
+                'na lista (ALT + I)'
+              Caption = '&Inserir'
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 8
+              OnClick = BitBtn3Click
+              Glyph.Data = {
+                DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+                0400000000006800000000000000000000001000000010000000000000000000
+                BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+                7000777777777777700077777707777770007777706077777000777706660777
+                7000777066666077700077066666660770007000066600007000777706660777
+                7000777706660777700077770666077770007777000007777000777777777777
+                7000}
+              Layout = blGlyphRight
+              Spacing = 10
+            end
+            object BitBtn4: TBitBtn
+              Left = 647
+              Top = 49
+              Width = 70
+              Height = 21
+              Hint = 
+                'Pressione para remover o produto selecionado na lista da mesma (' +
+                'ALT + E)'
+              Caption = '&Excluir'
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 9
+              OnClick = BitBtn4Click
+              Glyph.Data = {
+                DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+                0400000000006800000000000000000000001000000010000000000000000000
+                BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+                7000777777777777700077770000077770007777066607777000777706660777
+                7000777706660777700070000666000070007706666666077000777066666077
+                7000777706660777700077777060777770007777770777777000777777777777
+                7000}
+              Layout = blGlyphRight
+              Spacing = 10
+            end
+            object EDMarca: TColorEditFloat
+              Left = 200
+              Top = 52
+              Width = 148
+              Height = 19
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 1
+              Text = '0,00'
+              OnExit = EdQtdDExit
+              EditType = fltString
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdUnidade: TColorEditFloat
+              Left = 386
+              Top = 52
+              Width = 33
+              Height = 19
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'Verdana'
+              Font.Style = []
+              MaxLength = 2
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 3
+              Text = '00'
+              OnExit = EdQtdDExit
+              EditType = fltString
+              ValueFormat = '##00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object EdDesconto: TColorEditFloat
+              Left = 577
+              Top = 24
+              Width = 54
+              Height = 22
+              Ctl3D = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 6
+              Text = '0,00'
+              OnExit = EdQtdDExit
+              ValueFormat = '##,##0.00'
+              ValueInteger = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object DBGrid3: TDBGrid
+            Left = 17
+            Top = 98
+            Width = 725
+            Height = 216
+            Color = 15794175
+            Ctl3D = False
+            DataSource = DMESTOQUE.DDesp
+            FixedColor = 11039232
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+            ParentCtl3D = False
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 1
+            TitleFont.Charset = ANSI_CHARSET
+            TitleFont.Color = clBlack
+            TitleFont.Height = -11
+            TitleFont.Name = 'Verdana'
+            TitleFont.Style = [fsBold]
+            OnKeyDown = DBGrid3KeyDown
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'DESPESA'
+                Title.Caption = 'Despesa'
+                Width = 239
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'MARCA'
+                Title.Caption = 'Marca'
+                Width = 120
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'UNIDADE'
+                Title.Caption = 'Un.'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'QTD'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Qtde.'
+                Width = 62
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VLRREAL'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Custo'
+                Width = 56
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VLRFINAL'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Cobrado'
+                Width = 68
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'DESCONTO'
+                Title.Caption = 'Desc.'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VLRTOTFIN'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Total'
+                Width = 73
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'LUCMOE'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Luc. ($)'
+                Width = 79
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'LUCPER'
+                Title.Alignment = taRightJustify
+                Title.Caption = 'Luc. (%)'
+                Width = 71
+                Visible = True
+              end>
+          end
+        end
+        object PAbertura: TPanel
+          Left = 2
+          Top = 20
+          Width = 759
+          Height = 334
+          BevelOuter = bvNone
+          Color = 16772332
+          TabOrder = 0
+          object Label1: TLabel
+            Left = 12
+            Top = 7
+            Width = 69
+            Height = 16
+            Caption = 'Data Abert.:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label4: TLabel
+            Left = 124
+            Top = 7
+            Width = 69
+            Height = 16
+            Caption = 'Hora Abert.:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object LTitulo: TLabel
+            Left = 12
+            Top = 59
+            Width = 128
+            Height = 16
+            Caption = 'Problema Reclamado:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label6: TLabel
+            Left = 12
+            Top = 148
+            Width = 127
+            Height = 16
+            Caption = 'Solu'#231#227'o Apresentada:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label7: TLabel
+            Left = 220
+            Top = 7
+            Width = 63
+            Height = 16
+            Caption = 'Data Prev.:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label8: TLabel
+            Left = 314
+            Top = 7
+            Width = 63
+            Height = 16
+            Caption = 'Hora Prev.:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label9: TLabel
+            Left = 220
+            Top = 59
+            Width = 72
+            Height = 16
+            Caption = 'Observa'#231#227'o:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label11: TLabel
+            Left = 220
+            Top = 148
+            Width = 129
+            Height = 16
+            Caption = 'Local de Atendimento:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label5: TLabel
+            Left = 221
+            Top = 199
+            Width = 111
+            Height = 16
+            Caption = 'Contato no Cliente:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbDiaSemanaAbert: TLabel
+            Left = 13
+            Top = 44
+            Width = 85
+            Height = 15
+            Caption = 'Dia da Semana'
+            Color = 16772332
+            Font.Charset = ANSI_CHARSET
+            Font.Color = cl3DDkShadow
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object lbDiaSemanaPrev: TLabel
+            Left = 220
+            Top = 45
+            Width = 85
+            Height = 15
+            Caption = 'Dia da Semana'
+            Color = 16772332
+            Font.Charset = ANSI_CHARSET
+            Font.Color = cl3DDkShadow
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object Shape3: TShape
+            Left = 1
+            Top = 4
+            Width = 755
+            Height = 329
+            Brush.Color = 16772332
+            Pen.Color = clInactiveCaption
+            Pen.Style = psInsideFrame
+            Pen.Width = 2
+          end
+          object Label117: TLabel
+            Left = 13
+            Top = 9
+            Width = 55
+            Height = 13
+            Caption = 'Abertura:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label118: TLabel
+            Left = 224
+            Top = 9
+            Width = 54
+            Height = 13
+            Caption = 'Previs'#227'o:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label121: TLabel
+            Left = 14
+            Top = 61
+            Width = 67
+            Height = 13
+            Caption = 'PROBLEMA:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label122: TLabel
+            Left = 14
+            Top = 149
+            Width = 62
+            Height = 13
+            Caption = 'SOLU'#199#195'O:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label123: TLabel
+            Left = 222
+            Top = 61
+            Width = 87
+            Height = 13
+            Caption = 'OBSERVA'#199#195'O:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label124: TLabel
+            Left = 222
+            Top = 149
+            Width = 77
+            Height = 13
+            Caption = 'Atendimento:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label125: TLabel
+            Left = 222
+            Top = 197
+            Width = 50
+            Height = 13
+            Caption = 'Contato:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PAbreInfo: TPanel
+            Left = 411
+            Top = 13
+            Width = 337
+            Height = 313
+            BevelOuter = bvNone
+            Color = 16772332
+            TabOrder = 12
+            object Label23: TLabel
+              Left = 40
+              Top = 0
+              Width = 253
+              Height = 13
+              Caption = 'Perif'#233'ricos que Acompanham o Equipamento'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              ParentFont = False
+            end
+            object Label48: TLabel
+              Left = 40
+              Top = 16
+              Width = 46
+              Height = 14
+              Caption = 'Mouse:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label49: TLabel
+              Left = 192
+              Top = 16
+              Width = 87
+              Height = 14
+              Caption = 'Kit Multim'#237'dia:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label50: TLabel
+              Left = 96
+              Top = 16
+              Width = 52
+              Height = 14
+              Caption = 'Teclado:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label51: TLabel
+              Left = 128
+              Top = 56
+              Width = 81
+              Height = 14
+              Caption = 'Cds Recuper.'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label52: TLabel
+              Left = 288
+              Top = 16
+              Width = 45
+              Height = 14
+              Caption = 'Cabos:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label53: TLabel
+              Left = 223
+              Top = 56
+              Width = 52
+              Height = 14
+              Caption = 'Monitor:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label54: TLabel
+              Left = 40
+              Top = 56
+              Width = 77
+              Height = 14
+              Caption = 'Impressora:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label55: TLabel
+              Left = 287
+              Top = 56
+              Width = 43
+              Height = 14
+              Caption = 'Fones:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label57: TLabel
+              Left = 40
+              Top = 101
+              Width = 135
+              Height = 13
+              Caption = 'Estado do Equipamento'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              ParentFont = False
+            end
+            object DBDescricao: TLabel
+              Left = 40
+              Top = 249
+              Width = 54
+              Height = 13
+              Caption = 'Backups:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              ParentFont = False
+            end
+            object DBMouse: TDBComboBox
+              Left = 40
+              Top = 30
+              Width = 44
+              Height = 18
+              DataField = 'MOUSE'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 0
+            end
+            object DBKitmm: TDBComboBox
+              Left = 192
+              Top = 29
+              Width = 85
+              Height = 18
+              DataField = 'KITMM'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 2
+            end
+            object DBTeclado: TDBComboBox
+              Left = 96
+              Top = 29
+              Width = 85
+              Height = 18
+              DataField = 'TECLADO'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 1
+            end
+            object DBCdRecupera: TDBComboBox
+              Left = 128
+              Top = 69
+              Width = 85
+              Height = 18
+              DataField = 'CDRECUPERA'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 5
+            end
+            object DBCabos: TDBComboBox
+              Left = 288
+              Top = 29
+              Width = 45
+              Height = 18
+              DataField = 'CABOS'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 3
+            end
+            object DBMonitor: TDBComboBox
+              Left = 223
+              Top = 69
+              Width = 53
+              Height = 18
+              DataField = 'MONITOR'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 6
+            end
+            object DBimpressora: TDBComboBox
+              Left = 40
+              Top = 69
+              Width = 80
+              Height = 18
+              DataField = 'IMPRESSORA'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 4
+            end
+            object DbFones: TDBComboBox
+              Left = 287
+              Top = 69
+              Width = 45
+              Height = 18
+              DataField = 'FONES'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'SIM'
+                'N'#195'O')
+              ParentFont = False
+              TabOrder = 7
+            end
+            object DbEstadoEquip: TDBComboBox
+              Left = 39
+              Top = 117
+              Width = 117
+              Height = 18
+              DataField = 'ESTADOEQUIP'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -8
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ItemHeight = 10
+              Items.Strings = (
+                'Sem controle'
+                'Lacrado'
+                'Deslacrado')
+              ParentFont = False
+              TabOrder = 8
+              OnExit = DbEstadoEquipExit
+            end
+            object DBDescBackup: TDBMemo
+              Left = 40
+              Top = 263
+              Width = 291
+              Height = 43
+              Color = clWhite
+              Ctl3D = False
+              DataField = 'DESCBACKUP'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Verdana'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 9
+            end
+            object RGDados: TGroupBox
+              Left = 40
+              Top = 149
+              Width = 292
+              Height = 84
+              Caption = 'O que deseja salvar: '
+              TabOrder = 10
+              object CBDocumentos: TCheckBox
+                Left = 10
+                Top = 24
+                Width = 118
+                Height = 17
+                Caption = 'Meus Documentos'
+                TabOrder = 0
+              end
+              object CBDesktop: TCheckBox
+                Left = 11
+                Top = 48
+                Width = 110
+                Height = 17
+                Caption = #193'rea de Trabalho'
+                TabOrder = 1
+              end
+              object CBEmails: TCheckBox
+                Left = 144
+                Top = 24
+                Width = 97
+                Height = 17
+                Caption = 'E-mails'
+                TabOrder = 2
+              end
+              object CBOutros: TCheckBox
+                Left = 144
+                Top = 48
+                Width = 97
+                Height = 17
+                Caption = 'Outros'
+                TabOrder = 3
+              end
+            end
+          end
+          object PAbreMecanica: TPanel
+            Left = 411
+            Top = 13
+            Width = 337
+            Height = 313
+            BevelOuter = bvNone
+            Color = 16772332
+            TabOrder = 11
+            object DBRadioGroup1: TDBRadioGroup
+              Left = 3
+              Top = 9
+              Width = 198
+              Height = 82
+              Caption = 'N'#237'vel de combust'#237'vel:'
+              Columns = 3
+              Ctl3D = False
+              DataField = 'NIVELCOMP'
+              DataSource = DMServ.DOrd
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Verdana'
+              Font.Style = []
+              Items.Strings = (
+                'Vazio'
+                '1/4'
+                '2/4'
+                '3/4'
+                'Cheio')
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 0
+            end
+            object GBKM: TGroupBox
+              Left = 3
+              Top = 116
+              Width = 286
+              Height = 79
+              Caption = 'Rodagem Atual:'
+              TabOrder = 1
+              object Label65: TLabel
+                Left = 120
+                Top = 14
+                Width = 107
+                Height = 16
+                Caption = 'Unid. de Rodagem'
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+              end
+              object EDKM: TEdit
+                Left = 23
+                Top = 32
+                Width = 88
+                Height = 21
+                TabOrder = 0
+                OnExit = EDKMExit
+              end
+              object CBUnid: TComboBox
+                Left = 120
+                Top = 32
+                Width = 65
+                Height = 21
+                ItemHeight = 13
+                TabOrder = 1
+                OnExit = CBUnidExit
+                Items.Strings = (
+                  'Km'
+                  'Hs')
+              end
+            end
+          end
+          object DBDTABERT: TDBColorEdit
+            Left = 12
+            Top = 23
+            Width = 92
+            Height = 22
+            Color = clWhite
+            Ctl3D = False
+            DataField = 'DTABERT'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            MaxLength = 10
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 0
+            OnExit = DBDTABERTExit
+            OnKeyPress = DBDTABERTKeyPress
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+          object DBHRABERT: TDBColorEdit
+            Left = 106
+            Top = 23
+            Width = 92
+            Height = 22
+            Color = clWhite
+            Ctl3D = False
+            DataField = 'HRABERT'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            MaxLength = 5
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 1
+            OnKeyPress = DBHRABERTKeyPress
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+          object DBPROBREC: TDBMemo
+            Left = 12
+            Top = 75
+            Width = 202
+            Height = 70
+            Color = 15597546
+            Ctl3D = False
+            DataField = 'PROBREC'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 2
+          end
+          object DBSOLU: TDBMemo
+            Left = 12
+            Top = 164
+            Width = 201
+            Height = 70
+            Color = 15597546
+            Ctl3D = False
+            DataField = 'SOLUCAO'
+            DataSource = DMServ.DOrd
+            ParentCtl3D = False
+            TabOrder = 3
+          end
+          object DBDTPREV: TDBColorEdit
+            Left = 222
+            Top = 23
+            Width = 89
+            Height = 22
+            Color = 15659005
+            Ctl3D = False
+            DataField = 'DTPREV'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            MaxLength = 10
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 5
+            OnExit = DBDTPREVExit
+            OnKeyPress = DBDTPREVKeyPress
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+          object DBHRPREV: TDBColorEdit
+            Left = 314
+            Top = 23
+            Width = 89
+            Height = 22
+            Color = 15659005
+            Ctl3D = False
+            DataField = 'HRPREV'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            MaxLength = 5
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 6
+            OnKeyPress = DBHRPREVKeyPress
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+          object DBOBS: TDBMemo
+            Left = 220
+            Top = 75
+            Width = 183
+            Height = 70
+            Color = 16646143
+            Ctl3D = False
+            DataField = 'OBSERVACAO'
+            DataSource = DMServ.DOrd
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 7
+          end
+          object RGSituacao: TRadioGroup
+            Left = 12
+            Top = 240
+            Width = 201
+            Height = 55
+            Caption = 'Situa'#231#227'o da Ordem'
+            Columns = 2
+            Ctl3D = False
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -9
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ItemIndex = 0
+            Items.Strings = (
+              'Aberto'
+              'Agendado'
+              'Finalizado'
+              'Terminado')
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 4
+            OnClick = RGSituacaoClick
+          end
+          object PMotParada: TPanel
+            Left = 10
+            Top = 296
+            Width = 204
+            Height = 35
+            BevelOuter = bvNone
+            Color = 16772332
+            Enabled = False
+            TabOrder = 10
+            Visible = False
+            object Label10: TLabel
+              Left = 4
+              Top = -1
+              Width = 100
+              Height = 16
+              Caption = 'Dt Agendamento:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object DBMMotParada: TDBMemo
+              Left = 184
+              Top = 24
+              Width = 19
+              Height = 9
+              Color = 16646143
+              Ctl3D = False
+              DataField = 'MOTIVOPARADA'
+              DataSource = DMServ.DOrd
+              ParentCtl3D = False
+              TabOrder = 0
+              Visible = False
+            end
+            object edDtAgendamento: TColorMaskEdit
+              Left = 4
+              Top = 13
+              Width = 97
+              Height = 22
+              Color = 15597546
+              Ctl3D = False
+              EditMask = '!99/99/0000;1;_'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = [fsBold]
+              MaxLength = 10
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 1
+              Text = '  /  /    '
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object DBLOCALAT: TDBComboBox
+            Left = 220
+            Top = 164
+            Width = 182
+            Height = 24
+            Ctl3D = False
+            DataField = 'LOCALAT'
+            DataSource = DMServ.DOrd
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemHeight = 16
+            Items.Strings = (
+              'BALC'#195'O'
+              'EXTERNO'
+              'EXTERNO PG')
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 8
+            OnExit = DBLOCALATExit
+            OnKeyPress = DBLOCALATKeyPress
+          end
+          object DBContato: TDBEdit
+            Left = 221
+            Top = 212
+            Width = 179
+            Height = 21
+            DataField = 'CONTATO'
+            DataSource = DMServ.DOrd
+            TabOrder = 9
+          end
+        end
         object PProdServ: TPanel
           Left = 1
           Top = 20
@@ -4191,1476 +7470,6 @@ inherited FOrdem: TFOrdem
             ButtonCaption = 'Ok'
           end
         end
-        object PDespesas: TPanel
-          Left = 2
-          Top = 20
-          Width = 759
-          Height = 335
-          BevelOuter = bvNone
-          Color = 16772332
-          TabOrder = 2
-          OnEnter = PProdServEnter
-          OnExit = PProdServExit
-          object Shape13: TShape
-            Left = 2
-            Top = 4
-            Width = 755
-            Height = 328
-            Brush.Color = 16772332
-            Pen.Color = clLightGreen
-            Pen.Style = psInsideFrame
-            Pen.Width = 2
-          end
-          object LQTDDESP: TLabel
-            Left = 567
-            Top = 315
-            Width = 172
-            Height = 16
-            Hint = 'Informa a quantidade total de itens inseridos neste pedido'
-            Alignment = taRightJustify
-            AutoSize = False
-            Caption = 'LOCAL:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object PCabDesp: TPanel
-            Left = 16
-            Top = 19
-            Width = 727
-            Height = 89
-            BevelOuter = bvNone
-            Color = 16772332
-            TabOrder = 0
-            object Shape15: TShape
-              Left = 1
-              Top = 1
-              Width = 725
-              Height = 74
-              Brush.Color = 16772332
-              Pen.Color = clGray
-              Pen.Width = 2
-            end
-            object Label35: TLabel
-              Left = 7
-              Top = 8
-              Width = 150
-              Height = 16
-              Caption = 'Descri'#231#227'o da despesa:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-              Transparent = True
-            end
-            object Label36: TLabel
-              Left = 370
-              Top = 8
-              Width = 43
-              Height = 16
-              Caption = 'Qtde.:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-              Transparent = True
-            end
-            object Label37: TLabel
-              Left = 419
-              Top = 8
-              Width = 69
-              Height = 16
-              Caption = 'Vlr. Custo:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-              Transparent = True
-            end
-            object Label38: TLabel
-              Left = 490
-              Top = 8
-              Width = 85
-              Height = 16
-              Caption = 'Vlr. Cobrado:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-              Transparent = True
-            end
-            object Label39: TLabel
-              Left = 651
-              Top = 8
-              Width = 64
-              Height = 16
-              Caption = 'Vlr. Total:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-              Transparent = True
-            end
-            object Label43: TLabel
-              Left = 153
-              Top = 55
-              Width = 46
-              Height = 16
-              Caption = 'Marca:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label44: TLabel
-              Left = 357
-              Top = 55
-              Width = 28
-              Height = 16
-              Caption = 'Un.:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label45: TLabel
-              Left = 587
-              Top = 8
-              Width = 43
-              Height = 16
-              Caption = 'Desc.:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object EdDescD: TColorEditFloat
-              Left = 7
-              Top = 24
-              Width = 341
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              MaxLength = 40
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 0
-              Text = '0,00'
-              EditType = fltString
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdQtdD: TColorEditFloat
-              Left = 350
-              Top = 24
-              Width = 62
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 2
-              Text = '0,00'
-              OnExit = EdQtdDExit
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdVlrCustoD: TColorEditFloat
-              Left = 414
-              Top = 24
-              Width = 75
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 4
-              Text = '0,00'
-              OnExit = EdQtdDExit
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdVlrCobradoD: TColorEditFloat
-              Left = 491
-              Top = 24
-              Width = 85
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 5
-              Text = '0,00'
-              OnExit = EdQtdDExit
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdVlrTotD: TColorEditFloat
-              Left = 632
-              Top = 24
-              Width = 85
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 7
-              Text = '0,00'
-              OnExit = EdVlrTotDExit
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object BitBtn3: TBitBtn
-              Left = 577
-              Top = 49
-              Width = 70
-              Height = 21
-              Hint = 
-                'Pressione para inserir o produto selecionado e suas informa'#231#245'es ' +
-                'na lista (ALT + I)'
-              Caption = '&Inserir'
-              ParentShowHint = False
-              ShowHint = True
-              TabOrder = 8
-              OnClick = BitBtn3Click
-              Glyph.Data = {
-                DE000000424DDE0000000000000076000000280000000D0000000D0000000100
-                0400000000006800000000000000000000001000000010000000000000000000
-                BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
-                7000777777777777700077777707777770007777706077777000777706660777
-                7000777066666077700077066666660770007000066600007000777706660777
-                7000777706660777700077770666077770007777000007777000777777777777
-                7000}
-              Layout = blGlyphRight
-              Spacing = 10
-            end
-            object BitBtn4: TBitBtn
-              Left = 647
-              Top = 49
-              Width = 70
-              Height = 21
-              Hint = 
-                'Pressione para remover o produto selecionado na lista da mesma (' +
-                'ALT + E)'
-              Caption = '&Excluir'
-              ParentShowHint = False
-              ShowHint = True
-              TabOrder = 9
-              OnClick = BitBtn4Click
-              Glyph.Data = {
-                DE000000424DDE0000000000000076000000280000000D0000000D0000000100
-                0400000000006800000000000000000000001000000010000000000000000000
-                BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-                FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
-                7000777777777777700077770000077770007777066607777000777706660777
-                7000777706660777700070000666000070007706666666077000777066666077
-                7000777706660777700077777060777770007777770777777000777777777777
-                7000}
-              Layout = blGlyphRight
-              Spacing = 10
-            end
-            object EDMarca: TColorEditFloat
-              Left = 200
-              Top = 52
-              Width = 148
-              Height = 19
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 1
-              Text = '0,00'
-              OnExit = EdQtdDExit
-              EditType = fltString
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdUnidade: TColorEditFloat
-              Left = 386
-              Top = 52
-              Width = 33
-              Height = 19
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Verdana'
-              Font.Style = []
-              MaxLength = 2
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 3
-              Text = '00'
-              OnExit = EdQtdDExit
-              EditType = fltString
-              ValueFormat = '##00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object EdDesconto: TColorEditFloat
-              Left = 577
-              Top = 24
-              Width = 54
-              Height = 22
-              Ctl3D = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 6
-              Text = '0,00'
-              OnExit = EdQtdDExit
-              ValueFormat = '##,##0.00'
-              ValueInteger = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object DBGrid3: TDBGrid
-            Left = 17
-            Top = 98
-            Width = 725
-            Height = 216
-            Color = 15794175
-            Ctl3D = False
-            DataSource = DMESTOQUE.DDesp
-            FixedColor = 11039232
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-            ParentCtl3D = False
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 1
-            TitleFont.Charset = ANSI_CHARSET
-            TitleFont.Color = clBlack
-            TitleFont.Height = -11
-            TitleFont.Name = 'Verdana'
-            TitleFont.Style = [fsBold]
-            OnKeyDown = DBGrid3KeyDown
-            Columns = <
-              item
-                Expanded = False
-                FieldName = 'DESPESA'
-                Title.Caption = 'Despesa'
-                Width = 239
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'MARCA'
-                Title.Caption = 'Marca'
-                Width = 120
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'UNIDADE'
-                Title.Caption = 'Un.'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'QTD'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Qtde.'
-                Width = 62
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VLRREAL'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Custo'
-                Width = 56
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VLRFINAL'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Cobrado'
-                Width = 68
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'DESCONTO'
-                Title.Caption = 'Desc.'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VLRTOTFIN'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Total'
-                Width = 73
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'LUCMOE'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Luc. ($)'
-                Width = 79
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'LUCPER'
-                Title.Alignment = taRightJustify
-                Title.Caption = 'Luc. (%)'
-                Width = 71
-                Visible = True
-              end>
-          end
-        end
-        object PAbertura: TPanel
-          Left = 2
-          Top = 20
-          Width = 759
-          Height = 334
-          BevelOuter = bvNone
-          Color = 16772332
-          TabOrder = 0
-          object Label1: TLabel
-            Left = 12
-            Top = 7
-            Width = 69
-            Height = 16
-            Caption = 'Data Abert.:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label4: TLabel
-            Left = 124
-            Top = 7
-            Width = 69
-            Height = 16
-            Caption = 'Hora Abert.:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object LTitulo: TLabel
-            Left = 12
-            Top = 59
-            Width = 128
-            Height = 16
-            Caption = 'Problema Reclamado:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label6: TLabel
-            Left = 12
-            Top = 148
-            Width = 127
-            Height = 16
-            Caption = 'Solu'#231#227'o Apresentada:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label7: TLabel
-            Left = 220
-            Top = 7
-            Width = 63
-            Height = 16
-            Caption = 'Data Prev.:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label8: TLabel
-            Left = 314
-            Top = 7
-            Width = 63
-            Height = 16
-            Caption = 'Hora Prev.:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label9: TLabel
-            Left = 220
-            Top = 59
-            Width = 72
-            Height = 16
-            Caption = 'Observa'#231#227'o:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label11: TLabel
-            Left = 220
-            Top = 148
-            Width = 129
-            Height = 16
-            Caption = 'Local de Atendimento:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label5: TLabel
-            Left = 221
-            Top = 199
-            Width = 111
-            Height = 16
-            Caption = 'Contato no Cliente:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object lbDiaSemanaAbert: TLabel
-            Left = 13
-            Top = 44
-            Width = 85
-            Height = 15
-            Caption = 'Dia da Semana'
-            Color = 16772332
-            Font.Charset = ANSI_CHARSET
-            Font.Color = cl3DDkShadow
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentColor = False
-            ParentFont = False
-          end
-          object lbDiaSemanaPrev: TLabel
-            Left = 220
-            Top = 45
-            Width = 85
-            Height = 15
-            Caption = 'Dia da Semana'
-            Color = 16772332
-            Font.Charset = ANSI_CHARSET
-            Font.Color = cl3DDkShadow
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentColor = False
-            ParentFont = False
-          end
-          object Shape3: TShape
-            Left = 1
-            Top = 4
-            Width = 755
-            Height = 329
-            Brush.Color = 16772332
-            Pen.Color = clInactiveCaption
-            Pen.Style = psInsideFrame
-            Pen.Width = 2
-          end
-          object Label117: TLabel
-            Left = 13
-            Top = 9
-            Width = 55
-            Height = 13
-            Caption = 'Abertura:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label118: TLabel
-            Left = 224
-            Top = 9
-            Width = 54
-            Height = 13
-            Caption = 'Previs'#227'o:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label121: TLabel
-            Left = 14
-            Top = 61
-            Width = 67
-            Height = 13
-            Caption = 'PROBLEMA:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label122: TLabel
-            Left = 14
-            Top = 149
-            Width = 62
-            Height = 13
-            Caption = 'SOLU'#199#195'O:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label123: TLabel
-            Left = 222
-            Top = 61
-            Width = 87
-            Height = 13
-            Caption = 'OBSERVA'#199#195'O:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label124: TLabel
-            Left = 222
-            Top = 149
-            Width = 77
-            Height = 13
-            Caption = 'Atendimento:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label125: TLabel
-            Left = 222
-            Top = 197
-            Width = 50
-            Height = 13
-            Caption = 'Contato:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          object PAbreMecanica: TPanel
-            Left = 411
-            Top = 13
-            Width = 337
-            Height = 313
-            BevelOuter = bvNone
-            Color = 16772332
-            TabOrder = 11
-            object DBRadioGroup1: TDBRadioGroup
-              Left = 3
-              Top = 9
-              Width = 198
-              Height = 82
-              Caption = 'N'#237'vel de combust'#237'vel:'
-              Columns = 3
-              Ctl3D = False
-              DataField = 'NIVELCOMP'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Verdana'
-              Font.Style = []
-              Items.Strings = (
-                'Vazio'
-                '1/4'
-                '2/4'
-                '3/4'
-                'Cheio')
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 0
-            end
-            object GBKM: TGroupBox
-              Left = 3
-              Top = 116
-              Width = 286
-              Height = 79
-              Caption = 'Rodagem Atual:'
-              TabOrder = 1
-              object Label65: TLabel
-                Left = 120
-                Top = 14
-                Width = 107
-                Height = 16
-                Caption = 'Unid. de Rodagem'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -13
-                Font.Name = 'Arial'
-                Font.Style = []
-                ParentFont = False
-              end
-              object EDKM: TEdit
-                Left = 23
-                Top = 32
-                Width = 88
-                Height = 21
-                TabOrder = 0
-                OnExit = EDKMExit
-              end
-              object CBUnid: TComboBox
-                Left = 120
-                Top = 32
-                Width = 65
-                Height = 21
-                ItemHeight = 13
-                TabOrder = 1
-                OnExit = CBUnidExit
-                Items.Strings = (
-                  'Km'
-                  'Hs')
-              end
-            end
-          end
-          object PAbreInfo: TPanel
-            Left = 411
-            Top = 13
-            Width = 337
-            Height = 313
-            BevelOuter = bvNone
-            Color = 16772332
-            TabOrder = 12
-            object Label23: TLabel
-              Left = 40
-              Top = 0
-              Width = 253
-              Height = 13
-              Caption = 'Perif'#233'ricos que Acompanham o Equipamento'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'MS Sans Serif'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object Label48: TLabel
-              Left = 40
-              Top = 16
-              Width = 46
-              Height = 14
-              Caption = 'Mouse:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label49: TLabel
-              Left = 192
-              Top = 16
-              Width = 87
-              Height = 14
-              Caption = 'Kit Multim'#237'dia:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label50: TLabel
-              Left = 96
-              Top = 16
-              Width = 52
-              Height = 14
-              Caption = 'Teclado:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label51: TLabel
-              Left = 128
-              Top = 56
-              Width = 81
-              Height = 14
-              Caption = 'Cds Recuper.'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label52: TLabel
-              Left = 288
-              Top = 16
-              Width = 45
-              Height = 14
-              Caption = 'Cabos:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label53: TLabel
-              Left = 223
-              Top = 56
-              Width = 52
-              Height = 14
-              Caption = 'Monitor:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label54: TLabel
-              Left = 40
-              Top = 56
-              Width = 77
-              Height = 14
-              Caption = 'Impressora:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label55: TLabel
-              Left = 287
-              Top = 56
-              Width = 43
-              Height = 14
-              Caption = 'Fones:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label57: TLabel
-              Left = 40
-              Top = 101
-              Width = 135
-              Height = 13
-              Caption = 'Estado do Equipamento'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'MS Sans Serif'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object DBDescricao: TLabel
-              Left = 40
-              Top = 249
-              Width = 54
-              Height = 13
-              Caption = 'Backups:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'MS Sans Serif'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object DBMouse: TDBComboBox
-              Left = 40
-              Top = 30
-              Width = 44
-              Height = 18
-              DataField = 'MOUSE'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 0
-            end
-            object DBKitmm: TDBComboBox
-              Left = 192
-              Top = 29
-              Width = 85
-              Height = 18
-              DataField = 'KITMM'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 2
-            end
-            object DBTeclado: TDBComboBox
-              Left = 96
-              Top = 29
-              Width = 85
-              Height = 18
-              DataField = 'TECLADO'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 1
-            end
-            object DBCdRecupera: TDBComboBox
-              Left = 128
-              Top = 69
-              Width = 85
-              Height = 18
-              DataField = 'CDRECUPERA'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 5
-            end
-            object DBCabos: TDBComboBox
-              Left = 288
-              Top = 29
-              Width = 45
-              Height = 18
-              DataField = 'CABOS'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 3
-            end
-            object DBMonitor: TDBComboBox
-              Left = 223
-              Top = 69
-              Width = 53
-              Height = 18
-              DataField = 'MONITOR'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 6
-            end
-            object DBimpressora: TDBComboBox
-              Left = 40
-              Top = 69
-              Width = 80
-              Height = 18
-              DataField = 'IMPRESSORA'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 4
-            end
-            object DbFones: TDBComboBox
-              Left = 287
-              Top = 69
-              Width = 45
-              Height = 18
-              DataField = 'FONES'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'SIM'
-                'N'#195'O')
-              ParentFont = False
-              TabOrder = 7
-            end
-            object DbEstadoEquip: TDBComboBox
-              Left = 39
-              Top = 117
-              Width = 117
-              Height = 18
-              DataField = 'ESTADOEQUIP'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -8
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ItemHeight = 10
-              Items.Strings = (
-                'Sem controle'
-                'Lacrado'
-                'Deslacrado')
-              ParentFont = False
-              TabOrder = 8
-              OnExit = DbEstadoEquipExit
-            end
-            object DBDescBackup: TDBMemo
-              Left = 40
-              Top = 263
-              Width = 291
-              Height = 43
-              Color = clWhite
-              Ctl3D = False
-              DataField = 'DESCBACKUP'
-              DataSource = DMServ.DOrd
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'Verdana'
-              Font.Style = []
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 9
-            end
-            object RGDados: TGroupBox
-              Left = 40
-              Top = 149
-              Width = 292
-              Height = 84
-              Caption = 'O que deseja salvar: '
-              TabOrder = 10
-              object CBDocumentos: TCheckBox
-                Left = 10
-                Top = 24
-                Width = 118
-                Height = 17
-                Caption = 'Meus Documentos'
-                TabOrder = 0
-              end
-              object CBDesktop: TCheckBox
-                Left = 11
-                Top = 48
-                Width = 110
-                Height = 17
-                Caption = #193'rea de Trabalho'
-                TabOrder = 1
-              end
-              object CBEmails: TCheckBox
-                Left = 144
-                Top = 24
-                Width = 97
-                Height = 17
-                Caption = 'E-mails'
-                TabOrder = 2
-              end
-              object CBOutros: TCheckBox
-                Left = 144
-                Top = 48
-                Width = 97
-                Height = 17
-                Caption = 'Outros'
-                TabOrder = 3
-              end
-            end
-          end
-          object DBDTABERT: TDBColorEdit
-            Left = 12
-            Top = 23
-            Width = 92
-            Height = 22
-            Color = clWhite
-            Ctl3D = False
-            DataField = 'DTABERT'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            MaxLength = 10
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 0
-            OnExit = DBDTABERTExit
-            OnKeyPress = DBDTABERTKeyPress
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBHRABERT: TDBColorEdit
-            Left = 106
-            Top = 23
-            Width = 92
-            Height = 22
-            Color = clWhite
-            Ctl3D = False
-            DataField = 'HRABERT'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            MaxLength = 5
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 1
-            OnKeyPress = DBHRABERTKeyPress
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBPROBREC: TDBMemo
-            Left = 12
-            Top = 75
-            Width = 202
-            Height = 70
-            Color = 15597546
-            Ctl3D = False
-            DataField = 'PROBREC'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 2
-          end
-          object DBSOLU: TDBMemo
-            Left = 12
-            Top = 164
-            Width = 201
-            Height = 70
-            Color = 15597546
-            Ctl3D = False
-            DataField = 'SOLUCAO'
-            DataSource = DMServ.DOrd
-            ParentCtl3D = False
-            TabOrder = 3
-          end
-          object DBDTPREV: TDBColorEdit
-            Left = 222
-            Top = 23
-            Width = 89
-            Height = 22
-            Color = 15659005
-            Ctl3D = False
-            DataField = 'DTPREV'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            MaxLength = 10
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 5
-            OnExit = DBDTPREVExit
-            OnKeyPress = DBDTPREVKeyPress
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBHRPREV: TDBColorEdit
-            Left = 314
-            Top = 23
-            Width = 89
-            Height = 22
-            Color = 15659005
-            Ctl3D = False
-            DataField = 'HRPREV'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            MaxLength = 5
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 6
-            OnKeyPress = DBHRPREVKeyPress
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-          object DBOBS: TDBMemo
-            Left = 220
-            Top = 75
-            Width = 183
-            Height = 70
-            Color = 16646143
-            Ctl3D = False
-            DataField = 'OBSERVACAO'
-            DataSource = DMServ.DOrd
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 7
-          end
-          object RGSituacao: TRadioGroup
-            Left = 12
-            Top = 240
-            Width = 201
-            Height = 55
-            Caption = 'Situa'#231#227'o da Ordem'
-            Columns = 2
-            Ctl3D = False
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -9
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ItemIndex = 0
-            Items.Strings = (
-              'Aberto'
-              'Agendado'
-              'Finalizado'
-              'Terminado')
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 4
-            OnClick = RGSituacaoClick
-          end
-          object PMotParada: TPanel
-            Left = 10
-            Top = 296
-            Width = 204
-            Height = 35
-            BevelOuter = bvNone
-            Color = 16772332
-            Enabled = False
-            TabOrder = 10
-            Visible = False
-            object Label10: TLabel
-              Left = 4
-              Top = -1
-              Width = 100
-              Height = 16
-              Caption = 'Dt Agendamento:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object DBMMotParada: TDBMemo
-              Left = 184
-              Top = 24
-              Width = 19
-              Height = 9
-              Color = 16646143
-              Ctl3D = False
-              DataField = 'MOTIVOPARADA'
-              DataSource = DMServ.DOrd
-              ParentCtl3D = False
-              TabOrder = 0
-              Visible = False
-            end
-            object edDtAgendamento: TColorMaskEdit
-              Left = 4
-              Top = 13
-              Width = 97
-              Height = 22
-              Color = 15597546
-              Ctl3D = False
-              EditMask = '!99/99/0000;1;_'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = [fsBold]
-              MaxLength = 10
-              ParentCtl3D = False
-              ParentFont = False
-              TabOrder = 1
-              Text = '  /  /    '
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object DBLOCALAT: TDBComboBox
-            Left = 220
-            Top = 164
-            Width = 182
-            Height = 24
-            Ctl3D = False
-            DataField = 'LOCALAT'
-            DataSource = DMServ.DOrd
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = []
-            ItemHeight = 16
-            Items.Strings = (
-              'BALC'#195'O'
-              'EXTERNO'
-              'EXTERNO PG')
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 8
-            OnExit = DBLOCALATExit
-            OnKeyPress = DBLOCALATKeyPress
-          end
-          object DBContato: TDBEdit
-            Left = 221
-            Top = 212
-            Width = 179
-            Height = 21
-            DataField = 'CONTATO'
-            DataSource = DMServ.DOrd
-            TabOrder = 9
-          end
-        end
       end
       inline FrmEquipamento: TFrmBusca
         Left = 287
@@ -6134,504 +7943,7 @@ inherited FOrdem: TFOrdem
       end
     end
   end
-  object PFinanceiro: TPanel [2]
-    Left = 172
-    Top = 56
-    Width = 497
-    Height = 369
-    BevelWidth = 4
-    Color = clBlack
-    TabOrder = 4
-    Visible = False
-    object FPFinanceiro: TFashionPanel
-      Left = 6
-      Top = 6
-      Width = 485
-      Height = 357
-      BevelOuter = bvNone
-      Color = 16772332
-      TabOrder = 0
-      RoundRect = True
-      About = 'Orion Software'
-      ShadowDepth = 2
-      ShadowSpace = 5
-      ShowShadow = False
-      ShadowColor = clBlack
-      TitleColor = clSkyBlue
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clBlack
-      TitleFont.Height = -11
-      TitleFont.Name = 'Arial'
-      TitleFont.Style = [fsBold]
-      Title = 'Informa'#231#245'es para o financeiro'
-      LineWidth = 0
-      LineColor = clBlack
-      Theme = ttCustom
-      object Label25: TLabel
-        Left = 8
-        Top = 113
-        Width = 116
-        Height = 20
-        Caption = 'Pagamento em :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label24: TLabel
-        Left = 289
-        Top = 117
-        Width = 70
-        Height = 16
-        Caption = 'Dt. Entraga:'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label28: TLabel
-        Left = 385
-        Top = 117
-        Width = 69
-        Height = 16
-        Caption = 'Hs Entrega:'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-      end
-      object BtnMoedaOK: TBitBtn
-        Left = 150
-        Top = 327
-        Width = 75
-        Height = 25
-        Caption = '&Ok'
-        TabOrder = 8
-        OnClick = BtnMoedaOKClick
-        Glyph.Data = {
-          66030000424D6603000000000000360000002800000010000000110000000100
-          18000000000030030000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-          BFBFBFFFFF000000007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F7F0000007F7F7F7F
-          7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFFFFF007F7F7F7F7F000000007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
-          7F7F7F7F7F7F7FBFBFBF0000000000000000000000007F7F7F7F7F007F7F0000
-          00007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFFFFF00
-          7F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F
-          7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F
-          7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F000000
-          00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F
-          7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F
-          007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F
-          007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F
-          007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-          BFBFBFBFBFBFBFBFBFBF}
-      end
-      object BtnMoedaCancelar: TBitBtn
-        Left = 262
-        Top = 327
-        Width = 97
-        Height = 25
-        Caption = 'C&ancelar'
-        TabOrder = 9
-        OnClick = BtnMoedaCancelarClick
-        Glyph.Data = {
-          26040000424D2604000000000000360000002800000012000000120000000100
-          180000000000F0030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF60606060606060606060606060
-          6060606060606060606060606060606060606060606060606060FFFFFFFFFFFF
-          0000FFFFFFFFFFFF1F80B01F80B0107FB0107FAF107FAF0F70AF0F70A00F70A0
-          006FA0006F9F006F9F00609F00609F606060606060FFFFFF0000FFFFFF2080BF
-          60CFFF1F80BF9FFFFF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0
-          FF3FA0D09FFFFF00609F606060FFFFFF0000FFFFFF208FBF60CFFF208FBF9FFF
-          FF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF3FA0D09FFFFF00
-          609F606060FFFFFF0000FFFFFF208FC060CFFF2F90C09FFFFFFF8F6FFF8F6FFF
-          8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6F00609FDF0000FFFFFF
-          0000FFFFFF2F8FC060CFFF309FCF9FFFFFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFF
-          D0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00609FDF0000FFFFFF0000FFFFFF2F90C0
-          6FD0FF309FCF9FFFFFFF8F6FD0FFFFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
-          CFCFCFCFCFCFCF00609FDF0000FFFFFF0000FFFFFF2F90C07FE0FF2F90C0FFFF
-          FFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00
-          609FDF0000FFFFFF0000FFFFFF3090CF80EFFF80E0FF2F90C02F90C02F90C02F
-          90C02F90C02F90C02F90C02F90C02F90C02F90C02F90C0E0E0E0DF0000FFFFFF
-          0000FFFFFF309FCF90F0FF8FF0FF8FF0FFDF0000E0E0E0F0FFFFF0FFFFF0FFFF
-          F0FFFFF0FFFFF0FFFFF0FFFFF0FFFFE0E0E0DF0000FFFFFF0000FFFFFF309FCF
-          FFFFFF9FFFFF9FFFFFDF0000E0E0E0CFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
-          CFCFCFCFCFCFCFE0E0E0DF0000FFFFFF0000FFFFFFFFFFFF309FCFFFFFFFFFFF
-          FFDF0000E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
-          E0E0DF0000FFFFFF0000FFFFFFFFFFFFFFFFFF309FCF309FCFDF0000FF5020FF
-          5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020DF0000FFFFFF
-          0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF0000FF5020FF5020FF5020FF5020
-          FF5020FF5020FFAF8FFFAF8F2050FF004FDFDF0000FFFFFF0000FFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFF8F6FFF5020FF5020FF5020FF5020FF5020FF5020FF50
-          20FF5020FF5020FF5020FF8F6FFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFF0000}
-      end
-      object CBPagamento: TComboBox
-        Left = 9
-        Top = 134
-        Width = 176
-        Height = 24
-        Ctl3D = False
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'BankGothic Md BT'
-        Font.Style = []
-        ItemHeight = 16
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 2
-        Text = 'Carteira'
-        OnExit = CBPagamentoExit
-        Items.Strings = (
-          'Carteira'
-          'Cheque'
-          'Cart'#227'o')
-      end
-      inline FrmMoeda: TFrmBusca
-        Left = 6
-        Top = 68
-        Width = 478
-        Height = 43
-        Enabled = False
-        Color = 16772332
-        ParentColor = False
-        TabOrder = 1
-        inherited LTextoBusca: TLabel
-          Width = 168
-          Caption = 'Moeda para Lan'#231'amento:'
-        end
-        inherited LUZOPEN: TShape
-          Left = 430
-        end
-        inherited LUZMINUS: TShape
-          Left = 454
-        end
-        inherited EdDescricao: TFlatEdit
-          Width = 354
-          ColorFlat = 15794169
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 428
-          OnClick = FrmMoedaBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 450
-          OnClick = FrmMoedaBTNMINUSClick
-        end
-        inherited EDCodigo: TFlatEdit
-          ColorFlat = 14221052
-        end
-      end
-      inline FrmConta: TFrmBusca
-        Left = 7
-        Top = 167
-        Width = 472
-        Height = 64
-        Color = 16772332
-        ParentColor = False
-        TabOrder = 6
-        inherited LTextoBusca: TLabel
-          Width = 248
-          Caption = 'Conta para Lan'#231'amento de Produtos:'
-        end
-        inherited LUZOPEN: TShape
-          Left = 426
-          Top = 39
-        end
-        inherited LUZMINUS: TShape
-          Left = 450
-          Top = 39
-        end
-        inherited EdDescricao: TFlatEdit
-          Left = 2
-          Top = 42
-          Width = 423
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 425
-          Top = 42
-          OnClick = FrmContaBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 447
-          Top = 42
-          OnClick = FrmContaBTNMINUSClick
-        end
-        inherited EDCodigo: TFlatEdit
-          Width = 151
-          OnKeyPress = FrmContaEDCodigoKeyPress
-        end
-      end
-      inline FrmFormPag: TFrmBusca
-        Left = 7
-        Top = 23
-        Width = 478
-        Height = 43
-        Color = 16772332
-        ParentColor = False
-        TabOrder = 0
-        OnExit = FrmFormPagExit
-        inherited LTextoBusca: TLabel
-          Width = 145
-          Caption = 'Forma de pagamento:'
-        end
-        inherited LUZOPEN: TShape
-          Left = 429
-        end
-        inherited LUZMINUS: TShape
-          Left = 453
-        end
-        inherited EdDescricao: TFlatEdit
-          Width = 354
-          ColorFlat = 16318450
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 431
-          Width = 18
-          OnClick = FrmFormPagBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 450
-          OnClick = FrmFormPagBTNMINUSClick
-        end
-        inherited EDCodigo: TFlatEdit
-          ColorFlat = 15269845
-          OnKeyDown = FrmFormPagEDCodigoKeyDown
-          OnKeyPress = FrmFormPagEDCodigoKeyPress
-        end
-      end
-      object DBDATAENTREGA: TColorMaskEdit
-        Left = 290
-        Top = 134
-        Width = 87
-        Height = 22
-        Color = 15597546
-        Ctl3D = False
-        EditMask = '!99/99/0000;1;_'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        MaxLength = 10
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 3
-        Text = '  /  /    '
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object DBHORAENTREGA: TColorMaskEdit
-        Left = 386
-        Top = 134
-        Width = 87
-        Height = 22
-        Color = 15597546
-        Ctl3D = False
-        EditMask = '!90:00;1;_'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        MaxLength = 5
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 4
-        Text = '  :  '
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      inline FrmContaServ: TFrmBusca
-        Left = 6
-        Top = 240
-        Width = 472
-        Height = 64
-        Color = 16772332
-        ParentColor = False
-        TabOrder = 7
-        inherited LTextoBusca: TLabel
-          Width = 246
-          Caption = 'Conta para Lan'#231'amento de Servi'#231'os:'
-        end
-        inherited LUZOPEN: TShape
-          Left = 426
-          Top = 39
-        end
-        inherited LUZMINUS: TShape
-          Left = 450
-          Top = 39
-        end
-        inherited EdDescricao: TFlatEdit
-          Left = 2
-          Top = 42
-          Width = 423
-          ColorFlat = clWhite
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 425
-          Top = 42
-          OnClick = FrmContaServBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 447
-          Top = 42
-          OnClick = FrmContaServBTNMINUSClick
-        end
-        inherited EDCodigo: TFlatEdit
-          Width = 151
-          ColorFlat = 15329769
-          OnKeyPress = FrmContaServEDCodigoKeyPress
-        end
-      end
-      object Panel7: TPanel
-        Left = 286
-        Top = 157
-        Width = 163
-        Height = 39
-        BevelOuter = bvNone
-        Color = 16772332
-        TabOrder = 5
-        object LTextoBusca: TLabel
-          Left = 3
-          Top = 1
-          Width = 93
-          Height = 16
-          Caption = 'Dt Fechamento:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentFont = False
-        end
-        object EdDtFech: TColorMaskEdit
-          Left = 3
-          Top = 16
-          Width = 97
-          Height = 22
-          Color = 15597546
-          Ctl3D = False
-          EditMask = '!99/99/0000;1;_'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          MaxLength = 10
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 0
-          Text = '  /  /    '
-          NotFoundText = 'N'#227'o Existe'
-          InputText = 'Por favor entre na procura pelo crit'#233'rio'
-          ButtonCaption = 'Ok'
-        end
-      end
-      object CBGeraFinanceiro: TCheckBox
-        Left = 162
-        Top = 186
-        Width = 123
-        Height = 17
-        Caption = 'N'#227'o gerar financeiro'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -9
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 10
-      end
-    end
-    object PBanco: TPanel
-      Left = 197
-      Top = 203
-      Width = 266
-      Height = 108
-      BevelWidth = 3
-      Color = 16772332
-      TabOrder = 1
-      Visible = False
-      object Label115: TLabel
-        Left = 8
-        Top = 8
-        Width = 95
-        Height = 16
-        Caption = 'Cta. Corrente:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object DBGCTA: TDBGrid
-        Left = 5
-        Top = 24
-        Width = 252
-        Height = 73
-        Hint = 'Pressione ENTER para confirmar e abandonar este pa'#237'nel'
-        Color = 16121836
-        Ctl3D = False
-        DataSource = DMBANCO.DWCtaCor
-        Options = [dgTitles, dgColumnResize, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit]
-        ParentCtl3D = False
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'MS Sans Serif'
-        TitleFont.Style = []
-        OnKeyDown = DBGCTAKeyDown
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'NUMAGENCIA'
-            Title.Caption = 'Ag'#234'ncia'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NUMCTACOR'
-            Title.Caption = 'Conta'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'DESCBANCO'
-            Title.Caption = 'Banco'
-            Width = 214
-            Visible = True
-          end>
-      end
-    end
-  end
-  object PPrecos: TPanel [3]
+  object PPrecos: TPanel [4]
     Left = 321
     Top = 78
     Width = 329
@@ -6845,1323 +8157,11 @@ inherited FOrdem: TFOrdem
       end
     end
   end
-  inherited PComunica: TPanel
+  inherited PComunica: TPanel [5]
     Left = 173
     Top = 171
     Width = 495
     Height = 113
-  end
-  inherited PConsulta: TPanel [5]
-    Left = 9
-    Top = 9
-    Width = 781
-    Height = 492
-    object Label46: TLabel [0]
-      Left = 9
-      Top = 64
-      Width = 39
-      Height = 16
-      Caption = 'Filtro:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Verdana'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label47: TLabel [1]
-      Left = 113
-      Top = 64
-      Width = 48
-      Height = 16
-      Caption = 'Ordem:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Verdana'
-      Font.Style = []
-      ParentFont = False
-    end
-    object PDevParc: TPanel [2]
-      Left = 5
-      Top = 0
-      Width = 778
-      Height = 492
-      BevelWidth = 4
-      Color = clBlack
-      TabOrder = 8
-      Visible = False
-      object FashionPanel2: TFashionPanel
-        Left = 5
-        Top = 5
-        Width = 768
-        Height = 482
-        BevelOuter = bvNone
-        Caption = '$00FFECEC'
-        Color = 16772332
-        TabOrder = 0
-        RoundRect = True
-        About = 'Orion Software'
-        ShadowDepth = 2
-        ShadowSpace = 5
-        ShowShadow = False
-        ShadowColor = clBlack
-        TitleColor = clSkyBlue
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
-        TitleFont.Height = -11
-        TitleFont.Name = 'Arial'
-        TitleFont.Style = [fsBold]
-        Title = 'Devolu'#231#227'o Parcial'
-        LineWidth = 0
-        LineColor = clBlack
-        Theme = ttCustom
-        object DRLabel1: TDRLabel
-          Left = 5
-          Top = 240
-          Width = 149
-          Height = 18
-          Caption = 'Itens devolvidos:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Verdana'
-          Font.Style = [fsBold]
-          ParentFont = False
-          HiColor = clBlue
-          LoColor = clNavy
-          Border = boNone
-          Ctl3D = True
-          BlinkInterval = 300
-          Blink = blNone
-          Deep = 1
-        end
-        object Label119: TLabel
-          Left = 439
-          Top = 206
-          Width = 90
-          Height = 13
-          Caption = 'Qtd. Devolvida:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object Label120: TLabel
-          Left = 559
-          Top = 206
-          Width = 72
-          Height = 13
-          Caption = 'Vlr. Unit'#225'rio:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object Label116: TLabel
-          Left = 3
-          Top = 196
-          Width = 236
-          Height = 13
-          Caption = 'Selecione o produto na lista acima para devolver.'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = 10304777
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object DBGrid6: TDBGrid
-          Left = 4
-          Top = 258
-          Width = 757
-          Height = 170
-          Color = clCaptionText
-          Ctl3D = False
-          DataSource = DMESTOQUE.DSAlx
-          FixedColor = clSilver
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          ParentCtl3D = False
-          ParentFont = False
-          ReadOnly = True
-          TabOrder = 5
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clBlack
-          TitleFont.Height = -11
-          TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = [fsBold]
-          OnDrawColumnCell = DBGrid6DrawColumnCell
-          OnKeyDown = DBGrid6KeyDown
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'OPERACAO'
-              Title.Alignment = taCenter
-              Title.Caption = 'ST'
-              Width = 31
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'CONTRINT'
-              Title.Caption = 'C'#243'd.'
-              Width = 53
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DATA'
-              Title.Caption = 'Data'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DESCRICAO'
-              Title.Caption = 'Produto'
-              Width = 306
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'QTDEPROD'
-              Title.Caption = 'Quant.'
-              Width = 45
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALUNIT'
-              Title.Caption = 'Unit'#225'rio ($)'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALORTOTAL'
-              Title.Caption = 'Total ($)'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DESCPRO'
-              Title.Caption = 'Desc (%)'
-              Width = 58
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'COMISSAO'
-              Title.Caption = 'Comis.'
-              Width = 43
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'MARCA'
-              Title.Caption = 'Marca'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NOME'
-              Title.Caption = 'Vendedor'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'QTDDEV'
-              Title.Caption = 'Qtd. Dev'
-              Visible = True
-            end>
-        end
-        object BitBtn9: TBitBtn
-          Left = 546
-          Top = 440
-          Width = 94
-          Height = 25
-          Hint = 'Pressione para confirmar a devolu'#231#227'o parcial'
-          Caption = '&Ok'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 6
-          OnClick = BitBtn9Click
-          Glyph.Data = {
-            66030000424D6603000000000000360000002800000010000000110000000100
-            18000000000030030000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-            BFBFBFFFFF000000007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F7F0000007F7F7F7F
-            7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFFFFF007F7F7F7F7F000000007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
-            7F7F7F7F7F7F7FBFBFBF0000000000000000000000007F7F7F7F7F007F7F0000
-            00007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFFFFF00
-            7F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F
-            7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F
-            7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F000000
-            00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F
-            7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F007F7F
-            007F7F00000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFFFFF007F7F007F7F007F7F007F7F007F7F007F7F00000000BFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F
-            007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFFFFF007F7F007F7F007F7F007F7F00BFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF007F7F
-            007F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFFFFF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-            BFBFBFBFBFBFBFBFBFBF}
-        end
-        object BitBtn10: TBitBtn
-          Left = 650
-          Top = 439
-          Width = 97
-          Height = 26
-          Hint = 'Pressione para cancelar a devolu'#231#227'o parcial'
-          Caption = 'C&ancelar'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 7
-          OnClick = BitBtn10Click
-          Glyph.Data = {
-            26040000424D2604000000000000360000002800000012000000120000000100
-            180000000000F0030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
-            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-            FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF60606060606060606060606060
-            6060606060606060606060606060606060606060606060606060FFFFFFFFFFFF
-            0000FFFFFFFFFFFF1F80B01F80B0107FB0107FAF107FAF0F70AF0F70A00F70A0
-            006FA0006F9F006F9F00609F00609F606060606060FFFFFF0000FFFFFF2080BF
-            60CFFF1F80BF9FFFFF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0FF6FD0
-            FF3FA0D09FFFFF00609F606060FFFFFF0000FFFFFF208FBF60CFFF208FBF9FFF
-            FF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF9FFFFF3FA0D09FFFFF00
-            609F606060FFFFFF0000FFFFFF208FC060CFFF2F90C09FFFFFFF8F6FFF8F6FFF
-            8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6FFF8F6F00609FDF0000FFFFFF
-            0000FFFFFF2F8FC060CFFF309FCF9FFFFFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFF
-            D0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00609FDF0000FFFFFF0000FFFFFF2F90C0
-            6FD0FF309FCF9FFFFFFF8F6FD0FFFFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
-            CFCFCFCFCFCFCF00609FDF0000FFFFFF0000FFFFFF2F90C07FE0FF2F90C0FFFF
-            FFFF8F6FD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFFD0FFFF00
-            609FDF0000FFFFFF0000FFFFFF3090CF80EFFF80E0FF2F90C02F90C02F90C02F
-            90C02F90C02F90C02F90C02F90C02F90C02F90C02F90C0E0E0E0DF0000FFFFFF
-            0000FFFFFF309FCF90F0FF8FF0FF8FF0FFDF0000E0E0E0F0FFFFF0FFFFF0FFFF
-            F0FFFFF0FFFFF0FFFFF0FFFFF0FFFFE0E0E0DF0000FFFFFF0000FFFFFF309FCF
-            FFFFFF9FFFFF9FFFFFDF0000E0E0E0CFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
-            CFCFCFCFCFCFCFE0E0E0DF0000FFFFFF0000FFFFFFFFFFFF309FCFFFFFFFFFFF
-            FFDF0000E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
-            E0E0DF0000FFFFFF0000FFFFFFFFFFFFFFFFFF309FCF309FCFDF0000FF5020FF
-            5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020FF5020DF0000FFFFFF
-            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF0000FF5020FF5020FF5020FF5020
-            FF5020FF5020FFAF8FFFAF8F2050FF004FDFDF0000FFFFFF0000FFFFFFFFFFFF
-            FFFFFFFFFFFFFFFFFFFF8F6FFF5020FF5020FF5020FF5020FF5020FF5020FF50
-            20FF5020FF5020FF5020FF8F6FFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-            FFFFFFFFFFFFFFFF0000}
-        end
-        object Panel14: TPanel
-          Left = 310
-          Top = 117
-          Width = 163
-          Height = 39
-          BevelOuter = bvNone
-          Color = 16772332
-          TabOrder = 0
-        end
-        object DBGrid7: TDBGrid
-          Left = 4
-          Top = 31
-          Width = 754
-          Height = 164
-          Hint = 'Selecione o produto na lista para devolver.'
-          Color = 15794175
-          Ctl3D = False
-          DataSource = DMESTOQUE.DSSlave
-          FixedColor = clInfoBk
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          ParentCtl3D = False
-          ParentFont = False
-          ParentShowHint = False
-          ReadOnly = True
-          ShowHint = True
-          TabOrder = 1
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clBlack
-          TitleFont.Height = -11
-          TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = []
-          OnCellClick = DBGrid7CellClick
-          OnDrawColumnCell = DBGrid7DrawColumnCell
-          OnKeyDown = DBGrid7KeyDown
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'OPERACAO'
-              Title.Alignment = taCenter
-              Title.Caption = 'ST'
-              Width = 31
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'CONTRINT'
-              Title.Caption = 'C'#243'd.'
-              Width = 53
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DATA'
-              Title.Caption = 'Data'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DESCRICAO'
-              Title.Caption = 'Produto'
-              Width = 306
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'QTD'
-              Title.Caption = 'Quant.'
-              Width = 45
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VLRUNIT'
-              Title.Caption = 'Unit'#225'rio ($)'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'TOTAL'
-              Title.Caption = 'Total ($)'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DESCONTO'
-              Title.Caption = 'Desc (%)'
-              Width = 58
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'COMISSAO'
-              Title.Caption = 'Comis.'
-              Width = 43
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'MARCA'
-              Title.Caption = 'Marca'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NOME'
-              Title.Caption = 'Vendedor'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'QTDDEV'
-              Title.Caption = 'Qtd. Dev'
-              Visible = True
-            end>
-        end
-        object BtnDevolveItem: TBitBtn
-          Left = 652
-          Top = 217
-          Width = 105
-          Height = 26
-          Hint = 
-            'Selecione o produto na lista acima, informe a quantidade a ser d' +
-            'evolvida e o valor unit'#225'rio e clique aqui para realizar a devolu' +
-            #231#227'o. '
-          Caption = 'Devolver'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 4
-          OnClick = BtnDevolveItemClick
-          Glyph.Data = {
-            8E050000424D8E05000000000000360000002800000017000000130000000100
-            1800000000005805000000000000000000000000000000000000FFC891FFC891
-            FFC891ACB095846546896D4E896D4E896D4E896D4E896D4E896D4E896D4E896D
-            4E896D4E896D4E896D4E896D4E896D4E856E4D86834EFFC891FFC891FFC89100
-            0000FFC891FFC891F2F8F2004D000D69160C68140C68140C68140C68140C6814
-            0C68140C68140C68140C69140C69140C68140C68140B6C150C3D04664428FFC8
-            91FFC891FFC891000000FFC891FFC891F6F5F4007B0000D33600CC3300CC3300
-            CC3300CC3300CC3300CC3300CB3200D434008C4E002E0700DF3700CC3300D435
-            068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891F6F5F4007B0000D3
-            3600CC3300CC3300CC3300D13300D83600DE3700E23700ED3D00CDB700000000
-            4B1300EB3A00D535068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891
-            F6F5F4007B0000D33600CC3300CE3200D03200AF2F00661A0025090000000000
-            0000000000000000000000390E00D334068B1E6B422AFFC891FFC891FFC89100
-            0000FFC891FFC891F6F5F4007B0000D33600CD3200CF35008831000F09000000
-            00000000000000000000000000000000000000150500C431068D1E6B422AFFC8
-            91FFC891FFC891000000FFC891FFC891F6F5F4007B0000D33600D23700954400
-            0709000000002622008D7200D3AA00E9BA00987B00000000140500D43500D936
-            068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891F6F5F4007B0000D5
-            3300CB57002423000000005F3700E06600DC3C00CE2700D72D00AFA000040000
-            E13800D03400D435068A1D6B422AFFC891FFC891FFC891000000FFC891FFC891
-            8B8A9500000800061000000000050500020200030616281E24853B10BF3B01D1
-            3500D33400D03400CD3300CC3300D435068A1D6B422AFFC891FFC891FFC89100
-            0000FFC891596779000619002A44001C322A6E80002C41001923000405000000
-            00040909160503460A00831800A12300BF2D00CD3200D434068A1D6B422AFFC8
-            91FFC891FFC891000000C0C5CC001B3600537B008CC600121ED0FFFF005F8300
-            4561001D2600010003362900A68800A68D00A57800B06100C54300CF3900D335
-            068A1D6B422AFFC891FFC891FFC891000000314F6100538100A9E400DFFF001C
-            27DEF2F8006E9600688E003E58001B160307042D68461AB44602D33900D23700
-            CD3400CC3300D334068A1D6B422AFFC891FFC891FFC89100000002335100567A
-            56F2FF89FFFF81A0A6F5FEFF80C9DD8FD5E838A0B8002D430001062349311FA5
-            3E01CA3100CC3200CB3200CB3200D434068A1D6B422AFFC891FFC891FFC89100
-            000000456E01293A271D163E2725332B2AF0E9E73E26204A2F281F434A00405F
-            00070D1C4A2D1CAE4101CE3500D03400CF3400CF3400D736068B1F6A3E26FFC8
-            91FFC891FFC891000000185B7B00B6F122F3FF2AFFFF002A2FE4FEFF00BEF700
-            C1F50087B000364F00080D124F2100921E00A51200A51200A51200A51200AB13
-            007100716142FFC891FFC891FFC89100000081A5B9009DDB67EFFFD2FFFF192D
-            2ABBFFFF00C7F304DCFF00769D00283D080D0FA5B5A7A4BFA09DBB989DBB989D
-            BB999DBB999DBB9994BC92DCF1E1FFC891FFC891FFC891000000F2E9E94782A3
-            78E2FBABFFFF1C525407354100CEFF009BC5004160000009878686FFC891FFC8
-            91FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC89100
-            0000FFC891F2D3D4927287309AC201C2FF00A5DB0079A5003E5C000914636466
-            FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC8
-            91FFC891FFC891000000FFC891FFC891FDE3E3C2878F534963003F6004293A41
-            4B51C0C3C6FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891FFC891
-            FFC891FFC891FFC891FFC891FFC891000000}
-        end
-        object EdQtdProdDev: TColorEditFloat
-          Left = 443
-          Top = 221
-          Width = 84
-          Height = 22
-          Hint = 'Informe a quantidade a ser devolvida.'
-          Color = 15329769
-          Ctl3D = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Verdana'
-          Font.Style = [fsBold]
-          MaxLength = 13
-          ParentCtl3D = False
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 2
-          Text = '0,00'
-          OnExit = EDQuantidadeExit
-          ValueFormat = '#,##0.00'
-          ValueInteger = 0
-          NotFoundText = 'N'#227'o Existe'
-          InputText = 'Por favor entre na procura pelo crit'#233'rio'
-          ButtonCaption = 'Ok'
-        end
-        object EdvlrUnitProdDev: TColorEditFloat
-          Left = 545
-          Top = 221
-          Width = 84
-          Height = 22
-          Hint = 'Informe o valor unit'#225'rio do produto.'
-          Color = 15329769
-          Ctl3D = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Verdana'
-          Font.Style = [fsBold]
-          MaxLength = 13
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 3
-          Text = '0,00'
-          OnExit = EDQuantidadeExit
-          ValueFormat = '#,##0.00'
-          ValueInteger = 0
-          NotFoundText = 'N'#227'o Existe'
-          InputText = 'Por favor entre na procura pelo crit'#233'rio'
-          ButtonCaption = 'Ok'
-        end
-      end
-    end
-    inherited GroupBox1: TGroupBox
-      Left = 253
-      Top = 58
-      Width = 524
-      inherited EdNome: TFlatEdit
-        Left = 4
-        Top = 13
-        Width = 89
-        Height = 23
-        Font.Height = -15
-        Text = 'N'#250'mero'
-        OnKeyUp = EdNomeKeyUp
-      end
-      inherited BtnSelecionar: TBitBtn
-        Left = 525
-        Width = 38
-        TabOrder = 3
-      end
-      object EdCliente: TFlatEdit
-        Left = 276
-        Top = 13
-        Width = 245
-        Height = 23
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. '
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -15
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 2
-        Text = 'Cliente'
-        OnEnter = EdClienteEnter
-        OnExit = EdClienteExit
-        OnKeyDown = EdClienteKeyDown
-        OnKeyUp = EdClienteKeyUp
-      end
-      object EdEquipamento: TFlatEdit
-        Left = 96
-        Top = 13
-        Width = 177
-        Height = 23
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. '
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -15
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 1
-        Text = 'Equipamento'
-        OnEnter = EdEquipamentoEnter
-        OnExit = EdEquipamentoExit
-        OnKeyDown = EdEquipamentoKeyDown
-        OnKeyUp = EdEquipamentoKeyUp
-      end
-    end
-    object GBPlaca: TGroupBox [4]
-      Left = 253
-      Top = 58
-      Width = 524
-      Height = 49
-      Caption = 'Localizar - F2'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Verdana'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 6
-      object EDCliente1: TFlatEdit
-        Left = 232
-        Top = 16
-        Width = 280
-        Height = 25
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. '
-        ColorBorder = clBlack
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 3
-        Text = 'Cliente'
-        OnEnter = EDCliente1Enter
-        OnExit = EDCliente1Exit
-        OnKeyDown = EDCliente1KeyDown
-        OnKeyUp = EDCliente1KeyUp
-      end
-      object EDNum: TFlatEdit
-        Left = 8
-        Top = 16
-        Width = 73
-        Height = 24
-        Hint = 
-          'Digite aqui, o nome ou descri'#231#227'o do registro para ser localizado' +
-          ' com maior facilidade. Press <ENTER> para consultar e <ESC> para' +
-          ' liberar todos. '
-        ColorBorder = clBlack
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 0
-        Text = 'N'#250'mero'
-        OnEnter = EDNumEnter
-        OnExit = EDNumExit
-        OnKeyDown = EDNumKeyDown
-        OnKeyUp = EDNumKeyUp
-      end
-      object MEPlaca: TMaskEdit
-        Left = 144
-        Top = 16
-        Width = 81
-        Height = 26
-        Color = 16772332
-        Ctl3D = False
-        EditMask = 'AAA-0000;1;_'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        MaxLength = 8
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 2
-        Text = '   -    '
-        OnKeyDown = MEPlacaKeyDown
-        OnKeyUp = MEPlacaKeyUp
-      end
-      object EDBox: TFlatEdit
-        Left = 89
-        Top = 16
-        Width = 48
-        Height = 24
-        ColorBorder = clBlack
-        ColorFlat = clWhite
-        ParentColor = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clGray
-        Font.Height = -16
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        Text = 'Box'
-        OnEnter = EDBoxEnter
-        OnExit = EDBoxExit
-        OnKeyDown = EDBoxKeyDown
-        OnKeyUp = EDBoxKeyUp
-      end
-    end
-    object PExp: TPanel [5]
-      Left = 112
-      Top = 273
-      Width = 577
-      Height = 45
-      TabOrder = 7
-      Visible = False
-      object PBExport: TProgressBar
-        Left = 30
-        Top = 13
-        Width = 516
-        Height = 20
-        TabOrder = 0
-      end
-    end
-    inherited Painel: TPanel
-      Left = 4
-      Top = 0
-      Width = 772
-      TabOrder = 3
-      inherited BtnNovo: TBitBtn
-        Width = 114
-      end
-      inherited BtnApagar: TBitBtn
-        Left = 115
-        Width = 110
-      end
-      inherited BtnConsultar: TBitBtn
-        Left = 224
-        Width = 110
-      end
-      inherited BtnRelatorio: TBitBtn
-        Left = 333
-        Width = 110
-        OnClick = BtnRelatorioClick
-      end
-      inherited BtnFiltrar: TBitBtn
-        Left = 442
-        Width = 110
-        Caption = '&Fiscal'
-        PopupMenu = PMBtnFiscal
-        OnClick = BtnFiltrarClick
-      end
-      object BtnFechaPed: TBitBtn
-        Left = 551
-        Top = 2
-        Width = 110
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Fecha a ordem de servi'#231'o  selecionada na tela abaixo'
-        Caption = 'F&echar'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 5
-        OnClick = BtnFechaPedClick
-        Glyph.Data = {
-          B6030000424DB603000000000000360000002800000012000000100000000100
-          18000000000080030000C40E0000C40E00000000000000000000C0C0C000FF00
-          00FF0000FF0000FF0000FF0000FF0000FF0000000000000000FF0000FF0000FF
-          0000FF0000FF0000FF0000FF00C0C0C00000C0C0C0C0C0C000FF0000FF0000FF
-          0000FF0000FF0000000000000000000000000000FF0000FF0000FF0000FF0000
-          FF00C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C000FF0000FF0000FF0000FF0000
-          FF0000FF0000FF0000000000FF0000FF0000FF0000FF00C0C0C0C0C0C0C0C0C0
-          0000C0C0C0C0C0C0C0C0C0C0C0C000FF0000FF0000FF00000000000000000000
-          00000000FF0000FF0000FF00C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
-          BFBFBFBFBFBFBFBFBF00FF0000FF0000000000FF0000FF0000FF0000FF0000FF
-          00BFBFBFBFBFBFC0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0BFBFBFBFBFBFBFBF
-          BFC0C0C000FF0000000000000000000000000000FF00BFBFBFBFBFBFBFBFBFBF
-          BFBFC0C0C0C0C0C00000C0C0C0C0C0C000FF0000FF0000FF0000FF0000FF0000
-          FF0000000000000000FF0000FF0000FF0000FF0000FF0000FF00C0C0C0C0C0C0
-          0000C0C0C0C0C0C0C0C0C0C0C0C0007F0000FF0000FF0000FF00000000000000
-          00FF0000FF0000FF00007F00C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
-          C0C0C08080807F7F7F7F7F00007F0000FF0000FF0000FF0000FF007F7F007F7F
-          7F000000C0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080
-          80FF00007F00007F000000FF0000FF007F00007F00007F7F7F7F7F7FC0C0C0C0
-          C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C0808080808080FF00007F00007F
-          00007F00007F00007F00007F00007F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C0
-          0000C0C0C0C0C0C0C0C0C0808080808080FF00007F00007F00007F00007F0000
-          7F00007F00007F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0
-          C0C0C0808080808080FF00007F00007F00007F00007F00007F00007F00007F7F
-          7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080
-          807F0000FF00007F00007F00007F00007F00007F00007F7F7F7F7F7FC0C0C0C0
-          C0C0C0C0C0C0C0C00000C0C0C0C0C0C0C0C0C08080808080807F7F7F7F7F7F7F
-          7F7F7F7F7F7F7F7F7F7F7F7F7F7F8080807F7F7FC0C0C0C0C0C0C0C0C0C0C0C0
-          0000C0C0C0C0C0C0C0C0C0C0C0C08080807F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
-          7F7F7F7F7F7F7F7F7FC0C0C0C0C0C0C0C0C0C0C0C0C0C0C00000}
-      end
-      object BitBtn8: TBitBtn
-        Left = 660
-        Top = 2
-        Width = 110
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Possibilita a troca de produtos dos pedido selecionado'
-        Caption = 'Or'#231'amento'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 6
-        OnClick = BitBtn8Click
-        Glyph.Data = {
-          06030000424D060300000000000036000000280000000F0000000F0000000100
-          180000000000D002000000000000000000000000000000000000EFEBEFEFEBEF
-          EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEB
-          EFEFEBEFEFEBEF000000EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEF
-          EBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEF000000EFEBEFEFEBEF
-          6361636B696B636163636163EFEBEFEFEBEFEFEBEF6361636B6163636163EFEB
-          EFEFEBEFEFEBEF000000EFEBEF6B61639C86848471736B61637B797B6B6163EF
-          EBEF6B6163CEAEADA58E8C8471736B696BEFEBEFEFEBEF000000EFEBEF636163
-          DEDFDED6BEBDBD9694847173636163EFEBEF6B696BD6C7C6CEB6B5BD96949C71
-          73636163EFEBEF000000EFEBEFEFEBEFBDA6A5D6AEADB586849C86849CA6946B
-          6163CEC7C6D6C7C6C69694C69694A58E8C636163EFEBEF000000EFEBEFBDA6A5
-          F7C77BD69694DEAE843971395238316B51529C965AD6A6A5CE696B94696B7371
-          73EFEBEFEFEBEF000000EFEBEFBDA6A5FFBE4AE7AE42D6A64A31613139A62152
-          3831735118BD8E31DEAE84B586846B6163EFEBEFEFEBEF000000EFEBEFBDA6A5
-          FFCF6B31613139A62139713921C74A08A618524110735118BD8E31F7AE42BD8E
-          31636163EFEBEF000000EFEBEFBDA6A5FFE7943971394AE77B31D76B21BE4A18
-          B63110AE21524110A57942E7B663C67973636163EFEBEF000000EFEBEFBDA6A5
-          EFE7BD3161315AF78C4AE77B31D76B21BE4A18B631009E00D6BE84F7C77B9C96
-          5A6B6163EFEBEF000000EFEBEFEFEBEFBDA6A539713939A62139A621009E0031
-          D76B009E00D6BE84F7DF9CFFE794636163EFEBEFEFEBEF000000EFEBEFEFEBEF
-          EFEBEFEFEBEFEFEBEFEFEBEF009E00009E009C8684BDA6A5BDA6A5E7CFA56361
-          63EFEBEFEFEBEF000000EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEF009E00EF
-          EBEFEFEBEFEFEBEFEFEBEFBDA6A5BDA6A5EFEBEFEFEBEF000000EFEBEFEFEBEF
-          EFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEBEFEFEB
-          EFEFEBEFEFEBEF000000}
-      end
-    end
-    inherited DBGridCadastroPadrao: TDBGrid
-      Top = 133
-      Width = 774
-      Height = 358
-      Font.Charset = ANSI_CHARSET
-      Font.Height = -12
-      Font.Name = 'Verdana'
-      PopupMenu = PMFisco
-      TabOrder = 4
-      OnDrawColumnCell = DBGridCadastroPadraoDrawColumnCell
-      OnDblClick = DBGridCadastroPadraoDblClick
-      OnKeyDown = DBGridCadastroPadraoKeyDown
-      Columns = <
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'EXPORTADO'
-          Title.Alignment = taCenter
-          Title.Caption = '  '
-          Width = 57
-          Visible = True
-        end
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'EXP'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Verdana'
-          Font.Style = [fsBold]
-          Title.Alignment = taCenter
-          Title.Caption = ' X '
-          Width = 21
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMORC'
-          Title.Caption = 'N'#186' Or'#231'.'
-          Width = 49
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMERO'
-          Title.Caption = 'N'#186
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMFISCAL'
-          Title.Caption = 'N'#186' Fiscal'
-          Width = 60
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'BOX'
-          Title.Caption = 'Box'
-          Width = 48
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PLACA'
-          Title.Caption = 'Placa'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'CLIENTE'
-          Title.Caption = 'Cliente'
-          Width = 183
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'EQUIPAMENTO'
-          Title.Caption = 'Equipamento'
-          Width = 80
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'FORMAPAG'
-          Title.Caption = 'Pagamento'
-          Width = 80
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'STATUS'
-          Title.Caption = 'Status'
-          Width = 60
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'TOTAL'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTABERT'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTPREV'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTABERT'
-          Title.Caption = 'Abertura'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'TOTAL'
-          Title.Caption = 'Vlr. Total'
-          Width = 70
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DTPREV'
-          Title.Caption = 'Previs'#227'o'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'CI_CLIENTE'
-          Title.Caption = 'C'#243'd. Cliente'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'TIPOPAG'
-          Title.Caption = 'Tipo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_ORDEM'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_EQUIPAMENTO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_FUNCIONARIO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_VENDEDOR'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMERO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'STATUS'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'CI_CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'CLIENTE'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'EQUIPAMENTO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'COD_LOJA'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'GARANT'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMORC'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'MARK'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'FISCO'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'NUMFISCAL'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'FORMAPAG'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'TIPOPAG'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'DTFECH'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'TIPO'
-          Title.Caption = 'Tipo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DTAGENDADO'
-          Title.Caption = 'Agendado'
-          Visible = True
-        end>
-    end
-    object Panel5: TPanel
-      Left = 4
-      Top = 29
-      Width = 772
-      Height = 29
-      BevelInner = bvLowered
-      Color = 16772332
-      TabOrder = 5
-      object BitBtn2: TBitBtn
-        Left = 551
-        Top = 2
-        Width = 110
-        Height = 25
-        Caption = '&Comissionados'
-        TabOrder = 1
-        OnClick = BitBtn2Click
-        Glyph.Data = {
-          42010000424D4201000000000000760000002800000011000000110000000100
-          040000000000CC00000000000000000000001000000010000000000000000000
-          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
-          7777700000007777777770000000000000007777777770FFFFFF000000007777
-          777770F8888F000000007777777770FFFFFF000000007777777770F8888F0000
-          00007444444440FFFFFF000000007488888880F8888F000000007477777770FF
-          FFFF000000007470070070000000000000007477777777774777700000007470
-          0700700747777000000074777777777747747000000074444444444447444000
-          000074F44F44F44F477470000000744444444444477770000000777777777777
-          777770000000}
-      end
-      object BtnCancelamentos: TBitBtn
-        Left = 442
-        Top = 2
-        Width = 110
-        Height = 25
-        Cursor = crHandPoint
-        Hint = 'Possibilita a troca de produtos dos pedido selecionado'
-        Caption = 'Cancelamentos'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 0
-        OnClick = BtnCancelamentosClick
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000130B0000130B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
-          333333333333337FF3333333333333903333333333333377FF33333333333399
-          03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
-          99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
-          99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
-          03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
-          33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
-          33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
-          3333777777333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object BitBtn15: TBitBtn
-        Left = 660
-        Top = 2
-        Width = 110
-        Height = 25
-        Caption = 'Gaveta'
-        TabOrder = 2
-        OnClick = BitBtn15Click
-        Glyph.Data = {
-          E6010000424DE601000000000000360000002800000010000000090000000100
-          180000000000B001000000000000000000000000000000000000C0C0C0948E8E
-          7B73737B73737B73737B73737B73737B73737B73737B73737B73737B73737B73
-          737B73739F9999C0C0C0A29B9B5E5959B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4
-          AFB0B4AFB0B4AFB0B4AFB0B4AFB097C6A5B4AFB05E5959A29B9B7B7373B4AFB0
-          D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D87975753DB1
-          625F5C5CB4AFB07B73737B7373B4AFB0D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5
-          D9D8E5D9D8E5D9D8E5D9D8618E6E0AEA54545151B4AFB07B73737B7373BDB8B9
-          D8D6D5E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D8E5D9D879757531C0
-          60646563B5B0B17B73737B7373C4BFBFD8D6D5FFFFFFFFFFFFFFFFFFFFFFFFFF
-          FFFFFFFFFFFFFFFFFFFFFFFFFFFFC9F7D9D9D6D6C6C2C17B7373CECBCBBCB8B8
-          B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B4AFB0B5B0
-          B1B4AFB0BCB8B8CECBCBC0C0C0E7E6E6D7D5D4C9C6C5E1E0E1EBEBEDEDEDEFED
-          EDEFEDEDEFEDEDEFECECEEDFDEDFC9C6C5D7D5D4E7E6E6C0C0C0C0C0C0C0C0C0
-          C0C0C0C0C0C0DDDBDBD4D2D1CFCDCCCFCDCCCFCDCCCFCDCCD6D4D3DDDBDBC0C0
-          C0C0C0C0C0C0C0C0C0C0}
-      end
-      object BtnDevolucao: TBitBtn
-        Left = 334
-        Top = 2
-        Width = 108
-        Height = 25
-        Cursor = crHandPoint
-        Caption = 'Devolu'#231#227'o'
-        PopupMenu = PMDev
-        TabOrder = 3
-        OnClick = BtnDevolucaoClick
-        Glyph.Data = {
-          EE030000424DEE03000000000000360000002800000012000000110000000100
-          180000000000B803000000000000000000000000000000000000FFFFFFFFFFFF
-          FFFFFFA59E9C5A555A5A5D637B797BA5A2A5ADA6ADADAAADB5AEB5848284524D
-          526B696BD6CBCEFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF7B797B6B656BA5A2
-          ADCEC3C6D6C7C6F7E3DEDECBBDBDAAA5BDAEA5E7D7D6DEDBDE94929C4A494AAD
-          A6ADFFFFFFFFFFFF0000FFFFFF8C8A8C8C8A8CADA6ADB5A29CC6B2A5C6B2ADAD
-          9A8C394D5A184D6B1838526B615AC6B2ADE7DFDEC6BAC64A494AB5AEADFFFFFF
-          0000C6BEBDA59AA5A59E9C94796B947D6B5A4D396345183930211875AD31A6E7
-          2175AD103410424129B5927BD6CBC6BDB6BD424142E7D7D60000B5AEB5A59EA5
-          635139946D4A5A4529A57508DE9608735D18298AC631A2DE2986BD2175182149
-          088C61399C7552D6CFCE7B798473716B0000BDBAC663514A6B45187B5121634D
-          21F7AE21EFA610946D1818699431A2E72175AD297518295510844D217B4D189C
-          795AD6D3D63938390000A59A9C5A38106B3C00733C00634518D6A221E7A2106B
-          5518216994319EDE297DBD215D292949087341087B41086B3C089C8A73737173
-          00008C7D736B38086B3800734108523C18C68E18DE9E08525D52299EDE319EDE
-          319ADE296D631845086B38107B4500733C005A28009C928C0000947D73633400
-          6B3C006B3C088C6921EFAA10DE9A0852614A299ADE319EDE399EE7317563216D
-          085230088449006B3C0063300084757300008475636B38086B38007341109471
-          21F7AE18E79E0852614A2192D6298AC6298ACE316D52216D0863380884450073
-          3C085A30008C7D7B00007B7173522C006B3C006B3C089C7D39EFAA18D68E088C
-          6D294A6D8C4A596B2949392986082179105230087B45086B38005A3408847D7B
-          0000B5B2BD4228106B3800734108BDA284B59E845A49395A3C18BDAAADCEC3CE
-          4A4942294D213941106B3C087341006B3C08948A845A555A0000E7E3EF5A514A
-          5A30006B38007B5129A59EADB5AABD393831B5A294D6D3DE8479847B7184522C
-          107B45006B38006B4D29B5B2BD524D520000FFFFFFBDB6BD4A30187B49189C7D
-          5AD6CFCEB5AEBD5A514AA5825AE7CFC6D6CFD6847984735D4AA5754A5A30009C
-          8E8C7B797BA59A9C0000FFFFFFFFFFFF9C969C634D39BD9E8CD6C7BDA59694B5
-          A294D6BEADD6BEADBDAAA5A5968CD6B6A5846D52736563A5A6AD736D73FFFFFF
-          0000FFFFFFFFFFFFFFFFFFA59EA563594A8C715ABD9E84D6B6A5D6BAADCEB6A5
-          C6AA94AD8E736B51396B6563B5B2BD8C868CFFFFFFFFFFFF0000FFFFFFFFFFFF
-          FFFFFFFFFFFFC6C3CE736D6B5A45297B55317B55317B5129735129524939948A
-          94BDBABDB5AAADFFFFFFFFFFFFFFFFFF0000}
-      end
-    end
-    object CBFILTRO: TComboBox
-      Left = 8
-      Top = 80
-      Width = 97
-      Height = 21
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Verdana'
-      Font.Style = [fsBold]
-      ItemHeight = 13
-      ParentFont = False
-      TabOrder = 1
-      Text = 'TODAS'
-      OnClick = CBFILTROClick
-      OnExit = CBORDEMExit
-      OnSelect = CBORDEMExit
-      Items.Strings = (
-        'TODAS'
-        'ABERTAS'
-        'FECHADAS'
-        'TERMINADAS'
-        'FINALIZADO'
-        'AGENDADO')
-    end
-    object CBORDEM: TComboBox
-      Left = 112
-      Top = 80
-      Width = 97
-      Height = 21
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Verdana'
-      Font.Style = [fsBold]
-      ItemHeight = 13
-      ParentFont = False
-      TabOrder = 2
-      Text = 'DATA'
-      OnClick = CBORDEMClick
-      OnExit = CBORDEMExit
-      OnSelect = CBORDEMExit
-      Items.Strings = (
-        'CADASTRO'
-        'N'#218'MERO'
-        'CLIENTE'
-        'DATA'
-        'BOX')
-    end
-    object BtnSelecionaOrdem: TBitBtn
-      Left = 668
-      Top = 108
-      Width = 108
-      Height = 23
-      Caption = 'Selecionar - F9'
-      TabOrder = 9
-      Visible = False
-      OnClick = BtnSelecionaOrdemClick
-      Glyph.Data = {
-        42010000424D4201000000000000760000002800000011000000110000000100
-        040000000000CC00000000000000000000001000000010000000000000000000
-        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
-        7777700000007777777777777777700000007777777774F77777700000007777
-        7777444F77777000000077777774444F777770000000700000444F44F7777000
-        000070FFF444F0744F777000000070F8884FF0774F777000000070FFFFFFF077
-        74F77000000070F88888F077774F7000000070FFFFFFF0777774F000000070F8
-        8777F07777774000000070FFFF00007777777000000070F88707077777777000
-        000070FFFF007777777770000000700000077777777770000000777777777777
-        777770000000}
-    end
   end
   object ImageList1: TImageList
     Left = 546

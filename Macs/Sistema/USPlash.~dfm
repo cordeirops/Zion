@@ -1,8 +1,7 @@
 object FSplash: TFSplash
-  Left = 310
-  Top = 141
+  Left = 354
+  Top = 163
   BorderStyle = bsNone
-  Caption = 'f'
   ClientHeight = 247
   ClientWidth = 440
   Color = 17618

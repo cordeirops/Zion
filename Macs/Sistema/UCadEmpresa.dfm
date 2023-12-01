@@ -1,6 +1,6 @@
 inherited FCadEmpresa: TFCadEmpresa
-  Left = 365
-  Top = 141
+  Left = 217
+  Top = 160
   Caption = 'FCadEmpresa'
   ClientHeight = 413
   ClientWidth = 742
@@ -102,7 +102,7 @@ inherited FCadEmpresa: TFCadEmpresa
         Top = 0
         Width = 720
         Height = 368
-        ActivePage = TabSheet1
+        ActivePage = TabSheet2
         TabOrder = 2
         object TabSheet1: TTabSheet
           Caption = 'Dados da Empresa'
@@ -1168,8 +1168,8 @@ inherited FCadEmpresa: TFCadEmpresa
               object Label34: TLabel
                 Left = 5
                 Top = 20
-                Width = 80
-                Height = 19
+                Width = 59
+                Height = 22
                 Caption = 'Varejo:'
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clTeal
@@ -1207,8 +1207,8 @@ inherited FCadEmpresa: TFCadEmpresa
               object Label40: TLabel
                 Left = 5
                 Top = 82
-                Width = 95
-                Height = 19
+                Width = 75
+                Height = 22
                 Caption = 'Atacado:'
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clTeal
@@ -1247,7 +1247,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 125
                 Top = 57
                 Width = 118
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'CVPPROVAR'
                 DataSource = DMMACS.DsEmpresa
@@ -1267,7 +1267,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 5
                 Top = 57
                 Width = 118
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'CVVPROVAR'
                 DataSource = DMMACS.DsEmpresa
@@ -1287,7 +1287,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 5
                 Top = 117
                 Width = 118
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'CVVPROAT'
                 DataSource = DMMACS.DsEmpresa
@@ -1307,7 +1307,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 125
                 Top = 117
                 Width = 118
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'CVPPROAT'
                 DataSource = DMMACS.DsEmpresa
@@ -1363,8 +1363,8 @@ inherited FCadEmpresa: TFCadEmpresa
               object Label39: TLabel
                 Left = 4
                 Top = 20
-                Width = 80
-                Height = 19
+                Width = 59
+                Height = 22
                 Caption = 'Varejo:'
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clTeal
@@ -1402,8 +1402,8 @@ inherited FCadEmpresa: TFCadEmpresa
               object Label31: TLabel
                 Left = 4
                 Top = 71
-                Width = 95
-                Height = 19
+                Width = 75
+                Height = 22
                 Caption = 'Atacado:'
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clTeal
@@ -1442,7 +1442,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 93
                 Top = 42
                 Width = 29
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'AVVPROVAR'
                 DataSource = DMMACS.DsEmpresa
@@ -1462,7 +1462,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 213
                 Top = 42
                 Width = 29
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'AVPPROVAR'
                 DataSource = DMMACS.DsEmpresa
@@ -1482,7 +1482,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 89
                 Top = 92
                 Width = 29
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'AVVPROAT'
                 DataSource = DMMACS.DsEmpresa
@@ -1502,7 +1502,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 210
                 Top = 92
                 Width = 29
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'AVPPROAT'
                 DataSource = DMMACS.DsEmpresa
@@ -1701,7 +1701,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 6
                 Top = 40
                 Width = 83
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'IMPEST'
                 DataSource = DMMACS.DsEmpresa
@@ -1721,7 +1721,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 104
                 Top = 39
                 Width = 77
-                Height = 19
+                Height = 23
                 Ctl3D = False
                 DataField = 'IMPFED'
                 DataSource = DMMACS.DsEmpresa
@@ -1796,7 +1796,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 8
                 Top = 210
                 Width = 97
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'ALIQICMS'
                 DataSource = DMMACS.DsEmpresa
@@ -1817,7 +1817,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 8
                 Top = 259
                 Width = 41
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'CRT'
                 DataSource = DMMACS.DsEmpresa
@@ -1838,7 +1838,7 @@ inherited FCadEmpresa: TFCadEmpresa
                 Left = 8
                 Top = 307
                 Width = 169
-                Height = 19
+                Height = 22
                 Ctl3D = False
                 DataField = 'VALORTOTALTRIBUTA'
                 DataSource = DMMACS.DsEmpresa
@@ -1855,6 +1855,137 @@ inherited FCadEmpresa: TFCadEmpresa
                 InputText = 'Por favor entre na procura pelo crit'#233'rio'
                 ButtonCaption = 'Ok'
               end
+            end
+          end
+          object cbRetemImpostos: TCheckBox
+            Left = 516
+            Top = 16
+            Width = 157
+            Height = 17
+            Caption = 'Retem impostos'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 3
+            OnClick = cbRetemImpostosClick
+          end
+          object pRetemImpostos: TPanel
+            Left = 516
+            Top = 32
+            Width = 185
+            Height = 201
+            Color = clWhite
+            TabOrder = 4
+            object Label67: TLabel
+              Left = 20
+              Top = 48
+              Width = 60
+              Height = 13
+              Caption = 'Al'#237'quota Pis:'
+            end
+            object Label68: TLabel
+              Left = 20
+              Top = 92
+              Width = 75
+              Height = 13
+              Caption = 'Al'#237'quota Cofins:'
+            end
+            object Label69: TLabel
+              Left = 20
+              Top = 8
+              Width = 71
+              Height = 13
+              Caption = 'Al'#237'quota IRRF:'
+            end
+            object Label70: TLabel
+              Left = 20
+              Top = 140
+              Width = 72
+              Height = 13
+              Caption = 'Al'#237'quota CSLL:'
+            end
+            object DBColorEdit11: TDBColorEdit
+              Left = 20
+              Top = 64
+              Width = 90
+              Height = 20
+              Ctl3D = False
+              DataField = 'ALIQ_RETEM_PIS'
+              DataSource = DMMACS.DsEmpresa
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 1
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit12: TDBColorEdit
+              Left = 20
+              Top = 108
+              Width = 90
+              Height = 20
+              Ctl3D = False
+              DataField = 'ALIQ_RETEM_COFINS'
+              DataSource = DMMACS.DsEmpresa
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 2
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit13: TDBColorEdit
+              Left = 20
+              Top = 22
+              Width = 90
+              Height = 20
+              Ctl3D = False
+              DataField = 'ALIQ_RETEM_IRRF'
+              DataSource = DMMACS.DsEmpresa
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit14: TDBColorEdit
+              Left = 20
+              Top = 156
+              Width = 90
+              Height = 20
+              Ctl3D = False
+              DataField = 'ALIQ_RETEM_CSLL'
+              DataSource = DMMACS.DsEmpresa
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentCtl3D = False
+              ParentFont = False
+              TabOrder = 3
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
             end
           end
         end
@@ -1987,7 +2118,7 @@ inherited FCadEmpresa: TFCadEmpresa
             Left = 144
             Top = 176
             Width = 113
-            Height = 19
+            Height = 20
             Ctl3D = False
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText

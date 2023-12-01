@@ -162,7 +162,7 @@ inherited FTroca: TFTroca
     object DBText2: TDBText
       Left = 66
       Top = 27
-      Width = 49
+      Width = 48
       Height = 13
       AutoSize = True
       DataField = 'NOMECLI'
@@ -177,7 +177,7 @@ inherited FTroca: TFTroca
     object DBText3: TDBText
       Left = 435
       Top = 9
-      Width = 49
+      Width = 48
       Height = 13
       AutoSize = True
       DataField = 'FORMPAG'
@@ -192,7 +192,7 @@ inherited FTroca: TFTroca
     object DBText4: TDBText
       Left = 206
       Top = 9
-      Width = 49
+      Width = 48
       Height = 13
       AutoSize = True
       DataField = 'DTPEDVEN'
@@ -207,7 +207,7 @@ inherited FTroca: TFTroca
     object DBText6: TDBText
       Left = 95
       Top = 9
-      Width = 49
+      Width = 48
       Height = 13
       AutoSize = True
       DataField = 'NUMPED'
@@ -237,7 +237,7 @@ inherited FTroca: TFTroca
     object DBText1: TDBText
       Left = 499
       Top = 27
-      Width = 49
+      Width = 48
       Height = 13
       AutoSize = True
       DataField = 'VENDEDOR'

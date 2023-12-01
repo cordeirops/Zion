@@ -2,7 +2,6 @@ object FMzrNfe: TFMzrNfe
   Left = 308
   Top = 129
   BorderStyle = bsNone
-  Caption = ']'
   ClientHeight = 475
   ClientWidth = 766
   Color = clBtnFace

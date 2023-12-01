@@ -911,10 +911,6 @@ Begin
                DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency:=DMSAIDA.TItemPV.FieldByName('VALORTOTAL').AsCurrency;
 				XTotPedDev:=XTotPedDev+DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency;
 				DMENTRADA.TItemPC.Post;
-               //ATULIZA ESTOQUE
-               DMESTOQUE.TEstoque.Edit;
-	            DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
-			    DMESTOQUE.TEstoque.Post;
                DMESTOQUE.TransacEstoque.CommitRetaining;
 				//ATULIZA O ESTOQUE DO LOTE
   				if DMMACS.TLoja.FieldByName('USAOBSITEMCOMPRA').AsString = '1'
@@ -1165,10 +1161,6 @@ Begin
 			DMENTRADA.TItemPC.FieldByName('COD_CST').AsInteger:=DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
            DMENTRADA.TItemPC.FieldByName('CFOP').AsString:=XCfopDev;
            DMENTRADA.TItemPC.Post;
-           //ATULIZA ESTOQUE
-           DMESTOQUE.TEstoque.Edit;
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
-           DMESTOQUE.TEstoque.Post;
            DMESTOQUE.TSlave.Next;
        End;
 
@@ -1730,14 +1722,14 @@ begin
                DMSAIDA.TAlx.Close;//05/05/2009:  sql na unha
                DMSAIDA.TAlx.SQL.Clear;
                DMSAIDA.TAlx.SQL.Add('insert into ITENSPEDVEN');
-               DMSAIDA.TAlx.SQL.Add('(COD_ITENSPEDVEN, COD_PEDVEN, COD_ESTOQUE, QTDEPROD, DESCPRO, COD_FUNCIONARIO,');
+               DMSAIDA.TAlx.SQL.Add('(COD_ITENSPEDVEN, COD_PEDVEN, COD_ESTOQUE, QTDEPROD, DESCPRO, COD_FUNCIONARIO, APLICARST, ');
                DMSAIDA.TAlx.SQL.Add('VALUNIT, VALCUSTO, VALORTOTAL, ATUEST, VALREP, COEFDIV, VALCOMP, COD_CST, LUCPER,');
                DMSAIDA.TAlx.SQL.Add('LUCMOE, DATA, COMISSAO, OPERACAO, LUCREL, VLRVENDBD, QTDDEV, NUMITEM,');
                DMSAIDA.TAlx.SQL.Add('COD_LOTE, ALIQICMS, BASEICMS, VLRICMS, BASEICMSSUBS, VLRIPI, ALIQIPI,');
                DMSAIDA.TAlx.SQL.Add('REDUCBASEICMS, VLRICMSSUBS, VLRUNITDEV, QTDENTREGUE, COD_UNIDADE, QTDEMB,');
                DMSAIDA.TAlx.SQL.Add('UNIDEMB, QTDNAEMB, CFOP, TIPOLISTA, IPNPMC, IPNMVA, ALIQ_DEVOLVIDO)');
                DMSAIDA.TAlx.SQL.Add('values');
-               DMSAIDA.TAlx.SQL.Add('(:COD_ITENSPEDVEN, :COD_PEDVEN, :COD_ESTOQUE, :QTDEPROD, :DESCPRO, :COD_FUNCIONARIO,');
+               DMSAIDA.TAlx.SQL.Add('(:COD_ITENSPEDVEN, :COD_PEDVEN, :COD_ESTOQUE, :QTDEPROD, :DESCPRO, :COD_FUNCIONARIO, :APLICARST, ');
                DMSAIDA.TAlx.SQL.Add(':VALUNIT, :VALCUSTO, :VALORTOTAL, :ATUEST, :VALREP, :COEFDIV, :VALCOMP, :COD_CST, ');
                DMSAIDA.TAlx.SQL.Add(':LUCPER, :LUCMOE, :DATA, :COMISSAO, :OPERACAO, :LUCREL, :VLRVENDBD,');
                DMSAIDA.TAlx.SQL.Add(':QTDDEV, :NUMITEM, :COD_LOTE, :ALIQICMS, :BASEICMS, :VLRICMS, :BASEICMSSUBS,');
@@ -1750,6 +1742,13 @@ begin
                DMSAIDA.TAlx.ParamByName('DESCPRO').AsCurrency:=0;
                DMSAIDA.TAlx.ParamByName('QTDEPROD').AsCurrency:=DMMACS.TMP.FieldByName('VLR1').AsCurrency;
                DMSAIDA.TAlx.ParamByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.TFuncionario.FieldByName('cod_func').AsInteger;
+
+               DMSAIDA.TAlx.ParamByName('IPNMVA').AsInteger := DMMACS.TMP.FieldByName('VLR12').AsInteger;
+
+               If DMMACS.TMP.FieldByName('VLR12').AsInteger > 0 Then
+                   DMSAIDA.TAlx.ParamByName('APLICARST').AsString := '1'
+               Else
+                   DMSAIDA.TAlx.ParamByName('APLICARST').AsString := '0';
                DMSAIDA.TAlx.ParamByName('DATA').AsDate := Date();
                DMSAIDA.TAlx.ParamByName('OPERACAO').AsString := 'DEV';
                DMSAIDA.TAlx.ParamByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
@@ -1779,7 +1778,6 @@ begin
                If DMMacs.TLoja.FieldByName('ATUAESTOQUE').AsString='1'
                Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
                    DMESTOQUE.TEstoque.Edit;
-                   DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-DMMACS.TMP.FieldByName('VLR1').AsCurrency;
                    DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString:=DateToStr(Date());
                    DMESTOQUE.TEstoque.Post;
                End;
@@ -1934,7 +1932,6 @@ begin
                            FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsString, '');
                            //Alex 02/08/2012: Atualiza Estoque
                            DMESTOQUE.TEstoque.Edit;
-                           DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=0;
                            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                            DMESTOQUE.TEstoque.Post;
                            //Apaga registro
@@ -1975,7 +1972,6 @@ begin
                             Begin
                                FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMESTOQUE.Alx2.FieldByName('COD_ESTOQUE').AsInteger),'');
                                DMEstoque.TEstoque.Edit;
-                               DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-1;
                                DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                                DMESTOQUE.TEstoque.Post;
 
@@ -2614,7 +2610,6 @@ begin
            			Then Begin //se o estoque deve ser atualizado no pedido executa procedimento
                          	DMESTOQUE.TEstoque.Edit;
            				//atualiza estoque físico
-							DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
                            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                				//informa que o registro atualizou estoque
                				DMSAIDA.TItemPV.FieldByName('ATUEST').AsString:='1';
@@ -2637,12 +2632,6 @@ begin
                              DMESTOQUE.TEstoque.Post;
                              DMESTOQUE.TransacEstoque.CommitRetaining;
            			End;
-
-                         DMESTOQUE.TEstoque.Edit;
-
-       				//Atualiza saldo de estoque
-                       	DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency:=(DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMEstoque.TEstoque.FieldByName('ESTPED').AsCurrency)-DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency;
-
        				DMSAIDA.TItemPV.Post;
 						DMEstoque.TEstoque.Post;
                          DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -3261,10 +3250,6 @@ begin
        DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency:=EdvlrUnitProdDev.ValueNumeric*EdQtdProdDev.ValueNumeric;
 		XTotPedDev:=XTotPedDev+(EdvlrUnitProdDev.ValueNumeric*EdQtdProdDev.ValueNumeric);
        DMENTRADA.TItemPC.Post;
-       //ATULIZA ESTOQUE
-       DMESTOQUE.TEstoque.Edit;
-       DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+EdQtdProdDev.ValueNumeric;
-       DMESTOQUE.TEstoque.Post;
        DMESTOQUE.TransacEstoque.CommitRetaining;
        //ATULIZA O ESTOQUE DO LOTE
        if DMMACS.TLoja.FieldByName('USAOBSITEMCOMPRA').AsString = '1'
@@ -3435,7 +3420,7 @@ begin
   inherited;
 	IniciaPagamento('PEDVENDA', DMSAIDA.WPedV.FieldByName('cod_pedvenda').AsInteger);
 
-	 If xResultadoPagamento = False Then
+	 If xResultadoPagamento = 'ERRO' Then
 		Exit;
 
 	If (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NF')
@@ -3625,26 +3610,6 @@ begin
                DMSAIDA.TAlx.ParamByName('IPNPMC').AsCurrency:=  DMESTOQUE.Alx1.FieldByName('IPNPMC').AsCurrency;
                DMSAIDA.TAlx.ParamByName('IPNMVA').AsCurrency:= DMESTOQUE.Alx1.FieldByName('IPNMVA').AsCurrency;
                DMSAIDA.TAlx.ExecSQL;
-               If FiltraTabela(DMESTOQUE.TEstoque, 'estoque', 'cod_estoque', DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsString, '' )
-               Then Begin
-               	Try
-                   	DMESTOQUE.TEstoque.Edit;
-                   	DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency-DMESTOQUE.Alx1.FieldByName('QTDEPROD').AsCurrency;
-                   	DMESTOQUE.TEstoque.Post;
-                   Except
-                       DMMACS.TALX.Close;
-                       DMMACS.TALX.SQL.Clear;
-                       DMMACS.TALX.SQL.Add(' Select subproduto.contrint, subproduto.cod_subproduto from subproduto ');
-                       DMMACS.TALX.SQL.Add(' left join estoque on subproduto.cod_subproduto = estoque.cod_subprod ');
-                       DMMACS.TALX.SQL.Add(' where estoque.cod_estoque=:codigo ');
-                       DMMACS.TALX.ParamByName('codigo').AsInteger:=DMESTOQUE.Alx1.FieldByName('COD_ESTOQUE').AsInteger;
-                       DMMACS.TALX.Open;
-                       If Not DMMACS.TALX.IsEmpty Then
-                   		MessageDlg('O Estoque do Item de código '+ DMMACS.TALX.FieldByName('contrint').AsString+' não foi atualizado, por favor, atualize manualmente', mtWarning, [mbOK], 0)
-                       Else
-                   		MessageDlg('Um Item do pedido não teve estoque atualizado, por favor, atualize manualmente', mtWarning, [mbOK], 0);
-                   End;
-               End;
            Except
                DMMACS.TALX.Close;
                DMMACS.TALX.SQL.Clear;
@@ -7211,23 +7176,6 @@ Begin
      if FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(XCodEstoque) , '')
      then begin
          DMESTOQUE.CalcCustMed(XCodEstoque , 'S', 1, 0);
-         If DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString=''
-         Then Begin
-            DMEstoque.TEstoque.edit;
-            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString:='0';
-            DMESTOQUE.TEstoque.Post;
-            DMESTOQUE.TransacEstoque.CommitRetaining;
-         End
-         Else Begin
-            DMESTOQUE.TEstoque.Edit;
-            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-1;
-            DMESTOQUE.TEstoque.Post;
-            DMESTOQUE.TransacEstoque.CommitRetaining;
-         End;
-         //Atualiza saldo de estoque
-
          //prepara estoque em pedido de compra
          If DMEstoque.TEstoque.FieldByName('ESTPED').AsString='' Then
              XEstPed:=0
@@ -7250,7 +7198,6 @@ Begin
          Try
              DMESTOQUE.TEstoque.Edit;
              DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-             DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(XEstPed-XEstReserv)+XEstFisico;
              DMESTOQUE.TEstoque.Post;
              DMESTOQUE.TransacEstoque.CommitRetaining;
          Except
@@ -7280,14 +7227,12 @@ Begin
          Then Begin
             DMEstoque.TEstoque.edit;
             DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString:='1';
             DMESTOQUE.TEstoque.Post;
             DMESTOQUE.TransacEstoque.CommitRetaining;
          End
          Else Begin
             DMESTOQUE.TEstoque.Edit;
             DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+1;
             DMESTOQUE.TEstoque.Post;
             DMESTOQUE.TransacEstoque.CommitRetaining;
          End;
@@ -7314,7 +7259,6 @@ Begin
          Try
              DMESTOQUE.TEstoque.Edit;
              DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-             DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(XEstPed-XEstReserv)+XEstFisico;
              DMESTOQUE.TEstoque.Post;
              DMESTOQUE.TransacEstoque.CommitRetaining;
          Except
@@ -8220,7 +8164,6 @@ begin
                            FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsString, '');
                            //Alex 02/08/2012: Atualiza Estoque
                            DMESTOQUE.TEstoque.Edit;
-                           DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=0;
                            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                            DMESTOQUE.TEstoque.Post;
                            //Apaga registro
@@ -8261,7 +8204,6 @@ begin
                             Begin
                                FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(DMESTOQUE.Alx2.FieldByName('COD_ESTOQUE').AsInteger),'');
                                DMEstoque.TEstoque.Edit;
-                               DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-1;
                                DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                                DMESTOQUE.TEstoque.Post;
 
@@ -8625,24 +8567,6 @@ Begin
      //REMOVE ITENS E EM SEGUIDA O PEDIDO
      While Not(MDO.QConsulta.Eof) do
      Begin
-     	 //Antes de remover os itens, atualize o estoque físico devolvendo os itens
-        MDO.QAlx1.Close;
-        MDO.QAlx1.SQL.Clear;
-        MDO.QAlx1.SQL.Add('SELECT * FROM ITENSPEDVEN WHERE ITENSPEDVEN.COD_PEDVEN=:COD_PEDVEN');
-        MDO.QALX1.ParamByName('COD_PEDVEN').AsInteger :=  MDO.QConsulta.FieldByName('COD_PEDVENDA').AsInteger;
-        MDO.QAlx1.Open;
-        MDO.QAlx1.First;
-        While Not (MDO.QAlx1.Eof) Do
-        Begin
-          MDO.Query.Close;
-          MDO.Query.SQL.Clear;
-          MDO.Query.SQL.Add('UPDATE ESTOQUE SET ESTFISICO = ESTFISICO + :QTDITENS WHERE ESTOQUE.COD_ESTOQUE = :COD');
-          MDO.Query.ParamByName('QTDITENS').AsFloat := MDO.QAlx1.FieldByName('QTDENTREGUE').AsFloat;
-          MDO.Query.ParamByName('COD').AsInteger := MDO.QAlx1.FieldByName('COD_ESTOQUE').AsInteger;
-	       MDO.Query.ExecSQL;
-          MDO.QAlx1.Next;
-        End;
-
         //ITENS
         MDO.Query.Close;
         MDO.Query.SQL.Clear;
@@ -8750,8 +8674,7 @@ Begin
       //Atualiza estoque físico para cada um dos itens
       MDO.QAlx2.Close;
       MDO.QAlx2.SQL.Clear;
-      MDO.QAlx2.SQL.Add('UPDATE ESTOQUE SET ESTFISICO = ESTFISICO - :QTDITENS, ULTVENDA = :ULTVENDA WHERE ESTOQUE.COD_ESTOQUE = :COD');
-      MDO.QAlx2.ParamByName('QTDITENS').AsFloat := MDO.QAlx1.FieldByName('QTDENTREGUE').AsFloat;
+      MDO.QAlx2.SQL.Add('UPDATE ESTOQUE SET ULTVENDA = :ULTVENDA WHERE ESTOQUE.COD_ESTOQUE = :COD');
       MDO.QAlx2.ParamByName('ULTVENDA').AsDateTime := Date();
       MDO.QAlx2.ParamByName('COD').AsInteger := MDO.QAlx1.FieldByName('COD_ESTOQUE').AsInteger;
       MDO.QAlx2.ExecSQL;

@@ -1817,12 +1817,14 @@ type
     QRLabel405: TQRLabel;
     QRSubTotalOrdem21: TQRLabel;
     QRLabel408: TQRLabel;
-    SearchPlaca: TBitBtn;
     actMain: TActionList;
     ActSearchPlaca: TAction;
+    BtnProcuraPlaca: TBitBtn;
+    C1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure CBFILTROPropertiesChange(Sender: TObject);
-    procedure DBGridConsultaDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGridConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure EDNumKeyPress(Sender: TObject; var Key: Char);
     procedure EDBoxKeyPress(Sender: TObject; var Key: Char);
     procedure MEPLACAKeyPress(Sender: TObject; var Key: Char);
@@ -1835,12 +1837,15 @@ type
     procedure EDCliente1Enter(Sender: TObject);
     procedure EDCliente1Exit(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
-    procedure FrmClienteEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FrmClienteEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure FrmClienteBTNOPENClick(Sender: TObject);
     procedure FBEquipPlacaEDCodigoExit(Sender: TObject);
-    procedure FBEquipPlacaEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FBEquipPlacaEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure FBEquipPlacaBTNOPENClick(Sender: TObject);
-    procedure FrmFormPag1EDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FrmFormPag1EDCodigoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure FrmFormPag1BTNOPENClick(Sender: TObject);
     procedure FrmFormPag1EDCodigoExit(Sender: TObject);
     procedure FBEquipPlacaEDCodigoKeyPress(Sender: TObject; var Key: Char);
@@ -1850,7 +1855,8 @@ type
     procedure ControleInterno1Click(Sender: TObject);
     procedure CdigoFabricante1Click(Sender: TObject);
     procedure Descrio1Click(Sender: TObject);
-    procedure EDCodFabKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EDCodFabKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure EDQuantidadeExit(Sender: TObject);
     procedure EDDescKeyPress(Sender: TObject; var Key: Char);
@@ -1881,10 +1887,13 @@ type
     procedure BtnDadosAdicClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
     procedure BtnConsultarClick(Sender: TObject);
-    procedure MEPLACAKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure EDCliente1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure MEPLACAKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
+    procedure EDCliente1KeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure PPesquisaExit(Sender: TObject);
-    procedure EDCliente1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EDCliente1KeyUp(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure CBFILTROClick(Sender: TObject);
     procedure BtnRelatorioClick(Sender: TObject);
     procedure CompdeAbertura1Click(Sender: TObject);
@@ -1894,7 +1903,8 @@ type
     procedure FrmFormPagBTNOPENClick(Sender: TObject);
     procedure FrmFormPagBTNMINUSClick(Sender: TObject);
     procedure BtnMoedaCancelarClick(Sender: TObject);
-    procedure FrmFormPagEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FrmFormPagEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure CBPagamentoExit(Sender: TObject);
     procedure DBGCTAKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FrmContaEDCodigoKeyPress(Sender: TObject; var Key: Char);
@@ -1905,7 +1915,8 @@ type
     procedure FrmContaServBTNMINUSClick(Sender: TObject);
     procedure BtnMoedaOKClick(Sender: TObject);
     procedure FrmFormPagExit(Sender: TObject);
-    procedure b(Sender: TObject; ACanvas: TCanvas; ARect: TRect; State: TOwnerDrawState);
+    procedure b(Sender: TObject; ACanvas: TCanvas; ARect: TRect; State:
+      TOwnerDrawState);
     procedure BtnCancelamentosClick(Sender: TObject);
     procedure CancTotClick(Sender: TObject);
     procedure CancFechaClick(Sender: TObject);
@@ -1937,7 +1948,8 @@ type
     procedure FrmCidadeEDCodigoKeyPress(Sender: TObject; var Key: Char);
     procedure BitBtn8Click(Sender: TObject);
     procedure Duplicata1Click(Sender: TObject);
-    procedure QRDUPLICATABeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+    procedure QRDUPLICATABeforePrint(Sender: TCustomQuickRep; var PrintReport:
+      Boolean);
     procedure BtnLiberaExportaClick(Sender: TObject);
     procedure OrdporSubstituioTributria1Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -1948,7 +1960,8 @@ type
     procedure SpeedButton2Click(Sender: TObject);
     procedure BRastrearClick(Sender: TObject);
     procedure btnConfirmarClick(Sender: TObject);
-    procedure edPlacaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edPlacaKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure edPlacaKeyPress(Sender: TObject; var Key: Char);
     procedure TransparentButton1Click(Sender: TObject);
     procedure EspelhoNotaFiscal1Click(Sender: TObject);
@@ -1957,7 +1970,8 @@ type
     procedure SintticodeOrdens1Click(Sender: TObject);
     procedure AnalticodeOrdens1Click(Sender: TObject);
     procedure ServiosPorEquipe1Click(Sender: TObject);
-    procedure DBGridConsultaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DBGridConsultaKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure ServiosporEquipecomFrota1Click(Sender: TObject);
     procedure EfetuarDevoluodeNotaFiscal1Click(Sender: TObject);
     procedure VisualizarDanfe1Click(Sender: TObject);
@@ -1971,7 +1985,8 @@ type
     procedure InutilizarNumerao1Click(Sender: TObject);
     procedure EDCodFabKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure SalvarXMLDistribuio1Click(Sender: TObject);
-    procedure DBGrid4DrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid4DrawColumnCell(Sender: TObject; const Rect: TRect; DataCol:
+      Integer; Column: TColumn; State: TGridDrawState);
     procedure RelatriodeOrdenseProdutos1Click(Sender: TObject);
     procedure cbTerceirosClick(Sender: TObject);
     procedure RelatriodeOrdenseServios1Click(Sender: TObject);
@@ -1982,35 +1997,60 @@ type
     procedure RvSystem1Print(Sender: TObject);
     procedure GerarXMLporPerodo1Click(Sender: TObject);
     procedure ICMSIndevido1Click(Sender: TObject);
-    procedure BandFinalBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QrAbertOrdem13BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
-    procedure BandProdBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure BandFinalBeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QrAbertOrdem13BeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
+    procedure BandProdBeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure ProdutoseServios1Click(Sender: TObject);
-    procedure QrAbertOrdem14MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
-    procedure QRSubDetail1BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure QrAbertOrdem14MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
+    procedure QRSubDetail1BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure QRBand6BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
     procedure QRBand3BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QrAbertOrdem14CompletoBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+    procedure QrAbertOrdem14CompletoBeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
     procedure QRBand8BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail3BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand12BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure RecuperareEnviarXMLdeCancelamento1Click(Sender: TObject); procedure QRSubDetail2BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail4BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QrAbertOrdem15MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
-    procedure QRBand14BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail5BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail6BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand17BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand19BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail7BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail8BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand22BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure BandServBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail11BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand32BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure EdPlaca2KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure QRSubDetail3BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand12BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure RecuperareEnviarXMLdeCancelamento1Click(Sender: TObject);
+    procedure QRSubDetail2BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail4BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QrAbertOrdem15MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
+    procedure QRBand14BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail5BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail6BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand17BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand19BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail7BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail8BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand22BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure BandServBeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail11BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand32BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure EdPlaca2KeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure EdPlaca2KeyPress(Sender: TObject; var Key: Char);
-    procedure EdPlaca3KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EdPlaca3KeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure EdPlaca3KeyPress(Sender: TObject; var Key: Char);
     procedure BtnInserirEnter(Sender: TObject);
     procedure BtnInserirExit(Sender: TObject);
@@ -2026,8 +2066,10 @@ type
     procedure ReimprimirNFSeClick(Sender: TObject);
     procedure RecuperarDadosdaNfse1Click(Sender: TObject);
     procedure cbRtIssClick(Sender: TObject);
-    procedure edDtInicialKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edDtFinalKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edDtInicialKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
+    procedure edDtFinalKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure BTNOPENClick(Sender: TObject);
     procedure BTNMINUSClick(Sender: TObject);
     procedure EDFISCALNFSEEnter(Sender: TObject);
@@ -2035,20 +2077,25 @@ type
     procedure EDFISCALNFSEKeyPress(Sender: TObject; var Key: Char);
     procedure EDBoxEnter(Sender: TObject);
     procedure CartadeCorreoEletrnica1Click(Sender: TObject);
-    procedure QRBand36BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure QRBand36BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure ProdutosVendidosModelo011Click(Sender: TObject);
     procedure EDCodFabEnter(Sender: TObject);
     procedure ApplicationEvents1Message(var Msg: tagMSG; var Handled: Boolean);
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure QRBand41BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QrAbertOrdem19BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+    procedure QRBand41BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QrAbertOrdem19BeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
     procedure btnConsultarProdutosClick(Sender: TObject);
     procedure TermoContratClick(Sender: TObject);
     procedure ExtratodeOrdensdeServio1Click(Sender: TObject);
-    procedure EDCodBarraKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EDCodBarraKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure RecuperareEnviarXML1Click(Sender: TObject);
     procedure CancelarDevoluo1Click(Sender: TObject);
-    procedure QRSubDetail14BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure QRSubDetail14BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure BtnSelecionarClick(Sender: TObject);
     procedure RelatoriodeDanfces1Click(Sender: TObject);
     procedure ComprasDestinadasasOrdensdeServio1Click(Sender: TObject);
@@ -2058,32 +2105,47 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure EdQtdHoraExit(Sender: TObject);
     procedure ProdutosVendidoscomValordeCusto1Click(Sender: TObject);
-    procedure FrmVendedorEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FrmVendedorEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure FrmVendedorBTNOPENClick(Sender: TObject);
-    procedure QrAbertOrdem21BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
-    procedure QRSubDetail21BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand55BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure QrAbertOrdem21BeforePrint(Sender: TCustomQuickRep; var
+      PrintReport: Boolean);
+    procedure QRSubDetail21BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand55BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure ProdutosporVendedor1Click(Sender: TObject);
     procedure MEVeiculoEnter(Sender: TObject);
     procedure MEVeiculoExit(Sender: TObject);
-    procedure MEVeiculoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure MEVeiculoKeyDown(Sender: TObject; var Key: Word; Shift:
+      TShiftState);
     procedure MEVeiculoKeyPress(Sender: TObject; var Key: Char);
     procedure btnPagamentosClick(Sender: TObject);
     procedure ReimprimirNFCeemcontingncia1Click(Sender: TObject);
-    procedure QRBand60BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail25BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail26BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand63BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand43BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand56BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail23BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRSubDetail24BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
-    procedure QRBand59BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure QRBand60BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail25BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail26BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand63BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand43BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand56BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail23BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRSubDetail24BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
+    procedure QRBand59BeforePrint(Sender: TQRCustomBand; var PrintBand:
+      Boolean);
     procedure btnInserirMultiplosVendedoresClick(Sender: TObject);
     procedure PSelecionaMultiploVendedorExit(Sender: TObject);
     procedure btnAdicionaMultiploVendedorClick(Sender: TObject);
     procedure DBGMultiploVendedorKeyPress(Sender: TObject; var Key: Char);
-    procedure btnAdicionaMultiploVendedorKeyPress(Sender: TObject; var Key: Char);
+    procedure btnAdicionaMultiploVendedorKeyPress(Sender: TObject; var Key:
+      Char);
     procedure btnRemoveVendedorProdutoClick(Sender: TObject);
     procedure Comissodeprodutoscombase1Click(Sender: TObject);
     procedure Comissodevendasdeprodutos1Click(Sender: TObject);
@@ -2092,6 +2154,8 @@ type
     procedure ProdutovendidovalorcustoNFe1Click(Sender: TObject);
     procedure ActSearchPlacaUpdate(Sender: TObject);
     procedure ActSearchPlacaExecute(Sender: TObject);
+    procedure BtnProcuraPlacaClick(Sender: TObject);
+    procedure C1Click(Sender: TObject);
     //procedure GBPRINCIPALCADASTROClick(Sender: TObject);
 
   private
@@ -2167,7 +2231,8 @@ type
     function ConectaBancoDados(XEndereco: string): boolean;
 
     // verifica se jah existe o funcionario no banco de fora, e se na estiver jah cadastra na hora
-    function VerificaFuncionario(Atividade: string; Cod_funcionario: string): integer;
+    function VerificaFuncionario(Atividade: string; Cod_funcionario: string):
+      integer;
     // verifica se o cliente esta cadastrado no banco, se nao tiver jah cadastra na hora
     function VerificaCliente(Cod_Cliente: integer): integer;
     // verifica se existe a cidade do cliente, se nao jah cadastra
@@ -2181,7 +2246,8 @@ type
     // procura dados na tabela unidade tanto no banco local como o de fora e insere novos dads se necessario
     function DadosUnidade: integer;
     // VERIFICA SE NO BANCO DE FORA TEM A EQUIPE CADASTRADA JUNTO COM SEU RESPONSAVEL E FUNCIONARIO
-    function VerificaEquipe(Cod_equipe: string; Cod_responsavel: string): integer;
+    function VerificaEquipe(Cod_equipe: string; Cod_responsavel: string):
+      integer;
     // CADASTRO DE FUNCIONARIO
     function CadastroFuncionario: integer;
     // VERTIFICA A FORMA DE PAGAMENTO NO CADASTRO DO CLIENTE
@@ -2191,19 +2257,24 @@ type
     //FUNÇÃO QUE EFETUA CALCULO DE COMISSÃO BASEADO NO VALOR TOTAL DO PEDIDO E NÃO NA SOMA DO TOTAL DE PRODUTOS
     function CalcComisTotVend: Boolean;
     //verifa se nao ordem passada no parametro existem (produtos - prod / serviços - serv) conforme solicitado e retorna true caso encontrar
-    function VerificaProdutosServicos(NumOrdem: Integer; prod: Boolean; serv: Boolean): Boolean;
+    function VerificaProdutosServicos(NumOrdem: Integer; prod: Boolean; serv:
+      Boolean): Boolean;
     //atualizar os dados do funcionario no banco externo
-    function AtualizarFuncionarioBancoExterno(codFunInt: integer; codFunExt: integer): Boolean;
+    function AtualizarFuncionarioBancoExterno(codFunInt: integer; codFunExt:
+      integer): Boolean;
     //pesquisa equipamento do cliente e seta no localizar
     procedure PesquisaEquipCliente(codigo: string);
     //ALEX: 19/01/2009 - Funcção Utilizada para realizar devolução total da ordem selecionada
     function DevTotPed(XCod_PedDev: Integer): Boolean;
     //Djonathan 23/11/2009: Função utilizada para retornar valores maximos e minimos da funcao
-    function EncontraValores(XSqlTabelaA: string; XSQLTabelaAux: string; XInicial: string; XFinal: string; XDesc: string): Integer;
+    function EncontraValores(XSqlTabelaA: string; XSQLTabelaAux: string;
+      XInicial: string; XFinal: string; XDesc: string): Integer;
     //Djonathan 23/11/2009: Funcao utilizada para comparar tabela com parametro
-    function ComparaValores(XSqlTabelaA: string; XCodigoB: string; XCount: Integer): Boolean;
+    function ComparaValores(XSqlTabelaA: string; XCodigoB: string; XCount:
+      Integer): Boolean;
     //Djonathan 24/11/2009: Função utilizada para retornar se existe na tabela um valor igual ao parametro
-    function ComparaValoresInternos(XSqlTabelaA: string; XView: string; XCodigoV: string; XCodigoB: string; XCount: Integer): Boolean;
+    function ComparaValoresInternos(XSqlTabelaA: string; XView: string;
+      XCodigoV: string; XCodigoB: string; XCount: Integer): Boolean;
     //DJ 27/11/2009: Verifica dados da pessoa, mesma função da UCadplaca
     function verificaPessoa(msg: Boolean): Boolean;
     //DJ 27/11/2009: Limpa os dados o painel cadastro rapido(ctrl + N),igual a UCadPlaca
@@ -2224,7 +2295,8 @@ type
     function AbreFiscal: Boolean;
     procedure funcaocordup;
     //Função Para calcular desconto da ordem
-    function EfetuaDesconto(OrigemDesconto: string; TipoDesconto: string): Boolean;
+    function EfetuaDesconto(OrigemDesconto: string; TipoDesconto: string):
+      Boolean;
     //Função utilizada para buscar o cliente atravez do nome o cpfcnpj
     function BuscaCliente(XTipo: string; XValor: string): Boolean;
     //Função utilizada para buscar o veiculo do cliente atravez da placa
@@ -2232,7 +2304,8 @@ type
     //Função que efetua a devolução total de Nota Fiscal Normal e Nota Fiscal Eletronica, emitindo as Notas Fiscais de entrada Correspondente
     function DevNotaFiscal(XCod_PedDev: Integer): Boolean;
     //Função para inserir o vendedor a lista de vendedores
-    function InsereMultiploVendedor(XCod_VendedorMultiplo: Integer; xTipoOperacao: string): Boolean;
+    function InsereMultiploVendedor(XCod_VendedorMultiplo: Integer;
+      xTipoOperacao: string): Boolean;
     //Função para remover o vendedor selecionado da string grid
     function RemoveMultiploVendedor(xTipoOperacao: string): Boolean;
     //Função Auxiliar para Devolução de Nota Fiscal - Efetua Estorno do Financeiro
@@ -2254,7 +2327,8 @@ type
     //Paulo 29/11/2011:busca a comissão do responsavel da equipe
     procedure RetornaComissao(CodResp: Integer);
     //Paulo 29/11/2011:Imprime imagem no relatório do rave report
-    procedure PrintImage(RVSystem: TRvSystem; Row, Col, ImageWidth, ImageHeight: Double; Bitmap: TBitmap; FileName: string = '');
+    procedure PrintImage(RVSystem: TRvSystem; Row, Col, ImageWidth, ImageHeight:
+      Double; Bitmap: TBitmap; FileName: string = '');
     //Paulo 19/04/2012: Função Utilizada para gerar a tela do fiscal para serviços a partir da tela de consulta
     function AbreFiscalServicos: Boolean;
     //Edmar - 28/03/2014 - Efetua o calculo do ISS
@@ -2282,9 +2356,11 @@ type
     //Imprime Comprovante de OS numero 21
     procedure ImpComprovante21;
     //Alex - 16/03/218: Função utilizada para inserir os multiplos vendedores junto ao banco de dados
-    function InsereMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao: string): Boolean;
+    function InsereMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao:
+      string): Boolean;
     //Função utilizada para remover os multiplo vendedores do banco de dados
-    function RemoveMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao: string): Boolean;
+    function RemoveMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao:
+      string): Boolean;
   public
 
     { Public declarations }
@@ -2295,32 +2371,44 @@ var
   FOrdemMec: TFOrdemMec;
 
   //VARIAVEIS RESPONSÁVEIS POR ARMAZENAR OS VALORES DAS CHAVES PRIMÁRIAS E ESTRANGEIRAS UTILIZADAS NA ORDEM
-  XCOD_ORDEM, XCOD_CLIENTE, XCOD_EQUIPAMENTO, XCOD_CONTABANCO, XCOD_VENDEDOR, XCOD_FUNCIONARIO, XCOD_FORMPAG, XCOD_CONTA, XCOD_CONTASERV: INTEGER;
+  XCOD_ORDEM, XCOD_CLIENTE, XCOD_EQUIPAMENTO, XCOD_CONTABANCO, XCOD_VENDEDOR,
+    XCOD_FUNCIONARIO, XCOD_FORMPAG, XCOD_CONTA, XCOD_CONTASERV: INTEGER;
   XCOD_ITPROD, XCOD_ITSERV, XCOD_ITDESP, XCOD_SERVICOCLASSIFICACAO: INTEGER;
   XDATA: string;
   XResult: real; // armazena valores das horas calculadas para calculo
-  XNum_Horas: string; // armazena as horas normais e extras para executar calculo financeiro
+  XNum_Horas: string;
+  // armazena as horas normais e extras para executar calculo financeiro
   XESTADO: string; //Controla o estado inserçao ou edição
-  XLIBDESCPROD, XLIBMARGEMSEG: Boolean; //Variável que controla se foi liberado um desconto superior ao cadastrado para o produto
-  XALIQCOMISS: REAL; // Armazena o percentual Total de comissão utilizado para caso haja mais de um comissionado
-  XVLRUNITVISTA, XVLRTVISTA, XVLRTOTAL, XVLRTPROD, XVLRTSERV: REAL; // ARMARZENA VALOR TOTAL DO PEDIDO
-  XLIBERA_MARK: Boolean; // se o campo for TRUE o campo MARK eh liberado na grid do funcionario
+  XLIBDESCPROD, XLIBMARGEMSEG: Boolean;
+  //Variável que controla se foi liberado um desconto superior ao cadastrado para o produto
+  XALIQCOMISS: REAL;
+  // Armazena o percentual Total de comissão utilizado para caso haja mais de um comissionado
+  XVLRUNITVISTA, XVLRTVISTA, XVLRTOTAL, XVLRTPROD, XVLRTSERV: REAL;
+  // ARMARZENA VALOR TOTAL DO PEDIDO
+  XLIBERA_MARK: Boolean;
+  // se o campo for TRUE o campo MARK eh liberado na grid do funcionario
   XDiaSemana: integer; // recebe de retorno o numero q representa o dia da semana
   xAliquotaIss: Real;
-  XPESPROD: Integer; // pesquisa de produto 1 - codigo de barra, 0 - controle interno, 2 - codigo do fabricante, 3 - descricao
-  //Estes valores devem ser passados no on show de cada formulario que inheritar o fcadpadrao
+  XPESPROD: Integer;
+  // pesquisa de produto 1 - codigo de barra, 0 - controle interno, 2 - codigo do fabricante, 3 - descricao
+//Estes valores devem ser passados no on show de cada formulario que inheritar o fcadpadrao
 //	XTabela: TIBQuery; //Nome da tabela padrão para se trabalhar no Cadastro Padrão
-  XCampo: string; //Nome do campo Principal da tabela padrão para se trabalhar no Cadastro Padrão
-  //   XPkTabela: String; //Nome da PK da tabela padrão para se trabalhar no Cadastro Padrão
-  //   XTransaction: TIBTransaction; //Nome do Transaction padrão para se trabalhar no Cadastro Padrão
+  XCampo: string;
+  //Nome do campo Principal da tabela padrão para se trabalhar no Cadastro Padrão
+//   XPkTabela: String; //Nome da PK da tabela padrão para se trabalhar no Cadastro Padrão
+//   XTransaction: TIBTransaction; //Nome do Transaction padrão para se trabalhar no Cadastro Padrão
   XView: TIBQuery; // Nome da View Padrao
   XTab: Boolean; // Caso true Define que a query de consulta é a Xtabela
-  XDescricao: string; // Descriçao da tabela padrão em andamento utilizado nas mensagens
-  //   XSQLTABELA: String; // Nome da tabela no BD para consultas Sql
+  XDescricao: string;
+  // Descriçao da tabela padrão em andamento utilizado nas mensagens
+//   XSQLTABELA: String; // Nome da tabela no BD para consultas Sql
   XSQLVIEW: string; // Nome da VIEW no BD para consultas Sql
-  XLiberaDados: string; //String que passa mais uma consulta na procedure liberadados
-  XCODPKCOMIS: Integer; //Chave primaria para lançamento automático de comissão ao fechar o pedido
-  XVLRCOMIS: REAL; // Armazena o Vlr da Comissão que o vendedor receberá no pedido
+  XLiberaDados: string;
+  //String que passa mais uma consulta na procedure liberadados
+  XCODPKCOMIS: Integer;
+  //Chave primaria para lançamento automático de comissão ao fechar o pedido
+  XVLRCOMIS: REAL;
+  // Armazena o Vlr da Comissão que o vendedor receberá no pedido
 
   XCod_usuario: Integer;
   XDtGarantia: string;
@@ -2337,26 +2425,35 @@ var
   XTipoPes: string;
   XContPes: string;
 
-  XCod_PedCompra, XCod_PedVendaDev, XCod_FornecedorDev, XCodSlaveDev, XCOD_FISCAL: Integer; //ALEX : 19/01/09 - Variaveis auxiliares para controle de devolução de ordem de serviço
+  XCod_PedCompra, XCod_PedVendaDev, XCod_FornecedorDev, XCodSlaveDev,
+    XCOD_FISCAL: Integer;
+  //ALEX : 19/01/09 - Variaveis auxiliares para controle de devolução de ordem de serviço
   XCfopDev: string; //Variavel para armazenar temporariamente o cfop de devolução
   XOrdem: string;
-  XCodTmpEstoque: string; //Armaena de forma temporaria o codigo do estoque durante a pesquisa automatica (inteligente)
+  XCodTmpEstoque: string;
+  //Armaena de forma temporaria o codigo do estoque durante a pesquisa automatica (inteligente)
   XInicialSQl, XFinalSql: string; //Djonathan 26/11/2009
   XMin, XMax: string; //Djonathan 26/11/2009
-  XOK: Boolean; // - 27/04/2009: ser variavel estiver como true é que ja foi encontrado uma placa com cliente correspondente
-  XCONTROLECONSULTA: Boolean; //DJ 02/12/2009: Indica se esta acontecendo uma consulta
-  XcontroleCtrlN, XControleCadPlaca: Boolean; //Determina se o cadastro de ctrln esta cadastrando ou consultando
+  XOK: Boolean;
+  // - 27/04/2009: ser variavel estiver como true é que ja foi encontrado uma placa com cliente correspondente
+  XCONTROLECONSULTA: Boolean;
+  //DJ 02/12/2009: Indica se esta acontecendo uma consulta
+  XcontroleCtrlN, XControleCadPlaca: Boolean;
+  //Determina se o cadastro de ctrln esta cadastrando ou consultando
   XFatOrd: Boolean; //Paulo 14/03/2011: PAra controle de fatura
-  XCARTACORRECAO, XComp2Vias: Boolean; //Paulo 20/01/2012: Para impressão de ordem em 2 vias
+  XCARTACORRECAO, XComp2Vias: Boolean;
+  //Paulo 20/01/2012: Para impressão de ordem em 2 vias
   Xcop, XNovaPag, xcont, xContaLinha: Integer;
 
   //relatorio QRAbertOrdem13
   xTotalProd, xTotalServ, xTotalDescProd, xTotalDescServ: Double;
   xTotalFinalServ, xTotalFinalProd, xTotalFinalOrdem: Double;
 
-  xExisteProd, xExisteServ: Boolean; //Jônatas 09/10/2013 - Variável para verificar a existência de produtos e serviços na OS
+  xExisteProd, xExisteServ: Boolean;
+  //Jônatas 09/10/2013 - Variável para verificar a existência de produtos e serviços na OS
   XLinha: Double;
-  XtipoImp: string; //Define o tipo de impressão 'MEIA' ou 'INTEIRA' Meia Pagina ou Pagina inteira de A4
+  XtipoImp: string;
+  //Define o tipo de impressão 'MEIA' ou 'INTEIRA' Meia Pagina ou Pagina inteira de A4
   XContPagina: Integer;
   xPesquisaDesc, xPesquisaCtrlInt, xPesquisaCodFabr: Boolean;
   XVLR_CREDITO_OS: Real;
@@ -2364,8 +2461,10 @@ var
   xcodMultiplovendedor: integer;
   xComissaoMultiploVendedor: real;
   XTotalAliquota: Real;
-  XTotalVendedoresProd, XTotalVendedoresServ: Integer; //Numero de vendedores inseridos a grade
-  xPrimeiraAliqProd, xPrimeiraAliqServ: Real; //armazena a primeira aliquota do primeiro vendedor selecionado
+  XTotalVendedoresProd, XTotalVendedoresServ: Integer;
+  //Numero de vendedores inseridos a grade
+  xPrimeiraAliqProd, xPrimeiraAliqServ: Real;
+  //armazena a primeira aliquota do primeiro vendedor selecionado
 implementation
 
 uses AlxMessage, Alxor32, UMenu, UDmServ, UDMEstoque, UDMMacs, UDMPessoa,
@@ -2404,7 +2503,8 @@ begin
 
     while XFlag = -1 do
     begin
-      if FiltraTabela(DMMACS.TALX, 'VWORDEM', 'numero', XNumOrdem, '') = True then
+      if FiltraTabela(DMMACS.TALX, 'VWORDEM', 'numero', XNumOrdem, '') = True
+        then
         XNumOrdem := IntToStr((StrToInt(XNumOrdem) + 1))
       else
         XFlag := 1;
@@ -2413,7 +2513,8 @@ begin
     MDO.Query.Close;
     MDO.Query.SQL.Clear;
     MDO.Query.SQL.Add('UPDATE EMPRESA SET EMPRESA.PROX_OS = :NUMOS WHERE EMPRESA.COD_EMPRESA = :COD_EMP');
-    MDO.Query.ParamByName('NUMOS').AsString := IntToStr(StrToInt(XNumOrdem) + 1);
+    MDO.Query.ParamByName('NUMOS').AsString := IntToStr(StrToInt(XNumOrdem) +
+      1);
     MDO.Query.ParamByName('COD_EMP').AsString := FMenu.LCODEMPRESA.Caption;
 
     try
@@ -2471,7 +2572,8 @@ begin
   try
     FMenu.MAux.Lines.Clear;
     //Verifica se existe a forma de pagamento a vista
-    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') = False then
+    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') =
+      False then
     begin
       Result := False;
       FMenu.MAux.Lines.Add('Financeiro : É necessário ter forma de pagamento A VISTA cadastrada');
@@ -2503,10 +2605,13 @@ begin
     if DMMACS.TALX.FieldByName('cod_fornec').AsInteger <= 0 then
     begin
       //Não existe fornecedor cadastrado, devemos cadastrar
-      XCod_FornecedorDev := InserReg(DMPESSOA.TFornecedor, 'FORNECEDOR', 'COD_FORNEC');
+      XCod_FornecedorDev := InserReg(DMPESSOA.TFornecedor, 'FORNECEDOR',
+        'COD_FORNEC');
       DMPESSOA.TFornecedor.Edit;
-      DMPESSOA.TFornecedor.FieldByName('COD_PESSOA').AsInteger := DMMACS.TALX.FieldByname('COD_PESSOA').AsInteger;
-      DMPESSOA.TFornecedor.FieldByName('COD_INTERNO').AsInteger := XCod_FornecedorDev;
+      DMPESSOA.TFornecedor.FieldByName('COD_PESSOA').AsInteger :=
+        DMMACS.TALX.FieldByname('COD_PESSOA').AsInteger;
+      DMPESSOA.TFornecedor.FieldByName('COD_INTERNO').AsInteger :=
+        XCod_FornecedorDev;
       DMPESSOA.TFornecedor.FieldByName('DATA_CAD').AsDateTime := Date();
       DMPESSOA.TFornecedor.Post;
     end
@@ -2565,7 +2670,8 @@ begin
   Result := True;
   try
     //PASSO 01 - Seta dados do pedido de venda como devolvido
-    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCod_PedVendaDev), '') = True then
+    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      IntToStr(XCod_PedVendaDev), '') = True then
     begin
       DMServ.TOrd.Edit;
       DMServ.TOrd.FieldByName('status').AsString := 'DEVOLVIDO';
@@ -2583,10 +2689,12 @@ begin
     FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '');
     XProxPed := DMMACS.TEmpresa.FieldByName('PROXPEDCOMP').AsInteger;
     DMMACS.TEmpresa.Edit;
-    DMMACS.TEmpresa.FieldByName('PROXPEDCOMP').AsInteger := DMMACS.TEmpresa.FieldByName('PROXPEDCOMP').AsInteger + 1;
+    DMMACS.TEmpresa.FieldByName('PROXPEDCOMP').AsInteger :=
+      DMMACS.TEmpresa.FieldByName('PROXPEDCOMP').AsInteger + 1;
     DMMACS.TEmpresa.Post;
     //ABRE NOVO PEDIDO DE COMPRA PARA SUPORTAR A DEVOLUÇÃO
-    XCod_PedCompra := InserReg(DMENTRADA.TPedC, 'PEDCOMPRA', 'COD_PEDCOMP'); //Insere novo registro de pedido de compra com codigo novo
+    XCod_PedCompra := InserReg(DMENTRADA.TPedC, 'PEDCOMPRA', 'COD_PEDCOMP');
+    //Insere novo registro de pedido de compra com codigo novo
     DMENTRADA.TPedC.FieldByName('COD_PEDCOMP').AsInteger := XCod_PedCompra;
     DMENTRADA.TPedC.FieldByName('NUMPED').AsInteger := XProxPed;
     DMENTRADA.TPedC.FieldByName('DTPEDCOMP').AsDateTime := DATE();
@@ -2594,11 +2702,15 @@ begin
     DMENTRADA.TPedC.FieldByName('FISCO').AsString := 'NF';
     DMENTRADA.TPedC.FieldByName('COBRANCA').AsString := 'CARTEIRA';
     DMENTRADA.TPedC.FieldByName('COD_FORNEC').AsInteger := XCod_FornecedorDev;
-    DMENTRADA.TPedC.FieldByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
-    DMENTRADA.TPedC.FieldByName('VALOR').AsCurrency := DMServ.WOrdem.FieldByName('TOTAL').AsCurrency;
+    DMENTRADA.TPedC.FieldByName('COD_USUARIO').AsString :=
+      FMenu.LCODUSUARIO.Caption;
+    DMENTRADA.TPedC.FieldByName('VALOR').AsCurrency :=
+      DMServ.WOrdem.FieldByName('TOTAL').AsCurrency;
     DMENTRADA.TPedC.FieldByName('COD_DEVOLUCAO').AsInteger := XCod_PedVendaDev;
-    DMENTRADA.TPedC.FieldByName('NUMDEV').AsString := DMServ.WOrdem.FieldByName('NUMFISCAL').AsString;
-    DMENTRADA.TPedC.FieldByName('COD_FORMPAG').AsInteger := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
+    DMENTRADA.TPedC.FieldByName('NUMDEV').AsString :=
+      DMServ.WOrdem.FieldByName('NUMFISCAL').AsString;
+    DMENTRADA.TPedC.FieldByName('COD_FORMPAG').AsInteger :=
+      DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
     DMENTRADA.TPedC.FieldByName('SITUACAO').AsString := 'FECHADO';
     DMENTRADA.TPedC.Post;
 
@@ -2609,19 +2721,22 @@ begin
     while not DMESTOQUE.TSlave.Eof do
     begin
       //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-      if FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False then
+      if FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False then
       begin
         Result := False;
         FMenu.MAux.Lines.Add('Estoque: Verifique a ocorrencia de itens de venda com problemas de código de estoque');
         Exit;
       end;
-      if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False then
+      if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE',
+        DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False then
       begin
         Result := False;
         FMenu.MAux.Lines.Add('Vwsimilar: Verifique a ocorrencia de itens de venda com problemas de código de estoque');
         Exit;
       end;
-      if FiltraTabela(DMServ.TPOrd, 'itprodord', 'cod_itprodord', DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsString, '') = False then
+      if FiltraTabela(DMServ.TPOrd, 'itprodord', 'cod_itprodord',
+        DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsString, '') = False then
       begin
         Result := False;
         FMenu.MAux.Lines.Add('Itens de de venda: Verifique a ocorrencia de itens de venda com problemas de código de estoque');
@@ -2631,7 +2746,8 @@ begin
       DMServ.TPOrd.Edit;
       DMServ.TPOrd.FieldByName('OPERACAO').AsString := 'DVL';
       DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency := 0;
-      DMServ.TPOrd.FieldByName('QTDDEV').AsCurrency := DMServ.TPOrd.FieldByName('qtd').AsCurrency;
+      DMServ.TPOrd.FieldByName('QTDDEV').AsCurrency :=
+        DMServ.TPOrd.FieldByName('qtd').AsCurrency;
       DMServ.TPOrd.FieldByName('VALCOMP').AsCurrency := 0;
       DMServ.TPOrd.FieldByName('LUCMOE').AsCurrency := 0;
       DMServ.TPOrd.Post;
@@ -2639,40 +2755,60 @@ begin
       //INSERE PRODUTO EM ITENS DE PEDIDO DE COMPRA
       XCodSlaveDev := InserReg(DMENTRADA.TItemPC, 'ITENSPEDC', 'COD_ITENSPEDC');
       DMENTRADA.TItemPC.FieldByName('COD_ITENSPEDC').AsInteger := XCodSlaveDev;
-      DMENTRADA.TItemPC.FieldByName('COD_DEVOLUCAO').AsInteger := DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsInteger;
-      DMENTRADA.TItemPC.FieldByName('ALIQICMS').AsCurrency := DMESTOQUE.TSlave.FieldByName('ALIQICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('BASEICMS').AsCurrency := DMESTOQUE.TSlave.FieldByName('BASEICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VLRICMS').AsCurrency := DMESTOQUE.TSlave.FieldByName('VLRICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('REDUCBASEICMS').AsCurrency := DMESTOQUE.TSlave.FieldByName('REDUCBASEICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('COD_DEVOLUCAO').AsInteger :=
+        DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsInteger;
+      DMENTRADA.TItemPC.FieldByName('ALIQICMS').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('ALIQICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('BASEICMS').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('BASEICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VLRICMS').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('VLRICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('REDUCBASEICMS').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('REDUCBASEICMS').AsCurrency;
       if DMESTOQUE.TSlave.FieldByName('APLICARST').AsString = '1' then
       begin
-        DMENTRADA.TItemPC.FieldByName('BASEICMSSUBS').AsCurrency := DMESTOQUE.TSlave.FieldByName('BASEICMSSUBS').AsCurrency;
-        DMENTRADA.TItemPC.FieldByName('VLRICMSSUBS').AsCurrency := DMESTOQUE.TSlave.FieldByName('VLRICMSSUBS').AsCurrency;
+        DMENTRADA.TItemPC.FieldByName('BASEICMSSUBS').AsCurrency :=
+          DMESTOQUE.TSlave.FieldByName('BASEICMSSUBS').AsCurrency;
+        DMENTRADA.TItemPC.FieldByName('VLRICMSSUBS').AsCurrency :=
+          DMESTOQUE.TSlave.FieldByName('VLRICMSSUBS').AsCurrency;
       end
       else
       begin
         DMENTRADA.TItemPC.FieldByName('BASEICMSSUBS').AsCurrency := 0;
         DMENTRADA.TItemPC.FieldByName('VLRICMSSUBS').AsCurrency := 0;
       end;
-      DMENTRADA.TItemPC.FieldByName('ALIQIPI').AsCurrency := DMESTOQUE.TSlave.FieldByName('ALIQIPI').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VLRIPI').AsCurrency := DMESTOQUE.TSlave.FieldByName('VLRIPI').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('ALIQIPI').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('ALIQIPI').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VLRIPI').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('VLRIPI').AsCurrency;
       DMENTRADA.TItemPC.FieldByName('FRETE').AsCurrency := 0;
       DMENTRADA.TItemPC.FieldByName('EMBPROD').AsCurrency := 0;
-      DMENTRADA.TItemPC.FieldByName('COD_PEDCOMPRA').AsInteger := XCod_PedCompra;
+      DMENTRADA.TItemPC.FieldByName('COD_PEDCOMPRA').AsInteger :=
+        XCod_PedCompra;
       DMENTRADA.TItemPC.FieldByName('DATA').AsString := DateToStr(Date());
-      DMENTRADA.TItemPC.FieldByName('QTDEST').AsCurrency := DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('COD_ESTOQUE').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
-      DMENTRADA.TItemPC.FieldByName('QTDEPROD').AsCurrency := DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('DESCPRO').AsCurrency := DMESTOQUE.TSlave.FieldByName('desconto').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('DESCNF').AsCurrency := DMESTOQUE.TSlave.FieldByName('DESCNF').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VALUNIT').AsCurrency := DMESTOQUE.TSlave.FieldByName('VALUNIT').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency := DMESTOQUE.TSlave.FieldByName('total').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('COD_CST').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
+      DMENTRADA.TItemPC.FieldByName('QTDEST').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('COD_ESTOQUE').AsInteger :=
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
+      DMENTRADA.TItemPC.FieldByName('QTDEPROD').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('DESCPRO').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('desconto').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('DESCNF').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('DESCNF').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VALUNIT').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('VALUNIT').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency :=
+        DMESTOQUE.TSlave.FieldByName('total').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('COD_CST').AsInteger :=
+        DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
       DMENTRADA.TItemPC.FieldByName('CFOP').AsString := XCfopDev;
       DMENTRADA.TItemPC.Post;
       //ATULIZA ESTOQUE
       DMESTOQUE.TEstoque.Edit;
-      DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
+      DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency :=
+        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency +
+        DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
       DMESTOQUE.TEstoque.Post;
       DMESTOQUE.TSlave.Next;
     end;
@@ -2689,7 +2825,8 @@ begin
   Result := True;
   try
     //Filtra documento fiscal de Saída
-    if FiltraTabela(DMSAIDA.TAlx, 'docfisord', 'COD_ORDEM', IntToStr(XCod_PedVendaDev), '') = True then
+    if FiltraTabela(DMSAIDA.TAlx, 'docfisord', 'COD_ORDEM',
+      IntToStr(XCod_PedVendaDev), '') = True then
     begin
       //Sql para localizar todos os periodos fiscais em aberto
       DMMACS.TPeriodoFiscal.Close;
@@ -2707,36 +2844,65 @@ begin
       XCOD_FISCAL := InserReg(DMENTRADA.TFiscPC, 'DOCFIS', 'COD_DOCFISC');
       DMENTRADA.TFiscPC.FieldByName('COD_PEDIDO').AsInteger := XCod_PedCompra;
       DMENTRADA.TFiscPC.FieldByName('COD_DOCFISC').AsInteger := XCOD_FISCAL;
-      DMENTRADA.TFiscPC.FieldByName('COD_PERIODOFISCAL').AsInteger := DMSAIDA.TAlx.FieldByName('COD_CFOP').AsInteger;
-      DMENTRADA.TFiscPC.FieldByName('COD_PERIODOFISCAL').AsInteger := DMMACS.TPeriodoFiscal.FieldByName('COD_PERIODOFISCAL').AsInteger;
-      DMENTRADA.TFiscPC.FieldByName('DTEMISSAO').AsDateTime := DMSAIDA.TAlx.FieldByName('DTEMISSAO').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('DTENTSAID').AsDateTime := DMSAIDA.TAlx.FieldByName('DTENTSAID').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('HORASAID').AsDateTime := DMSAIDA.TAlx.FieldByName('HORASAID').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('BASEICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('BASEICMS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRICMS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('BASCALSUBS').AsCurrency := DMSAIDA.TAlx.FieldByName('BASCALSUBS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRICMSUBS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRICMSUBS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRSEG').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRSEG').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRTOTIPI').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRTOTIPI').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLROUTRASDESP').AsCurrency := DMSAIDA.TAlx.FieldByName('VLROUTRASDESP').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRTOTPROD').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRTOTPROD').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRTOTDOCNF').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRTOTDOCNF').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRISENTOICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRISENTOICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('COD_PERIODOFISCAL').AsInteger :=
+        DMSAIDA.TAlx.FieldByName('COD_CFOP').AsInteger;
+      DMENTRADA.TFiscPC.FieldByName('COD_PERIODOFISCAL').AsInteger :=
+        DMMACS.TPeriodoFiscal.FieldByName('COD_PERIODOFISCAL').AsInteger;
+      DMENTRADA.TFiscPC.FieldByName('DTEMISSAO').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('DTEMISSAO').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('DTENTSAID').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('DTENTSAID').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('HORASAID').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('HORASAID').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('BASEICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('BASEICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('BASCALSUBS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('BASCALSUBS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRICMSUBS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRICMSUBS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRSEG').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRSEG').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRTOTIPI').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRTOTIPI').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLROUTRASDESP').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLROUTRASDESP').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRTOTPROD').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRTOTPROD').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRTOTDOCNF').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRTOTDOCNF').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRISENTOICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRISENTOICMS').AsCurrency;
       DMENTRADA.TFiscPC.FieldByName('SERIE').AsString := '1';
-      DMENTRADA.TFiscPC.FieldByName('MODELONF').AsString := DMSAIDA.TAlx.FieldByName('MODELONF').AsString;
-      DMENTRADA.TFiscPC.FieldByName('obs').AsString := 'Ref. Devolução da NF: ' + DMSAIDA.TAlx.FieldByName('numdocfis').AsString;
-      DMENTRADA.TFiscPC.FieldByName('FRETECOMP').AsString := DMSAIDA.TAlx.FieldByName('FRETECOMP').AsString;
-      DMENTRADA.TFiscPC.FieldByName('VLRFRETE').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRFRETE').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('COD_TRANSP').AsCurrency := DMSAIDA.TAlx.FieldByName('COD_TRANSP').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('QUANTFRETE').AsCurrency := DMSAIDA.TAlx.FieldByName('QUANTFRETE').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('ESPECIEFRETE').AsString := DMSAIDA.TAlx.FieldByName('ESPECIEFRETE').AsString;
-      DMENTRADA.TFiscPC.FieldByName('MARCAFRETE').AsString := DMSAIDA.TAlx.FieldByName('MARCAFRETE').AsString;
-      DMENTRADA.TFiscPC.FieldByName('NUMCONHEC').AsString := DMSAIDA.TAlx.FieldByName('NUMCONHEC').AsString;
-      DMENTRADA.TFiscPC.FieldByName('PLACA').AsString := DMSAIDA.TAlx.FieldByName('PLACA').AsString;
-      DMENTRADA.TFiscPC.FieldByName('UFPLACA').AsString := DMSAIDA.TAlx.FieldByName('UFPLACA').AsString;
-      DMENTRADA.TFiscPC.FieldByName('PESOBRUTO').AsCurrency := DMSAIDA.TAlx.FieldByName('PESOBRUTO').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('PESOLIQ').AsCurrency := DMSAIDA.TAlx.FieldByName('PESOLIQ').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('FRETECONTA').AsString := DMSAIDA.TAlx.FieldByName('FRETECONTA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('MODELONF').AsString :=
+        DMSAIDA.TAlx.FieldByName('MODELONF').AsString;
+      DMENTRADA.TFiscPC.FieldByName('obs').AsString := 'Ref. Devolução da NF: '
+        + DMSAIDA.TAlx.FieldByName('numdocfis').AsString;
+      DMENTRADA.TFiscPC.FieldByName('FRETECOMP').AsString :=
+        DMSAIDA.TAlx.FieldByName('FRETECOMP').AsString;
+      DMENTRADA.TFiscPC.FieldByName('VLRFRETE').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRFRETE').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('COD_TRANSP').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('COD_TRANSP').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('QUANTFRETE').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('QUANTFRETE').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('ESPECIEFRETE').AsString :=
+        DMSAIDA.TAlx.FieldByName('ESPECIEFRETE').AsString;
+      DMENTRADA.TFiscPC.FieldByName('MARCAFRETE').AsString :=
+        DMSAIDA.TAlx.FieldByName('MARCAFRETE').AsString;
+      DMENTRADA.TFiscPC.FieldByName('NUMCONHEC').AsString :=
+        DMSAIDA.TAlx.FieldByName('NUMCONHEC').AsString;
+      DMENTRADA.TFiscPC.FieldByName('PLACA').AsString :=
+        DMSAIDA.TAlx.FieldByName('PLACA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('UFPLACA').AsString :=
+        DMSAIDA.TAlx.FieldByName('UFPLACA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('PESOBRUTO').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('PESOBRUTO').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('PESOLIQ').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('PESOLIQ').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('FRETECONTA').AsString :=
+        DMSAIDA.TAlx.FieldByName('FRETECONTA').AsString;
       DMENTRADA.TFiscPC.FieldByName('TIPODOCFIS').AsString := '1';
       DMENTRADA.TFiscPC.FieldByName('SERIE').AsString := '1';
       DMENTRADA.TFiscPC.FieldByName('EMISSAOPROPRIA').AsString := '1';
@@ -2767,7 +2933,8 @@ begin
       FMenu.TIPOREL := 'NF';
       FMenu.TIPOAUX := '';
       FMenu.XNotaEntrada := True;
-      if FiltraTabela(DMENTRADA.WPedc, 'VWPEDC', 'COD_PEDCOMP', IntToStr(XCod_PedCompra), '') = True then
+      if FiltraTabela(DMENTRADA.WPedc, 'VWPEDC', 'COD_PEDCOMP',
+        IntToStr(XCod_PedCompra), '') = True then
       begin
         AbrirForm(TFFiscalEntradas, FFiscalEntradas, 0);
       end
@@ -2792,7 +2959,8 @@ begin
 end;
 
 //Função para inserir o vendedor a lista de vendedores
-function TFOrdemMec.InsereMultiploVendedor(XCod_VendedorMultiplo: Integer; xTipoOperacao: string): Boolean;
+function TFOrdemMec.InsereMultiploVendedor(XCod_VendedorMultiplo: Integer;
+  xTipoOperacao: string): Boolean;
 var
   I, I2, XTotalVendedoresInseridos: Integer;
   xVendedorAuxiliar: string;
@@ -2802,11 +2970,15 @@ begin
   try
     if XCod_VendedorMultiplo = -1 then
     begin
-      if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC', DMServ.TAlx2.FieldByName('cod_func').AsString, '') = True then
+      if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC',
+        DMServ.TAlx2.FieldByName('cod_func').AsString, '') = True then
       begin //CASO CONSEGUIU SELECIONAR CLIENTE
-        XCod_VendedorMultiplo := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
-        FrmVendedor.EdDescricao.Text := DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
-        FrmVendedor.EDCodigo.Text := DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
+        XCod_VendedorMultiplo :=
+          DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
+        FrmVendedor.EdDescricao.Text :=
+          DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
+        FrmVendedor.EDCodigo.Text :=
+          DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
       end
       else
       begin
@@ -2833,7 +3005,8 @@ begin
 
     if DMPESSOA.TAux1.IsEmpty then
     begin
-      MessageDlg('Informe a aliquota de comissão do vendedor.', mtWarning, [mbOK], 0);
+      MessageDlg('Informe a aliquota de comissão do vendedor.', mtWarning,
+        [mbOK], 0);
       if FrmVendedor.Visible then
         FrmVendedor.BTNOPEN.SetFocus;
       LimpaCamposProd;
@@ -2843,7 +3016,8 @@ begin
     begin
       if xTipoOperacao = 'PROD' then
       begin
-        XAliquotaVendedor := DMPESSOA.TAux1.FieldByName('comissaoprod').AsCurrency;
+        XAliquotaVendedor :=
+          DMPESSOA.TAux1.FieldByName('comissaoprod').AsCurrency;
         //
         if (xPrimeiraAliqProd = 0) then
           xPrimeiraAliqProd := XAliquotaVendedor
@@ -2852,7 +3026,8 @@ begin
       end
       else
       begin
-        XAliquotaVendedor := DMPESSOA.TAux1.FieldByName('comissaoserv').AsCurrency;
+        XAliquotaVendedor :=
+          DMPESSOA.TAux1.FieldByName('comissaoserv').AsCurrency;
         //
         if (xPrimeiraAliqServ = 0) then
           xPrimeiraAliqServ := XAliquotaVendedor
@@ -2865,12 +3040,14 @@ begin
     xStringGridAux.ColWidths[2] := 14;
     xStringGridAux.ColWidths[3] := 90;
     XTotalAliquota := 0;
-    if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC', IntToStr(XCod_VendedorMultiplo), '') then
+    if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC',
+      IntToStr(XCod_VendedorMultiplo), '') then
     begin
       //Alex - 15/03/2018 Valida quanto a aliquota
       if XAliquotaVendedor <= 0 then
       begin
-        MessageDlg('Informe um vendedor para ser capturado a comissão.', mtWarning, [mbOK], 0);
+        MessageDlg('Informe um vendedor para ser capturado a comissão.',
+          mtWarning, [mbOK], 0);
         FrmVendedor.BTNOPEN.SetFocus;
         Exit;
       end;
@@ -2878,7 +3055,8 @@ begin
       for I := 0 to xStringGridAux.RowCount - 1 do
       begin
         xVendedorAuxiliar := xStringGridAux.Cells[3, I];
-        if (xVendedorAuxiliar = DMPESSOA.VWFuncionario.fieldByName('Nome').AsString) then
+        if (xVendedorAuxiliar =
+          DMPESSOA.VWFuncionario.fieldByName('Nome').AsString) then
         begin
           //               	MessageDlg('Este vendedor já foi comissionado.', mtWarning, [mbOK], 0);
           DBGMultiploVendedor.SetFocus;
@@ -2898,16 +3076,19 @@ begin
           end;
 
           xStringGridAux.Cells[0, I] := IntToStr(XCod_VendedorMultiplo);
-          xStringGridAux.Cells[1, I] := FormatFloat('0.00', XAliquotaVendedor / XTotalVendedoresInseridos);
+          xStringGridAux.Cells[1, I] := FormatFloat('0.00', XAliquotaVendedor /
+            XTotalVendedoresInseridos);
           xStringGridAux.Cells[2, I] := '%';
-          xStringGridAux.Cells[3, I] := DMPESSOA.VWFuncionario.fieldByName('Nome').AsString;
+          xStringGridAux.Cells[3, I] :=
+            DMPESSOA.VWFuncionario.fieldByName('Nome').AsString;
           xStringGridAux.Cells[4, I] := IntToStr(I + 1);
           //Alex 15/03/2018 - Percorre novamente a grade redistribuindo as comissões
           for I2 := 0 to xStringGridAux.RowCount - 1 do
           begin
             if xStringGridAux.Cells[0, I2] <> '' then
             begin
-              xStringGridAux.Cells[1, I2] := FormatFloat('0.00', XAliquotaVendedor / XTotalVendedoresInseridos);
+              xStringGridAux.Cells[1, I2] := FormatFloat('0.00',
+                XAliquotaVendedor / XTotalVendedoresInseridos);
             end;
           end;
           xStringGridAux.RowCount := xStringGridAux.RowCount + 1;
@@ -2915,7 +3096,8 @@ begin
         end
         else
         begin
-          XTotalAliquota := XTotalAliquota + StrToFloat(xStringGridAux.Cells[1, I]);
+          XTotalAliquota := XTotalAliquota + StrToFloat(xStringGridAux.Cells[1,
+            I]);
         end;
       end;
     end;
@@ -2942,7 +3124,8 @@ begin
     if xStringGridAux.Cells[3, xStringGridAux.Row] = '' then
       Exit;
 
-    if MessageDlg('Remover o vendedor ' + xStringGridAux.Cells[3, xStringGridAux.Row] + ' ?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    if MessageDlg('Remover o vendedor ' + xStringGridAux.Cells[3,
+      xStringGridAux.Row] + ' ?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
     begin
       if xStringGridAux.Cells[0, xStringGridAux.Row] <> '' then
       begin
@@ -2985,7 +3168,8 @@ begin
         for I2 := 0 to xStringGridAux.RowCount - 1 do
         begin
           if xStringGridAux.Cells[0, I2] <> '' then
-            xStringGridAux.Cells[1, I2] := FormatFloat('0.00', xPrimeiraAliquota / XTotalVendedoresInseridos);
+            xStringGridAux.Cells[1, I2] := FormatFloat('0.00', xPrimeiraAliquota
+              / XTotalVendedoresInseridos);
         end;
         xStringGridAux.RowCount := xStringGridAux.RowCount - 1;
 
@@ -3008,8 +3192,9 @@ function TFOrdemMec.DevNotaFiscal(XCod_PedDev: Integer): Boolean;
 begin
   Result := True;
   try
-    XCod_PedVendaDev := XCod_PedDev; //Seta para o código genérico o código do pedido de venda para devolução
-    //PASSO 01 - Verificar Configurações para Garantir Devolução financeira e de Estoque junto com possibilidade para o Fiscal
+    XCod_PedVendaDev := XCod_PedDev;
+    //Seta para o código genérico o código do pedido de venda para devolução
+  //PASSO 01 - Verificar Configurações para Garantir Devolução financeira e de Estoque junto com possibilidade para o Fiscal
     if DevNotaFiscal_VerificaConfigs = True then
     begin
       //PASSO 02 - Estornar Financeiro
@@ -3033,35 +3218,43 @@ begin
             else
             begin
               Result := False;
-              if MessageDlg('Erro ao gerar documento fiscal para a Nota Fiscal de Devolução. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-                MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK], 0);
+              if
+                MessageDlg('Erro ao gerar documento fiscal para a Nota Fiscal de Devolução. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+                MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning,
+                  [mbOK], 0);
             end;
           end
           else
           begin
             Result := False;
-            if MessageDlg('Erro ao gerar devolução para a Nota Fiscal de saída. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-              MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK], 0);
+            if
+              MessageDlg('Erro ao gerar devolução para a Nota Fiscal de saída. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+              MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK],
+                0);
           end;
         end
         else
         begin
           Result := False;
-          if MessageDlg('Erro ao setar Cliente/Fornecedor para a Nota Fiscal de Devolução. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-            MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK], 0);
+          if
+            MessageDlg('Erro ao setar Cliente/Fornecedor para a Nota Fiscal de Devolução. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+            MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK],
+              0);
         end;
       end
       else
       begin
         Result := False;
-        if MessageDlg('Erro ao estornar movimentações financeiras da Nota fiscal de Saída. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+        if
+          MessageDlg('Erro ao estornar movimentações financeiras da Nota fiscal de Saída. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
           MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK], 0);
       end;
     end
     else
     begin
       Result := False;
-      if MessageDlg('Erro ao validar configurações para devolução de Nota Fiscal. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      if
+        MessageDlg('Erro ao validar configurações para devolução de Nota Fiscal. Deseja visualizar estes erro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
         MessageDlg('Mensagem:' + FMenu.MAux.Lines.Text, mtWarning, [mbOK], 0);
     end;
   except
@@ -3078,7 +3271,8 @@ begin
       DMPESSOA.TransacPessoa.RollbackRetaining;
       DMSAIDA.IBT.RollbackRetaining;
       DMENTRADA.IBT.RollbackRetaining;
-      MessageDlg('Não foi possível gravar devolução. Os dados foram retornados', mtWarning, [mbOK], 0);
+      MessageDlg('Não foi possível gravar devolução. Os dados foram retornados',
+        mtWarning, [mbOK], 0);
     end;
   end
   else
@@ -3086,7 +3280,8 @@ begin
     DMPESSOA.TransacPessoa.RollbackRetaining;
     DMSAIDA.IBT.RollbackRetaining;
     DMENTRADA.IBT.RollbackRetaining;
-    MessageDlg('Não foi possível gravar devolução. Os dados foram retornados', mtWarning, [mbOK], 0);
+    MessageDlg('Não foi possível gravar devolução. Os dados foram retornados',
+      mtWarning, [mbOK], 0);
   end;
 end;
 
@@ -3116,15 +3311,24 @@ begin
     DMGEOGRAFIA.WCidade.Close;
     DMGEOGRAFIA.WCidade.SQL.Clear;
     DMGEOGRAFIA.WCidade.SQL.Add(' Select * from vwcidade where vwcidade.cod_cidade=:codigo ');
-    DMGEOGRAFIA.WCidade.ParamByName('codigo').AsInteger := DMPESSOA.TALX.FieldByName('COD_CIDADE').AsInteger;
+    DMGEOGRAFIA.WCidade.ParamByName('codigo').AsInteger :=
+      DMPESSOA.TALX.FieldByName('COD_CIDADE').AsInteger;
     DMGEOGRAFIA.WCidade.Open;
     if not DMGEOGRAFIA.TCidade.IsEmpty then
     begin
       XCOD_CIDADE := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsInteger;
-      FrmCidade.EdDescricao.Text := DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + '-' + DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
-      FrmCidade.EDCodigo.text := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
+      FrmCidade.EdDescricao.Text :=
+        DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + '-' +
+        DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
+      FrmCidade.EDCodigo.text :=
+        DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
     end;
-    if MessageDlg('Foi encontrado o cliente: ' + #13 + DMPESSOA.TALX.FieldByName('NOME').AsString + #13 + 'CPF/CNPJ: ' + DMPESSOA.TALX.FieldByName('CPFCNPJ').AsString + #13 + FrmCidade.EdDescricao.Text + #13 + 'Deseja editar este cliente?', mtWarning, [mbyes, mbno], 0) = mryes then
+    if MessageDlg('Foi encontrado o cliente: ' + #13 +
+      DMPESSOA.TALX.FieldByName('NOME').AsString + #13 + 'CPF/CNPJ: ' +
+      DMPESSOA.TALX.FieldByName('CPFCNPJ').AsString + #13 +
+      FrmCidade.EdDescricao.Text + #13 + 'Deseja editar este cliente?',
+        mtWarning,
+      [mbyes, mbno], 0) = mryes then
     begin
       XcontroleCtrlN := True;
       XCOD_CLIENTE := DMPESSOA.TALX.FieldByName('COD_CLIENTE').AsInteger;
@@ -3154,7 +3358,8 @@ begin
     if not DMPESSOA.TALX.IsEmpty then
     begin
       XControleCadPlaca := True;
-      XCOD_EQUIPAMENTO := DMPESSOA.TALX.FieldByName('COD_EQUIPAMENTO').AsInteger;
+      XCOD_EQUIPAMENTO :=
+        DMPESSOA.TALX.FieldByName('COD_EQUIPAMENTO').AsInteger;
       edModelo.Text := DMPESSOA.TALX.FieldByName('modelo').AsString;
       edNumFrota.Text := DMPESSOA.TALX.FieldByName('num_frota').AsString;
     end
@@ -3168,7 +3373,8 @@ end;
 
 //Função Para calcular desconto da ordem
 
-function TFOrdemMec.EfetuaDesconto(OrigemDesconto: string; TipoDesconto: string): Boolean;
+function TFOrdemMec.EfetuaDesconto(OrigemDesconto: string; TipoDesconto:
+  string): Boolean;
 begin
   //se nao tiver nenhum desconto zerar o desconto de produto
   if DMESTOQUE.TSlave.IsEmpty then
@@ -3187,11 +3393,13 @@ begin
       //Efetua desconto somente para serviços
       if TipoDesconto = 'PERCENTO' then
       begin
-        EdTotalserv.ValueNumeric := XVLRTSERV - (EdDescTServ.ValueNumeric * XVLRTSERV) / 100
+        EdTotalserv.ValueNumeric := XVLRTSERV - (EdDescTServ.ValueNumeric *
+          XVLRTSERV) / 100
       end
       else
       begin
-        EdDescTServ.ValueNumeric := ((XVLRTSERV - EdTotalserv.ValueNumeric) * 100) / XVLRTSERV;
+        EdDescTServ.ValueNumeric := ((XVLRTSERV - EdTotalserv.ValueNumeric) *
+          100) / XVLRTSERV;
       end;
     end
     else
@@ -3207,9 +3415,11 @@ begin
     begin
       //Efetua desconto somente para serviços
       if TipoDesconto = 'PERCENTO' then
-        EdtotalProd.ValueNumeric := XVLRTPROD - (EdDescTProd.ValueNumeric * XVLRTPROD) / 100
+        EdtotalProd.ValueNumeric := XVLRTPROD - (EdDescTProd.ValueNumeric *
+          XVLRTPROD) / 100
       else
-        EdDescTProd.ValueNumeric := ((XVLRTPROD - EdtotalProd.ValueNumeric) * 100) / XVLRTPROD;
+        EdDescTProd.ValueNumeric := ((XVLRTPROD - EdtotalProd.ValueNumeric) *
+          100) / XVLRTPROD;
     end
     else
     begin
@@ -3219,9 +3429,11 @@ begin
   end;
 
   //ATRIBUI VALOR TOTAL DA ORDEM E DESCONTO
-  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric + EdTotDesp.ValueNumeric;
+  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric
+    + EdTotDesp.ValueNumeric;
   EdTotalOrd.ValueNumeric := EdValorOrd.ValueNumeric;
-  EdDescTOrdem.ValueNumeric := ((XVLRTOTAL - EdValorOrd.ValueNumeric) * 100) / XVLRTOTAL;
+  EdDescTOrdem.ValueNumeric := ((XVLRTOTAL - EdValorOrd.ValueNumeric) * 100) /
+    XVLRTOTAL;
 
   {   //DJ 03/12/2009: Condicao inserida para nao ser refeito os calculos de desconto quando for apenas consultas ou relatorios
      if(XCONTROLECONSULTA = false)
@@ -3292,9 +3504,12 @@ begin
   DMServ.TAlx1.ParamByName('numero').AsString := DBNumOrd.Text;
   DMServ.TAlx1.Open;
 
-  if (not DMServ.TAlx1.IsEmpty) and (DMServ.TAlx1.FieldByName('cod_ordem').AsInteger <> XCOD_ORDEM) then
+  if (not DMServ.TAlx1.IsEmpty) and
+    (DMServ.TAlx1.FieldByName('cod_ordem').AsInteger <> XCOD_ORDEM) then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'Já existe outra ordem de serviço com o mesmo número. Por favor, altere o valor.', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ',
+      'Já existe outra ordem de serviço com o mesmo número. Por favor, altere o valor.',
+      '', 1, 1, false, 'I');
     DBNumOrd.SetFocus;
     Exit;
   end;
@@ -3336,7 +3551,9 @@ begin
   // se nao possui servico e nem produtos eh exibido a mensagem - SEGUNDO SOLICITAÇÃO É OBRIGATORIO PODER GRAVAR SEM SERVICO
   if ((DMESTOQUE.Alx1.IsEmpty) and (DMESTOQUE.Alx2.IsEmpty)) then
   begin
-    if Mensagem('   A T E N Ç Ã O   ', 'A Ordem de Serviço atual não possui produtos e serviços inclusos. Deseja apagá-la ?', '', 2, 3, false, 'A') = 2 then
+    if Mensagem('   A T E N Ç Ã O   ',
+      'A Ordem de Serviço atual não possui produtos e serviços inclusos. Deseja apagá-la ?',
+      '', 2, 3, false, 'A') = 2 then
     begin
       //Apaga ORDEM
       FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
@@ -3344,7 +3561,10 @@ begin
 
       //REGISTRA COMANDO DO USUARIO
       try
-        Registra('ORDEM', 'APAGAR/CANCELAR', DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' + DMServ.TOrd.FieldByName('TOTORD').AsString);
+        Registra('ORDEM', 'APAGAR/CANCELAR',
+          DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' +
+          DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' +
+          DMServ.TOrd.FieldByName('TOTORD').AsString);
       except
       end;
 
@@ -3356,21 +3576,29 @@ begin
   //VALIDA CAMPOS NECESSÁRIOS
   if (XCOD_CLIENTE = -1) or (FrmCliente.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False,
+      'a');
     FrmCliente.EDCodigo.SetFocus;
     Exit;
   end;
 
-  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and (CBVENDABALCAO.Checked = FALSE) then
+  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and
+    (CBVENDABALCAO.Checked = FALSE) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False,
+        'a');
     FBEquipPlaca.EDCodigo.SetFocus;
     Exit;
   end;
 
   if (XCOD_FORMPAG = -1) or (FrmFormPag1.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1,
+        1,
+      False, 'a');
     FrmFormPag1.EDCodigo.SetFocus;
     Exit;
   end;
@@ -3379,7 +3607,9 @@ begin
   begin
     if FrmFormPag1.EdDescricao.Text <> 'À VISTA' then
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!', '', 1, 1, False, 'i');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!',
+        '', 1, 1, False, 'i');
       FrmFormPag1.BTNOPEN.SetFocus;
       Exit;
     end;
@@ -3387,17 +3617,22 @@ begin
 
   if (DBBox.Text = '') and (CBVENDABALCAO.Checked = False) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe o box para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe o box para Ordem de Serviço',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
   //VERIFICA SE O PEDIDO JÁ POSSUI DOC FI PARA EDITAR O VALOR
-  if FiltraTabela(DMSAIDA.TFiscPV, 'DOCFISSAIDA', 'COD_DOCFIS', '', '(cod_pedido=' + #39 + IntToStr(XCOD_ORDEM) + #39 + ')') = True then
+  if FiltraTabela(DMSAIDA.TFiscPV, 'DOCFISSAIDA', 'COD_DOCFIS', '',
+    '(cod_pedido=' + #39 + IntToStr(XCOD_ORDEM) + #39 + ')') = True then
   begin
     //EDITAL FISCAL EXISTENTE
     DMSAIDA.TFiscPV.Edit;
-    DMSAIDA.TFiscPV.FieldByName('VLRTOTPROD').AsCurrency := DMServ.TOrd.FieldByName('VALOR').AsCurrency;
-    DMSAIDA.TFiscPV.FieldByName('VLRTOTDOCNF').AsCurrency := DMServ.TOrd.FieldByName('VALOR').AsCurrency;
+    DMSAIDA.TFiscPV.FieldByName('VLRTOTPROD').AsCurrency :=
+      DMServ.TOrd.FieldByName('VALOR').AsCurrency;
+    DMSAIDA.TFiscPV.FieldByName('VLRTOTDOCNF').AsCurrency :=
+      DMServ.TOrd.FieldByName('VALOR').AsCurrency;
     DMSAIDA.TFiscPV.Post;
   end;
 
@@ -3408,7 +3643,8 @@ begin
     DMServ.TOrd.FieldByName('GARANTIA').AsString := '';
 
   //INFORMA CODIGO DO USUARIO
-  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger := StrToInt(FMenu.LCODUSUARIO.Caption);
+  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger :=
+    StrToInt(FMenu.LCODUSUARIO.Caption);
   //INFORMA CODIGO DO CLIENTE
   DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
   //INFORMA CODIGO DO EQUIPAMENTO
@@ -3418,9 +3654,11 @@ begin
   FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', '', '', '');
   DMServ.TOrd.Edit;
   //INFORMA CODIGO DO VENDEDOR
-  DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger := DMPESSOA.VWFuncionario.fieldByName('COD_FUNC').AsInteger;
+  DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger :=
+    DMPESSOA.VWFuncionario.fieldByName('COD_FUNC').AsInteger;
   //INFORMA CODIGO DO RESPONSÁVEL
-  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
+  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger :=
+    DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
   //INFORMA CODIGO DA LOJA
   DMServ.TOrd.FieldByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
   //INFORMA FORMA DE PAGAMENTO
@@ -3436,7 +3674,8 @@ begin
   DMServ.TOrd.FieldByName('DESCSERV').AsCurrency := EdDescTServ.ValueNumeric;
   //Informa Situação do pedido
   DMServ.TOrd.FieldByName('STATUS').AsString := 'ABERTO';
-  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString = '') then
+  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString
+    = '') then
   begin
     DMServ.TOrd.FieldByName('BOX').AsString := '-1';
     DBBox.Text := '-1';
@@ -3488,12 +3727,16 @@ begin
       if msg then
       begin
 
-        if Mensagem('   A T E N Ç Ã O   ', 'Foi encontrado um cliente com este CPF/CNPJ. Deseja utiliza-lo?', '', 2, 3, false, 'A') = 2 then
+        if Mensagem('   A T E N Ç Ã O   ',
+          'Foi encontrado um cliente com este CPF/CNPJ. Deseja utiliza-lo?', '',
+          2, 3, false, 'A') = 2 then
         begin
 
           XCOD_PESSOA := DMPESSOA.TALX.FieldByName('COD_PESSOA').AsInteger;
-          FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA', DMPESSOA.TALX.FieldByName('COD_PESSOA').AsString, '');
-          XCOD_CLIENTE := DMPESSOA.TCliente.FieldByName('cod_cliente').AsInteger;
+          FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA',
+            DMPESSOA.TALX.FieldByName('COD_PESSOA').AsString, '');
+          XCOD_CLIENTE :=
+            DMPESSOA.TCliente.FieldByName('cod_cliente').AsInteger;
 
           edNome.Text := DMPESSOA.TALX.FieldByName('NOME').AsString;
           edFone.Text := DMPESSOA.TALX.FieldByName('TELREL').AsString;
@@ -3510,11 +3753,15 @@ begin
           else
             RGTIPO.ItemIndex := 0;
 
-          if SelectRegistro('VWCIDADE', 'COD_CIDADE', DMPESSOA.TALX.FieldByName('COD_CIDADE').AsString) = True then
+          if SelectRegistro('VWCIDADE', 'COD_CIDADE',
+            DMPESSOA.TALX.FieldByName('COD_CIDADE').AsString) = True then
           begin //Slecionou o registro procurado
             XCOD_CIDADE := DMMACS.TSelect.FieldByName('COD_CIDADE').AsInteger;
-            FrmCidade.EDCodigo.text := DMMACS.TSelect.FieldByName('COD_CIDADE').AsString;
-            FrmCidade.EdDescricao.Text := DMMACS.TSelect.FieldByName('UF').AsString + '-' + DMMACS.TSelect.FieldByName('NOME').AsString;
+            FrmCidade.EDCodigo.text :=
+              DMMACS.TSelect.FieldByName('COD_CIDADE').AsString;
+            FrmCidade.EdDescricao.Text :=
+              DMMACS.TSelect.FieldByName('UF').AsString + '-' +
+              DMMACS.TSelect.FieldByName('NOME').AsString;
           end
           else
           begin
@@ -3536,7 +3783,8 @@ begin
       else
       begin
         XCOD_PESSOA := DMPESSOA.TALX.FieldByName('COD_PESSOA').AsInteger;
-        FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA', DMPESSOA.TALX.FieldByName('COD_PESSOA').AsString, '');
+        FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA',
+          DMPESSOA.TALX.FieldByName('COD_PESSOA').AsString, '');
         XCOD_CLIENTE := DMPESSOA.TCliente.FieldByName('cod_cliente').AsInteger;
         Result := True;
       end;
@@ -3546,20 +3794,24 @@ end;
 
 //Djonathan 23/11/2009 : Funcao que retorna o minimo e o maximo de uma tabela
 
-function TFOrdemMec.EncontraValores(XSqlTabelaA: string; XSQLTabelaAux: string; XInicial: string; XFinal: string; XDesc: string): Integer;
+function TFOrdemMec.EncontraValores(XSqlTabelaA: string; XSQLTabelaAux: string;
+  XInicial: string; XFinal: string; XDesc: string): Integer;
 begin
   DMESTOQUE.Alx.Close;
   DMESTOQUE.Alx.SQL.Clear;
-  DMESTOQUE.Alx.SQL.Add('select first 1 ' + XSQLTabelaAux + ',numdocfis from ' + XSqlTabelaA + ' where ');
+  DMESTOQUE.Alx.SQL.Add('select first 1 ' + XSQLTabelaAux + ',numdocfis from ' +
+    XSqlTabelaA + ' where ');
   if ((XInicial <> '') and (XFinal <> '')) then
   begin
     DMESTOQUE.Alx.SQL.Add('dtemissao between :dtemissao and :dtemissao2 and ');
     DMESTOQUE.Alx.ParamByName('dtemissao').AsDate := StrToDate(XInicial);
     DMESTOQUE.Alx.ParamByName('dtemissao2').AsDate := StrToDate(XFinal);
   end;
-  DMESTOQUE.Alx.SQL.Add('numdocfis is not null and numdocfis <> '''' order by ' + XSQLTabelaAux + XDesc);
+  DMESTOQUE.Alx.SQL.Add('numdocfis is not null and numdocfis <> '''' order by '
+    + XSQLTabelaAux + XDesc);
   DMESTOQUE.Alx.Open;
-  if ((XInicial <> '') and (XFinal <> '') and (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '')) then
+  if ((XInicial <> '') and (XFinal <> '') and
+    (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '')) then
     Result := 0
   else
     Result := StrToInt(DMESTOQUE.Alx.FieldByName('numdocfis').AsString);
@@ -3567,14 +3819,18 @@ end;
 
 //Djonathan 23/11/2009: Funcao que compara tabela com parametro
 
-function TFOrdemMec.ComparaValores(XSqlTabelaA: string; XCodigoB: string; XCount: Integer): Boolean;
+function TFOrdemMec.ComparaValores(XSqlTabelaA: string; XCodigoB: string;
+  XCount: Integer): Boolean;
 begin
   DMESTOQUE.Alx.Close;
   DMESTOQUE.Alx.SQL.Clear;
-  DMESTOQUE.Alx.SQL.Add('select ' + XCodigoB + ',numdocfis from ' + XSQLTabelaA + ' where numdocfis = :numdocfis');
+  DMESTOQUE.Alx.SQL.Add('select ' + XCodigoB + ',numdocfis from ' + XSQLTabelaA
+    +
+    ' where numdocfis = :numdocfis');
   DMESTOQUE.Alx.ParamByName('numdocfis').AsString := IntToStr(XCount);
   DMESTOQUE.Alx.Open;
-  if (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '') or (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '0') then
+  if (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '') or
+    (DMESTOQUE.Alx.FieldByName('numdocfis').AsString = '0') then
     Result := true
   else
     Result := false;
@@ -3582,12 +3838,16 @@ end;
 
 //Djonathan 23/11/2009: BUSCA VALORES DENTRO DE UMA TABELA ONDE O PARAMETRO FOR IGUAL AO CAMPO DA TABELA
 
-function TFOrdemMec.ComparaValoresInternos(XSqlTabelaA: string; XView: string; XCodigoV: string; XCodigoB: string; XCount: Integer): Boolean;
+function TFOrdemMec.ComparaValoresInternos(XSqlTabelaA: string; XView: string;
+  XCodigoV: string; XCodigoB: string; XCount: Integer): Boolean;
 begin
   DMESTOQUE.Alx.SQL.Clear;
   DMESTOQUE.Alx.Close;
-  DMESTOQUE.Alx.SQL.Add('select count(numdocfis) as registros from ' + XSQLTabelaA + ' left join ' + XView);
-  DMESTOQUE.Alx.SQL.Add(' on ' + XSQLTabelaA + '.' + XCodigoB + ' = ' + XView + '.' + XCodigoV + ' where ' + XView + '.' + XCodigoV + ' is not null and numdocfis = :numdocfis');
+  DMESTOQUE.Alx.SQL.Add('select count(numdocfis) as registros from ' +
+    XSQLTabelaA + ' left join ' + XView);
+  DMESTOQUE.Alx.SQL.Add(' on ' + XSQLTabelaA + '.' + XCodigoB + ' = ' + XView +
+    '.' + XCodigoV + ' where ' + XView + '.' + XCodigoV +
+    ' is not null and numdocfis = :numdocfis');
   DMESTOQUE.Alx.ParamByName('numdocfis').AsString := IntToStr(XCount);
   DMESTOQUE.Alx.Open;
   if (DMESTOQUE.Alx.FieldByName('registros').AsInteger >= 2) then
@@ -3604,20 +3864,29 @@ var
 begin
   try
     XTotPedDev := 0;
-    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCod_PedDev), '') = False then
+    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCod_PedDev), '')
+      = False then
     begin
-      Mensagem('Atenção', 'O Sistema não encontrou o pedido especificado. Reinicie o sistema e tente novamente, se o problema persistir entre em contato com a equipe de suporte', '', 1, 1, False, 'a');
+      Mensagem('Atenção',
+        'O Sistema não encontrou o pedido especificado. Reinicie o sistema e tente novamente, se o problema persistir entre em contato com a equipe de suporte',
+        '', 1, 1, False, 'a');
       Exit; //Caso não encontrar cancelar
     end;
-    if FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM', IntToStr(XCod_PedDev), '') = False then
+    if FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM',
+      IntToStr(XCod_PedDev), '') = False then
     begin
-      Mensagem('Atenção', 'O Sistema não encontrou o documento fiscal especificado. Reinicie o sistema e tente novamente, se o problema persistir entre em contato com a equipe de suporte', '', 1, 1, False, 'a');
+      Mensagem('Atenção',
+        'O Sistema não encontrou o documento fiscal especificado. Reinicie o sistema e tente novamente, se o problema persistir entre em contato com a equipe de suporte',
+        '', 1, 1, False, 'a');
       Exit; //Caso não encontrar cancelar
     end;
 
     if DMServ.TOrd.FieldByName('STATUS').AsString <> 'FECHADO' then
     begin
-      Mensagem('ATENÇÃO', 'Este pedido esta aberto ou já passou por um processo de devolução.', '', 1, 1, False, 'A');
+      Mensagem('ATENÇÃO',
+        'Este pedido esta aberto ou já passou por um processo de devolução.',
+          '',
+        1, 1, False, 'A');
       Exit;
     end;
     //ABRE NOVO PEDIDO DE COMPRA PARA SUPORTAR A DEVOLUÇÃO
@@ -3626,22 +3895,32 @@ begin
     DMServ.TOrd.FieldByName('COMISSAO').AsCurrency := 0;
     DMServ.TOrd.Post;
     DMENTRADA.TPedC.FieldByName('COD_PEDCOMP').AsInteger := XCod_PedCompra;
-    DMENTRADA.TPedC.FieldByName('NUMPED').AsString := DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString;
+    DMENTRADA.TPedC.FieldByName('NUMPED').AsString :=
+      DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString;
     DMENTRADA.TPedC.FieldByName('DTPEDCOMP').AsDateTime := DATE();
-    DMENTRADA.TPedC.FieldByName('COD_FORNEC').AsInteger := DMMACS.TLoja.FieldByName('COD_FORDEV').AsInteger;
-    DMENTRADA.TPedC.FieldByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
-    DMENTRADA.TPedC.FieldByName('VALOR').AsCurrency := DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
+    DMENTRADA.TPedC.FieldByName('COD_FORNEC').AsInteger :=
+      DMMACS.TLoja.FieldByName('COD_FORDEV').AsInteger;
+    DMENTRADA.TPedC.FieldByName('COD_USUARIO').AsString :=
+      FMenu.LCODUSUARIO.Caption;
+    DMENTRADA.TPedC.FieldByName('VALOR').AsCurrency :=
+      DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
     DMENTRADA.TPedC.FieldByName('DTPEDCOMP').AsDateTime := Date();
-    DMENTRADA.TPedC.FieldByName('COD_DEVOLUCAO').AsInteger := DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
-    DMENTRADA.TPedC.FieldByName('NUMDEV').AsString := DMServ.TOrd.FieldByName('NUMERO').AsString;
+    DMENTRADA.TPedC.FieldByName('COD_DEVOLUCAO').AsInteger :=
+      DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
+    DMENTRADA.TPedC.FieldByName('NUMDEV').AsString :=
+      DMServ.TOrd.FieldByName('NUMERO').AsString;
     //filtra as formas de pagamento
     FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '');
-    DMENTRADA.TPedC.FieldByName('COD_FORMPAG').AsInteger := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
+    DMENTRADA.TPedC.FieldByName('COD_FORMPAG').AsInteger :=
+      DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
     DMENTRADA.TPedC.FieldByName('SITUACAO').AsString := 'ABERTO';
     DMENTRADA.TPedC.Post;
-    FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '');
+    FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+      FMenu.LCODEMPRESA.Caption, '');
     DMMACS.TEmpresa.Edit;
-    DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString := IntToStr(StrToInt(DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString) + 1);
+    DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString :=
+      IntToStr(StrToInt(DMMacs.TEmpresa.FieldByName('PROXPEDCOMP').AsString) +
+        1);
     DMMACS.TEmpresa.Post;
     //FILTRA TODOS OS ITENS DO PEDIDO
   //seleciona items do pedido
@@ -3668,9 +3947,12 @@ begin
     while not DMESTOQUE.TSlave.Eof do
     begin
       //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-      FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
-      FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
-      FiltraTabela(DMServ.TPOrd, 'itprodord', 'cod_itprodord', DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsString, '');
+      FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
+      FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE',
+        DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
+      FiltraTabela(DMServ.TPOrd, 'itprodord', 'cod_itprodord',
+        DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsString, '');
       DMServ.TPOrd.Edit;
       DMServ.TPOrd.FieldByName('OPERACAO').AsString := 'DVL';
       DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency := 0;
@@ -3681,30 +3963,49 @@ begin
       //INSERE PRODUTO EM ITENS DE PEDIDO DE COMPRA
       XCodSlaveDev := InserReg(DMENTRADA.TItemPC, 'ITENSPEDC', 'COD_ITENSPEDC');
       DMENTRADA.TItemPC.FieldByName('COD_ITENSPEDC').AsInteger := XCodSlaveDev;
-      DMENTRADA.TItemPC.FieldByName('COD_DEVOLUCAO').AsInteger := DMServ.TPOrd.FieldByName('cod_itprodord').AsInteger;
-      DMENTRADA.TItemPC.FieldByName('ALIQICMS').AsCurrency := DMServ.TPOrd.FieldByName('ALIQICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('BASEICMS').AsCurrency := DMServ.TPOrd.FieldByName('BASEICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VLRICMS').AsCurrency := DMServ.TPOrd.FieldByName('VLRICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('REDUCBASEICMS').AsCurrency := DMServ.TPOrd.FieldByName('REDUCBASEICMS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('BASEICMSSUBS').AsCurrency := DMServ.TPOrd.FieldByName('BASEICMSSUBS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VLRICMSSUBS').AsCurrency := DMServ.TPOrd.FieldByName('VLRICMSSUBS').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('ALIQIPI').AsCurrency := DMServ.TPOrd.FieldByName('ALIQIPI').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VLRIPI').AsCurrency := DMServ.TPOrd.FieldByName('VLRIPI').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('COD_DEVOLUCAO').AsInteger :=
+        DMServ.TPOrd.FieldByName('cod_itprodord').AsInteger;
+      DMENTRADA.TItemPC.FieldByName('ALIQICMS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('ALIQICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('BASEICMS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('BASEICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VLRICMS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('VLRICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('REDUCBASEICMS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('REDUCBASEICMS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('BASEICMSSUBS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('BASEICMSSUBS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VLRICMSSUBS').AsCurrency :=
+        DMServ.TPOrd.FieldByName('VLRICMSSUBS').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('ALIQIPI').AsCurrency :=
+        DMServ.TPOrd.FieldByName('ALIQIPI').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VLRIPI').AsCurrency :=
+        DMServ.TPOrd.FieldByName('VLRIPI').AsCurrency;
       DMENTRADA.TItemPC.FieldByName('FRETE').AsCurrency := 0;
       DMENTRADA.TItemPC.FieldByName('EMBPROD').AsCurrency := 0;
-      DMENTRADA.TItemPC.FieldByName('COD_PEDCOMPRA').AsInteger := XCod_PedCompra;
+      DMENTRADA.TItemPC.FieldByName('COD_PEDCOMPRA').AsInteger :=
+        XCod_PedCompra;
       DMENTRADA.TItemPC.FieldByName('DATA').AsString := DateToStr(Date());
-      DMENTRADA.TItemPC.FieldByName('QTDEST').AsCurrency := DMServ.TPOrd.FieldByName('QTD').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('COD_ESTOQUE').AsInteger := DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsInteger;
-      DMENTRADA.TItemPC.FieldByName('QTDEPROD').AsCurrency := DMServ.TPOrd.FieldByName('QTD').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('DESCPRO').AsCurrency := DMServ.TPOrd.FieldByName('DESCONTO').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VALUNIT').AsCurrency := DMServ.TPOrd.FieldByName('vlrunit').AsCurrency;
-      DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency := DMServ.TPOrd.FieldByName('total').AsCurrency;
-      XTotPedDev := XTotPedDev + DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('QTDEST').AsCurrency :=
+        DMServ.TPOrd.FieldByName('QTD').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('COD_ESTOQUE').AsInteger :=
+        DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsInteger;
+      DMENTRADA.TItemPC.FieldByName('QTDEPROD').AsCurrency :=
+        DMServ.TPOrd.FieldByName('QTD').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('DESCPRO').AsCurrency :=
+        DMServ.TPOrd.FieldByName('DESCONTO').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VALUNIT').AsCurrency :=
+        DMServ.TPOrd.FieldByName('vlrunit').AsCurrency;
+      DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency :=
+        DMServ.TPOrd.FieldByName('total').AsCurrency;
+      XTotPedDev := XTotPedDev +
+        DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency;
       DMENTRADA.TItemPC.Post;
       //ATULIZA ESTOQUE
       DMESTOQUE.TEstoque.Edit;
-      DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + DMServ.TPOrd.FieldByName('QTD').AsCurrency;
+      DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency :=
+        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency +
+        DMServ.TPOrd.FieldByName('QTD').AsCurrency;
       DMESTOQUE.TEstoque.Post;
       DMESTOQUE.TransacEstoque.CommitRetaining;
 
@@ -3714,42 +4015,71 @@ begin
     DMENTRADA.TPedC.FieldByName('VALOR').AsCurrency := XTotPedDev;
     DMENTRADA.TPedC.Post;
     //VERIFICA SE O PEDIDO JÁ POSSUE DOC FI
-    if FiltraTabela(DMSAIDA.TAlx, 'DOCFISORD', 'COD_DOCFIS', '', '(cod_ORDEM=' + #39 + IntToStr(XCod_PedDev) + #39 + ')') = True then
+    if FiltraTabela(DMSAIDA.TAlx, 'DOCFISORD', 'COD_DOCFIS', '', '(cod_ORDEM=' +
+      #39 + IntToStr(XCod_PedDev) + #39 + ')') = True then
     begin
       //INSERE FISCAL EM PEDIDO DE COMPRA
       XCOD_FISCAL := InserReg(DMENTRADA.TFiscPC, 'DOCFIS', 'COD_DOCFISC');
-      FiltraTabela(DMESTOQUE.TCFOP, 'CFOP', 'COD_CFOP', DMMACS.TLoja.FieldByName('COD_CFOPDEV').AsString, '');
+      FiltraTabela(DMESTOQUE.TCFOP, 'CFOP', 'COD_CFOP',
+        DMMACS.TLoja.FieldByName('COD_CFOPDEV').AsString, '');
       DMENTRADA.TFiscPC.FieldByName('COD_PEDIDO').AsInteger := XCod_PedCompra;
       DMENTRADA.TFiscPC.FieldByName('COD_DOCFISC').AsInteger := XCOD_FISCAL;
-      DMENTRADA.TFiscPC.FieldByName('COD_CFOP').AsInteger := DMESTOQUE.TCFOP.FieldByName('COD_CFOP').AsInteger;
-      DMENTRADA.TFiscPC.FieldByName('DTEMISSAO').AsDateTime := DMSAIDA.TAlx.FieldByName('DTEMISSAO').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('DTENTSAID').AsDateTime := DMSAIDA.TAlx.FieldByName('DTENTSAID').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('HORASAID').AsDateTime := DMSAIDA.TAlx.FieldByName('HORASAID').AsDateTime;
-      DMENTRADA.TFiscPC.FieldByName('BASEICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('BASEICMS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRICMS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('BASCALSUBS').AsCurrency := DMSAIDA.TAlx.FieldByName('BASCALSUBS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRICMSUBS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRICMSUBS').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRSEG').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRSEG').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLRTOTIPI').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRTOTIPI').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('VLROUTRASDESP').AsCurrency := DMSAIDA.TAlx.FieldByName('VLROUTRASDESP').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('COD_CFOP').AsInteger :=
+        DMESTOQUE.TCFOP.FieldByName('COD_CFOP').AsInteger;
+      DMENTRADA.TFiscPC.FieldByName('DTEMISSAO').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('DTEMISSAO').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('DTENTSAID').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('DTENTSAID').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('HORASAID').AsDateTime :=
+        DMSAIDA.TAlx.FieldByName('HORASAID').AsDateTime;
+      DMENTRADA.TFiscPC.FieldByName('BASEICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('BASEICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('BASCALSUBS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('BASCALSUBS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRICMSUBS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRICMSUBS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRSEG').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRSEG').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRTOTIPI').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRTOTIPI').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLROUTRASDESP').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLROUTRASDESP').AsCurrency;
       DMENTRADA.TFiscPC.FieldByName('VLRTOTPROD').AsCurrency := XTotPedDev;
       DMENTRADA.TFiscPC.FieldByName('VLRTOTDOCNF').AsCurrency := XTotPedDev;
-      DMENTRADA.TFiscPC.FieldByName('VLRISENTOICMS').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRISENTOICMS').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('VLRISENTOICMS').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRISENTOICMS').AsCurrency;
       DMENTRADA.TFiscPC.FieldByName('SERIE').AsString := '1';
-      DMENTRADA.TFiscPC.FieldByName('MODELONF').AsString := DMMACS.TLoja.FieldByName('MODELONF').AsString;
-      DMENTRADA.TFiscPC.FieldByName('OBS').AsString := 'Dev. NF: ' + DMSAIDA.TAlx.FieldByName('numdocfis').AsString + ' - ' + DMSAIDA.TAlx.FieldByName('OBS').AsString;
-      DMENTRADA.TFiscPC.FieldByName('FRETECOMP').AsString := DMSAIDA.TAlx.FieldByName('FRETECOMP').AsString;
-      DMENTRADA.TFiscPC.FieldByName('VLRFRETE').AsCurrency := DMSAIDA.TAlx.FieldByName('VLRFRETE').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('COD_TRANSP').AsCurrency := DMSAIDA.TAlx.FieldByName('COD_TRANSP').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('QUANTFRETE').AsCurrency := DMSAIDA.TAlx.FieldByName('QUANTFRETE').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('ESPECIEFRETE').AsString := DMSAIDA.TAlx.FieldByName('ESPECIEFRETE').AsString;
-      DMENTRADA.TFiscPC.FieldByName('MARCAFRETE').AsString := DMSAIDA.TAlx.FieldByName('MARCAFRETE').AsString;
-      DMENTRADA.TFiscPC.FieldByName('NUMCONHEC').AsString := DMSAIDA.TAlx.FieldByName('NUMCONHEC').AsString;
-      DMENTRADA.TFiscPC.FieldByName('PLACA').AsString := DMSAIDA.TAlx.FieldByName('PLACA').AsString;
-      DMENTRADA.TFiscPC.FieldByName('UFPLACA').AsString := DMSAIDA.TAlx.FieldByName('UFPLACA').AsString;
-      DMENTRADA.TFiscPC.FieldByName('PESOBRUTO').AsCurrency := DMSAIDA.TAlx.FieldByName('PESOBRUTO').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('PESOLIQ').AsCurrency := DMSAIDA.TAlx.FieldByName('PESOLIQ').AsCurrency;
-      DMENTRADA.TFiscPC.FieldByName('FRETECONTA').AsString := DMSAIDA.TAlx.FieldByName('FRETECONTA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('MODELONF').AsString :=
+        DMMACS.TLoja.FieldByName('MODELONF').AsString;
+      DMENTRADA.TFiscPC.FieldByName('OBS').AsString := 'Dev. NF: ' +
+        DMSAIDA.TAlx.FieldByName('numdocfis').AsString + ' - ' +
+        DMSAIDA.TAlx.FieldByName('OBS').AsString;
+      DMENTRADA.TFiscPC.FieldByName('FRETECOMP').AsString :=
+        DMSAIDA.TAlx.FieldByName('FRETECOMP').AsString;
+      DMENTRADA.TFiscPC.FieldByName('VLRFRETE').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('VLRFRETE').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('COD_TRANSP').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('COD_TRANSP').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('QUANTFRETE').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('QUANTFRETE').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('ESPECIEFRETE').AsString :=
+        DMSAIDA.TAlx.FieldByName('ESPECIEFRETE').AsString;
+      DMENTRADA.TFiscPC.FieldByName('MARCAFRETE').AsString :=
+        DMSAIDA.TAlx.FieldByName('MARCAFRETE').AsString;
+      DMENTRADA.TFiscPC.FieldByName('NUMCONHEC').AsString :=
+        DMSAIDA.TAlx.FieldByName('NUMCONHEC').AsString;
+      DMENTRADA.TFiscPC.FieldByName('PLACA').AsString :=
+        DMSAIDA.TAlx.FieldByName('PLACA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('UFPLACA').AsString :=
+        DMSAIDA.TAlx.FieldByName('UFPLACA').AsString;
+      DMENTRADA.TFiscPC.FieldByName('PESOBRUTO').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('PESOBRUTO').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('PESOLIQ').AsCurrency :=
+        DMSAIDA.TAlx.FieldByName('PESOLIQ').AsCurrency;
+      DMENTRADA.TFiscPC.FieldByName('FRETECONTA').AsString :=
+        DMSAIDA.TAlx.FieldByName('FRETECONTA').AsString;
       DMENTRADA.TFiscPC.Post;
     end;
     {       If CancelaFinac(IntToStr(XCod_PedDev))=True Then
@@ -3757,7 +4087,8 @@ begin
            Else
             Result:=False;}
     Result := True;
-    MessageDlg('Ordem Devolvida como Ped. Compra Nº ' + DMENTRADA.TPedC.FieldByName('NUMPED').AsString, mtWarning, [mbOK], 0);
+    MessageDlg('Ordem Devolvida como Ped. Compra Nº ' +
+      DMENTRADA.TPedC.FieldByName('NUMPED').AsString, mtWarning, [mbOK], 0);
   except
     Result := False;
   end;
@@ -3799,7 +4130,8 @@ begin
   try
     Result := True;
     //Edmar - 11/09/2014 - Busca o usuario logado no sistema
-    FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO', FMenu.LCODUSUARIO.Caption, '');
+    FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO',
+      FMenu.LCODUSUARIO.Caption, '');
     //Edmar - 11/09/2014 - Se o usuario tem salvo o numero de registro que serão mostrados na OS
     //coloca o seu valor correspondente
     if DMMACS.TUsuario.FieldByName('MAXREGISTROOS').AsString <> '' then
@@ -3883,7 +4215,8 @@ begin
   FMenu.XSimplesRemessa := False;
   FMenu.XOutrosEnt := False;
   FMenu.XDevolucao := False;
-  FMenu.TIPOREL := ''; //demarca para não ocorrer caso de reimpressão de nota por erro
+  FMenu.TIPOREL := '';
+  //demarca para não ocorrer caso de reimpressão de nota por erro
 
   XTipoProc := 0; //0 = procura de produtos normal 1=procura pelo nome
   XCampo := 'NUMERO';
@@ -3918,9 +4251,11 @@ begin
   end
   else
   begin
-    FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO', FMenu.LCODUSUARIO.Caption, '');
+    FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO',
+      FMenu.LCODUSUARIO.Caption, '');
 
-    FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', DMMACS.TUsuario.FieldByname('COD_FUNCIONARIO').AsString, '');
+    FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+      DMMACS.TUsuario.FieldByname('COD_FUNCIONARIO').AsString, '');
     try
       xcod_usuario := DMPESSOA.TFuncionario.FieldByname('cod_func').AsInteger;
     except
@@ -3931,17 +4266,21 @@ begin
     DBGridConsulta.Columns.LoadFromFile('C:\MZR\Arquivos\LayoutGrid\Ordemmec.lgm');
 
   //VERIFICA INFORMAÇÕES NECESSÁRIAS PARA CONTROLES DE CÁLCULOS FISCAIS
-  if FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA', FMenu.LCODCAIXA.Caption, '') = True then
+  if FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA', FMenu.LCODCAIXA.Caption,
+    '') = True then
   begin
     //Localiza o caixa em questão para verificar se suas configurações são de Nota Fiscal
-    if (DMCAIXA.TCaixa.FieldByName('tipocupom').AsString = 'NF') and (DMMACS.TLoja.FieldByName('NFECERTIFICACAO').AsString <> '') then
+    if (DMCAIXA.TCaixa.FieldByName('tipocupom').AsString = 'NF') and
+      (DMMACS.TLoja.FieldByName('NFECERTIFICACAO').AsString <> '') then
       //BitBtn17.Visible := True
     else
-      {//BitBtn17.Visible := False;} if (DMCAIXA.TCaixa.FieldByName('tipocupom').AsString = 'NFe')
+      {//BitBtn17.Visible := False;}if
+        (DMCAIXA.TCaixa.FieldByName('tipocupom').AsString = 'NFe')
         or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFCe')
         or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe-NFCe') then
       begin
-        DBGridConsulta.Hint := 'Pressione Ctrl+s para salvar o lay-out do grid e Ctrl+c para copiar a chave de acesso da NFe';
+        DBGridConsulta.Hint :=
+          'Pressione Ctrl+s para salvar o lay-out do grid e Ctrl+c para copiar a chave de acesso da NFe';
         DBGridConsulta.ShowHint := True;
       end
       else
@@ -4027,9 +4366,10 @@ begin
   PCadastro.SendToBack;
 
   FMenu.XCodOrdemVinculo := -1;
-  FMenu.SelectedForm := False; //inicia com false para dizer que o botão selecionar não foi pressionado
-  //Edmar - 19/08/2015 - verifica o tipo do formulário para posicionar
-  //a grid corretamente e mostrar ou não o botão para seleção
+  FMenu.SelectedForm := False;
+  //inicia com false para dizer que o botão selecionar não foi pressionado
+//Edmar - 19/08/2015 - verifica o tipo do formulário para posicionar
+//a grid corretamente e mostrar ou não o botão para seleção
   if Tag = 20 then //form de seleção
   begin
     DBGridConsulta.Top := 179;
@@ -4087,7 +4427,8 @@ begin
   DMServ.WOrdem.Close;
   DMServ.WOrdem.SQL.Clear;
   if (EdMaxRegistro.Text <> '') and (EdMaxRegistro.Text <> '0') then
-    DMServ.WOrdem.SQL.Add('select   FIRST ' + EdMaxRegistro.Text + ' * from VWORDEM')
+    DMServ.WOrdem.SQL.Add('select   FIRST ' + EdMaxRegistro.Text +
+      ' * from VWORDEM')
   else
     DMServ.WOrdem.SQL.Add('select  * from VWORDEM');
   //Jônatas 27/06/2013 - se o campo de placas adicionais for verdadeiro
@@ -4096,33 +4437,45 @@ begin
   begin
     DMServ.WOrdem.SQL.Add('LEFT JOIN ordem ON ordem.cod_ordem = vwordem.cod_ordem');
   end;
-  DMServ.WOrdem.SQL.Add(' WHERE (vwordem.COD_LOJA=' + FMenu.LCODLOJA.Caption + ')');
+  DMServ.WOrdem.SQL.Add(' WHERE (vwordem.COD_LOJA=' + FMenu.LCODLOJA.Caption +
+    ')');
 
   DMServ.WOrdem.SQL.Add(' AND vwordem.COD_ORDEM IS NOT NULL ');
 
   //FILTRO PARA EDIT'S
   if FILTRO = 'NUMERO' then
-    DMServ.WOrdem.SQL.Add(' AND vwordem.numero = ' + #39 + TRIM(EDNum.Text) + #39)
+    DMServ.WOrdem.SQL.Add(' AND vwordem.numero = ' + #39 + TRIM(EDNum.Text) +
+      #39)
   else if FILTRO = 'BOX' then
-    DMServ.WOrdem.SQL.Add(' AND (upper (VWordem.box)) like (upper (' + #39 + TRIM(EDBox.Text) + '%' + #39 + '))')
+    DMServ.WOrdem.SQL.Add(' AND (upper (VWordem.box)) like (upper (' + #39 +
+      TRIM(EDBox.Text) + '%' + #39 + '))')
   else if FILTRO = 'PLACA' then
   begin
-    xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(MEPlaca.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+    xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(MEPlaca.Text, '-',
+      '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
     //Jônatas 28/06/2013 - Inclui as placas adicionais para fazer a filtragem
     if DMMACS.TLoja.FieldByName('USAPLACASADICIONAIS').AsString = '1' then
-      DMServ.WOrdem.SQL.Add(' AND (upper(replace(replace(vwordem.placa, ''-'', ''''), '' '', ''''))) like (upper (' + #39 + xPlacaLimpa + '%' + #39 + ')) OR (upper(replace(replace(ordem.placa2, ''-'', ''''), '' '', ''''))) like (upper (' + #39 + xPlacaLimpa + '%' + #39 + ')) OR (upper(replace(replace(ordem.placa3, ''-'', ''''), '' '', ''''))) like (upper (' + #39 + xPlacaLimpa + '%' + #39 + '))')
+      DMServ.WOrdem.SQL.Add(' AND (upper(replace(replace(vwordem.placa, ''-'', ''''), '' '', ''''))) like (upper (' + #39 + xPlacaLimpa + '%' + #39 +
+        ')) OR (upper(replace(replace(ordem.placa2, ''-'', ''''), '' '', ''''))) like (upper (' + #39
+        + xPlacaLimpa + '%' + #39 +
+        ')) OR (upper(replace(replace(ordem.placa3, ''-'', ''''), '' '', ''''))) like (upper (' + #39
+        + xPlacaLimpa + '%' + #39 + '))')
     else
       DMServ.WOrdem.SQL.Add(' AND (upper(replace(replace(vwordem.placa, ''-'', ''''), '' '', ''''))) like (upper (' + #39 + xPlacaLimpa + '%' + #39 + '))');
 
   end
   else if FILTRO = 'CLIENTE' then
-    DMServ.WOrdem.SQL.Add(' AND(upper (VWordem.cliente)) like (upper (' + #39 + TRIM(EDCliente1.Text) + '%' + #39 + '))')
+    DMServ.WOrdem.SQL.Add(' AND(upper (VWordem.cliente)) like (upper (' + #39 +
+      TRIM(EDCliente1.Text) + '%' + #39 + '))')
   else if FILTRO = 'NUMFISCAL' then
-    DMServ.WOrdem.SQL.Add(' AND vwordem.numfiscal = ' + #39 + TRIM(EdFiscal.Text) + #39)
+    DMServ.WOrdem.SQL.Add(' AND vwordem.numfiscal = ' + #39 + TRIM(EdFiscal.Text)
+      + #39)
   else if FILTRO = 'NFSE' then
-    DMServ.WOrdem.SQL.Add(' AND vwordem.numfiscalnfse = ' + #39 + TRIM(EdFiscalNfse.Text) + #39)
+    DMServ.WOrdem.SQL.Add(' AND vwordem.numfiscalnfse = ' + #39 +
+      TRIM(EdFiscalNfse.Text) + #39)
   else if FILTRO = 'VEICULO' then
-    DMServ.WOrdem.SQL.Add(' AND(upper (VWordem.Equipamento)) like (upper (' + #39 + TRIM(MEVeiculo.Text) + '%' + #39 + '))')
+    DMServ.WOrdem.SQL.Add(' AND(upper (VWordem.Equipamento)) like (upper (' + #39
+      + TRIM(MEVeiculo.Text) + '%' + #39 + '))')
   else
     FILTRO := '';
 
@@ -4132,13 +4485,16 @@ begin
     if CBFILTRO.Text = 'ABERTAS' then
       DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'ABERTO' + #39 + ')')
     else if CBFILTRO.Text = 'FECHADAS' then
-      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'FECHADO' + #39 + ')')
+      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'FECHADO' + #39 +
+        ')')
     else if CBFILTRO.Text = 'TERMINADAS' then
-      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'TERMINADO' + #39 + ')')
+      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'TERMINADO' + #39 +
+        ')')
     else if CBFILTRO.Text = 'NFE2' then
       DMServ.WOrdem.SQL.Add(' AND (vwordem.FISCO=' + #39 + 'NFE2' + #39 + ')')
     else if CBFILTRO.Text = 'CANCELADO' then
-      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'CANCELADO' + #39 + ')');
+      DMServ.WOrdem.SQL.Add(' AND (vwordem.STATUS=' + #39 + 'CANCELADO' + #39 +
+        ')');
 
   end;
 
@@ -4169,10 +4525,12 @@ end;
 
 //SETA CORES NA GRID DE CONSULTA
 
-procedure TFOrdemMec.DBGridConsultaDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+procedure TFOrdemMec.DBGridConsultaDrawColumnCell(Sender: TObject; const Rect:
+  TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
   inherited;
-  if (DMServ.WOrdem.FieldByName('STATUS').AsString = 'ABERTO') or (DMServ.WOrdem.FieldByName('FISCO').AsString = 'NFE2') then
+  if (DMServ.WOrdem.FieldByName('STATUS').AsString = 'ABERTO') or
+    (DMServ.WOrdem.FieldByName('FISCO').AsString = 'NFE2') then
   begin
     if DMServ.WOrdem.FieldByName('GARANT').AsString = '1' then
     begin
@@ -4186,7 +4544,8 @@ begin
     end;
   end;
 
-  if (DMServ.WOrdem.FieldByName('STATUS').AsString <> 'ABERTO') and (DMServ.WOrdem.FieldByName('STATUSNFSE').AsString = '3') then
+  if (DMServ.WOrdem.FieldByName('STATUS').AsString <> 'ABERTO') and
+    (DMServ.WOrdem.FieldByName('STATUSNFSE').AsString = '3') then
   begin
     DBGridConsulta.Canvas.Font.Color := clPurple;
     DBGridConsulta.DefaultDrawColumnCell(Rect, DataCol, Column, State);
@@ -4243,7 +4602,8 @@ var
   xPlacaLimpa: string;
 begin
   inherited;
-  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(MEPLACA.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(MEPLACA.Text, '-',
+    '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
 
   if (Length(xPlacaLimpa) = 4) and not (Key = #8)
     and not (Key = #13) and not (Key = #27) then
@@ -4253,12 +4613,14 @@ begin
       and (xPlacaLimpa[2] in ['a'..'z', 'A'..'Z'])
       and (xPlacaLimpa[3] in ['a'..'z', 'A'..'Z']) then // PADRÃO ANTIGO ABC 1234
     begin
-      MEPLACA.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
+      MEPLACA.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' +
+        xPlacaLimpa[4];
       MEPLACA.SelStart := 5;
     end;
   end;
 
-  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not (Key = #27) then
+  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not
+    (Key = #27) then
     Key := #0;
 
   {If Not (key In ['a'..'z', 'A'..'Z', '0'..'9', #8, #13, #27])
@@ -4457,18 +4819,23 @@ begin
     DMServ.TOrd.ApplyUpdates;
     DMServ.TOrd.Transaction.CommitRetaining;
   except
-    MessageDlg('A Odem não foi inserida no banco, tente inserir novamente', mtError, [mbOK], 0);
+    MessageDlg('A Ordem não foi inserida no banco, tente inserir novamente',
+      mtError, [mbOK], 0);
     Exit;
   end;
 
   // - 19/03/2009: verificar se OS foi inserida
-  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCODPKMESTRE), '') = False then
+  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCODPKMESTRE), '')
+    = False then
   begin
-    Mensagem('Mzr Sistemas - INFORMAÇÃO', 'A Ordem inserida foi perdida.' + #13 + 'Para evitar outras falhas Reinicie o sistema.', '', 1, 1, false, 'i');
+    Mensagem('Mzr Sistemas - INFORMAÇÃO', 'A Ordem inserida foi perdida.' + #13
+      +
+      'Para evitar outras falhas Reinicie o sistema.', '', 1, 1, false, 'i');
     Exit;
   end;
 
-  Registra('ORDEM', 'ABRE ORDEM', DateToStr(Date()), 'Nº: ' + XNumOrdem + '; Cód. ordem: ' + IntToStr(XCOD_ORDEM), '');
+  Registra('ORDEM', 'ABRE ORDEM', DateToStr(Date()), 'Nº: ' + XNumOrdem +
+    '; Cód. ordem: ' + IntToStr(XCOD_ORDEM), '');
 
   //Seleciona somente os registros corretos
   FiltraSlave;
@@ -4514,13 +4881,17 @@ begin
   PConsulta.SendToBack;
   PageControl1.ActivePageIndex := 0;
   //Busca vendedor de acordo com o usuario locado
-  if FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'codusuario', FMenu.LCODUSUARIO.Caption, '') = true then
+  if FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'codusuario',
+    FMenu.LCODUSUARIO.Caption, '') = true then
   begin
-    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func', DMMACS.TUsuario.FieldByName('cod_funcionario').AsString, '') = true then
+    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func',
+      DMMACS.TUsuario.FieldByName('cod_funcionario').AsString, '') = true then
     begin
       XCOD_VENDEDOR := DMPESSOA.VWFuncionario.FieldByName('cod_func').AsInteger;
-      FrmVendedor.EDCodigo.Text := DMPESSOA.VWFuncionario.FieldByName('cod_func').AsString;
-      FrmVendedor.EdDescricao.Text := DMPESSOA.VWFuncionario.FieldByName('nome').AsString;
+      FrmVendedor.EDCodigo.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('cod_func').AsString;
+      FrmVendedor.EdDescricao.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('nome').AsString;
     end;
   end;
 
@@ -4528,8 +4899,10 @@ begin
   if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') then
   begin
     XCOD_FORMPAG := DMFINANC.TFormPag.FieldByName('cod_formpag').AsInteger;
-    FrmFormPag1.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
-    FrmFormPag1.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('cod_interno').AsString;
+    FrmFormPag1.EdDescricao.Text :=
+      DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+    FrmFormPag1.EDCodigo.Text :=
+      DMFINANC.TFormPag.FieldByName('cod_interno').AsString;
   end;
   //Filtra todos os subserviços
   FiltraTabela(DMServ.WSubServ, 'vwsubservico', '', '', '');
@@ -4537,6 +4910,7 @@ begin
   FrmCliente.Repaint;
   FrmEquipe.Repaint;
   FBEquipPlaca.Repaint;
+  //SearchPlaca.Repaint;
   FrmFormPag1.Repaint;
 end;
 
@@ -4562,7 +4936,8 @@ begin
   EdContatoCliente.Text := '';
   CBGarantia.Checked := False;
   EdObsFinanceira.Text := '';
-  EdPlaca2.Text := ''; //Jônatas 23/08/2013 - Incluído para limpar os edits das placas
+  EdPlaca2.Text := '';
+  //Jônatas 23/08/2013 - Incluído para limpar os edits das placas
   EdPlaca3.Text := '';
   EdDescTServ.Text := '0,00';
   EdTotalserv.Text := '0,00';
@@ -4620,19 +4995,26 @@ end;
 
 //press key codigo do cliente
 
-procedure TFOrdemMec.FrmClienteEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FrmClienteEDCodigoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   inherited;
   if Key = VK_return then
   begin
-    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_INTERNO', '', ' COD_INTERNO=' + #39 + FrmCliente.EDCodigo.Text + #39) = True then
+    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_INTERNO', '',
+      ' COD_INTERNO=' + #39 + FrmCliente.EDCodigo.Text + #39) = True then
     begin //CASO CONSEGUIU SELECIONAR CLIENTE
       XCOD_CLIENTE := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
-      FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-      FrmCliente.EDCodigo.Hint := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-      FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
-      if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsString, '') = True then
-        EdObsFinanceira.Text := DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
+      FrmCliente.EdDescricao.Text :=
+        DMPESSOA.WCliente.FieldByName('NOME').AsString;
+      FrmCliente.EDCodigo.Hint :=
+        DMPESSOA.WCliente.FieldByName('NOME').AsString;
+      FrmCliente.EDCodigo.Text :=
+        DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
+      if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+        DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsString, '') = True then
+        EdObsFinanceira.Text :=
+          DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
       else
         EdObsFinanceira.Text := '';
 
@@ -4655,11 +5037,15 @@ begin
     PCadastroRapido.Visible := True;
     PCadastroRapido.BringToFront;
     //Localiza Cidade
-    if FiltraTabela(DMGEOGRAFIA.WCidade, 'VWCIDADE', 'COD_CIDADE', DMMACS.TEmpresa.FieldByName('COD_CIDADE').AsString, '') = True then
+    if FiltraTabela(DMGEOGRAFIA.WCidade, 'VWCIDADE', 'COD_CIDADE',
+      DMMACS.TEmpresa.FieldByName('COD_CIDADE').AsString, '') = True then
     begin
       XCOD_CIDADE := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsInteger;
-      FrmCidade.EdDescricao.Text := DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + '-' + DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
-      FrmCidade.EDCodigo.Text := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
+      FrmCidade.EdDescricao.Text :=
+        DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + '-' +
+        DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
+      FrmCidade.EDCodigo.Text :=
+        DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
     end
     else
     begin
@@ -4680,33 +5066,51 @@ procedure TFOrdemMec.FrmClienteBTNOPENClick(Sender: TObject);
 begin
   // inherited;
   FrmCliente.BTNOPENClick(Sender);
-  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', '', '', ' ORDER BY NOME'); //LIBERA TODOS OS REGISTROS PARA CONSULTA
+  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', '', '', ' ORDER BY NOME');
+  //LIBERA TODOS OS REGISTROS PARA CONSULTA
   if AbrirForm(TFCliente, FCliente, 1) = 'Selected' then
   begin
     if DMPESSOA.WCliente.FieldByName('ATUALIZAR').AsString = '1' then
-      MessageDlg('AS INFORMAÇÕES DO CLIENTE NECESSITAM SER ATUALIZADAS', mtWarning, [mbOK], 0);
-    if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsString, '') = True then
+      MessageDlg('AS INFORMAÇÕES DO CLIENTE NECESSITAM SER ATUALIZADAS',
+        mtWarning, [mbOK], 0);
+    if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsString, '') = True then
     begin
-      if (DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency >= XVLRTOTAL) and (DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency <> 0) then
-        Mensagem('INFORMAÇÃO', 'Este cliente possui créditos!' + #13 + 'Valor de crédito: ' + FormatFloat('0.00', DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency), '', 1, 1, false, 'i');
+      if (DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency >= XVLRTOTAL)
+        and (DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency <> 0) then
+        Mensagem('INFORMAÇÃO', 'Este cliente possui créditos!' + #13 +
+          'Valor de crédito: ' + FormatFloat('0.00',
+          DMPESSOA.TPessoa.FieldByName('VLRCREDITO').AsCurrency), '', 1, 1,
+            false,
+          'i');
     end;
     //VEERIFICA SE DIAS DE INTERVALO MAIOR QUE ZERO, SE IGUAL OU MENOR A ZERO O SISTEMA NÃO DEVE FAZER CONTROLE
     if DMMACS.TLoja.FieldByName('DIASBLOQCLI').AsInteger <> 0 then
     begin
-      if VerificBloqCli(IntToStr(DMPESSOA.WCliente.FieldByName('COD_cliente').AsInteger)) = True then
-        Mensagem('C R É D I T O   B L O Q U E A D O', 'Cliente possui Crédito Bloqueado. Por atrasos de ' + DIASATRASO + '/' + IntToStr(StrToInt(DIASATRASO) - DMMACS.TLoja.FieldByNAme('DIASBLOQCLI').AsInteger) + ' dias em suas contas!', '', 1, 1, false, 'i');
+      if
+        VerificBloqCli(IntToStr(DMPESSOA.WCliente.FieldByName('COD_cliente').AsInteger)) = True then
+        Mensagem('C R É D I T O   B L O Q U E A D O',
+          'Cliente possui Crédito Bloqueado. Por atrasos de ' + DIASATRASO + '/'
+            +
+          IntToStr(StrToInt(DIASATRASO) -
+          DMMACS.TLoja.FieldByNAme('DIASBLOQCLI').AsInteger) +
+          ' dias em suas contas!', '', 1, 1, false, 'i');
     end;
     XCOD_CLIENTE := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
-    FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
+    FrmCliente.EDCodigo.Text :=
+      DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
     FrmCliente.EDCodigo.Hint := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-    FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByName('NOME').AsString;
+    FrmCliente.EdDescricao.Text :=
+      DMPESSOA.WCliente.FieldByName('NOME').AsString;
     DMPESSOA.TCliente.Close;
     DMPESSOA.TCliente.SQL.Clear;
     DMPESSOA.TCliente.SQL.Add(' Select * from cliente where cliente.cod_cliente=:Codigo ');
-    DMPESSOA.TCliente.ParamByName('Codigo').AsInteger := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
+    DMPESSOA.TCliente.ParamByName('Codigo').AsInteger :=
+      DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
     DMPESSOA.TCliente.Open;
     if not DMPESSOA.TCliente.IsEmpty then
-      EdObsFinanceira.Text := DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
+      EdObsFinanceira.Text :=
+        DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
     else
       EdObsFinanceira.Text := '';
 
@@ -4735,27 +5139,35 @@ end;
 
 //pesquisa codigo equipamento
 
-procedure TFOrdemMec.PesquisaCodigoEquipamento(codigo: string; cliente: boolean);
+procedure TFOrdemMec.PesquisaCodigoEquipamento(codigo: string; cliente:
+  boolean);
 var
   Tmp: Boolean;
 begin
   // letras maiusculas
-  codigo := Trim(UpperCase(StringReplace(StringReplace(codigo, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  codigo := Trim(UpperCase(StringReplace(StringReplace(codigo, '-', '',
+    [rfReplaceAll]), ' ', '', [rfReplaceAll])));
   if codigo <> '' then
   begin
     DMESTOQUE.Alx.close;
     DMESTOQUE.Alx.SQL.Clear;
     DMESTOQUE.Alx.SQL.Add('select * from equipamento');
-    DMESTOQUE.Alx.SQL.Add('where upper(replace(replace(equipamento.placa, ''-'', ''''), '' '', '''')) like upper (' + #39 + codigo + #39 + ')  AND ((EQUIPAMEnTO.ATIVO=' + #39 + '1' + #39 + ') OR (EQUIPAMEnTO.ATIVO IS NULL) or (EQUIPAMEnTO.ATIVO=' + #39 + 'S' + #39 + ') )'); //Jônatas 23/08/2013 - Alterado pois estava com erro
+    DMESTOQUE.Alx.SQL.Add('where upper(replace(replace(equipamento.placa, ''-'', ''''), '' '', '''')) like upper (' + #39 + codigo + #39 + ')  AND ((EQUIPAMEnTO.ATIVO=' + #39 + '1' + #39 +
+      ') OR (EQUIPAMEnTO.ATIVO IS NULL) or (EQUIPAMEnTO.ATIVO=' + #39 + 'S' + #39
+        +
+      ') )'); //Jônatas 23/08/2013 - Alterado pois estava com erro
     DMESTOQUE.Alx.Open;
     DMESTOQUE.Alx.first;
     if not DMESTOQUE.alx.IsEmpty then
     begin
-      XCOD_EQUIPAMENTO := DMESTOQUE.Alx.FieldByName('COD_EQUIPAMENTO').AsInteger;
-      FBEquipPlaca.EdDescricao.Text := DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString;
+      XCOD_EQUIPAMENTO :=
+        DMESTOQUE.Alx.FieldByName('COD_EQUIPAMENTO').AsInteger;
+      FBEquipPlaca.EdDescricao.Text :=
+        DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString;
       if DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString <> '' then
       begin
-        lbNumFrota.Caption := 'Número Frota: ' + DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+        lbNumFrota.Caption := 'Número Frota: ' +
+          DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
       end
       else
       begin
@@ -4764,17 +5176,25 @@ begin
       if cliente then
       begin
         // busca o cliente q esta atrelado ao equipamento
-        FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMESTOQUE.Alx.FieldByname('cod_cliente').AsString, '');
+        FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+          DMESTOQUE.Alx.FieldByname('cod_cliente').AsString, '');
         if not DMPESSOA.WCliente.IsEmpty then
         begin
           if DMPESSOA.WCliente.FieldByName('ATUALIZAR').AsString = '1' then
-            MessageDlg('AS INFORMAÇÕES DO CLIENTE NECESSITAM SER ATUALIZADAS', mtWarning, [mbOK], 0);
+            MessageDlg('AS INFORMAÇÕES DO CLIENTE NECESSITAM SER ATUALIZADAS',
+              mtWarning, [mbOK], 0);
 
-          XCOD_CLIENTE := DMPESSOA.WCliente.FieldByname('COD_CLIENTE').AsInteger;
-          FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByname('cod_interno').AsString;
-          FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByname('nome').AsString;
-          if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsString, '') = True then
-            EdObsFinanceira.Text := DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
+          XCOD_CLIENTE :=
+            DMPESSOA.WCliente.FieldByname('COD_CLIENTE').AsInteger;
+          FrmCliente.EDCodigo.Text :=
+            DMPESSOA.WCliente.FieldByname('cod_interno').AsString;
+          FrmCliente.EdDescricao.Text :=
+            DMPESSOA.WCliente.FieldByname('nome').AsString;
+          if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+            DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsString, '') = True
+              then
+            EdObsFinanceira.Text :=
+              DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
           else
             EdObsFinanceira.Text := '';
         end
@@ -4814,13 +5234,20 @@ begin
     FBEquipPlaca.EDCodigo.Text := '';
     FBEquipPlaca.EdDescricao.Text := '';
   end;
+  if PCadastro.Visible = TRUE then
+  begin
+    BtnProcuraPlaca.SetFocus;
+    //       SearchPlaca.SetFocus;
+  end;
 end;
 
 // key down codigo equipamento
 
-procedure TFOrdemMec.FBEquipPlacaEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FBEquipPlacaEDCodigoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if (FBEquipPlaca.EDCodigo.SelLength > 0) and not (KEY = 8) and not (KEY = 13) then
+  if (FBEquipPlaca.EDCodigo.SelLength > 0) and not (KEY = 8) and not (KEY = 13)
+    then
   begin
     FBEquipPlaca.EDCodigo.Text := '';
   end;
@@ -4843,15 +5270,19 @@ begin
   inherited;
   FBEquipPlaca.BTNOPENClick(Sender);
   //FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', '', ' ORDER BY EQUIPAMENTO.DESCRICAO');//LIBERA TODOS OS REGISTROS PARA CONSULTA
-  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', IntToStr(XCOD_CLIENTE), '');
+  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+    IntToStr(XCOD_CLIENTE), '');
   if AbrirForm(TFCadEquipamento, FCadEquipamento, 1) = 'Selected' then
   begin
-    XCOD_EQUIPAMENTO := DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
+    XCOD_EQUIPAMENTO :=
+      DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
     FBEquipPlaca.EDCodigo.Text := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
-    FBEquipPlaca.EdDescricao.Text := DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
+    FBEquipPlaca.EdDescricao.Text :=
+      DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
     if DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString <> '' then
     begin
-      lbNumFrota.Caption := 'Número Frota: ' + DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+      lbNumFrota.Caption := 'Número Frota: ' +
+        DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
     end
     else
     begin
@@ -4892,11 +5323,14 @@ begin
   if codigo <> '' then
   begin
     //seleciona a forma de pagamento
-    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_INTERNO', codigo, '') = true then
+    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_INTERNO', codigo, '') =
+      true then
     begin
       XCOD_FORMPAG := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-      FrmFormPag1.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
-      FrmFormPag1.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+      FrmFormPag1.EDCodigo.Text :=
+        DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
+      FrmFormPag1.EdDescricao.Text :=
+        DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
       //DBBox.SetFocus;
     end
     else
@@ -4913,7 +5347,8 @@ begin
 end;
 // key press codigo equipamento
 
-procedure TFOrdemMec.FrmFormPag1EDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FrmFormPag1EDCodigoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   inherited;
   if Key = VK_RETURN then
@@ -4935,8 +5370,10 @@ begin
   if AbrirForm(TFFormPag, FFormPag, 1) = 'Selected' then
   begin
     XCOD_FORMPAG := DMFinanc.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-    FrmFormPag1.EDCodigo.Text := DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
-    FrmFormPag1.EdDescricao.Text := DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
+    FrmFormPag1.EDCodigo.Text :=
+      DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
+    FrmFormPag1.EdDescricao.Text :=
+      DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
     FrmFormPag1.Repaint;
     XBoxAux := DBBox.Text;
     DBBox.SetFocus;
@@ -4976,11 +5413,14 @@ begin
   //Insere forma de pagamento para o cliente
   if DMPESSOA.TCliente.FieldByName('COD_FORMPAG').AsInteger <> -1 then
   begin
-    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMPESSOA.TCliente.FieldByName('COD_FORMPAG').AsString, '') = True then
+    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+      DMPESSOA.TCliente.FieldByName('COD_FORMPAG').AsString, '') = True then
     begin
       XCOD_FORMPAG := DMFINANC.TFormPag.FieldByname('COD_FORMPAG').AsInteger;
-      FrmFormPag1.EDCodigo.Text := DMFINANC.TFormPag.FieldByname('COD_INTERNO').AsString;
-      FrmFormPag1.EdDescricao.Text := DMFINANC.TFormPag.FieldByname('DESCRICAO').AsString;
+      FrmFormPag1.EDCodigo.Text :=
+        DMFINANC.TFormPag.FieldByname('COD_INTERNO').AsString;
+      FrmFormPag1.EdDescricao.Text :=
+        DMFINANC.TFormPag.FieldByname('DESCRICAO').AsString;
     end
     else
     begin
@@ -4999,12 +5439,16 @@ end;
 
 //press key codigo equipamento
 
-procedure TFOrdemMec.FBEquipPlacaEDCodigoKeyPress(Sender: TObject; var Key: Char);
+procedure TFOrdemMec.FBEquipPlacaEDCodigoKeyPress(Sender: TObject; var Key:
+  Char);
 var
   xPlacaLimpa: string;
 begin
   inherited;
-  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(FBEquipPlaca.EDCodigo.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  xPlacaLimpa :=
+    Trim(UpperCase(StringReplace(StringReplace(FBEquipPlaca.EDCodigo.Text, '-',
+      '',
+    [rfReplaceAll]), ' ', '', [rfReplaceAll])));
 
   if (Length(xPlacaLimpa) = 4) and not (Key = #8)
     and not (Key = #13) and not (Key = #27) then
@@ -5014,12 +5458,14 @@ begin
       and (xPlacaLimpa[2] in ['a'..'z', 'A'..'Z'])
       and (xPlacaLimpa[3] in ['a'..'z', 'A'..'Z']) then // PADRÃO ANTIGO ABC 1234
     begin
-      FBEquipPlaca.EDCodigo.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
+      FBEquipPlaca.EDCodigo.Text := xPlacaLimpa[1] + xPlacaLimpa[2] +
+        xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
       FBEquipPlaca.EDCodigo.SelStart := 5;
     end;
   end;
 
-  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not (Key = #27) then
+  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not
+    (Key = #27) then
     Key := #0;
 
   {FBEquipPlaca.EDCodigoKeyPress(Sender, Key);
@@ -5084,7 +5530,8 @@ begin
 end;
 
 //Alex 14/03/2018 - Função utilizada para limpar a string grid de multiplos vendedores
-function TFOrdemMec.LimpaGradeMultiplosVendedores(xTipoOperacao: string): Boolean;
+function TFOrdemMec.LimpaGradeMultiplosVendedores(xTipoOperacao: string):
+  Boolean;
 var
   I: integer;
   xStringGridAux: TStringGrid;
@@ -5112,7 +5559,8 @@ begin
       xStringGridAux.Rows[I].Clear;
     xStringGridAux.Cells[3, 0] := 'adicione vendedores';
   except
-    MessageDlg('O Sistema não redefiniu os vendedores do items. Verifique!', mtWarning, [mbOK], 0);
+    MessageDlg('O Sistema não redefiniu os vendedores do items. Verifique!',
+      mtWarning, [mbOK], 0);
   end;
 end;
 
@@ -5120,15 +5568,18 @@ end;
 procedure TFOrdemMec.EscreveLabelsPROD;
 begin
   //Filtra tabela de subproduto de acordo com o produto selecionada em fproduto
-  if FiltraTabela(DMEstoque.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO', DMEstoque.WSimilar.FieldByName('COD_SUBPRODUTO').AsString, '') = False then
+  if FiltraTabela(DMEstoque.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO',
+    DMEstoque.WSimilar.FieldByName('COD_SUBPRODUTO').AsString, '') = False then
     Exit;
 
   //Filtra tabela de estoque de acordo com o produto selecionada em fproduto
-  if FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMEstoque.WSimilar.FieldByName('COD_ESTOQUE').AsString, '') = False then
+  if FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+    DMEstoque.WSimilar.FieldByName('COD_ESTOQUE').AsString, '') = False then
     Exit;
 
   //Filtra tabela de CST
-  FiltraTabela(DMEstoque.TCST, 'CST', 'COD_CST', DMEstoque.TSubProd.FieldByName('COD_CST').AsString, '');
+  FiltraTabela(DMEstoque.TCST, 'CST', 'COD_CST',
+    DMEstoque.TSubProd.FieldByName('COD_CST').AsString, '');
   //Exit;
 
 // por questao de garantia o codigo de estoque do produto selecionado esta sendo atribuido á variavel pois jah que ela naum eh usada em nenhum outro momento, nao tem a possibilidade de ter seu valor alterado
@@ -5137,39 +5588,49 @@ begin
   // nao está selecionando apenas valores á prazo
   if DMMACS.TLoja.FieldByName('tipovenda').AsString = '0' then
   begin
-    if (EDQuantidade.ValueNumeric >= DMEstoque.TSubProd.FieldByName('QTDATC').AsCurrency) and (DMEstoque.TSubProd.FieldByName('QTDATC').AsString <> '') then
+    if (EDQuantidade.ValueNumeric >=
+      DMEstoque.TSubProd.FieldByName('QTDATC').AsCurrency) and
+      (DMEstoque.TSubProd.FieldByName('QTDATC').AsString <> '') then
     begin //caso ocorra esta condição significa que o produto esta com quantidade igual ou superior a de atacado e deve ser vendido em preço de atacado
       if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
       begin //A venda esta sendo a vista então o preço de venda deve ser no atacado a vista
-        EDValUnit.Text := FormatCurr('0.00', DMEstoque.TEstoque.FieldByName('vendatav').AsCurrency);
+        EDValUnit.Text := FormatCurr('0.00',
+          DMEstoque.TEstoque.FieldByName('vendatav').AsCurrency);
       end
       else
       begin
-        EDValUnit.Text := FormatCurr('0.00', DMEstoque.TEstoque.FieldByName('vendatap').AsCurrency);
+        EDValUnit.Text := FormatCurr('0.00',
+          DMEstoque.TEstoque.FieldByName('vendatap').AsCurrency);
       end;
     end
     else
     begin
       if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
       begin
-        EDValUnit.Text := FormatCurr('0.00', DMEstoque.WSimilar.FieldByName('VENDVARV').AsCurrency);
+        EDValUnit.Text := FormatCurr('0.00',
+          DMEstoque.WSimilar.FieldByName('VENDVARV').AsCurrency);
       end
       else
       begin
-        EDValUnit.Text := FormatCurr('0.00', DMEstoque.WSimilar.FieldByName('VENDVARP').AsCurrency);
+        EDValUnit.Text := FormatCurr('0.00',
+          DMEstoque.WSimilar.FieldByName('VENDVARP').AsCurrency);
       end;
     end;
   end
     // forçando venda a prazo
   else
   begin
-    if (EDQuantidade.ValueNumeric >= DMEstoque.TSubProd.FieldByName('QTDATC').AsCurrency) and (DMEstoque.TSubProd.FieldByName('QTDATC').AsString <> '') then
+    if (EDQuantidade.ValueNumeric >=
+      DMEstoque.TSubProd.FieldByName('QTDATC').AsCurrency) and
+      (DMEstoque.TSubProd.FieldByName('QTDATC').AsString <> '') then
     begin //caso ocorra esta condição significa que o produto esta com quantidade igual ou superior a de atacado e deve ser vendido em preço de atacado
-      EDValUnit.Text := FormatCurr('0.00', DMEstoque.TEstoque.FieldByName('vendatap').AsCurrency);
+      EDValUnit.Text := FormatCurr('0.00',
+        DMEstoque.TEstoque.FieldByName('vendatap').AsCurrency);
     end
     else
     begin
-      EDValUnit.Text := FormatCurr('0.00', DMEstoque.WSimilar.FieldByName('VENDVARP').AsCurrency);
+      EDValUnit.Text := FormatCurr('0.00',
+        DMEstoque.WSimilar.FieldByName('VENDVARP').AsCurrency);
     end;
   end;
 
@@ -5177,21 +5638,31 @@ begin
   //Passa os valores do produto selecionado para as labels
   LProduto.Caption := DMEstoque.TSubProd.FieldByName('DESCRICAO').AsString;
   if DMEstoque.TSubProd.FieldByName('Marca').asstring <> '' then
-    LProduto.Caption := LProduto.Caption + '     Marca: ' + dMEstoque.TSubProd.FieldByName('Marca').asstring;
+    LProduto.Caption := LProduto.Caption + '     Marca: ' +
+      dMEstoque.TSubProd.FieldByName('Marca').asstring;
   if DMEstoque.TSubProd.FieldByName('LOCALESTANTE').asstring <> '' then
-    LLocal.Caption := 'Estante: ' + DMEstoque.TSubProd.FieldByName('LOCALESTANTE').asstring;
-  LEstoque.Caption := FormatFloat('#,###0.000', DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency);
-  LSaldoEstoque.Caption := FormatFloat('#,###0.000', DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency);
+    LLocal.Caption := 'Estante: ' +
+      DMEstoque.TSubProd.FieldByName('LOCALESTANTE').asstring;
+  LEstoque.Caption := FormatFloat('#,###0.000',
+    DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency);
+  LSaldoEstoque.Caption := FormatFloat('#,###0.000',
+    DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency);
   if DMESTOQUE.TCST.FieldByName('VENDA').AsString = '1' then
-    LCst.Caption := 'C.S.T.: ' + DMESTOQUE.TCST.FieldByName('COD_SIT_TRIB').AsString + '/Venda'
+    LCst.Caption := 'C.S.T.: ' +
+      DMESTOQUE.TCST.FieldByName('COD_SIT_TRIB').AsString + '/Venda'
   else
-    LCst.Caption := 'C.S.T.: ' + DMESTOQUE.TCST.FieldByName('COD_SIT_TRIB').AsString + '/Não Venda';
+    LCst.Caption := 'C.S.T.: ' +
+      DMESTOQUE.TCST.FieldByName('COD_SIT_TRIB').AsString + '/Não Venda';
 
   //PASSA VALORES PARA O PAINEL DE CONSULTA DE PREÇOS
-  EdVlrAtacadoPrazo.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency;
-  EdVlrAtacadoVista.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency;
-  EdVlrVarejoPrazo.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency;
-  EdVlrVarejoVista.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency;
+  EdVlrAtacadoPrazo.ValueNumeric :=
+    DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency;
+  EdVlrAtacadoVista.ValueNumeric :=
+    DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency;
+  EdVlrVarejoPrazo.ValueNumeric :=
+    DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency;
+  EdVlrVarejoVista.ValueNumeric :=
+    DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency;
 
   EDQuantidade.Text := '1,00';
   if EdVlrCompra.Visible = True then
@@ -5199,7 +5670,8 @@ begin
   else
     EDQuantidade.SetFocus;
 
-  EdVlrCompra.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency;
+  EdVlrCompra.ValueNumeric :=
+    DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency;
 end;
 
 //opções de pesquisa para o produto
@@ -5269,7 +5741,8 @@ end;  }
 
 //press pesquisa produto
 
-procedure TFOrdemMec.EDCodFabKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EDCodFabKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 var
   str: string;
 begin
@@ -5368,7 +5841,8 @@ begin
       //Paulo 12/07/2011: Se não existe config na loja
         if (DMMacs.Tloja.FieldByName('FOCUITEMOS').AsString = 'NC') then
         begin
-          if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CONTRINT', UpperCase(EDCodFab.Text), '') = True then
+          if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CONTRINT',
+            UpperCase(EDCodFab.Text), '') = True then
           begin
             EscreveLabelsPROD;
             EDCodFab.Text := '';
@@ -5377,7 +5851,8 @@ begin
           end
           else
           begin
-            if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CODFABRICANTE', UpperCase(EDCodFab.Text), '') = True then
+            if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CODFABRICANTE',
+              UpperCase(EDCodFab.Text), '') = True then
             begin
               EscreveLabelsPROD;
               EDCodFab.Text := '';
@@ -5386,7 +5861,8 @@ begin
             end
             else
             begin
-              if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CODBARRA', UpperCase(EDCodFab.Text), '') = True then
+              if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'CODBARRA',
+                UpperCase(EDCodFab.Text), '') = True then
               begin
                 EscreveLabelsPROD;
                 EDCodFab.Text := '';
@@ -5395,7 +5871,8 @@ begin
               end
               else
               begin
-                if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'DESCRICAO', UpperCase(EDCodFab.Text), '') = True then
+                if FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'DESCRICAO',
+                  UpperCase(EDCodFab.Text), '') = True then
                 begin
                   EscreveLabelsPROD;
                   EDCodFab.Text := '';
@@ -5418,11 +5895,20 @@ begin
         if str[1] = '.' then
         begin
           EDCodFab.Text := TiraCaracterEmPosicao(str, 1);
-          FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'COD_LOJA', '', ' (COD_LOJA=' + FMenu.LCODLOJA.Caption + ') AND (upper(CODFABRICANTE) like upper(' + #39 + EDCodFab.Text + '%' + #39 + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' + #39 + ') ORDER BY DESCRICAO');
+          FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'COD_LOJA', '',
+            ' (COD_LOJA=' + FMenu.LCODLOJA.Caption +
+            ') AND (upper(CODFABRICANTE) like upper(' + #39 + EDCodFab.Text + '%'
+            + #39 + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' + #39 +
+            ') ORDER BY DESCRICAO');
         end
         else
         begin
-          FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'COD_LOJA', '', ' (COD_LOJA=' + FMenu.LCODLOJA.Caption + ') AND (upper(DESCRICAO) like upper(' + #39 + EDCodFab.Text + '%' + #39 + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' + #39 + ') ORDER BY DESCRICAO');
+          FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'COD_LOJA', '',
+            ' (COD_LOJA=' + FMenu.LCODLOJA.Caption +
+            ') AND (upper(DESCRICAO) like upper(' + #39 + EDCodFab.Text + '%' +
+              #39
+            + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' + #39 +
+            ') ORDER BY DESCRICAO');
         end;
       end;
     end;
@@ -5431,7 +5917,8 @@ begin
   begin
     DMESTOQUE.WSimilar.Close;
     DMESTOQUE.WSimilar.SQL.Clear;
-    DMESTOQUE.WSimilar.SQL.Add(' SELECT * FROM VWSIMILAR where (vwsimilar.descricao like upper(' + #39 + EDCodFab.Text + '%' + #39 + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' + #39 + ')');
+    DMESTOQUE.WSimilar.SQL.Add(' SELECT * FROM VWSIMILAR where (vwsimilar.descricao like upper(' + #39 + EDCodFab.Text + '%' + #39 + '))  AND (VWSIMILAR.ATIVO=' + #39 + 'S' +
+      #39 + ')');
     DMESTOQUE.WSimilar.Open;
     XCodTmpEstoque := DBGrid1.Columns[0].Field.Text;
     //EscreveLabelsPROD;
@@ -5440,7 +5927,8 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FormKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   if PConsulta.Visible = True then
   begin
@@ -5473,7 +5961,8 @@ begin
     begin
       PPrecos.Visible := False;
     end;
-    if PInfoCliente.Visible = True {// se estiver aparecendo info de cliente limpa} then
+    if PInfoCliente.Visible = True
+      {// se estiver aparecendo info de cliente limpa} then
     begin
       LimpaInfoCliente(Self);
     end;
@@ -5504,12 +5993,16 @@ begin
   if (shift = [ssCtrl]) and (key = 68) then
   begin
     // faz o filtro na tabela para verificar se ela esta realmente bloqueada
-    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByname('cod_ordem').AsString, '');
+    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMServ.WOrdem.FieldByname('cod_ordem').AsString, '');
 
     // se ela nao estiver bloqueada eh exibida a msg e finalizada a operação
     if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
     begin
-      if Mensagem('   A T E N Ç Ã O   ', 'Deseja desbloquear a Ordem nº ' + DMServ.WOrdem.FieldByName('numero').AsString + ' ?', '', 2, 3, false, 'A') = 2 then
+      if Mensagem('   A T E N Ç Ã O   ', 'Deseja desbloquear a Ordem nº ' +
+        DMServ.WOrdem.FieldByName('numero').AsString + ' ?', '', 2, 3, false,
+          'A')
+        = 2 then
       begin
 
         // abre formulario de senha
@@ -5536,10 +6029,13 @@ begin
   //CTRL+P // MOSTRA INFORMAÇÕES CLIENTE
   if (shift = [ssCtrl]) and ((key = 80) or (key = 50)) then
   begin
-    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div 2;
-    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div 2;
+    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div
+      2;
+    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div
+      2;
     PInfoCliente.OnExit := LimpaInfoCliente;
-    if (PCadastro.Visible = True) and (Trim(FrmCliente.EDCodigo.Text) <> '') then
+    if (PCadastro.Visible = True) and (Trim(FrmCliente.EDCodigo.Text) <> '')
+      then
       PInfoCliente.PesquisaCodigoInterno(FrmCliente.EDCodigo.Text)
     else
       PInfoCliente.LimpaCampos;
@@ -5584,7 +6080,8 @@ begin
   inherited;
   if (EDQuantidade.ValueNumeric <> 0) and (EDValUnit.ValueNumeric <> 0) then
   begin
-    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric *
+      EDValUnit.ValueNumeric), 'D');
     EDTotal.ValueNumeric := AlxCalculo;
   end;
 end;
@@ -5620,7 +6117,8 @@ begin
 
   if (EDQuantidade.ValueNumeric <> 0) and (EDValUnit.ValueNumeric <> 0) then
   begin
-    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric *
+      EDValUnit.ValueNumeric), 'D');
     EDTotal.ValueNumeric := AlxCalculo;
   end;
 end;
@@ -5631,7 +6129,8 @@ begin
   inherited;
   if (EDQuantidade.ValueNumeric <> 0) and (EDValUnit.ValueNumeric <> 0) then
   begin
-    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+    CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric *
+      EDValUnit.ValueNumeric), 'D');
     EDTotal.ValueNumeric := AlxCalculo;
   end;
 end;
@@ -5650,7 +6149,10 @@ begin
   inherited;
   if Key = #13 then
   begin
-    CalcPercent(0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric) - EDTotal.ValueNumeric, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+    CalcPercent(0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric) -
+      EDTotal.ValueNumeric, (EDQuantidade.ValueNumeric *
+        EDValUnit.ValueNumeric),
+      'D');
     EDDesc.ValueNumeric := AlxPercento;
     BtnInsertProd.SetFocus;
   end;
@@ -5660,12 +6162,15 @@ end;
 procedure TFOrdemMec.EDTotalExit(Sender: TObject);
 begin
   inherited;
-  CalcPercent(0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric) - EDTotal.ValueNumeric, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+  CalcPercent(0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric) -
+    EDTotal.ValueNumeric, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric),
+    'D');
   EDDesc.ValueNumeric := AlxPercento;
 end;
 
 //Função utilizada para remover os multiplo vendedores do banco de dados
-function TFOrdemMec.RemoveMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao: string): Boolean;
+function TFOrdemMec.RemoveMultiploVendedorBD(xCodigoItemVenda: Integer;
+  xTipoOperacao: string): Boolean;
 begin
   try
     MDO.Query.Close;
@@ -5684,7 +6189,8 @@ begin
 end;
 
 //Função utilizada para inserir junto ao banco de dados os multiplos vendedores inseridos
-function TFOrdemMec.InsereMultiploVendedorBD(xCodigoItemVenda: Integer; xTipoOperacao: string): Boolean;
+function TFOrdemMec.InsereMultiploVendedorBD(xCodigoItemVenda: Integer;
+  xTipoOperacao: string): Boolean;
 var
   I: Integer;
   xStringGridAux: TStringGrid;
@@ -5709,12 +6215,14 @@ begin
         MDO.Query.SQL.Add(' INSERT INTO COMPROD (COD_GERADOR, COD_FUNCIONARIO, PERCENTO, TIPO) ');
         MDO.Query.SQL.Add(' VALUES (:COD_GERADOR, :COD_FUNCIONARIO, :PERCENTO, :TIPO) ');
         MDO.Query.ParamByName('COD_GERADOR').AsInteger := xCodigoItemVenda;
-        MDO.Query.ParamByName('COD_FUNCIONARIO').AsString := xStringGridAux.Cells[0, I];
+        MDO.Query.ParamByName('COD_FUNCIONARIO').AsString :=
+          xStringGridAux.Cells[0, I];
         if xTipoOperacao = 'PROD' then
           MDO.Query.ParamByName('TIPO').AsString := 'COMOS'
         else
           MDO.Query.ParamByName('TIPO').AsString := 'COMOSSERV';
-        MDO.Query.ParamByName('PERCENTO').AsCurrency := StrToFloat(xStringGridAux.Cells[1, I]);
+        MDO.Query.ParamByName('PERCENTO').AsCurrency :=
+          StrToFloat(xStringGridAux.Cells[1, I]);
         MDO.Query.ExecSQL;
       end;
     end;
@@ -5737,7 +6245,8 @@ begin
   //Valida se foi encontrado algum produto
   if LProduto.Caption = '' then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Selecione um Produto antes de Inserir.', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA', 'Selecione um Produto antes de Inserir.', '', 1,
+      1, False, 'a');
     EDCodFab.SetFocus;
     Exit;
   end;
@@ -5745,7 +6254,9 @@ begin
   //Valida quanto a quantidade
   if EDQuantidade.ValueNumeric <= 0 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'O Produto não pode ser inserido a lista com quantidade inferior a 1 (um).', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'O Produto não pode ser inserido a lista com quantidade inferior a 1 (um).',
+      '', 1, 1, False, 'a');
     EDQuantidade.SetFocus;
     Exit;
   end;
@@ -5753,7 +6264,9 @@ begin
   //Valida quanto ao valor unitario do produto
   if EDValUnit.ValueNumeric <= 0 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'O Produto não pode ser inserido a lista com o Valor Unitário igual ou inferior a 0 (zero).', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'O Produto não pode ser inserido a lista com o Valor Unitário igual ou inferior a 0 (zero).',
+      '', 1, 1, False, 'a');
     EDValUnit.SetFocus;
     Exit;
   end;
@@ -5761,18 +6274,23 @@ begin
   //Valida quanto ao valor total do produto
   if EDTotal.ValueNumeric <= 0 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'O produto não pode ser inserido a lista com o Valor Total igual ou inferior a 0 (zero).', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'O produto não pode ser inserido a lista com o Valor Total igual ou inferior a 0 (zero).',
+      '', 1, 1, False, 'a');
     EDTotal.SetFocus;
     Exit;
   end;
   //Valida quanto a CST
   if DMESTOQUE.TCST.FieldByName('VENDA').AsString <> '1' then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'O produto selecionado possui um C.S.T que não esta marcado para venda, verifique o seu produto (código de situação tributária).', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'O produto selecionado possui um C.S.T que não esta marcado para venda, verifique o seu produto (código de situação tributária).',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
-  if (DMMACS.TLoja.FieldByName('controlprodlista').AsString = '1') or (DMMACS.TLoja.FieldByName('controlprodlista').AsString = null) then
+  if (DMMACS.TLoja.FieldByName('controlprodlista').AsString = '1') or
+    (DMMACS.TLoja.FieldByName('controlprodlista').AsString = null) then
   begin
     //VERIFICA SE JÁ EXISTE ALGUM PRODUTO IGUAL AO CORRENTE INSERIDO A LISTA
     //SE ENCONTRAR PEDIR SE O USUÁRIO DESEJA ALTERAR O LANÇAMENTO.
@@ -5780,27 +6298,37 @@ begin
     DMESTOQUE.TSlave.SQL.Clear;
     DMESTOQUE.TSlave.SQL.Add('Select itprodord.cod_itprodord, itprodord.cod_ordem, itprodord.cod_estoque,  itprodord.numreq, itprodord.qtd, itprodord.qtdRET, itprodord.total, ');
     DMESTOQUE.TSlave.SQL.Add('itprodord.desconto, itprodord.data, itprodord.cod_funcionario, pessoa.nome, itprodord.vlrunit, subproduto.descricao, subproduto.marca, SubProduto.CODPRODFABR, ');
-    DMESTOQUE.TSlave.sql.Add(' subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
+    DMESTOQUE.TSlave.sql.Add(' subproduto.' +
+      DMMACS.TLoja.FieldByName('CODPRODREL1').AsString +
+        ' AS PRIMCOD, subproduto.'
+      + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
     DMESTOQUE.TSlave.SQL.Add('From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
     DMESTOQUE.TSlave.SQL.Add('Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod ');
     DMESTOQUE.TSlave.SQL.Add('Left Join funcionario on funcionario.cod_func = itprodord.cod_funcionario ');
     DMESTOQUE.TSlave.SQL.Add('Left Join pessoa on funcionario.cod_pessoa = pessoa.COD_PESSOA ');
     DMESTOQUE.TSlave.SQL.Add('Where (itprodord.cod_ordem = :CODORDEM) AND (itprodord.cod_estoque=:CODESTOQUE) ');
     DMESTOQUE.TSlave.ParamByName('CODORDEM').AsInteger := XCOD_ORDEM;
-    DMESTOQUE.TSlave.ParamByName('CODESTOQUE').AsString := DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsString;
+    DMESTOQUE.TSlave.ParamByName('CODESTOQUE').AsString :=
+      DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsString;
     DMESTOQUE.TSlave.Open;
     if not DMESTOQUE.TSlave.IsEmpty then
     begin
-      if Mensagem('A T E N Ç Ã O !', 'O sistema encontrou o mesmo produto já lançado a lista. com ' + DMESTOQUE.TSlave.FieldByName('QTD').AsString + ' qtdes.' + #13 + 'Deseja alterar este produto já lançado?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('A T E N Ç Ã O !',
+        'O sistema encontrou o mesmo produto já lançado a lista. com ' +
+        DMESTOQUE.TSlave.FieldByName('QTD').AsString + ' qtdes.' + #13 +
+        'Deseja alterar este produto já lançado?', '', 2, 3, False, 'c') = 2
+          then
       begin
         //o usuario decidiu alterar o lançamento anterior este é cancelado e o outro é excluido da lista
-        xqnt := DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency + EDQuantidade.ValueNumeric;
+        xqnt := DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency +
+          EDQuantidade.ValueNumeric;
         RemoverProduto;
         FiltraSlave;
         //Chama função para calcular descontos
         EfetuaDesconto('GERAL', 'PERCENTO');
         EDQuantidade.ValueNumeric := xqnt;
-        CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric * EDValUnit.ValueNumeric), 'D');
+        CalcPercent(EDDesc.ValueNumeric, 0, (EDQuantidade.ValueNumeric *
+          EDValUnit.ValueNumeric), 'D');
         EDTotal.ValueNumeric := AlxCalculo;
         EDQuantidade.SetFocus;
         exit;
@@ -5809,15 +6337,21 @@ begin
   end;
 
   //Verifica se o vlr unitário esta dentro da margem de segurança
-  if ((EDTotal.ValueNumeric / EDQuantidade.ValueNumeric) < DMESTOQUE.TEstoque.FieldByName('MARGEMSEG').AsCurrency) then
+  if ((EDTotal.ValueNumeric / EDQuantidade.ValueNumeric) <
+    DMESTOQUE.TEstoque.FieldByName('MARGEMSEG').AsCurrency) then
   begin
-    if Mensagem('A T E N Ç Ã O !', 'O Produto está com o Valor abaixo da margem de segurança. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('A T E N Ç Ã O !',
+      'O Produto está com o Valor abaixo da margem de segurança. Deseja continuar?',
+      '', 2, 3, False, 'c') = 2 then
     begin
       // parametro para passar na verificação do usuario que tem margem de segurança disponivel
       FMenu.TIPOREL := 'VERIFICMARGEM';
       if ControlAccess('MARGEMSEG', '') = False then
       begin //se o usuário não tem permissão para efetuar um desconto maior que o cadastrado deve ser pedido a senha de um administrador
-        if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 + 'Deseja solicitar a senha de um administrador?', '', 2, 3, False, 'c') = 2 then
+        if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 +
+          'Deseja solicitar a senha de um administrador?', '', 2, 3, False, 'c')
+            =
+          2 then
         begin
           AbrirForm(TFSENHA, FSENHA, 0);
           //repassa resultado da tela de autenticação de senha para as variáveis de controle
@@ -5852,13 +6386,19 @@ begin
   //Verifica se o desconto dado no produto é superior ao permitido
   if DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency = 0 then
   begin //Se não ha restrições de desconto do produto em empresa procura em produto
-    if (EDDesc.ValueNumeric > DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency) then
+    if (EDDesc.ValueNumeric >
+      DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency) then
     begin
-      if Mensagem('A T E N Ç Ã O !', 'O Desconto concedido é maior que o estipulado em cadastro. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('A T E N Ç Ã O !',
+        'O Desconto concedido é maior que o estipulado em cadastro. Deseja continuar?',
+        '', 2, 3, False, 'c') = 2 then
       begin
         if ControlAccess('DESCPMAIOR', '') = False then
         begin //se o usuário não tem permissão para efetuar um desconto maior que o cadastrado deve ser pedido a senha de um administrador
-          if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 + 'Deseja solicitar senha de um administrador?', '', 2, 3, False, 'c') = 2 then
+          if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 +
+            'Deseja solicitar senha de um administrador?', '', 2, 3, False, 'c')
+              =
+            2 then
           begin
             AbrirForm(TFSENHA, FSENHA, 0);
             //repassa resultado da tela de autenticação de senha para as variáveis de controle
@@ -5885,13 +6425,19 @@ begin
   end
   else
   begin
-    if (EDDesc.ValueNumeric > DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency) then
+    if (EDDesc.ValueNumeric >
+      DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency) then
     begin
-      if Mensagem('A T E N Ç Ã O !', 'O Desconto concedido é maior que o estipulado em cadastro. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('A T E N Ç Ã O !',
+        'O Desconto concedido é maior que o estipulado em cadastro. Deseja continuar?',
+        '', 2, 3, False, 'c') = 2 then
       begin
         if ControlAccess('DESCPMAIOR', '') = False then
         begin //se o usuário não tem permissão para efetuar um desconto maior que o cadastrado deve ser pedido a senha de um administrador
-          if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 + 'Deseja solicitar senha de um administrador?', '', 2, 3, False, 'c') = 2 then
+          if Mensagem('A T E N Ç Ã O !', 'Usuário sem permissão.' + #13 +
+            'Deseja solicitar senha de um administrador?', '', 2, 3, False, 'c')
+              =
+            2 then
           begin
             AbrirForm(TFSENHA, FSENHA, 0);
             //repassa resultado da tela de autenticação de senha para as variáveis de controle
@@ -5920,7 +6466,9 @@ begin
   if XLIBMARGEMSEG = False then
   begin
     if ControlAccess('MARGEMSEG', '') = False then
-      Mensagem('OPÇÃO BLOQUEADA', 'Você não obteve permissão para vender este produto abaixo da margem de segurança!', '', 1, 1, False, 'a');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Você não obteve permissão para vender este produto abaixo da margem de segurança!',
+        '', 1, 1, False, 'a');
     EDValUnit.SetFocus;
     EXIT;
   end;
@@ -5928,7 +6476,9 @@ begin
   if XLIBDESCPROD = False then
   begin
     if ControlAccess('DESCPMAIOR', '') = False then
-      Mensagem('OPÇÃO BLOQUEADA', 'Você não obteve permissão para vender este produto com tal desconto!', '', 1, 1, False, 'a');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Você não obteve permissão para vender este produto com tal desconto!',
+        '', 1, 1, False, 'a');
     EDDesc.SetFocus;
     EXIT;
   end;
@@ -5940,9 +6490,13 @@ begin
     begin
       if LEstoque.Caption <> '' then
       begin
-        if EDQuantidade.ValueNumeric > StrToFloat(TiraPonto(LEstoque.caption)) then
+        if EDQuantidade.ValueNumeric > StrToFloat(TiraPonto(LEstoque.caption))
+          then
         begin //o estoque que esta sendo negociado é maior que o estoque físico e segundo configuraçãoes isto não é permitido
-          Mensagem('OPÇÃO BLOQUEADA', 'Não existe estoque suficiente para suportar esta operação', '', 1, 1, False, 'a');
+          Mensagem('OPÇÃO BLOQUEADA',
+            'Não existe estoque suficiente para suportar esta operação', '', 1,
+              1,
+            False, 'a');
           EDQuantidade.SetFocus;
           FiltraSlave;
           //Chama função para calcular descontos
@@ -5952,7 +6506,9 @@ begin
       end
       else
       begin
-        Mensagem('OPÇÃO BLOQUEADA', 'Não existe estoque suficiente para suportar esta operação', '', 1, 1, False, 'a');
+        Mensagem('OPÇÃO BLOQUEADA',
+          'Não existe estoque suficiente para suportar esta operação', '', 1, 1,
+          False, 'a');
         EDQuantidade.SetFocus;
         FiltraSlave;
         //Chama função para calcular descontos
@@ -5968,28 +6524,43 @@ begin
     DMServ.TAlx1.SQL.Add('select estoque.cod_estoque, subproduto.cod_cst, estoque.cod_subprod, subproduto.cod_subproduto, subproduto.quantgarantia, subproduto.tipogarantia');
     DMServ.TAlx1.SQL.Add('from estoque left join subproduto on estoque.cod_subprod = subproduto.cod_subproduto');
     DMServ.TAlx1.SQL.Add('where estoque.cod_estoque = :codigo');
-    DMServ.TAlx1.ParamByName('codigo').AsInteger := DMEstoque.TEstoque.FieldByName('COD_ESTOQUE').AsInteger;
+    DMServ.TAlx1.ParamByName('codigo').AsInteger :=
+      DMEstoque.TEstoque.FieldByName('COD_ESTOQUE').AsInteger;
     DMServ.TAlx1.Open;
 
     // verifica se no produto foi lancado algum tipo de garantia. O tipo de garantia nao pode ser em horas                          ** função para remover os espaços **
-    if (DMServ.TAlx1.FieldByname('quantgarantia').AsString <> '') and (DMServ.TAlx1.FieldByname('tipogarantia').AsString <> '') and (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ', '') <> 'Hs') then
+    if (DMServ.TAlx1.FieldByname('quantgarantia').AsString <> '') and
+      (DMServ.TAlx1.FieldByname('tipogarantia').AsString <> '') and
+      (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ',
+      '') <> 'Hs') then
     begin
       // função para retornar a data de termino da garantia
-      XDtGarantia := DateToStr(Calcula_Garantia(DMServ.TAlx1.FieldByname('quantgarantia').AsString, DMServ.TAlx1.FieldByname('tipogarantia').AsString));
+      XDtGarantia :=
+        DateToStr(Calcula_Garantia(DMServ.TAlx1.FieldByname('quantgarantia').AsString, DMServ.TAlx1.FieldByname('tipogarantia').AsString));
     end;
     // verifica se no produto foi lancado algum tipo de garantia. O tipo de garantia deve ser em horas
-    if (DMServ.TAlx1.FieldByname('quantgarantia').AsString <> '') and (DMServ.TAlx1.FieldByname('tipogarantia').AsString <> '') and ((SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ', '') = 'Hs') or (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ', '') = 'Km')) then
+    if (DMServ.TAlx1.FieldByname('quantgarantia').AsString <> '') and
+      (DMServ.TAlx1.FieldByname('tipogarantia').AsString <> '') and
+      ((SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString,
+        ' ',
+      '') = 'Hs') or
+      (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ',
+      '') = 'Km')) then
     begin
       // função para retornar a data de termino da garantia
       XDtGarantia := '01/01/1900';
     end;
-    if (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString, ' ', '') = 'Km') then
+    if (SubstituiCaracter(DMServ.TAlx1.FieldByname('tipogarantia').AsString,
+      ' ',
+      '') = 'Km') then
     begin
       // SELECIONA TODOS OS DADOS DE EQUIPAMENTO COM O MESMO CODIGO
-      FiltraTabela(DMESTOQUE.Alx, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', IntToStr(XCOD_EQUIPAMENTO), '');
+      FiltraTabela(DMESTOQUE.Alx, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+        IntToStr(XCOD_EQUIPAMENTO), '');
 
       // armazena o KM final do equipamento que sera o limite de sua garantia
-      XQtdGarantia := DMESTOQUE.Alx.FieldByname('KMATUAL').AsInteger + DMServ.TAlx1.FieldByname('quantgarantia').AsInteger;
+      XQtdGarantia := DMESTOQUE.Alx.FieldByname('KMATUAL').AsInteger +
+        DMServ.TAlx1.FieldByname('quantgarantia').AsInteger;
     end;
   except
     XQtdGarantia := 0;
@@ -5999,7 +6570,8 @@ begin
   //Tenta gravar as informações
   try
     //Alex: 13/03/2018- mostra ou esconde campo de multiplos vendedor
-    if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
+    if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1')
+      then
     begin
       if sgMultiplosVendedoresProduto.Cells[0, 0] = '' then
       begin
@@ -6013,7 +6585,8 @@ begin
     MDO.QConsulta.SQL.Clear;
     MDO.QConsulta.SQL.Add('  select gen_id(GEN_ITPRODORD_ID, 0) as codigo from rdb$database ');
     MDO.QConsulta.Open;
-    xCodigoItemProdutoOrdem := MDO.QConsulta.FieldByName('codigo').AsInteger + 1;
+    xCodigoItemProdutoOrdem := MDO.QConsulta.FieldByName('codigo').AsInteger +
+      1;
 
     //Inserir Produto a lista do pedido
     DMSERV.TPOrd.Close;
@@ -6030,25 +6603,36 @@ begin
     DMSERV.TPOrd.SQL.Add(':OPERACAO, :ALIQICMS, :BASEICMS, :VLRICMS, :BASEICMSSUBS, :VLRIPI, :ALIQIPI,');
     DMSERV.TPOrd.SQL.Add(':REDUCBASEICMS, :VLRICMSSUBS, :DATA_GARANTIA, :KMGARANTIA)');
 
-    CalcLuc(EDTotal.ValueNumeric, EDDesc.ValueNumeric, EDQuantidade.ValueNumeric);
+    CalcLuc(EDTotal.ValueNumeric, EDDesc.ValueNumeric,
+      EDQuantidade.ValueNumeric);
 
-    DMSERV.TPOrd.ParamByName('ALIQICMS').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency;
+    DMSERV.TPOrd.ParamByName('ALIQICMS').AsCurrency :=
+      DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency;
     DMSERV.TPOrd.ParamByName('ALIQIPI').AsCurrency := 0;
     DMSERV.TPOrd.ParamByName('BASEICMS').AsCurrency := EDTotal.ValueNumeric;
     DMSERV.TPOrd.ParamByName('BASEICMSSUBS').AsCurrency := 0;
     DMSERV.TPOrd.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
     DMSERV.TPOrd.ParamByName('COD_FUNCIONARIO').AsInteger := XCOD_VENDEDOR;
-    DMSERV.TPOrd.ParamByName('COD_CST').AsInteger := DMServ.TAlx1.FieldByName('COD_CST').AsInteger;
+    DMSERV.TPOrd.ParamByName('COD_CST').AsInteger :=
+      DMServ.TAlx1.FieldByName('COD_CST').AsInteger;
     DMSERV.TPOrd.ParamByName('COD_ORDEM').AsInteger := XCOD_ORDEM;
-    DMSERV.TPOrd.ParamByName('COEFDIV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
+    DMSERV.TPOrd.ParamByName('COEFDIV').AsCurrency :=
+      DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
 
     if DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency <> 0 then
     begin
-      DMSERV.TPOrd.ParamByName('LUCMOE').AsCurrency := (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency / DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency);
+      DMSERV.TPOrd.ParamByName('LUCMOE').AsCurrency :=
+        (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency /
+        DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency);
       if (EDTotal.ValueNumeric <> 0) then
       begin
-        DMSERV.TPOrd.ParamByName('LUCMOE').AsCurrency := EDTotal.ValueNumeric - (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency / DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency);
-        DMSERV.TPOrd.ParamByName('LUCPER').AsCurrency := ((EDTotal.ValueNumeric - (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency / DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency)) * 100) / EDTotal.ValueNumeric;
+        DMSERV.TPOrd.ParamByName('LUCMOE').AsCurrency := EDTotal.ValueNumeric -
+          (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency /
+          DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency);
+        DMSERV.TPOrd.ParamByName('LUCPER').AsCurrency := ((EDTotal.ValueNumeric
+          - (DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency /
+          DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency)) * 100) /
+          EDTotal.ValueNumeric;
       end;
 
     end
@@ -6072,12 +6656,18 @@ begin
     DMSERV.TPOrd.ParamByName('TOTAL').AsCurrency := EDTotal.ValueNumeric;
     //Angelo - 27-08/2015 - Solicitação 405
     if (EdVlrCompra.ValueNumeric > 0) then
-      DMSERV.TPOrd.ParamByName('VALCOMP').AsCurrency := EdVlrCompra.ValueNumeric * EDQuantidade.ValueNumeric
+      DMSERV.TPOrd.ParamByName('VALCOMP').AsCurrency := EdVlrCompra.ValueNumeric
+        * EDQuantidade.ValueNumeric
     else
-      DMSERV.TPOrd.ParamByName('VALCOMP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency * EDQuantidade.ValueNumeric;
-    DMSERV.TPOrd.ParamByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
-    DMSERV.TPOrd.ParamByName('VALREP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
-    DMSERV.TPOrd.ParamByName('VLRICMS').AsCurrency := (EDTotal.ValueNumeric * DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency) / 100;
+      DMSERV.TPOrd.ParamByName('VALCOMP').AsCurrency :=
+        DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency *
+        EDQuantidade.ValueNumeric;
+    DMSERV.TPOrd.ParamByName('VALCUSTO').AsCurrency :=
+      DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
+    DMSERV.TPOrd.ParamByName('VALREP').AsCurrency :=
+      DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
+    DMSERV.TPOrd.ParamByName('VLRICMS').AsCurrency := (EDTotal.ValueNumeric *
+      DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency) / 100;
     DMSERV.TPOrd.ParamByName('VLRICMSSUBS').AsCurrency := 0;
     DMSERV.TPOrd.ParamByName('VLRIPI').AsCurrency := 0;
     DMSERV.TPOrd.ParamByName('VLRUNIT').AsCurrency := EDValUnit.ValueNumeric;
@@ -6087,7 +6677,8 @@ begin
       DMServ.IBT.CommitRetaining;
       //Busca os custos mais antigos do estoque em questão para dar saida
       //quando o estoque não for suficiente, busca do proximo
-      if AplicaSaidaCustoEstoque(XCOD_ESTOQUE, xCodigoItemProdutoOrdem, 'ORDEM', EDQuantidade.ValueNumeric) = False then
+      if AplicaSaidaCustoEstoque(XCOD_ESTOQUE, xCodigoItemProdutoOrdem, 'ORDEM',
+        EDQuantidade.ValueNumeric) = False then
       begin
         DMServ.IBT.RollbackRetaining;
         MDO.Transac.RollbackRetaining;
@@ -6099,7 +6690,9 @@ begin
       try
         //Atualiza Estoque
         DMEstoque.TEstoque.edit;
-        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - EDQuantidade.ValueNumeric;
+        DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency :=
+          DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency -
+          EDQuantidade.ValueNumeric;
         DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
         DMESTOQUE.TEstoque.Post;
         DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -6112,7 +6705,8 @@ begin
       MessageDlg('O ITEM NÃO FOI INSERIDO A LISTA', mtWarning, [mbOK], 0);
     end;
   except
-    MessageDlg('OCORRERAM PROBLEMAS AO INSERIR O ITEM. VERIFIQUE!', mtWarning, [mbOK], 0);
+    MessageDlg('OCORRERAM PROBLEMAS AO INSERIR O ITEM. VERIFIQUE!', mtWarning,
+      [mbOK], 0);
   end;
   //limpa labels de seleção
   LimpaCamposProd;
@@ -6127,7 +6721,8 @@ begin
   else
     EDCodFab.SetFocus;
 
-  if (xLancouItem = True) and (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
+  if (xLancouItem = True) and
+    (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
   begin
     if InsereMultiploVendedorBD(xCodigoItemProdutoOrdem, 'PROD') = false then
     begin
@@ -6137,8 +6732,10 @@ begin
       //VOLTA VALORES AS LABELS
       EscreveLabelsPROD;
       EDQuantidade.ValueNumeric := DMESTOQUE.TSlave.FieldByName('QTD').Value;
-      EDValUnit.ValueNumeric := DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
-      EDDesc.ValueNumeric := DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
+      EDValUnit.ValueNumeric :=
+        DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
+      EDDesc.ValueNumeric :=
+        DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
       EDTotal.ValueNumeric := DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
       //Filtra registros escrsavos
       FiltraSlave;
@@ -6181,7 +6778,9 @@ begin
   DMESTOQUE.TSlave.SQL.Add(' Select itprodord.cod_itprodord, unidade.sigla_unid as UNIDADE, itprodord.cod_ordem, itprodord.cod_estoque,  itprodord.numreq, itprodord.qtd, itprodord.qtdRET, itprodord.total, ');
   DMESTOQUE.TSlave.SQL.Add(' itprodord.desconto, itprodord.data, itprodord.cod_funcionario, itprodord.vlrunit, subproduto.contrint, subproduto.descricao, subproduto.marca, SubProduto.CODPRODFABR, itprodord.operacao,');
   DMESTOQUE.TSlave.SQL.Add(' itprodord.baseicms, itprodord.vlricms, itprodord.aliqicms, cst.cod_sit_trib, itprodord.descnf as DESCONTONF, subproduto.ncm, itprodord.VALCOMP, ');
-  DMESTOQUE.TSlave.sql.Add(' subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
+  DMESTOQUE.TSlave.sql.Add(' subproduto.' +
+    DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.'
+    + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
   DMESTOQUE.TSlave.SQL.Add(' From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
   DMESTOQUE.TSlave.SQL.Add(' Left Join subproduto on estoque.cod_subprod = subproduto.cod_subproduto ');
   DMESTOQUE.TSlave.SQL.Add(' left join cst ON itprodord.cod_cst = cst.cod_cst ');
@@ -6197,7 +6796,8 @@ begin
   DMESTOQUE.Alx2.SQL.Add('select Sum(despadic.vlrtotfin) AS VLRTOTFIN From despadic Where (despadic.gerador=' + #39 + 'ORDEM' + #39 + ') AND (despadic.cod_gerador=:COD_GERADOR)');
   DMESTOQUE.Alx2.ParamByName('COD_GERADOR').AsInteger := XCOD_ORDEM;
   DMESTOQUE.Alx2.Open;
-  EdTotalserv.ValueNumeric := DMESTOQUE.Alx2.FieldByName('VLRTOTFIN').AsCurrency;
+  EdTotalserv.ValueNumeric :=
+    DMESTOQUE.Alx2.FieldByName('VLRTOTFIN').AsCurrency;
   XVLRTSERV := DMESTOQUE.Alx2.FieldByName('VLRTOTFIN').AsCurrency;
 
   DMESTOQUE.Alx3.Close;
@@ -6216,7 +6816,8 @@ begin
   DMESTOQUE.TDesp.SQL.Add('select despadic.*, equipe.cod_equipe, equipe.descricao ');
   DMESTOQUE.TDesp.SQL.Add('From despadic ');
   DMESTOQUE.TDesp.SQL.Add('LEFT JOIN EQUIPE ON DESPADIC.COD_EQUIPE = EQUIPE.COD_EQUIPE');
-  DMESTOQUE.TDesp.SQL.Add('Where (despadic.gerador=' + #39 + 'ORDEM' + #39 + ') AND (despadic.cod_gerador=:COD_GERADOR)');
+  DMESTOQUE.TDesp.SQL.Add('Where (despadic.gerador=' + #39 + 'ORDEM' + #39 +
+    ') AND (despadic.cod_gerador=:COD_GERADOR)');
   DMESTOQUE.TDesp.ParamByName('COD_GERADOR').AsInteger := XCOD_ORDEM;
   DMESTOQUE.TDesp.SQL.Add('order by despadic.cod_despadic desc');
   DMESTOQUE.TDesp.Open;
@@ -6270,29 +6871,38 @@ begin
       DMServ.TAlx1.SQL.Add('select * from estoque');
       DMServ.TAlx1.SQL.Add('left join subproduto on estoque.cod_subprod = subproduto.cod_subproduto');
       DMServ.TAlx1.SQL.Add('where estoque.cod_estoque = :codigo');
-      DMServ.TAlx1.ParamByName('codigo').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
+      DMServ.TAlx1.ParamByName('codigo').AsInteger :=
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
       DMServ.TAlx1.Open;
 
       // verifica o tamanho do produto para colocar abreviação se necessario
       if Length(DMServ.TAlx1.FieldByname('descricao').AsString) > 20 then
       begin
         // se clicar em não, o produto naum sera apagado
-        if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente apagar o produto ' + Copy(DMServ.TAlx1.FieldByname('descricao').AsString, 0, 20) + '. ?', '', 2, 3, false, 'I') = 3 then
+        if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente apagar o produto '
+          + Copy(DMServ.TAlx1.FieldByname('descricao').AsString, 0, 20) + '. ?',
+          '', 2, 3, false, 'I') = 3 then
           Exit;
       end
       else
       begin
         // se clicar em não, o produto naum sera apagado
-        if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente apagar o produto ' + DMServ.TAlx1.FieldByname('descricao').AsString + ' ?', '', 2, 3, false, 'I') = 3 then
+        if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente apagar o produto '
+          + DMServ.TAlx1.FieldByname('descricao').AsString + ' ?', '', 2, 3,
+            false,
+          'I') = 3 then
           Exit;
       end;
       //Alex: 13/03/2018- mostra ou esconde campo de multiplos vendedor
-      if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
+      if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1')
+        then
       begin
         //Alex: 04/04/2018 - Se o usuário logado não possuir permissão para editar o vendedor, bloquearemos o mesmo de remover itens e editar vendedor
         if ControlAccess('EDITAVENDEDOROS', '') = False then
         begin
-          if MessageDlg('Usuário sem permissão para remover o item da lista.' + #13 + #10 + 'Solicitar permissão de administrador?', mtConfirmation, [mbYes, mbNo], 0) = mryes then
+          if MessageDlg('Usuário sem permissão para remover o item da lista.' +
+            #13 + #10 + 'Solicitar permissão de administrador?', mtConfirmation,
+            [mbYes, mbNo], 0) = mryes then
           begin
             //Solicita senha de administrador
             AbrirForm(TFSENHA, FSENHA, 0);
@@ -6328,8 +6938,10 @@ begin
       //VOLTA VALORES AS LABELS
       EscreveLabelsPROD;
       EDQuantidade.ValueNumeric := DMESTOQUE.TSlave.FieldByName('QTD').Value;
-      EDValUnit.ValueNumeric := DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
-      EDDesc.ValueNumeric := DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
+      EDValUnit.ValueNumeric :=
+        DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
+      EDDesc.ValueNumeric :=
+        DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
       EDTotal.ValueNumeric := DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
       //Filtra registros escrsavos
       FiltraSlave;
@@ -6339,7 +6951,9 @@ begin
     end
     else
     begin
-      if Mensagem('   A T E N Ç Ã O   ', 'Deseja remover TODOS os PRODUTOS da lista?', '', 2, 3, false, 'I') = 3 then
+      if Mensagem('   A T E N Ç Ã O   ',
+        'Deseja remover TODOS os PRODUTOS da lista?', '', 2, 3, false, 'I') = 3
+          then
         Exit;
 
       DMESTOQUE.TSlave.First;
@@ -6371,7 +6985,8 @@ procedure TFOrdemMec.RemoverTudo1Click(Sender: TObject);
 begin
   inherited;
 
-  if Mensagem('   A T E N Ç Ã O   ', 'Deseja remover TODOS os produtos da lista?', '', 2, 3, false, 'I') = 3 then
+  if Mensagem('   A T E N Ç Ã O   ',
+    'Deseja remover TODOS os produtos da lista?', '', 2, 3, false, 'I') = 3 then
     Exit;
 
   DMESTOQUE.TSlave.First;
@@ -6392,7 +7007,8 @@ end;
 
 procedure TFOrdemMec.RemoverProduto;
 var
-  XAPAGA: Integer; //controla se é uma ordem exportada para que sejam excluídos todos os itens da ordem de serviço da mercescan
+  XAPAGA: Integer;
+  //controla se é uma ordem exportada para que sejam excluídos todos os itens da ordem de serviço da mercescan
 begin
   inherited;
   XAPAGA := 0;
@@ -6407,7 +7023,8 @@ begin
       DMServ.TAlx1.SQL.Add('select * from estoque');
       DMServ.TAlx1.SQL.Add('left join subproduto on estoque.cod_subprod = subproduto.cod_subproduto');
       DMServ.TAlx1.SQL.Add('where estoque.cod_estoque = :codigo');
-      DMServ.TAlx1.ParamByName('codigo').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
+      DMServ.TAlx1.ParamByName('codigo').AsInteger :=
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
       DMServ.TAlx1.Open;
 
     end;
@@ -6415,25 +7032,36 @@ begin
     if XAPAGA = 0 then
     begin
       //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-      FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
-      FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
-      FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
+      FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+        DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
+      FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE',
+        DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
+      FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD',
+        DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
       //Atualiza Estoque
       DMEstoque.TEstoque.edit;
-      DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value + DMServ.TPOrd.FieldByName('QTD').Value;
-      DMEstoque.TEstoque.FieldByName('ESTRESERV').Value := DMEstoque.TEstoque.FieldByName('ESTRESERV').Value - DMServ.TPOrd.FieldByName('QTD').Value;
+      DMEstoque.TEstoque.FieldByName('ESTFISICO').Value :=
+        DMEstoque.TEstoque.FieldByName('ESTFISICO').Value +
+        DMServ.TPOrd.FieldByName('QTD').Value;
+      DMEstoque.TEstoque.FieldByName('ESTRESERV').Value :=
+        DMEstoque.TEstoque.FieldByName('ESTRESERV').Value -
+        DMServ.TPOrd.FieldByName('QTD').Value;
       DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
       DMEstoque.TEstoque.Post;
       //Atualiza saldo de estoque
       //prepara estoque em pedido de compra
       try
         DMEstoque.TEstoque.Edit;
-        DMEstoque.TEstoque.FieldByName('ESTSALDO').Value := (DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency - DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency) + DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
+        DMEstoque.TEstoque.FieldByName('ESTSALDO').Value :=
+          (DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency -
+          DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency) +
+          DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
         DMEstoque.TEstoque.Post;
       except
       end;
 
-      if DesfazSaidaCustoEstoque(DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsInteger, 'ORDEM') = False then
+      if
+        DesfazSaidaCustoEstoque(DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsInteger, 'ORDEM') = False then
       begin
         MessageDlg('NÃO FOI DESFEITA A SAÍDA DO CUSTO', mtWarning, [mbOK], 0);
         DMESTOQUE.TransacEstoque.RollbackRetaining;
@@ -6447,7 +7075,8 @@ begin
       // essa variavel eh soh para fazer verificação na função "calcula comissao" e nao precisar usar o mesmo filtratabela igual ao debaixo
       XCampo := '1';
       // filtra estoque para buscar os valores das porcentagens das comissoes
-      FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE', DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsString, '');
+      FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE',
+        DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsString, '');
       XCOD_ULTPROD := DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsInteger;
 
       //APAGA ITEM
@@ -6476,26 +7105,35 @@ begin
     else
     begin
 
-      FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+      FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ORDEM', IntToStr(XCOD_ORDEM),
+        '');
       DMServ.TPOrd.First;
 
       while not DMServ.TPOrd.Eof do
       begin
         //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-        FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsString, '');
+        FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+          DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsString, '');
         //  FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsString, '');
          // FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
           //Atualiza Estoque
         DMEstoque.TEstoque.edit;
-        DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value + DMServ.TPOrd.FieldByName('QTD').Value;
-        DMEstoque.TEstoque.FieldByName('ESTRESERV').Value := DMEstoque.TEstoque.FieldByName('ESTRESERV').Value - DMServ.TPOrd.FieldByName('QTD').Value;
+        DMEstoque.TEstoque.FieldByName('ESTFISICO').Value :=
+          DMEstoque.TEstoque.FieldByName('ESTFISICO').Value +
+          DMServ.TPOrd.FieldByName('QTD').Value;
+        DMEstoque.TEstoque.FieldByName('ESTRESERV').Value :=
+          DMEstoque.TEstoque.FieldByName('ESTRESERV').Value -
+          DMServ.TPOrd.FieldByName('QTD').Value;
         DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
         DMEstoque.TEstoque.Post;
         //Atualiza saldo de estoque
         //prepara estoque em pedido de compra
         try
           DMEstoque.TEstoque.Edit;
-          DMEstoque.TEstoque.FieldByName('ESTSALDO').Value := (DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency - DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency) + DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
+          DMEstoque.TEstoque.FieldByName('ESTSALDO').Value :=
+            (DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency -
+            DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency) +
+            DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
           DMEstoque.TEstoque.Post;
         except
         end;
@@ -6568,8 +7206,10 @@ end;
 procedure TFOrdemMec.EDescServExit(Sender: TObject);
 begin
   inherited;
-  ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric * EQtdServ.ValueNumeric);
-  ETotalServItem.ValueNumeric := (ETotalServItem.ValueNumeric - ((ETotalServItem.ValueNumeric / 100) * EDescServ.ValueNumeric));
+  ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric *
+    EQtdServ.ValueNumeric);
+  ETotalServItem.ValueNumeric := (ETotalServItem.ValueNumeric -
+    ((ETotalServItem.ValueNumeric / 100) * EDescServ.ValueNumeric));
 end;
 //press key desconto serviço
 
@@ -6578,8 +7218,10 @@ begin
   inherited;
   if key = #13 then
   begin
-    ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric * EQtdServ.ValueNumeric);
-    ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric - ((EValorServ.ValueNumeric / 100) * EDescServ.ValueNumeric));
+    ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric *
+      EQtdServ.ValueNumeric);
+    ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric -
+      ((EValorServ.ValueNumeric / 100) * EDescServ.ValueNumeric));
     FrmEquipe.edcodigo.setfocus;
   end;
 end;
@@ -6588,7 +7230,8 @@ end;
 procedure TFOrdemMec.EQtdServExit(Sender: TObject);
 begin
   inherited;
-  ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric * EQtdServ.ValueNumeric);
+  ETotalServItem.ValueNumeric := (EValorServ.ValueNumeric *
+    EQtdServ.ValueNumeric);
 end;
 
 //pesquisa codigo equipe
@@ -6611,7 +7254,8 @@ begin
 
     if not DMServ.Alx.IsEmpty then
     begin
-      FrmEquipe.EdDescricao.Text := DMServ.Alx.FieldByname('descricao').AsString;
+      FrmEquipe.EdDescricao.Text :=
+        DMServ.Alx.FieldByname('descricao').AsString;
       RetornaComissao(DMServ.Alx.fieldbyname('cod_responsavel').AsInteger);
       LimpaGradeMultiplosVendedores('SERV');
       InsereMultiploVendedor(XCOD_VENDEDOR, 'SERV');
@@ -6671,9 +7315,12 @@ begin
   FrmEquipe.BTNOPENClick(Sender);
   if AbrirForm(TFCadEquipe, FCadEquipe, 1) = 'Selected' then
   begin
-    FrmEquipe.EDCodigo.Text := DMPESSOA.TALX1.fieldbyname('Cod_Equipe').AsString;
-    FrmEquipe.EdDescricao.Hint := DMPESSOA.TALX1.fieldbyname('descricao').AsString;
-    FrmEquipe.EdDescricao.Text := DMPESSOA.TALX1.fieldbyname('descricao').AsString;
+    FrmEquipe.EDCodigo.Text :=
+      DMPESSOA.TALX1.fieldbyname('Cod_Equipe').AsString;
+    FrmEquipe.EdDescricao.Hint :=
+      DMPESSOA.TALX1.fieldbyname('descricao').AsString;
+    FrmEquipe.EdDescricao.Text :=
+      DMPESSOA.TALX1.fieldbyname('descricao').AsString;
     BtnInserir.SetFocus;
     RetornaComissao(DMPESSOA.TALX1.fieldbyname('cod_responsavel').AsInteger);
     LimpaGradeMultiplosVendedores('SERV');
@@ -6697,7 +7344,8 @@ begin
   // eh necesario informar a descricao de uma equipe
   if EDesricaoServico.Text = '' then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'É necessário informar a descrição do serviço.', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ',
+      'É necessário informar a descrição do serviço.', '', 1, 1, false, 'I');
     EDesricaoServico.SetFocus;
     Exit;
   end;
@@ -6705,19 +7353,22 @@ begin
   // se o servico nao possuir valor eh exibido uma mensagem para o
   //usuario se ele tem certeza que deseja inserir um servico sem valor
   if EValorServ.ValueNumeric = 0 then
-    Mensagem('   A T E N Ç Ã O   ', 'O valor unitário do serviço é igual a ZERO! ', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ',
+      'O valor unitário do serviço é igual a ZERO! ', '', 1, 1, false, 'I');
 
   // eh necessario selecionar uma equipe p serviço
   if FrmEquipe.EDCodigo.Text = '' then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'Selecione uma equipe', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ', 'Selecione uma equipe', '', 1, 1, false,
+      'I');
     FrmEquipe.EDCodigo.SetFocus;
     Exit;
   end;
 
   if EQtdServ.ValueNumeric = 0 then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'A quantidade do serviços é igual a ZERO! ', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ', 'A quantidade do serviços é igual a ZERO! ',
+      '', 1, 1, false, 'I');
     //ETotalServItem.SetFocus;
     //Exit;
   end;
@@ -6725,7 +7376,8 @@ begin
   //Paulo 30/06/2011: Não deixa inserir um serviço com o valor zerado
   if ETotalServItem.ValueNumeric = 0 then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'O valor total do serviço é igual a ZERO! ', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ', 'O valor total do serviço é igual a ZERO! ',
+      '', 1, 1, false, 'I');
   end;
 
   if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
@@ -6738,7 +7390,8 @@ begin
     end;
   end;
 
-  FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR', '', '(COD_GERADOR = ' + IntToStr(XCOD_ORDEM) + ') AND (GERADOR = ' + #39 + 'ORDEM' + #39 + ')');
+  FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR', '', '(COD_GERADOR = '
+    + IntToStr(XCOD_ORDEM) + ') AND (GERADOR = ' + #39 + 'ORDEM' + #39 + ')');
 
   try
     DMServ.IBT.CommitRetaining;
@@ -6753,28 +7406,36 @@ begin
     DMServ.Alx.ParamByName('DESPESA').AsString := EDesricaoServico.Text;
     DMServ.Alx.ParamByName('QTD').AsCurrency := EQtdServ.ValueNumeric;
     DMServ.Alx.ParamByName('VLRFINAL').AsCurrency := EValorServ.ValueNumeric;
-    DMServ.Alx.ParamByName('VLRTOTFIN').AsCurrency := ETotalServItem.ValueNumeric;
+    DMServ.Alx.ParamByName('VLRTOTFIN').AsCurrency :=
+      ETotalServItem.ValueNumeric;
     DMServ.Alx.ParamByName('DESCONTO').AsCurrency := EDescServ.ValueNumeric;
     DMServ.Alx.ParamByName('COD_EQUIPE').AsString := FrmEquipe.EDCodigo.Text;
     DMServ.Alx.ParamByName('COD_FUNCIONARIO').AsInteger := XCod_usuario;
-    DMServ.Alx.ParamByName('COD_SERVICO').AsInteger := XCOD_SERVICOCLASSIFICACAO;
+    DMServ.Alx.ParamByName('COD_SERVICO').AsInteger :=
+      XCOD_SERVICOCLASSIFICACAO;
     DMServ.Alx.ParamByName('CST').AsString := '041';
-    DMServ.Alx.ParamByName('COMISSAO').AsFloat := StrToFloat(lbComissaoServ.Caption);
+    DMServ.Alx.ParamByName('COMISSAO').AsFloat :=
+      StrToFloat(lbComissaoServ.Caption);
     //Paulo 31/10/2011: Para identificar se o serviço é de terceiros ou não
     if (cbTerceiros.Checked = true) then
       DMServ.Alx.ParamByName('UNIDADE').AsString := '1'
     else
       DMServ.Alx.ParamByName('UNIDADE').AsString := '0';
-    if (edCustoTerceiros.ValueNumeric <= 0) and (pClassServico.Visible = True) and (DbServicoClassificacao.Text <> '') then
+    if (edCustoTerceiros.ValueNumeric <= 0) and (pClassServico.Visible = True)
+      and (DbServicoClassificacao.Text <> '') then
     begin
-      if FiltraTabela(DMServ.TSubserv, 'subservico', 'cod_subservico', DMServ.WSubServ.FieldByName('cod_subservico').AsString, '') = True then
-        DMServ.Alx.ParamByName('VLRREAL').AsCurrency := DMServ.TSubserv.FieldByName('VLRUNIT').AsCurrency
+      if FiltraTabela(DMServ.TSubserv, 'subservico', 'cod_subservico',
+        DMServ.WSubServ.FieldByName('cod_subservico').AsString, '') = True then
+        DMServ.Alx.ParamByName('VLRREAL').AsCurrency :=
+          DMServ.TSubserv.FieldByName('VLRUNIT').AsCurrency
       else
-        DMServ.Alx.ParamByName('VLRREAL').AsCurrency := edCustoTerceiros.ValueNumeric;
+        DMServ.Alx.ParamByName('VLRREAL').AsCurrency :=
+          edCustoTerceiros.ValueNumeric;
     end
     else
     begin
-      DMServ.Alx.ParamByName('VLRREAL').AsCurrency := edCustoTerceiros.ValueNumeric;
+      DMServ.Alx.ParamByName('VLRREAL').AsCurrency :=
+        edCustoTerceiros.ValueNumeric;
     end;
     DMServ.Alx.ExecSQL;
     DMServ.IBT.CommitRetaining;
@@ -6782,7 +7443,8 @@ begin
   except
     on E: Exception do
     begin
-      if AnsiContainsText(E.Message, 'attempt to store duplicate value (visible to active transactions) in unique index "DESPADIC_IDX1"') then
+      if AnsiContainsText(E.Message,
+        'attempt to store duplicate value (visible to active transactions) in unique index "DESPADIC_IDX1"') then
       begin
         try
           DMServ.IBT.RollbackRetaining;
@@ -6796,7 +7458,8 @@ begin
           xcod_despesa := DMMACS.TALX.FieldByName('codigo').AsInteger + 100;
           DMMACS.TALX.Close;
           DMMACS.TALX.SQL.Clear;
-          DMMACS.TALX.SQL.Add('SET GENERATOR GEN_DESPADIC_ID TO ' + IntToStr(xcod_despesa));
+          DMMACS.TALX.SQL.Add('SET GENERATOR GEN_DESPADIC_ID TO ' +
+            IntToStr(xcod_despesa));
           DMMACS.TALX.ExecSQL;
           DMMACS.Transaction.CommitRetaining;
           DMServ.IBT.CommitRetaining;
@@ -6809,14 +7472,16 @@ begin
           Exit;
 
         except
-          ShowMessage('Falha ao gerar código do serviço.' + #13 + ' Foi encontrado um erro ao inserir o serviço. Entre em contato com o suporte e informe oerro ocorrido');
+          ShowMessage('Falha ao gerar código do serviço.' + #13 +
+            ' Foi encontrado um erro ao inserir o serviço. Entre em contato com o suporte e informe oerro ocorrido');
           DMMACS.Transaction.RollbackRetaining;
           DMServ.IBT.RollbackRetaining;
         end;
       end
       else
       begin
-        MessageDlg('O ITEM NÃO PODE SER INSERIDO. VERIFIQUE!' + #13 + 'Erro: 1348', mtWarning, [mbOK], 0);
+        MessageDlg('O ITEM NÃO PODE SER INSERIDO. VERIFIQUE!' + #13 +
+          'Erro: 1348', mtWarning, [mbOK], 0);
         DMServ.IBT.RollbackRetaining;
         FiltraSlave;
         //Chama função para calcular descontos
@@ -6835,7 +7500,8 @@ begin
     MDO.QConsulta.SQL.Add('  select gen_id(GEN_DESPADIC_ID, 0) as codigo from rdb$database ');
     MDO.QConsulta.Open;
 
-    InsereMultiploVendedorBD(MDO.QConsulta.FieldByName('codigo').AsInteger, 'SERV');
+    InsereMultiploVendedorBD(MDO.QConsulta.FieldByName('codigo').AsInteger,
+      'SERV');
   end;
 
   DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -6868,27 +7534,37 @@ begin
     DMESTOQUE.Alx1.sql.Add('select * from despadic');
     DMESTOQUE.Alx1.sql.Add('left join equipe on despadic.cod_equipe = equipe.cod_equipe');
     DMESTOQUE.Alx1.sql.Add('where despadic.cod_despadic= :cod');
-    DMESTOQUE.Alx1.ParamByName('cod').AsString := DMESTOQUE.Alx3.fieldbyname('COD_DESPADIC').AsString;
+    DMESTOQUE.Alx1.ParamByName('cod').AsString :=
+      DMESTOQUE.Alx3.fieldbyname('COD_DESPADIC').AsString;
     DMESTOQUE.Alx1.Open;
 
     if Length(DMESTOQUE.Alx1.FieldByName('DESPESA').AsString) > 20 then
     begin
-      if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente excluir o serviço ' + #39 + Copy(DMESTOQUE.Alx1.FieldByname('DESPESA').AsString, 0, 20) + #39 + '. ?', '', 2, 3, false, 'I') = 3 then
+      if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente excluir o serviço ' +
+        #39 + Copy(DMESTOQUE.Alx1.FieldByname('DESPESA').AsString, 0, 20) + #39
+          +
+        '. ?', '', 2, 3, false, 'I') = 3 then
         Exit;
     end
     else
     begin
-      if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente excluir o serviço ' + #39 + DMESTOQUE.Alx1.FieldByname('DESPESA').AsString + #39 + ' ?', '', 2, 3, false, 'I') = 3 then
+      if Mensagem('   A T E N Ç Ã O   ', 'Deseja realmente excluir o serviço ' +
+        #39 + DMESTOQUE.Alx1.FieldByname('DESPESA').AsString + #39 + ' ?', '',
+          2,
+        3, false, 'I') = 3 then
         Exit;
     end;
 
     //Alex: 13/03/2018- mostra ou esconde campo de multiplos vendedor
-    if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1') then
+    if (DMMACS.TLoja.FieldByName('USARMULTIPLOSVENDEDORESOS').AsString = '1')
+      then
     begin
       //Alex: 04/04/2018 - Se o usuário logado não possuir permissão para editar o vendedor, bloquearemos o mesmo de remover itens e editar vendedor
       if ControlAccess('EDITAVENDEDOROS', '') = False then
       begin
-        if MessageDlg('Usuário sem permissão para remover o serviço da lista.' + #13 + #10 + 'Solicitar permissão de administrador?', mtConfirmation, [mbYes, mbNo], 0) = mryes then
+        if MessageDlg('Usuário sem permissão para remover o serviço da lista.' +
+          #13 + #10 + 'Solicitar permissão de administrador?', mtConfirmation,
+          [mbYes, mbNo], 0) = mryes then
         begin
           //Solicita senha de administrador
           AbrirForm(TFSENHA, FSENHA, 0);
@@ -6925,14 +7601,18 @@ begin
     EQtdServ.Text := DMESTOQUE.Alx3.fieldbyname('QTD').AsString;
     EDescServ.Text := DMESTOQUE.Alx3.fieldbyname('DESCONTO').AsString;
     ETotalServItem.Text := DMESTOQUE.Alx3.fieldbyname('VLRTOTFIN').AsString;
-    FrmEquipe.EDCodigo.Text := DMESTOQUE.Alx3.fieldbyname('COD_EQUIPE').AsString;
-    FrmEquipe.EdDescricao.Text := DMESTOQUE.Alx3.fieldbyname('DESCRICAO').AsString;
+    FrmEquipe.EDCodigo.Text :=
+      DMESTOQUE.Alx3.fieldbyname('COD_EQUIPE').AsString;
+    FrmEquipe.EdDescricao.Text :=
+      DMESTOQUE.Alx3.fieldbyname('DESCRICAO').AsString;
 
     RemoverServico;
   end
   else
   begin
-    if Mensagem('   A T E N Ç Ã O   ', 'Deseja remover TODOS os SERVIÇOS da lista?', '', 2, 3, false, 'I') = 3 then
+    if Mensagem('   A T E N Ç Ã O   ',
+      'Deseja remover TODOS os SERVIÇOS da lista?', '', 2, 3, false, 'I') = 3
+        then
       Exit;
 
     DMESTOQUE.Alx3.First;
@@ -6951,7 +7631,8 @@ end;
 // remover serviço selecionado
 procedure TFOrdemMec.RemoverServico;
 var
-  XAPAGA: Integer; //controla para que sejama apagados todos os serviços da ordem exportada
+  XAPAGA: Integer;
+  //controla para que sejama apagados todos os serviços da ordem exportada
 begin
   inherited;
   XAPAGA := 0;
@@ -6965,7 +7646,8 @@ begin
     DMESTOQUE.Alx.sql.Add('delete from despadic where (despadic.cod_gerador= :cod1)');
     DMESTOQUE.Alx.SQL.Add('and despadic.cod_despadic= :cod2');
     DMESTOQUE.Alx.ParamByName('cod1').AsInteger := XCOD_ORDEM;
-    DMESTOQUE.Alx.ParamByName('cod2').AsInteger := DMESTOQUE.Alx3.fieldbyname('COD_DESPADIC').AsInteger;
+    DMESTOQUE.Alx.ParamByName('cod2').AsInteger :=
+      DMESTOQUE.Alx3.fieldbyname('COD_DESPADIC').AsInteger;
     DMESTOQUE.Alx.ExecSQL;
 
     RemoveMultiploVendedorBD(DMESTOQUE.Alx3.fieldbyname('COD_DESPADIC').AsInteger, 'SERV');
@@ -7002,7 +7684,8 @@ end;
 procedure TFOrdemMec.RemoverTudo2Click(Sender: TObject);
 begin
   inherited;
-  if Mensagem('   A T E N Ç Ã O   ', 'Deseja remover todos os SERVIÇOS da lista?', '', 2, 3, false, 'I') = 3 then
+  if Mensagem('   A T E N Ç Ã O   ',
+    'Deseja remover todos os SERVIÇOS da lista?', '', 2, 3, false, 'I') = 3 then
     Exit;
 
   DMESTOQUE.Alx3.First;
@@ -7022,6 +7705,7 @@ var
   XFlagControlNumero: Integer;
 begin
   inherited;
+  DMServ.IBT.CommitRetaining;
   DMServ.TAlx3.Close;
   DMServ.TAlx3.SQL.Clear;
   DMServ.TAlx3.SQL.Add(' SELECT VWORDEM.STATUS, vwordem.numero, vwordem.total FROM VWORDEM WHERE vwordem.cod_ordem = :Codigo');
@@ -7030,8 +7714,11 @@ begin
 
   if DMServ.TAlx3.FieldByName('STATUS').AsString = 'FECHADO' then
   begin
-    MessageDlg('Essa Ordem já foi fechada em outro computador. ' + #13 + ' Verifique se os seus itens não foram alterados.', mtWarning, [mbOK], 0);
-    Registra('ORDEM', 'FECHAR', DateToStr(DATE()), 'Nº ' + DMServ.TAlx3.FieldByName('NUMERO').AsString, 'Valor: ' + DMServ.TAlx3.FieldByName('total').AsString);
+    MessageDlg('Essa Ordem já foi fechada em outro computador. ' + #13 +
+      ' Verifique se os seus itens não foram alterados.', mtWarning, [mbOK], 0);
+    Registra('ORDEM', 'FECHAR', DateToStr(DATE()), 'Nº ' +
+      DMServ.TAlx3.FieldByName('NUMERO').AsString, 'Valor: ' +
+      DMServ.TAlx3.FieldByName('total').AsString);
     PCadastro.Visible := false;
     PCadastro.SendToBack;
     PConsulta.Visible := true;
@@ -7042,10 +7729,13 @@ begin
   end;
 
   FMenu.XTIPOBOLTO := '';
-  //Verificamos se existe algum texto digitado nos dados de serviço, muitas vezes ocorre de o usuario digitar e esquecer de inserir os valores a lista
+  //Verificamos se existe algum texto digitado nos dados de serviço, muitaass vezes ocorre de o usuario digitar e esquecer de inserir os valores a lista
   if EDesricaoServico.Text <> '' then
   begin
-    MessageDlg('Existe um texto digitado no campo de serviços, talvez você tenha esquecido de inserir o serviço na lista.' + #13 + 'Para continuar, insira ou limpe o texto e pressione gravar novamente', mtWarning, [mbOK], 0);
+    MessageDlg('Existe um texto digitado no campo de serviços, talvez você tenha esquecido de inserir o serviço na lista.'
+      + #13 +
+      'Para continuar, insira ou limpe o texto e pressione gravar novamente',
+      mtWarning, [mbOK], 0);
     PageControl1.ActivePage := TabSheet2;
     EDesricaoServico.SetFocus;
     Exit;
@@ -7055,11 +7745,15 @@ begin
   XFlagControlNumero := 1;
   while XFlagControlNumero = 1 do
   begin
-    if FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'numero', '', ' (numero=' + #39 + DBNumOrd.Text + #39 + ') AND (VWORDEM.cod_ordem<>' + IntToStr(XCOD_ORDEM) + ') ') = True then
+    if FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'numero', '', ' (numero=' + #39 +
+      DBNumOrd.Text + #39 + ') AND (VWORDEM.cod_ordem<>' + IntToStr(XCOD_ORDEM) +
+      ') ') = True then
     begin
       //caso já exista o mesmo numero em outro pedido incrementamos mais um numero de acordo com a tabela empresa e continuamos loop para teste
       DBNumOrd.Text := IntToStr(RetornaNumPed);
-      MessageDlg('O Número anteriormente informado para a O.S. já existia em banco.' + #13 + #10 + 'O Sistema alterou automaticamente para ' + DBNumOrd.Text, mtWarning, [mbOK], 0)
+      MessageDlg('O Número anteriormente informado para a O.S. já existia em banco.'
+        + #13 + #10 + 'O Sistema alterou automaticamente para ' + DBNumOrd.Text,
+        mtWarning, [mbOK], 0)
     end
     else
     begin
@@ -7067,7 +7761,9 @@ begin
         //Testamos o numero do edit para garantir que é um numero
         StrToInt(DBNumOrd.Text);
         if XNumOrdem <> DBNumOrd.Text then
-          MessageDlg('O Número anteriormente informado para a O.S. já existia em banco.' + #13 + #10 + 'O Sistema alterou automaticamente para ' + DBNumOrd.Text, mtWarning, [mbOK], 0)
+          MessageDlg('O Número anteriormente informado para a O.S. já existia em banco.'
+            + #13 + #10 + 'O Sistema alterou automaticamente para ' +
+            DBNumOrd.Text, mtWarning, [mbOK], 0)
       except
       end;
       XFlagControlNumero := 0;
@@ -7096,16 +7792,20 @@ begin
   // se nao possui servico e nem produtos eh exibido a mensagem - SEGUNDO SOLICITAÇÃO É OBRIGATORIO PODER GRAVAR SEM SERVICO
   if (DMESTOQUE.Alx2.IsEmpty) then
   begin
-    if Mensagem('   A T E N Ç Ã O   ', 'A Ordem de Serviço atual não possui produtos e serviços inclusos. Deseja apagá-la ?', '', 2, 3, false, 'A') = 2 then
+    if Mensagem('   A T E N Ç Ã O   ',
+      'A Ordem de Serviço atual não possui produtos e serviços inclusos. Deseja apagá-la ?',
+      '', 2, 3, false, 'A') = 2 then
     begin
       //Apaga ORDEM
       FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
-      Registra('ORDEM', 'APAGAR/CANCELAR', DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' + DMServ.TOrd.FieldByName('TOTORD').AsString);
+      Registra('ORDEM', 'APAGAR/CANCELAR',
+        DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' +
+        DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' +
+        DMServ.TOrd.FieldByName('TOTORD').AsString);
       DMServ.TOrd.Delete;
-      DMServ.TOrd.ApplyUpdates;
 
       //Confirma Transação
-      DMServ.TOrd.Transaction.CommitRetaining;
+      DMSERV.IBT.CommitRetaining;
 
       //atualiza vew
       AtualizaGridConsulta('ORIGEM');
@@ -7122,28 +7822,37 @@ begin
   //VALIDA CAMPOS NECESSÁRIOS
   if (XCOD_CLIENTE = -1) or (FrmCliente.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False,
+      'a');
     FrmCliente.EDCodigo.SetFocus;
     Exit;
   end;
 
-  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and (CBVENDABALCAO.Checked = FALSE) then
+  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and
+    (CBVENDABALCAO.Checked = FALSE) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False, 'a');
     FBEquipPlaca.EDCodigo.SetFocus;
     Exit;
   end;
 
-  if (DMMACS.TLoja.FieldByName('USARVENDEDOROSMEC').AsString = '1') and (XCOD_VENDEDOR = -1) then
+  if (DMMACS.TLoja.FieldByName('USARVENDEDOROSMEC').AsString = '1') and
+    (XCOD_VENDEDOR = -1) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor, selecione o vendedor para a ordem de serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor, selecione o vendedor para a ordem de serviço', '', 1, 1, False,
+      'a');
     FrmVendedor.BTNOPEN.SetFocus;
     Exit;
   end;
 
   if (XCOD_FORMPAG = -1) or (FrmFormPag1.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1, 1,
+      False, 'a');
     FrmFormPag1.EDCodigo.SetFocus;
     Exit;
   end;
@@ -7152,45 +7861,20 @@ begin
   begin
     if FrmFormPag1.EdDescricao.Text <> 'À VISTA' then
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!', '', 1, 1, False, 'i');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!',
+        '', 1, 1, False, 'i');
       FrmFormPag1.BTNOPEN.SetFocus;
       Exit;
     end;
   end;
 
-  if ((DBBox.Text = '') and (CBVENDABALCAO.Checked = False)) and (DBBox.Text <> '0') then
+  if ((DBBox.Text = '') and (CBVENDABALCAO.Checked = False)) and (DBBox.Text <>
+    '0') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe o box para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe o box para Ordem de Serviço',
+      '', 1, 1, False, 'a');
     Exit;
-  end;
-
-  //ALEX: 13/05/2009 - O TRECHO ABAIXO FOI COMENTADO  PEDIDO DA MERCESCAN
-  //COMENTAR PAR MERCESCAN
-  if (XCOD_EQUIPAMENTO > 0) then
-  begin
-    //verifica se o equipamento selecionado pertence ao cliente selecionado
-    DMServ.TAlx1.Close;
-    DMServ.TAlx1.SQL.Clear;
-    DMServ.TAlx1.SQL.Add(' select * from equipamento where equipamento.cod_equipamento=:codigo ');
-    DMServ.TAlx1.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('cod_equipamento').AsString;
-    DMServ.TAlx1.Open;
-    if not DMServ.TAlx1.IsEmpty then
-    begin
-      if CBVENDABALCAO.Checked = False then
-      begin
-        if (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> IntToStr(XCOD_CLIENTE)) and ((DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '') or (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '0')) then
-        begin
-          Mensagem('   A T E N Ç Ã O   ', 'O Equipamento selecionado na ordem não corresponde com o cliente selecionado. Altere por favor!', '', 1, 1, false, 'I');
-          FrmCliente.EDCodigo.SetFocus;
-          Exit;
-        end;
-      end;
-    end
-    else
-    begin
-      Mensagem('   A T E N Ç Ã O   ', 'O Equipamento selecionado na ordem não foi encontrado', '', 1, 1, false, 'I');
-      Exit;
-    end;
   end;
 
   DMServ.TOrd.Edit;
@@ -7200,7 +7884,8 @@ begin
     DMServ.TOrd.FieldByName('GARANTIA').AsString := '';
 
   //INFORMA CODIGO DO USUARIO
-  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger := StrToInt(FMenu.LCODUSUARIO.Caption);
+  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger :=
+    StrToInt(FMenu.LCODUSUARIO.Caption);
   //INFORMA CODIGO DO CLIENTE
   DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
   //INFORMA CODIGO DO EQUIPAMENTO
@@ -7209,12 +7894,14 @@ begin
   //FILTRA VENDEDOR
   FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', '', '', '');
   //Filtra CLIENTE
-  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', IntToStr(XCOD_CLIENTE), '');
+  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+    IntToStr(XCOD_CLIENTE), '');
   DMServ.TOrd.Edit;
   //INFORMA CODIGO DO VENDEDOR
   DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger := XCOD_VENDEDOR;
   //INFORMA CODIGO DO RESPONSÁVEL
-  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
+  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger :=
+    DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
   //INFORMA CODIGO DA LOJA
   DMServ.TOrd.FieldByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
   //INFORMA FORMA DE PAGAMENTO
@@ -7223,8 +7910,10 @@ begin
   DMServ.TOrd.FieldByName('OBSORDEM').AsString := MObsOrdem.Lines.Text;
   DMServ.TOrd.FieldByName('box').AsString := DBBox.Text;
   DMServ.TOrd.FieldByName('contato').AsString := EdContatoCliente.Text;
-  DMServ.TOrd.FieldByName('NOMECLI').AsString := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-  DMServ.TOrd.FieldByName('CPFCNPJ').AsString := DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString;
+  DMServ.TOrd.FieldByName('NOMECLI').AsString :=
+    DMPESSOA.WCliente.FieldByName('NOME').AsString;
+  DMServ.TOrd.FieldByName('CPFCNPJ').AsString :=
+    DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString;
   DMServ.TOrd.FieldByName('DTABERT').AsString := edDtAbertura.Text;
   //GRAVA TOTAIS
   DMServ.TOrd.FieldByName('TOTORD').AsCurrency := EdValorOrd.ValueNumeric;
@@ -7239,7 +7928,8 @@ begin
   if FMenu.XTIPOBOLTO <> 'OSABERTA' then
     DMServ.TOrd.FieldByName('STATUS').AsString := 'ABERTO';
   DMServ.TOrd.FieldByName('EDIT').AsString := '0';
-  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString = '') then
+  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString
+    = '') then
   begin
     DMServ.TOrd.FieldByName('BOX').AsString := '-1';
     DBBox.Text := '-1';
@@ -7257,7 +7947,42 @@ begin
     DMServ.TOrd.FieldByName('RT_ISS').AsString := '2';
 
   DMServ.TOrd.Post;
-
+  //ALEX: 13/05/2009 - O TRECHO ABAIXO FOI COMENTADO  PEDIDO DA MERCESCAN
+  //COMENTAR PAR MERCESCAN
+  if (XCOD_EQUIPAMENTO > 0) then
+  begin
+    //verifica se o equipamento selecionado pertence ao cliente selecionado
+    DMServ.TAlx1.Close;
+    DMServ.TAlx1.SQL.Clear;
+    DMServ.TAlx1.SQL.Add(' select * from equipamento where equipamento.cod_equipamento=:codigo ');
+    DMServ.TAlx1.ParamByName('codigo').AsString :=
+      DMServ.TOrd.FieldByName('cod_equipamento').AsString;
+    DMServ.TAlx1.Open;
+    if not DMServ.TAlx1.IsEmpty then
+    begin
+      if CBVENDABALCAO.Checked = False then
+      begin
+        if (DMServ.TAlx1.FieldByName('cod_cliente').AsString <>
+          IntToStr(XCOD_CLIENTE)) and
+          ((DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '') or
+          (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '0')) then
+        begin
+          Mensagem('   A T E N Ç Ã O   ',
+            'O Equipamento selecionado na ordem não corresponde com o cliente selecionado. Altere por favor!',
+            '', 1, 1, false, 'I');
+          FrmCliente.EDCodigo.SetFocus;
+          Exit;
+        end;
+      end;
+    end
+    else
+    begin
+      Mensagem('   A T E N Ç Ã O   ',
+        'O Equipamento selecionado na ordem não foi encontrado', '', 1, 1, false,
+        'I');
+      Exit;
+    end;
+  end;
   //Jônatas 27/06/2013 - Gravar as placas adicionais
   DMServ.TAlx2.Close;
   DMServ.TAlx2.SQL.Clear;
@@ -7273,7 +7998,9 @@ begin
     DMServ.IBT.CommitRetaining;
   except
     DMServ.IBT.RollbackRetaining;
-    MessageDlg('ERRO 6488: Ocorreu um erro ao gravar a OS.' + #13 + #10 + 'Consulte e verifique seus dados e tente gravar novamente', mtWarning, [mbOK], 0);
+    MessageDlg('ERRO 6488: Ocorreu um erro ao gravar a OS.' + #13 + #10 +
+      'Consulte e verifique seus dados e tente gravar novamente', mtWarning,
+      [mbOK], 0);
   end;
 
   //Atualiza View da tela de Consulta
@@ -7313,11 +8040,14 @@ begin
   if ControlAccess('EXCORD', 'M') = False then
     Exit;
 
-  FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+    XView.FieldByName('COD_ORDEM').AsString, '');
 
   if DMSERV.TOrd.IsEmpty then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI REMOVIDA.', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI REMOVIDA.', '', 1, 1,
+      false,
+      'I');
     AtualizaGridConsulta('');
     Exit;
   end;
@@ -7330,7 +8060,8 @@ begin
   // caso o campo tiver valendo 1 eh pq a ordem jah esta sendo usada
   if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13 + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13
+      + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
     AtualizaGridConsulta('');
     Exit;
   end
@@ -7343,17 +8074,23 @@ begin
     DMServ.IBT.CommitRetaining;
   end;
 
-  if (DMSERV.WOrdem.FieldByName('STATUS').AsString <> 'TERMINADA') and (DMSERV.WOrdem.FieldByName('STATUS').AsString <> 'FECHADA') then
+  if (DMSERV.WOrdem.FieldByName('STATUS').AsString <> 'TERMINADA') and
+    (DMSERV.WOrdem.FieldByName('STATUS').AsString <> 'FECHADA') then
   begin //se passar pelas restrições de apagamento da ordem
-    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'DESEJA APAGAR A ORDEM DE SERVIÇO ' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'DESEJA APAGAR A ORDEM DE SERVIÇO ' +
+      #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False,
+      'c') = 2 then
     begin
 
       //Filtra registros do pedido
       FiltraSlave;
       //VERIFICA SE EXISTEM ITENS NA ORDEM, ELA SOMENTE PODERÁ SER APAGADA SE ESTIVER SEM ITENS
-      if (not DMESTOQUE.TSlave.IsEmpty) or (not DMESTOQUE.TDesp.IsEmpty) or (not DMESTOQUE.TSlaveServ.IsEmpty) then
+      if (not DMESTOQUE.TSlave.IsEmpty) or (not DMESTOQUE.TDesp.IsEmpty) or (not
+        DMESTOQUE.TSlaveServ.IsEmpty) then
       begin
-        Mensagem('OPÇÃO BLOQUEADA', 'ANTES DE REMOVER ESTA ORDEM É NECESSÁRIO REMOVER TODOS OS PRODUTOS E SERVIÇOS DA ORDEM ' + 'Nº ' + XView.FieldByName('NUMERO').AsString + '.', '', 1, 1, False, 'a');
+        Mensagem('OPÇÃO BLOQUEADA',
+          'ANTES DE REMOVER ESTA ORDEM É NECESSÁRIO REMOVER TODOS OS PRODUTOS E SERVIÇOS DA ORDEM ' + 'Nº '
+          + XView.FieldByName('NUMERO').AsString + '.', '', 1, 1, False, 'a');
         DMServ.TOrd.Edit;
         DMServ.TOrd.FieldByName('EDIT').AsString := '0';
         DMServ.TOrd.Post;
@@ -7365,14 +8102,18 @@ begin
 
       //REGISTRA COMANDO DO USUARIO
       try
-        Registra('ORDEM', 'APAGAR/CANCELAR', DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' + DMServ.TOrd.FieldByName('TOTORD').AsString);
+        Registra('ORDEM', 'APAGAR/CANCELAR',
+          DMServ.TOrd.FieldByName('DTABERT').AsString, 'Nº ' +
+          DMServ.TOrd.FieldByName('NUMERO').AsString, 'Valor: ' +
+          DMServ.TOrd.FieldByName('TOTORD').AsString);
       except
       end;
 
       try
 
         //Apaga ORDEM
-        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '');
+        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+          XView.FieldByName('COD_ORDEM').AsString, '');
         DMServ.TOrd.Delete;
 
         //Confirma Tranzaçào
@@ -7401,7 +8142,8 @@ end;
 
 procedure TFOrdemMec.BtnConsultarClick(Sender: TObject);
 begin
-  XCONTROLECONSULTA := true; //DJ 02/11/2009: Indica que esta acontecendo uma consulta
+  XCONTROLECONSULTA := true;
+  //DJ 02/11/2009: Indica que esta acontecendo uma consulta
 
   LimpaCamposProd;
   LimpaCamposServ;
@@ -7420,14 +8162,17 @@ begin
 
   if DMSERV.TOrd.FieldByName('STATUS').Asstring = 'FECHADO' then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI FECHADA.', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI FECHADA.', '', 1, 1, false,
+      'I');
     AtualizaGridConsulta('ORIGEM');
     Exit;
   end;
 
   if DMSERV.TOrd.IsEmpty then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI REMOVIDA.', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM JÁ FOI REMOVIDA.', '', 1, 1,
+      false,
+      'I');
     AtualizaGridConsulta('ORIGEM');
     Exit;
   end;
@@ -7435,7 +8180,8 @@ begin
   // caso o campo tiver valendo 1 eh pq a ordem jah esta sendo usada
   if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13 + 'Use Ctrl+D para destravar', '', 1, 1, False, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13
+      + 'Use Ctrl+D para destravar', '', 1, 1, False, 'I');
     AtualizaGridConsulta('ORIGEM');
     Exit;
   end
@@ -7454,7 +8200,8 @@ begin
     DMServ.IBT.CommitRetaining;
   end;
 
-  if (XView.FieldByName('STATUS').AsString <> 'FECHADO') or (FMenu.XTIPOBOLTO = 'OSABERTA') {//se a ordem ja não estiver fechada} then
+  if (XView.FieldByName('STATUS').AsString <> 'FECHADO') or (FMenu.XTIPOBOLTO =
+    'OSABERTA') {//se a ordem ja não estiver fechada} then
   begin
     inherited;
     PageControl1.ActivePage := TabSheet1;
@@ -7509,18 +8256,23 @@ begin
     end;
 
     //filtra cliente para atribuir dados as variáveis e edits
-    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', XView.FieldByName('COD_CLIENTE').AsString, '') = True then
+    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+      XView.FieldByName('COD_CLIENTE').AsString, '') = True then
     begin
       XCOD_CLIENTE := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
-      FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
-      FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByName('NOME').AsString;
+      FrmCliente.EDCodigo.Text :=
+        DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
+      FrmCliente.EdDescricao.Text :=
+        DMPESSOA.WCliente.FieldByName('NOME').AsString;
       DMPESSOA.TCliente.Close;
       DMPESSOA.TCliente.SQL.Clear;
       DMPESSOA.TCliente.SQL.Add(' Select * from cliente where cliente.cod_cliente=:Codigo ');
-      DMPESSOA.TCliente.ParamByName('Codigo').AsInteger := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
+      DMPESSOA.TCliente.ParamByName('Codigo').AsInteger :=
+        DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
       DMPESSOA.TCliente.Open;
       if not DMPESSOA.TCliente.IsEmpty then
-        EdObsFinanceira.Text := DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
+        EdObsFinanceira.Text :=
+          DMPESSOA.TCliente.FieldByName('OBSFINANCEIRA').AsString
       else
         EdObsFinanceira.Text := '';
     end
@@ -7534,11 +8286,14 @@ begin
     XCOD_VENDEDOR := DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger;
     XCOD_FORMPAG := DMServ.TOrd.FieldByName('COD_FORMPAG').AsInteger;
     //filtra forma de pagamento para atribuir valores para variáveis de controle e edits
-    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '') = True then
+    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+      DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '') = True then
     begin
       XCOD_FORMPAG := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-      FrmFormPag1.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
-      FrmFormPag1.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+      FrmFormPag1.EDCodigo.Text :=
+        DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
+      FrmFormPag1.EdDescricao.Text :=
+        DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
     end
     else
     begin
@@ -7547,11 +8302,14 @@ begin
       FrmFormPag1.EdDescricao.Text := '';
     end;
     //Busca vendedor de acordo com o usuario locado
-    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func', InttoStr(XCOD_VENDEDOR), '') = true then
+    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func',
+      InttoStr(XCOD_VENDEDOR), '') = true then
     begin
       XCOD_VENDEDOR := DMPESSOA.VWFuncionario.FieldByName('cod_func').AsInteger;
-      FrmVendedor.EDCodigo.Text := DMPESSOA.VWFuncionario.FieldByName('cod_func').AsString;
-      FrmVendedor.EdDescricao.Text := DMPESSOA.VWFuncionario.FieldByName('nome').AsString;
+      FrmVendedor.EDCodigo.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('cod_func').AsString;
+      FrmVendedor.EdDescricao.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('nome').AsString;
       // busca a comissão do funcionario
       DMPESSOA.TALX.Close;
       DMPESSOA.TALX.SQL.Clear;
@@ -7584,16 +8342,21 @@ begin
     XCOD_EQUIPAMENTO := DMServ.TOrd.FieldByName('COD_EQUIPAMENTO').AsInteger;
     //se for MERCESCAN, aparece o formulario de busca pela placa do veículo
        // VERIFICA PRIMEIRO SE A ORDEM POSSUI EQUIPAMENTO
-    if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', IntToStr(XCOD_EQUIPAMENTO), '') = TRUE then
+    if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+      IntToStr(XCOD_EQUIPAMENTO), '') = TRUE then
     begin
-      FBEquipPlaca.EDCodigo.Text := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
-      FBEquipPlaca.EdDescricao.Text := DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
+      FBEquipPlaca.EDCodigo.Text :=
+        DMPESSOA.TEquip.FieldByName('PLACA').AsString;
+      FBEquipPlaca.EdDescricao.Text :=
+        DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
 
-      XCOD_EQUIPAMENTO := DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
+      XCOD_EQUIPAMENTO :=
+        DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
 
       if DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString <> '' then
       begin
-        lbNumFrota.Caption := 'Número Frota: ' + DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+        lbNumFrota.Caption := 'Número Frota: ' +
+          DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
       end
       else
       begin
@@ -7614,7 +8377,8 @@ begin
     DMserv.TAlx1.SQL.Add('SELECT ordem.placa2, ordem.placa3 FROM ordem');
     DMserv.TAlx1.SQL.Add(' LEFT JOIN equipamento ON ordem.cod_equipamento = equipamento.cod_equipamento');
     DMserv.TAlx1.SQL.Add(' WHERE (equipamento.placa = :PLACA) AND (ordem.numero = :NUMORDEM)');
-    DMServ.TAlx1.ParamByName('PLACA').AsString := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
+    DMServ.TAlx1.ParamByName('PLACA').AsString :=
+      DMPESSOA.TEquip.FieldByName('PLACA').AsString;
     DMServ.TAlx1.ParamByName('NUMORDEM').AsString := XNumOrdem;
     DMServ.TAlx1.Open;
     if not DMServ.TAlx1.IsEmpty then
@@ -7685,13 +8449,15 @@ begin
   end
   else
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'PEDIDO FECHADO!' + #13 + 'NÃO É POSSÍVEL ALTERAR/CONSULTAR.', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'PEDIDO FECHADO!' + #13 +
+      'NÃO É POSSÍVEL ALTERAR/CONSULTAR.', '', 1, 1, False, 'a');
     AtualizaGridConsulta('ORIGEM');
     Exit;
   end;
 
   //Edmar - 01/04/2014 - Só re-efetua o calculo do ISS se for primeira vez
-  if (DMServ.TOrd.FieldByName('RT_ISS').AsString <> '1') and (DMServ.TOrd.FieldByName('RT_ISS').AsString <> '2') then
+  if (DMServ.TOrd.FieldByName('RT_ISS').AsString <> '1') and
+    (DMServ.TOrd.FieldByName('RT_ISS').AsString <> '2') then
     EfetuaCalculoISS;
   try
     edDtAbertura.Text := DMServ.TOrd.FieldByName('DTABERT').AsString;
@@ -7702,13 +8468,16 @@ begin
 
 end;
 
-procedure TFOrdemMec.MEPLACAKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.MEPLACAKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if (shift = [ssCtrl]) and (key = 70) {//CTRL+F} then
   begin
-    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div 2;
-    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div 2;
+    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div
+      2;
+    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div
+      2;
     PInfoCliente.OnExit := LimpaInfoCliente;
     PInfoCliente.PesquisaPlaca(MEPLACA.Text);
     PInfoCliente.Visible := True;
@@ -7720,7 +8489,8 @@ begin
   if (shift = [ssCtrl]) then
     Exit;
 
-  if (MEPLACA.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY = 27) then
+  if (MEPLACA.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY =
+    27) then
   begin
     MEPLACA.Text := '';
   end;
@@ -7765,13 +8535,15 @@ begin
     DMPESSOA.TALX.SQL.Add('SELECT cliente.cod_pessoa,pessoa.cod_pessoa, cliente.cod_interno,pessoa.nome');
     DMPESSOA.TALX.SQL.Add(' FROM CLIENTE JOIN PESSOA ON cliente.cod_pessoa = pessoa.cod_pessoa');
     //DMPESSOA.WCliente.SQL.Add('left join  cidade ON pessoa.cod_cidade = cidade.cod_cidade');
-    DMPESSOA.TALX.SQL.Add(' where (upper(NOME) like upper(' + #39 + str + '%' + #39 + ')) order by nome');
+    DMPESSOA.TALX.SQL.Add(' where (upper(NOME) like upper(' + #39 + str + '%' +
+      #39 + ')) order by nome');
     DMPESSOA.TALX.Open;
     //FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'NOME', '', ' (upper(NOME) like upper('+#39+str+'%'+#39+'))')
   end;
 end;
 
-procedure TFOrdemMec.EDCliente1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EDCliente1KeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 var
   key2: Char;
   POS: INTEGER;
@@ -7781,8 +8553,10 @@ begin
 
   if (shift = [ssCtrl]) and (key = 70) {//CTRJ+F} then
   begin
-    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div 2;
-    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div 2;
+    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div
+      2;
+    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div
+      2;
     PInfoCliente.OnExit := LimpaInfoCliente;
     PInfoCliente.PesquisaDescricao(EDCliente1.Text);
     PInfoCliente.Visible := True;
@@ -7801,39 +8575,38 @@ begin
     EDCliente1.SelectAll;
     SelecionarModoPesquisa(FALSE, '');
   end
-  else
-    if key = vk_up then
+  else if key = vk_up then
+  begin
+    if PPesquisa.Visible then
     begin
-      if PPesquisa.Visible then
-      begin
-        XContPes := 'UP';
-        EDCliente1KeyPress(Sender, key2);
+      XContPes := 'UP';
+      EDCliente1KeyPress(Sender, key2);
 
-      end;
-    end
-    else if key = vk_down then
+    end;
+  end
+  else if key = vk_down then
+  begin
+
+    if not PPesquisa.Visible then
     begin
+      SelecionarModoPesquisa(true, 'CLIENTE');
+      PesquisaGrid(EDCliente1.Text);
+      pos := EDCliente1.SelStart;
+      EDCliente1.Text := AntPesq;
+      EDCliente1.SelStart := pos + 1;
 
-      if not PPesquisa.Visible then
-      begin
-        SelecionarModoPesquisa(true, 'CLIENTE');
-        PesquisaGrid(EDCliente1.Text);
-        pos := EDCliente1.SelStart;
-        EDCliente1.Text := AntPesq;
-        EDCliente1.SelStart := pos + 1;
-
-      end
-      else
-      begin
-        XContPes := 'DOWN';
-        EDCliente1KeyPress(Sender, key2);
-      end;
     end
     else
     begin
-      EDCliente1.Text := copy(EDCliente1.Text, 1, EDCliente1.SelStart);
-      EDCliente1.SelStart := Length(EDCliente1.Text);
+      XContPes := 'DOWN';
+      EDCliente1KeyPress(Sender, key2);
     end;
+  end
+  else
+  begin
+    EDCliente1.Text := copy(EDCliente1.Text, 1, EDCliente1.SelStart);
+    EDCliente1.SelStart := Length(EDCliente1.Text);
+  end;
 
   // end;
 
@@ -7874,7 +8647,8 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.EDCliente1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EDCliente1KeyUp(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if PPesquisa.Visible then
@@ -7896,7 +8670,10 @@ end;
 procedure TFOrdemMec.BtnRelatorioClick(Sender: TObject);
 begin
   inherited;
-  PmRelatorio.Popup(Left + PConsulta.left + PBotoesConsulta.left + BtnRelatorio.Left, top + PConsulta.Top + PBotoesConsulta.top + BtnRelatorio.Top + BtnRelatorio.Height);
+  PmRelatorio.Popup(Left + PConsulta.left + PBotoesConsulta.left +
+    BtnRelatorio.Left, top + PConsulta.Top + PBotoesConsulta.top +
+      BtnRelatorio.Top
+    + BtnRelatorio.Height);
 end;
 //click comprovante de abertura popup
 
@@ -7906,37 +8683,43 @@ begin
   try
 
     //Buscamos a tabela Ordem
-    if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM', DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
+    if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
     begin
       MessageDlg('O Comprovante não será gerado. Dados de OS não foram encontrados.', mtWarning, [mbOK], 0);
       Exit;
     end;
     //Buscamos a tabela VwOrdem
-    if FiltraTabela(DMSERV.WOrdem, 'vwordem', 'COD_ORDEM', DMSERV.TOrd.FieldByNAme('COD_ORDEM').AsString, '') = False then
+    if FiltraTabela(DMSERV.WOrdem, 'vwordem', 'COD_ORDEM',
+      DMSERV.TOrd.FieldByNAme('COD_ORDEM').AsString, '') = False then
     begin
       MessageDlg('O Comprovante não será gerado. Dados de OS não foram encontrados.', mtWarning, [mbOK], 0);
       Exit;
     end;
     //Retorna dados de Clientes
-    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = false then
+    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+      DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = false then
     begin
       MessageDlg('O Comprovante não será gerado. Dados de Cliente não foram encontrados.', mtWarning, [mbOK], 0);
       Exit;
     end;
     //Retorna dados de Cidade
-    if FiltraTabela(DMGEOGRAFIA.WCidade, 'vwcidade', 'cod_cidade', DMPESSOA.WCliente.FieldByNAme('cod_cidade').AsString, '') = false then
+    if FiltraTabela(DMGEOGRAFIA.WCidade, 'vwcidade', 'cod_cidade',
+      DMPESSOA.WCliente.FieldByNAme('cod_cidade').AsString, '') = false then
     begin
       MessageDlg('O Comprovante não será gerado. Dados de Cidade não foram encontrados.', mtWarning, [mbOK], 0);
       Exit;
     end;
     //Retorna dados de Funcionarios para vendedor
-    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func', DMSERV.WOrdem.FieldByNAme('cod_vendedor').AsString, '') = false then
+    if FiltraTabela(DMPESSOA.VWFuncionario, 'vwfuncionario', 'cod_func',
+      DMSERV.WOrdem.FieldByNAme('cod_vendedor').AsString, '') = false then
     begin
       MessageDlg('O Comprovante não será gerado. Dados de Vendedor não foram encontrados.', mtWarning, [mbOK], 0);
       Exit;
     end;
     //Retorna dados de Veiculos
-    if (FiltraTabela(DMPESSOA.TEquip, 'equipamento', 'cod_equipamento', DMSERV.WOrdem.FieldByNAme('cod_equipamento').AsString, '') = false) then
+    if (FiltraTabela(DMPESSOA.TEquip, 'equipamento', 'cod_equipamento',
+      DMSERV.WOrdem.FieldByNAme('cod_equipamento').AsString, '') = false) then
     begin
       if (DMSERV.WOrdem.FieldByNAme('cod_equipamento').AsString <> '-1') then
       begin
@@ -7963,8 +8746,9 @@ var
 begin
   inherited;
   FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
-  PmRelatorio.Tag := 0; //Componente pararealizar o controle de paginas nos relatórios
-  //EFETUA CONTROLE DE ACESSO
+  PmRelatorio.Tag := 0;
+  //Componente pararealizar o controle de paginas nos relatórios
+//EFETUA CONTROLE DE ACESSO
   if ControlAccess('RELABERTORD', 'M') = False then
     Exit;
 
@@ -7976,7 +8760,8 @@ begin
   begin
 
     //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
-    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+      FMenu.LCODEMPRESA.Caption, '') = False then
       Exit;
     //FILTRA DADOS PARA CABEÇALHO DA ORDEM
     DMServ.Alx.Close;
@@ -7989,46 +8774,58 @@ begin
     DMServ.Alx.SQL.Add(' left join pessoaj on pessoa.cod_pessoa = pessoaj.cod_pessoa ');
     DMServ.Alx.SQL.Add(' left join vwcidade on pessoa.cod_cidade = vwcidade.cod_cidade  ');
     DMServ.Alx.SQL.Add(' left join vwfuncionario on ordem.cod_vendedor = vwfuncionario.cod_func where ordem.cod_ordem=:codigo');
-    DMServ.Alx.ParamByName('codigo').AsInteger := DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsInteger;
+    DMServ.Alx.ParamByName('codigo').AsInteger :=
+      DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsInteger;
     DMServ.Alx.Open;
     //FILTRA CLIENTE PARA ENCONTRAR PESSOA
-    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = False then
+    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+      DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = False then
     begin
       MessageDlg('Verifique o cliente para a ordem', mtWarning, [mbOK], 0);
       Exit;
     end;
 
     //FILTRA PESSOA PARA IMPRESSÃO DE CLIENTE
-    if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TCliente.FieldByNAme('COD_PESSOA').AsString, '') = False then
+    if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMPESSOA.TCliente.FieldByNAme('COD_PESSOA').AsString, '') = False then
     begin
-      MessageDlg('Por favor, cadastre novamente o cliente', mtWarning, [mbOK], 0);
+      MessageDlg('Por favor, cadastre novamente o cliente', mtWarning, [mbOK],
+        0);
       Exit;
     end;
     //FILTRA PESSOA JURIDICA CASO EXISTA UMA PARA IMPRESSÃO DE CLIENTE
-    FiltraTabela(DMPESSOA.TPessoaj, 'PESSOAJ', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+    FiltraTabela(DMPESSOA.TPessoaj, 'PESSOAJ', 'COD_PESSOA',
+      DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
 
     //FILTRA CIDADE DO CLIENTE
-    FiltraTabela(DMGEOGRAFIA.TCidade, 'CIDADE', 'COD_CIDADE', DMPESSOA.TPessoa.FieldByNAme('COD_CIDADE').AsString, '');
+    FiltraTabela(DMGEOGRAFIA.TCidade, 'CIDADE', 'COD_CIDADE',
+      DMPESSOA.TPessoa.FieldByNAme('COD_CIDADE').AsString, '');
 
     //FILTRA ESTADO DO CLIENTE
-    FiltraTabela(DMGEOGRAFIA.TEstado, 'ESTADO', 'COD_ESTADO', DMGEOGRAFIA.TCidade.FieldByName('COD_ESTADO').AsString, '');
+    FiltraTabela(DMGEOGRAFIA.TEstado, 'ESTADO', 'COD_ESTADO',
+      DMGEOGRAFIA.TCidade.FieldByName('COD_ESTADO').AsString, '');
 
     //FILTRA TELEFONE PARA IMPRESSÃO DE CLIENTE
-    FiltraTabela(DMPESSOA.TALX, 'TELEFONE', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+    FiltraTabela(DMPESSOA.TALX, 'TELEFONE', 'COD_PESSOA',
+      DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
 
     //FILTRA ORDEM PARA IMPRESSÃO
-    if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM', DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
+    if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
       Exit;
 
     //FILTRA EQUIPAMENTO PARA IMPRESSÃO
     if DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString <> '' then
-      FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString, '');
+      FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+        DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString, '');
 
     //FILTRA FORMA DE PAGAMENTO
-    FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMSERV.TOrd.FieldByNAme('COD_FORMPAG').AsString, '');
+    FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+      DMSERV.TOrd.FieldByNAme('COD_FORMPAG').AsString, '');
 
     //FILTRA FUNCIONARIO RESPONSAVEL
-    FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC', IntToStr(DMSERV.WOrdem.FieldByNAme('COD_FUNCIONARIO').AsInteger), '');
+    FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC',
+      IntToStr(DMSERV.WOrdem.FieldByNAme('COD_FUNCIONARIO').AsInteger), '');
 
     XCOD_ORDEM := DMSERV.WOrdem.fieldbyname('COD_ORDEM').AsInteger;
 
@@ -8036,7 +8833,8 @@ begin
     FiltraSlave;
     RetornaValoresBanco;
     // se a atividade for EQUIPE, eh selecionado as despesas
-    if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') and (DMMACS.TLoja.FieldByName('MODELOORDEM').AsString = '6') then
+    if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') and
+      (DMMACS.TLoja.FieldByName('MODELOORDEM').AsString = '6') then
     begin
       DMESTOQUE.Alx4.Close;
       DMESTOQUE.Alx4.SQL.Clear;
@@ -8066,13 +8864,17 @@ begin
       DMMACS.TMP.FieldByName('DESC1').AsString := 'À Vista';
       if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger <> 10 then
       begin
-        DMMACS.TMP.FieldByName('DESC2').AsString := DMServ.TOrd.FieldByName('TIPOPAG').AsString;
-        DMMACS.TMP.FieldByName('VLR1').AsCurrency := DMServ.TOrd.FieldByName('totord').AsCurrency;
+        DMMACS.TMP.FieldByName('DESC2').AsString :=
+          DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+        DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+          DMServ.TOrd.FieldByName('totord').AsCurrency;
       end
       else
       begin
-        DMMACS.TMP.FieldByName('OBS').AsString := DMServ.TOrd.FieldByName('TIPOPAG').AsString;
-        DMMACS.TMP.FieldByName('DESC3').AsString := FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('totord').AsCurrency);
+        DMMACS.TMP.FieldByName('OBS').AsString :=
+          DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+        DMMACS.TMP.FieldByName('DESC3').AsString := FormatFloat('#,###0.00',
+          DMServ.TOrd.FieldByName('totord').AsCurrency);
       end;
       DMMACS.TMP.Post;
       Cod_Tmp := Cod_Tmp + 1;
@@ -8083,7 +8885,9 @@ begin
       DMMacs.TALX.Close;
       DMMacs.TALX.sql.Clear;
       DMMacs.TALX.SQL.Add('SELECT parcelacr.dtvenc, parcelacr.cobranca, parcelacr.valor FROM parcelacr left join ctareceber on ctareceber.cod_ctareceber = parcelacr.cod_ctareceber ');
-      DMMacs.TALX.SQL.Add(' Where (ctareceber.tipogerador=' + #39 + 'ORD' + #39 + ') And (ctareceber.cod_gerador=:CODGERADOR) ');
+      DMMacs.TALX.SQL.Add(' Where (ctareceber.tipogerador=' + #39 + 'ORD' + #39
+        +
+        ') And (ctareceber.cod_gerador=:CODGERADOR) ');
       DMMacs.TALX.ParamByName('CODGERADOR').AsInteger := XCOD_ORDEM;
       DMMacs.TALX.Open;
 
@@ -8098,9 +8902,12 @@ begin
       begin
         DMMACS.TMP.Insert;
         DMMACS.TMP.FieldByName('COD_TMP').AsInteger := Cod_Tmp;
-        DMMACS.TMP.FieldByName('DESC1').AsString := DMMacs.TALX.FieldByName('dtvenc').AsString;
-        DMMACS.TMP.FieldByName('DESC2').AsString := DMMacs.TALX.FieldByName('cobranca').AsString;
-        DMMACS.TMP.FieldByName('VLR1').AsCurrency := DMMacs.TALX.FieldByName('valor').AsCurrency;
+        DMMACS.TMP.FieldByName('DESC1').AsString :=
+          DMMacs.TALX.FieldByName('dtvenc').AsString;
+        DMMACS.TMP.FieldByName('DESC2').AsString :=
+          DMMacs.TALX.FieldByName('cobranca').AsString;
+        DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+          DMMacs.TALX.FieldByName('valor').AsCurrency;
         DMMACS.TMP.Post;
         Cod_Tmp := Cod_Tmp + 1;
         //  end;
@@ -8153,7 +8960,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 10 then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 10
+            then
             QrAbertOrdem13Completo.Preview
           else
             QrAbertOrdem13.Preview;
@@ -8174,7 +8982,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 12 then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 12
+            then
             QrAbertOrdem14Completo.Preview
           else
             QrAbertOrdem14MeiaPagina.Preview;
@@ -8184,7 +8993,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 15 then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 15
+            then
             QrAbertOrdem15Completo.Preview
           else
             QrAbertOrdem15MeiaPagina.Preview;
@@ -8199,7 +9009,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if ((DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 8) then
+          if ((DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 8)
+            then
             QrAbertOrdem22.Preview //relatório de pagina toda
           else
             QrAbertOrdem22MeiaPagina.Preview; //meia pagina
@@ -8207,7 +9018,9 @@ begin
       end
       else
       begin
-        if (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 10) or (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 17) or (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 18) then
+        if (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 10) or
+          (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 17) or
+          (DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 18) then
         begin
           CompAbertura2vias1Click(Sender);
           Exit;
@@ -8222,11 +9035,17 @@ begin
           FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfAbertOrdem12b.frf');
           FSRel.ShowReport;
         end;
+        if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 23 then
+        begin
+          FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfAbertOrdem23Cupom.frf');
+          FSRel.ShowReport;
+        end;
         if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 13 then
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 10 then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 10
+            then
             QrAbertOrdem13Completo.Preview
           else
             QrAbertOrdem13.Preview;
@@ -8246,7 +9065,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 12 then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 12
+            then
             QrAbertOrdem14Completo.Preview
           else
             QrAbertOrdem14MeiaPagina.Preview;
@@ -8256,7 +9076,8 @@ begin
         begin
           DMESTOQUE.TSlave.Last;
           DMESTOQUE.TDesp.Last;
-          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 15 {12} then
+          if (DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 15
+            {12} then
             QrAbertOrdem15Completo.Preview
           else
             QrAbertOrdem15MeiaPagina.Preview;
@@ -8287,11 +9108,18 @@ begin
       begin
         DMESTOQUE.TSlave.Last;
         DMESTOQUE.TDesp.Last;
-        if ((DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 8) then
+        if ((DMESTOQUE.TSlave.RecordCount + DMESTOQUE.TDesp.RecordCount) > 8)
+          then
           QrAbertOrdem22.Preview //relatório de pagina toda
         else
           QrAbertOrdem22MeiaPagina.Preview; //meia pagina
       end;
+      if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger = 23 then
+      begin
+          FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfAbertOrdem23Cupom.frf');
+          FSRel.ShowReport;
+      end;
+
     end
     else
     begin
@@ -8308,7 +9136,8 @@ begin
   FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
 
   //dados da empresa
-  FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', DMMACS.TLoja.FieldByname('cod_empresa').AsString, '');
+  FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+    DMMACS.TLoja.FieldByname('cod_empresa').AsString, '');
 
   // seleciona dados de Ordem, Equipamento, Produto, cliente, funcionario e principalmente as garantias dos produtos
   DMESTOQUE.TRel.Close;
@@ -8328,7 +9157,8 @@ begin
   DMESTOQUE.TRel.SQL.Add('left join vwfuncionario on ordem.cod_funcionario = vwfuncionario.cod_func');
   DMESTOQUE.TRel.SQL.Add('left join equipamento on ordem.cod_equipamento = equipamento.cod_equipamento');
   DMESTOQUE.TRel.SQL.Add('where ordem.cod_ordem = :codigo');
-  DMESTOQUE.TRel.ParamByName('codigo').AsInteger := DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
+  DMESTOQUE.TRel.ParamByName('codigo').AsInteger :=
+    DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
   DMESTOQUE.TRel.SQL.Add('order by subproduto.descricao');
   DMESTOQUE.TRel.Open;
 
@@ -8343,7 +9173,8 @@ end;
 procedure TFOrdemMec.BtnFiltrarClick(Sender: TObject);
 var
   XCodPedidoGerador: Integer; // - 16/03/2009: guarda codigo do pedido
-  XFlag: Boolean; // - 13/03/2009: verifica se deve imprimir NF depois do cupom conforme configurado em caixa
+  XFlag: Boolean;
+  // - 13/03/2009: verifica se deve imprimir NF depois do cupom conforme configurado em caixa
   XNumAuxECF: string; // - 16/03/2009: armazena numero auxiliar cupom
 begin
   inherited;
@@ -8353,43 +9184,61 @@ begin
 
   if XView.FieldByName('status').AsString <> 'FECHADO' then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'É necessário que o pedido esteja fechado antes da impressão fiscal. Antes de fechar recomendamos que confira todas as informações do pedido.', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'É necessário que o pedido esteja fechado antes da impressão fiscal. Antes de fechar recomendamos que confira todas as informações do pedido.',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
   // faz as verificações da nota fiscal e arquivo de relatorio
-  if AnaliseDados('OS', DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger) = false then
+  if AnaliseDados('OS', DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger) = false
+    then
     Exit;
 
-  if FiltraTabela(DMServ.TOrd, 'ordem', 'COD_ordem', XView.FieldByName('COD_ORDEM').AsString, '') = True then
+  if FiltraTabela(DMServ.TOrd, 'ordem', 'COD_ordem',
+    XView.FieldByName('COD_ORDEM').AsString, '') = True then
   begin
 
-    if (DMServ.TOrd.FieldByName('FISCO').AsString <> 'ECF') and (DMServ.TOrd.FieldByName('FISCO').AsString <> 'NF') and (DMServ.TOrd.FieldByName('FISCO').AsString <> 'ECF/NF') then
+    if (DMServ.TOrd.FieldByName('FISCO').AsString <> 'ECF') and
+      (DMServ.TOrd.FieldByName('FISCO').AsString <> 'NF') and
+      (DMServ.TOrd.FieldByName('FISCO').AsString <> 'ECF/NF') then
     begin
-      if Mensagem('A T E N Ç Ã O', 'Deseja realmente Imprimir Documento Fiscal para o pedido' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('A T E N Ç Ã O',
+        'Deseja realmente Imprimir Documento Fiscal para o pedido' + #13 + 'Nº '
+          +
+        XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2
+          then
       begin
 
         //    ATENÇÃO !!!
 //  QUALQUER MODIFICAÇÃO NO CÓDIGO ABAIXO DEVERÁ SER ALTERADO TBM QUANDO FOR FECHADO UMA ORDEM E IMPRESSO O FISCAL
 
-        FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA', FMenu.LCODCAIXA.Caption, '');
+        FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA',
+          FMenu.LCODCAIXA.Caption, '');
 
-        XFlag := True; // - 13/03/2009: deixar como true caso não for ECF poderá ser emitido NF igual
+        XFlag := True;
+        // - 13/03/2009: deixar como true caso não for ECF poderá ser emitido NF igual
 
-        // - 13/03/2009: add para impressoa de cupom fiscal
+      // - 13/03/2009: add para impressoa de cupom fiscal
         if DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF' then
         begin
           // - 13/03/2009: Imprime Cupom Fiscal
           if ECF(XView.Fieldbyname('COD_ORDEM').AsInteger, 'ORDEM') = True then
           begin
             /// - 13/03/2009: REGISTRA COMANDO DO USUARIO
-            Registra('ORDEM DE SERVIÇO', 'ECF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+            Registra('ORDEM DE SERVIÇO', 'ECF',
+              XView.FieldByName('dtabert').AsString, 'Nº ' +
+              XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+              XView.FieldByName('total').AsString);
           end;
 
           // - 13/03/2009: se em caixa estiver configurado para emitir NF apos ECF
           if DMCAIXA.TCaixa.FieldByName('EMITNF').AsString = '1' then
           begin
-            if Mensagem('A T E N Ç Ã O', 'Deseja Imprimir Nota Fiscal para o pedido' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 3 then
+            if Mensagem('A T E N Ç Ã O',
+              'Deseja Imprimir Nota Fiscal para o pedido' + #13 + 'Nº ' +
+              XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c')
+                = 3 then
             begin
               XFlag := False;
             end;
@@ -8397,20 +9246,25 @@ begin
         end;
 
         // - 13/03/2009: verificação ninja pra imprimir NF
-        if ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NF') or ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF') and (XFlag))) then
+        if ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NF') or
+          ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF') and
+            (XFlag))) then
         begin
           //Atualiza o Valor da NF
-          FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '');
+          FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+            FMenu.LCODEMPRESA.Caption, '');
           //VERIFICA SE JÁ EXISTE ALGUM DOCUMENTO IMPRESSO COM O MESMO NUMERO DE NOTA
           DMMACS.TALX.Close;
           DMMACS.TALX.SQL.Clear;
           DMMACS.TALX.SQL.Add('  select * from docfisord ');
           DMMACS.TALX.SQL.Add('   where docfisord.numdocfis=:CODIGO ');
-          DMMACS.TALX.ParamByName('CODIGO').AsString := DMMACS.TEmpresa.FieldByName('PROX_NF').AsString;
+          DMMACS.TALX.ParamByName('CODIGO').AsString :=
+            DMMACS.TEmpresa.FieldByName('PROX_NF').AsString;
           DMMACS.TALX.Open;
           if not DMMACS.TALX.IsEmpty then
           begin
-            MessageDlg('Este Nº de Documento já foi impresso!!!', mtWarning, [mbOK], 0);
+            MessageDlg('Este Nº de Documento já foi impresso!!!', mtWarning,
+              [mbOK], 0);
             Exit;
           end;
           //VERIFICA C JAH EXISTE DOCUMENTO IMPRESSO EM COMPRAS
@@ -8418,23 +9272,29 @@ begin
           DMMACS.TALX.SQL.Clear;
           DMMACS.TALX.SQL.Add(' select * from docfis');
           DMMACS.TALX.SQL.Add(' where (docfis.numdocfis=:CODIGO)   AND (docfis.empemit=' + #39'1' + #39 + ')  ');
-          DMMACS.TALX.ParamByName('CODIGO').AsString := DMMACS.TEmpresa.FieldByName('PROX_NF').AsString;
+          DMMACS.TALX.ParamByName('CODIGO').AsString :=
+            DMMACS.TEmpresa.FieldByName('PROX_NF').AsString;
           DMMACS.TALX.Open;
           if not DMMACS.TALX.IsEmpty then
           begin
-            MessageDlg('Este Nº de Documento já foi impresso!!!', mtWarning, [mbOK], 0);
+            MessageDlg('Este Nº de Documento já foi impresso!!!', mtWarning,
+              [mbOK], 0);
             Exit;
           end;
 
           FMenu.TIPOREL := 'NF';
           //Imprime NOTA Fiscal
-          if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2, 3, False, 'c') = 2 then
+          if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '',
+            2, 3, False, 'c') = 2 then
           begin
             if NFOS(DMServ.TOrd.Fieldbyname('COD_ORDEM').AsInteger) = True then
             begin
 
               //REGISTRA COMANDO DO USUARIO
-              Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+              Registra('ORDEM DE SERVIÇO', 'NF',
+                XView.FieldByName('dtabert').AsString, 'Nº ' +
+                XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+                XView.FieldByName('total').AsString);
 
               // - 16/03/2009:     qnd faz RecalFiscal em OS na função da NF tem mais procedimentos relacionados a impressao de ECF/NF
 
@@ -8448,7 +9308,8 @@ begin
                   DMServ.TOrd.SQL.Clear;
                   DMServ.TOrd.SQL.Add('select * from ordem');
                   DMServ.TOrd.SQL.Add('where COD_ORDEM = :OLD_COD_ORDEM');
-                  DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger := XCodPedidoGerador;
+                  DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger :=
+                    XCodPedidoGerador;
                   DMServ.TOrd.Open;
 
                   // - 16/03/2009: verificar realmente se foi impresso o ECF do pedido
@@ -8457,7 +9318,8 @@ begin
 
                     // - 16/03/2009: recuperar numero fiscal  e  passar para numfiscal auxiliar
 
-                    XNumAuxECF := DMServ.TOrd.FieldByName('NUMFISCALAUX').AsString;
+                    XNumAuxECF :=
+                      DMServ.TOrd.FieldByName('NUMFISCALAUX').AsString;
 
                     {DMServ.TOrd.Close;
                     DMServ.TOrd.SQL.Clear;
@@ -8471,8 +9333,10 @@ begin
                     DMServ.TFiscOrd.SQL.Clear;
                     DMServ.TFiscOrd.SQL.Add('update DOCFISORD set NUMFISCALAUX = :NUMFISCALAUX');
                     DMServ.TFiscOrd.SQL.Add('where COD_ORDEM = :COD_ORDEM');
-                    DMServ.TFiscOrd.ParamByName('COD_ORDEM').AsInteger := XCodPedidoGerador;
-                    DMServ.TFiscOrd.ParamByName('NUMFISCALAUX').AsString := XNumAuxECF;
+                    DMServ.TFiscOrd.ParamByName('COD_ORDEM').AsInteger :=
+                      XCodPedidoGerador;
+                    DMServ.TFiscOrd.ParamByName('NUMFISCALAUX').AsString :=
+                      XNumAuxECF;
 
                     //DMServ.TOrd.ExecSQL;
                     DMServ.TFiscOrd.ExecSQL;
@@ -8487,7 +9351,8 @@ begin
               //INCREMENTA Nº NF
               try
                 DMMACS.TEmpresa.Edit;
-                DMMACS.TEmpresa.FieldByName('PROX_NF').AsInteger := DMMACS.TEmpresa.FieldByName('PROX_NF').AsInteger + 1;
+                DMMACS.TEmpresa.FieldByName('PROX_NF').AsInteger :=
+                  DMMACS.TEmpresa.FieldByName('PROX_NF').AsInteger + 1;
                 DMMACS.TEmpresa.Post;
                 DMMACS.Transaction.CommitRetaining;
               except
@@ -8502,7 +9367,9 @@ begin
     end
     else
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'Este pedido já passou por uma impressão fiscal!', '', 1, 1, False, 'a');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Este pedido já passou por uma impressão fiscal!', '', 1, 1, False,
+          'a');
       Exit;
     end;
   end;
@@ -8526,13 +9393,17 @@ begin
   // caso o campo tiver valendo 1 eh pq a ordem jah esta sendo usada
   if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13 + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13
+      + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
     Exit;
   end;
 
   if DMServ.TOrd.FieldByName('STATUS').AsString <> 'ABERTO' then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ORDEM PRECISA ESTAR EM ABERTO PARA PODER SER FECHADA.', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ',
+      'A ORDEM PRECISA ESTAR EM ABERTO PARA PODER SER FECHADA.', '', 1, 1,
+        false,
+      'I');
     Exit;
   end;
 
@@ -8540,28 +9411,35 @@ begin
 
   if XView.IsEmpty then
   begin
-    Mensagem('A T E N Ç Ã O', 'Não existe nenhuma ordem a ser fechada!', '', 1, 1, False, 'a');
+    Mensagem('A T E N Ç Ã O', 'Não existe nenhuma ordem a ser fechada!', '', 1,
+      1, False, 'a');
     Exit;
   end;
 
   if XView.FieldByName('TOTAL').AsCurrency = 0 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Esta ordem não contém produto ou serviços. Por isso não pode ser fechada!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Esta ordem não contém produto ou serviços. Por isso não pode ser fechada!',
+      '', 1, 1, False, 'i');
     Exit;
   end;
 
   if XView.FieldByName('STATUS').AsString <> 'FECHADO' then
   begin
-    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja Realmente fechar a ordem de serviço ' + XView.FieldByName('NUMERO').AsString, '', 2, 3, False, 'C') = 2 then
+    if Mensagem('CONFIRMAÇÃO DO USUÁRIO',
+      'Deseja Realmente fechar a ordem de serviço ' +
+      XView.FieldByName('NUMERO').AsString, '', 2, 3, False, 'C') = 2 then
     begin
 
       // BUSCANDO DADOS DA ORDEM
-      FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByname('cod_ordem').AsString, '');
+      FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+        DMServ.WOrdem.FieldByname('cod_ordem').AsString, '');
 
       // caso o campo tiver valendo 1 eh pq a ordem jah esta sendo usada
       if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
       begin
-        Mensagem('    A T E N Ç Ã O   ', 'A ordem está sendo usada no momento.' + #13 + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
+        Mensagem('    A T E N Ç Ã O   ', 'A ordem está sendo usada no momento.'
+          + #13 + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
         Exit;
       end
       else
@@ -8579,7 +9457,8 @@ begin
       CBPagamento.Text := 'Carteira';
 
       //Edmar - 16/02/2015 - atribui o total da ordem no campo
-      edTotalRecebido.ValueNumeric := DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
+      edTotalRecebido.ValueNumeric :=
+        DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
 
       {SOLICITAÇÃO 245}
       //Edmar - 21/01/2015 - Busca verificando se a pessoa possui crédito de antecipação
@@ -8588,28 +9467,36 @@ begin
       DMServ.Alx.SQL.Add(' SELECT PESSOA.VLRCREDITO CREDITO FROM VWCLIENTE ');
       DMServ.Alx.SQL.Add(' LEFT JOIN PESSOA ON PESSOA.COD_PESSOA = VWCLIENTE.COD_PESSOA ');
       DMServ.Alx.SQL.Add(' WHERE (VWCLIENTE.COD_CLIENTE = :CLIENTE) AND (PESSOA.VLRCREDITO IS NOT NULL) AND (PESSOA.VLRCREDITO > 0) ');
-      DMServ.Alx.ParamByName('CLIENTE').AsInteger := DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
+      DMServ.Alx.ParamByName('CLIENTE').AsInteger :=
+        DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
       DMServ.Alx.Open;
 
       XVLR_CREDITO_OS := DMServ.Alx.FieldByName('CREDITO').AsCurrency;
 
-      lbCredito.Caption := 'O cliente possuí R$ ' + FormatFloat('###,###,##0.00', DMServ.Alx.FieldByName('CREDITO').AsCurrency) + ' de crédito de antecipação.';
+      lbCredito.Caption := 'O cliente possuí R$ ' +
+        FormatFloat('###,###,##0.00',
+          DMServ.Alx.FieldByName('CREDITO').AsCurrency)
+        + ' de crédito de antecipação.';
 
       PFinanceiro.Visible := True;
       PFinanceiro.BringToFront;
 
       //LIMPA VALORES ANTIGOS
-      FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '');
+      FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+        XView.FieldByName('COD_ORDEM').AsString, '');
       if ControlAccess('GERAFINANC', '') = True then
         CBGeraFinanceiro.Visible := true;
 
       //FORMA DE PAGAMENTO
       XCOD_FORMPAG := DMServ.TOrd.FieldByName('COD_FORMPAG').AsInteger;
-      if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '') = True then
+      if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+        DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '') = True then
       begin
         XCOD_FORMPAG := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-        FrmFormPag.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
-        FrmFormPag.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+        FrmFormPag.EDCodigo.Text :=
+          DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
+        FrmFormPag.EdDescricao.Text :=
+          DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
       end
       else
       begin
@@ -8618,9 +9505,11 @@ begin
         FrmFormPag.EdDescricao.Text := '';
       end;
 
-      if (Pos('CARTÃO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or (Pos('CARTAO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
+      if (Pos('CARTÃO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or
+        (Pos('CARTAO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
         CBPagamento.Text := 'Cartão';
-      if (Pos('PIX', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or (Pos('PIX', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
+      if (Pos('PIX', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or
+        (Pos('PIX', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
         CBPagamento.Text := 'Pix';
       XCOD_CONTA := -1;
       FrmConta.EdDescricao.Text := '';
@@ -8681,8 +9570,10 @@ begin
   if AbrirForm(TFFormPag, FFormPag, 1) = 'Selected' then
   begin
     XCOD_FORMPAG := DMFinanc.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-    FrmFormPag.EDCodigo.Text := DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
-    FrmFormPag.EdDescricao.Text := DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
+    FrmFormPag.EDCodigo.Text :=
+      DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
+    FrmFormPag.EdDescricao.Text :=
+      DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
   end;
 end;
 //click botao limpar forma de pagamento no painel financeiro
@@ -8708,7 +9599,8 @@ begin
   TravarPaines(False);
 
   // BUSCANDO DADOS DA ORDEM
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMSERV.TOrd.FIELDBYNAME('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMSERV.TOrd.FIELDBYNAME('COD_ORDEM').AsString, '');
 
   // EDITANDO ORDEM DE SERVICO PARA LIBERAR SEU USO CASO SEJA NECESSARIO
   DMServ.TOrd.Edit;
@@ -8718,7 +9610,8 @@ begin
 end;
 // key press  codigo pagamento painel financeiro
 
-procedure TFOrdemMec.FrmFormPagEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FrmFormPagEDCodigoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   inherited;
   if Key = VK_RETURN then
@@ -8726,11 +9619,14 @@ begin
     if FrmFormPag.EDCodigo.Text <> '' then
     begin
       //seleciona a forma de pagamento
-      if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', FrmFormPag.EDCodigo.Text, '') then
+      if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+        FrmFormPag.EDCodigo.Text, '') then
       begin
         XCOD_FORMPAG := DMFINANC.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-        FrmFormPag.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
-        FrmFormPag.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+        FrmFormPag.EDCodigo.Text :=
+          DMFINANC.TFormPag.FieldByName('COD_INTERNO').AsString;
+        FrmFormPag.EdDescricao.Text :=
+          DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
       end
       else
       begin
@@ -8749,11 +9645,14 @@ begin
   // se o pagamento for cartão abre as contas correntes
   if (CBPagamento.Text = 'Cartão') or (CBPagamento.Text = 'Pix') then
   begin
-    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') then
+    if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '')
+      then
     begin
       XCOD_FORMPAG := DMFinanc.TFormPag.FieldByName('COD_FORMPAG').AsInteger;
-      FrmFormPag.EDCodigo.Text := DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
-      FrmFormPag.EdDescricao.Text := DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
+      FrmFormPag.EDCodigo.Text :=
+        DMFinanc.TFormPag.FieldByName('COD_INTERNO').AsString;
+      FrmFormPag.EdDescricao.Text :=
+        DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString;
     end;
     FiltraTabela(DMBANCO.WCtaCor, 'vwctacor', '', '', '');
     PBanco.Visible := true;
@@ -8776,7 +9675,8 @@ end;
 
 //key down grid dos bancos
 
-procedure TFOrdemMec.DBGCTAKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.DBGCTAKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   // se pressionado ENTER
@@ -8813,11 +9713,17 @@ begin
     if FrmConta.EDCodigo.Text <> '' then
     begin
       //LIBERA TODAS OS ESTADOS PARA CONSUTA
-      if filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') And (CLASSIFICACAO=' + #39 + FrmConta.EDCodigo.Text + #39 + ')') = True then
+      if filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '',
+        ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' +
+          #39
+        + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') And (CLASSIFICACAO='
+        + #39 + FrmConta.EDCodigo.Text + #39 + ')') = True then
       begin
         XCOD_CONTA := DMCONTA.TPlnCta.FieldByName('COD_PLNCTA').AsInteger;
-        FrmConta.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
-        FrmConta.EDCodigo.text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+        FrmConta.EdDescricao.Text :=
+          DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+        FrmConta.EDCodigo.text :=
+          DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
       end
       else
       begin
@@ -8848,13 +9754,17 @@ begin
   XTIPO_CONTA := 'C';
 
   //LIBERA TODAS OS ESTADOS PARA CONSUTA
-  filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') ORDER BY CLASSIFICACAO');
+  filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' +
+    FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 +
+    ') AND (TIPO=' + #39 + 'N' + #39 + ') ORDER BY CLASSIFICACAO');
 
   if AbrirForm(TFConsPlnCta, FConsPlnCta, 1) = 'Selected' then
   begin
     XCOD_CONTA := DMCONTA.TPlnCta.FieldByName('COD_PLNCTA').AsInteger;
-    FrmConta.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
-    FrmConta.EDCodigo.text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+    FrmConta.EdDescricao.Text :=
+      DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+    FrmConta.EDCodigo.text :=
+      DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
   end;
   FrmConta.Refresh;
 end;
@@ -8871,7 +9781,8 @@ begin
 end;
 //key press campo codigo conta laçamento serviço
 
-procedure TFOrdemMec.FrmContaServEDCodigoKeyPress(Sender: TObject; var Key: Char);
+procedure TFOrdemMec.FrmContaServEDCodigoKeyPress(Sender: TObject; var Key:
+  Char);
 var
   Oper: Char;
 begin
@@ -8882,11 +9793,17 @@ begin
     if FrmContaServ.EDCodigo.Text <> '' then
     begin
       //LIBERA TODAS OS ESTADOS PARA CONSUTA
-      if filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') And (CLASSIFICACAO=' + #39 + FrmContaServ.EDCodigo.Text + #39 + ')') = True then
+      if filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '',
+        ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' +
+          #39
+        + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') And (CLASSIFICACAO='
+        + #39 + FrmContaServ.EDCodigo.Text + #39 + ')') = True then
       begin
         XCOD_CONTASERV := DMCONTA.TPlnCta.FieldByName('COD_PLNCTA').AsInteger;
-        FrmContaServ.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
-        FrmContaServ.EDCodigo.text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+        FrmContaServ.EdDescricao.Text :=
+          DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+        FrmContaServ.EDCodigo.text :=
+          DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
       end
       else
       begin
@@ -8916,13 +9833,17 @@ begin
   XTIPO_CONTA := 'C';
 
   //LIBERA TODAS OS ESTADOS PARA CONSUTA
-  filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' + FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 + ') AND (TIPO=' + #39 + 'N' + #39 + ') ORDER BY CLASSIFICACAO');
+  filtraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_FILIAL', '', ' (COD_FILIAL = ' +
+    FMenu.LCODEMPRESA.Caption + ') AND (NATUREZA = ' + #39 + Oper + #39 +
+    ') AND (TIPO=' + #39 + 'N' + #39 + ') ORDER BY CLASSIFICACAO');
 
   if AbrirForm(TFConsPlnCta, FConsPlnCta, 1) = 'Selected' then
   begin
     XCOD_CONTASERV := DMCONTA.TPlnCta.FieldByName('COD_PLNCTA').AsInteger;
-    FrmContaServ.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
-    FrmContaServ.EDCodigo.text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+    FrmContaServ.EdDescricao.Text :=
+      DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+    FrmContaServ.EDCodigo.text :=
+      DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
   end;
   FrmConta.Repaint;
   FrmConta.Refresh;
@@ -8944,14 +9865,16 @@ end;
 procedure TFOrdemMec.BtnMoedaOKClick(Sender: TObject);
 var
   XCodPedidoGerador: Integer; // - 16/03/2009: guarda codigo do pedido
-  XFlag: Boolean; // - 13/03/2009: verifica se deve imprimir NF depois do cupom conforme configurado em caixa
+  XFlag: Boolean;
+  // - 13/03/2009: verifica se deve imprimir NF depois do cupom conforme configurado em caixa
   XNumAuxECF: string; // - 16/03/2009: armazena numero auxiliar cupom
   fentrada: file;
   numread, i, cResultado: integer;
   buf: char;
   s: string;
   util: OleVariant;
-  LoteRPSTXT, nroLote, certificado, LoteRPSXML, cMunicipio, msgResultado, Erros, licenca: Widestring;
+  LoteRPSTXT, nroLote, certificado, LoteRPSXML, cMunicipio, msgResultado, Erros,
+    licenca: Widestring;
   CNPJRemetente, RazaoSocialRemetente: widestring;
   msg: string;
   Fsaida: TextFile;
@@ -8995,16 +9918,23 @@ begin
   end;
 
   //Bloqueia opção a vista para determinadas formas de pagamento
-  if ((CBPagamento.Text <> 'Carteira') and (CBPagamento.Text <> 'Chq. Terc.') and (CBPagamento.Text <> 'Banco') and (CBPagamento.Text <> 'Crédito') and (CBPagamento.Text <> 'Cartão')) and (CBPagamento.Text <> 'Pix') and (FrmFormPag.EdDescricao.tEXT = 'À VISTA') then
+  if ((CBPagamento.Text <> 'Carteira') and (CBPagamento.Text <> 'Chq. Terc.')
+    and (CBPagamento.Text <> 'Banco') and (CBPagamento.Text <> 'Crédito') and
+    (CBPagamento.Text <> 'Cartão')) and (CBPagamento.Text <> 'Pix') and
+    (FrmFormPag.EdDescricao.tEXT = 'À VISTA') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'A forma de pagamento ' + CBPagamento.Text + ' não permite fecharo pedido como À Vista!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA', 'A forma de pagamento ' + CBPagamento.Text +
+      ' não permite fecharo pedido como À Vista!', '', 1, 1, False, 'i');
     CBPagamento.SetFocus;
     Exit;
   end;
   //valida quanto a forma de pagamento
   if CBPagamento.Text = '' then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por favor informe se o pagamento será feito em carteira ou cheque!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por favor informe se o pagamento será feito em carteira ou cheque!', '',
+        1,
+      1, False, 'i');
     CBPagamento.SetFocus;
     Exit;
   end;
@@ -9028,15 +9958,23 @@ begin
   //valida quanto a Conta
   if XCOD_CONTA = -1 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por favor informe uma conta para lançamento no financeiro!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por favor informe uma conta para lançamento no financeiro!', '', 1, 1,
+      False, 'i');
     FrmConta.EDCodigo.SetFocus;
     Exit;
   end;
 
   //Valida Quanto a conta
-  if not FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', '', '', 'Where (COD_FILIAL=' + FMenu.LCODEMPRESA.Caption + ') And (CLASSIFICACAO=' + FrmConta.EDCodigo.Text + ')') then
+  if not FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', '', '', 'Where (COD_FILIAL=' +
+    FMenu.LCODEMPRESA.Caption + ') And (CLASSIFICACAO=' + FrmConta.EDCodigo.Text
+      +
+    ')') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por favor informe uma conta válida para lançamento no financeiro!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por favor informe uma conta válida para lançamento no financeiro!', '',
+        1,
+      1, False, 'i');
     FrmConta.EDCodigo.SetFocus;
     Exit;
   end;
@@ -9044,7 +9982,9 @@ begin
   //valida quanto a forma de pagamento
   if XCOD_FORMPAG = -1 then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por favor informe uma forma de pagamento para lançamento no financeiro!', '', 1, 1, False, 'i');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por favor informe uma forma de pagamento para lançamento no financeiro!',
+      '', 1, 1, False, 'i');
     FrmFormPag.EDCodigo.SetFocus;
     Exit;
   end;
@@ -9106,22 +10046,28 @@ begin
   begin
     //  QUALQUER MODIFICAÇÃO NO CÓDIGO ABAIXO DEVERÁ SER ALTERADO NO BOTÃO FISCAL TBM
 
-    XFlag := True; // - 13/03/2009: deixar como true caso não for ECF poderá ser emitido NF igual
+    XFlag := True;
+    // - 13/03/2009: deixar como true caso não for ECF poderá ser emitido NF igual
 
-    // - 13/03/2009: add para impressoa de cupom fiscal
+  // - 13/03/2009: add para impressoa de cupom fiscal
     if DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF' then
     begin
       // - 13/03/2009: Imprime Cupom Fiscal
       if ECF(XCodPedidoGerador, 'ORDEM') = True then
       begin
         /// - 13/03/2009: REGISTRA COMANDO DO USUARIO
-        Registra('ORDEM DE SERVIÇO', 'ECF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+        Registra('ORDEM DE SERVIÇO', 'ECF',
+          XView.FieldByName('dtabert').AsString, 'Nº ' +
+          XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+          XView.FieldByName('total').AsString);
       end;
 
       // - 13/03/2009: se em caixa estiver configurado para emitir NF apos ECF
       if DMCAIXA.TCaixa.FieldByName('EMITNF').AsString = '1' then
       begin
-        if Mensagem('A T E N Ç Ã O', 'Deseja Imprimir Nota Fiscal para o pedido' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 3 then
+        if Mensagem('A T E N Ç Ã O', 'Deseja Imprimir Nota Fiscal para o pedido'
+          + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3,
+          False, 'c') = 3 then
         begin
           XFlag := False;
         end;
@@ -9129,13 +10075,18 @@ begin
     end;
 
     //Edmar - 16/02/2015 - Se o total da ordem for menor que o valor recebido
-    if DMServ.TOrd.FieldByName('TOTORD').AsCurrency < edTotalRecebido.ValueNumeric then
+    if DMServ.TOrd.FieldByName('TOTORD').AsCurrency <
+      edTotalRecebido.ValueNumeric then
     begin
       FMenu.XTipoRel := 'R';
       //chama a tela de troco
       FLancTroco := TFLancTroco.Create(FLancTroco);
-      FLancTroco.LancTroco(DMServ.TOrd.FieldByName('TOTORD').AsCurrency, edTotalRecebido.ValueNumeric, IntToStr(XCOD_CONTA), DMServ.TOrd.FieldByName('NUMERO').AsString, 'ORDEM',
-        DMServ.TOrd.FieldByName('COD_ORDEM').AsString, CBPagamento.Text, DMServ.TOrd.FieldByName('NUMERO').AsString, DMServ.TOrd.FIELDBYNAME('COD_CLIENTE').AsInteger);
+      FLancTroco.LancTroco(DMServ.TOrd.FieldByName('TOTORD').AsCurrency,
+        edTotalRecebido.ValueNumeric, IntToStr(XCOD_CONTA),
+        DMServ.TOrd.FieldByName('NUMERO').AsString, 'ORDEM',
+        DMServ.TOrd.FieldByName('COD_ORDEM').AsString, CBPagamento.Text,
+        DMServ.TOrd.FieldByName('NUMERO').AsString,
+        DMServ.TOrd.FIELDBYNAME('COD_CLIENTE').AsInteger);
       FLancTroco.ShowModal;
       //ao final do processo, limpa a variavel auxiliar
       //para que não tenha problemas em outras partes do sistema
@@ -9147,24 +10098,32 @@ begin
       or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe')
       or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFCe')
       or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe-NFCe')
-      or ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF') and (XFlag))) then
+      or ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF') and
+      (XFlag))) then
     begin
       //Atualiza o Valor da NF
-      FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '');
+      FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+        FMenu.LCODEMPRESA.Caption, '');
 
       FMenu.TIPOREL := 'NF';
       //Imprime NOTA Fiscal
       //Jônatas 09/10/2013 - Verificar se existem produtos
       {If xExisteProd = true
           Then Begin }
-      if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2,
+        3, False, 'c') = 2 then
       begin
-        FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+        FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM',
+          IntToStr(XCOD_ORDEM),
+          '');
         AbreFiscal;
         //If NFOS(XCodPedidoGerador)=True
         //Then Begin
            //REGISTRA COMANDO DO USUARIO
-        Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+        Registra('ORDEM DE SERVIÇO', 'NF',
+          XView.FieldByName('dtabert').AsString,
+          'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+          XView.FieldByName('total').AsString);
         //End;
         // - 16/03/2009:     qnd faz RecalFiscal em OS na função da NF tem mais procedimentos relacionados a impressao de ECF/NF
         // - 16/03/2009: se td der certo marcar como ECF/NF o Fisco
@@ -9177,7 +10136,8 @@ begin
             DMServ.TOrd.SQL.Clear;
             DMServ.TOrd.SQL.Add('select * from ordem');
             DMServ.TOrd.SQL.Add('where COD_ORDEM = :OLD_COD_ORDEM');
-            DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger := XCodPedidoGerador;
+            DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger :=
+              XCodPedidoGerador;
             DMServ.TOrd.Open;
 
             // - 16/03/2009: verificar realmente se foi impresso o ECF do pedido
@@ -9192,7 +10152,8 @@ begin
               DMServ.TOrd.SQL.Clear;
               DMServ.TOrd.SQL.Add('update ORDEM set FISCO = :FISCO');
               DMServ.TOrd.SQL.Add('where COD_ORDEM = :OLD_COD_ORDEM');
-              DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger := XCodPedidoGerador;
+              DMServ.TOrd.ParamByName('OLD_COD_ORDEM').AsInteger :=
+                XCodPedidoGerador;
               DMServ.TOrd.ParamByName('FISCO').AsString := 'ECF/NF';
 
               // - 16/03/2009: seta numero fiscal aux(ECF) na tabela fiscal de ordem
@@ -9200,8 +10161,10 @@ begin
               DMServ.TFiscOrd.SQL.Clear;
               DMServ.TFiscOrd.SQL.Add('update DOCFISORD set NUMFISCALAUX = :NUMFISCALAUX');
               DMServ.TFiscOrd.SQL.Add('where COD_ORDEM = :COD_ORDEM');
-              DMServ.TFiscOrd.ParamByName('COD_ORDEM').AsInteger := XCodPedidoGerador;
-              DMServ.TFiscOrd.ParamByName('NUMFISCALAUX').AsString := XNumAuxECF;
+              DMServ.TFiscOrd.ParamByName('COD_ORDEM').AsInteger :=
+                XCodPedidoGerador;
+              DMServ.TFiscOrd.ParamByName('NUMFISCALAUX').AsString :=
+                XNumAuxECF;
 
               //DMServ.TOrd.ExecSQL;
               DMServ.TFiscOrd.ExecSQL;
@@ -9256,7 +10219,8 @@ begin
   // BUSCANDO DADOS DA ORDEM
   DMServ.TOrd.Close;
   DMServ.TOrd.Open;
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMSERV.TOrd.FIELDBYNAME('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMSERV.TOrd.FIELDBYNAME('COD_ORDEM').AsString, '');
 
   // EDITANDO ORDEM DE SERVICO PARA LIBERAR SEU USO CASO SEJA NECESSARIO
   DMServ.TOrd.Edit;
@@ -9303,7 +10267,8 @@ begin
   FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
 
   // Tenta filtrar a ordem
-  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '') = True then
+  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    XView.FieldByName('COD_ORDEM').AsString, '') = True then
   begin
     XVLRDESP := DMServ.TOrd.FIELDBYNAME('TOTDESP').AsCurrency / 2;
 
@@ -9314,7 +10279,8 @@ begin
     // INICIO DE PROCESSO PARA CONTROLE FINANCEIRO **//
     //***********************************************//
     //Filtra cliente
-    FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMServ.TOrd.FIELDBYNAME('COD_CLIENTE').AsString, '');
+    FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+      DMServ.TOrd.FIELDBYNAME('COD_CLIENTE').AsString, '');
     if (CBGeraFinanceiro.Checked = False) then
     begin
       //Edmar - 02/03/2015 - Verifica se o pagamento é em Crédito e só assim baixa o credito do cliente se houver
@@ -9327,7 +10293,8 @@ begin
         DMServ.Alx.SQL.Add(' SELECT VWCLIENTE.COD_CLIENTE, VWCLIENTE.COD_PESSOA, PESSOA.VLRCREDITO CREDITO FROM VWCLIENTE ');
         DMServ.Alx.SQL.Add(' LEFT JOIN PESSOA ON PESSOA.COD_PESSOA = VWCLIENTE.COD_PESSOA ');
         DMServ.Alx.SQL.Add(' WHERE (VWCLIENTE.COD_CLIENTE = :CLIENTE) AND (PESSOA.VLRCREDITO IS NOT NULL) AND (PESSOA.VLRCREDITO > 0) ');
-        DMServ.Alx.ParamByName('CLIENTE').AsInteger := DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
+        DMServ.Alx.ParamByName('CLIENTE').AsInteger :=
+          DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
         DMServ.Alx.Open;
 
         //se houver, subtrai esse credito com o valor total da ordem ou zera o credito
@@ -9338,53 +10305,70 @@ begin
             DMServ.TAlx1.SQL.Clear;
 
             //se o crédito for menor que o valor da ordem, apenas zerar o credito para não haver crédito negativo na pessoa
-            if DMServ.Alx.FieldByName('CREDITO').AsCurrency <= DMServ.TOrd.FieldByName('TOTORD').AsCurrency then
+            if DMServ.Alx.FieldByName('CREDITO').AsCurrency <=
+              DMServ.TOrd.FieldByName('TOTORD').AsCurrency then
               DMServ.TAlx1.SQL.Add(' UPDATE PESSOA SET PESSOA.VLRCREDITO = 0 WHERE (PESSOA.COD_PESSOA = :PESSOA) ')
             else
             begin
               //se o credito for maior que o valor da ordem, subtrai um ao outro
               DMServ.TAlx1.SQL.Add(' UPDATE PESSOA SET PESSOA.VLRCREDITO = PESSOA.VLRCREDITO - :VALOR_ORDEM WHERE (PESSOA.COD_PESSOA = :PESSOA) ');
-              DMServ.TAlx1.ParamByName('VALOR_ORDEM').AsCurrency := DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
+              DMServ.TAlx1.ParamByName('VALOR_ORDEM').AsCurrency :=
+                DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
             end;
 
-            DMServ.TAlx1.ParamByName('PESSOA').AsInteger := DMServ.Alx.FieldByName('COD_PESSOA').AsInteger;
+            DMServ.TAlx1.ParamByName('PESSOA').AsInteger :=
+              DMServ.Alx.FieldByName('COD_PESSOA').AsInteger;
             DMServ.TAlx1.ExecSQL;
 
             //Edmar - 02/03/2015 - Após baixar o crédito do cliente, subtrai o valor da os com o valor do credito
             //para fazer o lançamento do valor correto, seja em caixa ou em contas a pagar
 
             //Se valor dos produtos for MENOR ou IGUAL o valor do crédito do cliente
-            if (XVLR_CREDITO_OS <= DMServ.TOrd.FieldByName('TOTPROD').AsCurrency) and (XVLR_CREDITO_OS >= 0) then
+            if (XVLR_CREDITO_OS <= DMServ.TOrd.FieldByName('TOTPROD').AsCurrency)
+              and (XVLR_CREDITO_OS >= 0) then
             begin
               XVLR_PROD_OS := XVLR_CREDITO_OS; //ATRIBUI VALOR DO CRÉDITO
-              XVLR_CREDITO_OS := XVLR_CREDITO_OS - DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
+              XVLR_CREDITO_OS := XVLR_CREDITO_OS -
+                DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
             end
             else
             begin
-              XVLR_PROD_OS := DMServ.TOrd.FieldByName('TOTPROD').AsCurrency; //ATRIBUI O VALOR DO PRODUTO
-              XVLR_CREDITO_OS := XVLR_CREDITO_OS - DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
+              XVLR_PROD_OS := DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
+              //ATRIBUI O VALOR DO PRODUTO
+              XVLR_CREDITO_OS := XVLR_CREDITO_OS -
+                DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
             end;
 
-            if (XVLR_CREDITO_OS <= DMServ.TOrd.FieldByName('TOTSERV').AsCurrency) and (XVLR_CREDITO_OS >= 0) then //SENÃO
+            if (XVLR_CREDITO_OS <= DMServ.TOrd.FieldByName('TOTSERV').AsCurrency)
+              and (XVLR_CREDITO_OS >= 0) then //SENÃO
               XVLR_SERV_OS := XVLR_CREDITO_OS //ATRIBUI VALOR DO CRÉDITO
             else
-              XVLR_SERV_OS := DMServ.TOrd.FieldByName('TOTSERV').AsCurrency; //ATRIBUI VALOR DO SERVIÇO
+              XVLR_SERV_OS := DMServ.TOrd.FieldByName('TOTSERV').AsCurrency;
+            //ATRIBUI VALOR DO SERVIÇO
           except
           end;
         end;
       end;
       //
       //Edmar - 03/03/2015 - Define os valores reais do produto e do serviço
-      XVLR_FINALPROD := ((DMServ.TOrd.FieldByName('TOTORD').AsCurrency - (DMServ.TOrd.FieldByName('TOTSERV').Value + XVLRDESP) - XVLR_SERV_OS - XVLR_PROD_OS) + XVLRDESP);
-      XVLR_FINALSERV := ((DMServ.TOrd.FieldByName('TOTORD').AsCurrency - DMServ.TOrd.FieldByName('TOTPROD').Value - XVLR_PROD_OS - XVLR_SERV_OS) + XVLRDESP);
+      XVLR_FINALPROD := ((DMServ.TOrd.FieldByName('TOTORD').AsCurrency -
+        (DMServ.TOrd.FieldByName('TOTSERV').Value + XVLRDESP) - XVLR_SERV_OS -
+        XVLR_PROD_OS) + XVLRDESP);
+      XVLR_FINALSERV := ((DMServ.TOrd.FieldByName('TOTORD').AsCurrency -
+        DMServ.TOrd.FieldByName('TOTPROD').Value - XVLR_PROD_OS - XVLR_SERV_OS)
+          +
+        XVLRDESP);
       //calcula o valor do troco dado
-      XVLR_DIFTROCO := edTotalRecebido.ValueNumeric - DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
+      XVLR_DIFTROCO := edTotalRecebido.ValueNumeric -
+        DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
 
       if XVLR_FINALPROD > 0 then
-        XVLR_FINALPROD := XVLR_FINALPROD + XVLR_DIFTROCO //se a ordem possuir produtos, soma o valor do troco nele
+        XVLR_FINALPROD := XVLR_FINALPROD + XVLR_DIFTROCO
+          //se a ordem possuir produtos, soma o valor do troco nele
       else
-        XVLR_FINALSERV := XVLR_FINALSERV + XVLR_DIFTROCO; //senão, inclui nos serviços
-      //
+        XVLR_FINALSERV := XVLR_FINALSERV + XVLR_DIFTROCO;
+      //senão, inclui nos serviços
+  //
       if CBPagamento.Text = 'Multiplo' then
       begin
         //tenta validar a data
@@ -9397,7 +10381,11 @@ begin
 
         //tenta fechar as contas
         //Edmar - 24/03/2015 - Trocada o campo que busca o valor total da ordem. agora deve buscar pelo valor recebido devido ao possivel troco dado.
-        if FecConta('ORDEM', XCOD_ORDEM, edTotalRecebido.ValueNumeric {DMServ.TOrd.FieldByName('TOTORD').AsCurrency}, DMServ.TOrd.FieldByName('TOTPROD').AsCurrency - XVLR_PROD_OS, DMServ.TOrd.FieldByName('TOTSERV').AsCurrency - XVLR_SERV_OS, XCOD_CONTA, XCOD_CONTASERV, StrToDate(EdDtFech.Text)) = True then
+        if FecConta('ORDEM', XCOD_ORDEM, edTotalRecebido.ValueNumeric
+          {DMServ.TOrd.FieldByName('TOTORD').AsCurrency},
+          DMServ.TOrd.FieldByName('TOTPROD').AsCurrency - XVLR_PROD_OS,
+          DMServ.TOrd.FieldByName('TOTSERV').AsCurrency - XVLR_SERV_OS,
+          XCOD_CONTA, XCOD_CONTASERV, StrToDate(EdDtFech.Text)) = True then
           ATUFINANC := True
         else
           ATUFINANC := False;
@@ -9405,10 +10393,12 @@ begin
       else
       begin
         //Filtra Forma de Pagamento
-        if FiltraTabela(DMFinanc.TFormPag, 'FORMPAG', 'COD_FORMPAG', IntToStr(XCOD_FORMPAG), '') = True then
+        if FiltraTabela(DMFinanc.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+          IntToStr(XCOD_FORMPAG), '') = True then
         begin // Encontrou forma de pagamento, continua processo
           //verifica moeda padrão para lançamento
-          if DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA' then
+          if DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA'
+            then
           begin // caso o pedido tenha sido feito à vista deve-se lançar o valor direto no caixa
 
             if CBPagamento.Text = 'Cheque' then
@@ -9416,8 +10406,13 @@ begin
               //Edmar - 02/03/2015 - Alterado o metodo que buscava o valor do produto e do serviço
               //agora o mesmo é buscado atraves da subtração entre total da ordem, serviços e valores adicionais
              //If LancChEnt(XCOD_CONTA, XCOD_CONTASERV, 'Fech. Ordem' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, Date(), '', (DMServ.TOrd.FieldByName('TOTPROD').AsCurrency + XVLRDESP), (DMServ.TOrd.FieldByName('TOTSERV').AsCurrency + XVLRDESP), '', '', 0, '', '', 'ORDEM', IntToStr(XCOD_ORDEM)) = True
-              if LancChEnt(XCOD_CONTA, XCOD_CONTASERV, 'Fech. Ordem' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, Date(), '', XVLR_FINALPROD, XVLR_FINALSERV, '', '', 0, '', '', 'ORDEM', IntToStr(XCOD_ORDEM)) = True then
-                ATUFINANC := True //informa que a atualização do financeiro foi efetivada
+              if LancChEnt(XCOD_CONTA, XCOD_CONTASERV, 'Fech. Ordem' +
+                DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                DMPESSOA.WCliente.FieldByName('NOME').AsString, Date(), '',
+                XVLR_FINALPROD, XVLR_FINALSERV, '', '', 0, '', '', 'ORDEM',
+                IntToStr(XCOD_ORDEM)) = True then
+                ATUFINANC := True
+                  //informa que a atualização do financeiro foi efetivada
               else //informa que a finalização do financeiro falhou
                 ATUFINANC := False;
             end;
@@ -9427,7 +10422,14 @@ begin
               //Edmar - 02/03/2015 - Alterado o metodo que buscava o valor do produto
                 //agora o mesmo é buscado atraves da subtração entre total da ordem, serviços e valores adicionais
               //if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, DMServ.TOrd.FieldByName('TOTPROD').AsCurrency + XVLRDESP, 'TOTPROD', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
-              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD, 'TOTPROD', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
+              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger,
+                XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' +
+                DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD,
+                'TOTPROD', StrToInt(CodPedido), 'ORDSERV',
+                StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S',
+                DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date()))
+                = True then
                 //informa que a atualização do financeiro foi efetivada
                 ATUFINANC := True
               else
@@ -9437,16 +10439,32 @@ begin
               end;
 
               //if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, DMServ.TOrd.FieldByName('TOTSERV').AsCurrency + XVLRDESP, 'TOTSERV', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE
-              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV, 'TOTSERV', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
-                ATUFINANC := True //informa que a atualização do financeiro foi efetivada
+              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger,
+                XCOD_CONTA, '(Serviços) Fech. Ordem Serv. ' +
+                DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV,
+                'TOTSERV', StrToInt(CodPedido), 'ORDSERV',
+                StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S',
+                DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date()))
+                = TRUE then
+                ATUFINANC := True
+                  //informa que a atualização do financeiro foi efetivada
               else
-                ATUFINANC := False; //informa que a finalização do financeiro falhou
+                ATUFINANC := False;
+              //informa que a finalização do financeiro falhou
             end;
 
             if CBPagamento.Text = 'Pix' then
             begin
               //Alex 05/01/2022: Tratativa para o caso de pix
-              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD, 'TOTPROD', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
+              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger,
+                XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' +
+                DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD,
+                'TOTPROD', StrToInt(CodPedido), 'ORDSERV',
+                StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S',
+                DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date()))
+                = True then
                 //informa que a atualização do financeiro foi efetivada
                 ATUFINANC := True
               else
@@ -9455,13 +10473,23 @@ begin
                 Exit;
               end;
 
-              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, XCOD_CONTA, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV, 'TOTSERV', StrToInt(CodPedido), 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
-                ATUFINANC := True //informa que a atualização do financeiro foi efetivada
+              if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger,
+                XCOD_CONTA, '(Serviços) Fech. Ordem Serv. ' +
+                DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV,
+                'TOTSERV', StrToInt(CodPedido), 'ORDSERV',
+                StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S',
+                DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date()))
+                = TRUE then
+                ATUFINANC := True
+                  //informa que a atualização do financeiro foi efetivada
               else
-                ATUFINANC := False; //informa que a finalização do financeiro falhou
+                ATUFINANC := False;
+              //informa que a finalização do financeiro falhou
             end;
 
-            if (CBPagamento.Text <> 'Cheque') and (CBPagamento.Text <> 'Cartão') and (CBPagamento.Text <> 'Pix') then
+            if (CBPagamento.Text <> 'Cheque') and (CBPagamento.Text <> 'Cartão')
+              and (CBPagamento.Text <> 'Pix') then
             begin
               //REALIZA LANÇAMENTOS EM CAIXA REFERENTE A PRODUTOS
               if (DMServ.TOrd.FieldByName('TOTPROD').Value) > 0 then
@@ -9469,8 +10497,16 @@ begin
                 //If LanCaixa(-1, DateToStr(Date()), XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, DMServ.TOrd.FieldByName('TOTPROD').Value - XVLR_PROD_OS, 'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(EdDtFech.Text), '1') = True
                    //Edmar - 02/03/2015 - Alterado o metodo que buscava o valor do produto
                    //agora o mesmo é buscado atraves da subtração entre total da ordem, serviços e valores adicionais
-                if LanCaixa(-1, DateToStr(Date()), XCOD_CONTA, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD, 'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(EdDtFech.Text), '1') = True then
-                  ATUFINANC := True //informa que a atualização do financeiro foi efetivada
+                if LanCaixa(-1, DateToStr(Date()), XCOD_CONTA,
+                  '(Produtos) Fech. Ordem Serv. ' +
+                  DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                  DMPESSOA.WCliente.FieldByName('NOME').AsString,
+                    XVLR_FINALPROD,
+                  'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E',
+                  DMServ.TOrd.FieldByName('NUMERO').AsString,
+                  StrToDate(EdDtFech.Text), '1') = True then
+                  ATUFINANC := True
+                    //informa que a atualização do financeiro foi efetivada
                 else //informa que a finalização do financeiro falhou
                   ATUFINANC := False;
               end;
@@ -9481,8 +10517,16 @@ begin
                 //if LanCaixa(-1, DateToStr(Date()), XCOD_CONTASERV, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, (DMServ.TOrd.FieldByName('TOTSERV').Value + XVLRDESP) - XVLR_SERV_OS, 'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(EdDtFech.Text), '1') = True
                    //Edmar - 02/03/2015 - Alterado o metodo que buscava o valor do serviço
                    //agora o mesmo é buscado atraves da subtração entre total da ordem, serviços e valores adicionais
-                if LanCaixa(-1, DateToStr(Date()), XCOD_CONTASERV, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV, 'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(EdDtFech.Text), '1') = True then
-                  ATUFINANC := True //informa que a atualização do financeiro foi efetivada
+                if LanCaixa(-1, DateToStr(Date()), XCOD_CONTASERV,
+                  '(Serviços) Fech. Ordem Serv. ' +
+                  DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' +
+                  DMPESSOA.WCliente.FieldByName('NOME').AsString,
+                    XVLR_FINALSERV,
+                  'ORDSERV', StrToInt(CodPedido), CBPagamento.Text, 'E',
+                  DMServ.TOrd.FieldByName('NUMERO').AsString,
+                  StrToDate(EdDtFech.Text), '1') = True then
+                  ATUFINANC := True
+                    //informa que a atualização do financeiro foi efetivada
                 else //informa que a finalização do financeiro falhou
                   ATUFINANC := False;
               end;
@@ -9493,7 +10537,16 @@ begin
             //Edmar - 02/03/2015 - Alterado o metodo que buscava o valor do produto e serviço
               //agora o mesmo é buscado atraves da subtração entre total da ordem, serviços e valores adicionais
               //if LancConta('ORDEM', StrToInt(CodPedido), DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger, CBPagamento.Text, (DMServ.TOrd.FieldByName('TOTPROD').Value + XVLRDESP) - XVLR_PROD_OS, (DMServ.TOrd.FieldByName('TOTSERV').Value + XVLRDESP) - XVLR_SERV_OS, XCOD_CONTA, XCOD_CONTASERV, -1, 'Fech. Ordem de Serviço ' + DMServ.TOrd.FieldByName('NUMERO').AsString, XCOD_FORMPAG, DMServ.TOrd.FieldByName('NUMERO').AsString, 'O', Date(), XVLRCOMIS, EdDtFech.Text, DMServ.TOrd.FieldByName('numfiscal').AsString) = True then
-            if LancConta('ORDEM', StrToInt(CodPedido), DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger, CBPagamento.Text, XVLR_FINALPROD, XVLR_FINALSERV, XCOD_CONTA, XCOD_CONTASERV, -1, 'Fech. Ordem de Serviço ' + DMServ.TOrd.FieldByName('NUMERO').AsString, XCOD_FORMPAG, DMServ.TOrd.FieldByName('NUMERO').AsString, 'O', Date(), XVLRCOMIS, EdDtFech.Text, DMServ.TOrd.FieldByName('numfiscal').AsString) = True then
+            if LancConta('ORDEM', StrToInt(CodPedido),
+              DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger,
+                CBPagamento.Text,
+              XVLR_FINALPROD, XVLR_FINALSERV, XCOD_CONTA, XCOD_CONTASERV, -1,
+              'Fech. Ordem de Serviço ' +
+              DMServ.TOrd.FieldByName('NUMERO').AsString, XCOD_FORMPAG,
+              DMServ.TOrd.FieldByName('NUMERO').AsString, 'O', Date(),
+                XVLRCOMIS,
+              EdDtFech.Text, DMServ.TOrd.FieldByName('numfiscal').AsString) =
+                True then
               ATUFINANC := True
             else
               ATUFINANC := False;
@@ -9524,7 +10577,8 @@ begin
         DMServ.TOrd.FieldByName('STATUS').AsString := 'FECHADO';
         DMServ.TOrd.FieldByName('COD_FORMPAG').AsInteger := XCOD_FORMPAG;
         //XTabela.FieldByName('COD_FORMPAG').AsInteger:=XCOD_FORMPAG;
-        DMServ.TOrd.FieldByName('DTENTREGA').AsDateTime := Date(); //DBDATAENTREGA.Text;
+        DMServ.TOrd.FieldByName('DTENTREGA').AsDateTime := Date();
+        //DBDATAENTREGA.Text;
         DMServ.TOrd.FieldByName('TIPOPAG').AsString := CBPagamento.Text;
         DMServ.TOrd.FieldByName('DTFECH').AsString := EdDtFech.Text;
         DMServ.TOrd.FieldByName('HRENTREGA').AsString := EdHoraFech.Text;
@@ -9539,14 +10593,18 @@ begin
         DMBANCO.IBT.CommitRetaining;
         DMCAIXA.IBT.CommitRetaining;
         MDO.Transac.CommitRetaining;
-        Mensagem('INFORMAÇÃO AO USUÁRIO', 'ORDEM DE SERVIÇO FECHADA COM SUCESSO!', '', 1, 1, false, 'a');
+        Mensagem('INFORMAÇÃO AO USUÁRIO',
+          'ORDEM DE SERVIÇO FECHADA COM SUCESSO!', '', 1, 1, false, 'a');
         //Função para abrir gaveta
         //ecfOpenGaveta;
 
         //Atualiza ordens na tela de consulta
         AtualizaGridConsulta('');
       except
-        Mensagem('OPÇÃO BLOQUEADA', 'Ocorreram problemas ao fechar a ordem de serviço, os dados serão mantidos e a ordem aberto.', 'Ocorreram problemas ao gerar informações financeiras, por motivos de segurança serão mantidas as informações antigas. Feche e reinicie o sistema, se o problema persistir informe e peça auxílio ao suporte técnico. ', 1, 1, true, 'a');
+        Mensagem('OPÇÃO BLOQUEADA',
+          'Ocorreram problemas ao fechar a ordem de serviço, os dados serão mantidos e a ordem aberto.',
+          'Ocorreram problemas ao gerar informações financeiras, por motivos de segurança serão mantidas as informações antigas. Feche e reinicie o sistema, se o problema persistir informe e peça auxílio ao suporte técnico. ',
+          1, 1, true, 'a');
         DMCAIXA.IBT.RollbackRetaining;
         DMServ.IBT.RollbackRetaining;
         DMBANCO.IBT.RollbackRetaining;
@@ -9555,7 +10613,10 @@ begin
     end
     else
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'Ocorreram problemas ao fechar a ordem de serviço, os dados serão mantidos e a ordem aberto.', 'Ocorreram problemas ao gerar informações financeiras, por motivos de segurança serão mantidas as informações antigas. Feche e reinicie o sistema, se o problema persistir informe e peça auxílio ao suporte técnico. ', 1, 1, true, 'a');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Ocorreram problemas ao fechar a ordem de serviço, os dados serão mantidos e a ordem aberto.',
+        'Ocorreram problemas ao gerar informações financeiras, por motivos de segurança serão mantidas as informações antigas. Feche e reinicie o sistema, se o problema persistir informe e peça auxílio ao suporte técnico. ',
+        1, 1, true, 'a');
       DMCAIXA.IBT.RollbackRetaining;
       DMServ.IBT.RollbackRetaining;
       FechaOrd := False;
@@ -9580,9 +10641,13 @@ begin
     if DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsString <> '' then
     begin //se existir uma conta padrao configurada
       XCOD_CONTA := DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsInteger;
-      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA', IntToStr(XCOD_CONTA), '');
-      FrmConta.EDCodigo.Text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
-      FrmConta.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA',
+        IntToStr(XCOD_CONTA),
+        '');
+      FrmConta.EDCodigo.Text :=
+        DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+      FrmConta.EdDescricao.Text :=
+        DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
     end
     else
     begin
@@ -9594,9 +10659,12 @@ begin
     if DMMACS.TLoja.FieldByName('PLNCTASERV').AsString <> '' then
     begin //se existir uma conta padrao configurada
       XCOD_CONTASERV := DMMACS.TLoja.FieldByName('PLNCTASERV').AsInteger;
-      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA', IntToStr(XCOD_CONTASERV), '');
-      FrmContaServ.EDCodigo.Text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
-      FrmContaServ.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA',
+        IntToStr(XCOD_CONTASERV), '');
+      FrmContaServ.EDCodigo.Text :=
+        DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+      FrmContaServ.EdDescricao.Text :=
+        DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
     end
     else
     begin
@@ -9611,9 +10679,13 @@ begin
     if DMMACS.TLoja.FieldByName('PLNCTA_VENDPRAZO').AsString <> '' then
     begin //se existir uma conta padrao configurada
       XCOD_CONTA := DMMACS.TLoja.FieldByName('PLNCTA_VENDPRAZO').AsInteger;
-      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA', IntToStr(XCod_Conta), '');
-      FrmConta.EDCodigo.Text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
-      FrmConta.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA',
+        IntToStr(XCod_Conta),
+        '');
+      FrmConta.EDCodigo.Text :=
+        DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+      FrmConta.EdDescricao.Text :=
+        DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
     end
     else
     begin
@@ -9625,9 +10697,12 @@ begin
     if DMMACS.TLoja.FieldByName('PLNCTASERVPRAZO').AsString <> '' then
     begin //se existir uma conta padrao configurada
       XCOD_CONTASERV := DMMACS.TLoja.FieldByName('PLNCTASERVPRAZO').AsInteger;
-      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA', IntToStr(XCOD_CONTASERV), '');
-      FrmContaServ.EDCodigo.Text := DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
-      FrmContaServ.EdDescricao.Text := DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
+      FiltraTabela(DMCONTA.TPlnCta, 'PLNCTA', 'COD_PLNCTA',
+        IntToStr(XCOD_CONTASERV), '');
+      FrmContaServ.EDCodigo.Text :=
+        DMCONTA.TPlnCta.FieldByName('CLASSIFICACAO').AsString;
+      FrmContaServ.EdDescricao.Text :=
+        DMCONTA.TPlnCta.FieldByName('DESCRICAO').AsString;
     end
     else
     begin
@@ -9638,15 +10713,18 @@ begin
   end;
   if DMMACS.TLoja.FieldByName('FORCARCARTAO').AsString = '1' then
   begin
-    if (Pos('CARTÃO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or (Pos('CARTAO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
+    if (Pos('CARTÃO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or
+      (Pos('CARTAO', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
       CBPagamento.Text := 'Cartão';
-    if (Pos('Pix', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or (Pos('PIX', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
+    if (Pos('Pix', UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) or (Pos('PIX',
+      UpperCase(FrmFormPag.EdDescricao.Text)) <> 0) then
       CBPagamento.Text := 'Pix';
 
   end;
 end;
 
-procedure TFOrdemMec.b(Sender: TObject; ACanvas: TCanvas; ARect: TRect; State: TOwnerDrawState);
+procedure TFOrdemMec.b(Sender: TObject; ACanvas: TCanvas; ARect: TRect; State:
+  TOwnerDrawState);
 begin
   inherited;
 
@@ -9656,7 +10734,9 @@ end;
 procedure TFOrdemMec.BtnCancelamentosClick(Sender: TObject);
 begin
   inherited;
-  PMCancelamento.Popup(Left + PConsulta.left + PBotoesConsulta.left + BtnCancelamentos.Left, top + PConsulta.Top + PBotoesConsulta.top + BtnCancelamentos.Top + BtnCancelamentos.Height);
+  PMCancelamento.Popup(Left + PConsulta.left + PBotoesConsulta.left +
+    BtnCancelamentos.Left, top + PConsulta.Top + PBotoesConsulta.top +
+    BtnCancelamentos.Top + BtnCancelamentos.Height);
 end;
 
 //click em cancelamento total
@@ -9668,34 +10748,49 @@ var
   XQTDLOTE: Real;
 begin
   // inherited;
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
   if DMServ.WOrdem.FieldByName('STATUS').AsString = 'CANCELADO' then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'A ORDEM DE SERVIÇO SE ENCONTRA CANCELADA!', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO',
+      'A ORDEM DE SERVIÇO SE ENCONTRA CANCELADA!', '', 1, 1, False, 'a');
     Exit;
   end;
 
   if DMServ.WOrdem.FieldByName('STATUS').AsString <> 'FECHADO' then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'A ORDEM DE SERVIÇO NÃO SE ENCONTRADA FECHADA!' + #13 + 'PRESSIONE O BOTÃO CONSULTAR PARA ALTERAR AS INFORMAÇÕES.', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO',
+      'A ORDEM DE SERVIÇO NÃO SE ENCONTRADA FECHADA!' + #13 +
+      'PRESSIONE O BOTÃO CONSULTAR PARA ALTERAR AS INFORMAÇÕES.', '', 1, 1,
+        False,
+      'a');
     Exit;
   end;
 
-  if Mensagem('A T E N Ç Ã O', 'DESEJA FAZER O CANCELAMENTO DA ORDEM:' + #13 + 'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('A T E N Ç Ã O', 'DESEJA FAZER O CANCELAMENTO DA ORDEM:' + #13 +
+    'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False,
+    'c') = 2 then
   begin
 
     // BUSCANDO A ORDEM PARA LIBERAÇÃO DE CONSULTA
-    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
     DMServ.TOrd.Edit;
     DMServ.TOrd.FieldByName('EDIT').AsString := '0';
     DMServ.TOrd.Post;
     DMServ.IBT.CommitRetaining;
 
     XCodPedidoTroca := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
-    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '')
+      = True then
     begin
       //REGISTRA COMANDO DO USUARIO
-      Registra('ORDEM', 'CANCELA ORD', DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString + '-' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' + DMServ.TOrd.FieldByName('totord').AsString + '-' + DMServ.WOrdem.FieldByName('equipamento').AsString);
+      Registra('ORDEM', 'CANCELA ORD',
+        DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' +
+        DMServ.TOrd.FieldByName('NUMERO').AsString + '-' +
+        DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' +
+        DMServ.TOrd.FieldByName('totord').AsString + '-' +
+        DMServ.WOrdem.FieldByName('equipamento').AsString);
       if CancelLanOrd(XCodPedidoTroca) = True then
       begin //Se foi possível cancelar/estornar todos os lançamentos realizados pelo pedido
         DMServ.TOrd.EDIT;
@@ -9707,7 +10802,10 @@ begin
       DMESTOQUE.Alx.Close;
       DMESTOQUE.Alx.SQL.Clear;
       DMESTOQUE.Alx.SQL.Add('Select itprodord.cod_itprodord, itprodord.cod_ordem, itprodord.cod_estoque,  itprodord.qtd, itprodord.total, ');
-      DMESTOQUE.Alx.sql.Add(' subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD, ');
+      DMESTOQUE.Alx.sql.Add(' subproduto.' +
+        DMMACS.TLoja.FieldByName('CODPRODREL1').AsString +
+        ' AS PRIMCOD, subproduto.' +
+        DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD, ');
       DMESTOQUE.Alx.SQL.Add('itprodord.desconto, itprodord.cod_funcionario, pessoa.nome, itprodord.vlrunit, subproduto.descricao, subproduto.marca, subproduto.CONTRINT, itprodord.data, itprodord.operacao ');
       DMESTOQUE.Alx.SQL.Add('From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
       DMESTOQUE.Alx.SQL.Add('Left Join ORDEM on itprodord.cod_Ordem = Ordem.cod_Ordem ');
@@ -9715,37 +10813,55 @@ begin
       DMESTOQUE.Alx.SQL.Add('Left Join funcionario on funcionario.cod_func = itprodord.cod_funcionario ');
       DMESTOQUE.Alx.SQL.Add('Left Join pessoa on funcionario.cod_pessoa = pessoa.COD_PESSOA ');
       DMESTOQUE.Alx.SQL.Add('Where ORDEM.cod_ORDEM = :CODPEDVENDA ');
-      DMESTOQUE.Alx.ParamByName('CODPEDVENDA').AsString := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
+      DMESTOQUE.Alx.ParamByName('CODPEDVENDA').AsString :=
+        DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
       DMESTOQUE.Alx.Open;
       DMESTOQUE.ALX.First;
       while not DMESTOQUE.ALX.Eof do
       begin
         if DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL' then
         begin
-          if (DMESTOQUE.Alx.RecordCount <> 0) and (DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL') then
+          if (DMESTOQUE.Alx.RecordCount <> 0) and
+            (DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL') then
           begin //caso a tabela esteja vasia não pode apagar
             //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-            FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.ALX.FieldByName('COD_ESTOQUE').AsString, '');
-            FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.ALX.FieldByName('COD_ESTOQUE').AsString, '');
-            FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.ALX.FieldByName('COD_ITPRODORD').AsString, '');
+            FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+              DMESTOQUE.ALX.FieldByName('COD_ESTOQUE').AsString, '');
+            FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE',
+              DMEstoque.ALX.FieldByName('COD_ESTOQUE').AsString, '');
+            FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ITPRODORD',
+              DMESTOQUE.ALX.FieldByName('COD_ITPRODORD').AsString, '');
             DMServ.TPOrd.Edit;
             DMServ.TPOrd.FieldByName('OPERACAO').AsString := 'DVL';
             DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency := 0;
             DMServ.TPOrd.Post;
             XCODLANEST := InserReg(DMENTRADA.TLancENT, 'LANCENT', 'COD_LANENT');
-            DMENTRADA.TLancENT.FieldByName('COD_LANENT').AsInteger := XCODLANEST;
-            DMENTRADA.TLancENT.FieldByName('COD_ESTOQUE').AsString := DMESTOQUE.Testoque.FieldByName('COD_ESTOQUE').AsString;
-            DMENTRADA.TLancENT.FieldByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
-            DMENTRADA.TLancENT.FieldByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
-            DMENTRADA.TLancENT.FieldByName('NUMNOTA').AsString := 'CLD OS-' + DMServ.WOrdem.FieldByName('NUMERO').AsString;
-            DMENTRADA.TLancENT.FieldByName('MOTIVO').AsString := 'Canc. O.S: ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + ' /Cliente: ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString;
-            DMENTRADA.TLancENT.FieldByName('DT_LANCAMENTO').AsString := DateToStr(Date());
-            DMENTRADA.TLancENT.FieldByName('DT_ESTOQUE').AsString := DMServ.WOrdem.FieldByName('dtabert').AsString;
-            DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency := DMServ.TPOrd.FieldByName('qtd').AsCurrency;
-            DMENTRADA.TLancENT.FieldByName('QTDANT').AsString := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
+            DMENTRADA.TLancENT.FieldByName('COD_LANENT').AsInteger :=
+              XCODLANEST;
+            DMENTRADA.TLancENT.FieldByName('COD_ESTOQUE').AsString :=
+              DMESTOQUE.Testoque.FieldByName('COD_ESTOQUE').AsString;
+            DMENTRADA.TLancENT.FieldByName('COD_LOJA').AsString :=
+              FMenu.LCODLOJA.Caption;
+            DMENTRADA.TLancENT.FieldByName('COD_USUARIO').AsString :=
+              FMenu.LCODUSUARIO.Caption;
+            DMENTRADA.TLancENT.FieldByName('NUMNOTA').AsString := 'CLD OS-' +
+              DMServ.WOrdem.FieldByName('NUMERO').AsString;
+            DMENTRADA.TLancENT.FieldByName('MOTIVO').AsString := 'Canc. O.S: ' +
+              DMServ.WOrdem.FieldByName('NUMERO').AsString + ' /Cliente: ' +
+              DMServ.WOrdem.FieldByName('CLIENTE').AsString;
+            DMENTRADA.TLancENT.FieldByName('DT_LANCAMENTO').AsString :=
+              DateToStr(Date());
+            DMENTRADA.TLancENT.FieldByName('DT_ESTOQUE').AsString :=
+              DMServ.WOrdem.FieldByName('dtabert').AsString;
+            DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency :=
+              DMServ.TPOrd.FieldByName('qtd').AsCurrency;
+            DMENTRADA.TLancENT.FieldByName('QTDANT').AsString :=
+              DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
             DMENTRADA.TLancEnt.POST;
             DMESTOQUE.TEstoque.Edit;
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value + DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
+            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value :=
+              DMEstoque.TEstoque.FieldByName('ESTFISICO').Value +
+              DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
             DMESTOQUE.TEstoque.POST;
             DMESTOQUE.TransacEstoque.CommitRetaining;
           end;
@@ -9754,7 +10870,8 @@ begin
       end;
       try
         // EDITANDO A ORDEM PARA LIBERAR, PQ ELA PODE ESTAR BLOQUEADA
-        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM),
+          '');
         DMServ.TOrd.Edit;
         DMServ.TOrd.FieldByName('EDIT').AsString := '0';
         DMServ.TOrd.Post;
@@ -9783,18 +10900,28 @@ var
   XCodPedidoTroca: string;
 begin
   //inherited;
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
-  FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM',
+    DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
 
-  if ((DMServ.WOrdem.FieldByName('numfiscal').AsString <> '0') and (DMServ.WOrdem.FieldByName('numfiscal').AsString <> '')) or (DMServ.TFiscOrd.FieldByName('NFSE_STATUSGERAL').AsString = '1') then
+  if ((DMServ.WOrdem.FieldByName('numfiscal').AsString <> '0') and
+    (DMServ.WOrdem.FieldByName('numfiscal').AsString <> '')) or
+    (DMServ.TFiscOrd.FieldByName('NFSE_STATUSGERAL').AsString = '1') then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'Esta O.S. Passou por uma impressão fiscal e não pode mais ter seu fechamento cancelado.', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO',
+      'Esta O.S. Passou por uma impressão fiscal e não pode mais ter seu fechamento cancelado.',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
   if DMServ.WOrdem.FieldByName('STATUS').AsString <> 'FECHADO' then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'A ORDEM DE SERVIÇO NÃO SE ENCONTRADA FECHADA!' + #13 + 'PRESSIONE O BOTÃO CONSULTAR PARA ALTERAR AS INFORMAÇÕES.', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO',
+      'A ORDEM DE SERVIÇO NÃO SE ENCONTRADA FECHADA!' + #13 +
+      'PRESSIONE O BOTÃO CONSULTAR PARA ALTERAR AS INFORMAÇÕES.', '', 1, 1,
+        False,
+      'a');
     Exit;
   end;
 
@@ -9802,23 +10929,35 @@ begin
   if ControlAccess('CANCPEDFECH', 'M') = False then
     Exit;
 
-  if Mensagem('A T E N Ç Ã O', 'DESEJA EFETUAR O CANCELAMENTO DA ORDEM DE SERVIÇO:' + #13 + 'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('A T E N Ç Ã O',
+    'DESEJA EFETUAR O CANCELAMENTO DA ORDEM DE SERVIÇO:' + #13 + 'Nº ' +
+    DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2
+      then
   begin
 
     // verifica se o caixa estah aberto
     if DMCAIXA.VerifAbCaixa = false then
     begin
-      Mensagem('   A T E N Ç Ã O   ', 'CAIXA FECHADO. A ORDEM DE SERVIÇO NÃO PODE SER CANCELADA.', '', 1, 1, false, 'I');
+      Mensagem('   A T E N Ç Ã O   ',
+        'CAIXA FECHADO. A ORDEM DE SERVIÇO NÃO PODE SER CANCELADA.', '', 1, 1,
+        false, 'I');
       Exit;
     end;
 
     XCodPedidoTroca := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
 
-    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '')
+      = True then
     begin
       //REGISTRA COMANDO DO USUARIO
-      Registra('ORDEM', 'C. FECH ORD', DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString + '-' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' + DMServ.TOrd.FieldByName('totord').AsString + '-' + DMServ.WOrdem.FieldByName('equipamento').AsString);
-      if (DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Multiplo') or (DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Pagamentos') then
+      Registra('ORDEM', 'C. FECH ORD',
+        DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' +
+        DMServ.TOrd.FieldByName('NUMERO').AsString + '-' +
+        DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' +
+        DMServ.TOrd.FieldByName('totord').AsString + '-' +
+        DMServ.WOrdem.FieldByName('equipamento').AsString);
+      if (DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Multiplo') or
+        (DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Pagamentos') then
       begin
         if DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Pagamentos' then
         begin
@@ -9826,7 +10965,9 @@ begin
           DMESTOQUE.TransacEstoque.CommitRetaining;
           DMENTRADA.IBT.CommitRetaining;
           DMSAIDA.IBT.CommitRetaining;
-          if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+          if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM',
+            XCodPedidoTroca,
+            '') = True then
           begin
             BtnConsultar.Click;
           end;
@@ -9847,7 +10988,9 @@ begin
             DMENTRADA.IBT.RollbackRetaining;
             DMSAIDA.IBT.RollbackRetaining;
           end;
-          if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+          if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM',
+            XCodPedidoTroca,
+            '') = True then
           begin
             BtnConsultar.Click;
           end;
@@ -9865,24 +11008,30 @@ begin
 
         try
           //Edmar - 18/02/2015 - Ao cancelar o fechamento, verifica se o cliente possuí um valor de crédito em seu nome
-          if FiltraTabela(DMFINANC.TCredito, 'CREDITO', 'COD_GERADOR', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, ' AND (TIPOGERADOR = ''LANCTRC'') ') then
+          if FiltraTabela(DMFINANC.TCredito, 'CREDITO', 'COD_GERADOR',
+            DMServ.WOrdem.FieldByName('COD_ORDEM').AsString,
+            ' AND (TIPOGERADOR = ''LANCTRC'') ') then
           begin
             //filtra a view do cliente para buscar o codigo da pessoa
-            FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMServ.WOrdem.FieldByName('COD_CLIENTE').AsString, '');
+            FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+              DMServ.WOrdem.FieldByName('COD_CLIENTE').AsString, '');
 
             //atualiza o credito da pessoa se o valor atribuido na pessoa for maior ou igual ao valor do credito real
             DMPESSOA.TALX.Close;
             DMPESSOA.TALX.SQL.Clear;
             DMPESSOA.TALX.SQL.Add(' UPDATE PESSOA SET PESSOA.VLRCREDITO = PESSOA.VLRCREDITO - :VALOR WHERE (PESSOA.COD_PESSOA = :PESSOA) AND (PESSOA.VLRCREDITO >= :VALOR) ');
-            DMPESSOA.TALX.ParamByName('VALOR').AsCurrency := DMFINANC.TCredito.FieldByName('VALOR').AsCurrency;
-            DMPESSOA.TALX.ParamByName('PESSOA').AsInteger := DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsInteger;
+            DMPESSOA.TALX.ParamByName('VALOR').AsCurrency :=
+              DMFINANC.TCredito.FieldByName('VALOR').AsCurrency;
+            DMPESSOA.TALX.ParamByName('PESSOA').AsInteger :=
+              DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsInteger;
             DMPESSOA.TALX.ExecSQL;
 
             //Deleta o registro de crédito da ordem de serviço geradora
             MDO.Query.Close;
             MDO.Query.SQL.Clear;
             MDO.Query.SQL.Add(' DELETE FROM CREDITO WHERE (CREDITO.COD_CREDITO = :CODIGO) ');
-            MDO.Query.ParamByName('CODIGO').AsInteger := DMFINANC.TCredito.FieldByName('COD_CREDITO').AsInteger;
+            MDO.Query.ParamByName('CODIGO').AsInteger :=
+              DMFINANC.TCredito.FieldByName('COD_CREDITO').AsInteger;
             MDO.Query.ExecSQL;
           end;
 
@@ -9900,7 +11049,8 @@ begin
           DMPESSOA.TransacPessoa.RollbackRetaining;
         end;
 
-        if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+        if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca,
+          '') = True then
         begin
           BtnConsultar.Click;
         end;
@@ -9937,7 +11087,8 @@ begin
     Exit;
   end;
   FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', CodPedido, '');
-  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '');
+  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+    DMServ.TOrd.FieldByName('COD_FORMPAG').AsString, '');
 
   if (DMServ.TOrd.FieldByName('TipoPag').AsString <> 'Multiplo') then
   begin
@@ -9945,7 +11096,10 @@ begin
 
   //CONTROLE QUE DELETA TODA A MOVIMENTAÇÃO QUANDO UMA ORDEM É FECHADO COM CHEQUE E É À VISTA.
 
-    FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMServ.WOrdem.FieldByName('COD_ORDEM').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'ORDEM' + #39 + ')');
+    FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+      '(COD_GERADOR = ' + #39 + DMServ.WOrdem.FieldByName('COD_ORDEM').AsString
+        +
+      #39 + ') AND (TIPOGERADOR = ' + #39 + 'ORDEM' + #39 + ')');
 
     XCampo := DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsString;
 
@@ -9954,7 +11108,8 @@ begin
     DMCAIXA.TAlx.SQL.Clear;
     DMCAIXA.TAlx.SQL.Add('select * from chequerec');
     DMCAIXA.TAlx.SQL.Add('where chequerec.cod_movbanco = :CODMOV');
-    DMCAIXA.TAlx.ParamByName('CODMOV').AsString := DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsString;
+    DMCAIXA.TAlx.ParamByName('CODMOV').AsString :=
+      DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsString;
     DMCAIXA.TAlx.Open;
 
     if not DMCAIXA.TAlx.IsEmpty then
@@ -9964,20 +11119,35 @@ begin
       DMCAIXA.TLanCaixa.Close;
       DMCAIXA.TLanCaixa.SQL.Clear;
       DMCAIXA.TLanCaixa.SQL.Add('SELECT * FROM LANCAIXA');
-      DMCAIXA.TLanCaixa.SQL.Add('where ((lancaixa.tipogerador=' + #39 + 'LCHR' + #39 + ') or (lancaixa.tipogerador=' + #39 + 'DCHR' + #39 + ') or (lancaixa.tipogerador=' + #39 + 'MCHR' + #39 + ') AND (lancaixa.cod_gerador =:CODLANCA))');
-      DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString := DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
+      DMCAIXA.TLanCaixa.SQL.Add('where ((lancaixa.tipogerador=' + #39 + 'LCHR' +
+        #39 + ') or (lancaixa.tipogerador=' + #39 + 'DCHR' + #39 +
+        ') or (lancaixa.tipogerador=' + #39 + 'MCHR' + #39 +
+        ') AND (lancaixa.cod_gerador =:CODLANCA))');
+      DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString :=
+        DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
       DMCAIXA.TLanCaixa.Open;
       DMCAIXA.TLanCaixa.First;
 
       //se o codigo de abertura do caixa autal for diferente do codigo de lançamento de caixa do pedido e este cheque foi movimentado em caixa faz o estorno
-      if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <> FMenu.LABCAIXA.Caption) and (FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMServ.WOrdem.FieldByname('COD_ORDEM').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = false) then
+      if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <>
+        FMenu.LABCAIXA.Caption) and (FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO',
+        'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 +
+        DMServ.WOrdem.FieldByname('COD_ORDEM').AsString + #39 +
+        ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = false) then
       begin //só faz o estorno se foi movimentado em caixa, caso contrário não faz estorno
-        LanCaixa(-1, DateToStr(Date()), DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger, 'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TPEDV', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
+        LanCaixa(-1, DateToStr(Date()),
+          DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger,
+          'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString +
+          ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString,
+          DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TPEDV',
+          StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+          DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
 
       end;
 
       //se o codigo de abertura de caixa atual for igual ao codigo de abertura de caixa do lançamento do pedido apaga os lançamentos
-      if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString = FMenu.LABCAIXA.Caption then
+      if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString =
+        FMenu.LABCAIXA.Caption then
       begin
         while not DMCAIXA.TLanCaixa.Eof do
         begin
@@ -9988,14 +11158,20 @@ begin
       end;
 
       //DELETA MOVIMENTAÇÕES BANCARIAS DESTE PEDIDO caso tenha sido movimentado em conta corrente
-      if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + xcod_chequerec + #39 + ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = true then
+      if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+        '(COD_GERADOR = ' + #39 + xcod_chequerec + #39 + ') AND (TIPOGERADOR = '
+          +
+        #39 + 'MCHR' + #39 + ')') = true then
       begin
         DMBANCO.TMovBanco.Delete;
         DMBANCO.TMovBanco.ApplyUpdates;
       end;
 
       //DELETA MOVIMENTAÇÕES BANCARIAS DESTE PEDIDO caso tenha sido movimentado em caixa
-      if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMServ.TOrd.FieldByname('COD_ORDEM').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'ORDEM' + #39 + ')') = true then
+      if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+        '(COD_GERADOR = ' + #39 + DMServ.TOrd.FieldByname('COD_ORDEM').AsString
+          +
+        #39 + ') AND (TIPOGERADOR = ' + #39 + 'ORDEM' + #39 + ')') = true then
       begin
         DMBANCO.TMovBanco.Delete;
         DMBANCO.TMovBanco.ApplyUpdates;
@@ -10024,7 +11200,8 @@ begin
       //FILTRA LANÇAMENTO EM CAIXA E GERA OUTRO LANÇAMENTO DE ESTORNO EM CX
       DMCAIXA.TLanCaixa.Close;
       DMCAIXA.TLanCaixa.SQL.Clear;
-      DMCAIXA.TLanCaixa.SQL.Add('SELECT * FROM LANCAIXA WHERE (TIPOGERADOR=' + #39 + 'ORDSERV' + #39 + ') AND (COD_GERADOR=:CODPEDIDO)');
+      DMCAIXA.TLanCaixa.SQL.Add('SELECT * FROM LANCAIXA WHERE (TIPOGERADOR=' +
+        #39 + 'ORDSERV' + #39 + ') AND (COD_GERADOR=:CODPEDIDO)');
       DMCAIXA.TLanCaixa.ParamByName('CODPEDIDO').AsString := CodPedido;
       DMCAIXA.TLanCaixa.Open;
       DMCAIXA.TLanCaixa.First;
@@ -10032,7 +11209,14 @@ begin
       begin //se foi encontrado algum lançamento em caixa deve se realizar outro de estorno
         while not DMCAIXA.TLanCaixa.Eof do
         begin
-          if LanCaixa(-1, DateToStr(Date()), DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger, 'Cancel. O.S. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TOS', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMServ.TOrd.FieldByName('NUMERO').AsString, Date(), '1') = True then
+          if LanCaixa(-1, DateToStr(Date()),
+            DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger,
+              'Cancel. O.S. '
+            + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' +
+            DMServ.WOrdem.FieldByName('CLIENTE').AsString,
+            DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TOS',
+            StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+            DMServ.TOrd.FieldByName('NUMERO').AsString, Date(), '1') = True then
             MDO.Transac.CommitRetaining
               //DMCAIXA.IBT.CommitRetaining
           else
@@ -10041,14 +11225,23 @@ begin
         end;
       end;
 
-      if (DMServ.TOrd.FieldByName('TIPOPAG').AsString = 'Cartão') or (DMServ.TOrd.FieldByName('TIPOPAG').AsString = 'Pix') then
+      if (DMServ.TOrd.FieldByName('TIPOPAG').AsString = 'Cartão') or
+        (DMServ.TOrd.FieldByName('TIPOPAG').AsString = 'Pix') then
       begin
-        if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMServ.WOrdem.FieldByname('COD_ORDEM').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'TOTPROD' + #39 + ')') = true then
+        if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+          '(COD_GERADOR = ' + #39 +
+            DMServ.WOrdem.FieldByname('COD_ORDEM').AsString
+          + #39 + ') AND (TIPOGERADOR = ' + #39 + 'TOTPROD' + #39 + ')') = true
+            then
         begin
           DMBANCO.TMovBanco.Delete;
           DMBANCO.TMovBanco.ApplyUpdates;
         end;
-        if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMServ.WOrdem.FieldByname('COD_ORDEM').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'TOTSERV' + #39 + ')') = true then
+        if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+          '(COD_GERADOR = ' + #39 +
+            DMServ.WOrdem.FieldByname('COD_ORDEM').AsString
+          + #39 + ') AND (TIPOGERADOR = ' + #39 + 'TOTSERV' + #39 + ')') = true
+            then
         begin
           DMBANCO.TMovBanco.Delete;
           DMBANCO.TMovBanco.ApplyUpdates;
@@ -10064,10 +11257,14 @@ begin
 
       //SE A VENDA NÃO FOI À VISTA
       //FILTRA CTA RECEBER PARA LOCALIZAR LANÇAMENTOS
-      if FiltraTabela(DMCONTA.TCtaR, 'CTARECEBER', 'COD_CTARECEBER', '', ' (TIPOGERADOR = ' + #39 + 'ORD' + #39 + ') AND (COD_GERADOR=' + CodPedido + ')') = True then
+      if FiltraTabela(DMCONTA.TCtaR, 'CTARECEBER', 'COD_CTARECEBER', '',
+        ' (TIPOGERADOR = ' + #39 + 'ORD' + #39 + ') AND (COD_GERADOR=' +
+          CodPedido
+        + ')') = True then
       begin //se foi encontrado alguma conta
         //FILTRA PARCELAS
-        if FiltraTabela(DMCONTA.TParcCR, 'PARCELACR', 'COD_CTARECEBER', DMCONTA.TCtaR.FieldByName('COD_CTARECEBER').AsString, '') = True then
+        if FiltraTabela(DMCONTA.TParcCR, 'PARCELACR', 'COD_CTARECEBER',
+          DMCONTA.TCtaR.FieldByName('COD_CTARECEBER').AsString, '') = True then
         begin //se foi encontrado alguma conta
           //PARA CADA PARCELA VERIFICA SE ESTA FECHADA
           DMCONTA.TParcCR.First;
@@ -10076,10 +11273,20 @@ begin
             //deleta lançamentos de caixa caso seja forma de pagamento carteira.
             if DMServ.WOrdem.FieldByName('TIPOPAG').AsString = 'Carteira' then
             begin
-              FiltraTabela(DMCAIXA.TLanCaixa, 'LANCAIXA', 'COD_LANC', '', '(lancaixa.tipogerador=' + #39 + 'CTAR' + #39 + ') AND (lancaixa.cod_gerador =' + #39 + DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39')');
+              FiltraTabela(DMCAIXA.TLanCaixa, 'LANCAIXA', 'COD_LANC', '',
+                '(lancaixa.tipogerador=' + #39 + 'CTAR' + #39 +
+                ') AND (lancaixa.cod_gerador =' + #39 +
+                DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39')');
               while not DMCAIXA.TLanCaixa.Eof do
               begin
-                if LanCaixa(-1, DateToStr(Date()), DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger, 'Cancel. O.S. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TOS', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMServ.TOrd.FieldByName('NUMERO').AsString, Date(), '1') = True then
+                if LanCaixa(-1, DateToStr(Date()),
+                  DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger,
+                  'Cancel. O.S. ' + DMServ.TOrd.FieldByName('NUMERO').AsString +
+                  ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString,
+                  DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TOS',
+                  StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+                  DMServ.TOrd.FieldByName('NUMERO').AsString, Date(), '1') = True
+                    then
                   MDO.Transac.CommitRetaining
                     //DMCAIXA.IBT.CommitRetaining
                 else
@@ -10089,22 +11296,51 @@ begin
             end;
 
             //filtra movimentação bancaria da parcela em questão
-            FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + IntToStr(DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsInteger) + #39 + ') AND (TIPOGERADOR = ' + #39 + 'CTARCH' + #39')');
+            FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+              '(COD_GERADOR = ' + #39 +
+              IntToStr(DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsInteger) +
+              #39 + ') AND (TIPOGERADOR = ' + #39 + 'CTARCH' + #39')');
             //filtra cheque da parcela
-            FiltraTabela(DMBANCO.TChequeRec, 'CHEQUEREC', 'COD_CHEQUEREC', '', '(COD_MOVBANCO = ' + #39 + IntToStr(DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsInteger) + #39 + ')');
+            FiltraTabela(DMBANCO.TChequeRec, 'CHEQUEREC', 'COD_CHEQUEREC', '',
+              '(COD_MOVBANCO = ' + #39 +
+              IntToStr(DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsInteger)
+                +
+              #39 + ')');
 
             //variável utilizada para apos apagar a movimentação bancaria sejam apagados os cheques ligados as parcelas
             XCampo := DMBANCO.TMovBanco.FieldByName('COD_MOVBANCO').AsString;
 
             //filtra os lançamentos de caixa ligados a parcela
-            FiltraTabela(DMCAIXA.TLanCaixa, 'LANCAIXA', 'COD_LANC', '', '(lancaixa.tipogerador=' + #39 + 'LCHR' + #39 + ') or (lancaixa.tipogerador=' + #39 + 'DCHR' + #39 + ') or (lancaixa.tipogerador=' + #39 + 'MCHR' + #39 + ') AND (lancaixa.cod_gerador =' + #39 + IntToStr(DMBANCO.TChequeRec.FieldByname('COD_CHEQUEREC').AsInteger) + #39')');
+            FiltraTabela(DMCAIXA.TLanCaixa, 'LANCAIXA', 'COD_LANC', '',
+              '(lancaixa.tipogerador=' + #39 + 'LCHR' + #39 +
+              ') or (lancaixa.tipogerador=' + #39 + 'DCHR' + #39 +
+              ') or (lancaixa.tipogerador=' + #39 + 'MCHR' + #39 +
+              ') AND (lancaixa.cod_gerador =' + #39 +
+              IntToStr(DMBANCO.TChequeRec.FieldByname('COD_CHEQUEREC').AsInteger)
+                +
+              #39')');
 
-            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', ' (TIPOGERADOR=' + #39 + 'CTARCH' + #39 + ') AND (COD_GERADOR=' + DMCONTA.TParcCR.FieldByName('COD_PARCELACR').AsString + ')') = True then
+            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+              ' (TIPOGERADOR=' + #39 + 'CTARCH' + #39 + ') AND (COD_GERADOR=' +
+              DMCONTA.TParcCR.FieldByName('COD_PARCELACR').AsString + ')') = True
+                then
             begin
               //se o codigo de abertura do caixa atual for diferente do codigo de lançamento de caixa da ordem e este cheque foi movimentado em caixa faz o estorno
-              if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <> FMenu.LABCAIXA.Caption) and (FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = false) then
+              if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <>
+                FMenu.LABCAIXA.Caption) and (FiltraTabela(DMBANCO.TMovBanco,
+                'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 +
+                DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39 +
+                ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = false)
+                  then
               begin //só faz o estorno se foi movimentado em caixa, caso contrário não faz estorno
-                LanCaixa(-1, DateToStr(Date()), DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger, 'Cancel. fech. Ped. ' + DMSAIDA.TPedV.FieldByName('NUMPED').AsString + ' Cli. ' + DMSAIDA.WPedV.FieldByName('NOMECLI').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TPEDV', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMSAIDA.TPedV.FieldByName('NUMPED').AsString, Date(), '1');
+                LanCaixa(-1, DateToStr(Date()),
+                  DMMACS.TLoja.fieldByName('PLNCTA_SAICXCORR').AsInteger,
+                  'Cancel. fech. Ped. ' +
+                  DMSAIDA.TPedV.FieldByName('NUMPED').AsString + ' Cli. ' +
+                  DMSAIDA.WPedV.FieldByName('NOMECLI').AsString,
+                  DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'TPEDV',
+                  StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+                  DMSAIDA.TPedV.FieldByName('NUMPED').AsString, Date(), '1');
               end;
               DMCAIXA.IBT.CommitRetaining;
               MDO.Transac.CommitRetaining;
@@ -10113,9 +11349,17 @@ begin
 
               while not DMCAIXA.TLanCaixa.Eof do
                 //se o codigo de abertura de caixa atual for igual ao codigo de abertura de caixa do lançamento do pedido apaga os lançamentos
-                if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString = FMenu.LABCAIXA.Caption) and (DMCAIXA.TLanCaixa.FieldByName('COD_GERADOR').AsString = DMBANCO.TChequeRec.FieldByName('COD_CHEQUEREC').AsString) then
+                if (DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString =
+                  FMenu.LABCAIXA.Caption) and
+                  (DMCAIXA.TLanCaixa.FieldByName('COD_GERADOR').AsString =
+                  DMBANCO.TChequeRec.FieldByName('COD_CHEQUEREC').AsString) then
                 begin
-                  if ((DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString = 'LCHR') or (DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString = 'MCHR') or (DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString = 'DCHR')) then
+                  if ((DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString =
+                    'LCHR') or
+                    (DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString =
+                    'MCHR') or
+                    (DMCAIXA.TLanCaixa.FieldByName('TIPOGERADOR').AsString =
+                    'DCHR')) then
                   begin
                     DMCAIXA.TLanCaixa.Delete;
                     DMCAIXA.TLanCaixa.ApplyUpdates;
@@ -10128,7 +11372,11 @@ begin
             end;
 
             //DELETA MOVIMENTAÇÕES BANCARIAS DESTE PEDIDO caso tenha sido movimentado em conta corrente
-            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + IntToStr(DMBANCO.TChequeRec.FieldByname('COD_CHEQUEREC').AsInteger) + #39 + ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = true then
+            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+              '(COD_GERADOR = ' + #39 +
+              IntToStr(DMBANCO.TChequeRec.FieldByname('COD_CHEQUEREC').AsInteger)
+              + #39 + ') AND (TIPOGERADOR = ' + #39 + 'MCHR' + #39 + ')') = true
+                then
             begin
               DMBANCO.TMovBanco.First;
               while not DMBANCO.TMovBanco.Eof do
@@ -10140,7 +11388,10 @@ begin
             DMBANCO.IBT.CommitRetaining;
 
             //DELETA MOVIMENTAÇÕES BANCARIAS DESTE PEDIDO caso tenha sido movimentado em caixa
-            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '', '(COD_GERADOR = ' + #39 + DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39 + ') AND (TIPOGERADOR = ' + #39 + 'CTARCH' + #39 + ')') = true then
+            if FiltraTabela(DMBANCO.TMovBanco, 'MOVBANCO', 'COD_MOVBANCO', '',
+              '(COD_GERADOR = ' + #39 +
+              DMCONTA.TParcCR.FieldByname('COD_PARCELACR').AsString + #39 +
+              ') AND (TIPOGERADOR = ' + #39 + 'CTARCH' + #39 + ')') = true then
             begin
               DMBANCO.TMovBanco.Delete;
               DMBANCO.TMovBanco.ApplyUpdates;
@@ -10182,19 +11433,29 @@ begin
     DMCAIXA.TLanCaixa.Close;
     DMCAIXA.TLanCaixa.SQL.Clear;
     DMCAIXA.TLanCaixa.SQL.Add('SELECT * FROM LANCAIXA');
-    DMCAIXA.TLanCaixa.SQL.Add('where (lancaixa.tipogerador=' + #39 + 'ORDEMENT' + #39 + ') AND (lancaixa.cod_gerador =:CODLANCA)');
-    DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString := DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
+    DMCAIXA.TLanCaixa.SQL.Add('where (lancaixa.tipogerador=' + #39 + 'ORDEMENT'
+      + #39 + ') AND (lancaixa.cod_gerador =:CODLANCA)');
+    DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString :=
+      DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
     DMCAIXA.TLanCaixa.Open;
     DMCAIXA.TLanCaixa.First;
 
     //se o codigo de abertura do caixa autal for diferente do codigo de lançamento de caixa do pedido e este cheque foi movimentado em caixa faz o estorno
-    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <> FMenu.LABCAIXA.Caption = false then
+    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <>
+      FMenu.LABCAIXA.Caption = false then
     begin //só faz o estorno se foi movimentado em caixa, caso contrário não faz estorno
-      LanCaixa(-1, DateToStr(Date()), DMCAIXA.TLanCaixa.fieldByName('COD_PLNCTAFIL').AsInteger, 'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'ORDEMENTEST', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
+      LanCaixa(-1, DateToStr(Date()),
+        DMCAIXA.TLanCaixa.fieldByName('COD_PLNCTAFIL').AsInteger,
+        'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString +
+        ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString,
+        DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'ORDEMENTEST',
+        StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+        DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
     end;
 
     //se o codigo de abertura de caixa atual for igual ao codigo de abertura de caixa do lançamento do pedido apaga os lançamentos
-    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString = FMenu.LABCAIXA.Caption then
+    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString =
+      FMenu.LABCAIXA.Caption then
     begin
       while not DMCAIXA.TLanCaixa.Eof do
       begin
@@ -10210,19 +11471,29 @@ begin
     DMCAIXA.TLanCaixa.Close;
     DMCAIXA.TLanCaixa.SQL.Clear;
     DMCAIXA.TLanCaixa.SQL.Add('SELECT * FROM LANCAIXA');
-    DMCAIXA.TLanCaixa.SQL.Add('where (lancaixa.tipogerador=' + #39 + 'ORDEMTRO' + #39 + ') AND (lancaixa.cod_gerador =:CODLANCA)');
-    DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString := DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
+    DMCAIXA.TLanCaixa.SQL.Add('where (lancaixa.tipogerador=' + #39 + 'ORDEMTRO'
+      + #39 + ') AND (lancaixa.cod_gerador =:CODLANCA)');
+    DMCAIXA.TLanCaixa.ParamByName('CODLANCA').AsString :=
+      DMCAIXA.TAlx.FieldByName('COD_CHEQUEREC').AsString;
     DMCAIXA.TLanCaixa.Open;
     DMCAIXA.TLanCaixa.First;
 
     //se o codigo de abertura do caixa autal for diferente do codigo de lançamento de caixa do pedido e este cheque foi movimentado em caixa faz o estorno
-    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <> FMenu.LABCAIXA.Caption = false then
+    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString <>
+      FMenu.LABCAIXA.Caption = false then
     begin //só faz o estorno se foi movimentado em caixa, caso contrário não faz estorno
-      LanCaixa(-1, DateToStr(Date()), DMCAIXA.TLanCaixa.fieldByName('COD_PLNCTAFIL').AsInteger, 'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'ORDEMTROEST', StrToInt(CodPedido), 'Carteira', 'S', 'EST' + DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
+      LanCaixa(-1, DateToStr(Date()),
+        DMCAIXA.TLanCaixa.fieldByName('COD_PLNCTAFIL').AsInteger,
+        'Cancel. fech. Ped. ' + DMServ.TOrd.FieldByName('NUMERO').AsString +
+        ' Cli. ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString,
+        DMCAIXA.TLanCaixa.FieldByName('VALOR').AsCurrency, 'ORDEMTROEST',
+        StrToInt(CodPedido), 'Carteira', 'S', 'EST' +
+        DMServ.TOrD.FieldByName('NUMERO').AsString, Date(), '1');
     end;
 
     //se o codigo de abertura de caixa atual for igual ao codigo de abertura de caixa do lançamento do pedido apaga os lançamentos
-    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString = FMenu.LABCAIXA.Caption then
+    if DMCAIXA.TLanCaixa.FieldByName('COD_ABCAIXA').AsString =
+      FMenu.LABCAIXA.Caption then
     begin
       while not DMCAIXA.TLanCaixa.Eof do
       begin
@@ -10255,28 +11526,40 @@ begin
   begin
     if XView.FieldByName('STATUS').AsString = 'ABERTO' then
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'PARA EFETUAR A IMPRESSÃO FISCAL O PEDIDO DEVE ESTAR FECHADO.' + #13 + 'Antes de fechar confira todas as informações do pedido.', '', 1, 1, False, 'a');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'PARA EFETUAR A IMPRESSÃO FISCAL O PEDIDO DEVE ESTAR FECHADO.' + #13 +
+        'Antes de fechar confira todas as informações do pedido.', '', 1, 1,
+          False,
+        'a');
       Exit;
     end;
-    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '') = True then
+    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      XView.FieldByName('COD_ORDEM').AsString, '') = True then
     begin
-      if Mensagem('A T E N Ç Ã O', 'DESEJA IMPRIMIR O DOCUMENTO FISCAL PARA O PEDIDO:' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('A T E N Ç Ã O',
+        'DESEJA IMPRIMIR O DOCUMENTO FISCAL PARA O PEDIDO:' + #13 + 'Nº ' +
+        XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2
+          then
       begin
-        FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA', FMenu.LCODCAIXA.Caption, '');
+        FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA',
+          FMenu.LCODCAIXA.Caption, '');
 
         if (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NF')
           or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe')
           or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFCe')
-          or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe-NFCe') then
+          or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe-NFCe')
+            then
         begin
           DMServ.TFiscOrd.Close;
           DMServ.TFiscOrd.SQL.Clear;
           DMServ.TFiscOrd.SQL.Add(' Select * from docfisord where docfisord.cod_ordem=:Codigo ');
-          DMServ.TFiscOrd.ParamByName('Codigo').AsInteger := XView.FieldByName('COD_ORDEM').AsInteger;
+          DMServ.TFiscOrd.ParamByName('Codigo').AsInteger :=
+            XView.FieldByName('COD_ORDEM').AsInteger;
           DMServ.TFiscOrd.Open;
           if not DMServ.TFiscOrd.IsEmpty then
           begin
-            if (DMServ.TFiscOrd.FieldByName('NFESTATUS').AsInteger = 1) or (DMServ.TFiscOrd.FieldByName('NFESTATUS').AsInteger = 3) then
+            if (DMServ.TFiscOrd.FieldByName('NFESTATUS').AsInteger = 1) or
+              (DMServ.TFiscOrd.FieldByName('NFESTATUS').AsInteger = 3) then
             begin
               //Se Documento Fiscal Enviado ou Cancelado
               MessageDlg('Esta O.S já gerou uma Nota Fiscal Eletrônica enviada e recebida pelo sefaz. Sendo assim não pode mais ser transmitida.', mtWarning, [mbOK], 0);
@@ -10286,38 +11569,55 @@ begin
 
           //REIMPRIME NOTA FISCAL
           FMenu.TIPOREL := 'RNF';
-          if MessageDlg('Impressora NF Pronta?', mtConfirmation, [mbYes, mbNo], 0) = mryes then
+          if MessageDlg('Impressora NF Pronta?', mtConfirmation, [mbYes, mbNo],
+            0) = mryes then
           begin
             FMenu.TIPOREL := 'NF';
             AbreFiscal;
-            Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+            Registra('ORDEM DE SERVIÇO', 'NF',
+              XView.FieldByName('dtabert').AsString, 'Nº ' +
+              XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+              XView.FieldByName('total').AsString);
           end;
         end;
         // - 13/03/2009: add para impressoa de cupom fiscal
         if DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF' then
         begin
-          if Mensagem('A T E N Ç Ã O', 'IMPRIMIR ECF PARA A ORDEM Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+          if Mensagem('A T E N Ç Ã O', 'IMPRIMIR ECF PARA A ORDEM Nº ' +
+            XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2
+              then
           begin
             // - 13/03/2009: Imprime Cupom Fiscal
-            if ECF(XView.Fieldbyname('COD_ORDEM').AsInteger, 'ORDEM') = True then
+            if ECF(XView.Fieldbyname('COD_ORDEM').AsInteger, 'ORDEM') = True
+              then
             begin
               /// - 13/03/2009: REGISTRA COMANDO DO USUARIO
-              Registra('ORDEM DE SERVIÇO', 'ECF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+              Registra('ORDEM DE SERVIÇO', 'ECF',
+                XView.FieldByName('dtabert').AsString, 'Nº ' +
+                XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+                XView.FieldByName('total').AsString);
             end;
           end;
           // - 13/03/2009: se em caixa estiver configurado para emitir NF apos ECF
           if DMCAIXA.TCaixa.FieldByName('EMITNF').AsString = '1' then
           begin
-            if Mensagem('A T E N Ç Ã O', 'Deseja Imprimir Nota Fiscal para o pedido' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+            if Mensagem('A T E N Ç Ã O',
+              'Deseja Imprimir Nota Fiscal para o pedido' + #13 + 'Nº ' +
+              XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c')
+                = 2 then
             begin
               FMenu.TIPOREL := 'RNF';
               //Imprime NOTA Fiscal
-              if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2, 3, False, 'c') = 2 then
+              if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?',
+                '', 2, 3, False, 'c') = 2 then
               begin
                 if NFOS(XView.Fieldbyname('COD_ORDEM').AsInteger) = True then
                 begin
                   //REGISTRA COMANDO DO USUARIO
-                  Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+                  Registra('ORDEM DE SERVIÇO', 'NF',
+                    XView.FieldByName('dtabert').AsString, 'Nº ' +
+                    XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+                    XView.FieldByName('total').AsString);
                 end;
               end;
             end;
@@ -10339,7 +11639,10 @@ begin
   DMServ.Alx.Close;
   DMServ.Alx.SQL.Clear;
   DMServ.Alx.SQL.Add('select count(ordem.cod_ordem) as TOTAL from ordem where (ordem.exp = ' + #39 + 'X' + #39 + ')');
-  DMServ.Alx.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 + ') and ((ordem.exportado = ' + #39 + '' + #39 + ') or (ordem.exportado is null) or (ordem.exportado = ' + #39 + '#' + #39 + '))  and (ordem.exp = ' + #39 + 'X' + #39 + ')');
+  DMServ.Alx.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 +
+    ') and ((ordem.exportado = ' + #39 + '' + #39 +
+    ') or (ordem.exportado is null) or (ordem.exportado = ' + #39 + '#' + #39 +
+    '))  and (ordem.exp = ' + #39 + 'X' + #39 + ')');
   DMServ.Alx.Open;
 
   // VERIFICA SE EXISTE NO MINIMO UMA ORDEM FILTRADA
@@ -10351,10 +11654,15 @@ begin
       // COMO VAI SER UMA UNICA ORDEM A SER EXPORTADA, EH FEITO ESSA SQL PARA BUSCAR O "NUMERO" QUE SERA EXIBIDO NA MENSAGEM
       DMServ.TOrd.Close;
       DMServ.TOrd.SQL.Clear;
-      DMServ.TOrd.SQL.Add('select * from ordem where (ordem.exp = ' + #39 + 'X' + #39 + ')');
+      DMServ.TOrd.SQL.Add('select * from ordem where (ordem.exp = ' + #39 + 'X'
+        + #39 + ')');
       DMServ.TOrd.Open;
 
-      if Mensagem('Exportação de Ordem de Serviço', 'Deseja realmente exporta a Ordem de Serviço nº' + DMServ.TOrd.FieldByname('NUMERO').AsString + ' ?', '', 2, 3, false, 'I') = 2 then
+      if Mensagem('Exportação de Ordem de Serviço',
+        'Deseja realmente exporta a Ordem de Serviço nº' +
+        DMServ.TOrd.FieldByname('NUMERO').AsString + ' ?', '', 2, 3, false, 'I')
+          =
+        2 then
       begin
         // exporta as ordens de servico selecionadas para outro banco, gerando novas ordens com os mesmos produtos, servicos, funcionario, equipe, etc
         Exporta_OrdensServico;
@@ -10366,7 +11674,10 @@ begin
     end
     else
     begin
-      if Mensagem('Exportação de Ordem de Serviço', 'Deseja realmente exportar as ' + DMServ.Alx.FieldByName('TOTAL').AsString + ' Ordens de Serviço selecionadas ?', '', 2, 2, false, 'I') = 2 then
+      if Mensagem('Exportação de Ordem de Serviço',
+        'Deseja realmente exportar as ' +
+          DMServ.Alx.FieldByName('TOTAL').AsString
+        + ' Ordens de Serviço selecionadas ?', '', 2, 2, false, 'I') = 2 then
       begin
         // exporta as ordens de servico selecionadas para outro banco, gerando novas ordens com os mesmos produtos, servicos, funcionario, equipe, etc
         Exporta_OrdensServico;
@@ -10380,7 +11691,8 @@ begin
   end
   else
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'Não há Ordem de Serviço aberta para exportação', '', 1, 1, false, 'A');
+    Mensagem('   A T E N Ç Ã O   ',
+      'Não há Ordem de Serviço aberta para exportação', '', 1, 1, false, 'A');
   end;
 end;
 
@@ -10388,7 +11700,8 @@ end;
 
 procedure TFOrdemMec.Exporta_OrdensServico;
 var
-  XCOD_ORDEM, XCOD_SUBPRODUTO, XCOD_ESTOQUE, XCOD_PRODUTO, XCOD_GRUPO, XCOD_SUBGRUPO, XCOD_CST, XCOD_AUX: INTEGER;
+  XCOD_ORDEM, XCOD_SUBPRODUTO, XCOD_ESTOQUE, XCOD_PRODUTO, XCOD_GRUPO,
+    XCOD_SUBGRUPO, XCOD_CST, XCOD_AUX: INTEGER;
 begin
 
   try
@@ -10415,7 +11728,8 @@ begin
       //SQL PARA INDICAR NA EMPRESA QUE ESTA SENDO EXPORTADO ORDENS
       DMEXPORTA.Alx.Close;
       DMEXPORTA.Alx.SQL.Clear;
-      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '1' + #39);
+      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '1'
+        + #39);
       DMEXPORTA.Alx.ExecSQL;
       DMEXPORTA.IBTExporta.CommitRetaining;
 
@@ -10427,7 +11741,8 @@ begin
       DMServ.Alx.Close;
       DMServ.Alx.SQL.Clear;
       DMServ.Alx.SQL.Add('select count(ordem.cod_ordem) as REGISTRO FROM ordem where (ordem.exp = ' + #39 + 'X' + #39 + ')');
-      DMServ.Alx.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 + ')'); //and ((ordem.exportado = ' + #39 + '' + #39 +') or (ordem.exportado is null)) and (ordem.exp = ' + #39 + '#' + #39 + ')');
+      DMServ.Alx.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 + ')');
+      //and ((ordem.exportado = ' + #39 + '' + #39 +') or (ordem.exportado is null)) and (ordem.exp = ' + #39 + '#' + #39 + ')');
       DMServ.Alx.Open;
       {If DMServ.Alx.FieldByName('REGISTRO').AsInteger > 1
       Then Begin
@@ -10441,8 +11756,10 @@ begin
    // seleciona no banco local todas as ordens de serviço que fram selecionadas e que ainda nao foram exportadas - banco local
       DMServ.TOrd.Close;
       DMServ.TOrd.SQL.Clear;
-      DMServ.TOrd.SQL.Add('select * from ordem where (ordem.exp = ' + #39 + 'X' + #39 + ')');
-      DMServ.TOrd.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 + ')'); //and ((ordem.exportado = ' + #39 + '' + #39 +') or (ordem.exportado is null)) and (ordem.exp = ' + #39 + '#' + #39 + ')');
+      DMServ.TOrd.SQL.Add('select * from ordem where (ordem.exp = ' + #39 + 'X'
+        + #39 + ')');
+      DMServ.TOrd.SQL.Add('and (ordem.status = ' + #39 + 'ABERTO' + #39 + ')');
+      //and ((ordem.exportado = ' + #39 + '' + #39 +') or (ordem.exportado is null)) and (ordem.exp = ' + #39 + '#' + #39 + ')');
       DMServ.TOrd.Open;
 
       // seleciona o numero de produtos na ordem de servico para servir de base para Barra de Progressão
@@ -10450,14 +11767,18 @@ begin
       DMSAIDA.TAlx.SQL.Clear;
       DMSAIDA.TAlx.SQL.Add('select count(itprodord.cod_itprodord) as TOTAL_PROD from itprodord');
       DMSAIDA.TAlx.SQL.Add('left join ordem on itprodord.cod_ordem = ordem.cod_ordem');
-      DMSAIDA.TAlx.SQL.Add('where ((ordem.exportado = ' + #39 + '' + #39 + ') OR (ORDEM.EXPORTADO IS NULL)) and (ordem.exp = ' + #39 + 'X' + #39 + ')');
+      DMSAIDA.TAlx.SQL.Add('where ((ordem.exportado = ' + #39 + '' + #39 +
+        ') OR (ORDEM.EXPORTADO IS NULL)) and (ordem.exp = ' + #39 + 'X' + #39 +
+        ')');
       DMSAIDA.TAlx.Open;
       // seleciona o numero de servico na ordem para servir de base para barra de prograessao
       DMServ.TAlx1.Close;
       DMServ.TAlx1.SQL.Clear;
       DMServ.TAlx1.SQL.Add('select count(despadic.cod_despadic) as TOTAL_SERV from despadic');
       DMServ.TAlx1.SQL.Add('left join ordem on despadic.cod_gerador = ordem.cod_ordem');
-      DMServ.TAlx1.SQL.Add('where ((ordem.exportado = ' + #39 + '' + #39 + ') OR (ORDEM.EXPORTADO IS NULL)) and (ordem.exp = ' + #39 + 'X' + #39 + ')');
+      DMServ.TAlx1.SQL.Add('where ((ordem.exportado = ' + #39 + '' + #39 +
+        ') OR (ORDEM.EXPORTADO IS NULL)) and (ordem.exp = ' + #39 + 'X' + #39 +
+        ')');
       DMServ.TAlx1.Open;
 
       // dados do componente ProgreeBar
@@ -10483,7 +11804,8 @@ begin
       DMEXPORTA.Alx.Open;
       XCOD_ESTOQUE := DMEXPORTA.Alx.FieldByName('codigo').AsInteger + 1;
       DMEXPORTA.TCodigo.Edit;
-      DMEXPORTA.TCodigo.FieldByName('cod_subproduto').AsInteger := XCOD_SUBPRODUTO;
+      DMEXPORTA.TCodigo.FieldByName('cod_subproduto').AsInteger :=
+        XCOD_SUBPRODUTO;
       DMEXPORTA.TCodigo.FieldByName('cod_estoque').AsInteger := XCOD_ESTOQUE;
       DMEXPORTA.TCodigo.Post;
 
@@ -10496,20 +11818,25 @@ begin
         DMPESSOA.WCliente.Close;
         DMPESSOA.WCliente.SQL.Clear;
         DMPESSOA.WCliente.SQL.Add(' select * FROM vwcliente WHERE vwcliente.cod_cliente=:CODIGO ');
-        DMPESSOA.WCliente.ParamByName('CODIGO').AsInteger := DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
+        DMPESSOA.WCliente.ParamByName('CODIGO').AsInteger :=
+          DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger;
         DMPESSOA.WCliente.Open;
-        if ValidaCGC(DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString) = False then
+        if ValidaCGC(DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString) = False
+          then
         begin
-          if ValidCPF(DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString) = False then
+          if ValidCPF(DMPESSOA.WCliente.FieldByName('CPFCNPJ').AsString) = False
+            then
           begin
-            MessageDlg('O Cliente não possui CPF/CNPJ Válido.' + #13 + #10 + 'A ordem não será exportada', mtWarning, [mbOK], 0);
+            MessageDlg('O Cliente não possui CPF/CNPJ Válido.' + #13 + #10 +
+              'A ordem não será exportada', mtWarning, [mbOK], 0);
             PExp.Visible := FALSE;
             PExp.SendToBack;
             exit;
           end;
         end;
         XContador := XContador + 1;
-        LBCONEXAO.Caption := 'Enviando Ordem (' + IntToStr(XContador) + '/' + IntToStr(PBExport.Max) + ') ... ';
+        LBCONEXAO.Caption := 'Enviando Ordem (' + IntToStr(XContador) + '/' +
+          IntToStr(PBExport.Max) + ') ... ';
         PBExport.Position := XContador;
         PExp.Refresh;
 
@@ -10539,41 +11866,70 @@ begin
           DMEXPORTA.TOrd.SQL.Add(':TOTORD, :COD_LOJA, :COD_FORMPAG, :COMISSAO, :GARANTIA,');
           DMEXPORTA.TOrd.SQL.Add(':TOTDESP, :COMSOBVENDA, :DTFECH, :DESCPROD, :DESCSERV, :FISCO, :NUMFISCAL, :TIPOPAG, :BOX, :EXP, :EXPORTADO, :TOTKM)');
           // verifica se o cliente esta cadastrado no banco, se nao tiver jah cadastra na hora
-          DMEXPORTA.TOrd.ParamByName('COD_CLIENTE').AsInteger := VerificaCliente(DMServ.TOrd.FieldByname('COD_CLIENTE').AsInteger);
+          DMEXPORTA.TOrd.ParamByName('COD_CLIENTE').AsInteger :=
+            VerificaCliente(DMServ.TOrd.FieldByname('COD_CLIENTE').AsInteger);
           // VERIFICA SE NO BANCO DE FORA ESTAH CADASTRADO O EQUIPAMENTO DA ORDEM, SE NAO TIVER JAH CADASTRA
-          DMEXPORTA.TOrd.ParamByName('COD_EQUIPAMENTO').AsInteger := VerificaEquipamento(DMServ.TOrd.FieldByname('cod_equipamento').AsString);
+          DMEXPORTA.TOrd.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+            VerificaEquipamento(DMServ.TOrd.FieldByname('cod_equipamento').AsString);
           // verifica se jah existe o funcionario no banco de fora, e se nao estiver jah cadastra na hora
-          DMEXPORTA.TOrd.ParamByName('COD_VENDEDOR').AsInteger := VerificaFuncionario('VENDEDOR', DMServ.TOrd.FieldByName('COD_VENDEDOR').AsString);
-          DMEXPORTA.TOrd.ParamByName('DTABERT').AsDate := DMServ.TOrd.FieldByName('DTABERT').AsDateTime;
-          DMEXPORTA.TOrd.ParamByName('HRABERT').AsTime := DMServ.TOrd.FieldByName('HRABERT').AsDateTime;
+          DMEXPORTA.TOrd.ParamByName('COD_VENDEDOR').AsInteger :=
+            VerificaFuncionario('VENDEDOR',
+            DMServ.TOrd.FieldByName('COD_VENDEDOR').AsString);
+          DMEXPORTA.TOrd.ParamByName('DTABERT').AsDate :=
+            DMServ.TOrd.FieldByName('DTABERT').AsDateTime;
+          DMEXPORTA.TOrd.ParamByName('HRABERT').AsTime :=
+            DMServ.TOrd.FieldByName('HRABERT').AsDateTime;
           // verifica se jah existe o funcionario no banco de fora, e se nao estiver jah cadastra na hora
-          DMEXPORTA.TOrd.ParamByName('COD_FUNCIONARIO').AsInteger := VerificaFuncionario('FUNCIONARIO', DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsString);
-          DMEXPORTA.TOrd.ParamByName('OBSERVACAO').AsString := DMServ.TOrd.FieldByName('OBSERVACAO').AsString;
+          DMEXPORTA.TOrd.ParamByName('COD_FUNCIONARIO').AsInteger :=
+            VerificaFuncionario('FUNCIONARIO',
+            DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsString);
+          DMEXPORTA.TOrd.ParamByName('OBSERVACAO').AsString :=
+            DMServ.TOrd.FieldByName('OBSERVACAO').AsString;
           DMEXPORTA.TOrd.ParamByName('STATUS').AsString := 'ABERTO';
-          DMEXPORTA.TOrd.ParamByName('NUMERO').AsString := DMServ.TOrd.FieldByName('NUMERO').AsString;
-          DMEXPORTA.TOrd.ParamByName('TOTKM').AsString := DMServ.TOrd.FieldByName('TOTKM').AsString;
-          DMEXPORTA.TOrd.ParamByName('DESCONTO').AsCurrency := DMServ.TOrd.FieldByName('DESCONTO').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('NUMERO').AsString :=
+            DMServ.TOrd.FieldByName('NUMERO').AsString;
+          DMEXPORTA.TOrd.ParamByName('TOTKM').AsString :=
+            DMServ.TOrd.FieldByName('TOTKM').AsString;
+          DMEXPORTA.TOrd.ParamByName('DESCONTO').AsCurrency :=
+            DMServ.TOrd.FieldByName('DESCONTO').AsCurrency;
           // passando o parametro "USUARIO" a função irah retornar o codigo de usuario do banco de fora, e nao o cod_funcionario
-          DMEXPORTA.TOrd.ParamByName('COD_USUARIO').AsInteger := -1; //VerificaFuncionario('USUARIO',DMServ.TOrd.FieldByName('COD_USUARIO').AsString);
-          DMEXPORTA.TOrd.ParamByName('TOTPROD').AsCurrency := DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('TOTSERV').AsCurrency := DMServ.TOrd.FieldByName('TOTSERV').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('TOTORD').AsCurrency := DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('COD_LOJA').AsInteger := DMServ.TOrd.FieldByName('COD_LOJA').AsInteger;
+          DMEXPORTA.TOrd.ParamByName('COD_USUARIO').AsInteger := -1;
+          //VerificaFuncionario('USUARIO',DMServ.TOrd.FieldByName('COD_USUARIO').AsString);
+          DMEXPORTA.TOrd.ParamByName('TOTPROD').AsCurrency :=
+            DMServ.TOrd.FieldByName('TOTPROD').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('TOTSERV').AsCurrency :=
+            DMServ.TOrd.FieldByName('TOTSERV').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('TOTORD').AsCurrency :=
+            DMServ.TOrd.FieldByName('TOTORD').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('COD_LOJA').AsInteger :=
+            DMServ.TOrd.FieldByName('COD_LOJA').AsInteger;
           DMServ.TOrd.FieldByName('COD_FORMPAG').AsInteger;
           // busca forma de pagamento, se necessario cadastra a nova forma
-          DMEXPORTA.TOrd.ParamByName('COD_FORMPAG').AsInteger := Forma_Pagamento;
-          DMEXPORTA.TOrd.ParamByName('COMISSAO').AsCurrency := DMServ.TOrd.FieldByName('COMISSAO').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('GARANTIA').AsString := DMServ.TOrd.FieldByName('GARANTIA').AsString;
-          DMEXPORTA.TOrd.ParamByName('TOTDESP').AsCurrency := DMServ.TOrd.FieldByName('TOTDESP').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('COMSOBVENDA').AsString := DMServ.TOrd.FieldByName('COMSOBVENDA').AsString;
+          DMEXPORTA.TOrd.ParamByName('COD_FORMPAG').AsInteger :=
+            Forma_Pagamento;
+          DMEXPORTA.TOrd.ParamByName('COMISSAO').AsCurrency :=
+            DMServ.TOrd.FieldByName('COMISSAO').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('GARANTIA').AsString :=
+            DMServ.TOrd.FieldByName('GARANTIA').AsString;
+          DMEXPORTA.TOrd.ParamByName('TOTDESP').AsCurrency :=
+            DMServ.TOrd.FieldByName('TOTDESP').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('COMSOBVENDA').AsString :=
+            DMServ.TOrd.FieldByName('COMSOBVENDA').AsString;
           if DMServ.TOrd.FieldByName('DTFECH').AsString <> '' then
-            DMEXPORTA.TOrd.ParamByName('DTFECH').AsDate := DMServ.TOrd.FieldByName('DTFECH').AsDateTime;
-          DMEXPORTA.TOrd.ParamByName('DESCPROD').AsCurrency := DMServ.TOrd.FieldByName('DESCPROD').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('DESCSERV').AsCurrency := DMServ.TOrd.FieldByName('DESCSERV').AsCurrency;
-          DMEXPORTA.TOrd.ParamByName('FISCO').AsString := DMServ.TOrd.FieldByName('FISCO').AsString;
-          DMEXPORTA.TOrd.ParamByName('NUMFISCAL').AsString := DMServ.TOrd.FieldByName('NUMFISCAL').AsString;
-          DMEXPORTA.TOrd.ParamByName('TIPOPAG').AsString := DMServ.TOrd.FieldByName('TIPOPAG').AsString;
-          DMEXPORTA.TOrd.ParamByName('BOX').AsString := DMServ.TOrd.FieldByName('BOX').AsString;
+            DMEXPORTA.TOrd.ParamByName('DTFECH').AsDate :=
+              DMServ.TOrd.FieldByName('DTFECH').AsDateTime;
+          DMEXPORTA.TOrd.ParamByName('DESCPROD').AsCurrency :=
+            DMServ.TOrd.FieldByName('DESCPROD').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('DESCSERV').AsCurrency :=
+            DMServ.TOrd.FieldByName('DESCSERV').AsCurrency;
+          DMEXPORTA.TOrd.ParamByName('FISCO').AsString :=
+            DMServ.TOrd.FieldByName('FISCO').AsString;
+          DMEXPORTA.TOrd.ParamByName('NUMFISCAL').AsString :=
+            DMServ.TOrd.FieldByName('NUMFISCAL').AsString;
+          DMEXPORTA.TOrd.ParamByName('TIPOPAG').AsString :=
+            DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+          DMEXPORTA.TOrd.ParamByName('BOX').AsString :=
+            DMServ.TOrd.FieldByName('BOX').AsString;
           DMEXPORTA.TOrd.ParamByName('EXP').AsString := '';
           DMEXPORTA.TOrd.ParamByName('EXPORTADO').AsString := '';
           DMEXPORTA.TOrd.ExecSQL;
@@ -10585,7 +11941,8 @@ begin
         DMServ.TPOrd.Close;
         DMServ.TPOrd.SQL.Clear;
         DMServ.TPOrd.SQL.Add('select * from itprodord where itprodord.cod_ordem = :codigo');
-        DMServ.TPOrd.ParamByName('codigo').AsInteger := DMServ.TOrd.FieldByname('cod_ordem').AsInteger;
+        DMServ.TPOrd.ParamByName('codigo').AsInteger :=
+          DMServ.TOrd.FieldByname('cod_ordem').AsInteger;
         DMServ.TPOrd.Open;
 
         // primeiro registro da lista de subprodutos
@@ -10605,14 +11962,16 @@ begin
           DMESTOQUE.TEstoque.Close;
           DMESTOQUE.TEstoque.SQL.Clear;
           DMESTOQUE.TEstoque.SQL.Add('select * from estoque where estoque.cod_estoque = :codigo');
-          DMESTOQUE.TEstoque.ParamByName('codigo').AsInteger := DMServ.TPOrd.FieldByname('cod_estoque').AsInteger;
+          DMESTOQUE.TEstoque.ParamByName('codigo').AsInteger :=
+            DMServ.TPOrd.FieldByname('cod_estoque').AsInteger;
           DMESTOQUE.TEstoque.Open;
 
           // seleciona dados da tabela subproduto que tenha o mesmo codigo de subproduto que a tabela estoque - banco local
           DMESTOQUE.TSubProd.Close;
           DMESTOQUE.TSubProd.SQL.Clear;
           DMESTOQUE.TSubProd.SQL.Add('select * from subproduto where subproduto.cod_subproduto = :codigo');
-          DMESTOQUE.TSubProd.ParamByName('codigo').AsInteger := DMESTOQUE.TEstoque.FieldByname('cod_subprod').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('codigo').AsInteger :=
+            DMESTOQUE.TEstoque.FieldByname('cod_subprod').AsInteger;
           DMESTOQUE.TSubProd.Open;
 
           // verifica se no banco de fora existe o mesmo subproduto
@@ -10620,14 +11979,16 @@ begin
           DMEXPORTA.TSubProd.SQL.Clear;
           DMEXPORTA.TSubProd.SQL.Add('select * from subproduto');
           DMEXPORTA.TSubProd.SQL.Add('WHERE subproduto.CONTRINT = :codigo');
-          DMEXPORTA.TSubProd.ParamByName('CODIGO').AsString := DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString;
+          DMEXPORTA.TSubProd.ParamByName('CODIGO').AsString :=
+            DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString;
           DMEXPORTA.TSubProd.Open;
 
           // seleciona todos os dados da tabela estoque que tenha o mesmo codigo de subproduto
           DMEXPORTA.TEstoque.Close;
           DMEXPORTA.TEstoque.SQL.Clear;
           DMEXPORTA.TEstoque.SQL.Add('select * from estoque where estoque.cod_subprod = :codigo ');
-          DMEXPORTA.TEstoque.ParamByName('codigo').AsString := DMEXPORTA.TSubProd.FieldByName('cod_subproduto').AsString;
+          DMEXPORTA.TEstoque.ParamByName('codigo').AsString :=
+            DMEXPORTA.TSubProd.FieldByName('cod_subproduto').AsString;
           DMEXPORTA.TEstoque.Open;
 
           try
@@ -10635,8 +11996,10 @@ begin
             if DMEXPORTA.TSubProd.IsEmpty then
             begin
               //Verificamos se o código do subproduto já existe
-              XCOD_SUBPRODUTO := DMEXPORTA.TCodigo.FieldByname('cod_subproduto').AsInteger;
-              if FiltraTabela(DMEXPORTA.Alx, 'SUBPRODUTO', 'COD_SUBPRODUTO', Inttostr(XCOD_SUBPRODUTO), '') then
+              XCOD_SUBPRODUTO :=
+                DMEXPORTA.TCodigo.FieldByname('cod_subproduto').AsInteger;
+              if FiltraTabela(DMEXPORTA.Alx, 'SUBPRODUTO', 'COD_SUBPRODUTO',
+                Inttostr(XCOD_SUBPRODUTO), '') then
               begin
                 XCOD_SUBPRODUTO := XCOD_SUBPRODUTO + 10;
               end;
@@ -10658,11 +12021,15 @@ begin
               DMEXPORTA.TSubProd.SQL.Add(':SAFRA, :COD_UNIDCOMPRA, :COD_UNIDVENDA, :COD_CST, :DTCAD, :CODEAN1,');
               DMEXPORTA.TSubProd.SQL.Add(':CONTRINT, :COR, :CLASSIFICACAO, :DESCCUPOM, :NCM, :OBSFISCAL, :COMPOSICAO,');
               DMEXPORTA.TSubProd.SQL.Add(':ALTURA, :LARGURA, :ESPECIFICACAO, :MARK, :BALANCA, :ANVISA, :MINSAUDE)');
-              DMEXPORTA.TSubProd.ParamByName('cod_subproduto').AsInteger := XCOD_SUBPRODUTO;
-              XCOD_SUBPRODUTO := DMEXPORTA.TCodigo.FieldByname('cod_subproduto').AsInteger;
+              DMEXPORTA.TSubProd.ParamByName('cod_subproduto').AsInteger :=
+                XCOD_SUBPRODUTO;
+              XCOD_SUBPRODUTO :=
+                DMEXPORTA.TCodigo.FieldByname('cod_subproduto').AsInteger;
 
-              XCOD_ESTOQUE := DMEXPORTA.TCodigo.FieldByname('cod_estoque').AsInteger;
-              if FiltraTabela(DMEXPORTA.Alx, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(XCOD_ESTOQUE), '') then
+              XCOD_ESTOQUE :=
+                DMEXPORTA.TCodigo.FieldByname('cod_estoque').AsInteger;
+              if FiltraTabela(DMEXPORTA.Alx, 'ESTOQUE', 'COD_ESTOQUE',
+                IntToStr(XCOD_ESTOQUE), '') then
               begin
                 XCOD_ESTOQUE := XCOD_ESTOQUE + 10;
               end;
@@ -10689,16 +12056,21 @@ begin
               DMEXPORTA.TEstoque.SQL.Add(':MOD, :IMPEXP, :IMPREND, :CONTSOC, :COFINS, :PIS, :MARGEMSEG, :PERCMARGSEG,');
               DMEXPORTA.TEstoque.SQL.Add(':REDUCBASE, :VLRCOMPSD, :ACRECIMO, :ESTCALC, :DATAATU, :HORAATU, :PRECOOFERTA,');
               DMEXPORTA.TEstoque.SQL.Add(':DATAOFERTA, :VENCIMENTOOFERTA)');
-              DMEXPORTA.TEstoque.ParamByName('cod_estoque').AsInteger := XCOD_ESTOQUE;
-              XCOD_ESTOQUE := DMEXPORTA.TCodigo.FieldByname('cod_estoque').AsInteger;
+              DMEXPORTA.TEstoque.ParamByName('cod_estoque').AsInteger :=
+                XCOD_ESTOQUE;
+              XCOD_ESTOQUE :=
+                DMEXPORTA.TCodigo.FieldByname('cod_estoque').AsInteger;
               DMEXPORTA.TCodigo.Edit;
-              DMEXPORTA.TCodigo.FieldByName('cod_subproduto').AsInteger := DMEXPORTA.TCodigo.fieldByName('cod_subproduto').AsInteger + 1;
-              DMEXPORTA.TCodigo.FieldByName('cod_estoque').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_estoque').AsInteger + 1;
+              DMEXPORTA.TCodigo.FieldByName('cod_subproduto').AsInteger :=
+                DMEXPORTA.TCodigo.fieldByName('cod_subproduto').AsInteger + 1;
+              DMEXPORTA.TCodigo.FieldByName('cod_estoque').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByName('cod_estoque').AsInteger + 1;
               DMEXPORTA.TCodigo.Post;
             end
             else
             begin
-              XCOD_SUBPRODUTO := DMEXPORTA.TSubProd.FieldByname('cod_subproduto').AsInteger;
+              XCOD_SUBPRODUTO :=
+                DMEXPORTA.TSubProd.FieldByname('cod_subproduto').AsInteger;
               DMEXPORTA.TSubProd.Close;
               DMEXPORTA.TSubProd.SQL.Clear;
               DMEXPORTA.TSubProd.SQL.Add('update SUBPRODUTO set');
@@ -10710,8 +12082,10 @@ begin
               DMEXPORTA.TSubProd.SQL.Add('CLASSIFICACAO = :CLASSIFICACAO, DESCCUPOM = :DESCCUPOM, NCM = :NCM, OBSFISCAL = :OBSFISCAL, COMPOSICAO = :COMPOSICAO, ALTURA = :ALTURA,');
               DMEXPORTA.TSubProd.SQL.Add('LARGURA = :LARGURA, ESPECIFICACAO = :ESPECIFICACAO, MARK = :MARK, BALANCA = :BALANCA, ANVISA = :ANVISA, MINSAUDE = :MINSAUDE');
               DMEXPORTA.TSubProd.SQL.Add('where COD_SUBPRODUTO = :OLD_COD_SUBPRODUTO');
-              DMEXPORTA.TSubProd.ParamByName('OLD_COD_SUBPRODUTO').AsInteger := XCOD_SUBPRODUTO;
-              XCOD_ESTOQUE := DMEXPORTA.TEstoque.FieldByname('cod_estoque').AsInteger;
+              DMEXPORTA.TSubProd.ParamByName('OLD_COD_SUBPRODUTO').AsInteger :=
+                XCOD_SUBPRODUTO;
+              XCOD_ESTOQUE :=
+                DMEXPORTA.TEstoque.FieldByname('cod_estoque').AsInteger;
               DMEXPORTA.TEstoque.Close;
               DMEXPORTA.TEstoque.SQL.Clear;
               DMEXPORTA.TEstoque.SQL.Add('update ESTOQUE set');
@@ -10737,20 +12111,30 @@ begin
               DMEXPORTA.TEstoque.SQL.Add('DATAATU = :DATAATU, HORAATU = :HORAATU, PRECOOFERTA = :PRECOOFERTA,');
               DMEXPORTA.TEstoque.SQL.Add('DATAOFERTA = :DATAOFERTA,VENCIMENTOOFERTA = :VENCIMENTOOFERTA');
               DMEXPORTA.TEstoque.SQL.Add('where COD_ESTOQUE = :OLD_COD_ESTOQUE');
-              DMEXPORTA.TEstoque.ParamByName('OLD_COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
+              DMEXPORTA.TEstoque.ParamByName('OLD_COD_ESTOQUE').AsInteger :=
+                XCOD_ESTOQUE;
             end;
 
             // seleciona dados da tabela produto que tenha o mesmo codigo que a tabela subproduto - banco local
             DMESTOQUE.TProduto.Close;
             DMESTOQUE.TProduto.SQL.Clear;
             DMESTOQUE.TProduto.SQL.Add('select * from produto where produto.cod_produto = :codigo');
-            DMESTOQUE.TProduto.ParamByName('codigo').AsInteger := DMESTOQUE.TSubProd.FieldByname('cod_produto').AsInteger;
+            DMESTOQUE.TProduto.ParamByName('codigo').AsInteger :=
+              DMESTOQUE.TSubProd.FieldByname('cod_produto').AsInteger;
             DMESTOQUE.TProduto.Open;
 
             // seleciona o produto que tenha a mesma descricao que o banco local - banco de fora
             if DMESTOQUE.TProduto.FieldByName('descricao').AsString = '' then
             begin
-              MessageDlg('O SubProduto: ' + DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString + #13 + #10 + 'Controle Interno: ' + DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString + #13 + #10 + '' + #13 + #10 + 'Foi Inserido sem estar lincado ao produto correto. Verifique por favor', mtWarning, [mbOK], 0);
+              MessageDlg('O SubProduto: ' +
+                DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString + #13 + #10
+                  +
+                'Controle Interno: ' +
+                DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString + #13 + #10
+                  +
+                '' + #13 + #10 +
+                'Foi Inserido sem estar lincado ao produto correto. Verifique por favor',
+                mtWarning, [mbOK], 0);
               DMEXPORTA.TProduto.Close;
               DMEXPORTA.TProduto.SQL.Clear;
               DMEXPORTA.TProduto.SQL.Add('select * from produto ');
@@ -10764,7 +12148,11 @@ begin
                 DMEXPORTA.TProduto.SQL.Add('select * from produto where (upper(produto.descricao) = upper(' + #39 + DMESTOQUE.TProduto.FieldByName('descricao').AsString + #39 + '))');
                 DMEXPORTA.TProduto.Open;
               except
-                MessageDlg('O nome do Produto:' + #13 + #10 + 'Apresenta alguma irregularidade, verifique o uso de apóstrofes no nome, caso exista, procure removê-lo  e tentar novamente.' + #13 + #10 + '' + #13 + #10 + 'Antes verifique vestigios de exportação desta ordem na outra base.', mtWarning, [mbOK], 0);
+                MessageDlg('O nome do Produto:' + #13 + #10 +
+                  'Apresenta alguma irregularidade, verifique o uso de apóstrofes no nome, caso exista, procure removê-lo  e tentar novamente.' + #13
+                  + #10 + '' + #13 + #10 +
+                  'Antes verifique vestigios de exportação desta ordem na outra base.',
+                  mtWarning, [mbOK], 0);
               end;
             end;
             if DMEXPORTA.TProduto.IsEmpty then
@@ -10779,15 +12167,19 @@ begin
               DMEXPORTA.TProduto.SQL.Add('(:COD_PRODUTO, :COD_INTERNO, :DESCRICAO, :APLICACAO, :COD_SUBGRUPOPROD,');
               DMEXPORTA.TProduto.SQL.Add(':COD_GRUPOPROD, :COD_CST, :COD_LOJA, :VENDVISTA, :VENDPRAZO, :CUSTOVENDA,');
               DMEXPORTA.TProduto.SQL.Add(':COMPVISTA, :COMPPRAZO, :QTDCOMP, :QTDVEND)');
-              DMEXPORTA.TProduto.ParamByName('cod_produto').AsInteger := DMEXPORTA.TCodigo.FieldByname('cod_produto').AsInteger;
-              XCOD_PRODUTO := DMEXPORTA.TCodigo.FieldByname('cod_produto').AsInteger;
+              DMEXPORTA.TProduto.ParamByName('cod_produto').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByname('cod_produto').AsInteger;
+              XCOD_PRODUTO :=
+                DMEXPORTA.TCodigo.FieldByname('cod_produto').AsInteger;
               DMEXPORTA.TCodigo.Edit;
-              DMEXPORTA.TCodigo.FieldByName('cod_produto').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_produto').AsInteger + 1;
+              DMEXPORTA.TCodigo.FieldByName('cod_produto').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByName('cod_produto').AsInteger + 1;
               DMEXPORTA.TCodigo.Post;
             end
             else
             begin
-              XCOD_PRODUTO := DMEXPORTA.TProduto.FieldByname('cod_produto').AsInteger;
+              XCOD_PRODUTO :=
+                DMEXPORTA.TProduto.FieldByname('cod_produto').AsInteger;
               DMEXPORTA.TProduto.Close;
               DMEXPORTA.TProduto.SQL.Clear;
               DMEXPORTA.TProduto.SQL.Add('update PRODUTO set');
@@ -10795,14 +12187,16 @@ begin
               DMEXPORTA.TProduto.SQL.Add('COD_GRUPOPROD = :COD_GRUPOPROD, COD_CST = :COD_CST, COD_LOJA = :COD_LOJA,VENDVISTA = :VENDVISTA,');
               DMEXPORTA.TProduto.SQL.Add('VENDPRAZO = :VENDPRAZO,CUSTOVENDA = :CUSTOVENDA,COMPVISTA = :COMPVISTA,COMPPRAZO = :COMPPRAZO,QTDCOMP = :QTDCOMP,QTDVEND = :QTDVEND');
               DMEXPORTA.TProduto.SQL.Add('where COD_PRODUTO = :OLD_COD_PRODUTO');
-              DMEXPORTA.TProduto.ParamByName('OLD_COD_PRODUTO').AsInteger := XCOD_PRODUTO;
+              DMEXPORTA.TProduto.ParamByName('OLD_COD_PRODUTO').AsInteger :=
+                XCOD_PRODUTO;
             end;
 
             // seleciona dados da tabela grupoprod que tenha o mesmo codigo que a tabela produto
             DMESTOQUE.TGrupo.Close;
             DMESTOQUE.TGrupo.SQL.Clear;
             DMESTOQUE.TGrupo.SQL.Add('select * from grupoprod where grupoprod.cod_grupoprod = :codigo');
-            DMESTOQUE.TGrupo.ParamByName('codigo').AsInteger := DMESTOQUE.TProduto.FieldByName('cod_grupoprod').AsInteger;
+            DMESTOQUE.TGrupo.ParamByName('codigo').AsInteger :=
+              DMESTOQUE.TProduto.FieldByName('cod_grupoprod').AsInteger;
             DMESTOQUE.TGrupo.Open;
 
             // seleciona dados da tabela grupoprod do banco de fora que tenha a mesma descricao
@@ -10819,33 +12213,42 @@ begin
               DMEXPORTA.TGrupo.SQL.Add('(COD_GRUPOPROD, DESCRICAO, COD_INTERNO, TIPO)');
               DMEXPORTA.TGrupo.SQL.Add('values');
               DMEXPORTA.TGrupo.SQL.Add('(:COD_GRUPOPROD, :DESCRICAO, :COD_INTERNO, :TIPO)');
-              DMEXPORTA.TGrupo.ParamByName('cod_grupoprod').AsInteger := DMEXPORTA.TCodigo.FieldByname('cod_grupoprod').AsInteger;
-              XCOD_GRUPO := DMEXPORTA.TCodigo.FieldByname('cod_grupoprod').AsInteger;
+              DMEXPORTA.TGrupo.ParamByName('cod_grupoprod').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByname('cod_grupoprod').AsInteger;
+              XCOD_GRUPO :=
+                DMEXPORTA.TCodigo.FieldByname('cod_grupoprod').AsInteger;
               DMEXPORTA.TCodigo.Edit;
-              DMEXPORTA.TCodigo.FieldByName('cod_grupoprod').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_grupoprod').AsInteger + 1;
+              DMEXPORTA.TCodigo.FieldByName('cod_grupoprod').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByName('cod_grupoprod').AsInteger + 1;
               DMEXPORTA.TCodigo.Post;
             end
             else
             begin
-              XCOD_GRUPO := DMEXPORTA.TGrupo.FieldByname('cod_grupoprod').AsInteger;
+              XCOD_GRUPO :=
+                DMEXPORTA.TGrupo.FieldByname('cod_grupoprod').AsInteger;
               DMEXPORTA.TGrupo.Close;
               DMEXPORTA.TGrupo.SQL.Clear;
               DMEXPORTA.TGrupo.SQL.Add('update GRUPOPROD set DESCRICAO = :DESCRICAO, COD_INTERNO = :COD_INTERNO, TIPO = :TIPO');
               DMEXPORTA.TGrupo.SQL.Add('where COD_GRUPOPROD = :OLD_COD_GRUPOPROD');
 
-              DMEXPORTA.TGrupo.ParamByName('OLD_COD_GRUPOPROD').AsInteger := XCOD_GRUPO;
+              DMEXPORTA.TGrupo.ParamByName('OLD_COD_GRUPOPROD').AsInteger :=
+                XCOD_GRUPO;
             end;
 
             // grava na tabela grupoprod do banco de fora os novos dados
-            DMEXPORTA.TGrupo.ParamByName('cod_interno').AsString := DMESTOQUE.TGrupo.FieldByName('cod_interno').AsString;
-            DMEXPORTA.TGrupo.ParamByName('descricao').AsString := DMESTOQUE.TGrupo.FieldByName('descricao').AsString;
-            DMEXPORTA.TGrupo.ParamByName('tipo').AsString := DMESTOQUE.TGrupo.FieldByName('tipo').AsString;
+            DMEXPORTA.TGrupo.ParamByName('cod_interno').AsString :=
+              DMESTOQUE.TGrupo.FieldByName('cod_interno').AsString;
+            DMEXPORTA.TGrupo.ParamByName('descricao').AsString :=
+              DMESTOQUE.TGrupo.FieldByName('descricao').AsString;
+            DMEXPORTA.TGrupo.ParamByName('tipo').AsString :=
+              DMESTOQUE.TGrupo.FieldByName('tipo').AsString;
             DMEXPORTA.TGrupo.ExecSQL;
             // seleciona no banco de dados local os dados da tabela subgrupoprod
             DMESTOQUE.TSubgru.Close;
             DMESTOQUE.TSubgru.SQL.Clear;
             DMESTOQUE.TSubgru.SQL.Add('select * from subgrupoprod where subgrupoprod.cod_subgrupoprod = :codigo');
-            DMESTOQUE.TSubgru.ParamByName('codigo').AsInteger := DMESTOQUE.TProduto.FieldByname('cod_subgrupoprod').AsInteger;
+            DMESTOQUE.TSubgru.ParamByName('codigo').AsInteger :=
+              DMESTOQUE.TProduto.FieldByname('cod_subgrupoprod').AsInteger;
             DMESTOQUE.TSubgru.Open;
 
             // seleciona dados da tabela subgrupoprod do banco de fora que tenha a mesma descricao
@@ -10862,146 +12265,269 @@ begin
               DMEXPORTA.TSubgru.SQL.Add('(COD_SUBGRUPOPROD, DESCRICAO, COD_INTERNO, TIPO)');
               DMEXPORTA.TSubgru.SQL.Add('values');
               DMEXPORTA.TSubgru.SQL.Add('(:COD_SUBGRUPOPROD, :DESCRICAO, :COD_INTERNO, :TIPO)');
-              DMEXPORTA.TSubgru.ParamByName('cod_subgrupoprod').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger;
-              XCOD_SUBGRUPO := DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger;
+              DMEXPORTA.TSubgru.ParamByName('cod_subgrupoprod').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger;
+              XCOD_SUBGRUPO :=
+                DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger;
               DMEXPORTA.TCodigo.Edit;
-              DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger + 1;
+              DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger :=
+                DMEXPORTA.TCodigo.FieldByName('cod_subgrupoprod').AsInteger + 1;
               DMEXPORTA.TCodigo.Post;
             end
             else
             begin
-              XCOD_SUBGRUPO := DMEXPORTA.TSubgru.FieldByName('cod_subgrupoprod').AsInteger;
+              XCOD_SUBGRUPO :=
+                DMEXPORTA.TSubgru.FieldByName('cod_subgrupoprod').AsInteger;
               DMEXPORTA.TSubgru.Close;
               DMEXPORTA.TSubgru.SQL.Clear;
               DMEXPORTA.TSubgru.SQL.Add('update SUBGRUPOPROD set DESCRICAO = :DESCRICAO, COD_INTERNO = :COD_INTERNO, TIPO = :TIPO');
               DMEXPORTA.TSubgru.SQL.Add('where COD_SUBGRUPOPROD = :OLD_COD_SUBGRUPOPROD');
-              DMEXPORTA.TSubgru.ParamByName('OLD_COD_SUBGRUPOPROD').AsInteger := XCOD_SUBGRUPO;
+              DMEXPORTA.TSubgru.ParamByName('OLD_COD_SUBGRUPOPROD').AsInteger :=
+                XCOD_SUBGRUPO;
             end;
 
-            DMEXPORTA.TSubgru.ParamByName('descricao').AsString := DMESTOQUE.TSubgru.FieldByname('descricao').AsString;
-            DMEXPORTA.TSubgru.ParamByName('cod_interno').AsString := DMESTOQUE.TSubgru.FieldByname('cod_interno').AsString;
-            DMEXPORTA.TSubgru.ParamByName('tipo').AsString := DMESTOQUE.TSubgru.FieldByname('tipo').AsString;
+            DMEXPORTA.TSubgru.ParamByName('descricao').AsString :=
+              DMESTOQUE.TSubgru.FieldByname('descricao').AsString;
+            DMEXPORTA.TSubgru.ParamByName('cod_interno').AsString :=
+              DMESTOQUE.TSubgru.FieldByname('cod_interno').AsString;
+            DMEXPORTA.TSubgru.ParamByName('tipo').AsString :=
+              DMESTOQUE.TSubgru.FieldByname('tipo').AsString;
             DMEXPORTA.TSubgru.ExecSQL;
-            DMEXPORTA.TProduto.ParamByName('APLICACAO').AsString := DMESTOQUE.TProduto.FieldByName('APLICACAO').AsString;
-            DMEXPORTA.TProduto.ParamByName('COD_GRUPOPROD').AsInteger := XCOD_GRUPO;
-            DMEXPORTA.TProduto.ParamByName('COD_INTERNO').AsString := DMESTOQUE.TProduto.FieldByName('COD_INTERNO').AsString;
-            DMEXPORTA.TProduto.ParamByName('COD_LOJA').AsInteger := DMESTOQUE.TProduto.FieldByName('COD_LOJA').AsInteger;
-            DMEXPORTA.TProduto.ParamByName('COD_SUBGRUPOPROD').AsInteger := XCOD_SUBGRUPO;
-            DMEXPORTA.TProduto.ParamByName('COMPPRAZO').AsCurrency := DMESTOQUE.TProduto.FieldByName('COMPPRAZO').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('COMPVISTA').AsCurrency := DMESTOQUE.TProduto.FieldByName('COMPVISTA').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('CUSTOVENDA').AsCurrency := DMESTOQUE.TProduto.FieldByName('CUSTOVENDA').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('DESCRICAO').AsString := DMESTOQUE.TProduto.FieldByName('DESCRICAO').AsString;
-            DMEXPORTA.TProduto.ParamByName('QTDCOMP').AsCurrency := DMESTOQUE.TProduto.FieldByName('QTDCOMP').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('QTDVEND').AsCurrency := DMESTOQUE.TProduto.FieldByName('QTDVEND').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('VENDPRAZO').AsCurrency := DMESTOQUE.TProduto.FieldByName('VENDPRAZO').AsCurrency;
-            DMEXPORTA.TProduto.ParamByName('VENDVISTA').AsCurrency := DMESTOQUE.TProduto.FieldByName('VENDVISTA').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('APLICACAO').AsString :=
+              DMESTOQUE.TProduto.FieldByName('APLICACAO').AsString;
+            DMEXPORTA.TProduto.ParamByName('COD_GRUPOPROD').AsInteger :=
+              XCOD_GRUPO;
+            DMEXPORTA.TProduto.ParamByName('COD_INTERNO').AsString :=
+              DMESTOQUE.TProduto.FieldByName('COD_INTERNO').AsString;
+            DMEXPORTA.TProduto.ParamByName('COD_LOJA').AsInteger :=
+              DMESTOQUE.TProduto.FieldByName('COD_LOJA').AsInteger;
+            DMEXPORTA.TProduto.ParamByName('COD_SUBGRUPOPROD').AsInteger :=
+              XCOD_SUBGRUPO;
+            DMEXPORTA.TProduto.ParamByName('COMPPRAZO').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('COMPPRAZO').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('COMPVISTA').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('COMPVISTA').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('CUSTOVENDA').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('CUSTOVENDA').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('DESCRICAO').AsString :=
+              DMESTOQUE.TProduto.FieldByName('DESCRICAO').AsString;
+            DMEXPORTA.TProduto.ParamByName('QTDCOMP').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('QTDCOMP').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('QTDVEND').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('QTDVEND').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('VENDPRAZO').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('VENDPRAZO').AsCurrency;
+            DMEXPORTA.TProduto.ParamByName('VENDVISTA').AsCurrency :=
+              DMESTOQUE.TProduto.FieldByName('VENDVISTA').AsCurrency;
             DMEXPORTA.TProduto.ExecSQL;
 
-            DMEXPORTA.TSubProd.ParamByName('COD_CST').AsInteger := VerificaCST(DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger);
-            DMEXPORTA.TSubProd.ParamByName('cod_produto').AsInteger := XCOD_PRODUTO;
-            DMEXPORTA.TSubProd.ParamByName('ALTURA').AsString := DMESTOQUE.TSubProd.FieldByName('ALTURA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('ANVISA').AsString := DMESTOQUE.TSubProd.FieldByName('ANVISA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('ATESTGAR').AsString := DMESTOQUE.TSubProd.FieldByName('ATESTGAR').AsString;
-            DMEXPORTA.TSubProd.ParamByName('ATESTVAL').AsString := DMESTOQUE.TSubProd.FieldByName('ATESTVAL').AsString;
-            DMEXPORTA.TSubProd.ParamByName('ATIVO').AsString := DMESTOQUE.TSubProd.FieldByName('ATIVO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('BALANCA').AsString := DMESTOQUE.TSubProd.FieldByName('BALANCA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CLASSIFICACAO').AsString := DMESTOQUE.TSubProd.FieldByName('CLASSIFICACAO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CODBARRA').AsString := DMESTOQUE.TSubProd.FieldByName('CODBARRA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CODCOMPOSTO').AsString := DMESTOQUE.TSubProd.FieldByName('CODCOMPOSTO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CODEAN1').AsString := DMESTOQUE.TSubProd.FieldByName('CODEAN1').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CODPRODFABR').AsString := DMESTOQUE.TSubProd.FieldByName('CODPRODFABR').AsString;
-            DMEXPORTA.TSubProd.ParamByName('COD_INTERNO').AsString := DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDCOMPRA').AsInteger;
-            DMEXPORTA.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
-            DMEXPORTA.TSubProd.ParamByName('COMPOSICAO').AsString := DMESTOQUE.TSubProd.FieldByName('COMPOSICAO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('CONTRINT').AsString := DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString;
-            DMEXPORTA.TSubProd.ParamByName('COR').AsString := DMESTOQUE.TSubProd.FieldByName('COR').AsString;
-            DMEXPORTA.TSubProd.ParamByName('DESCCUPOM').AsString := DMESTOQUE.TSubProd.FieldByName('DESCCUPOM').AsString;
-            DMEXPORTA.TSubProd.ParamByName('DESCRICAO').AsString := DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('DTCAD').AsDateTime := DMESTOQUE.TSubProd.FieldByName('DTCAD').AsDateTime;
-            DMEXPORTA.TSubProd.ParamByName('EMBPROD').AsCurrency := DMESTOQUE.TSubProd.FieldByName('EMBPROD').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('ESPECIFICACAO').AsString := DMESTOQUE.TSubProd.FieldByName('ESPECIFICACAO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('FABRICANTE').AsString := DMESTOQUE.TSubProd.FieldByName('FABRICANTE').AsString;
-            DMEXPORTA.TSubProd.ParamByName('GERMI').AsCurrency := DMESTOQUE.TSubProd.FieldByName('GERMI').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('IPIPROD').AsCurrency := DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('LARGURA').AsString := DMESTOQUE.TSubProd.FieldByName('LARGURA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('LOCALESTANTE').AsString := DMESTOQUE.TSubProd.FieldByName('LOCALESTANTE').AsString;
-            DMEXPORTA.TSubProd.ParamByName('LOTE').AsString := DMESTOQUE.TSubProd.FieldByName('LOTE').AsString;
-            DMEXPORTA.TSubProd.ParamByName('MARCA').AsString := DMESTOQUE.TSubProd.FieldByName('MARCA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('MARK').AsString := DMESTOQUE.TSubProd.FieldByName('MARK').AsString;
-            DMEXPORTA.TSubProd.ParamByName('MINSAUDE').AsString := DMESTOQUE.TSubProd.FieldByName('MINSAUDE').AsString;
-            DMEXPORTA.TSubProd.ParamByName('MOTIVO').AsString := DMESTOQUE.TSubProd.FieldByName('MOTIVO').AsString;
-            DMEXPORTA.TSubProd.ParamByName('NCM').AsString := DMESTOQUE.TSubProd.FieldByName('NCM').AsString;
-            DMEXPORTA.TSubProd.ParamByName('OBSFISCAL').AsString := DMESTOQUE.TSubProd.FieldByName('OBSFISCAL').AsString;
-            DMEXPORTA.TSubProd.ParamByName('PENEIRA').AsString := DMESTOQUE.TSubProd.FieldByName('PENEIRA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('PESOBRUTO').AsCurrency := DMESTOQUE.TSubProd.FieldByName('PESOBRUTO').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('PESOLIQ').AsCurrency := DMESTOQUE.TSubProd.FieldByName('PESOLIQ').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('PUREZA').AsCurrency := DMESTOQUE.TSubProd.FieldByName('PUREZA').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('QTDATC').AsCurrency := DMESTOQUE.TSubProd.FieldByName('QTDATC').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency := DMESTOQUE.TSubProd.FieldByName('QUANTGARANTIA').AsCurrency;
-            DMEXPORTA.TSubProd.ParamByName('SAFRA').AsString := DMESTOQUE.TSubProd.FieldByName('SAFRA').AsString;
-            DMEXPORTA.TSubProd.ParamByName('TIPOGARANTIA').AsString := DMESTOQUE.TSubProd.FieldByName('TIPOGARANTIA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('COD_CST').AsInteger :=
+              VerificaCST(DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger);
+            DMEXPORTA.TSubProd.ParamByName('cod_produto').AsInteger :=
+              XCOD_PRODUTO;
+            DMEXPORTA.TSubProd.ParamByName('ALTURA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ALTURA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('ANVISA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ANVISA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('ATESTGAR').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ATESTGAR').AsString;
+            DMEXPORTA.TSubProd.ParamByName('ATESTVAL').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ATESTVAL').AsString;
+            DMEXPORTA.TSubProd.ParamByName('ATIVO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ATIVO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('BALANCA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('BALANCA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CLASSIFICACAO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CLASSIFICACAO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CODBARRA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CODBARRA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CODCOMPOSTO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CODCOMPOSTO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CODEAN1').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CODEAN1').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CODPRODFABR').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CODPRODFABR').AsString;
+            DMEXPORTA.TSubProd.ParamByName('COD_INTERNO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger :=
+              DMESTOQUE.TSubProd.FieldByName('COD_UNIDCOMPRA').AsInteger;
+            DMEXPORTA.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger :=
+              DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger;
+            DMEXPORTA.TSubProd.ParamByName('COMPOSICAO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('COMPOSICAO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('CONTRINT').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString;
+            DMEXPORTA.TSubProd.ParamByName('COR').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('COR').AsString;
+            DMEXPORTA.TSubProd.ParamByName('DESCCUPOM').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('DESCCUPOM').AsString;
+            DMEXPORTA.TSubProd.ParamByName('DESCRICAO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('DTCAD').AsDateTime :=
+              DMESTOQUE.TSubProd.FieldByName('DTCAD').AsDateTime;
+            DMEXPORTA.TSubProd.ParamByName('EMBPROD').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('EMBPROD').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('ESPECIFICACAO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('ESPECIFICACAO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('FABRICANTE').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('FABRICANTE').AsString;
+            DMEXPORTA.TSubProd.ParamByName('GERMI').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('GERMI').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('IPIPROD').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('LARGURA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('LARGURA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('LOCALESTANTE').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('LOCALESTANTE').AsString;
+            DMEXPORTA.TSubProd.ParamByName('LOTE').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('LOTE').AsString;
+            DMEXPORTA.TSubProd.ParamByName('MARCA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('MARCA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('MARK').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('MARK').AsString;
+            DMEXPORTA.TSubProd.ParamByName('MINSAUDE').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('MINSAUDE').AsString;
+            DMEXPORTA.TSubProd.ParamByName('MOTIVO').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('MOTIVO').AsString;
+            DMEXPORTA.TSubProd.ParamByName('NCM').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('NCM').AsString;
+            DMEXPORTA.TSubProd.ParamByName('OBSFISCAL').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('OBSFISCAL').AsString;
+            DMEXPORTA.TSubProd.ParamByName('PENEIRA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('PENEIRA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('PESOBRUTO').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('PESOBRUTO').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('PESOLIQ').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('PESOLIQ').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('PUREZA').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('PUREZA').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('QTDATC').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('QTDATC').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency :=
+              DMESTOQUE.TSubProd.FieldByName('QUANTGARANTIA').AsCurrency;
+            DMEXPORTA.TSubProd.ParamByName('SAFRA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('SAFRA').AsString;
+            DMEXPORTA.TSubProd.ParamByName('TIPOGARANTIA').AsString :=
+              DMESTOQUE.TSubProd.FieldByName('TIPOGARANTIA').AsString;
             DMEXPORTA.TSubProd.ExecSQL;
 
             // ATUALIZANDO TABELA ESTOQUE
-            DMEXPORTA.TEstoque.ParamByName('COD_LOJA').AsInteger := DMESTOQUE.TEstoque.FieldByName('COD_LOJA').AsInteger;
-            DMEXPORTA.TEstoque.ParamByName('COD_SUBPROD').AsInteger := XCOD_SUBPRODUTO;
-            DMEXPORTA.TEstoque.ParamByName('ULTCOMPRA').AsDateTime := DMESTOQUE.TEstoque.FieldByName('ULTCOMPRA').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('ULTVENDA').AsDateTime := DMESTOQUE.TEstoque.FieldByName('ULTVENDA').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('ESTMAX').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTMAX').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ESTMIN').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTMIN').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ICMS').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('FRETE').AsCurrency := DMESTOQUE.TEstoque.FieldByName('FRETE').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ESTPED').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTPED').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CVVPROAT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CVVPROAT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CVPPROAT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CVPPROAT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CVVPROVAR').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CVVPROVAR').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CVPPROVAR').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CVPPROVAR').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VENDATAP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VENDATAV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VENDVARP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VENDVARV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VALUNIT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALUNIT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VALREP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('AVVPROAT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('AVVPROAT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('AVPPROAT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('AVPPROAT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('AVVPROVAR').AsCurrency := DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('AVPPROVAR').AsCurrency := DMESTOQUE.TEstoque.FieldByName('AVPPROVAR').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency := DMESTOQUE.TEstoque.FieldByName('LUCRATIVIDADE').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('COEFDIV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VALOREST').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALOREST').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('OUTROS').AsCurrency := DMESTOQUE.TEstoque.FieldByName('OUTROS').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('QUANT2').AsCurrency := DMESTOQUE.TEstoque.FieldByName('QUANT2').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('DTCAD').AsDateTime := DMESTOQUE.TEstoque.FieldByName('DTCAD').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('ESTINI').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTINI').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VALCUSDESP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSDESP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ESTANTCONT').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTANTCONT').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CONTAGEM').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CONTAGEM').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ESTSIMULADO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTSIMULADO').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('INDICE').AsCurrency := DMESTOQUE.TEstoque.FieldByName('INDICE').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('BONIFICACAO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('BONIFICACAO').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VLRBONIFIC').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VLRBONIFIC').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('DESCONTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('DESCONTO').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CLNC').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CLNC').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('MOD').AsCurrency := DMESTOQUE.TEstoque.FieldByName('MOD').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('IMPEXP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('IMPEXP').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('IMPREND').AsCurrency := DMESTOQUE.TEstoque.FieldByName('IMPREND').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('CONTSOC').AsCurrency := DMESTOQUE.TEstoque.FieldByName('CONTSOC').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('COFINS').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COFINS').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('PIS').AsCurrency := DMESTOQUE.TEstoque.FieldByName('PIS').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('MARGEMSEG').AsCurrency := DMESTOQUE.TEstoque.FieldByName('MARGEMSEG').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('PERCMARGSEG').AsCurrency := DMESTOQUE.TEstoque.FieldByName('PERCMARGSEg').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('REDUCBASE').AsCurrency := DMESTOQUE.TEstoque.FieldByName('REDUCBASE').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('VLRCOMPSD').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VLRCOMPSD').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ACRECIMO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ACRECIMO').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('ESTCALC').AsCurrency := DMESTOQUE.TEstoque.FieldByName('ESTCALC').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('DATAATU').AsDateTime := DMESTOQUE.TEstoque.FieldByName('DATAATU').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('HORAATU').AsDateTime := DMESTOQUE.TEstoque.FieldByName('HORAATU').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('PRECOOFERTA').AsCurrency := DMESTOQUE.TEstoque.FieldByName('PRECOOFERTA').AsCurrency;
-            DMEXPORTA.TEstoque.ParamByName('DATAOFERTA').AsDateTime := DMESTOQUE.TEstoque.FieldByName('DATAOFERTA').AsDateTime;
-            DMEXPORTA.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime := DMESTOQUE.TEstoque.FieldByName('VENCIMENTOOFERTA').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('COD_LOJA').AsInteger :=
+              DMESTOQUE.TEstoque.FieldByName('COD_LOJA').AsInteger;
+            DMEXPORTA.TEstoque.ParamByName('COD_SUBPROD').AsInteger :=
+              XCOD_SUBPRODUTO;
+            DMEXPORTA.TEstoque.ParamByName('ULTCOMPRA').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('ULTCOMPRA').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('ULTVENDA').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('ULTVENDA').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('ESTMAX').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTMAX').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ESTMIN').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTMIN').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ICMS').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('FRETE').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('FRETE').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ESTPED').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTPED').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CVVPROAT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CVVPROAT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CVPPROAT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CVPPROAT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CVVPROVAR').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CVVPROVAR').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CVPPROVAR').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CVPPROVAR').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VENDATAP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VENDATAV').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VENDVARP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VENDVARV').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VALUNIT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALUNIT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VALREP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VALCUSTO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('AVVPROAT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('AVVPROAT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('AVPPROAT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('AVPPROAT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('AVVPROVAR').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('AVPPROVAR').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('AVPPROVAR').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('LUCRATIVIDADE').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('COEFDIV').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VALOREST').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALOREST').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('OUTROS').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('OUTROS').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('QUANT2').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('QUANT2').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('DTCAD').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('DTCAD').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('ESTINI').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTINI').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VALCUSDESP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALCUSDESP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ESTANTCONT').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTANTCONT').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CONTAGEM').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CONTAGEM').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ESTSIMULADO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTSIMULADO').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('INDICE').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('INDICE').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('BONIFICACAO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('BONIFICACAO').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VLRBONIFIC').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VLRBONIFIC').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('DESCONTO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('DESCONTO').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CLNC').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CLNC').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('MOD').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('MOD').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('IMPEXP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('IMPEXP').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('IMPREND').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('IMPREND').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('CONTSOC').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('CONTSOC').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('COFINS').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('COFINS').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('PIS').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('PIS').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('MARGEMSEG').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('MARGEMSEG').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('PERCMARGSEG').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('PERCMARGSEg').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('REDUCBASE').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('REDUCBASE').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('VLRCOMPSD').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VLRCOMPSD').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ACRECIMO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ACRECIMO').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('ESTCALC').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('ESTCALC').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('DATAATU').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('DATAATU').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('HORAATU').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('HORAATU').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('PRECOOFERTA').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('PRECOOFERTA').AsCurrency;
+            DMEXPORTA.TEstoque.ParamByName('DATAOFERTA').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('DATAOFERTA').AsDateTime;
+            DMEXPORTA.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime :=
+              DMESTOQUE.TEstoque.FieldByName('VENCIMENTOOFERTA').AsDateTime;
             DMEXPORTA.TEstoque.ExecSQL;
           except
             MessageDlg('FALHA 531', mtWarning, [mbOK], 0);
@@ -11023,39 +12549,72 @@ begin
             DMEXPORTA.TItensProd.SQL.Add(':OPERACAO, :ALIQICMS, :BASEICMS, :VLRICMS, :BASEICMSSUBS, :VLRIPI, :ALIQIPI,');
             DMEXPORTA.TItensProd.SQL.Add(':REDUCBASEICMS, :VLRICMSSUBS, :DATA_GARANTIA, :KMGARANTIA)');
 
-            DMEXPORTA.TItensProd.ParamByName('ALIQICMS').AsCurrency := DMServ.TPOrd.FieldByName('ALIQICMS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('ALIQIPI').AsCurrency := DMServ.TPOrd.FieldByName('ALIQIPI').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('BASEICMS').AsCurrency := DMServ.TPOrd.FieldByName('BASEICMS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('BASEICMSSUBS').AsCurrency := DMServ.TPOrd.FieldByName('BASEICMSSUBS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('COD_ESTOQUE').AsInteger := XCOD_ESTOQUE;
-            if (DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsString <> '') and (DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsInteger > 0) then
-              DMEXPORTA.TItensProd.ParamByName('COD_FUNCIONARIO').AsInteger := VerificaFuncionario('FUNCIONARIO', DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsString);
+            DMEXPORTA.TItensProd.ParamByName('ALIQICMS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('ALIQICMS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('ALIQIPI').AsCurrency :=
+              DMServ.TPOrd.FieldByName('ALIQIPI').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('BASEICMS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('BASEICMS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('BASEICMSSUBS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('BASEICMSSUBS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('COD_ESTOQUE').AsInteger :=
+              XCOD_ESTOQUE;
+            if (DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsString <> '') and
+              (DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsInteger > 0) then
+              DMEXPORTA.TItensProd.ParamByName('COD_FUNCIONARIO').AsInteger :=
+                VerificaFuncionario('FUNCIONARIO',
+                DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsString);
             //DMEXPORTA.TItensProd.ParamByName('COD_ITPRODORD').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_ITPRODORD').AsInteger;
-            DMEXPORTA.TItensProd.ParamByName('COD_ORDEM').AsInteger := XCOD_ORDEM;
-            DMEXPORTA.TItensProd.ParamByName('COD_CST').AsInteger := VerificaCST(DMServ.TPOrd.FieldByName('COD_CST').AsInteger);
-            DMEXPORTA.TItensProd.ParamByName('COEFDIV').AsCurrency := DMServ.TPOrd.FieldByName('COEFDIV').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('COMISSAO').AsCurrency := DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('DATA').AsDateTime := DMServ.TPOrd.FieldByName('DATA').AsDateTime;
-            DMEXPORTA.TItensProd.ParamByName('DESCONTO').AsCurrency := DMServ.TPOrd.FieldByName('DESCONTO').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('DATA_GARANTIA').AsDateTime := DMServ.TPOrd.FieldByName('DATA_GARANTIA').AsDateTime;
-            DMEXPORTA.TItensProd.ParamByName('KMGARANTIA').AsInteger := DMServ.TPOrd.FieldByName('KMGARANTIA').AsInteger;
-            DMEXPORTA.TItensProd.ParamByName('LUCMOE').AsCurrency := DMServ.TPOrd.FieldByName('LUCMOE').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('LUCPER').AsCurrency := DMServ.TPOrd.FieldByName('LUCPER').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('LUCREL').AsCurrency := DMServ.TPOrd.FieldByName('LUCREL').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('NUMREQ').AsString := DMServ.TPOrd.FieldByName('NUMREQ').AsString;
-            DMEXPORTA.TItensProd.ParamByName('OPERACAO').AsString := DMServ.TPOrd.FieldByName('OPERACAO').AsString;
-            DMEXPORTA.TItensProd.ParamByName('QTD').AsCurrency := DMServ.TPOrd.FieldByName('QTD').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('QTDRET').AsCurrency := DMServ.TPOrd.FieldByName('QTDRET').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('REDUCBASEICMS').AsCurrency := DMServ.TPOrd.FieldByName('REDUCBASEICMS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('TOTAL').AsCurrency := DMServ.TPOrd.FieldByName('TOTAL').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VALCOMP').AsCurrency := DMServ.TPOrd.FieldByName('VALCOMP').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VALCUSTO').AsCurrency := DMServ.TPOrd.FieldByName('VALCUSTO').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VALREP').AsCurrency := DMServ.TPOrd.FieldByName('VALREP').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VLRICMS').AsCurrency := DMServ.TPOrd.FieldByName('VLRICMS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VLRICMSSUBS').AsCurrency := DMServ.TPOrd.FieldByName('VLRICMSSUBS').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VLRIPI').AsCurrency := DMServ.TPOrd.FieldByName('VLRIPI').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VLRUNIT').AsCurrency := DMServ.TPOrd.FieldByName('VLRUNIT').AsCurrency;
-            DMEXPORTA.TItensProd.ParamByName('VLRVENDBD').AsCurrency := DMServ.TPOrd.FieldByName('VLRVENDBD').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('COD_ORDEM').AsInteger :=
+              XCOD_ORDEM;
+            DMEXPORTA.TItensProd.ParamByName('COD_CST').AsInteger :=
+              VerificaCST(DMServ.TPOrd.FieldByName('COD_CST').AsInteger);
+            DMEXPORTA.TItensProd.ParamByName('COEFDIV').AsCurrency :=
+              DMServ.TPOrd.FieldByName('COEFDIV').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('COMISSAO').AsCurrency :=
+              DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('DATA').AsDateTime :=
+              DMServ.TPOrd.FieldByName('DATA').AsDateTime;
+            DMEXPORTA.TItensProd.ParamByName('DESCONTO').AsCurrency :=
+              DMServ.TPOrd.FieldByName('DESCONTO').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('DATA_GARANTIA').AsDateTime :=
+              DMServ.TPOrd.FieldByName('DATA_GARANTIA').AsDateTime;
+            DMEXPORTA.TItensProd.ParamByName('KMGARANTIA').AsInteger :=
+              DMServ.TPOrd.FieldByName('KMGARANTIA').AsInteger;
+            DMEXPORTA.TItensProd.ParamByName('LUCMOE').AsCurrency :=
+              DMServ.TPOrd.FieldByName('LUCMOE').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('LUCPER').AsCurrency :=
+              DMServ.TPOrd.FieldByName('LUCPER').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('LUCREL').AsCurrency :=
+              DMServ.TPOrd.FieldByName('LUCREL').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('NUMREQ').AsString :=
+              DMServ.TPOrd.FieldByName('NUMREQ').AsString;
+            DMEXPORTA.TItensProd.ParamByName('OPERACAO').AsString :=
+              DMServ.TPOrd.FieldByName('OPERACAO').AsString;
+            DMEXPORTA.TItensProd.ParamByName('QTD').AsCurrency :=
+              DMServ.TPOrd.FieldByName('QTD').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('QTDRET').AsCurrency :=
+              DMServ.TPOrd.FieldByName('QTDRET').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('REDUCBASEICMS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('REDUCBASEICMS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('TOTAL').AsCurrency :=
+              DMServ.TPOrd.FieldByName('TOTAL').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VALCOMP').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VALCOMP').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VALCUSTO').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VALCUSTO').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VALREP').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VALREP').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VLRICMS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VLRICMS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VLRICMSSUBS').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VLRICMSSUBS').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VLRIPI').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VLRIPI').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VLRUNIT').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VLRUNIT').AsCurrency;
+            DMEXPORTA.TItensProd.ParamByName('VLRVENDBD').AsCurrency :=
+              DMServ.TPOrd.FieldByName('VLRVENDBD').AsCurrency;
             DMEXPORTA.TItensProd.ExecSQL;
             try
               DMEXPORTA.IBTExporta.CommitRetaining;
@@ -11063,18 +12622,24 @@ begin
               DMEXPORTA.TEstoque.Close;
               DMEXPORTA.TEstoque.SQL.Clear;
               DMEXPORTA.TEstoque.SQL.Add('Select * from ESTOQUE where estoque.cod_estoque=:codigo');
-              DMEXPORTA.TEstoque.ParamByName('codigo').AsInteger := XCOD_ESTOQUE;
+              DMEXPORTA.TEstoque.ParamByName('codigo').AsInteger :=
+                XCOD_ESTOQUE;
               DMEXPORTA.TEstoque.Open;
 
               if not DMEXPORTA.TEstoque.IsEmpty then
               begin
                 DMEXPORTA.TEstoque.edit;
-                DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency - DMServ.TPOrd.FieldByName('QTD').AsCurrency;
+                DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency :=
+                  DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency -
+                  DMServ.TPOrd.FieldByName('QTD').AsCurrency;
                 DMEXPORTA.TEstoque.Post;
               end
               else
               begin
-                MessageDlg('O produto de código: ' + DMESTOQUE.TEstoque.FieldByName('contrint').AsString + ' Não teve estoque atualziado na base de destino.', mtWarning, [mbOK], 0);
+                MessageDlg('O produto de código: ' +
+                  DMESTOQUE.TEstoque.FieldByName('contrint').AsString +
+                  ' Não teve estoque atualziado na base de destino.', mtWarning,
+                  [mbOK], 0);
               end;
               DMEXPORTA.IBTExporta.CommitRetaining;
             except
@@ -11094,7 +12659,8 @@ begin
         DMESTOQUE.TDesp.SQL.Clear;
         DMESTOQUE.TDesp.SQL.Add('select * from DESPADIC where (DESPADIC.COD_GERADOR = :CODGERA)');
         DMESTOQUE.TDesp.SQL.Add('AND (DESPADIC.GERADOR = :GERADOR)');
-        DMESTOQUE.TDesp.ParamByName('CODGERA').AsInteger := DMServ.TOrd.FieldByname('cod_ordem').AsInteger;
+        DMESTOQUE.TDesp.ParamByName('CODGERA').AsInteger :=
+          DMServ.TOrd.FieldByname('cod_ordem').AsInteger;
         DMESTOQUE.TDesp.ParamByName('GERADOR').AsString := 'ORDEM';
         DMESTOQUE.TDesp.Open;
 
@@ -11117,26 +12683,42 @@ begin
             //DMEXPORTA.TDesp.ParamByName('COD_DESPADIC').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_DESPADIC').AsInteger;
             DMEXPORTA.TDesp.ParamByName('COD_GERADOR').AsInteger := XCOD_ORDEM;
             DMEXPORTA.TDesp.ParamByName('GERADOR').AsString := 'ORDEM';
-            DMEXPORTA.TDesp.ParamByName('DESPESA').AsString := DMESTOQUE.TDesp.FieldByname('DESPESA').AsString;
-            DMEXPORTA.TDesp.ParamByName('QTD').AsCurrency := DMESTOQUE.TDesp.FieldByname('QTD').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('VLRREAL').AsCurrency := DMESTOQUE.TDesp.FieldByname('VLRREAL').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('VLRFINAL').AsCurrency := DMESTOQUE.TDesp.FieldByname('VLRFINAL').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('LUCMOE').AsCurrency := DMESTOQUE.TDesp.FieldByname('LUCMOE').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('LUCPER').AsCurrency := DMESTOQUE.TDesp.FieldByname('LUCPER').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('VLRTOTFIN').AsCurrency := DMESTOQUE.TDesp.FieldByname('VLRTOTFIN').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('DESCONTO').AsCurrency := DMESTOQUE.TDesp.FieldByname('DESCONTO').AsCurrency;
-            DMEXPORTA.TDesp.ParamByName('MARCA').AsString := DMESTOQUE.TDesp.FieldByname('MARCA').AsString;
-            DMEXPORTA.TDesp.ParamByName('UNIDADE').AsString := DMESTOQUE.TDesp.FieldByname('UNIDADE').AsString;
+            DMEXPORTA.TDesp.ParamByName('DESPESA').AsString :=
+              DMESTOQUE.TDesp.FieldByname('DESPESA').AsString;
+            DMEXPORTA.TDesp.ParamByName('QTD').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('QTD').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('VLRREAL').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('VLRREAL').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('VLRFINAL').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('VLRFINAL').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('LUCMOE').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('LUCMOE').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('LUCPER').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('LUCPER').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('VLRTOTFIN').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('VLRTOTFIN').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('DESCONTO').AsCurrency :=
+              DMESTOQUE.TDesp.FieldByname('DESCONTO').AsCurrency;
+            DMEXPORTA.TDesp.ParamByName('MARCA').AsString :=
+              DMESTOQUE.TDesp.FieldByname('MARCA').AsString;
+            DMEXPORTA.TDesp.ParamByName('UNIDADE').AsString :=
+              DMESTOQUE.TDesp.FieldByname('UNIDADE').AsString;
 
             // BUSCA NO BANCO LOCAL OS DADOS DA TABELA EQUIPE QUE ESTA SENDO USADA NA ORDEM ATUAL
-            FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE', DMESTOQUE.TDesp.FieldByname('COD_EQUIPE').AsString, '');
+            FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE',
+              DMESTOQUE.TDesp.FieldByname('COD_EQUIPE').AsString, '');
 
             // VERIFICA SE NO BANCO DE FORA TEM A EQUIPE CADASTRADA JUNTO COM SEU RESPONSAVEL E FUNCIONARIOS
-            DMEXPORTA.TDesp.ParamByName('COD_EQUIPE').AsInteger := VerificaEquipe(DMESTOQUE.TDesp.FieldByname('COD_EQUIPE').AsString, DMPESSOA.TEquipe.FieldByname('COD_RESPONSAVEL').AsString);
+            DMEXPORTA.TDesp.ParamByName('COD_EQUIPE').AsInteger :=
+              VerificaEquipe(DMESTOQUE.TDesp.FieldByname('COD_EQUIPE').AsString,
+              DMPESSOA.TEquipe.FieldByname('COD_RESPONSAVEL').AsString);
 
             // ESSE CAMPO EH O FUNCIONARIO QUE ATRIBUIU O SERVICO NA ORDEM
-            if (DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsString <> '') and (DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsInteger > 0) then
-              DMEXPORTA.TDesp.ParamByName('COD_FUNCIONARIO').AsInteger := -1; // VerificaFuncionario('RESPONSAVEL',DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsString);
+            if (DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsString <> '')
+              and (DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsInteger > 0)
+                then
+              DMEXPORTA.TDesp.ParamByName('COD_FUNCIONARIO').AsInteger := -1;
+            // VerificaFuncionario('RESPONSAVEL',DMESTOQUE.TDesp.FieldByName('COD_FUNCIONARIO').AsString);
             DMEXPORTA.TDesp.ExecSQL;
 
             DMEXPORTA.IBTExporta.CommitRetaining;
@@ -11158,7 +12740,8 @@ begin
         // atualizando o banco local para não permitir exportar mais as ordens recem exportadas
         DMServ.TAlx1.Close;
         DMServ.TAlx1.SQL.Clear;
-        DMServ.TAlx1.SQL.Add('update ordem set ordem.exportado = ' + #39 + '#' + #39);
+        DMServ.TAlx1.SQL.Add('update ordem set ordem.exportado = ' + #39 + '#' +
+          #39);
         DMServ.TAlx1.SQL.Add(', ordem.edit = ' + #39 + '' + #39);
         DMServ.TAlx1.SQL.Add('where ordem.exp = ' + #39 + 'X' + #39);
         DMServ.TAlx1.ExecSQL;
@@ -11184,11 +12767,13 @@ begin
       //SQL PARA INDICAR NA EMPRESA QUE ESTA SENDO EXPORTADO ORDENS
       DMEXPORTA.Alx.Close;
       DMEXPORTA.Alx.SQL.Clear;
-      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0' + #39);
+      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0'
+        + #39);
       DMEXPORTA.Alx.ExecSQL;
       DMEXPORTA.IBTExporta.CommitRetaining;
 
-      Mensagem('INFORMAÇÃO', 'ORDEN(S) EXPORTADA(S) COM SUCESSO!', '', 1, 1, false, 'i');
+      Mensagem('INFORMAÇÃO', 'ORDEN(S) EXPORTADA(S) COM SUCESSO!', '', 1, 1,
+        false, 'i');
     end
     else
     begin
@@ -11198,11 +12783,15 @@ begin
       //SQL PARA INDICAR NA EMPRESA QUE ESTA SENDO EXPORTADO ORDENS
       DMEXPORTA.Alx.Close;
       DMEXPORTA.Alx.SQL.Clear;
-      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0' + #39);
+      DMEXPORTA.Alx.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0'
+        + #39);
       DMEXPORTA.Alx.ExecSQL;
       DMEXPORTA.IBTExporta.CommitRetaining;
 
-      Mensagem('   A T E N Ç Ã O   ', 'Ocorreu uma falha ao conectar com o Banco de Dados de Exportação.' + #13 + 'Se o problema persistir consulte o Suporte.', '', 1, 1, false, 'A');
+      Mensagem('   A T E N Ç Ã O   ',
+        'Ocorreu uma falha ao conectar com o Banco de Dados de Exportação.' + #13
+          +
+        'Se o problema persistir consulte o Suporte.', '', 1, 1, false, 'A');
       Exit;
     end;
 
@@ -11211,7 +12800,9 @@ begin
     PExp.Visible := FALSE;
     PExp.SendToBack;
     DMServ.IBT.RollbackRetaining;
-    Mensagem('   A T E N Ç Ã O   ', 'Ocorreu uma falha durante a Exportação dos Dados.' + #13 + 'Se o problema persistir consulte o Suporte.', '', 1, 1, false, 'A');
+    Mensagem('   A T E N Ç Ã O   ',
+      'Ocorreu uma falha durante a Exportação dos Dados.' + #13 +
+      'Se o problema persistir consulte o Suporte.', '', 1, 1, false, 'A');
     Exit;
   end;
 end;
@@ -11297,7 +12888,8 @@ begin
 end;
 // verifica se jah existe o funcionario no banco de fora, e se na estiver jah cadastra na hora
 
-function TFOrdemMec.VerificaFuncionario(Atividade: string; Cod_funcionario: string): integer;
+function TFOrdemMec.VerificaFuncionario(Atividade: string; Cod_funcionario:
+  string): integer;
 var
   XCod_Func, tmp, aux: integer;
 begin
@@ -11316,25 +12908,31 @@ begin
   try
     // FILTRA TABELA DE FUNCIONARIO PARA BUSCAR O CODIGO DE PESSOA
     if Atividade = 'VENDEDOR' then
-      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', Cod_funcionario, '')
+      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+        Cod_funcionario, '')
     else if Atividade = 'FUNCIONARIO' then
-      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', Cod_funcionario, '')
+      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+        Cod_funcionario, '')
     else if Atividade = 'USUARIO' then
     begin
       // busca dados usuario
-      FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO', Cod_funcionario, '');
+      FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'CODUSUARIO', Cod_funcionario,
+        '');
 
       // busca dados de funcionario em relacao aos dados de usuario
-      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', DMMACS.TUsuario.FieldByName('COD_FUNCIONARIO').AsString, '');
+      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+        DMMACS.TUsuario.FieldByName('COD_FUNCIONARIO').AsString, '');
     end
     else if Atividade = 'RESPONSAVEL' then
     begin
       // busca os dados da tabela funcionario para selecionar dados da pessoa
-      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', Cod_funcionario, '');
+      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+        Cod_funcionario, '');
     end;
 
     // filtra tabela de pessoa para buscar o cpf do funcionario
-    FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TFuncionario.FieldByName('cod_pessoa').AsString, '');
+    FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMPESSOA.TFuncionario.FieldByName('cod_pessoa').AsString, '');
 
     // busca no banco de dados de fora o funcionario com o mesmo cpf
     // verifica se existe com mesmo CPF/CNPJ
@@ -11342,7 +12940,8 @@ begin
     DMEXPORTA.TPessoa.SQL.Clear;
     DMEXPORTA.TPessoa.SQL.Add('select * from pessoa');
     DMEXPORTA.TPessoa.SQL.Add('where (pessoa.cpfcnpj = :cpf)');
-    DMEXPORTA.TPessoa.ParamByName('cpf').AsString := DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
+    DMEXPORTA.TPessoa.ParamByName('cpf').AsString :=
+      DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
     DMEXPORTA.TPessoa.Open;
 
     // senao axar
@@ -11353,12 +12952,14 @@ begin
       DMEXPORTA.TPessoa.SQL.Clear;
       DMEXPORTA.TPessoa.SQL.Add('select * from pessoa');
       DMEXPORTA.TPessoa.SQL.Add('where UPPER(pessoa.nome) = UPPER(:nome)');
-      DMEXPORTA.TPessoa.ParamByName('nome').AsString := DMPESSOA.TPessoa.FieldByName('nome').AsString;
+      DMEXPORTA.TPessoa.ParamByName('nome').AsString :=
+        DMPESSOA.TPessoa.FieldByName('nome').AsString;
       DMEXPORTA.TPessoa.Open;
     end;
 
     // se o banco de fora nao possui o funcionario, o mesmo sera cadastrado
-    if (DMEXPORTA.TPessoa.IsEmpty) {//and (DMPESSOA.TPessoa.FieldByName('nome').AsString <> '')} then
+    if (DMEXPORTA.TPessoa.IsEmpty)
+      {//and (DMPESSOA.TPessoa.FieldByName('nome').AsString <> '')} then
     begin
       // função para cadastrar funcionario
       XCod_Func := CadastroFuncionario;
@@ -11369,12 +12970,14 @@ begin
       DMEXPORTA.TFuncionario.Close;
       DMEXPORTA.TFuncionario.SQL.Clear;
       DMEXPORTA.TFuncionario.SQL.Add('select * from funcionario where funcionario.cod_pessoa = :codigo');
-      DMEXPORTA.TFuncionario.ParamByName('codigo').AsInteger := DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsInteger;
+      DMEXPORTA.TFuncionario.ParamByName('codigo').AsInteger :=
+        DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsInteger;
       DMEXPORTA.TFuncionario.Open;
       XCod_Func := DMEXPORTA.TFuncionario.FieldByName('cod_func').AsInteger;
       //fazer atualização dos dados do funcionario
       try
-        if AtualizarFuncionarioBancoExterno(StrToInt(Cod_funcionario), XCod_Func) = False then
+        if AtualizarFuncionarioBancoExterno(StrToInt(Cod_funcionario), XCod_Func)
+          = False then
           Result := -1;
       except
         Result := -1;
@@ -11417,13 +13020,15 @@ begin
         DMEXPORTA.TUsuario.SQL.Add('values');
         DMEXPORTA.TUsuario.SQL.Add('(:CODUSUARIO, :COD_FUNCIONARIO, :LOGIN, :SENHA, :DATA_CAD, :ADM, :REVRESMOV)');
 
-        DMEXPORTA.TUsuario.ParamByName('CODUSUARIO').AsInteger := DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger;
+        DMEXPORTA.TUsuario.ParamByName('CODUSUARIO').AsInteger :=
+          DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger;
 
         aux := DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger;
 
         // ATUALIZANDO TABELA CODIGO
         DMEXPORTA.TCodigo.Edit;
-        DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger := DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger + 1;
+        DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger :=
+          DMEXPORTA.TCodigo.FieldByName('CODUSUARIO').AsInteger + 1;
         DMEXPORTA.TCodigo.Post;
 
         DMEXPORTA.IBTExporta.CommitRetaining;
@@ -11444,12 +13049,17 @@ begin
       end;
 
       DMEXPORTA.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger := XCod_Func;
-      DMEXPORTA.TUsuario.ParamByName('LOGIN').AsString := DMMACS.TUsuario.FieldByName('LOGIN').AsString;
-      DMEXPORTA.TUsuario.ParamByName('SENHA').AsString := DMMACS.TUsuario.FieldByName('SENHA').AsString;
+      DMEXPORTA.TUsuario.ParamByName('LOGIN').AsString :=
+        DMMACS.TUsuario.FieldByName('LOGIN').AsString;
+      DMEXPORTA.TUsuario.ParamByName('SENHA').AsString :=
+        DMMACS.TUsuario.FieldByName('SENHA').AsString;
       if DMMACS.TUsuario.FieldByName('DATA_CAD').AsString <> '' then
-        DMEXPORTA.TUsuario.ParamByName('DATA_CAD').AsDateTime := DMMACS.TUsuario.FieldByName('DATA_CAD').AsDateTime;
-      DMEXPORTA.TUsuario.ParamByName('ADM').AsString := DMMACS.TUsuario.FieldByName('ADM').AsString;
-      DMEXPORTA.TUsuario.ParamByName('REVRESMOV').AsString := DMMACS.TUsuario.FieldByName('REVRESMOV').AsString;
+        DMEXPORTA.TUsuario.ParamByName('DATA_CAD').AsDateTime :=
+          DMMACS.TUsuario.FieldByName('DATA_CAD').AsDateTime;
+      DMEXPORTA.TUsuario.ParamByName('ADM').AsString :=
+        DMMACS.TUsuario.FieldByName('ADM').AsString;
+      DMEXPORTA.TUsuario.ParamByName('REVRESMOV').AsString :=
+        DMMACS.TUsuario.FieldByName('REVRESMOV').AsString;
       DMEXPORTA.TUsuario.ExecSQL;
 
       // SE CASO O PARAMETRO DA FUNÇÃO FOR "USUARIO" ENTÃO ESTA BUSCANDO SOMENTE O COD_USUARIO, POR ISSO LOGO QUE FOR REPASSADO O VALOR P O RETORNO DA FUNÇÃO, NÃO PODE CONTINUAR NA FUNÇÃO PQ SENAO SERA RETORNADO O COD_FUNCIONARIO
@@ -11473,14 +13083,19 @@ var
 begin
   try
     // FILTRA A TABELA CLIENTE PARA BUSCAR O COD_PESSOA
-    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', IntToStr(Cod_Cliente), '') = True then
+    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+      IntToStr(Cod_Cliente), '') = True then
     begin
       // FILTRA A TABELA PESSOA P BUSCAR O NOME REFERNTE AO COD_PESSOA REPASSADO PELA TABELA CLIENTE
-      FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TCliente.FieldByname('cod_pessoa').AsString, '');
+      FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+        DMPESSOA.TCliente.FieldByname('cod_pessoa').AsString, '');
     end
     else
     begin
-      MessageDlg('As Informações completas da pessoa relacionada, não foram encontradas.' + #13 + #10 + 'Entre no cadastro e atualize os dados', mtWarning, [mbOK], 0);
+      MessageDlg('As Informações completas da pessoa relacionada, não foram encontradas.'
+        + #13 + #10 + 'Entre no cadastro e atualize os dados', mtWarning,
+          [mbOK],
+        0);
       Exit;
     end;
 
@@ -11495,7 +13110,8 @@ begin
       DMEXPORTA.TPessoa.SQL.Clear;
       DMEXPORTA.TPessoa.SQL.Add('select * from pessoa');
       DMEXPORTA.TPessoa.SQL.Add('where (pessoa.cpfcnpj = :cpf)');
-      DMEXPORTA.TPessoa.ParamByName('cpf').AsString := DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
+      DMEXPORTA.TPessoa.ParamByName('cpf').AsString :=
+        DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
       DMEXPORTA.TPessoa.Open;
     end;
 
@@ -11507,12 +13123,14 @@ begin
       DMEXPORTA.TCliente.SQL.Clear;
       DMEXPORTA.TCliente.SQL.Add('select * from cliente');
       DMEXPORTA.TCliente.SQL.Add('where (cliente.cod_pessoa= :codigo)');
-      DMEXPORTA.TCliente.ParamByName('codigo').AsString := DMEXPORTA.TPessoa.FieldByName('COD_PESSOA').AsString;
+      DMEXPORTA.TCliente.ParamByName('codigo').AsString :=
+        DMEXPORTA.TPessoa.FieldByName('COD_PESSOA').AsString;
       DMEXPORTA.TCliente.Open;
     end;
 
     // se nao encontrar
-    if (DMEXPORTA.TPessoa.IsEmpty) {//and (DMPESSOA.TPessoa.FieldByName('nome').AsString <> '')} then
+    if (DMEXPORTA.TPessoa.IsEmpty)
+      {//and (DMPESSOA.TPessoa.FieldByName('nome').AsString <> '')} then
     begin
       //PROCURA UM CODIGO VALIDO PARA PESSOA
          //VALIDA CODIGO PESSOA
@@ -11581,7 +13199,8 @@ begin
 
       DMEXPORTA.Tcodigo.edit;
       DMEXPORTA.TCodigo.FieldByName('COD_PESSOA').AsInteger := XCOD_PESSOA + 1;
-      DMEXPORTA.TCodigo.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE + 1;
+      DMEXPORTA.TCodigo.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE +
+        1;
       DMEXPORTA.TCodigo.Post;
     end
       //se encontrar pessoa
@@ -11659,7 +13278,8 @@ begin
         DMEXPORTA.TCliente.SQL.Add('where');
         DMEXPORTA.TCliente.SQL.Add('COD_CLIENTE = :OLD_COD_CLIENTE');
 
-        DMEXPORTA.TCliente.ParamByName('OLD_COD_CLIENTE').AsInteger := XCOD_CLIENTE;
+        DMEXPORTA.TCliente.ParamByName('OLD_COD_CLIENTE').AsInteger :=
+          XCOD_CLIENTE;
       end
       else
       begin
@@ -11699,46 +13319,63 @@ begin
         DMEXPORTA.TCliente.ParamByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
 
         DMEXPORTA.Tcodigo.edit;
-        DMEXPORTA.TCodigo.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE + 1;
+        DMEXPORTA.TCodigo.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE +
+          1;
         DMEXPORTA.TCodigo.Post;
       end;
     end;
-    DMEXPORTA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TPessoa.FieldByname('nome').AsString;
-    DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TPessoa.FieldByname('endereco').AsString;
-    DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TPessoa.FieldByname('bairro').AsString;
+    DMEXPORTA.TPessoa.ParamByName('NOME').AsString :=
+      DMPESSOA.TPessoa.FieldByname('nome').AsString;
+    DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString :=
+      DMPESSOA.TPessoa.FieldByname('endereco').AsString;
+    DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString :=
+      DMPESSOA.TPessoa.FieldByname('bairro').AsString;
     // verifica se existe a cidade do cliente, se nao jah cadastra
     DMEXPORTA.TPessoa.ParamByName('COD_CIDADE').AsInteger := VerificaCidade;
-    DMEXPORTA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TPessoa.FieldByname('CEP').AsString;
-    DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
+    DMEXPORTA.TPessoa.ParamByName('CEP').AsString :=
+      DMPESSOA.TPessoa.FieldByname('CEP').AsString;
+    DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+      DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
     if DMPESSOA.TPessoa.FieldByname('DATA_INI').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
-    DMEXPORTA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
+      DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+        DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
+    DMEXPORTA.TPessoa.ParamByName('TELREL').AsString :=
+      DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
     if DMPESSOA.TPessoa.FieldByname('DTNASC').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
-    DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
+      DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+        DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
+    DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
     if DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
+      DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+        DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
     if DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
-    DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
-    DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
+      DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+        DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
+    DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+      DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
+    DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+      DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
     DMEXPORTA.TPessoa.ExecSQL;
 
     // filtra tabela pelo codigo da pessoa     // banco externo
-    FiltraTabela(DMEXPORTA.TPessoa, 'PESSOA', 'COD_PESSOA', IntToStr(XCOD_PESSOA), '');
+    FiltraTabela(DMEXPORTA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      IntToStr(XCOD_PESSOA), '');
 
     // selecionando dados da tabela pessoa fisica
     DMPESSOA.TPessoaF.Close;
     DMPESSOA.TPessoaF.SQL.Clear;
     DMPESSOA.TPessoaF.SQL.Add('select * from pessoaf where pessoaf.cod_pessoa = :codigo');
-    DMPESSOA.TPessoaF.ParamByName('codigo').AsInteger := DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsInteger;
+    DMPESSOA.TPessoaF.ParamByName('codigo').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsInteger;
     DMPESSOA.TPessoaF.Open;
 
     // seleciona no banco local os dados da pessoa juridica
     DMPESSOA.TPessoaJ.Close;
     DMPESSOA.TPessoaJ.SQL.Clear;
     DMPESSOA.TPessoaJ.SQL.Add('select * from pessoaj where pessoaj.cod_pessoa = :codigo');
-    DMPESSOA.TPessoaJ.ParamByName('codigo').AsInteger := DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsInteger;
+    DMPESSOA.TPessoaJ.ParamByName('codigo').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsInteger;
     DMPESSOA.TPessoaJ.Open;
 
     // ou seja, se pessoaj está vazio e foi encntrado pessoaf, a pessoa atual estah definida no banco local como pessoaf
@@ -11771,7 +13408,8 @@ begin
         end;
 
         DMEXPORTA.Tcodigo.edit;
-        DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger := XCOD_PESSOAF + 1;
+        DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger := XCOD_PESSOAF +
+          1;
         DMEXPORTA.TCodigo.Post;
         //inserir pessoa fisica no banco externo
         DMEXPORTA.TPessoaF.Close;
@@ -11803,49 +13441,69 @@ begin
         DMEXPORTA.TPessoaF.SQL.Add('DATANASC_CONJ = :DATANASC_CONJ, RG_CONJ = :RG_CONJ, CPF_CONJ = :CPF_CONJ,');
         DMEXPORTA.TPessoaF.SQL.Add('EMP_CONJ = :EMP_CONJ, NOME_PAI = :NOME_PAI, NOME_MAE = :NOME_MAE, ENDE_FILIACAO = :ENDE_FILIACAO');
         DMEXPORTA.TPessoaF.SQL.Add('where COD_PESSOAF = :OLD_COD_PESSOAF');
-        DMEXPORTA.TPessoaF.ParamByName('OLD_COD_PESSOAF').AsInteger := XCOD_PESSOAF;
+        DMEXPORTA.TPessoaF.ParamByName('OLD_COD_PESSOAF').AsInteger :=
+          XCOD_PESSOAF;
 
       end;
 
       //atualizar dados pessoa fisica
       if DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString := DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
       if DMPESSOA.TPessoaF.FieldByname('SEXO').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString := DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
       if DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
       if DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
       if DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
       if DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
+        DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime :=
+          DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
       if DMPESSOA.TPessoaF.FieldByname('CARGO').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString := DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
       if DMPESSOA.TPessoaF.FieldByname('RG').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('RG').AsString := DMPESSOA.TPessoaF.FieldByname('RG').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('RG').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('RG').AsString;
       if DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
+        DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime :=
+          DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
       if DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString := DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
       if DMPESSOA.TPessoaF.FieldByname('TITULO').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString := DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
       if DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
       if DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
+        DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime :=
+          DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
       if DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
       if DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
       if DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
       if DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
       if DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
       if DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString <> '' then
-        DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString := DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
+        DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString :=
+          DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
       //DMEXPORTA.TPessoaF.ParamByName('DIAANIVERCONJ').AsString := DMPESSOA.TPessoaF.FieldByname('DIAANIVERCONJ').AsString;
       DMEXPORTA.TPessoaF.ExecSQL;
 
@@ -11889,7 +13547,8 @@ begin
         end;
         //ATUALIZA PROXIMO CODIGO DE PESSOA J
         DMEXPORTA.Tcodigo.edit;
-        DMEXPORTA.TCodigo.FieldByName('COD_PESSOAJ').AsInteger := XCOD_PESSOAJ + 1;
+        DMEXPORTA.TCodigo.FieldByName('COD_PESSOAJ').AsInteger := XCOD_PESSOAJ +
+          1;
         DMEXPORTA.TCodigo.Post;
 
         // INSERIR PESSOA JURIDICA
@@ -11916,16 +13575,21 @@ begin
         DMEXPORTA.TPessoaJ.SQL.Add('RAZAO_SOCIAL = :RAZAO_SOCIAL,INSC_MUN = :INSC_MUN, WEB_PAGE = :WEB_PAGE');
         DMEXPORTA.TPessoaJ.SQL.Add('where COD_PESSOAJ = :OLD_COD_PESSOAJ');
 
-        DMEXPORTA.TPessoaJ.ParamByName('OLD_COD_PESSOAJ').AsInteger := XCOD_PESSOAJ;
+        DMEXPORTA.TPessoaJ.ParamByName('OLD_COD_PESSOAJ').AsInteger :=
+          XCOD_PESSOAJ;
       end;
 
       //ATUALIZAR DADOS
-      DMEXPORTA.TPessoaJ.ParamByName('INSC_EST').AsString := DMPESSOA.TPessoaJ.fieldByname('INSC_EST').AsString;
-      DMEXPORTA.TPessoaJ.ParamByName('RAZAO_SOCIAL').AsString := DMPESSOA.TPessoaJ.fieldByname('RAZAO_SOCIAL').AsString;
+      DMEXPORTA.TPessoaJ.ParamByName('INSC_EST').AsString :=
+        DMPESSOA.TPessoaJ.fieldByname('INSC_EST').AsString;
+      DMEXPORTA.TPessoaJ.ParamByName('RAZAO_SOCIAL').AsString :=
+        DMPESSOA.TPessoaJ.fieldByname('RAZAO_SOCIAL').AsString;
       if DMPESSOA.TPessoaJ.fieldByname('INSC_MUN').AsString <> '' then
-        DMEXPORTA.TPessoaJ.ParamByName('INSC_MUN').AsString := DMPESSOA.TPessoaJ.fieldByname('INSC_MUN').AsString;
+        DMEXPORTA.TPessoaJ.ParamByName('INSC_MUN').AsString :=
+          DMPESSOA.TPessoaJ.fieldByname('INSC_MUN').AsString;
       if DMPESSOA.TPessoaJ.fieldByname('WEB_PAGE').AsString <> '' then
-        DMEXPORTA.TPessoaJ.ParamByName('WEB_PAGE').AsString := DMPESSOA.TPessoaJ.fieldByname('WEB_PAGE').AsString;
+        DMEXPORTA.TPessoaJ.ParamByName('WEB_PAGE').AsString :=
+          DMPESSOA.TPessoaJ.fieldByname('WEB_PAGE').AsString;
       DMEXPORTA.TPessoaJ.ExecSQL;
 
     end;
@@ -11934,48 +13598,81 @@ begin
     //FiltraTabela(DMPESSOA.TCliente,'CLIENTE','COD_CLIENTE',IntToStr(Cod_Cliente),'');//DMServ.TOrd.FieldByName('COD_CLIENTE').AsString,'');
 
     DMEXPORTA.TCliente.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
-    DMEXPORTA.TCliente.ParamByName('COD_INTERNO').AsString := DMPESSOA.TCliente.FieldByname('COD_INTERNO').AsString;
-    DMEXPORTA.TCliente.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TCliente.FieldByname('DATA_CAD').AsDateTime;
-    DMEXPORTA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency := DMPESSOA.TCliente.FieldByname('R_SAL_CONJ').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('R_SALARIO').AsCurrency := DMPESSOA.TCliente.FieldByname('R_SALARIO').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('R_HON_PROF').AsCurrency := DMPESSOA.TCliente.FieldByname('R_HON_PROF').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('R_OUTREC').AsCurrency := DMPESSOA.TCliente.FieldByname('R_OUTREC').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('D_ALUGUEL').AsCurrency := DMPESSOA.TCliente.FieldByname('D_ALUGUEL').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency := DMPESSOA.TCliente.FieldByname('D_RESIDENCIA').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('D_VEICULO').AsCurrency := DMPESSOA.TCliente.FieldByname('D_VEICULO').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('D_FAMILIAR').AsCurrency := DMPESSOA.TCliente.FieldByname('D_FAMILIAR').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('D_OUTDESP').AsCurrency := DMPESSOA.TCliente.FieldByname('D_OUTDESP').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('LIM_CRED').AsCurrency := DMPESSOA.TCliente.FieldByname('LIM_CRED').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('QTDTEMPORESID').AsString := DMPESSOA.TCliente.FieldByname('QTDTEMPORESID').AsString;
-    DMEXPORTA.TCliente.ParamByName('BENS').AsString := DMPESSOA.TCliente.FieldByname('BENS').AsString;
+    DMEXPORTA.TCliente.ParamByName('COD_INTERNO').AsString :=
+      DMPESSOA.TCliente.FieldByname('COD_INTERNO').AsString;
+    DMEXPORTA.TCliente.ParamByName('DATA_CAD').AsDateTime :=
+      DMPESSOA.TCliente.FieldByname('DATA_CAD').AsDateTime;
+    DMEXPORTA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('R_SAL_CONJ').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('R_SALARIO').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('R_SALARIO').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('R_HON_PROF').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('R_HON_PROF').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('R_OUTREC').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('R_OUTREC').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('D_ALUGUEL').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('D_ALUGUEL').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('D_RESIDENCIA').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('D_VEICULO').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('D_VEICULO').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('D_FAMILIAR').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('D_FAMILIAR').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('D_OUTDESP').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('D_OUTDESP').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('LIM_CRED').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('LIM_CRED').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('QTDTEMPORESID').AsString :=
+      DMPESSOA.TCliente.FieldByname('QTDTEMPORESID').AsString;
+    DMEXPORTA.TCliente.ParamByName('BENS').AsString :=
+      DMPESSOA.TCliente.FieldByname('BENS').AsString;
 
     // função qu busca o vendedor cadastrado p/ o cliente
-    if (DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsString <> '') and (DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger > 0) then
-      DMEXPORTA.TCliente.ParamByName('COD_VENDEDOR').AsInteger := VerificaFuncionario('VENDEDOR', DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsString);
+    if (DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsString <> '') and
+      (DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger > 0) then
+      DMEXPORTA.TCliente.ParamByName('COD_VENDEDOR').AsInteger :=
+        VerificaFuncionario('VENDEDOR',
+        DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsString);
 
-    DMEXPORTA.TCliente.ParamByName('INFOCOM').AsString := DMPESSOA.TCliente.FieldByname('INFOCOM').AsString;
-    DMEXPORTA.TCliente.ParamByName('ENDENTRAGA').AsString := DMPESSOA.TCliente.FieldByname('ENDENTRAGA').AsString;
-    DMEXPORTA.TCliente.ParamByName('ATUALIZAR').AsString := DMPESSOA.TCliente.FieldByname('ATUALIZAR').AsString;
-    DMEXPORTA.TCliente.ParamByName('COD_USUARIO').AsInteger := DMPESSOA.TCliente.FieldByname('COD_USUARIO').AsInteger;
+    DMEXPORTA.TCliente.ParamByName('INFOCOM').AsString :=
+      DMPESSOA.TCliente.FieldByname('INFOCOM').AsString;
+    DMEXPORTA.TCliente.ParamByName('ENDENTRAGA').AsString :=
+      DMPESSOA.TCliente.FieldByname('ENDENTRAGA').AsString;
+    DMEXPORTA.TCliente.ParamByName('ATUALIZAR').AsString :=
+      DMPESSOA.TCliente.FieldByname('ATUALIZAR').AsString;
+    DMEXPORTA.TCliente.ParamByName('COD_USUARIO').AsInteger :=
+      DMPESSOA.TCliente.FieldByname('COD_USUARIO').AsInteger;
     if DMPESSOA.TCliente.FieldByname('ATIVO').AsString = '' then
       DMEXPORTA.TCliente.ParamByName('ATIVO').AsString := '1'
     else
-      DMEXPORTA.TCliente.ParamByName('ATIVO').AsString := DMPESSOA.TCliente.FieldByname('ATIVO').AsString;
-    DMEXPORTA.TCliente.ParamByName('CREDENCIAL').AsString := DMPESSOA.TCliente.FieldByname('CREDENCIAL').AsString;
-    DMEXPORTA.TCliente.ParamByName('RAMOATIV').AsString := DMPESSOA.TCliente.FieldByname('RAMOATIV').AsString;
-    DMEXPORTA.TCliente.ParamByName('ATACADISTA').AsString := DMPESSOA.TCliente.FieldByname('ATACADISTA').AsString;
-    DMEXPORTA.TCliente.ParamByName('COD_FORMPAG').AsInteger := FormaPgto_Cliente;
+      DMEXPORTA.TCliente.ParamByName('ATIVO').AsString :=
+        DMPESSOA.TCliente.FieldByname('ATIVO').AsString;
+    DMEXPORTA.TCliente.ParamByName('CREDENCIAL').AsString :=
+      DMPESSOA.TCliente.FieldByname('CREDENCIAL').AsString;
+    DMEXPORTA.TCliente.ParamByName('RAMOATIV').AsString :=
+      DMPESSOA.TCliente.FieldByname('RAMOATIV').AsString;
+    DMEXPORTA.TCliente.ParamByName('ATACADISTA').AsString :=
+      DMPESSOA.TCliente.FieldByname('ATACADISTA').AsString;
+    DMEXPORTA.TCliente.ParamByName('COD_FORMPAG').AsInteger :=
+      FormaPgto_Cliente;
     //IF DMPESSOA.TCliente.FieldByname('SEPARAR').AsString = '' THEN
         //DMEXPORTA.TCliente.ParamByName('SEPARAR').AsString := '0'
    // ELSE
     //    DMEXPORTA.TCliente.ParamByName('SEPARAR').AsString := DMPESSOA.TCliente.FieldByname('SEPARAR').AsString;
-    DMEXPORTA.TCliente.ParamByName('MULTA').AsCurrency := DMPESSOA.TCliente.FieldByname('MULTA').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('JURO').AsCurrency := DMPESSOA.TCliente.FieldByname('JURO').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('OBS').AsString := DMPESSOA.TCliente.FieldByname('OBS').AsString;
-    DMEXPORTA.TCliente.ParamByName('SCPC').AsString := DMPESSOA.TCliente.FieldByname('SCPC').AsString;
-    DMEXPORTA.TCliente.ParamByName('TAMANHO').AsCurrency := DMPESSOA.TCliente.FieldByname('TAMANHO').AsCurrency;
-    DMEXPORTA.TCliente.ParamByName('INFORMACAO').AsString := DMPESSOA.TCliente.FieldByname('INFORMACAO').AsString;
-    DMEXPORTA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger := DMPESSOA.TCliente.FieldByname('DIAVENCIMENTO').AsInteger;
+    DMEXPORTA.TCliente.ParamByName('MULTA').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('MULTA').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('JURO').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('JURO').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('OBS').AsString :=
+      DMPESSOA.TCliente.FieldByname('OBS').AsString;
+    DMEXPORTA.TCliente.ParamByName('SCPC').AsString :=
+      DMPESSOA.TCliente.FieldByname('SCPC').AsString;
+    DMEXPORTA.TCliente.ParamByName('TAMANHO').AsCurrency :=
+      DMPESSOA.TCliente.FieldByname('TAMANHO').AsCurrency;
+    DMEXPORTA.TCliente.ParamByName('INFORMACAO').AsString :=
+      DMPESSOA.TCliente.FieldByname('INFORMACAO').AsString;
+    DMEXPORTA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger :=
+      DMPESSOA.TCliente.FieldByname('DIAVENCIMENTO').AsInteger;
     DMEXPORTA.TCliente.ExecSQL;
 
     DMEXPORTA.IBTExporta.CommitRetaining;
@@ -11996,13 +13693,16 @@ begin
     DMGEOGRAFIA.WCidade.Close;
     DMGEOGRAFIA.WCidade.SQL.Clear;
     DMGEOGRAFIA.WCidade.SQL.Add('select * from vwcidade where vwcidade.cod_cidade = :codigo');
-    DMGEOGRAFIA.WCidade.ParamByName('codigo').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_CIDADE').AsInteger;
+    DMGEOGRAFIA.WCidade.ParamByName('codigo').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('COD_CIDADE').AsInteger;
     DMGEOGRAFIA.WCidade.Open;
 
     // verifica no banco de fora se existe a cidade com o mesmo nome
     DMEXPORTA.TCidade.Close;
     DMEXPORTA.TCidade.SQL.Clear;
-    DMEXPORTA.TCidade.SQL.Add('select * from vwcidade where (upper(vwcidade.nome) = upper(' + #39 + DMGEOGRAFIA.WCidade.FieldByName('nome').AsString + #39 + ')) AND (upper(vwcidade.uf) = upper(' + #39 + DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + #39 + '))');
+    DMEXPORTA.TCidade.SQL.Add('select * from vwcidade where (upper(vwcidade.nome) = upper(' + #39 + DMGEOGRAFIA.WCidade.FieldByName('nome').AsString + #39 +
+      ')) AND (upper(vwcidade.uf) = upper(' + #39 +
+      DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + #39 + '))');
     DMEXPORTA.TCidade.Open;
 
     if DMEXPORTA.TCidade.IsEmpty then
@@ -12020,15 +13720,18 @@ begin
       DMEXPORTA.TCodigo.Open;
       Result := DMEXPORTA.TCodigo.FieldByname('cod_cidade').AsInteger;
       DMEXPORTA.TCidade.Insert;
-      DMEXPORTA.TCidade.FieldByName('cod_cidade').AsInteger := DMEXPORTA.TCodigo.FieldByname('cod_cidade').AsInteger;
-      DMEXPORTA.TCidade.FieldByName('nome').AsString := DMGEOGRAFIA.WCidade.FieldByname('nome').AsString;
+      DMEXPORTA.TCidade.FieldByName('cod_cidade').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByname('cod_cidade').AsInteger;
+      DMEXPORTA.TCidade.FieldByName('nome').AsString :=
+        DMGEOGRAFIA.WCidade.FieldByname('nome').AsString;
 
       // verifica se existe o estado, se nao tiver jah cadastra, caso cntrario apenas recolhe os dados importantes
       DMEXPORTA.TCidade.FieldByName('COD_ESTADO').AsInteger := VerificaEstado;
       DMEXPORTA.TCidade.Post;
 
       DMEXPORTA.TCodigo.Edit;
-      DMEXPORTA.TCodigo.FieldByName('cod_cidade').AsInteger := DMEXPORTA.TCidade.FieldByName('cod_cidade').AsInteger + 1;
+      DMEXPORTA.TCodigo.FieldByName('cod_cidade').AsInteger :=
+        DMEXPORTA.TCidade.FieldByName('cod_cidade').AsInteger + 1;
       DMEXPORTA.TCodigo.Post;
 
       try
@@ -12055,7 +13758,8 @@ begin
   DMGEOGRAFIA.TEstado.Close;
   DMGEOGRAFIA.TEstado.SQL.Clear;
   DMGEOGRAFIA.TEstado.SQL.Add('select * from estado where estado.cod_estado = :codigo');
-  DMGEOGRAFIA.TEstado.ParamByName('codigo').AsInteger := DMGEOGRAFIA.TCidade.FieldByname('COD_ESTADO').AsInteger;
+  DMGEOGRAFIA.TEstado.ParamByName('codigo').AsInteger :=
+    DMGEOGRAFIA.TCidade.FieldByname('COD_ESTADO').AsInteger;
   DMGEOGRAFIA.TEstado.Open;
 
   DMEXPORTA.TEstado.Close;
@@ -12063,7 +13767,8 @@ begin
   DMEXPORTA.TEstado.SQL.Add('select * from estado where (upper(estado.descricao) = upper(' + #39 + DMGEOGRAFIA.TEstado.FieldByname('descricao').AsString + #39 + '))');
   DMEXPORTA.TEstado.Open;
 
-  if (DMEXPORTA.TEstado.IsEmpty) and (DMGEOGRAFIA.TEstado.FieldByName('descricao').AsString <> '') then
+  if (DMEXPORTA.TEstado.IsEmpty) and
+    (DMGEOGRAFIA.TEstado.FieldByName('descricao').AsString <> '') then
   begin
     DMEXPORTA.TCodigo.Close;
     DMEXPORTA.TCodigo.SQL.Clear;
@@ -12076,13 +13781,17 @@ begin
     DMEXPORTA.TEstado.SQL.Add('(COD_ESTADO, DESCRICAO, UF_ESTADO)');
     DMEXPORTA.TEstado.SQL.Add('values');
     DMEXPORTA.TEstado.SQL.Add('(:COD_ESTADO, :DESCRICAO, :UF_ESTADO)');
-    DMEXPORTA.TEstado.ParamByName('cod_estado').AsInteger := DMEXPORTA.TCodigo.FieldByname('cod_estado').AsInteger;
-    DMEXPORTA.TEstado.ParamByName('descricao').AsString := DMGEOGRAFIA.TEstado.FieldByname('descricao').AsString;
-    DMEXPORTA.TEstado.ParamByName('uf_estado').AsString := DMGEOGRAFIA.TEstado.FieldByname('uf_estado').AsString;
+    DMEXPORTA.TEstado.ParamByName('cod_estado').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByname('cod_estado').AsInteger;
+    DMEXPORTA.TEstado.ParamByName('descricao').AsString :=
+      DMGEOGRAFIA.TEstado.FieldByname('descricao').AsString;
+    DMEXPORTA.TEstado.ParamByName('uf_estado').AsString :=
+      DMGEOGRAFIA.TEstado.FieldByname('uf_estado').AsString;
     DMEXPORTA.TEstado.ExecSQL;
 
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('cod_estado').AsInteger := DMEXPORTA.TEstado.FieldByName('cod_estado').AsInteger + 1;
+    DMEXPORTA.TCodigo.FieldByName('cod_estado').AsInteger :=
+      DMEXPORTA.TEstado.FieldByName('cod_estado').AsInteger + 1;
     DMEXPORTA.TCodigo.Post;
 
     DMEXPORTA.IBTExporta.CommitRetaining;
@@ -12105,7 +13814,8 @@ var
 begin
   Result := -1;
   // BUSCANDO NO BANCO LOCAL, OS DADOS DO EQUIPAMENTO
-  FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', Cod_equipamento, '');
+  FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+    Cod_equipamento, '');
 
   // verifica se no banco de fora existe o mesmo equipamento
   DMEXPORTA.TEquip.Close;
@@ -12117,7 +13827,8 @@ begin
   begin
 
     //VALIDA CODIGO CLIENTE
-    XCOD_EQUIPAMENTO := DMEXPORTA.TCodigo.FieldByname('COD_EQUIPAMENTO').AsInteger;
+    XCOD_EQUIPAMENTO :=
+      DMEXPORTA.TCodigo.FieldByname('COD_EQUIPAMENTO').AsInteger;
     XFlag := 0;
     while XFlag = 0 do
     begin
@@ -12144,13 +13855,15 @@ begin
     DMEXPORTA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
     DMEXPORTA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX, 1)');
 
-    DMEXPORTA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO;
+    DMEXPORTA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+      XCOD_EQUIPAMENTO;
 
     XCOD_AUX := XCOD_EQUIPAMENTO;
 
     // ATUALIZANDO A TABELA CODIGO DO BANCO DE FORA
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO + 1;
+    DMEXPORTA.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger :=
+      XCOD_EQUIPAMENTO + 1;
     DMEXPORTA.TCodigo.Post;
   end
   else
@@ -12174,24 +13887,42 @@ begin
 
   end;
 
-  DMEXPORTA.TEquip.ParamByName('COD_CLIENTE').AsInteger := DMEXPORTA.TOrd.ParamByName('COD_CLIENTE').AsInteger { VerificaCliente( DMServ.TOrd.ParamByName('COD_CLIENTE').AsInteger)};
-  DMEXPORTA.TEquip.ParamByName('DESCRICAO').AsString := DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
-  DMEXPORTA.TEquip.ParamByName('MARCA').AsString := DMPESSOA.TEquip.FieldByName('MARCA').AsString;
-  DMEXPORTA.TEquip.ParamByName('MODELO').AsString := DMPESSOA.TEquip.FieldByName('MODELO').AsString;
-  DMEXPORTA.TEquip.ParamByName('ANO').AsString := DMPESSOA.TEquip.FieldByName('ANO').AsString;
-  DMEXPORTA.TEquip.ParamByName('COR').AsString := DMPESSOA.TEquip.FieldByName('COR').AsString;
-  DMEXPORTA.TEquip.ParamByName('CHASSI').AsString := DMPESSOA.TEquip.FieldByName('CHASSI').AsString;
-  DMEXPORTA.TEquip.ParamByName('PLACA').AsString := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
+  DMEXPORTA.TEquip.ParamByName('COD_CLIENTE').AsInteger :=
+    DMEXPORTA.TOrd.ParamByName('COD_CLIENTE').AsInteger
+    { VerificaCliente( DMServ.TOrd.ParamByName('COD_CLIENTE').AsInteger)};
+  DMEXPORTA.TEquip.ParamByName('DESCRICAO').AsString :=
+    DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
+  DMEXPORTA.TEquip.ParamByName('MARCA').AsString :=
+    DMPESSOA.TEquip.FieldByName('MARCA').AsString;
+  DMEXPORTA.TEquip.ParamByName('MODELO').AsString :=
+    DMPESSOA.TEquip.FieldByName('MODELO').AsString;
+  DMEXPORTA.TEquip.ParamByName('ANO').AsString :=
+    DMPESSOA.TEquip.FieldByName('ANO').AsString;
+  DMEXPORTA.TEquip.ParamByName('COR').AsString :=
+    DMPESSOA.TEquip.FieldByName('COR').AsString;
+  DMEXPORTA.TEquip.ParamByName('CHASSI').AsString :=
+    DMPESSOA.TEquip.FieldByName('CHASSI').AsString;
+  DMEXPORTA.TEquip.ParamByName('PLACA').AsString :=
+    DMPESSOA.TEquip.FieldByName('PLACA').AsString;
   if DMPESSOA.TEquip.FieldByName('DTAQUISICAO').AsString <> '' then
-    DMEXPORTA.TEquip.ParamByName('DTAQUISICAO').AsDateTime := DMPESSOA.TEquip.FieldByName('DTAQUISICAO').AsDateTime;
-  DMEXPORTA.TEquip.ParamByName('CONCESSIONARIA').AsString := DMPESSOA.TEquip.FieldByName('CONCESSIONARIA').AsString;
-  DMEXPORTA.TEquip.ParamByName('MOTOR').AsString := DMPESSOA.TEquip.FieldByName('MOTOR').AsString;
-  DMEXPORTA.TEquip.ParamByName('ANOMOTOR').AsString := DMPESSOA.TEquip.FieldByName('ANOMOTOR').AsString;
-  DMEXPORTA.TEquip.ParamByName('CHASSIMOTOR').AsString := DMPESSOA.TEquip.FieldByName('CHASSIMOTOR').AsString;
-  DMEXPORTA.TEquip.ParamByName('KMATUAL').AsInteger := DMPESSOA.TEquip.FieldByName('KMATUAL').AsInteger;
-  DMEXPORTA.TEquip.ParamByName('UNIDRODAGEM').AsString := DMPESSOA.TEquip.FieldByName('UNIDRODAGEM').AsString;
-  DMEXPORTA.TEquip.ParamByName('NUM_FROTA').AsString := DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
-  DMEXPORTA.TEquip.ParamByName('ALTURAMAX').AsCurrency := DMPESSOA.TEquip.FieldByName('ALTURAMAX').AsCurrency;
+    DMEXPORTA.TEquip.ParamByName('DTAQUISICAO').AsDateTime :=
+      DMPESSOA.TEquip.FieldByName('DTAQUISICAO').AsDateTime;
+  DMEXPORTA.TEquip.ParamByName('CONCESSIONARIA').AsString :=
+    DMPESSOA.TEquip.FieldByName('CONCESSIONARIA').AsString;
+  DMEXPORTA.TEquip.ParamByName('MOTOR').AsString :=
+    DMPESSOA.TEquip.FieldByName('MOTOR').AsString;
+  DMEXPORTA.TEquip.ParamByName('ANOMOTOR').AsString :=
+    DMPESSOA.TEquip.FieldByName('ANOMOTOR').AsString;
+  DMEXPORTA.TEquip.ParamByName('CHASSIMOTOR').AsString :=
+    DMPESSOA.TEquip.FieldByName('CHASSIMOTOR').AsString;
+  DMEXPORTA.TEquip.ParamByName('KMATUAL').AsInteger :=
+    DMPESSOA.TEquip.FieldByName('KMATUAL').AsInteger;
+  DMEXPORTA.TEquip.ParamByName('UNIDRODAGEM').AsString :=
+    DMPESSOA.TEquip.FieldByName('UNIDRODAGEM').AsString;
+  DMEXPORTA.TEquip.ParamByName('NUM_FROTA').AsString :=
+    DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+  DMEXPORTA.TEquip.ParamByName('ALTURAMAX').AsCurrency :=
+    DMPESSOA.TEquip.FieldByName('ALTURAMAX').AsCurrency;
   DMEXPORTA.TEquip.SQL.Text;
 
   DMEXPORTA.TEquip.ExecSQL;
@@ -12210,7 +13941,8 @@ var
 begin
   Result := -1;
   // seleciona no banco o local os dados da tabela forma de pagamento, princialmente a descricao
-  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMServ.TOrd.FieldByName('cod_formpag').AsString, '');
+  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+    DMServ.TOrd.FieldByName('cod_formpag').AsString, '');
 
   // verifica se no banco de fora existe a forma de pagemtn o com a mesma descricao
   DMEXPORTA.TFormPag.Close;
@@ -12228,13 +13960,15 @@ begin
     DMEXPORTA.TFormPag.SQL.Add('values');
     DMEXPORTA.TFormPag.SQL.Add('(:COD_FORMPAG, :COD_LOJA, :DESCRICAO, :DESCFISC, :PRIMPARCELA, :INTERVALO,');
     DMEXPORTA.TFormPag.SQL.Add(':QUANTPARCELA, :JUROAPLIC, :MEDIADIAS, :TIPO)');
-    DMEXPORTA.TFormPag.ParamByName('COD_FORMPAG').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
+    DMEXPORTA.TFormPag.ParamByName('COD_FORMPAG').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
 
     XCOD_AUX := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
 
     // atualizando banco de fora
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger + 1;
+    DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger + 1;
     DMEXPORTA.TCodigo.Post;
   end
   else
@@ -12253,15 +13987,24 @@ begin
     DMEXPORTA.TFormPag.ParamByName('OLD_COD_FORMPAG').AsInteger := XCOD_AUX;
   end;
 
-  DMEXPORTA.TFormPag.ParamByName('COD_LOJA').AsInteger := DMFINANC.TFormPag.FieldByName('COD_LOJA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('DESCFISC').AsString := DMFINANC.TFormPag.FieldByName('DESCFISC').AsString;
-  DMEXPORTA.TFormPag.ParamByName('DESCRICAO').AsString := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
-  DMEXPORTA.TFormPag.ParamByName('INTERVALO').AsInteger := DMFINANC.TFormPag.FieldByName('INTERVALO').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('JUROAPLIC').AsCurrency := DMFINANC.TFormPag.FieldByName('JUROAPLIC').AsCurrency;
-  DMEXPORTA.TFormPag.ParamByName('MEDIADIAS').AsInteger := DMFINANC.TFormPag.FieldByName('MEDIADIAS').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('PRIMPARCELA').AsInteger := DMFINANC.TFormPag.FieldByName('PRIMPARCELA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('QUANTPARCELA').AsInteger := DMFINANC.TFormPag.FieldByName('QUANTPARCELA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('TIPO').AsString := DMFINANC.TFormPag.FieldByName('TIPO').AsString;
+  DMEXPORTA.TFormPag.ParamByName('COD_LOJA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('COD_LOJA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('DESCFISC').AsString :=
+    DMFINANC.TFormPag.FieldByName('DESCFISC').AsString;
+  DMEXPORTA.TFormPag.ParamByName('DESCRICAO').AsString :=
+    DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+  DMEXPORTA.TFormPag.ParamByName('INTERVALO').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('INTERVALO').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('JUROAPLIC').AsCurrency :=
+    DMFINANC.TFormPag.FieldByName('JUROAPLIC').AsCurrency;
+  DMEXPORTA.TFormPag.ParamByName('MEDIADIAS').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('MEDIADIAS').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('PRIMPARCELA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('PRIMPARCELA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('QUANTPARCELA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('QUANTPARCELA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('TIPO').AsString :=
+    DMFINANC.TFormPag.FieldByName('TIPO').AsString;
   DMEXPORTA.TFormPag.ExecSQL;
 
   Result := XCOD_AUX;
@@ -12279,7 +14022,8 @@ begin
   DMEXPORTA.TUnidade.SQL.Add('SELECT * FROM UNIDADE WHERE (UPPER(UNIDADE.DESC_UNID) = UPPER(' + #39 + DMESTOQUE.TUnidade.FieldByName('desc_unid').AsString + #39 + '))');
   DMEXPORTA.TUnidade.Open;
 
-  if (DMEXPORTA.TUnidade.IsEmpty) {// and (DMESTOQUE.TUnidade.FieldByName('desc_unid').AsString <> '')} then
+  if (DMEXPORTA.TUnidade.IsEmpty)
+    {// and (DMESTOQUE.TUnidade.FieldByName('desc_unid').AsString <> '')} then
   begin
     DMEXPORTA.TCodigo.Close;
     DMEXPORTA.TCodigo.SQL.Clear;
@@ -12292,16 +14036,21 @@ begin
     DMEXPORTA.TUnidade.SQL.Add('(COD_UNIDADE, DESC_UNID, SIGLA_UNID, ARREDONDAR)');
     DMEXPORTA.TUnidade.SQL.Add('values');
     DMEXPORTA.TUnidade.SQL.Add('(:COD_UNIDADE, :DESC_UNID, :SIGLA_UNID, :ARREDONDAR)');
-    DMEXPORTA.TUnidade.ParamByName('cod_unidade').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_unidade').AsInteger;
-    DMEXPORTA.TUnidade.ParamByName('arredondar').AsString := DMESTOQUE.TUnidade.FieldByName('arredondar').AsString;
-    DMEXPORTA.TUnidade.ParamByName('desc_unid').AsString := DMESTOQUE.TUnidade.FieldByName('desc_unid').AsString;
-    DMEXPORTA.TUnidade.ParamByName('sigla_unid').AsString := DMESTOQUE.TUnidade.FieldByName('sigla_unid').AsString;
+    DMEXPORTA.TUnidade.ParamByName('cod_unidade').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('cod_unidade').AsInteger;
+    DMEXPORTA.TUnidade.ParamByName('arredondar').AsString :=
+      DMESTOQUE.TUnidade.FieldByName('arredondar').AsString;
+    DMEXPORTA.TUnidade.ParamByName('desc_unid').AsString :=
+      DMESTOQUE.TUnidade.FieldByName('desc_unid').AsString;
+    DMEXPORTA.TUnidade.ParamByName('sigla_unid').AsString :=
+      DMESTOQUE.TUnidade.FieldByName('sigla_unid').AsString;
     DMEXPORTA.TUnidade.ExecSQL;
 
     XCOD_AUX := DMEXPORTA.TCodigo.FieldByName('cod_unidade').AsInteger;
 
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('cod_unidade').AsInteger := DMEXPORTA.TUnidade.FieldByName('cod_unidade').AsInteger + 1;
+    DMEXPORTA.TCodigo.FieldByName('cod_unidade').AsInteger :=
+      DMEXPORTA.TUnidade.FieldByName('cod_unidade').AsInteger + 1;
     DMEXPORTA.TCodigo.Post;
 
   end
@@ -12334,10 +14083,12 @@ begin
       DMEXPORTA.TCst.Close;
       DMEXPORTA.TCst.SQL.Clear;
       DMEXPORTA.TCst.SQL.Add('insert into CST (COD_CST, DESCRICAO, COD_SIT_TRIB, INDICEECF, SUBSITUICAO) values (:COD_CST, :DESCRICAO, :COD_SIT_TRIB, :INDICEECF, :SUBSTITUICAO)');
-      DMEXPORTA.TCst.ParamByName('cod_cst').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_CST').AsInteger;
+      DMEXPORTA.TCst.ParamByName('cod_cst').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByName('cod_CST').AsInteger;
       Result := DMEXPORTA.TCodigo.FieldByName('cod_CST').AsInteger;
       DMEXPORTA.TCodigo.Edit;
-      DMEXPORTA.TCodigo.FieldByName('cod_cst').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_cst').AsInteger + 1;
+      DMEXPORTA.TCodigo.FieldByName('cod_cst').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByName('cod_cst').AsInteger + 1;
       DMEXPORTA.TCodigo.Post;
     end
     else
@@ -12349,10 +14100,14 @@ begin
       DMEXPORTA.TCst.SQL.Add('where COD_CST = :OLD_COD_CST');
       DMEXPORTA.TCst.ParamByName('OLD_COD_CST').AsInteger := Result;
     end;
-    DMEXPORTA.TCst.ParamByName('cod_sit_trib').AsString := DMESTOQUE.TCST.FieldByname('cod_sit_trib').AsString;
-    DMEXPORTA.TCst.ParamByName('descricao').AsString := DMESTOQUE.TCST.FieldByname('descricao').AsString;
-    DMEXPORTA.TCst.ParamByName('INDICEECF').AsString := DMESTOQUE.TCST.FieldByname('INDICEECF').AsString;
-    DMEXPORTA.TCst.ParamByName('substituicao').AsString := DMESTOQUE.TCST.FieldByname('substituicao').AsString;
+    DMEXPORTA.TCst.ParamByName('cod_sit_trib').AsString :=
+      DMESTOQUE.TCST.FieldByname('cod_sit_trib').AsString;
+    DMEXPORTA.TCst.ParamByName('descricao').AsString :=
+      DMESTOQUE.TCST.FieldByname('descricao').AsString;
+    DMEXPORTA.TCst.ParamByName('INDICEECF').AsString :=
+      DMESTOQUE.TCST.FieldByname('INDICEECF').AsString;
+    DMEXPORTA.TCst.ParamByName('substituicao').AsString :=
+      DMESTOQUE.TCST.FieldByname('substituicao').AsString;
     DMEXPORTA.TCst.ExecSQL;
   end
   else
@@ -12363,7 +14118,8 @@ end;
 
 // VERIFICA SE NO BANCO DE FORA TEM A EQUIPE CADASTRADA JUNTO COM SEU RESPONSAVEL E FUNCIONARIO
 
-function TFOrdemMec.VerificaEquipe(Cod_equipe: string; Cod_responsavel: string): integer;
+function TFOrdemMec.VerificaEquipe(Cod_equipe: string; Cod_responsavel: string):
+  integer;
 var
   XCOD_AUX: INTEGER;
 begin
@@ -12385,12 +14141,14 @@ begin
       DMEXPORTA.TEquipe.SQL.Add('(COD_EQUIPE, DESCRICAO, COD_RESPONSAVEL, OBSERVACAO)');
       DMEXPORTA.TEquipe.SQL.Add('values');
       DMEXPORTA.TEquipe.SQL.Add('(:COD_EQUIPE, :DESCRICAO, :COD_RESPONSAVEL, :OBSERVACAO)');
-      DMEXPORTA.TEquipe.ParamByName('COD_EQUIPE').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_EQUIPE').AsInteger;
+      DMEXPORTA.TEquipe.ParamByName('COD_EQUIPE').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByname('COD_EQUIPE').AsInteger;
 
       XCOD_AUX := DMEXPORTA.TCodigo.FieldByname('COD_EQUIPE').AsInteger;
 
       DMEXPORTA.TCodigo.Edit;
-      DMEXPORTA.TCodigo.FieldByName('COD_EQUIPE').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_EQUIPE').AsInteger + 1;
+      DMEXPORTA.TCodigo.FieldByName('COD_EQUIPE').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByName('COD_EQUIPE').AsInteger + 1;
       DMEXPORTA.TCodigo.Post;
 
     end
@@ -12409,9 +14167,12 @@ begin
 
     end;
 
-    DMEXPORTA.TEquipe.ParamByName('DESCRICAO').AsString := DMPESSOA.TEquipe.FieldByname('DESCRICAO').AsString;
-    DMEXPORTA.TEquipe.ParamByName('COD_RESPONSAVEL').AsInteger := VerificaFuncionario('RESPONSAVEL', Cod_responsavel);
-    DMEXPORTA.TEquipe.ParamByName('OBSERVACAO').AsString := DMPESSOA.TEquipe.FieldByname('OBSERVACAO').AsString;
+    DMEXPORTA.TEquipe.ParamByName('DESCRICAO').AsString :=
+      DMPESSOA.TEquipe.FieldByname('DESCRICAO').AsString;
+    DMEXPORTA.TEquipe.ParamByName('COD_RESPONSAVEL').AsInteger :=
+      VerificaFuncionario('RESPONSAVEL', Cod_responsavel);
+    DMEXPORTA.TEquipe.ParamByName('OBSERVACAO').AsString :=
+      DMPESSOA.TEquipe.FieldByname('OBSERVACAO').AsString;
     DMEXPORTA.TEquipe.ExecSQL;
 
     DMEXPORTA.TEquipe.Close;
@@ -12423,7 +14184,8 @@ begin
     DMEXPORTA.TFunEquipe.Close;
     DMEXPORTA.TFunEquipe.SQL.Clear;
     DMEXPORTA.TFunEquipe.SQL.Add('delete from funequipe where funequipe.cod_equipe = :codigo');
-    DMEXPORTA.TFunEquipe.ParamByName('codigo').AsInteger := DMEXPORTA.TEquipe.FieldByName('COD_EQUIPE').AsInteger;
+    DMEXPORTA.TFunEquipe.ParamByName('codigo').AsInteger :=
+      DMEXPORTA.TEquipe.FieldByName('COD_EQUIPE').AsInteger;
     DMEXPORTA.TFunEquipe.ExecSQL;
 
     // BUSCANDO TODOS OS FUNCIONARIOS DO BANCO LOCAL RELACIONADOS A EQUIPE ATUAL
@@ -12438,16 +14200,19 @@ begin
     while not DMPESSOA.TFunEquipe.Eof do
     begin
       // BUSCA FUNCIOANRIO PARA SELECIONAR DADOS DA TABELA PESSOA
-      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', DMPESSOA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsString, '');
+      FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+        DMPESSOA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsString, '');
 
       // FILTRANDO PESSOA RELACIONADO AO FUNCIONARIO
-      FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
+      FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+        DMPESSOA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
 
       // busca no banco de fora a pessoa com o mesmo CPF
       DMEXPORTA.TPessoa.Close;
       DMEXPORTA.TPessoa.SQL.Clear;
       DMEXPORTA.TPessoa.SQL.Add('select * from pessoa where pessoa.cpfcnpj = :CPF');
-      DMEXPORTA.TPessoa.ParamByName('CPF').AsString := DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
+      DMEXPORTA.TPessoa.ParamByName('CPF').AsString :=
+        DMPESSOA.TPessoa.FieldByName('cpfcnpj').AsString;
       DMEXPORTA.TPessoa.Open;
 
       // COMO NÃO EXISTE A EQUIPE, TAMBEM NÃO ESTÃO RELACIONADOS OS FUNCIONARIOS Á NENHUMA EQUIPE, POR ISSO JÁ ESTA ATRIBUINDO OS FUNCIONARIOS A NOVA EQUIPE
@@ -12465,22 +14230,28 @@ begin
         //CadastroFuncionario;
 
         // SE FOR INSERIR, ATRIBUI-SE O CODIGO DO NOVO FUNCIOANRIO CADASTRADO
-        DMEXPORTA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsInteger := CadastroFuncionario; //DMEXPORTA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
+        DMEXPORTA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsInteger :=
+          CadastroFuncionario; //DMEXPORTA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
       end
       else
       begin
         // se o funcionario jah esta cadastrado, eh buscado seu codigo e é atribuido na equipe
-        FiltraTabela(DMEXPORTA.TFuncionario, 'FUNCIONARIO', 'cod_pessoa', DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
-        DMEXPORTA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsInteger := DMEXPORTA.TFuncionario.FieldByname('COD_FUNC').AsInteger;
+        FiltraTabela(DMEXPORTA.TFuncionario, 'FUNCIONARIO', 'cod_pessoa',
+          DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
+        DMEXPORTA.TFunEquipe.FieldByName('COD_FUNCIONARIO').AsInteger :=
+          DMEXPORTA.TFuncionario.FieldByname('COD_FUNC').AsInteger;
       end;
 
-      DMEXPORTA.TFunEquipe.FieldByName('COD_FUNEQUIPE').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_FUNEQUIPE').AsInteger;
-      DMEXPORTA.TFunEquipe.FieldByName('COD_EQUIPE').AsInteger := DMEXPORTA.TEquipe.FieldByName('COD_EQUIPE').AsInteger;
+      DMEXPORTA.TFunEquipe.FieldByName('COD_FUNEQUIPE').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByname('COD_FUNEQUIPE').AsInteger;
+      DMEXPORTA.TFunEquipe.FieldByName('COD_EQUIPE').AsInteger :=
+        DMEXPORTA.TEquipe.FieldByName('COD_EQUIPE').AsInteger;
       DMEXPORTA.TFunEquipe.Post;
 
       // auto incremento
       DMEXPORTA.TCodigo.Edit;
-      DMEXPORTA.TCodigo.FieldByName('COD_FUNEQUIPE').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_FUNEQUIPE').AsInteger + 1;
+      DMEXPORTA.TCodigo.FieldByName('COD_FUNEQUIPE').AsInteger :=
+        DMEXPORTA.TCodigo.FieldByName('COD_FUNEQUIPE').AsInteger + 1;
       DMEXPORTA.TCodigo.Post;
 
       // proximo funcionario atrelado a equipe no banco de fora
@@ -12491,7 +14262,8 @@ begin
     // retornando o codigo da equipe, seja ela nova ou jah existente no banco de fora
     Result := DMEXPORTA.TEquipe.FieldByName('COD_EQUIPE').AsInteger;
   except
-    MessageDlg('A ordem foi exportada com serviços sem equipe', mtWarning, [mbOK], 0);
+    MessageDlg('A ordem foi exportada com serviços sem equipe', mtWarning,
+      [mbOK], 0);
   end;
 end;
 
@@ -12502,7 +14274,8 @@ var
   XCOD_AUX, XCOD_PESSOA: Integer;
 begin
   // apenas seleciona dados da tabela pessoa fisica p inserir no banco de dados de fora
-  FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsString, '');
+  FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA',
+    DMPESSOA.TPessoa.FieldByname('cod_pessoa').AsString, '');
 
   DMEXPORTA.TPessoa.Close;
   DMEXPORTA.TPessoa.SQL.Clear;
@@ -12518,35 +14291,49 @@ begin
   XCOD_PESSOA := DMEXPORTA.TCodigo.FieldByname('COD_PESSOA').AsInteger;
   DMEXPORTA.TPessoa.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
 
-  DMEXPORTA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TPessoa.FieldByname('nome').AsString;
-  DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TPessoa.FieldByname('endereco').AsString;
-  DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TPessoa.FieldByname('bairro').AsString;
+  DMEXPORTA.TPessoa.ParamByName('NOME').AsString :=
+    DMPESSOA.TPessoa.FieldByname('nome').AsString;
+  DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString :=
+    DMPESSOA.TPessoa.FieldByname('endereco').AsString;
+  DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString :=
+    DMPESSOA.TPessoa.FieldByname('bairro').AsString;
   // verifica se existe a cidade do cliente, se nao jah cadastra
   DMEXPORTA.TPessoa.ParamByName('COD_CIDADE').AsInteger := VerificaCidade;
   if DMPESSOA.TPessoa.FieldByname('CEP').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TPessoa.FieldByname('CEP').AsString;
-  DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
+    DMEXPORTA.TPessoa.ParamByName('CEP').AsString :=
+      DMPESSOA.TPessoa.FieldByname('CEP').AsString;
+  DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+    DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
   if DMPESSOA.TPessoa.FieldByname('DATA_INI').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
+    DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+      DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
   if DMPESSOA.TPessoa.FieldByname('TELREL').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
+    DMEXPORTA.TPessoa.ParamByName('TELREL').AsString :=
+      DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
   if DMPESSOA.TPessoa.FieldByname('DTNASC').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
+    DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+      DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
   if DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
+    DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
   if DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
+    DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
   if DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
+    DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+      DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
   if DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
+    DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+      DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
   if DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsString <> '' then
-    DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
+    DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+      DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
 
   DMEXPORTA.TPessoa.ExecSQL;
 
   DMEXPORTA.TCodigo.Edit;
-  DMEXPORTA.TCodigo.FieldByname('COD_PESSOA').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_PESSOA').AsInteger + 1;
+  DMEXPORTA.TCodigo.FieldByname('COD_PESSOA').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByname('COD_PESSOA').AsInteger + 1;
   DMEXPORTA.TCodigo.Post;
 
   DMEXPORTA.TPessoaF.Close;
@@ -12568,47 +14355,67 @@ begin
 
   // atualizando a tabela codigo
   DMEXPORTA.TCodigo.Edit;
-  DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger + 1;
+  DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByName('COD_PESSOAF').AsInteger + 1;
   DMEXPORTA.TCodigo.Post;
 
   if DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString := DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
   if DMPESSOA.TPessoaF.FieldByname('SEXO').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString := DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
   if DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
   if DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
   if DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
   if DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
+    DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime :=
+      DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
   if DMPESSOA.TPessoaF.FieldByname('CARGO').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString := DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
   if DMPESSOA.TPessoaF.FieldByname('RG').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('RG').AsString := DMPESSOA.TPessoaF.FieldByname('RG').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('RG').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('RG').AsString;
   if DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
+    DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime :=
+      DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
   if DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString := DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
   if DMPESSOA.TPessoaF.FieldByname('TITULO').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString := DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
   if DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
   if DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
+    DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime :=
+      DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
   if DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
   if DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
   if DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
   if DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
   if DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
   if DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString <> '' then
-    DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString := DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
+    DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString :=
+      DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
   //DMEXPORTA.TPessoaF.ParamByName('DIAANIVERCONJ').AsString := DMPESSOA.TPessoaF.FieldByname('DIAANIVERCONJ').AsString;
   DMEXPORTA.TPessoaF.ExecSQL;
 
@@ -12621,33 +14428,43 @@ begin
   DMEXPORTA.TFuncionario.SQL.Add('values');
   DMEXPORTA.TFuncionario.SQL.Add('(:COD_FUNC, :COD_PESSOA, :COD_INTERNO, :DATA_CAD, :DATA_ADMIS, :DATA_DEMIS,');
   DMEXPORTA.TFuncionario.SQL.Add(':NUM_CTPS, :SER_CTPS, :NUM_PIS, :TERCEIRO)');
-  DMEXPORTA.TFuncionario.ParamByName('COD_FUNC').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_FUNC').AsInteger;
+  DMEXPORTA.TFuncionario.ParamByName('COD_FUNC').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByname('COD_FUNC').AsInteger;
 
   XCOD_AUX := DMEXPORTA.TCodigo.FieldByname('COD_FUNC').AsInteger;
 
   Result := XCOD_AUX;
 
-  DMEXPORTA.TFuncionario.ParamByName('COD_INTERNO').AsString := DMPESSOA.TFuncionario.FieldByname('COD_INTERNO').AsString;
+  DMEXPORTA.TFuncionario.ParamByName('COD_INTERNO').AsString :=
+    DMPESSOA.TFuncionario.FieldByname('COD_INTERNO').AsString;
   DMEXPORTA.TFuncionario.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
   if DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsDateTime;
+    DMEXPORTA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime :=
+      DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsDateTime;
   if DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsDateTime;
+    DMEXPORTA.TFuncionario.ParamByName('DATA_CAD').AsDateTime :=
+      DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsDateTime;
   if DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsDateTime;
+    DMEXPORTA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime :=
+      DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsDateTime;
   if DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('NUM_CTPS').AsString := DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString;
+    DMEXPORTA.TFuncionario.ParamByName('NUM_CTPS').AsString :=
+      DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString;
   if DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('NUM_PIS').AsString := DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString;
+    DMEXPORTA.TFuncionario.ParamByName('NUM_PIS').AsString :=
+      DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString;
   if DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('SER_CTPS').AsString := DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString;
+    DMEXPORTA.TFuncionario.ParamByName('SER_CTPS').AsString :=
+      DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString;
   if DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString <> '' then
-    DMEXPORTA.TFuncionario.ParamByName('TERCEIRO').AsString := DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString;
+    DMEXPORTA.TFuncionario.ParamByName('TERCEIRO').AsString :=
+      DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString;
   DMEXPORTA.TFuncionario.ExecSQL;
 
   // atualizando a tabela codigo
   DMEXPORTA.TCodigo.Edit;
-  DMEXPORTA.TCodigo.FieldByName('COD_FUNC').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_FUNC').AsInteger + 1;
+  DMEXPORTA.TCodigo.FieldByName('COD_FUNC').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByName('COD_FUNC').AsInteger + 1;
   DMEXPORTA.TCodigo.Post;
 
   // FAZ TODOS S FILTROS DO FUNCINARIO P VERIFICAR SE O CARGO DELE JAH ESTAH CADASTRADO NO BANCO DE FORA
@@ -12657,11 +14474,14 @@ begin
   DMPESSOA.TALx.SQL.Add('left join funcargo on funcionario.cod_func = funcargo.cod_funcionario');
   DMPESSOA.TALx.SQL.Add('left join cargo on funcargo.cod_cargo = cargo.cod_cargo');
   DMPESSOA.TALx.SQL.Add('where funcionario.cod_func = :codigo');
-  DMPESSOA.TALx.ParamByName('codigo').AsInteger := DMPESSOA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
+  DMPESSOA.TALx.ParamByName('codigo').AsInteger :=
+    DMPESSOA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
   DMPESSOA.TALx.Open;
 
   // verifica se existe o cargo no banco de fora
-  if FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '', 'UPPER(DESCRICAO) = UPPER(' + #39 + DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')') = false then
+  if FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '',
+    'UPPER(DESCRICAO) = UPPER(' + #39 +
+    DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')') = false then
   begin
     // TABELA CARGO
     DMEXPORTA.TCARGO.Close;
@@ -12670,16 +14490,21 @@ begin
     DMEXPORTA.TCARGO.SQL.Add('(COD_CARGO, DESCRICAO)');
     DMEXPORTA.TCARGO.SQL.Add('values');
     DMEXPORTA.TCARGO.SQL.Add('(:COD_CARGO, :DESCRICAO)');
-    DMEXPORTA.TCARGO.ParamByName('COD_CARGO').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_CARGO').AsInteger;
-    DMEXPORTA.TCARGO.ParamByName('DESCRICAO').AsString := DMPESSOA.TALx.FieldByName('DESCRICAO').AsString;
+    DMEXPORTA.TCARGO.ParamByName('COD_CARGO').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByname('COD_CARGO').AsInteger;
+    DMEXPORTA.TCARGO.ParamByName('DESCRICAO').AsString :=
+      DMPESSOA.TALx.FieldByName('DESCRICAO').AsString;
     DMEXPORTA.TCARGO.ExecSQL;
 
     // atualizando a tabela codigo
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('COD_CARGO').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_CARGO').AsInteger + 1;
+    DMEXPORTA.TCodigo.FieldByName('COD_CARGO').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('COD_CARGO').AsInteger + 1;
     DMEXPORTA.TCodigo.Post;
 
-    FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '', 'UPPER(DESCRICAO) = UPPER(' + #39 + DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')')
+    FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '',
+      'UPPER(DESCRICAO) = UPPER(' + #39 +
+      DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')')
 
   end;
 
@@ -12692,17 +14517,24 @@ begin
   DMEXPORTA.TFunCargo.SQL.Add('values');
   DMEXPORTA.TFunCargo.SQL.Add('(:COD_FUNCARGO, :COD_CARGO, :COD_FUNCIONARIO, :COMISSAO_VVPRO, :COMISSAO_VPPRO,');
   DMEXPORTA.TFunCargo.SQL.Add(':COMISSAO_VVSER, :COMISSAO_VPSER)');
-  DMEXPORTA.TFunCargo.ParamByName('COD_FUNCARGO').AsInteger := DMEXPORTA.TCodigo.FieldByname('COD_FUNCARGO').AsInteger;
-  DMEXPORTA.TFunCargo.ParamByName('COD_CARGO').AsString := DMEXPORTA.TCARGO.FieldByName('COD_CARGO').AsString;
+  DMEXPORTA.TFunCargo.ParamByName('COD_FUNCARGO').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByname('COD_FUNCARGO').AsInteger;
+  DMEXPORTA.TFunCargo.ParamByName('COD_CARGO').AsString :=
+    DMEXPORTA.TCARGO.FieldByName('COD_CARGO').AsString;
   DMEXPORTA.TFunCargo.ParamByName('COD_FUNCIONARIO').AsInteger := XCOD_AUX;
-  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VVPRO').AsCurrency := DMPESSOA.TFunCargo.FieldByname('COMISSAO_VVPRO').AsCurrency;
-  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VPPRO').AsCurrency := DMPESSOA.TFunCargo.FieldByname('COMISSAO_VPPRO').AsCurrency;
-  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VVSER').AsCurrency := DMPESSOA.TFunCargo.FieldByname('COMISSAO_VVSER').AsCurrency;
-  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VPSER').AsCurrency := DMPESSOA.TFunCargo.FieldByname('COMISSAO_VPSER').AsCurrency;
+  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VVPRO').AsCurrency :=
+    DMPESSOA.TFunCargo.FieldByname('COMISSAO_VVPRO').AsCurrency;
+  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VPPRO').AsCurrency :=
+    DMPESSOA.TFunCargo.FieldByname('COMISSAO_VPPRO').AsCurrency;
+  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VVSER').AsCurrency :=
+    DMPESSOA.TFunCargo.FieldByname('COMISSAO_VVSER').AsCurrency;
+  DMEXPORTA.TFunCargo.ParamByName('COMISSAO_VPSER').AsCurrency :=
+    DMPESSOA.TFunCargo.FieldByname('COMISSAO_VPSER').AsCurrency;
   DMEXPORTA.TFunCargo.ExecSQL;
 
   DMEXPORTA.TCodigo.Edit;
-  DMEXPORTA.TCodigo.FieldByName('COD_FUNCARGO').AsInteger := DMEXPORTA.TCodigo.FieldByName('COD_FUNCARGO').AsInteger + 1;
+  DMEXPORTA.TCodigo.FieldByName('COD_FUNCARGO').AsInteger :=
+    DMEXPORTA.TCodigo.FieldByName('COD_FUNCARGO').AsInteger + 1;
   DMEXPORTA.TCodigo.post;
 
   DMEXPORTA.IBTExporta.CommitRetaining;
@@ -12719,7 +14551,8 @@ begin
   // faz a SQL para buscar no banco local a descricao da forma de pagamento
   DMFINANC.TFormPag.Close;
   DMFINANC.TFormPag.SQL.Clear;
-  DMFINANC.TFormPag.SQL.Add('select * from formpag where formpag.cod_formpag = ' + DMPESSOA.TCliente.FieldByname('cod_formpag').AsString);
+  DMFINANC.TFormPag.SQL.Add('select * from formpag where formpag.cod_formpag = '
+    + DMPESSOA.TCliente.FieldByname('cod_formpag').AsString);
   DMFINANC.TFormPag.Open;
 
   // verifica se no banco de fora existe a mesma forma de pagamento que o banco local
@@ -12738,13 +14571,15 @@ begin
     DMEXPORTA.TFormPag.SQL.Add('values');
     DMEXPORTA.TFormPag.SQL.Add('(:COD_FORMPAG, :COD_LOJA, :DESCRICAO, :DESCFISC, :PRIMPARCELA, :INTERVALO,');
     DMEXPORTA.TFormPag.SQL.Add(':QUANTPARCELA, :JUROAPLIC, :MEDIADIAS, :TIPO)');
-    DMEXPORTA.TFormPag.ParamByName('COD_FORMPAG').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
+    DMEXPORTA.TFormPag.ParamByName('COD_FORMPAG').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
 
     XCOD_AUX := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger;
 
     // atualizando banco de fora
     DMEXPORTA.TCodigo.Edit;
-    DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger := DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger + 1;
+    DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger :=
+      DMEXPORTA.TCodigo.FieldByName('cod_formpag').AsInteger + 1;
     DMEXPORTA.TCodigo.Post;
   end
   else
@@ -12763,15 +14598,24 @@ begin
 
   end;
 
-  DMEXPORTA.TFormPag.ParamByName('COD_LOJA').AsInteger := DMFINANC.TFormPag.FieldByName('COD_LOJA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('DESCFISC').AsString := DMFINANC.TFormPag.FieldByName('DESCFISC').AsString;
-  DMEXPORTA.TFormPag.ParamByName('DESCRICAO').AsString := DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
-  DMEXPORTA.TFormPag.ParamByName('INTERVALO').AsInteger := DMFINANC.TFormPag.FieldByName('INTERVALO').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('JUROAPLIC').AsCurrency := DMFINANC.TFormPag.FieldByName('JUROAPLIC').AsCurrency;
-  DMEXPORTA.TFormPag.ParamByName('MEDIADIAS').AsInteger := DMFINANC.TFormPag.FieldByName('MEDIADIAS').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('PRIMPARCELA').AsInteger := DMFINANC.TFormPag.FieldByName('PRIMPARCELA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('QUANTPARCELA').AsInteger := DMFINANC.TFormPag.FieldByName('QUANTPARCELA').AsInteger;
-  DMEXPORTA.TFormPag.ParamByName('TIPO').AsString := DMFINANC.TFormPag.FieldByName('TIPO').AsString;
+  DMEXPORTA.TFormPag.ParamByName('COD_LOJA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('COD_LOJA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('DESCFISC').AsString :=
+    DMFINANC.TFormPag.FieldByName('DESCFISC').AsString;
+  DMEXPORTA.TFormPag.ParamByName('DESCRICAO').AsString :=
+    DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString;
+  DMEXPORTA.TFormPag.ParamByName('INTERVALO').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('INTERVALO').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('JUROAPLIC').AsCurrency :=
+    DMFINANC.TFormPag.FieldByName('JUROAPLIC').AsCurrency;
+  DMEXPORTA.TFormPag.ParamByName('MEDIADIAS').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('MEDIADIAS').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('PRIMPARCELA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('PRIMPARCELA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('QUANTPARCELA').AsInteger :=
+    DMFINANC.TFormPag.FieldByName('QUANTPARCELA').AsInteger;
+  DMEXPORTA.TFormPag.ParamByName('TIPO').AsString :=
+    DMFINANC.TFormPag.FieldByName('TIPO').AsString;
   DMEXPORTA.TFormPag.ExecSQL;
 
   Result := XCOD_AUX;
@@ -12784,7 +14628,8 @@ procedure TFOrdemMec.DBGridConsultaDblClick(Sender: TObject);
 begin
   inherited;
   // filtrando a ordem selecionada
-  FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+    XView.FieldByName('COD_ORDEM').AsString, '');
   XCOD_ORDEM := XView.FieldByName('COD_ORDEM').AsInteger;
 
   // BUSCANDO DADOS DA ORDEM
@@ -12792,7 +14637,8 @@ begin
 
   if (DMServ.TOrd.FieldByName('STATUS').AsString <> 'ABERTO') then
   begin
-    Mensagem('    A T E N Ç Ã O   ', 'A ordem não está "Aberta".', '', 1, 1, false, 'I');
+    Mensagem('    A T E N Ç Ã O   ', 'A ordem não está "Aberta".', '', 1, 1,
+      false, 'I');
     Exit;
   end;
   // If Mensagem('   A T E N Ç Ã O   ','A Ordem de Serviço atual não possui produtos e serviços inclusos. Deseja apagá-la ?','',2,3,false,'A')=2
@@ -12800,7 +14646,8 @@ begin
   DMServ.TOrd.Close;
   DMServ.TOrd.SQL.Clear;
   DMServ.TOrd.SQL.Add('select * from ordem where ordem.cod_ordem = :codigo');
-  DMServ.TOrd.ParamByName('codigo').AsInteger := DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
+  DMServ.TOrd.ParamByName('codigo').AsInteger :=
+    DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
   DMServ.TOrd.Open;
 
   if (DMServ.TOrd.FieldByName('exportado').AsString <> '#') then
@@ -12814,7 +14661,10 @@ begin
     else
     begin
       if not VerificaProdutosServicos(XCOD_ORDEM, true, true) then
-        Mensagem('    A T E N Ç Ã O   ', 'A Ordem de Serviço não possui Produtos e Serviços inclusos.', '', 1, 1, false, 'I')
+        Mensagem('    A T E N Ç Ã O   ',
+          'A Ordem de Serviço não possui Produtos e Serviços inclusos.', '', 1,
+            1,
+          false, 'I')
       else
       begin
         DMServ.TOrd.FieldByName('EXP').AsString := 'X';
@@ -12845,7 +14695,8 @@ begin
     end
     else
     begin
-      if Mensagem('   A T E N Ç Ã O   ', 'A Ordem de Serviço já foi exportada.' + #13 + 'Deseja exportá-la novamente?', '', 2, 3, false, 'A') = 2 then
+      if Mensagem('   A T E N Ç Ã O   ', 'A Ordem de Serviço já foi exportada.'
+        + #13 + 'Deseja exportá-la novamente?', '', 2, 3, false, 'A') = 2 then
       begin
         // abre formulario de senha
         AbrirForm(TFSenha, FSenha, 0);
@@ -12853,7 +14704,9 @@ begin
         if XAlxResult = true then
         begin
           if not VerificaProdutosServicos(XCOD_ORDEM, true, true) then
-            Mensagem('    A T E N Ç Ã O   ', 'A Ordem de Serviço não possui Produtos e Serviços inclusos.', '', 1, 1, false, 'I')
+            Mensagem('    A T E N Ç Ã O   ',
+              'A Ordem de Serviço não possui Produtos e Serviços inclusos.', '',
+              1, 1, false, 'I')
           else
           begin
             DMServ.TOrd.FieldByName('EXP').AsString := 'X';
@@ -12885,7 +14738,8 @@ begin
 
   if (EdtotalProd.ValueNumeric = 0) and (EdDescTProd.ValueNumeric <> 0) then
   begin
-    Mensagem('A T E N Ç Ã O !', 'Não há produtos na Ordem para conceder desconto.', '', 1, 1, False, 'a');
+    Mensagem('A T E N Ç Ã O !',
+      'Não há produtos na Ordem para conceder desconto.', '', 1, 1, False, 'a');
     EdDescTProd.ValueNumeric := 0;
     Exit;
   end;
@@ -12961,9 +14815,13 @@ begin
     EdDescTProd.ValueNumeric := 0;
   end;
   //ATRIBUI VALOR TOTAL DA ORDEM E DESCONTO
-  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric + EdTotDesp.ValueNumeric;
+  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric
+    + EdTotDesp.ValueNumeric;
   EdTotalOrd.ValueNumeric := EdValorOrd.ValueNumeric;
-  CalcPercent(0, (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric) - (EdtotalProd.ValueNumeric + EdTotalserv.ValueNumeric + EdTotDesp.ValueNumeric), (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric), 'D');
+  CalcPercent(0, (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric) -
+    (EdtotalProd.ValueNumeric + EdTotalserv.ValueNumeric +
+    EdTotDesp.ValueNumeric), (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric),
+    'D');
   EdDescTOrdem.ValueNumeric := AlxPercento;
   CalcComisTotVend;
 end;
@@ -12990,13 +14848,15 @@ begin
   DMFINANC.TSlctComis.ParamByName('GERADOR').AsString := 'ORDEM';
   DMFINANC.TSlctComis.ParamByName('CODGERADOR').AsInteger := XCOD_ORDEM;
   DMFINANC.TSlctComis.Open;
-  XVLRCOMIS := DMFINANC.TSlctComis.FieldByName('COMISPROD').AsCurrency + DMFINANC.TSlctComis.FieldByName('COMISSERV').AsCurrency;
+  XVLRCOMIS := DMFINANC.TSlctComis.FieldByName('COMISPROD').AsCurrency +
+    DMFINANC.TSlctComis.FieldByName('COMISSERV').AsCurrency;
   ;
   if (DMFINANC.TAlx.IsEmpty) then
   begin
     if XCOD_VENDEDOR > 0 then
     begin
-      FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+      FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ORDEM', IntToStr(XCOD_ORDEM),
+        '');
 
       DMServ.TPOrd.First;
 
@@ -13007,35 +14867,45 @@ begin
         begin
 
           // filtra estoque para buscar os valores das porcentagens das comissoes
-          FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE', DMServ.TPOrd.FieldByname('cod_estoque').AsString, '');
+          FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE',
+            DMServ.TPOrd.FieldByname('cod_estoque').AsString, '');
 
           // se na loja esta configurado p buscar preço somente a prazo
           if DMMACS.TLoja.FieldByName('TIPOVENDA').AsString = '1' then
           begin
             // se na loja esta configurado p buscar do funcionario
-            if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0') then
+            if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0')
+              then
             begin
               // DADOS DA TABELA FUNCARGO QUE SERÃO UTILIZADAS PARA OS CALCULOS ABAIXO
-              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
+              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO',
+                IntToStr(XCOD_VENDEDOR), '');
 
               DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
 
               //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-              XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) / 100;
+              XVLRCOMIS := XVLRCOMIS +
+                (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) /
+                100;
             end
             else
             begin
               //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-              XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
+              XVLRCOMIS := XVLRCOMIS +
+                (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
             end;
           end
           else
           begin
             // se na loja esta configurado p buscar do funcionario
-            if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0') then
+            if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0')
+              then
             begin
               // DADOS DA TABELA FUNCARGO QUE SERÃO UTILIZADAS PARA OS CALCULOS ABAIXO
-              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
+              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO',
+                IntToStr(XCOD_VENDEDOR), '');
 
               DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
 
@@ -13043,12 +14913,18 @@ begin
               if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
               begin
                 //fORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVPRO').AsCurrency) / 100;
+                XVLRCOMIS := XVLRCOMIS +
+                  (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                  DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVPRO').AsCurrency) /
+                  100;
               end
               else
               begin
                 //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) / 100;
+                XVLRCOMIS := XVLRCOMIS +
+                  (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                  DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) /
+                  100;
               end;
             end
             else
@@ -13057,12 +14933,16 @@ begin
               if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
               begin
                 //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) / 100;
+                XVLRCOMIS := XVLRCOMIS +
+                  (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                  DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) / 100;
               end
               else
               begin
                 //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                XVLRCOMIS := XVLRCOMIS + (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
+                XVLRCOMIS := XVLRCOMIS +
+                  (DMServ.TPOrd.fieldByName('TOTAL').AsCurrency *
+                  DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
               end;
             end;
           end;
@@ -13071,7 +14951,8 @@ begin
         end;
 
         // TODOS OS SERVIÇOS DA ORDEM
-        FiltraTabela(DMServ.TSOrd, 'ITSERVORD', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+        FiltraTabela(DMServ.TSOrd, 'ITSERVORD', 'COD_ORDEM',
+          IntToStr(XCOD_ORDEM), '');
 
         DMServ.TSOrd.First;
 
@@ -13080,19 +14961,26 @@ begin
         begin
 
           // DADOS DA TABELA FUNCARGO QUE SERÃO UTILIZADAS PARA OS CALCULOS ABAIXO
-          if FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '') = true then
+          if FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO',
+            IntToStr(XCOD_VENDEDOR), '') = true then
           begin
             DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
 
             if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
             begin
               //FORMA DE PAGAMENTO À vista
-              XVLRCOMIS := XVLRCOMIS + ((DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency) * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVSER').AsCurrency) / 100;
+              XVLRCOMIS := XVLRCOMIS +
+                ((DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency) *
+                DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVSER').AsCurrency) /
+                100;
             end
             else
             begin
               //FORMA DE PAGAMENTO À prazo
-              XVLRCOMIS := XVLRCOMIS + ((DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency) * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPSER').AsCurrency) / 100;
+              XVLRCOMIS := XVLRCOMIS +
+                ((DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency) *
+                DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPSER').AsCurrency) /
+                100;
             end;
           end;
           // proximo serviço
@@ -13116,7 +15004,8 @@ begin
   inherited;
   if (EdTotalserv.ValueNumeric = 0) and (EdDescTServ.ValueNumeric <> 0) then
   begin
-    Mensagem('A T E N Ç Ã O !', 'Não há serviços na ordem para conceder desconto!', '', 1, 1, False, 'a');
+    Mensagem('A T E N Ç Ã O !',
+      'Não há serviços na ordem para conceder desconto!', '', 1, 1, False, 'a');
     EdDescTServ.ValueNumeric := 0;
     Exit;
   end;
@@ -13147,9 +15036,13 @@ begin
     EdDescTServ.ValueNumeric := 0;
   end;
   //ATRIBUI VALOR TOTAL DA ORDEM E DESCONTO
-  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric + EdTotDesp.ValueNumeric;
+  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric
+    + EdTotDesp.ValueNumeric;
   EdTotalOrd.ValueNumeric := EdValorOrd.ValueNumeric;
-  CalcPercent(0, (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric) - (EdtotalProd.ValueNumeric + EdTotalserv.ValueNumeric + EdTotDesp.ValueNumeric), (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric), 'D');
+  CalcPercent(0, (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric) -
+    (EdtotalProd.ValueNumeric + EdTotalserv.ValueNumeric +
+    EdTotDesp.ValueNumeric), (XVLRTPROD + XVLRTSERV + EdTotDesp.ValueNumeric),
+    'D');
   EdDescTOrdem.ValueNumeric := AlxPercento;
   CalcComisTotVend;
   EfetuaCalculoISS;
@@ -13202,7 +15095,8 @@ end;
 
 //verifa se nao ordem passada no parametro existem (produtos - prod / serviços - serv) conforme solicitado e retorna true caso encontrar
 
-function TFOrdemMec.VerificaProdutosServicos(NumOrdem: Integer; prod: Boolean; serv: Boolean): Boolean;
+function TFOrdemMec.VerificaProdutosServicos(NumOrdem: Integer; prod: Boolean;
+  serv: Boolean): Boolean;
 begin
 
   Result := True;
@@ -13239,25 +15133,32 @@ begin
 
 end;
 
-function TFOrdemMec.AtualizarFuncionarioBancoExterno(codFunInt: integer; codFunExt: integer): Boolean;
+function TFOrdemMec.AtualizarFuncionarioBancoExterno(codFunInt: integer;
+  codFunExt: integer): Boolean;
 var
   XCOD_PESSOA, XCOD_PESSOAF, aux: Integer;
 begin
   try
     Result := False;
     //filtra tabela funcionario
-    FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', IntToStr(codFunInt), '');
-    FiltraTabela(DMEXPORTA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC', IntToStr(codFunExt), '');
+    FiltraTabela(DMPESSOA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+      IntToStr(codFunInt), '');
+    FiltraTabela(DMEXPORTA.TFuncionario, 'FUNCIONARIO', 'COD_FUNC',
+      IntToStr(codFunExt), '');
 
     //filtra tabela pessoa
-    FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
-    FiltraTabela(DMEXPORTA.TPessoa, 'PESSOA', 'COD_PESSOA', DMEXPORTA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
+    FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMPESSOA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
+    FiltraTabela(DMEXPORTA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMEXPORTA.TFuncionario.FieldByname('cod_pessoa').AsString, '');
 
     XCOD_PESSOA := DMEXPORTA.TFuncionario.FieldByname('cod_pessoa').AsInteger;
 
     //filtra trabela pessoa fisica
-    FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA', DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
-    FiltraTabela(DMEXPORTA.TPessoaF, 'PESSOAF', 'COD_PESSOA', DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
+    FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA',
+      DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
+    FiltraTabela(DMEXPORTA.TPessoaF, 'PESSOAF', 'COD_PESSOA',
+      DMEXPORTA.TPessoa.FieldByname('cod_pessoa').AsString, '');
 
     XCOD_PESSOAF := DMEXPORTA.TPessoaF.FieldByname('cod_pessoaf').AsInteger;
 
@@ -13285,30 +15186,43 @@ begin
 
     DMEXPORTA.TPessoa.ParamByName('OLD_COD_PESSOA').AsInteger := XCOD_PESSOA;
 
-    DMEXPORTA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TPessoa.FieldByname('nome').AsString;
-    DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TPessoa.FieldByname('endereco').AsString;
-    DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TPessoa.FieldByname('bairro').AsString;
+    DMEXPORTA.TPessoa.ParamByName('NOME').AsString :=
+      DMPESSOA.TPessoa.FieldByname('nome').AsString;
+    DMEXPORTA.TPessoa.ParamByName('ENDERECO').AsString :=
+      DMPESSOA.TPessoa.FieldByname('endereco').AsString;
+    DMEXPORTA.TPessoa.ParamByName('BAIRRO').AsString :=
+      DMPESSOA.TPessoa.FieldByname('bairro').AsString;
     // verifica se existe a cidade do cliente, se nao jah cadastra
     DMEXPORTA.TPessoa.ParamByName('COD_CIDADE').AsInteger := VerificaCidade;
     if DMPESSOA.TPessoa.FieldByname('CEP').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TPessoa.FieldByname('CEP').AsString;
-    DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
+      DMEXPORTA.TPessoa.ParamByName('CEP').AsString :=
+        DMPESSOA.TPessoa.FieldByname('CEP').AsString;
+    DMEXPORTA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+      DMPESSOA.TPessoa.FieldByname('CPFCNPJ').AsString;
     if DMPESSOA.TPessoa.FieldByname('DATA_INI').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
+      DMEXPORTA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+        DMPESSOA.TPessoa.FieldByname('DATA_INI').AsDateTime;
     if DMPESSOA.TPessoa.FieldByname('TELREL').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
+      DMEXPORTA.TPessoa.ParamByName('TELREL').AsString :=
+        DMPESSOA.TPessoa.FieldByname('TELREL').AsString;
     if DMPESSOA.TPessoa.FieldByname('DTNASC').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
+      DMEXPORTA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+        DMPESSOA.TPessoa.FieldByname('DTNASC').AsDateTime;
     if DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
+      DMEXPORTA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+        DMPESSOA.TPessoa.FieldByname('COD_REGIAO').AsInteger;
     if DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
+      DMEXPORTA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+        DMPESSOA.TPessoa.FieldByname('COD_NATURAL').AsInteger;
     if DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
+      DMEXPORTA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+        DMPESSOA.TPessoa.FieldByname('DIAANIVER').AsInteger;
     if DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
+      DMEXPORTA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+        DMPESSOA.TPessoa.FieldByname('PROXIMIDADE').AsString;
     if DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsString <> '' then
-      DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
+      DMEXPORTA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+        DMPESSOA.TPessoa.FieldByname('VLRCREDITO').AsCurrency;
 
     DMEXPORTA.TPessoa.ExecSQL;
 
@@ -13329,43 +15243,62 @@ begin
     //DMEXPORTA.TPessoaF.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
 
     if DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString := DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('ESTADO_CIVIL').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('ESTADO_CIVIL').AsString;
     if DMPESSOA.TPessoaF.FieldByname('SEXO').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString := DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('SEXO').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('SEXO').AsString;
     if DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('EMP_TRAB').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('EMP_TRAB').AsString;
     if DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('END_TRAB').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('END_TRAB').AsString;
     if DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString := DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('BAIRRO_TRAB').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('BAIRRO_TRAB').AsString;
     if DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
+      DMEXPORTA.TPessoaF.ParamByName('DATA_ADMIS').AsDateTime :=
+        DMPESSOA.TPessoaF.FieldByname('DATA_ADMIS').AsDateTime;
     if DMPESSOA.TPessoaF.FieldByname('CARGO').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString := DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('CARGO').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('CARGO').AsString;
     if DMPESSOA.TPessoaF.FieldByname('RG').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('RG').AsString := DMPESSOA.TPessoaF.FieldByname('RG').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('RG').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('RG').AsString;
     if DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
+      DMEXPORTA.TPessoaF.ParamByName('DATA_EXPED').AsDateTime :=
+        DMPESSOA.TPessoaF.FieldByname('DATA_EXPED').AsDateTime;
     if DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString := DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('ORGAO_EXPED').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('ORGAO_EXPED').AsString;
     if DMPESSOA.TPessoaF.FieldByname('TITULO').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString := DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('TITULO').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('TITULO').AsString;
     if DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('NOME_CONJ').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('NOME_CONJ').AsString;
     if DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime := DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
+      DMEXPORTA.TPessoaF.ParamByName('DATANASC_CONJ').AsDateTime :=
+        DMPESSOA.TPessoaF.FieldByname('DATANASC_CONJ').AsDateTime;
     if DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('RG_CONJ').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('RG_CONJ').AsString;
     if DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('CPF_CONJ').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('CPF_CONJ').AsString;
     if DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString := DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('EMP_CONJ').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('EMP_CONJ').AsString;
     if DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('NOME_PAI').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('NOME_PAI').AsString;
     if DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString := DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('NOME_MAE').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('NOME_MAE').AsString;
     if DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString <> '' then
-      DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString := DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
+      DMEXPORTA.TPessoaF.ParamByName('ENDE_FILIACAO').AsString :=
+        DMPESSOA.TPessoaF.FieldByname('ENDE_FILIACAO').AsString;
     //DMEXPORTA.TPessoaF.ParamByName('DIAANIVERCONJ').AsString := DMPESSOA.TPessoaF.FieldByname('DIAANIVERCONJ').AsString;
     DMEXPORTA.TPessoaF.ExecSQL;
 
@@ -13380,22 +15313,30 @@ begin
 
     DMEXPORTA.TFuncionario.ParamByName('OLD_COD_FUNC').AsInteger := codFunExt;
 
-    DMEXPORTA.TFuncionario.ParamByName('COD_INTERNO').AsString := DMPESSOA.TFuncionario.FieldByname('COD_INTERNO').AsString;
+    DMEXPORTA.TFuncionario.ParamByName('COD_INTERNO').AsString :=
+      DMPESSOA.TFuncionario.FieldByname('COD_INTERNO').AsString;
     DMEXPORTA.TFuncionario.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
     if DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsDateTime;
+      DMEXPORTA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime :=
+        DMPESSOA.TFuncionario.FieldByname('DATA_ADMIS').AsDateTime;
     if DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsDateTime;
+      DMEXPORTA.TFuncionario.ParamByName('DATA_CAD').AsDateTime :=
+        DMPESSOA.TFuncionario.FieldByname('DATA_CAD').AsDateTime;
     if DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime := DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsDateTime;
+      DMEXPORTA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime :=
+        DMPESSOA.TFuncionario.FieldByname('DATA_DEMIS').AsDateTime;
     if DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('NUM_CTPS').AsString := DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString;
+      DMEXPORTA.TFuncionario.ParamByName('NUM_CTPS').AsString :=
+        DMPESSOA.TFuncionario.FieldByname('NUM_CTPS').AsString;
     if DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('NUM_PIS').AsString := DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString;
+      DMEXPORTA.TFuncionario.ParamByName('NUM_PIS').AsString :=
+        DMPESSOA.TFuncionario.FieldByname('NUM_PIS').AsString;
     if DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('SER_CTPS').AsString := DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString;
+      DMEXPORTA.TFuncionario.ParamByName('SER_CTPS').AsString :=
+        DMPESSOA.TFuncionario.FieldByname('SER_CTPS').AsString;
     if DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString <> '' then
-      DMEXPORTA.TFuncionario.ParamByName('TERCEIRO').AsString := DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString;
+      DMEXPORTA.TFuncionario.ParamByName('TERCEIRO').AsString :=
+        DMPESSOA.TFuncionario.FieldByname('TERCEIRO').AsString;
     DMEXPORTA.TFuncionario.ExecSQL;
 
     // FAZ TODOS S FILTROS DO FUNCINARIO P VERIFICAR SE O CARGO DELE JAH ESTAH CADASTRADO NO BANCO DE FORA
@@ -13405,11 +15346,14 @@ begin
     DMPESSOA.TALx.SQL.Add('left join funcargo on funcionario.cod_func = funcargo.cod_funcionario');
     DMPESSOA.TALx.SQL.Add('left join cargo on funcargo.cod_cargo = cargo.cod_cargo');
     DMPESSOA.TALx.SQL.Add('where funcionario.cod_func = :codigo');
-    DMPESSOA.TALx.ParamByName('codigo').AsInteger := DMPESSOA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
+    DMPESSOA.TALx.ParamByName('codigo').AsInteger :=
+      DMPESSOA.TFuncionario.FieldByName('COD_FUNC').AsInteger;
     DMPESSOA.TALx.Open;
 
     // atualiza cargo
-    if not FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '', 'UPPER(DESCRICAO) = UPPER(' + #39 + DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')') = false then
+    if not FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', '',
+      'UPPER(DESCRICAO) = UPPER(' + #39 +
+      DMPESSOA.TALx.FieldByName('descricao').AsString + #39 + ')') = false then
     begin
       // TABELA CARGO
 
@@ -13421,7 +15365,8 @@ begin
       DMEXPORTA.TCARGO.SQL.Add('DESCRICAO=:DESCRICAO');
       DMEXPORTA.TCARGO.SQL.Add('where COD_CARGO =:COD_CARGO');
       DMEXPORTA.TCARGO.ParamByName('COD_CARGO').AsInteger := aux;
-      DMEXPORTA.TCARGO.ParamByName('DESCRICAO').AsString := DMPESSOA.TALx.FieldByName('DESCRICAO').AsString;
+      DMEXPORTA.TCARGO.ParamByName('DESCRICAO').AsString :=
+        DMPESSOA.TALx.FieldByName('DESCRICAO').AsString;
       DMEXPORTA.TCARGO.ExecSQL;
 
       FiltraTabela(DMEXPORTA.TCARGO, 'CARGO', 'COD_CARGO', IntToStr(aux), '');
@@ -13510,7 +15455,8 @@ begin
     DMESTOQUE.Alx.close;
     DMESTOQUE.Alx.SQL.Clear;
     DMESTOQUE.Alx.SQL.Add('select * from equipamento');
-    DMESTOQUE.Alx.SQL.Add('where (upper(equipamento.placa) like upper (' + #39 + codigo + #39 + ')) AND (EQUIPAMENTO.ATIVO=' + #39 + 'S' + #39 + ')');
+    DMESTOQUE.Alx.SQL.Add('where (upper(equipamento.placa) like upper (' + #39 +
+      codigo + #39 + ')) AND (EQUIPAMENTO.ATIVO=' + #39 + 'S' + #39 + ')');
     DMESTOQUE.Alx.Open;
     if not DMESTOQUE.alx.IsEmpty then
     begin
@@ -13518,11 +15464,13 @@ begin
       //FBEquipPlaca.EdDescricao.Text:=DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString;
 
       // busca o cliente q esta atrelado ao equipamento
-      FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMESTOQUE.Alx.FieldByname('cod_cliente').AsString, '');
+      FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+        DMESTOQUE.Alx.FieldByname('cod_cliente').AsString, '');
 
       if not DMPESSOA.WCliente.IsEmpty then
       begin
-        XCOD_CLIENTE_SELECT := DMPESSOA.WCliente.FieldByname('COD_CLIENTE').AsInteger;
+        XCOD_CLIENTE_SELECT :=
+          DMPESSOA.WCliente.FieldByname('COD_CLIENTE').AsInteger;
         //FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByname('cod_interno').AsString;
         EDCliente1.Text := DMPESSOA.WCliente.FieldByname('nome').AsString;
       end;
@@ -13551,7 +15499,10 @@ end;
 procedure TFOrdemMec.Devoluo1Click(Sender: TObject);
 begin
   inherited;
-  if Mensagem('C O N F I R M A Ç Ã O', 'DESEJA EFETUAR A DEVOLUÇÃO DA NOTA FISCAL :' + #13 + 'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('C O N F I R M A Ç Ã O',
+    'DESEJA EFETUAR A DEVOLUÇÃO DA NOTA FISCAL :' + #13 + 'Nº ' +
+    DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2
+      then
   begin
     DevTotPed(DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger);
   end;
@@ -13565,16 +15516,20 @@ var
   XQTDLOTE: Real;
 begin
   inherited;
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
   if DMServ.WOrdem.FieldByName('STATUS').AsString = 'CANCELADO' then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'Esta N.F. se encontra Cancelada!', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'Esta N.F. se encontra Cancelada!', '',
+      1, 1, False, 'a');
     Exit;
   end;
 
   if DMServ.WOrdem.FieldByName('STATUS').AsString <> 'FECHADO' then
   begin
-    Mensagem('NOTIFICAÇÃO AO USUÁRIO', 'Esta O.S. não se encontra fechada! Então você pode clicar em consultar e alterar suas informações', '', 1, 1, False, 'a');
+    Mensagem('NOTIFICAÇÃO AO USUÁRIO',
+      'Esta O.S. não se encontra fechada! Então você pode clicar em consultar e alterar suas informações',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
@@ -13586,10 +15541,13 @@ begin
       Exit;
   End;}
 
-  if Mensagem('A T E N Ç Ã O', 'Deseja realmente Cancelar a N.F. da OS ' + #13 + 'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('A T E N Ç Ã O', 'Deseja realmente Cancelar a N.F. da OS ' + #13 +
+    'Nº ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + '?', '', 2, 3, False,
+    'c') = 2 then
   begin
     // BUSCANDO A ORDEM PARA LIBERAÇÃO DE CONSULTA
-    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
+    FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMServ.WOrdem.FieldByName('COD_ORDEM').AsString, '');
     // DMServ.TOrd.Edit;
      //DMServ.TOrd.FieldByName('EDIT').AsString := '0';
     // DMServ.TOrd.Post;
@@ -13603,10 +15561,16 @@ begin
     DMServ.IBT.CommitRetaining;
 
     XCodPedidoTroca := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
-    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '') = True then
+    if FiltraTabela(DMServ.WORDEM, 'VWORDEM', 'COD_ORDEM', XCodPedidoTroca, '')
+      = True then
     begin
       //REGISTRA COMANDO DO USUARIO
-      Registra('ORDEM', 'CANCELA ORD', DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' + DMServ.TOrd.FieldByName('NUMERO').AsString + '-' + DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' + DMServ.TOrd.FieldByName('totord').AsString + '-' + DMServ.WOrdem.FieldByName('equipamento').AsString);
+      Registra('ORDEM', 'CANCELA ORD',
+        DMServ.WOrdem.FieldByName('DTABERT').AsString, 'Nº ' +
+        DMServ.TOrd.FieldByName('NUMERO').AsString + '-' +
+        DMServ.WOrdem.FieldByName('CLIENTE').AsString, 'Vlr:' +
+        DMServ.TOrd.FieldByName('totord').AsString + '-' +
+        DMServ.WOrdem.FieldByName('equipamento').AsString);
       if CancelLanOrd(XCodPedidoTroca) = True then
       begin //Se foi possível cancelar/estornar todos os lançamentos realizados pelo pedido
         DMServ.TOrd.EDIT;
@@ -13618,7 +15582,10 @@ begin
       DMESTOQUE.Alx.Close;
       DMESTOQUE.Alx.SQL.Clear;
       DMESTOQUE.Alx.SQL.Add('Select itprodord.cod_itprodord, itprodord.cod_ordem, itprodord.cod_estoque,  itprodord.qtd, itprodord.total, ');
-      DMESTOQUE.Alx.sql.Add(' subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD, ');
+      DMESTOQUE.Alx.sql.Add(' subproduto.' +
+        DMMACS.TLoja.FieldByName('CODPRODREL1').AsString +
+        ' AS PRIMCOD, subproduto.' +
+        DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD, ');
       DMESTOQUE.Alx.SQL.Add('itprodord.desconto, itprodord.cod_funcionario, pessoa.nome, itprodord.vlrunit, subproduto.descricao, subproduto.marca, subproduto.CONTRINT, itprodord.data, itprodord.operacao ');
       DMESTOQUE.Alx.SQL.Add('From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
       DMESTOQUE.Alx.SQL.Add('Left Join ORDEM on itprodord.cod_Ordem = Ordem.cod_Ordem ');
@@ -13626,37 +15593,55 @@ begin
       DMESTOQUE.Alx.SQL.Add('Left Join funcionario on funcionario.cod_func = itprodord.cod_funcionario ');
       DMESTOQUE.Alx.SQL.Add('Left Join pessoa on funcionario.cod_pessoa = pessoa.COD_PESSOA ');
       DMESTOQUE.Alx.SQL.Add('Where ORDEM.cod_ORDEM = :CODPEDVENDA ');
-      DMESTOQUE.Alx.ParamByName('CODPEDVENDA').AsString := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
+      DMESTOQUE.Alx.ParamByName('CODPEDVENDA').AsString :=
+        DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
       DMESTOQUE.Alx.Open;
       DMESTOQUE.ALX.First;
       while not DMESTOQUE.ALX.Eof do
       begin
         if DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL' then
         begin
-          if (DMESTOQUE.Alx.RecordCount <> 0) and (DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL') then
+          if (DMESTOQUE.Alx.RecordCount <> 0) and
+            (DMESTOQUE.Alx.FieldByName('OPERACAO').AsString <> 'DVL') then
           begin //caso a tabela esteja vasia não pode apagar
             //LOCALIZA E FILTRA ESTOUE CORRESPONDENTE
-            FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.ALX.FieldByName('COD_ESTOQUE').AsString, '');
-            FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.ALX.FieldByName('COD_ESTOQUE').AsString, '');
-            FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.ALX.FieldByName('COD_ITPRODORD').AsString, '');
+            FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+              DMESTOQUE.ALX.FieldByName('COD_ESTOQUE').AsString, '');
+            FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE',
+              DMEstoque.ALX.FieldByName('COD_ESTOQUE').AsString, '');
+            FiltraTabela(DMServ.TPOrd, 'ITPRODORD', 'COD_ITPRODORD',
+              DMESTOQUE.ALX.FieldByName('COD_ITPRODORD').AsString, '');
             DMServ.TPOrd.Edit;
             DMServ.TPOrd.FieldByName('OPERACAO').AsString := 'DVL';
             DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency := 0;
             DMServ.TPOrd.Post;
             XCODLANEST := InserReg(DMENTRADA.TLancENT, 'LANCENT', 'COD_LANENT');
-            DMENTRADA.TLancENT.FieldByName('COD_LANENT').AsInteger := XCODLANEST;
-            DMENTRADA.TLancENT.FieldByName('COD_ESTOQUE').AsString := DMESTOQUE.Testoque.FieldByName('COD_ESTOQUE').AsString;
-            DMENTRADA.TLancENT.FieldByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
-            DMENTRADA.TLancENT.FieldByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
-            DMENTRADA.TLancENT.FieldByName('NUMNOTA').AsString := 'CLD OS-' + DMServ.WOrdem.FieldByName('NUMERO').AsString;
-            DMENTRADA.TLancENT.FieldByName('MOTIVO').AsString := 'Canc. O.S: ' + DMServ.WOrdem.FieldByName('NUMERO').AsString + ' /Cliente: ' + DMServ.WOrdem.FieldByName('CLIENTE').AsString;
-            DMENTRADA.TLancENT.FieldByName('DT_LANCAMENTO').AsString := DateToStr(Date());
-            DMENTRADA.TLancENT.FieldByName('DT_ESTOQUE').AsString := DMServ.WOrdem.FieldByName('dtabert').AsString;
-            DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency := DMServ.TPOrd.FieldByName('qtd').AsCurrency;
-            DMENTRADA.TLancENT.FieldByName('QTDANT').AsString := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
+            DMENTRADA.TLancENT.FieldByName('COD_LANENT').AsInteger :=
+              XCODLANEST;
+            DMENTRADA.TLancENT.FieldByName('COD_ESTOQUE').AsString :=
+              DMESTOQUE.Testoque.FieldByName('COD_ESTOQUE').AsString;
+            DMENTRADA.TLancENT.FieldByName('COD_LOJA').AsString :=
+              FMenu.LCODLOJA.Caption;
+            DMENTRADA.TLancENT.FieldByName('COD_USUARIO').AsString :=
+              FMenu.LCODUSUARIO.Caption;
+            DMENTRADA.TLancENT.FieldByName('NUMNOTA').AsString := 'CLD OS-' +
+              DMServ.WOrdem.FieldByName('NUMERO').AsString;
+            DMENTRADA.TLancENT.FieldByName('MOTIVO').AsString := 'Canc. O.S: ' +
+              DMServ.WOrdem.FieldByName('NUMERO').AsString + ' /Cliente: ' +
+              DMServ.WOrdem.FieldByName('CLIENTE').AsString;
+            DMENTRADA.TLancENT.FieldByName('DT_LANCAMENTO').AsString :=
+              DateToStr(Date());
+            DMENTRADA.TLancENT.FieldByName('DT_ESTOQUE').AsString :=
+              DMServ.WOrdem.FieldByName('dtabert').AsString;
+            DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency :=
+              DMServ.TPOrd.FieldByName('qtd').AsCurrency;
+            DMENTRADA.TLancENT.FieldByName('QTDANT').AsString :=
+              DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
             DMENTRADA.TLancEnt.POST;
             DMESTOQUE.TEstoque.Edit;
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value + DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
+            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value :=
+              DMEstoque.TEstoque.FieldByName('ESTFISICO').Value +
+              DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
             DMESTOQUE.TEstoque.POST;
             DMESTOQUE.TransacEstoque.CommitRetaining;
           end;
@@ -13665,7 +15650,8 @@ begin
       end;
       try
         // EDITANDO A ORDEM PARA LIBERAR, PQ ELA PODE ESTAR BLOQUEADA
-        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM), '');
+        FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCOD_ORDEM),
+          '');
         DMServ.TOrd.Edit;
         DMServ.TOrd.FieldByName('EDIT').AsString := '0';
         DMServ.TOrd.Post;
@@ -13734,18 +15720,24 @@ begin
       begin
 
         // - 023/02/2009:  FILTRA A TABELA CLIENTE
-        FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA', DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'CLIENTE', 'COD_PESSOA', DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
+        FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_PESSOA',
+          DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'CLIENTE', 'COD_PESSOA',
+          DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
 
         // - 023/02/2009:  FILTRA A TABELA PESSOA
-        FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
-        FiltraTabela(DMPESSOA.TAux2, 'PESSOA', 'COD_PESSOA', DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
+        FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+          DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
+        FiltraTabela(DMPESSOA.TAux2, 'PESSOA', 'COD_PESSOA',
+          DMPESSOA.TAux3.fieldByName('COD_PESSOA').AsString, '');
 
         DMPESSOA.TCliente.Next;
         DMPESSOA.TPessoa.Next;
 
-        if (DMPESSOA.TCliente.FieldByName('data_cad').AsString = DMPESSOA.TAux1.FieldByName('data_cad').AsString)
-          and (DMPESSOA.TPessoa.FieldByName('CPFCNPJ').AsString = DMPESSOA.TAux2.FieldByName('CPFCNPJ').AsString) then
+        if (DMPESSOA.TCliente.FieldByName('data_cad').AsString =
+          DMPESSOA.TAux1.FieldByName('data_cad').AsString)
+          and (DMPESSOA.TPessoa.FieldByName('CPFCNPJ').AsString =
+          DMPESSOA.TAux2.FieldByName('CPFCNPJ').AsString) then
         begin
 
           try
@@ -13782,26 +15774,41 @@ begin
             DMPESSOA.TPessoa.SQL.Add(':DATA_INI, :DTNASC, :COD_REGIAO, :COD_NATURAL, :TELREL, :DIAANIVER,');
             DMPESSOA.TPessoa.SQL.Add(':PROXIMIDADE, :VLRCREDITO)');
 
-            DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger :=
+              DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
 
-            DMPESSOA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TAux2.FieldByname('nome').AsString;
-            DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TAux2.FieldByname('endereco').AsString;
-            DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TAux2.FieldByname('bairro').AsString;
-            DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger := DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
-            DMPESSOA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TAux2.FieldByname('CEP').AsString;
-            DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
+            DMPESSOA.TPessoa.ParamByName('NOME').AsString :=
+              DMPESSOA.TAux2.FieldByname('nome').AsString;
+            DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString :=
+              DMPESSOA.TAux2.FieldByname('endereco').AsString;
+            DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString :=
+              DMPESSOA.TAux2.FieldByname('bairro').AsString;
+            DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger :=
+              DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('CEP').AsString :=
+              DMPESSOA.TAux2.FieldByname('CEP').AsString;
+            DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+              DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
             if DMPESSOA.TAux2.FieldByname('DATA_INI').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
-            DMPESSOA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TAux2.FieldByname('TELREL').AsString;
+              DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+                DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
+            DMPESSOA.TPessoa.ParamByName('TELREL').AsString :=
+              DMPESSOA.TAux2.FieldByname('TELREL').AsString;
             if DMPESSOA.TAux2.FieldByname('DTNASC').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
-            DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
+              DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+                DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
+            DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+              DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
             if DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
+              DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+                DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
             if DMPESSOA.TAux2.FieldByname('DIAANIVER').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
-            DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
-            DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
+              DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+                DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+              DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
+            DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+              DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
             DMPESSOA.TPessoa.ExecSQL;
 
             DMPESSOA.TCliente.Close;
@@ -13821,45 +15828,78 @@ begin
             DMPESSOA.TCliente.SQL.Add(':ATACADISTA, :COD_FORMPAG, :EXPORT, :SEPARAR, :MULTA, :JURO, :OBS, :SCPC,');
             DMPESSOA.TCliente.SQL.Add(':TAMANHO, :INFORMACAO, :DIAVENCIMENTO)');
 
-            DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
+            DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
 
-            DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
+            DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger :=
+              DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
 
-            DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
-            DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
-            DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency := DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency := DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency := DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency := DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency := DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency := DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency := DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency := DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString := DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
-            DMPESSOA.TCliente.ParamByName('BENS').AsString := DMPESSOA.TAux1.FieldByname('BENS').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString :=
+              DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
+            DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+            DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString :=
+              DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
+            DMPESSOA.TCliente.ParamByName('BENS').AsString :=
+              DMPESSOA.TAux1.FieldByname('BENS').AsString;
             if DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger > 0 then
-              DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger := DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
-            DMPESSOA.TCliente.ParamByName('INFOCOM').AsString := DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
-            DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString := DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
-            DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString := DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
-            DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger := DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
+              DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger :=
+                DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
+            DMPESSOA.TCliente.ParamByName('INFOCOM').AsString :=
+              DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
+            DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString :=
+              DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
+            DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString :=
+              DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
             if DMPESSOA.TAux1.FieldByname('ATIVO').AsString = '' then
               DMPESSOA.TCliente.ParamByName('ATIVO').AsString := '1'
             else
-              DMPESSOA.TCliente.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
-            DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString := DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
-            DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString := DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
-            DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString := DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
-            DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger := DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
-            DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency := DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('JURO').AsCurrency := DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('OBS').AsString := DMPESSOA.TAux1.FieldByname('OBS').AsString;
-            DMPESSOA.TCliente.ParamByName('SCPC').AsString := DMPESSOA.TAux1.FieldByname('SCPC').AsString;
-            DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency := DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString := DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
-            DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger := DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
+              DMPESSOA.TCliente.ParamByName('ATIVO').AsString :=
+                DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
+            DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString :=
+              DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
+            DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString :=
+              DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
+            DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString :=
+              DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
+            DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('JURO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('OBS').AsString :=
+              DMPESSOA.TAux1.FieldByname('OBS').AsString;
+            DMPESSOA.TCliente.ParamByName('SCPC').AsString :=
+              DMPESSOA.TAux1.FieldByname('SCPC').AsString;
+            DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString :=
+              DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
+            DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
             DMPESSOA.TCliente.ExecSQL;
 
             DMPESSOA.TransacPessoa.CommitRetaining;
@@ -13892,26 +15932,41 @@ begin
           DMPESSOA.TPessoa.SQL.Add(':DATA_INI, :DTNASC, :COD_REGIAO, :COD_NATURAL, :TELREL, :DIAANIVER,');
           DMPESSOA.TPessoa.SQL.Add(':PROXIMIDADE, :VLRCREDITO)');
 
-          DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
+          DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger :=
+            DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
 
-          DMPESSOA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TAux2.FieldByname('nome').AsString;
-          DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TAux2.FieldByname('endereco').AsString;
-          DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TAux2.FieldByname('bairro').AsString;
-          DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger := DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
-          DMPESSOA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TAux2.FieldByname('CEP').AsString;
-          DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
+          DMPESSOA.TPessoa.ParamByName('NOME').AsString :=
+            DMPESSOA.TAux2.FieldByname('nome').AsString;
+          DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString :=
+            DMPESSOA.TAux2.FieldByname('endereco').AsString;
+          DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString :=
+            DMPESSOA.TAux2.FieldByname('bairro').AsString;
+          DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger :=
+            DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
+          DMPESSOA.TPessoa.ParamByName('CEP').AsString :=
+            DMPESSOA.TAux2.FieldByname('CEP').AsString;
+          DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+            DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
           if DMPESSOA.TAux2.FieldByname('DATA_INI').AsString <> '' then
-            DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
-          DMPESSOA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TAux2.FieldByname('TELREL').AsString;
+            DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+              DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
+          DMPESSOA.TPessoa.ParamByName('TELREL').AsString :=
+            DMPESSOA.TAux2.FieldByname('TELREL').AsString;
           if DMPESSOA.TAux2.FieldByname('DTNASC').AsString <> '' then
-            DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
-          DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+              DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
+          DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+            DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
           if DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsString <> '' then
-            DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+              DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
           if DMPESSOA.TAux2.FieldByname('DIAANIVER').AsString <> '' then
-            DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
-          DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
-          DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
+            DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+              DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
+          DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+            DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
+          DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+            DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
           DMPESSOA.TPessoa.ExecSQL;
 
           DMPESSOA.TCliente.Close;
@@ -13931,45 +15986,78 @@ begin
           DMPESSOA.TCliente.SQL.Add(':ATACADISTA, :COD_FORMPAG, :EXPORT, :SEPARAR, :MULTA, :JURO, :OBS, :SCPC,');
           DMPESSOA.TCliente.SQL.Add(':TAMANHO, :INFORMACAO, :DIAVENCIMENTO)');
 
-          DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
+          DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
 
-          DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
+          DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger :=
+            DMPESSOA.TAux2.FieldByName('COD_PESSOA').AsInteger;
 
-          DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
-          DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
-          DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency := DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency := DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency := DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency := DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency := DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency := DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency := DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency := DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString := DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
-          DMPESSOA.TCliente.ParamByName('BENS').AsString := DMPESSOA.TAux1.FieldByname('BENS').AsString;
+          DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString :=
+            DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
+          DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime :=
+            DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+          DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString :=
+            DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
+          DMPESSOA.TCliente.ParamByName('BENS').AsString :=
+            DMPESSOA.TAux1.FieldByname('BENS').AsString;
           if DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger > 0 then
-            DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger := DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
-          DMPESSOA.TCliente.ParamByName('INFOCOM').AsString := DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
-          DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString := DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
-          DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString := DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
-          DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger := DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
+            DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
+          DMPESSOA.TCliente.ParamByName('INFOCOM').AsString :=
+            DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
+          DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString :=
+            DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
+          DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString :=
+            DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
+          DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger :=
+            DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
           if DMPESSOA.TAux1.FieldByname('ATIVO').AsString = '' then
             DMPESSOA.TCliente.ParamByName('ATIVO').AsString := '1'
           else
-            DMPESSOA.TCliente.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
-          DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString := DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
-          DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString := DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
-          DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString := DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
-          DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger := DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
-          DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency := DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('JURO').AsCurrency := DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('OBS').AsString := DMPESSOA.TAux1.FieldByname('OBS').AsString;
-          DMPESSOA.TCliente.ParamByName('SCPC').AsString := DMPESSOA.TAux1.FieldByname('SCPC').AsString;
-          DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency := DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
-          DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString := DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
-          DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger := DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
+            DMPESSOA.TCliente.ParamByName('ATIVO').AsString :=
+              DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
+          DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString :=
+            DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
+          DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString :=
+            DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
+          DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString :=
+            DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
+          DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger :=
+            DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
+          DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('JURO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('OBS').AsString :=
+            DMPESSOA.TAux1.FieldByname('OBS').AsString;
+          DMPESSOA.TCliente.ParamByName('SCPC').AsString :=
+            DMPESSOA.TAux1.FieldByname('SCPC').AsString;
+          DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
+          DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString :=
+            DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
+          DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger :=
+            DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
           DMPESSOA.TCliente.ExecSQL;
 
           // - 02/02/2009:  inserir outro
@@ -13988,26 +16076,41 @@ begin
             DMPESSOA.TPessoa.SQL.Add(':DATA_INI, :DTNASC, :COD_REGIAO, :COD_NATURAL, :TELREL, :DIAANIVER,');
             DMPESSOA.TPessoa.SQL.Add(':PROXIMIDADE, :VLRCREDITO)');
 
-            DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger := DMMACS.TCodigo.FieldByname('COD_PESSOA').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('COD_PESSOA').AsInteger :=
+              DMMACS.TCodigo.FieldByname('COD_PESSOA').AsInteger;
 
-            DMPESSOA.TPessoa.ParamByName('NOME').AsString := DMPESSOA.TAux2.FieldByname('nome').AsString;
-            DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString := DMPESSOA.TAux2.FieldByname('endereco').AsString;
-            DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString := DMPESSOA.TAux2.FieldByname('bairro').AsString;
-            DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger := DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
-            DMPESSOA.TPessoa.ParamByName('CEP').AsString := DMPESSOA.TAux2.FieldByname('CEP').AsString;
-            DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString := DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
+            DMPESSOA.TPessoa.ParamByName('NOME').AsString :=
+              DMPESSOA.TAux2.FieldByname('nome').AsString;
+            DMPESSOA.TPessoa.ParamByName('ENDERECO').AsString :=
+              DMPESSOA.TAux2.FieldByname('endereco').AsString;
+            DMPESSOA.TPessoa.ParamByName('BAIRRO').AsString :=
+              DMPESSOA.TAux2.FieldByname('bairro').AsString;
+            DMPESSOA.TPessoa.ParamByName('COD_CIDADE').AsInteger :=
+              DMPESSOA.TAux2.FieldByName('COD_CIDADE').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('CEP').AsString :=
+              DMPESSOA.TAux2.FieldByname('CEP').AsString;
+            DMPESSOA.TPessoa.ParamByName('CPFCNPJ').AsString :=
+              DMPESSOA.TAux2.FieldByname('CPFCNPJ').AsString;
             if DMPESSOA.TAux2.FieldByname('DATA_INI').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime := DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
-            DMPESSOA.TPessoa.ParamByName('TELREL').AsString := DMPESSOA.TAux2.FieldByname('TELREL').AsString;
+              DMPESSOA.TPessoa.ParamByName('DATA_INI').AsDateTime :=
+                DMPESSOA.TAux2.FieldByname('DATA_INI').AsDateTime;
+            DMPESSOA.TPessoa.ParamByName('TELREL').AsString :=
+              DMPESSOA.TAux2.FieldByname('TELREL').AsString;
             if DMPESSOA.TAux2.FieldByname('DTNASC').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime := DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
-            DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger := DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
+              DMPESSOA.TPessoa.ParamByName('DTNASC').AsDateTime :=
+                DMPESSOA.TAux2.FieldByname('DTNASC').AsDateTime;
+            DMPESSOA.TPessoa.ParamByName('COD_REGIAO').AsInteger :=
+              DMPESSOA.TAux2.FieldByname('COD_REGIAO').AsInteger;
             if DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger := DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
+              DMPESSOA.TPessoa.ParamByName('COD_NATURAL').AsInteger :=
+                DMPESSOA.TAux2.FieldByname('COD_NATURAL').AsInteger;
             if DMPESSOA.TAux2.FieldByname('DIAANIVER').AsString <> '' then
-              DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger := DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
-            DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString := DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
-            DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency := DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
+              DMPESSOA.TPessoa.ParamByName('DIAANIVER').AsInteger :=
+                DMPESSOA.TAux2.FieldByname('DIAANIVER').AsInteger;
+            DMPESSOA.TPessoa.ParamByName('PROXIMIDADE').AsString :=
+              DMPESSOA.TAux2.FieldByname('PROXIMIDADE').AsString;
+            DMPESSOA.TPessoa.ParamByName('VLRCREDITO').AsCurrency :=
+              DMPESSOA.TAux2.FieldByname('VLRCREDITO').AsCurrency;
             DMPESSOA.TPessoa.ExecSQL;
 
             DMPESSOA.TCliente.Close;
@@ -14027,50 +16130,85 @@ begin
             DMPESSOA.TCliente.SQL.Add(':ATACADISTA, :COD_FORMPAG, :EXPORT, :SEPARAR, :MULTA, :JURO, :OBS, :SCPC,');
             DMPESSOA.TCliente.SQL.Add(':TAMANHO, :INFORMACAO, :DIAVENCIMENTO)');
 
-            DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger := DMMACS.TCodigo.FieldByname('COD_CLIENTE').AsInteger;
+            DMPESSOA.TCliente.ParamByName('COD_CLIENTE').AsInteger :=
+              DMMACS.TCodigo.FieldByname('COD_CLIENTE').AsInteger;
 
-            DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger := DMMACS.TCodigo.FieldByname('COD_PESSOA').AsInteger;
+            DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger :=
+              DMMACS.TCodigo.FieldByname('COD_PESSOA').AsInteger;
 
-            DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString := DMMACS.TCodigo.FieldByname('COD_CLIENTE').AsString;
-            DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
-            DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency := DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency := DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency := DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency := DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency := DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency := DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency := DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency := DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency := DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString := DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
-            DMPESSOA.TCliente.ParamByName('BENS').AsString := DMPESSOA.TAux1.FieldByname('BENS').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsString :=
+              DMMACS.TCodigo.FieldByname('COD_CLIENTE').AsString;
+            DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+            DMPESSOA.TCliente.ParamByName('R_SAL_CONJ').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_SAL_CONJ').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_SALARIO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_SALARIO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_HON_PROF').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_HON_PROF').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('R_OUTREC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('R_OUTREC').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_ALUGUEL').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_ALUGUEL').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_RESIDENCIA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_RESIDENCIA').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_VEICULO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_VEICULO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_FAMILIAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_FAMILIAR').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('D_OUTDESP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('D_OUTDESP').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('LIM_CRED').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('LIM_CRED').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('QTDTEMPORESID').AsString :=
+              DMPESSOA.TAux1.FieldByname('QTDTEMPORESID').AsString;
+            DMPESSOA.TCliente.ParamByName('BENS').AsString :=
+              DMPESSOA.TAux1.FieldByname('BENS').AsString;
             if DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger > 0 then
-              DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger := DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
-            DMPESSOA.TCliente.ParamByName('INFOCOM').AsString := DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
-            DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString := DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
-            DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString := DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
-            DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger := DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
+              DMPESSOA.TCliente.FieldByName('COD_VENDEDOR').AsInteger :=
+                DMPESSOA.TAux1.FieldByName('COD_VENDEDOR').AsInteger;
+            DMPESSOA.TCliente.ParamByName('INFOCOM').AsString :=
+              DMPESSOA.TAux1.FieldByname('INFOCOM').AsString;
+            DMPESSOA.TCliente.ParamByName('ENDENTRAGA').AsString :=
+              DMPESSOA.TAux1.FieldByname('ENDENTRAGA').AsString;
+            DMPESSOA.TCliente.ParamByName('ATUALIZAR').AsString :=
+              DMPESSOA.TAux1.FieldByname('ATUALIZAR').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_USUARIO').AsInteger;
             if DMPESSOA.TAux1.FieldByname('ATIVO').AsString = '' then
               DMPESSOA.TCliente.ParamByName('ATIVO').AsString := '1'
             else
-              DMPESSOA.TCliente.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
-            DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString := DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
-            DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString := DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
-            DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString := DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
-            DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger := DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
-            DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency := DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('JURO').AsCurrency := DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('OBS').AsString := DMPESSOA.TAux1.FieldByname('OBS').AsString;
-            DMPESSOA.TCliente.ParamByName('SCPC').AsString := DMPESSOA.TAux1.FieldByname('SCPC').AsString;
-            DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency := DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
-            DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString := DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
-            DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger := DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
+              DMPESSOA.TCliente.ParamByName('ATIVO').AsString :=
+                DMPESSOA.TAux1.FieldByname('ATIVO').AsString;
+            DMPESSOA.TCliente.ParamByName('CREDENCIAL').AsString :=
+              DMPESSOA.TAux1.FieldByname('CREDENCIAL').AsString;
+            DMPESSOA.TCliente.ParamByName('RAMOATIV').AsString :=
+              DMPESSOA.TAux1.FieldByname('RAMOATIV').AsString;
+            DMPESSOA.TCliente.ParamByName('ATACADISTA').AsString :=
+              DMPESSOA.TAux1.FieldByname('ATACADISTA').AsString;
+            DMPESSOA.TCliente.ParamByName('COD_FORMPAG').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_FORMPAG').AsInteger;
+            DMPESSOA.TCliente.ParamByName('MULTA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('MULTA').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('JURO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('JURO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('OBS').AsString :=
+              DMPESSOA.TAux1.FieldByname('OBS').AsString;
+            DMPESSOA.TCliente.ParamByName('SCPC').AsString :=
+              DMPESSOA.TAux1.FieldByname('SCPC').AsString;
+            DMPESSOA.TCliente.ParamByName('TAMANHO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByname('TAMANHO').AsCurrency;
+            DMPESSOA.TCliente.ParamByName('INFORMACAO').AsString :=
+              DMPESSOA.TAux1.FieldByname('INFORMACAO').AsString;
+            DMPESSOA.TCliente.ParamByName('DIAVENCIMENTO').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('DIAVENCIMENTO').AsInteger;
             DMPESSOA.TCliente.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('COD_CLIENTE').AsInteger := DMMACS.TCodigo.FieldByName('COD_CLIENTE').AsInteger + 1;
-            DMMACS.TCodigo.FieldByName('COD_PESSOA').AsInteger := DMMACS.TCodigo.FieldByName('COD_PESSOA').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('COD_CLIENTE').AsInteger :=
+              DMMACS.TCodigo.FieldByName('COD_CLIENTE').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('COD_PESSOA').AsInteger :=
+              DMMACS.TCodigo.FieldByName('COD_PESSOA').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
             DMPESSOA.TAux2.Next;
@@ -14104,12 +16242,15 @@ begin
       DMPESSOA.TAux3.First;
       while not DMPESSOA.TAux3.Eof do
       begin
-        FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', DMPESSOA.TAux3.fieldByName('cod_equipamento').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', DMPESSOA.TAux3.fieldByName('cod_equipamento').AsString, '');
+        FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+          DMPESSOA.TAux3.fieldByName('cod_equipamento').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+          DMPESSOA.TAux3.fieldByName('cod_equipamento').AsString, '');
 
         DMPESSOA.TEquip.Next;
 
-        if (DMPESSOA.TEquip.FieldByName('PLACA').AsString = DMPESSOA.TAux1.FieldByName('PLACA').AsString) then
+        if (DMPESSOA.TEquip.FieldByName('PLACA').AsString =
+          DMPESSOA.TAux1.FieldByName('PLACA').AsString) then
         begin
 
           try
@@ -14131,27 +16272,45 @@ begin
             DMPESSOA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
             DMPESSOA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX)');
 
-            DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := DMPESSOA.TAux1.fieldByName('cod_equipamento').AsInteger;
+            DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+              DMPESSOA.TAux1.fieldByName('cod_equipamento').AsInteger;
 
             if DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger > 0 then
-              DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
-            DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-            DMPESSOA.TEquip.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-            DMPESSOA.TEquip.ParamByName('MODELO').AsString := DMPESSOA.TAux1.FieldByName('MODELO').AsString;
-            DMPESSOA.TEquip.ParamByName('ANO').AsString := DMPESSOA.TAux1.FieldByName('ANO').AsString;
-            DMPESSOA.TEquip.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-            DMPESSOA.TEquip.ParamByName('CHASSI').AsString := DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
-            DMPESSOA.TEquip.ParamByName('PLACA').AsString := DMPESSOA.TAux1.FieldByName('PLACA').AsString;
+              DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger :=
+                DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
+            DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+            DMPESSOA.TEquip.ParamByName('MARCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+            DMPESSOA.TEquip.ParamByName('MODELO').AsString :=
+              DMPESSOA.TAux1.FieldByName('MODELO').AsString;
+            DMPESSOA.TEquip.ParamByName('ANO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANO').AsString;
+            DMPESSOA.TEquip.ParamByName('COR').AsString :=
+              DMPESSOA.TAux1.FieldByName('COR').AsString;
+            DMPESSOA.TEquip.ParamByName('CHASSI').AsString :=
+              DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
+            DMPESSOA.TEquip.ParamByName('PLACA').AsString :=
+              DMPESSOA.TAux1.FieldByName('PLACA').AsString;
             if DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsString <> '' then
-              DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime := DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
-            DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString := DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
-            DMPESSOA.TEquip.ParamByName('MOTOR').AsString := DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString := DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString := DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger := DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
-            DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString := DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
-            DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString := DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
-            DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
+              DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime :=
+                DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
+            DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString :=
+              DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
+            DMPESSOA.TEquip.ParamByName('MOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
+            DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString :=
+              DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
+            DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString :=
+              DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
+            DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
             DMPESSOA.TEquip.ExecSQL;
 
             DMPESSOA.TransacPessoa.CommitRetaining;
@@ -14189,27 +16348,45 @@ begin
           DMPESSOA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
           DMPESSOA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX)');
 
-          DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := DMPESSOA.TAux1.fieldByName('cod_equipamento').AsInteger;
+          DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+            DMPESSOA.TAux1.fieldByName('cod_equipamento').AsInteger;
 
           if DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger > 0 then
-            DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
-          DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-          DMPESSOA.TEquip.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-          DMPESSOA.TEquip.ParamByName('MODELO').AsString := DMPESSOA.TAux1.FieldByName('MODELO').AsString;
-          DMPESSOA.TEquip.ParamByName('ANO').AsString := DMPESSOA.TAux1.FieldByName('ANO').AsString;
-          DMPESSOA.TEquip.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-          DMPESSOA.TEquip.ParamByName('CHASSI').AsString := DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
-          DMPESSOA.TEquip.ParamByName('PLACA').AsString := DMPESSOA.TAux1.FieldByName('PLACA').AsString;
+            DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
+          DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString :=
+            DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+          DMPESSOA.TEquip.ParamByName('MARCA').AsString :=
+            DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+          DMPESSOA.TEquip.ParamByName('MODELO').AsString :=
+            DMPESSOA.TAux1.FieldByName('MODELO').AsString;
+          DMPESSOA.TEquip.ParamByName('ANO').AsString :=
+            DMPESSOA.TAux1.FieldByName('ANO').AsString;
+          DMPESSOA.TEquip.ParamByName('COR').AsString :=
+            DMPESSOA.TAux1.FieldByName('COR').AsString;
+          DMPESSOA.TEquip.ParamByName('CHASSI').AsString :=
+            DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
+          DMPESSOA.TEquip.ParamByName('PLACA').AsString :=
+            DMPESSOA.TAux1.FieldByName('PLACA').AsString;
           if DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsString <> '' then
-            DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime := DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
-          DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString := DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
-          DMPESSOA.TEquip.ParamByName('MOTOR').AsString := DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
-          DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString := DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
-          DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString := DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
-          DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger := DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
-          DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString := DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
-          DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString := DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
-          DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
+            DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
+          DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString :=
+            DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
+          DMPESSOA.TEquip.ParamByName('MOTOR').AsString :=
+            DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
+          DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString :=
+            DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
+          DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString :=
+            DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
+          DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
+          DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString :=
+            DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
+          DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString :=
+            DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
+          DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
           DMPESSOA.TEquip.ExecSQL;
 
           // - 02/02/2009:  inserir outro
@@ -14228,31 +16405,50 @@ begin
             DMPESSOA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
             DMPESSOA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX)');
 
-            DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger;
+            DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+              DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger;
 
             if DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger > 0 then
-              DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
-            DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-            DMPESSOA.TEquip.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-            DMPESSOA.TEquip.ParamByName('MODELO').AsString := DMPESSOA.TAux1.FieldByName('MODELO').AsString;
-            DMPESSOA.TEquip.ParamByName('ANO').AsString := DMPESSOA.TAux1.FieldByName('ANO').AsString;
-            DMPESSOA.TEquip.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-            DMPESSOA.TEquip.ParamByName('CHASSI').AsString := DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
-            DMPESSOA.TEquip.ParamByName('PLACA').AsString := DMPESSOA.TAux1.FieldByName('PLACA').AsString;
+              DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger :=
+                DMPESSOA.TAux1.FieldByName('COD_CLIENTE').AsInteger;
+            DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+            DMPESSOA.TEquip.ParamByName('MARCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+            DMPESSOA.TEquip.ParamByName('MODELO').AsString :=
+              DMPESSOA.TAux1.FieldByName('MODELO').AsString;
+            DMPESSOA.TEquip.ParamByName('ANO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANO').AsString;
+            DMPESSOA.TEquip.ParamByName('COR').AsString :=
+              DMPESSOA.TAux1.FieldByName('COR').AsString;
+            DMPESSOA.TEquip.ParamByName('CHASSI').AsString :=
+              DMPESSOA.TAux1.FieldByName('CHASSI').AsString;
+            DMPESSOA.TEquip.ParamByName('PLACA').AsString :=
+              DMPESSOA.TAux1.FieldByName('PLACA').AsString;
             if DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsString <> '' then
-              DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime := DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
-            DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString := DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
-            DMPESSOA.TEquip.ParamByName('MOTOR').AsString := DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString := DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString := DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
-            DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger := DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
-            DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString := DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
-            DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString := DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
-            DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
+              DMPESSOA.TEquip.ParamByName('DTAQUISICAO').AsDateTime :=
+                DMPESSOA.TAux1.FieldByName('DTAQUISICAO').AsDateTime;
+            DMPESSOA.TEquip.ParamByName('CONCESSIONARIA').AsString :=
+              DMPESSOA.TAux1.FieldByName('CONCESSIONARIA').AsString;
+            DMPESSOA.TEquip.ParamByName('MOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('MOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('ANOMOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANOMOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('CHASSIMOTOR').AsString :=
+              DMPESSOA.TAux1.FieldByName('CHASSIMOTOR').AsString;
+            DMPESSOA.TEquip.ParamByName('KMATUAL').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('KMATUAL').AsInteger;
+            DMPESSOA.TEquip.ParamByName('UNIDRODAGEM').AsString :=
+              DMPESSOA.TAux1.FieldByName('UNIDRODAGEM').AsString;
+            DMPESSOA.TEquip.ParamByName('NUM_FROTA').AsString :=
+              DMPESSOA.TAux1.FieldByName('NUM_FROTA').AsString;
+            DMPESSOA.TEquip.ParamByName('ALTURAMAX').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ALTURAMAX').AsCurrency;
             DMPESSOA.TEquip.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger :=
+              DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
 
@@ -14286,12 +16482,15 @@ begin
       DMPESSOA.TAux3.First;
       while not DMPESSOA.TAux3.Eof do
       begin
-        FiltraTabela(DMPESSOA.TFuncionario, 'funcionario', 'cod_func', DMPESSOA.TAux3.fieldByName('cod_func').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'funcionario', 'cod_func', DMPESSOA.TAux3.fieldByName('cod_func').AsString, '');
+        FiltraTabela(DMPESSOA.TFuncionario, 'funcionario', 'cod_func',
+          DMPESSOA.TAux3.fieldByName('cod_func').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'funcionario', 'cod_func',
+          DMPESSOA.TAux3.fieldByName('cod_func').AsString, '');
 
         DMPESSOA.TFuncionario.Next;
 
-        if (DMPESSOA.TFuncionario.FieldByName('COD_PESSOA').AsString = DMPESSOA.TAux1.FieldByName('COD_PESSOA').AsString) then
+        if (DMPESSOA.TFuncionario.FieldByName('COD_PESSOA').AsString =
+          DMPESSOA.TAux1.FieldByName('COD_PESSOA').AsString) then
         begin
 
           try
@@ -14320,24 +16519,34 @@ begin
             DMPESSOA.TFuncionario.SQL.Add('values');
             DMPESSOA.TFuncionario.SQL.Add('(:COD_FUNC, :COD_PESSOA, :COD_INTERNO, :DATA_CAD, :DATA_ADMIS, :DATA_DEMIS,');
             DMPESSOA.TFuncionario.SQL.Add(':NUM_CTPS, :SER_CTPS, :NUM_PIS, :TERCEIRO)');
-            DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger := DMPESSOA.TAux1.FieldByname('COD_FUNC').AsInteger;
+            DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_FUNC').AsInteger;
 
-            DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
-            DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
+            DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString :=
+              DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
+            DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
             if DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('DATA_CAD').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString := DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString :=
+                DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
             if DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString := DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString :=
+                DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
             if DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString := DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString :=
+                DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
             if DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString := DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
+              DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString :=
+                DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
             DMPESSOA.TFuncionario.ExecSQL;
 
             DMPESSOA.TransacPessoa.CommitRetaining;
@@ -14363,24 +16572,34 @@ begin
           DMPESSOA.TFuncionario.SQL.Add('values');
           DMPESSOA.TFuncionario.SQL.Add('(:COD_FUNC, :COD_PESSOA, :COD_INTERNO, :DATA_CAD, :DATA_ADMIS, :DATA_DEMIS,');
           DMPESSOA.TFuncionario.SQL.Add(':NUM_CTPS, :SER_CTPS, :NUM_PIS, :TERCEIRO)');
-          DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger := DMPESSOA.TAux1.FieldByname('COD_FUNC').AsInteger;
+          DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger :=
+            DMPESSOA.TAux1.FieldByname('COD_FUNC').AsInteger;
 
-          DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
-          DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
+          DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString :=
+            DMPESSOA.TAux1.FieldByname('COD_INTERNO').AsString;
+          DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger :=
+            DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
           if DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
+            DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime :=
+              DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
           if DMPESSOA.TAux1.FieldByname('DATA_CAD').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+            DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
           if DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
+            DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime :=
+              DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
           if DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString := DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
+            DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString :=
+              DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
           if DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString := DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
+            DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString :=
+              DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
           if DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString := DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
+            DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString :=
+              DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
           if DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString <> '' then
-            DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString := DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
+            DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString :=
+              DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
           DMPESSOA.TFuncionario.ExecSQL;
 
           // - 02/02/2009:  inserir outro
@@ -14396,28 +16615,39 @@ begin
             DMPESSOA.TFuncionario.SQL.Add('values');
             DMPESSOA.TFuncionario.SQL.Add('(:COD_FUNC, :COD_PESSOA, :COD_INTERNO, :DATA_CAD, :DATA_ADMIS, :DATA_DEMIS,');
             DMPESSOA.TFuncionario.SQL.Add(':NUM_CTPS, :SER_CTPS, :NUM_PIS, :TERCEIRO)');
-            DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger := DMMACS.TCodigo.FieldByName('cod_func').AsInteger;
+            DMPESSOA.TFuncionario.ParamByName('COD_FUNC').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_func').AsInteger;
 
-            DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString := DMMACS.TCodigo.FieldByName('cod_func').AsString;
-            DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger := DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
+            DMPESSOA.TFuncionario.ParamByName('COD_INTERNO').AsString :=
+              DMMACS.TCodigo.FieldByName('cod_func').AsString;
+            DMPESSOA.TFuncionario.ParamByName('COD_PESSOA').AsInteger :=
+              DMPESSOA.TAux1.FieldByname('COD_PESSOA').AsInteger;
             if DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_ADMIS').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_ADMIS').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('DATA_CAD').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_CAD').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_CAD').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime := DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
+              DMPESSOA.TFuncionario.ParamByName('DATA_DEMIS').AsDateTime :=
+                DMPESSOA.TAux1.FieldByname('DATA_DEMIS').AsDateTime;
             if DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString := DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('NUM_CTPS').AsString :=
+                DMPESSOA.TAux1.FieldByname('NUM_CTPS').AsString;
             if DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString := DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('NUM_PIS').AsString :=
+                DMPESSOA.TAux1.FieldByname('NUM_PIS').AsString;
             if DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString := DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
+              DMPESSOA.TFuncionario.ParamByName('SER_CTPS').AsString :=
+                DMPESSOA.TAux1.FieldByname('SER_CTPS').AsString;
             if DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString <> '' then
-              DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString := DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
+              DMPESSOA.TFuncionario.ParamByName('TERCEIRO').AsString :=
+                DMPESSOA.TAux1.FieldByname('TERCEIRO').AsString;
             DMPESSOA.TFuncionario.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('cod_func').AsInteger := DMMACS.TCodigo.FieldByName('cod_func').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('cod_func').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_func').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
             DMPESSOA.TAux1.Next;
@@ -14451,12 +16681,15 @@ begin
       DMPESSOA.TAux3.First;
       while not DMPESSOA.TAux3.Eof do
       begin
-        FiltraTabela(DMMACS.TUsuario, 'usuario', 'codusuario', DMPESSOA.TAux3.fieldByName('codusuario').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'usuario', 'codusuario', DMPESSOA.TAux3.fieldByName('codusuario').AsString, '');
+        FiltraTabela(DMMACS.TUsuario, 'usuario', 'codusuario',
+          DMPESSOA.TAux3.fieldByName('codusuario').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'usuario', 'codusuario',
+          DMPESSOA.TAux3.fieldByName('codusuario').AsString, '');
 
         DMMACS.TUsuario.Next;
 
-        if (DMMACS.TUsuario.FieldByName('COD_FUNCIONARIO').AsString = DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsString) then
+        if (DMMACS.TUsuario.FieldByName('COD_FUNCIONARIO').AsString =
+          DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsString) then
         begin
 
           try
@@ -14483,15 +16716,22 @@ begin
             DMMACS.TUsuario.SQL.Add('values');
             DMMACS.TUsuario.SQL.Add('(:CODUSUARIO, :COD_FUNCIONARIO, :LOGIN, :SENHA, :DATA_CAD, :ADM, :REVRESMOV)');
 
-            DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger := DMPESSOA.TAux1.fieldByName('codusuario').AsInteger;
+            DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger :=
+              DMPESSOA.TAux1.fieldByName('codusuario').AsInteger;
 
-            DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
-            DMMACS.TUsuario.ParamByName('LOGIN').AsString := DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
-            DMMACS.TUsuario.ParamByName('SENHA').AsString := DMPESSOA.TAux1.FieldByName('SENHA').AsString;
+            DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
+            DMMACS.TUsuario.ParamByName('LOGIN').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
+            DMMACS.TUsuario.ParamByName('SENHA').AsString :=
+              DMPESSOA.TAux1.FieldByName('SENHA').AsString;
             if DMPESSOA.TAux1.FieldByName('DATA_CAD').AsString <> '' then
-              DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
-            DMMACS.TUsuario.ParamByName('ADM').AsString := DMPESSOA.TAux1.FieldByName('ADM').AsString;
-            DMMACS.TUsuario.ParamByName('REVRESMOV').AsString := DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
+              DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime :=
+                DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
+            DMMACS.TUsuario.ParamByName('ADM').AsString :=
+              DMPESSOA.TAux1.FieldByName('ADM').AsString;
+            DMMACS.TUsuario.ParamByName('REVRESMOV').AsString :=
+              DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
             DMMACS.TUsuario.ExecSQL;
 
             DMPESSOA.TransacPessoa.CommitRetaining;
@@ -14516,15 +16756,22 @@ begin
           DMMACS.TUsuario.SQL.Add('values');
           DMMACS.TUsuario.SQL.Add('(:CODUSUARIO, :COD_FUNCIONARIO, :LOGIN, :SENHA, :DATA_CAD, :ADM, :REVRESMOV)');
 
-          DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger := DMPESSOA.TAux1.fieldByName('codusuario').AsInteger;
+          DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger :=
+            DMPESSOA.TAux1.fieldByName('codusuario').AsInteger;
 
-          DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
-          DMMACS.TUsuario.ParamByName('LOGIN').AsString := DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
-          DMMACS.TUsuario.ParamByName('SENHA').AsString := DMPESSOA.TAux1.FieldByName('SENHA').AsString;
+          DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
+          DMMACS.TUsuario.ParamByName('LOGIN').AsString :=
+            DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
+          DMMACS.TUsuario.ParamByName('SENHA').AsString :=
+            DMPESSOA.TAux1.FieldByName('SENHA').AsString;
           if DMPESSOA.TAux1.FieldByName('DATA_CAD').AsString <> '' then
-            DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
-          DMMACS.TUsuario.ParamByName('ADM').AsString := DMPESSOA.TAux1.FieldByName('ADM').AsString;
-          DMMACS.TUsuario.ParamByName('REVRESMOV').AsString := DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
+            DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
+          DMMACS.TUsuario.ParamByName('ADM').AsString :=
+            DMPESSOA.TAux1.FieldByName('ADM').AsString;
+          DMMACS.TUsuario.ParamByName('REVRESMOV').AsString :=
+            DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
           DMMACS.TUsuario.ExecSQL;
 
           // - 02/02/2009:  inserir outro
@@ -14539,19 +16786,27 @@ begin
             DMMACS.TUsuario.SQL.Add('values');
             DMMACS.TUsuario.SQL.Add('(:CODUSUARIO, :COD_FUNCIONARIO, :LOGIN, :SENHA, :DATA_CAD, :ADM, :REVRESMOV)');
 
-            DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger := DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger;
+            DMMACS.TUsuario.ParamByName('CODUSUARIO').AsInteger :=
+              DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger;
 
-            DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
-            DMMACS.TUsuario.ParamByName('LOGIN').AsString := DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
-            DMMACS.TUsuario.ParamByName('SENHA').AsString := DMPESSOA.TAux1.FieldByName('SENHA').AsString;
+            DMMACS.TUsuario.ParamByName('COD_FUNCIONARIO').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_FUNCIONARIO').AsInteger;
+            DMMACS.TUsuario.ParamByName('LOGIN').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOGIN').AsString;
+            DMMACS.TUsuario.ParamByName('SENHA').AsString :=
+              DMPESSOA.TAux1.FieldByName('SENHA').AsString;
             if DMPESSOA.TAux1.FieldByName('DATA_CAD').AsString <> '' then
-              DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
-            DMMACS.TUsuario.ParamByName('ADM').AsString := DMPESSOA.TAux1.FieldByName('ADM').AsString;
-            DMMACS.TUsuario.ParamByName('REVRESMOV').AsString := DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
+              DMMACS.TUsuario.ParamByName('DATA_CAD').AsDateTime :=
+                DMPESSOA.TAux1.FieldByName('DATA_CAD').AsDateTime;
+            DMMACS.TUsuario.ParamByName('ADM').AsString :=
+              DMPESSOA.TAux1.FieldByName('ADM').AsString;
+            DMMACS.TUsuario.ParamByName('REVRESMOV').AsString :=
+              DMPESSOA.TAux1.FieldByName('REVRESMOV').AsString;
             DMMACS.TUsuario.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger := DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger :=
+              DMMACS.TCodigo.FieldByName('CODUSUARIO').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
             DMPESSOA.TAux1.Next;
@@ -14585,12 +16840,15 @@ begin
       DMPESSOA.TAux3.First;
       while not DMPESSOA.TAux3.Eof do
       begin
-        FiltraTabela(DMESTOQUE.TEstoque, 'estoque', 'cod_estoque', DMPESSOA.TAux3.fieldByName('cod_estoque').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'estoque', 'cod_estoque', DMPESSOA.TAux3.fieldByName('cod_estoque').AsString, '');
+        FiltraTabela(DMESTOQUE.TEstoque, 'estoque', 'cod_estoque',
+          DMPESSOA.TAux3.fieldByName('cod_estoque').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'estoque', 'cod_estoque',
+          DMPESSOA.TAux3.fieldByName('cod_estoque').AsString, '');
 
         DMESTOQUE.TEstoque.Next;
 
-        if (DMESTOQUE.TEstoque.FieldByName('COD_SUBPROD').AsString = DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsString) then
+        if (DMESTOQUE.TEstoque.FieldByName('COD_SUBPROD').AsString =
+          DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsString) then
         begin
 
           try
@@ -14632,70 +16890,132 @@ begin
             DMESTOQUE.TEstoque.SQL.Add(':MOD, :IMPEXP, :IMPREND, :CONTSOC, :COFINS, :PIS, :MARGEMSEG, :PERCMARGSEG,');
             DMESTOQUE.TEstoque.SQL.Add(':REDUCBASE, :VLRCOMPSD, :ACRECIMO, :ESTCALC, :DATAATU, :HORAATU, :PRECOOFERTA,');
             DMESTOQUE.TEstoque.SQL.Add(':DATAOFERTA, :VENCIMENTOOFERTA)');
-            DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger := DMPESSOA.TAux1.FieldByName('cod_estoque').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('cod_estoque').AsInteger;
 
-            DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
-            DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger := DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
 
-            DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency := DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency := DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency := DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency := DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency := DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency := DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency := DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency := DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency := DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency := DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency := DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency := DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency := DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency := DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency := DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
             DMESTOQUE.TEstoque.ExecSQL;
 
             DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -14735,70 +17055,132 @@ begin
           DMESTOQUE.TEstoque.SQL.Add(':MOD, :IMPEXP, :IMPREND, :CONTSOC, :COFINS, :PIS, :MARGEMSEG, :PERCMARGSEG,');
           DMESTOQUE.TEstoque.SQL.Add(':REDUCBASE, :VLRCOMPSD, :ACRECIMO, :ESTCALC, :DATAATU, :HORAATU, :PRECOOFERTA,');
           DMESTOQUE.TEstoque.SQL.Add(':DATAOFERTA, :VENCIMENTOOFERTA)');
-          DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger := DMPESSOA.TAux1.FieldByName('cod_estoque').AsInteger;
+          DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('cod_estoque').AsInteger;
 
-          DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
-          DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger := DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
+          DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
+          DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
 
-          DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency := DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency := DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency := DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency := DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency := DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency := DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency := DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency := DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency := DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency := DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency := DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency := DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency := DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency := DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency := DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
-          DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
-          DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
+          DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
+          DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
           DMESTOQUE.TEstoque.ExecSQL;
           // - 02/02/2009:  inserir outro
 
@@ -14828,74 +17210,137 @@ begin
             DMESTOQUE.TEstoque.SQL.Add(':MOD, :IMPEXP, :IMPREND, :CONTSOC, :COFINS, :PIS, :MARGEMSEG, :PERCMARGSEG,');
             DMESTOQUE.TEstoque.SQL.Add(':REDUCBASE, :VLRCOMPSD, :ACRECIMO, :ESTCALC, :DATAATU, :HORAATU, :PRECOOFERTA,');
             DMESTOQUE.TEstoque.SQL.Add(':DATAOFERTA, :VENCIMENTOOFERTA)');
-            DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger := DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('cod_estoque').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger;
 
-            DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
-            DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger := DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('COD_LOJA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_LOJA').AsInteger;
+            DMESTOQUE.TEstoque.ParamByName('COD_SUBPROD').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_SUBPROD').AsInteger;
 
-            DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime := DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency := DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency := DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency := DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency := DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency := DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency := DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency := DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency := DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency := DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency := DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency := DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency := DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency := DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency := DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency := DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency := DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency := DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency := DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency := DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency := DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency := DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime := DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency := DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
-            DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
-            DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime := DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ULTCOMPRA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('ULTCOMPRA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ULTVENDA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('ULTVENDA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ESTMAX').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTMAX').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVVPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVVPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVPPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVPPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVVPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVVPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CVPPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CVPPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDATAP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDATAP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDATAV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDATAV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDVARP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDVARP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VENDVARV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VENDVARV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALUNIT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALUNIT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALREP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALREP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALCUSTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALCUSTO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVVPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVVPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVPPROAT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVPPROAT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVVPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVVPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('AVPPROVAR').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('AVPPROVAR').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('LUCRATIVIDADE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('LUCRATIVIDADE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('COEFDIV').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('COEFDIV').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALOREST').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALOREST').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('OUTROS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('OUTROS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('QUANT2').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QUANT2').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DTCAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('ESTINI').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTINI').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VALCUSDESP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VALCUSDESP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTANTCONT').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTANTCONT').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CONTAGEM').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CONTAGEM').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTSIMULADO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTSIMULADO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRUNITCOMP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRUNITCOMP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('INDICE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('INDICE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('BONIFICACAO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('BONIFICACAO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRBONIFIC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRBONIFIC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DESCONTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('DESCONTO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CLNC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CLNC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('MOD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('MOD').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('IMPEXP').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IMPEXP').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('IMPREND').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IMPREND').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('CONTSOC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('CONTSOC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('COFINS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('COFINS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('PIS').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PIS').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('MARGEMSEG').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('MARGEMSEG').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('PERCMARGSEG').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PERCMARGSEg').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('REDUCBASE').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('REDUCBASE').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('VLRCOMPSD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('VLRCOMPSD').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ACRECIMO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ACRECIMO').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('ESTCALC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('ESTCALC').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DATAATU').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DATAATU').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('HORAATU').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('HORAATU').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('PRECOOFERTA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PRECOOFERTA').AsCurrency;
+            DMESTOQUE.TEstoque.ParamByName('DATAOFERTA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DATAOFERTA').AsDateTime;
+            DMESTOQUE.TEstoque.ParamByName('VENCIMENTOOFERTA').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('VENCIMENTOOFERTA').AsDateTime;
             DMESTOQUE.TEstoque.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger := DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_estoque').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
 
@@ -14930,12 +17375,15 @@ begin
       DMPESSOA.TAux3.First;
       while not DMPESSOA.TAux3.Eof do
       begin
-        FiltraTabela(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO', DMPESSOA.TAux3.fieldByName('COD_SUBPRODUTO').AsString, '');
-        FiltraTabela(DMPESSOA.TAux1, 'SUBPRODUTO', 'COD_SUBPRODUTO', DMPESSOA.TAux3.fieldByName('COD_SUBPRODUTO').AsString, '');
+        FiltraTabela(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO',
+          DMPESSOA.TAux3.fieldByName('COD_SUBPRODUTO').AsString, '');
+        FiltraTabela(DMPESSOA.TAux1, 'SUBPRODUTO', 'COD_SUBPRODUTO',
+          DMPESSOA.TAux3.fieldByName('COD_SUBPRODUTO').AsString, '');
 
         DMESTOQUE.TSubProd.Next;
 
-        if (DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString = DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString) then
+        if (DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString =
+          DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString) then
         begin
 
           try
@@ -14973,54 +17421,99 @@ begin
             DMESTOQUE.TSubProd.SQL.Add(':CONTRINT, :COR, :CLASSIFICACAO, :DESCCUPOM, :NCM, :OBSFISCAL, :COMPOSICAO,');
             DMESTOQUE.TSubProd.SQL.Add(':ALTURA, :LARGURA, :ESPECIFICACAO, :MARK, :BALANCA, :ANVISA, :MINSAUDE)');
 
-            DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger := DMPESSOA.TAux1.FieldByName('cod_subproduto').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('cod_subproduto').AsInteger;
 
-            DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger := DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString := DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString := DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString := DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString := DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString := DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString := DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString := DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString := DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString := DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString :=
+              DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString :=
+              DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
 
-            DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
 
-            DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString := DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString := DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
-            DMESTOQUE.TSubProd.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString := DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-            DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString := DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency := DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString := DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString := DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('LOTE').AsString := DMPESSOA.TAux1.FieldByName('LOTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MARK').AsString := DMPESSOA.TAux1.FieldByName('MARK').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString := DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString := DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('NCM').AsString := DMPESSOA.TAux1.FieldByName('NCM').AsString;
-            DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString := DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
-            DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString := DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency := DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency := DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString := DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString := DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString :=
+              DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COR').AsString :=
+              DMPESSOA.TAux1.FieldByName('COR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+            DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString :=
+              DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('LOTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MARCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MARK').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARK').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString :=
+              DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString :=
+              DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('NCM').AsString :=
+              DMPESSOA.TAux1.FieldByName('NCM').AsString;
+            DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString :=
+              DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
+            DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString :=
+              DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
             DMESTOQUE.TSubProd.ExecSQL;
 
             DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -15056,54 +17549,99 @@ begin
           DMESTOQUE.TSubProd.SQL.Add(':CONTRINT, :COR, :CLASSIFICACAO, :DESCCUPOM, :NCM, :OBSFISCAL, :COMPOSICAO,');
           DMESTOQUE.TSubProd.SQL.Add(':ALTURA, :LARGURA, :ESPECIFICACAO, :MARK, :BALANCA, :ANVISA, :MINSAUDE)');
 
-          DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger := DMPESSOA.TAux1.FieldByName('cod_subproduto').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('cod_subproduto').AsInteger;
 
-          DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
-          DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger := DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
-          DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString := DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString := DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString := DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
-          DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString := DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
-          DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString := DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString := DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString := DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString := DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString := DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
-          DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString :=
+            DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString :=
+            DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString :=
+            DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
+          DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString :=
+            DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
+          DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString :=
+            DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString :=
+            DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString :=
+            DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString :=
+            DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString :=
+            DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString :=
+            DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString :=
+            DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
+          DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString :=
+            DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
 
-          DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
-          DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
+          DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger :=
+            DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
 
-          DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString := DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString := DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
-          DMESTOQUE.TSubProd.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-          DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString := DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
-          DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-          DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString := DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
-          DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency := DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString := DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString := DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
-          DMESTOQUE.TSubProd.ParamByName('LOTE').AsString := DMPESSOA.TAux1.FieldByName('LOTE').AsString;
-          DMESTOQUE.TSubProd.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('MARK').AsString := DMPESSOA.TAux1.FieldByName('MARK').AsString;
-          DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString := DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
-          DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString := DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
-          DMESTOQUE.TSubProd.ParamByName('NCM').AsString := DMPESSOA.TAux1.FieldByName('NCM').AsString;
-          DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString := DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
-          DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString := DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency := DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency := DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
-          DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString := DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
-          DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString := DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString :=
+            DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString :=
+            DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
+          DMESTOQUE.TSubProd.ParamByName('COR').AsString :=
+            DMPESSOA.TAux1.FieldByName('COR').AsString;
+          DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString :=
+            DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
+          DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString :=
+            DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime :=
+            DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+          DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString :=
+            DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString :=
+            DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
+          DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString :=
+            DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString :=
+            DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
+          DMESTOQUE.TSubProd.ParamByName('LOTE').AsString :=
+            DMPESSOA.TAux1.FieldByName('LOTE').AsString;
+          DMESTOQUE.TSubProd.ParamByName('MARCA').AsString :=
+            DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('MARK').AsString :=
+            DMPESSOA.TAux1.FieldByName('MARK').AsString;
+          DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString :=
+            DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
+          DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString :=
+            DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
+          DMESTOQUE.TSubProd.ParamByName('NCM').AsString :=
+            DMPESSOA.TAux1.FieldByName('NCM').AsString;
+          DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString :=
+            DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
+          DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString :=
+            DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency :=
+            DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
+          DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString :=
+            DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
+          DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString :=
+            DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
           DMESTOQUE.TSubProd.ExecSQL;
 
           // - 02/02/2009:  inserir outro
@@ -15132,58 +17670,104 @@ begin
             DMESTOQUE.TSubProd.SQL.Add(':CONTRINT, :COR, :CLASSIFICACAO, :DESCCUPOM, :NCM, :OBSFISCAL, :COMPOSICAO,');
             DMESTOQUE.TSubProd.SQL.Add(':ALTURA, :LARGURA, :ESPECIFICACAO, :MARK, :BALANCA, :ANVISA, :MINSAUDE)');
 
-            DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger := DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('cod_subproduto').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger;
 
-            DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger := DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger := DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString := DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString := DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString := DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString := DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
-            DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString := DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString := DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString := DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString := DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString := DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString := DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString := DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COD_CST').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_CST').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('cod_produto').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('cod_produto').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('ALTURA').AsString :=
+              DMPESSOA.TAux1.FieldByName('ALTURA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ANVISA').AsString :=
+              DMPESSOA.TAux1.FieldByName('ANVISA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATESTGAR').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATESTGAR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATESTVAL').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATESTVAL').AsString;
+            DMESTOQUE.TSubProd.ParamByName('ATIVO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ATIVO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('BALANCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('BALANCA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CLASSIFICACAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('CLASSIFICACAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODBARRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODBARRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODCOMPOSTO').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODCOMPOSTO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODEAN1').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODEAN1').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CODPRODFABR').AsString :=
+              DMPESSOA.TAux1.FieldByName('CODPRODFABR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COD_INTERNO').AsString :=
+              DMPESSOA.TAux1.FieldByName('COD_INTERNO').AsString;
 
-            DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
-            DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger := DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('COD_UNIDCOMPRA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_UNIDCOMPRA').AsInteger;
+            DMESTOQUE.TSubProd.ParamByName('COD_UNIDVENDA').AsInteger :=
+              DMPESSOA.TAux1.FieldByName('COD_UNIDVENDA').AsInteger;
 
-            DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString := DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString := DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
-            DMESTOQUE.TSubProd.ParamByName('COR').AsString := DMPESSOA.TAux1.FieldByName('COR').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString := DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString := DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime := DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
-            DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString := DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString := DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency := DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency := DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString := DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString := DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('LOTE').AsString := DMPESSOA.TAux1.FieldByName('LOTE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MARCA').AsString := DMPESSOA.TAux1.FieldByName('MARCA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MARK').AsString := DMPESSOA.TAux1.FieldByName('MARK').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString := DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
-            DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString := DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
-            DMESTOQUE.TSubProd.ParamByName('NCM').AsString := DMPESSOA.TAux1.FieldByName('NCM').AsString;
-            DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString := DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
-            DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString := DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency := DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency := DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency := DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency := DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
-            DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString := DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
-            DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString := DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COMPOSICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('COMPOSICAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('CONTRINT').AsString :=
+              DMPESSOA.TAux1.FieldByName('CONTRINT').AsString;
+            DMESTOQUE.TSubProd.ParamByName('COR').AsString :=
+              DMPESSOA.TAux1.FieldByName('COR').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DESCCUPOM').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCCUPOM').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DESCRICAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('DESCRICAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('DTCAD').AsDateTime :=
+              DMPESSOA.TAux1.FieldByName('DTCAD').AsDateTime;
+            DMESTOQUE.TSubProd.ParamByName('EMBPROD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('EMBPROD').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('ESPECIFICACAO').AsString :=
+              DMPESSOA.TAux1.FieldByName('ESPECIFICACAO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('FABRICANTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('FABRICANTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('GERMI').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('GERMI').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('IPIPROD').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('IPIPROD').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('LARGURA').AsString :=
+              DMPESSOA.TAux1.FieldByName('LARGURA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('LOCALESTANTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOCALESTANTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('LOTE').AsString :=
+              DMPESSOA.TAux1.FieldByName('LOTE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MARCA').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARCA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MARK').AsString :=
+              DMPESSOA.TAux1.FieldByName('MARK').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MINSAUDE').AsString :=
+              DMPESSOA.TAux1.FieldByName('MINSAUDE').AsString;
+            DMESTOQUE.TSubProd.ParamByName('MOTIVO').AsString :=
+              DMPESSOA.TAux1.FieldByName('MOTIVO').AsString;
+            DMESTOQUE.TSubProd.ParamByName('NCM').AsString :=
+              DMPESSOA.TAux1.FieldByName('NCM').AsString;
+            DMESTOQUE.TSubProd.ParamByName('OBSFISCAL').AsString :=
+              DMPESSOA.TAux1.FieldByName('OBSFISCAL').AsString;
+            DMESTOQUE.TSubProd.ParamByName('PENEIRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('PENEIRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('PESOBRUTO').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PESOBRUTO').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('PESOLIQ').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PESOLIQ').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('PUREZA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('PUREZA').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('QTDATC').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QTDATC').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('QUANTGARANTIA').AsCurrency :=
+              DMPESSOA.TAux1.FieldByName('QUANTGARANTIA').AsCurrency;
+            DMESTOQUE.TSubProd.ParamByName('SAFRA').AsString :=
+              DMPESSOA.TAux1.FieldByName('SAFRA').AsString;
+            DMESTOQUE.TSubProd.ParamByName('TIPOGARANTIA').AsString :=
+              DMPESSOA.TAux1.FieldByName('TIPOGARANTIA').AsString;
             DMESTOQUE.TSubProd.ExecSQL;
 
             DMMACS.TCodigo.Edit;
-            DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger := DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger + 1;
+            DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger :=
+              DMMACS.TCodigo.FieldByName('cod_subproduto').AsInteger + 1;
             DMMACS.TCodigo.Post;
             DMMACS.IBTCodigo.CommitRetaining;
 
@@ -15207,7 +17791,8 @@ begin
   if FMenu.LCODUSUARIO.Caption = '111522' then
     funcaocordup
   else
-    MessageDlg('Função liberada apenas para a equipe de suporte!', mtWarning, [mbOK], 0);
+    MessageDlg('Função liberada apenas para a equipe de suporte!', mtWarning,
+      [mbOK], 0);
 end;
 
 procedure TFOrdemMec.RelatriosdeOrdens1Click(Sender: TObject);
@@ -15265,14 +17850,19 @@ begin
   inherited;
   btnConfirmarClick(Sender);
   // - 28/04/2009: valida
-  if (((XOK) or ((not XOK) and not (Length(Trim(edNome.Text)) <= 0) and not (Length(Trim(edPlaca.Text)) <= 0)))) or (CBVENDABALCAO.Checked = true) then
+  if (((XOK) or ((not XOK) and not (Length(Trim(edNome.Text)) <= 0) and not
+    (Length(Trim(edPlaca.Text)) <= 0)))) or (CBVENDABALCAO.Checked = true) then
   begin
-    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', IntToStr(XCOD_CLIENTE), '') then
+    if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+      IntToStr(XCOD_CLIENTE), '') then
     begin
       XCOD_CLIENTE := DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsInteger;
-      FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
-      FrmCliente.EDCodigo.Hint := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-      FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByName('NOME').AsString;
+      FrmCliente.EDCodigo.Text :=
+        DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
+      FrmCliente.EDCodigo.Hint :=
+        DMPESSOA.WCliente.FieldByName('NOME').AsString;
+      FrmCliente.EdDescricao.Text :=
+        DMPESSOA.WCliente.FieldByName('NOME').AsString;
 
       SelecionaFormaPagamento;
 
@@ -15287,14 +17877,19 @@ begin
       FrmCliente.EdDescricao.Text := '';
     end;
 
-    if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', IntToStr(XCOD_EQUIPAMENTO), '') then
+    if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+      IntToStr(XCOD_EQUIPAMENTO), '') then
     begin
-      XCOD_EQUIPAMENTO := DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
-      FBEquipPlaca.EDCodigo.Text := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
-      FBEquipPlaca.EdDescricao.Text := DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
+      XCOD_EQUIPAMENTO :=
+        DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
+      FBEquipPlaca.EDCodigo.Text :=
+        DMPESSOA.TEquip.FieldByName('PLACA').AsString;
+      FBEquipPlaca.EdDescricao.Text :=
+        DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
       if DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString <> '' then
       begin
-        lbNumFrota.Caption := 'Número Frota: ' + DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+        lbNumFrota.Caption := 'Número Frota: ' +
+          DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
       end
       else
       begin
@@ -15341,8 +17936,10 @@ begin
   if AbrirForm(TFCadCidade, FCadCidade, 1) = 'Selected' then
   begin
     XCOD_CIDADE := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsInteger;
-    FrmCidade.EdDescricao.Text := DMGEOGRAFIA.WCidade.FieldByName('UF').AsString + '-' + DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
-    FrmCidade.EDCodigo.text := DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
+    FrmCidade.EdDescricao.Text := DMGEOGRAFIA.WCidade.FieldByName('UF').AsString
+      + '-' + DMGEOGRAFIA.WCidade.FieldByName('NOME').AsString;
+    FrmCidade.EDCodigo.text :=
+      DMGEOGRAFIA.WCidade.FieldByName('COD_CIDADE').AsString;
   end
   else
   begin
@@ -15368,11 +17965,15 @@ begin
   begin
     if FrmCidade.EDCodigo.Text <> '' then
     begin
-      if SelectRegistro('VWCIDADE', 'COD_CIDADE', FrmCidade.EDCodigo.Text) = True then
+      if SelectRegistro('VWCIDADE', 'COD_CIDADE', FrmCidade.EDCodigo.Text) = True
+        then
       begin //Slecionou o registro procurado
         XCOD_CIDADE := DMMACS.TSelect.FieldByName('COD_CIDADE').AsInteger;
-        FrmCidade.EDCodigo.text := DMMACS.TSelect.FieldByName('COD_CIDADE').AsString;
-        FrmCidade.EdDescricao.Text := DMMACS.TSelect.FieldByName('UF').AsString + '-' + DMMACS.TSelect.FieldByName('NOME').AsString;
+        FrmCidade.EDCodigo.text :=
+          DMMACS.TSelect.FieldByName('COD_CIDADE').AsString;
+        FrmCidade.EdDescricao.Text := DMMACS.TSelect.FieldByName('UF').AsString
+          +
+          '-' + DMMACS.TSelect.FieldByName('NOME').AsString;
       end
       else
       begin
@@ -15425,20 +18026,31 @@ begin
 
   if XEncontrado = True then
   begin
-    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja realmente importar o orçamento' + #13 + 'Nº ' + DMSAIDA.WOrc.FieldByName('NUMORC').AsString + '?', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja realmente importar o orçamento'
+      + #13 + 'Nº ' + DMSAIDA.WOrc.FieldByName('NUMORC').AsString + '?', '', 2,
+        3,
+      False, 'c') = 2 then
     begin
       //Filtra Orçamento referente
-      if FiltraTabela(DMSAIDA.TOrc, 'ORCAMENTO', 'COD_ORCAMENTO', DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString, '') = True then
+      if FiltraTabela(DMSAIDA.TOrc, 'ORCAMENTO', 'COD_ORCAMENTO',
+        DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString, '') = True then
       begin
-        if FiltraTabela(DMServ.Alx, 'ORDEM', 'NUMORC', DMSAIDA.TOrc.FieldByName('NUMORC').AsString, '') then
+        if FiltraTabela(DMServ.Alx, 'ORDEM', 'NUMORC',
+          DMSAIDA.TOrc.FieldByName('NUMORC').AsString, '') then
         begin
-          Mensagem(' INFORMAÇÃO ', 'Esse orçamento já foi importado anteriormente (OS Nº ' + DMServ.Alx.FieldByName('NUMERO').AsString + '). O Sistema importará novamente, mas verifique por favor.', '', 1, 1, False, 'A');
+          Mensagem(' INFORMAÇÃO ',
+            'Esse orçamento já foi importado anteriormente (OS Nº ' +
+            DMServ.Alx.FieldByName('NUMERO').AsString +
+            '). O Sistema importará novamente, mas verifique por favor.', '', 1,
+            1, False, 'A');
         end;
         //FILTRA FORMA DE PAGAMENTO DE ACORDO COM ORÇAMENTO
-        FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMSAIDA.WOrc.FieldByNAme('COD_FORMPAG').AsString, '');
+        FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+          DMSAIDA.WOrc.FieldByNAme('COD_FORMPAG').AsString, '');
 
         //FILTRA LOJA
-        FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
+        FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption,
+          '');
         //AUTODETERMINA IMPORTAÇÃO COMO SUCESSO
         XSUCCESS := True;
         XDESCERRO := '';
@@ -15455,7 +18067,8 @@ begin
           XCOD_VENDEDOR := -1;
           XCOD_FORMPAG := -1;
 
-          if FiltraTabela(DMMacs.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = True then
+          if FiltraTabela(DMMacs.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+            FMenu.LCODEMPRESA.Caption, '') = True then
           begin
 
             // - 19/03/2009: busca proximo numero de OS
@@ -15470,11 +18083,14 @@ begin
             // - 19/03/2009: incrementa numero OS em Empresa
             try
               DMMACS.TEmpresa.EDIT;
-              DMMACS.TEmpresa.FieldByName('PROX_OS').AsString := IntToStr(StrToInt(DMMACS.TEmpresa.FieldByName('PROX_OS').AsString) + 1);
+              DMMACS.TEmpresa.FieldByName('PROX_OS').AsString :=
+                IntToStr(StrToInt(DMMACS.TEmpresa.FieldByName('PROX_OS').AsString)
+                + 1);
               DMMACS.TEmpresa.Post;
               DMMACS.Transaction.CommitRetaining;
             except
-              MessageDlg('O Número da ordem não foi incrementado em empresa', mtWarning, [mbOK], 0);
+              MessageDlg('O Número da ordem não foi incrementado em empresa',
+                mtWarning, [mbOK], 0);
               DMMACS.Transaction.RollbackRetaining;
             end;
 
@@ -15497,7 +18113,8 @@ begin
             DMServ.TAlx1.ParamByName('DTABERT').AsDateTime := Date();
             DMServ.TAlx1.ParamByName('HRABERT').AsDateTime := Time();
             DMServ.TAlx1.ParamByName('STATUS').AsString := 'ABERTO';
-            DMServ.TAlx1.ParamByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
+            DMServ.TAlx1.ParamByName('COD_LOJA').AsString :=
+              FMenu.LCODLOJA.Caption;
             DMServ.TAlx1.ParamByName('LOCALAT').AsString := 'BALCÃO';
             DMServ.TAlx1.ParamByName('EDIT').AsString := '1';
             DMServ.TAlx1.ExecSQL;
@@ -15505,14 +18122,19 @@ begin
             DMServ.IBT.CommitRetaining;
 
           except
-            MessageDlg('A Odem não foi inserida no banco', mtWarning, [mbOK], 0);
+            MessageDlg('A Ordem não foi inserida no banco', mtWarning, [mbOK],
+              0);
             PConsulta.Visible := False;
             PCadastro.Visible := True;
             PCadastro.BringToFront;
           end;
-          if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCODPKMESTRE), '') = False then
+          if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+            IntToStr(XCODPKMESTRE), '') = False then
           begin
-            Mensagem('Mzr Sistemas - INFORMAÇÃO', 'A Ordem inserida foi perdida. Reinicie o sistema!', '', 1, 1, false, 'i');
+            Mensagem('Mzr Sistemas - INFORMAÇÃO',
+              'A Ordem inserida foi perdida. Reinicie o sistema!', '', 1, 1,
+                false,
+              'i');
             exit
           end;
 
@@ -15521,7 +18143,9 @@ begin
           //Chama função para calcular descontos
           EfetuaDesconto('GERAL', 'MOEDA');
 
-          FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XCODPKMESTRE), '');
+          FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+            IntToStr(XCODPKMESTRE),
+            '');
 
           DMServ.TOrd.Edit;
           DMServ.TOrd.FieldByName('EDIT').AsString := '0';
@@ -15529,20 +18153,33 @@ begin
           //ATRIBUI VALOR DA PK PARA VARIAVEL PARA QUE DEPOIS OS DADOS POSSAM SER REENCONTRADOS
           XCODNEWORDEM := DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
           //IMPORTA INFORMAÇÕES DE CABEÇALHO DO ORÇAMENTO
-          DMServ.TOrd.FieldByName('COD_CLIENTE').AsString := DMSAIDA.TOrc.FieldByName('COD_CLIENTE').AsString;
-          DMServ.TOrd.FieldByName('COD_USUARIO').AsString := DMSAIDA.TOrc.FieldByName('COD_USUARIO').AsString;
-          DMServ.TOrd.FieldByName('NUMORC').AsString := DMSAIDA.TOrc.FieldByName('NUMORC').AsString;
-          DMServ.TOrd.FieldByName('COD_VENDEDOR').AsString := DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsString;
+          DMServ.TOrd.FieldByName('COD_CLIENTE').AsString :=
+            DMSAIDA.TOrc.FieldByName('COD_CLIENTE').AsString;
+          DMServ.TOrd.FieldByName('COD_USUARIO').AsString :=
+            DMSAIDA.TOrc.FieldByName('COD_USUARIO').AsString;
+          DMServ.TOrd.FieldByName('NUMORC').AsString :=
+            DMSAIDA.TOrc.FieldByName('NUMORC').AsString;
+          DMServ.TOrd.FieldByName('COD_VENDEDOR').AsString :=
+            DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsString;
           XCOD_VENDEDOR := DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger;
-          DMServ.TOrd.FieldByName('COD_FORMPAG').AsString := DMSAIDA.TOrc.FieldByName('COD_FORMPAG').AsString;
-          DMServ.TOrd.FieldByName('COD_EQUIPAMENTO').AsInteger := DMSAIDA.TOrc.FieldByName('COD_EQUIPAMENTO').AsInteger;
-          DMServ.TOrd.FieldByName('OBSERVACAO').AsString := DMSAIDA.TOrc.FieldByName('OBS').AsString;
-          DMServ.TOrd.FieldByName('TOTORD').AsCurrency := DMSAIDA.TOrc.FieldByName('VLRTOTAL').AsCurrency;
-          DMServ.TOrd.FieldByName('TOTPROD').AsCurrency := DMSAIDA.TOrc.FieldByName('VLRPROD').AsCurrency;
-          DMServ.TOrd.FieldByName('TOTSERV').AsCurrency := DMSAIDA.TOrc.FieldByName('VLRSERV').AsCurrency;
-          DMServ.TOrd.FieldByName('TOTDESP').AsCurrency := DMSAIDA.TOrc.FieldByName('VLRDESP').AsCurrency;
-          DMServ.TOrd.FieldByName('DESCPROD').AsCurrency := DMSAIDA.TOrc.FieldByName('DESCPROD').AsCurrency;
-          DMServ.TOrd.FieldByName('DESCSERV').AsCurrency := DMSAIDA.TOrc.FieldByName('DESCSERV').AsCurrency;
+          DMServ.TOrd.FieldByName('COD_FORMPAG').AsString :=
+            DMSAIDA.TOrc.FieldByName('COD_FORMPAG').AsString;
+          DMServ.TOrd.FieldByName('COD_EQUIPAMENTO').AsInteger :=
+            DMSAIDA.TOrc.FieldByName('COD_EQUIPAMENTO').AsInteger;
+          DMServ.TOrd.FieldByName('OBSERVACAO').AsString :=
+            DMSAIDA.TOrc.FieldByName('OBS').AsString;
+          DMServ.TOrd.FieldByName('TOTORD').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('VLRTOTAL').AsCurrency;
+          DMServ.TOrd.FieldByName('TOTPROD').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('VLRPROD').AsCurrency;
+          DMServ.TOrd.FieldByName('TOTSERV').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('VLRSERV').AsCurrency;
+          DMServ.TOrd.FieldByName('TOTDESP').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('VLRDESP').AsCurrency;
+          DMServ.TOrd.FieldByName('DESCPROD').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('DESCPROD').AsCurrency;
+          DMServ.TOrd.FieldByName('DESCSERV').AsCurrency :=
+            DMSAIDA.TOrc.FieldByName('DESCSERV').AsCurrency;
           DMServ.TOrd.Post;
 
         except
@@ -15557,11 +18194,13 @@ begin
           DMESTOQUE.Alx.Close;
           DMESTOQUE.ALX.SQL.Clear;
           //Se for orçamento de mecanica importa as despesas como serviços
-          if DMMACS.TLoja.FieldByName('TIPOORCAMENTO').AsString = 'MECANICA' then
+          if DMMACS.TLoja.FieldByName('TIPOORCAMENTO').AsString = 'MECANICA'
+            then
             DMESTOQUE.ALX.SQL.Add('select * From despadic Where (despadic.gerador=' + #39 + 'ORCMEC' + #39 + ') AND (despadic.cod_gerador=:COD_GERADOR)')
           else
             DMESTOQUE.ALX.SQL.Add('select * From despadic Where (despadic.gerador=' + #39 + 'ORCAMENTO' + #39 + ') AND (despadic.cod_gerador=:COD_GERADOR)');
-          DMESTOQUE.ALX.ParamByName('COD_GERADOR').AsString := DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
+          DMESTOQUE.ALX.ParamByName('COD_GERADOR').AsString :=
+            DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
           DMESTOQUE.ALX.Open;
           //Percorre os itens de Despesas do orçamento importando para ordem
           DMESTOQUE.ALX.First;
@@ -15569,7 +18208,11 @@ begin
           begin
             try
               if DMESTOQUE.Alx.FieldByName('COD_EQUIPE').AsString = '' then
-                MessageDlg('A despesa "' + DMESTOQUE.ALX.FieldByName('DESPESA').AsString + '" será inserida sem uma equipe informada.', mtWarning, [mbOK], 0);
+                MessageDlg('A despesa "' +
+                  DMESTOQUE.ALX.FieldByName('DESPESA').AsString +
+                  '" será inserida sem uma equipe informada.', mtWarning,
+                    [mbOK],
+                  0);
 
               DMServ.IBT.CommitRetaining;
               DMServ.Alx.Close;
@@ -15578,21 +18221,31 @@ begin
               DMServ.Alx.SQL.Add('                      UNIDADE, COD_EQUIPE, COD_FUNCIONARIO, CST, COMISSAO, COD_SERVICO) ');
               DMServ.Alx.SQL.Add('             values(:COD_GERADOR, :GERADOR, :DESPESA, :QTD, :VLRREAL, :VLRFINAL, :VLRTOTFIN, :DESCONTO, :MARCA, ');
               DMServ.Alx.SQL.Add('             :UNIDADE, :COD_EQUIPE, :COD_FUNCIONARIO, :CST, :COMISSAO, :SERVICO) ');
-              DMServ.Alx.ParamByName('COD_GERADOR').AsInteger := DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
+              DMServ.Alx.ParamByName('COD_GERADOR').AsInteger :=
+                DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
               DMServ.Alx.ParamByName('GERADOR').AsString := 'ORDEM';
-              DMServ.Alx.ParamByName('DESPESA').AsString := DMESTOQUE.ALX.FieldByName('DESPESA').AsString;
-              DMServ.Alx.ParamByName('QTD').AsCurrency := DMESTOQUE.ALX.FieldByName('QTD').AsCurrency;
-              DMServ.Alx.ParamByName('VLRFINAL').AsCurrency := DMESTOQUE.ALX.FieldByName('VLRFINAL').AsCurrency;
-              DMServ.Alx.ParamByName('VLRTOTFIN').AsCurrency := DMESTOQUE.ALX.FieldByName('VLRTOTFIN').AsCurrency;
-              DMServ.Alx.ParamByName('DESCONTO').AsCurrency := DMESTOQUE.ALX.FieldByName('desconto').AsCurrency;
-              DMServ.Alx.ParamByName('COD_EQUIPE').AsString := DMESTOQUE.Alx.FieldByName('COD_EQUIPE').AsString; //FrmEquipe.EDCodigo.Text;
-              DMServ.Alx.ParamByName('SERVICO').AsString := DMESTOQUE.Alx.FieldByName('COD_SERVICO').AsString;
+              DMServ.Alx.ParamByName('DESPESA').AsString :=
+                DMESTOQUE.ALX.FieldByName('DESPESA').AsString;
+              DMServ.Alx.ParamByName('QTD').AsCurrency :=
+                DMESTOQUE.ALX.FieldByName('QTD').AsCurrency;
+              DMServ.Alx.ParamByName('VLRFINAL').AsCurrency :=
+                DMESTOQUE.ALX.FieldByName('VLRFINAL').AsCurrency;
+              DMServ.Alx.ParamByName('VLRTOTFIN').AsCurrency :=
+                DMESTOQUE.ALX.FieldByName('VLRTOTFIN').AsCurrency;
+              DMServ.Alx.ParamByName('DESCONTO').AsCurrency :=
+                DMESTOQUE.ALX.FieldByName('desconto').AsCurrency;
+              DMServ.Alx.ParamByName('COD_EQUIPE').AsString :=
+                DMESTOQUE.Alx.FieldByName('COD_EQUIPE').AsString;
+              //FrmEquipe.EDCodigo.Text;
+              DMServ.Alx.ParamByName('SERVICO').AsString :=
+                DMESTOQUE.Alx.FieldByName('COD_SERVICO').AsString;
               DMServ.Alx.ExecSQL;
               DMServ.IBT.CommitRetaining;
             except
               on E: Exception do
               begin
-                if E.Message = 'attempt to store duplicate value (visible to active transactions) in unique index "DESPADIC_IDX1"' then
+                if E.Message =
+                  'attempt to store duplicate value (visible to active transactions) in unique index "DESPADIC_IDX1"' then
                 begin
                   try
                     DMServ.IBT.RollbackRetaining;
@@ -15604,7 +18257,9 @@ begin
                     DMMACS.TALX.Open;
                     DMMACS.TALX.Close;
                     DMMACS.TALX.SQL.Clear;
-                    DMMACS.TALX.SQL.Add('SET GENERATOR GEN_DESPADIC_ID TO ' + IntToStr(DMMACS.TALX.FieldByName('codigo').AsInteger + 100));
+                    DMMACS.TALX.SQL.Add('SET GENERATOR GEN_DESPADIC_ID TO ' +
+                      IntToStr(DMMACS.TALX.FieldByName('codigo').AsInteger +
+                      100));
                     DMMACS.TALX.ExecSQL;
                     DMMACS.Transaction.CommitRetaining;
                     DMServ.IBT.CommitRetaining;
@@ -15616,14 +18271,16 @@ begin
                     EDesricaoServico.SetFocus;
                     Exit;
                   except
-                    ShowMessage('Falha ao gerar código do serviço.' + #13 + ' Foi encontrado um erro ao inserir o serviço. Entre em contato com o suporte e informe o erro ocorrido');
+                    ShowMessage('Falha ao gerar código do serviço.' + #13 +
+                      ' Foi encontrado um erro ao inserir o serviço. Entre em contato com o suporte e informe o erro ocorrido');
                     DMMACS.Transaction.RollbackRetaining;
                     DMServ.IBT.RollbackRetaining;
                   end;
                 end
                 else
                 begin
-                  MessageDlg('O ITEM NÃO PODE SER INSERIDO. VERIFIQUE!' + #13 + 'Erro: 1348', mtWarning, [mbOK], 0);
+                  MessageDlg('O ITEM NÃO PODE SER INSERIDO. VERIFIQUE!' + #13 +
+                    'Erro: 1348', mtWarning, [mbOK], 0);
                   DMServ.IBT.RollbackRetaining;
                   FiltraSlave;
                   //Chama função para calcular descontos
@@ -15640,10 +18297,13 @@ begin
         end;
 
         // apenas repassa a forma de pagamento para os campos que logo mais serão usados para conferir valores
-        if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMSAIDA.TOrc.FieldByName('COD_FORMPAG').AsString, '') = true then
+        if FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+          DMSAIDA.TOrc.FieldByName('COD_FORMPAG').AsString, '') = true then
         begin
-          FrmFormPag1.EDCodigo.Text := DMFINANC.TFormPag.FieldByName('cod_formpag').AsString;
-          FrmFormPag1.EdDescricao.Text := DMFINANC.TFormPag.FieldByName('descricao').AsString;
+          FrmFormPag1.EDCodigo.Text :=
+            DMFINANC.TFormPag.FieldByName('cod_formpag').AsString;
+          FrmFormPag1.EdDescricao.Text :=
+            DMFINANC.TFormPag.FieldByName('descricao').AsString;
         end;
 
         ////////////////////////////////////////////////////
@@ -15657,7 +18317,8 @@ begin
           DMESTOQUE.TSlaveServ.SQL.Add('subservico.descricao ');
           DMESTOQUE.TSlaveServ.SQL.Add('from itservorc left join subservico ON itservorc.cod_servico = subservico.cod_subservico ');
           DMESTOQUE.TSlaveServ.SQL.Add('Where itservorc.cod_orcamento = :CODORDEM ');
-          DMESTOQUE.TSlaveServ.ParamByName('CODORDEM').AsString := DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
+          DMESTOQUE.TSlaveServ.ParamByName('CODORDEM').AsString :=
+            DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
           DMESTOQUE.TSlaveServ.SQL.Text;
           DMESTOQUE.TSlaveServ.Open;
 
@@ -15668,35 +18329,64 @@ begin
             //Inserir serviço a lista de serviços
             XCOD_ITSERV := InserReg(DMSERV.TSOrd, 'ITSERVORD', 'COD_ITSERVORD');
             DMSERV.TSOrd.FieldByName('COD_ITSERVORD').AsInteger := XCOD_ITSERV;
-            DMSERV.TSOrd.FieldByName('COD_ORDEM').AsInteger := DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
-            DMSERV.TSOrd.FieldByName('COD_SERVICO').AsInteger := DMESTOQUE.TSlaveServ.FieldByName('COD_SERVICO').AsInteger;
-            DMSERV.TSOrd.FieldByName('QTD').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('QTD').AsCurrency;
-            DMSERV.TSOrd.FieldByName('DESCONTO').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('DESCONTO').AsCurrency;
-            DMSERV.TSOrd.FieldByName('VLRUNIT').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('VLRUNIT').AsCurrency;
-            DMSERV.TSOrd.FieldByName('VLRUNITCUSTO').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('VLRUNITCUSTO').AsCurrency;
-            DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency;
-            DMSERV.TSOrd.FieldByName('COD_FUNCIONARIO').AsInteger := DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsInteger;
+            DMSERV.TSOrd.FieldByName('COD_ORDEM').AsInteger :=
+              DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
+            DMSERV.TSOrd.FieldByName('COD_SERVICO').AsInteger :=
+              DMESTOQUE.TSlaveServ.FieldByName('COD_SERVICO').AsInteger;
+            DMSERV.TSOrd.FieldByName('QTD').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('QTD').AsCurrency;
+            DMSERV.TSOrd.FieldByName('DESCONTO').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('DESCONTO').AsCurrency;
+            DMSERV.TSOrd.FieldByName('VLRUNIT').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('VLRUNIT').AsCurrency;
+            DMSERV.TSOrd.FieldByName('VLRUNITCUSTO').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('VLRUNITCUSTO').AsCurrency;
+            DMSERV.TSOrd.FieldByName('TOTAL').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency;
+            DMSERV.TSOrd.FieldByName('COD_FUNCIONARIO').AsInteger :=
+              DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsInteger;
             DMSERV.TSOrd.FieldByName('DATA').AsDateTime := Date();
-            DMSERV.TSOrd.FieldByName('PIS').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('PIS').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('CONTSOC').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('CONTSOC').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('IR').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('IMPREND').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('COFINS').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('COFINS').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('INSS').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('INSS').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('ISSQN').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('ISSQN').AsCurrency) / 100;
-            DMSERV.TSOrd.FieldByName('OUTROS').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMMACS.TLoja.FieldByName('OUTROIMPSERV').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('PIS').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('PIS').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('CONTSOC').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('CONTSOC').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('IR').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('IMPREND').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('COFINS').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('COFINS').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('INSS').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('INSS').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('ISSQN').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('ISSQN').AsCurrency) / 100;
+            DMSERV.TSOrd.FieldByName('OUTROS').AsCurrency :=
+              (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+              DMMACS.TLoja.FieldByName('OUTROIMPSERV').AsCurrency) / 100;
 
             // ou seja, se existe vendedor no orcamento passa por esse codigo abaixo
             if XCOD_VENDEDOR > 0 then
             begin
-              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsString, '');
+              FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO',
+                DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsString, '');
 
               if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
               begin
-                DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVSER').AsCurrency) / 100;
+                DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency :=
+                  (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+                  DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVSER').AsCurrency) /
+                  100;
               end
               else
               begin
-                DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPSER').AsCurrency) / 100;
+                DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency :=
+                  (DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency *
+                  DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPSER').AsCurrency) /
+                  100;
               end;
             end
             else
@@ -15704,9 +18394,21 @@ begin
               DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency := 0;
             end;
 
-            DMSERV.TSOrd.FieldByName('TOTENCARGO').AsCurrency := DMSERV.TSOrd.FieldByName('PIS').AsCurrency + DMSERV.TSOrd.FieldByName('CONTSOC').AsCurrency + DMSERV.TSOrd.FieldByName('IR').AsCurrency + DMSERV.TSOrd.FieldByName('COFINS').AsCurrency + DMSERV.TSOrd.FieldByName('INSS').AsCurrency + DMSERV.TSOrd.FieldByName('ISSQN').AsCurrency + DMSERV.TSOrd.FieldByName('OUTROS').AsCurrency;
-            DMSERV.TSOrd.FieldByName('LUCMOE').AsCurrency := DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency - DMSERV.TSOrd.FieldByName('TOTENCARGO').AsCurrency - DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency;
-            DMSERV.TSOrd.FieldByName('LUCPER').AsCurrency := (DMSERV.TSOrd.FieldByName('LUCMOE').AsCurrency * 100) / DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency;
+            DMSERV.TSOrd.FieldByName('TOTENCARGO').AsCurrency :=
+              DMSERV.TSOrd.FieldByName('PIS').AsCurrency +
+              DMSERV.TSOrd.FieldByName('CONTSOC').AsCurrency +
+              DMSERV.TSOrd.FieldByName('IR').AsCurrency +
+              DMSERV.TSOrd.FieldByName('COFINS').AsCurrency +
+              DMSERV.TSOrd.FieldByName('INSS').AsCurrency +
+              DMSERV.TSOrd.FieldByName('ISSQN').AsCurrency +
+              DMSERV.TSOrd.FieldByName('OUTROS').AsCurrency;
+            DMSERV.TSOrd.FieldByName('LUCMOE').AsCurrency :=
+              DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency -
+              DMSERV.TSOrd.FieldByName('TOTENCARGO').AsCurrency -
+              DMSERV.TSOrd.FieldByName('COMISSAO').AsCurrency;
+            DMSERV.TSOrd.FieldByName('LUCPER').AsCurrency :=
+              (DMSERV.TSOrd.FieldByName('LUCMOE').AsCurrency * 100) /
+              DMESTOQUE.TSlaveServ.FieldByName('TOTAL').AsCurrency;
             DMServ.TSOrd.Post;
             DMESTOQUE.TSlaveServ.Next;
           end;
@@ -15723,20 +18425,29 @@ begin
           DMESTOQUE.TSlave.SQL.Clear;
           DMESTOQUE.TSlave.SQL.Add('Select itprodorC.cod_itprodorC, itprodorC.cod_orcamento, itprodorc.cod_estoque,  itprodorc.qtd, itprodorc.vlrtotal AS TOTAL, ');
           DMESTOQUE.TSlave.SQL.Add('itprodorc.desconto, itprodorc.vlrunit, subproduto.descricao, subproduto.marca, SubProduto.CODPRODFABR, subproduto.cod_cst, ');
-          DMESTOQUE.TSlave.sql.Add(' subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL1').AsString + ' AS PRIMCOD, subproduto.' + DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
+          DMESTOQUE.TSlave.sql.Add(' subproduto.' +
+            DMMACS.TLoja.FieldByName('CODPRODREL1').AsString +
+            ' AS PRIMCOD, subproduto.' +
+            DMMACS.TLoja.FieldByName('CODPRODREL2').AsString + ' AS SEGCOD ');
           DMESTOQUE.TSlave.SQL.Add('From itprodorc left Join estoque on itprodorc.cod_estoque = estoque.cod_estoque ');
           DMESTOQUE.TSlave.SQL.Add('Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod ');
           DMESTOQUE.TSlave.SQL.Add('Where itprodorc.cod_orcamento = :CODORDEM ');
-          DMESTOQUE.TSlave.ParamByName('CODORDEM').AsString := DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
+          DMESTOQUE.TSlave.ParamByName('CODORDEM').AsString :=
+            DMSAIDA.WOrc.FieldByNAme('COD_ORCAMENTO').AsString;
           DMESTOQUE.TSlave.Open;
           //Percorre os itens de produto do orçamento importando para pedido
           DMESTOQUE.TSlave.First;
           while not DMESTOQUE.TSlave.Eof do
           begin
             //ENCONTRA ESTOQUE
-            if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False then
+            if FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',
+              DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '') = False
+                then
             begin
-              Mensagem('OPÇÃO BLOQUEADA', 'Não foi possível encontrar a tabela estoque para o produto:' + #13 + DMESTOQUE.TSlave.FieldByName('descricao').AsString, '', 1, 1, False, 'a');
+              Mensagem('OPÇÃO BLOQUEADA',
+                'Não foi possível encontrar a tabela estoque para o produto:' + #13
+                + DMESTOQUE.TSlave.FieldByName('descricao').AsString, '', 1, 1,
+                False, 'a');
               XSUCCESS := False;
               Exit;
             end;
@@ -15745,9 +18456,12 @@ begin
             //Verifica se o desconto dado no produto é superior ao permitido
             if DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency = 0 then
             begin //Se não ha restrições de desconto do produto em empresa procura em produto
-              if (DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency > DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency) then
+              if (DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency >
+                DMESTOQUE.TEstoque.FieldByName('AVVPROVAR').AsCurrency) then
               begin
-                if Mensagem('A T E N Ç Ã O !', 'Você está concedendo um desconto maior que o estipulado em cadastro. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+                if Mensagem('A T E N Ç Ã O !',
+                  'Você está concedendo um desconto maior que o estipulado em cadastro. Deseja continuar?',
+                  '', 2, 3, False, 'c') = 2 then
                 begin
                   if ControlAccess('DESCPMAIOR', '') = False then
                   begin //se o usuário não tem permissão para efetuar um desconto maior que o cadastrado deve ser pedido a senha de um administrador
@@ -15764,9 +18478,12 @@ begin
             end
             else
             begin
-              if (DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency > DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency) then
+              if (DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency >
+                DMMACS.TEmpresa.FieldByName('AVVPROVAR').AsCurrency) then
               begin
-                if Mensagem('A T E N Ç Ã O !', 'Você está concedendo um desconto maior que o estipulado em cadastro. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+                if Mensagem('A T E N Ç Ã O !',
+                  'Você está concedendo um desconto maior que o estipulado em cadastro. Deseja continuar?',
+                  '', 2, 3, False, 'c') = 2 then
                 begin
                   if ControlAccess('DESCPMAIOR', '') = False then
                   begin //se o usuário não tem permissão para efetuar um desconto maior que o cadastrado deve ser pedido a senha de um administrador
@@ -15780,9 +18497,13 @@ begin
             begin //se o estoque deve ser atualizado no pedido executa procedimento
               if DMMacs.TLoja.FieldByName('VENDESTNEG').AsString = '0' then
               begin
-                if DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency > DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency then
+                if DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency >
+                  DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency then
                 begin //o estoque que esta sendo negociado é maior que o estoque físico e segundo configuraçãoes isto não é permitido
-                  Mensagem('OPÇÃO BLOQUEADA', 'Não existe estoque suficiente para suportar esta operação. Produto:' + #13 + DMESTOQUE.TSlave.FieldByName('descricao').AsString, '', 1, 1, False, 'a');
+                  Mensagem('OPÇÃO BLOQUEADA',
+                    'Não existe estoque suficiente para suportar esta operação. Produto:' + #13
+                    + DMESTOQUE.TSlave.FieldByName('descricao').AsString, '', 1,
+                    1, False, 'a');
                   XSUCCESS := False;
                   FiltraSlave;
                   Exit;
@@ -15792,17 +18513,28 @@ begin
             //Inserir Produto a lista do ordem
             XCodSlave := InserReg(DMServ.TPOrd, 'ITPRODORD', 'COD_ITPRODORD');
             DMServ.TPOrd.FieldByName('COD_ITPRODORD').AsInteger := XCodSlave;
-            DMServ.TPOrd.FieldByName('COD_ORDEM').AsInteger := DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
-            DMServ.TPOrd.FieldByName('NUMREQ').AsString := 'ORC-' + DMSAIDA.TOrc.FieldByName('NUMORC').AsString;
-            DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsInteger := DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsInteger;
+            DMServ.TPOrd.FieldByName('COD_ORDEM').AsInteger :=
+              DMServ.TOrd.FieldByName('COD_ORDEM').AsInteger;
+            DMServ.TPOrd.FieldByName('NUMREQ').AsString := 'ORC-' +
+              DMSAIDA.TOrc.FieldByName('NUMORC').AsString;
+            DMServ.TPOrd.FieldByName('COD_FUNCIONARIO').AsInteger :=
+              DMSAIDA.TOrc.FieldByName('COD_VENDEDOR').AsInteger;
             DMServ.TPOrd.FieldByName('DATA').AsString := DateToStr(Date());
-            DMServ.TPOrd.FieldByName('VALCUSTO').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
-            DMServ.TPOrd.FieldByName('VALREP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
-            DMServ.TPOrd.FieldByName('COEFDIV').AsCurrency := DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
-            DMServ.TPOrd.FieldByName('VALCOMP').AsCurrency := DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency * EDQuantidade.ValueNumeric;
-            CalcLuc(DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency, DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency, DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency);
+            DMServ.TPOrd.FieldByName('VALCUSTO').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency;
+            DMServ.TPOrd.FieldByName('VALREP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency;
+            DMServ.TPOrd.FieldByName('COEFDIV').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('COEFDIV').AsCurrency;
+            DMServ.TPOrd.FieldByName('VALCOMP').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('vlrunitcomp').AsCurrency *
+              EDQuantidade.ValueNumeric;
+            CalcLuc(DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency,
+              DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency,
+              DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency);
             DMServ.TPOrd.FieldByName('LUCMOE').AsCurrency := AlxLUCMOE;
-            DMServ.TPOrd.FieldByName('VLRVENDBD').AsCurrency := DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency;
+            DMServ.TPOrd.FieldByName('VLRVENDBD').AsCurrency :=
+              DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency;
             DMServ.TPOrd.FieldByName('LUCPER').AsCurrency := AlxLUCPER;
             DMServ.TPOrd.FieldByName('LUCREL').AsCurrency := ALXLUCREAL;
             try
@@ -15811,35 +18543,45 @@ begin
               if XCOD_VENDEDOR > 0 then
               begin
                 // filtra estoque para buscar os valores das porcentagens das comissoes
-                FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsString, '');
+                FiltraTabela(DMESTOQUE.Alx4, 'ESTOQUE', 'COD_ESTOQUE',
+                  DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsString, '');
 
                 // se na loja esta configurado p buscar preço somente a prazo
                 if DMMACS.TLoja.FieldByName('TIPOVENDA').AsString = '1' then
                 begin
                   // se na loja esta configurado p buscar do funcionario
-                  if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0') then
+                  if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString =
+                    '0') then
                   begin
                     // DADOS DA TABELA FUNCARGO QUE SERÃO UTILIZADAS PARA OS CALCULOS ABAIXO
-                    FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
+                    FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO',
+                      'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
 
                     DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
 
                     //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                    DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) / 100;
+                    DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                      (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                      DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency)
+                      / 100;
                   end
                   else
                   begin
                     //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                    DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
+                    DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                      (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                      DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
                   end;
                 end
                 else
                 begin
                   // se na loja esta configurado p buscar do funcionario
-                  if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString = '0') then
+                  if (DMMACS.TLoja.FieldByName('COMISSPRODCADPROD').AsString =
+                    '0') then
                   begin
                     // DADOS DA TABELA FUNCARGO QUE SERÃO UTILIZADAS PARA OS CALCULOS ABAIXO
-                    FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO', 'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
+                    FiltraTabela(DMPESSOA.TFunCargo, 'FUNCARGO',
+                      'COD_FUNCIONARIO', IntToStr(XCOD_VENDEDOR), '');
 
                     DMPESSOA.TFunCargo.Last; //VAI P/ O ULTIMO CARGO CADASTRADO
 
@@ -15847,12 +18589,16 @@ begin
                     if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
                     begin
                       //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVPRO').AsCurrency) / 100;
+                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                        (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                        DMPESSOA.TFunCargo.FieldByName('COMISSAO_VVPRO').AsCurrency) / 100;
                     end
                     else
                     begin
                       //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) / 100;
+                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                        (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                        DMPESSOA.TFunCargo.FieldByName('COMISSAO_VPPRO').AsCurrency) / 100;
                     end;
                   end
                   else
@@ -15861,12 +18607,18 @@ begin
                     if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
                     begin
                       //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A VISTA
-                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) / 100;
+                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                        (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                        DMESTOQUE.Alx4.FieldByName('CVVPROVAR').AsCurrency) /
+                          100;
                     end
                     else
                     begin
                       //FORMA DE PAGAMENTO À PRAZO É CALCULA COMISSÃO REFERENTE A PRAZO
-                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency := (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency * DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) / 100;
+                      DMSERV.TPOrd.FieldByName('COMISSAO').AsCurrency :=
+                        (DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency *
+                        DMESTOQUE.Alx4.FieldByName('CVPPROVAR').AsCurrency) /
+                          100;
                     end;
                   end;
                 end;
@@ -15874,29 +18626,44 @@ begin
             except
               DMServ.TPOrd.FieldByName('COMISSAO').AsCurrency := 0;
             end;
-            DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
-            DMServ.TPOrd.FieldByName('COD_CST').AsInteger := DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
-            DMServ.TPOrd.FieldByName('QTD').Value := DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
-            DMServ.TPOrd.FieldByName('DESCONTO').Value := DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
-            DMServ.TPOrd.FieldByName('VLRUNIT').Value := DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
-            DMServ.TPOrd.FieldByName('TOTAL').Value := DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
+            DMServ.TPOrd.FieldByName('COD_ESTOQUE').AsInteger :=
+              DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsInteger;
+            DMServ.TPOrd.FieldByName('COD_CST').AsInteger :=
+              DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
+            DMServ.TPOrd.FieldByName('QTD').Value :=
+              DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
+            DMServ.TPOrd.FieldByName('DESCONTO').Value :=
+              DMESTOQUE.TSlave.FieldByName('DESCONTO').AsCurrency;
+            DMServ.TPOrd.FieldByName('VLRUNIT').Value :=
+              DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency;
+            DMServ.TPOrd.FieldByName('TOTAL').Value :=
+              DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
             //Tenta gravar as informações
             try
               //Atualiza Estoque
               DMEstoque.TEstoque.edit;
               DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
               //atualiza estoque físico
-              DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value - DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
+              DMEstoque.TEstoque.FieldByName('ESTFISICO').Value :=
+                DMEstoque.TEstoque.FieldByName('ESTFISICO').Value -
+                DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
               //Atualiza data da ultima venda
-              DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString := DateToStr(Date());
+              DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString :=
+                DateToStr(Date());
               DMESTOQUE.TEstoque.Post;
 
               //ATUALIZA CUSTO DE ESTOQUE
-              DMESTOQUE.CalcCustMed(DMESTOQUE.TEstoque.FieldByNAme('COD_ESTOQUE').AsInteger, 'S', DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency, DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency * DMEstoque.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency);
+              DMESTOQUE.CalcCustMed(DMESTOQUE.TEstoque.FieldByNAme('COD_ESTOQUE').AsInteger,
+                'S', DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency,
+                DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency *
+                DMEstoque.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency);
 
               DMESTOQUE.TEstoque.Edit;
               //Atualiza saldo de estoque
-              DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency := (DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency + DMEstoque.TEstoque.FieldByName('ESTPED').AsCurrency) - DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency;
+              DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency :=
+                (DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency +
+                DMEstoque.TEstoque.FieldByName('ESTPED').AsCurrency) -
+                DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency;
               DMESTOQUE.TEstoque.Post;
 
               DMServ.TPOrd.Edit;
@@ -15905,7 +18672,11 @@ begin
               DMEstoque.TEstoque.Post;
               DMESTOQUE.TransacEstoque.CommitRetaining;
             except
-              Mensagem('OPÇÃO BLOQUEADA', 'Problemas ao atualizar o estoque. Produto:' + #13 + DMESTOQUE.TSlave.FieldByName('subproduto.descricao').AsString, '', 1, 1, False, 'a');
+              Mensagem('OPÇÃO BLOQUEADA',
+                'Problemas ao atualizar o estoque. Produto:' + #13 +
+                DMESTOQUE.TSlave.FieldByName('subproduto.descricao').AsString,
+                  '',
+                1, 1, False, 'a');
               XSUCCESS := False;
               Exit;
             end;
@@ -15924,7 +18695,8 @@ begin
           DMServ.IBT.CommitRetaining;
           FBEquipPlaca.EDCodigo.Text := '';
           FBEquipPlaca.EdDescricao.Text := '';
-          FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM', IntToStr(XCODNEWORDEM), '');
+          FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM',
+            IntToStr(XCODNEWORDEM), '');
           BtnConsultar.Click;
           DMServ.TOrd.Edit;
           DMServ.TOrd.FieldByName('EDIT').AsString := '1';
@@ -15937,7 +18709,9 @@ begin
         end
         else
         begin
-          Mensagem('OPÇÃO BLOQUEADA', 'Ocorreram problemas ao importar orçamento. Verifique as informações!', 'Problemas ' + XDESCERRO, 1, 1, True, 'a');
+          Mensagem('OPÇÃO BLOQUEADA',
+            'Ocorreram problemas ao importar orçamento. Verifique as informações!', 'Problemas '
+            + XDESCERRO, 1, 1, True, 'a');
           DMESTOQUE.TransacEstoque.RollbackRetaining;
           DMESTOQUE.TransacEstoque.RollbackRetaining;
           DMSAIDA.IBT.RollbackRetaining;
@@ -15946,7 +18720,9 @@ begin
       end
       else
       begin
-        Mensagem('INFORMAÇÃO!', 'Não foi possivel importar o orçamento solicitado! A tabela de orçamento não localizou registro. Tente reiniciar o sistema!', '', 1, 1, False, 'a');
+        Mensagem('INFORMAÇÃO!',
+          'Não foi possivel importar o orçamento solicitado! A tabela de orçamento não localizou registro. Tente reiniciar o sistema!',
+          '', 1, 1, False, 'a');
         Exit;
       end;
     end;
@@ -15958,10 +18734,12 @@ end;
 procedure TFOrdemMec.Duplicata1Click(Sender: TObject);
 begin
   inherited;
-  if Mensagem('CONFIRMAÇÃO !', 'Imprimir Duplicata para a ordem?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('CONFIRMAÇÃO !', 'Imprimir Duplicata para a ordem?', '', 2, 3,
+    False, 'c') = 2 then
   begin
     //filtra ordem correta
-    FiltraTabela(DMServ.TOrd, 'ordem', 'cod_ordem', DMServ.WOrdem.FieldByName('cod_ordem').AsString, '');
+    FiltraTabela(DMServ.TOrd, 'ordem', 'cod_ordem',
+      DMServ.WOrdem.FieldByName('cod_ordem').AsString, '');
     //seleciona o ctas a receber pertencente a ordem
         { DMFINANC.TAlx.Close;
          DMFINANC.TAlx.SQL.Clear;
@@ -15992,14 +18770,16 @@ begin
     DMFINANC.TAlx.SQL.Add(' left join pessoa on vwcliente.cod_pessoa = pessoa.cod_pessoa');
     DMFINANC.TAlx.SQL.Add(' left join pessoaj on pessoa.cod_pessoa = pessoaj.cod_pessoa');
     DMFINANC.TAlx.SQL.Add(' where (ctareceber.cod_gerador=:CODIGO) and (ctareceber.tipogerador=' + #39 + 'ORD' + #39 + ')');
-    DMFINANC.TAlx.ParamByName('CODIGO').AsString := DMServ.TOrd.FieldByName('cod_ordem').AsString;
+    DMFINANC.TAlx.ParamByName('CODIGO').AsString :=
+      DMServ.TOrd.FieldByName('cod_ordem').AsString;
     DMFINANC.TAlx.Open;
 
     DMSAIDA.TAlx.SQL.Clear;
     DMSAIDA.TAlx.SQL.Add('select ordem.cod_ordem,ordem.totord, ordem.numfiscal, ordem.numfiscalnfse, ordem.totprod, ordem.totserv, docfisord.dtemissao from ordem');
     DMSAIDA.TAlx.SQL.Add('left join docfisord on ordem.cod_ordem = docfisord.cod_ordem ');
     DMSAIDA.TAlx.SQL.Add('where ordem.cod_ordem=:CODIGO');
-    DMSAIDA.TAlx.ParamByName('CODIGO').AsString := DMServ.TOrd.FieldByName('cod_ordem').AsString;
+    DMSAIDA.TAlx.ParamByName('CODIGO').AsString :=
+      DMServ.TOrd.FieldByName('cod_ordem').AsString;
     DMSAIDA.TAlx.Open;
 
     if not DMFINANC.TAlx.IsEmpty then
@@ -16007,8 +18787,10 @@ begin
       DMCONTA.TParcCR.Close;
       DMCONTA.TParcCR.SQL.Clear;
       DMCONTA.TParcCR.SQL.Add(' update parcelacr set parcelacr.numfisc=:numero where parcelacr.cod_ctareceber=:codigo ');
-      DMCONTA.TParcCR.ParamByName('numero').AsString := DMSAIDA.TAlx.FieldByName('numfiscal').AsString;
-      DMCONTA.TParcCR.ParamByName('codigo').AsString := DMFINANC.TAlx.FieldByName('cod_ctareceber').AsString;
+      DMCONTA.TParcCR.ParamByName('numero').AsString :=
+        DMSAIDA.TAlx.FieldByName('numfiscal').AsString;
+      DMCONTA.TParcCR.ParamByName('codigo').AsString :=
+        DMFINANC.TAlx.FieldByName('cod_ctareceber').AsString;
       DMCONTA.TParcCR.ExecSQL;
       DMCONTA.IBT.CommitRetaining;
       {
@@ -16033,18 +18815,21 @@ begin
    //seleciona empresa
       FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', '', '', '');
       //SELECIONA CIDADE PARA A EMPRESA
-      FiltraTabela(DMpessoa.TALX, 'CIDADE', 'COD_CIDADE', DMMACS.TEmpresa.FieldByName('COD_CIDADE').AsString, '');
+      FiltraTabela(DMpessoa.TALX, 'CIDADE', 'COD_CIDADE',
+        DMMACS.TEmpresa.FieldByName('COD_CIDADE').AsString, '');
       QRDUPLICATA.Preview;
     end
     else
     begin
-      MessageDlg('A ORDEM DE SERVIÇO NÃO POSSUI CONTAS PENDENTES', mtWarning, [mbOK], 0);
+      MessageDlg('A ORDEM DE SERVIÇO NÃO POSSUI CONTAS PENDENTES', mtWarning,
+        [mbOK], 0);
     end;
   end;
 
 end;
 
-procedure TFOrdemMec.QRDUPLICATABeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QRDUPLICATABeforePrint(Sender: TCustomQuickRep; var
+  PrintReport: Boolean);
 begin
   inherited;
   try
@@ -16060,7 +18845,8 @@ begin
   //LIBERA EXPORTAÇÃO DE ORDENS
   DMMACS.TALX.Close;
   DMMACS.TALX.SQL.Clear;
-  DMMACS.TALX.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0' + #39);
+  DMMACS.TALX.SQL.Add('update empresa set empresa.emexporta=' + #39 + '0' +
+    #39);
   DMMACS.TALX.ExecSQL;
   DMMACS.Transaction.CommitRetaining;
 end;
@@ -16085,9 +18871,12 @@ begin
   DMServ.TAlx1.ParamByName('numero').AsString := DBNumOrd.Text;
   DMServ.TAlx1.Open;
 
-  if (not DMServ.TAlx1.IsEmpty) and (DMServ.TAlx1.FieldByName('cod_ordem').AsInteger <> XCOD_ORDEM) then
+  if (not DMServ.TAlx1.IsEmpty) and
+    (DMServ.TAlx1.FieldByName('cod_ordem').AsInteger <> XCOD_ORDEM) then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'Já existe outra ordem de serviço com o mesmo número. Por favor, altere o valor.', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ',
+      'Já existe outra ordem de serviço com o mesmo número. Por favor, altere o valor.',
+      '', 1, 1, false, 'I');
     DBNumOrd.SetFocus;
     Exit;
   end;
@@ -16095,21 +18884,29 @@ begin
   //VALIDA CAMPOS NECESSÁRIOS
   if (XCOD_CLIENTE = -1) or (FrmCliente.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe um Cliente para Ordem de Serviço', '', 1, 1, False,
+      'a');
     FrmCliente.EDCodigo.SetFocus;
     Exit;
   end;
 
-  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and (CBVENDABALCAO.Checked = FALSE) then
+  if ((XCOD_EQUIPAMENTO = -1) or (FBEquipPlaca.EDCodigo.Text = '')) and
+    (CBVENDABALCAO.Checked = FALSE) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe uma placa para Ordem de Serviço', '', 1, 1, False,
+        'a');
     FBEquipPlaca.EDCodigo.SetFocus;
     Exit;
   end;
 
   if (XCOD_FORMPAG = -1) or (FrmFormPag1.EDCodigo.Text = '') then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe a Forma de Pagamento para a Ordem de Serviço', '', 1,
+        1,
+      False, 'a');
     FrmFormPag1.EDCodigo.SetFocus;
     Exit;
   end;
@@ -16118,7 +18915,9 @@ begin
   begin
     if FrmFormPag1.EdDescricao.Text <> 'À VISTA' then
     begin
-      Mensagem('OPÇÃO BLOQUEADA', 'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!', '', 1, 1, False, 'i');
+      Mensagem('OPÇÃO BLOQUEADA',
+        'Este cliente não se encontra cadastrado em Banco de Dados ou seja suas informações pessoais não estão cadastradas. Por isso este pedido não pode ser realizado à prazo!',
+        '', 1, 1, False, 'i');
       FrmFormPag1.BTNOPEN.SetFocus;
       Exit;
     end;
@@ -16126,17 +18925,22 @@ begin
 
   if (DBBox.Text = '') and (CBVENDABALCAO.Checked = False) then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Por Favor. Informe o box para Ordem de Serviço', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Por Favor. Informe o box para Ordem de Serviço',
+      '', 1, 1, False, 'a');
     Exit;
   end;
 
   //VERIFICA SE O PEDIDO JÁ POSSUI DOC FI PARA EDITAR O VALOR
-  if FiltraTabela(DMSAIDA.TFiscPV, 'DOCFISSAIDA', 'COD_DOCFIS', '', '(cod_pedido=' + #39 + IntToStr(XCOD_ORDEM) + #39 + ')') = True then
+  if FiltraTabela(DMSAIDA.TFiscPV, 'DOCFISSAIDA', 'COD_DOCFIS', '',
+    '(cod_pedido=' + #39 + IntToStr(XCOD_ORDEM) + #39 + ')') = True then
   begin
     //EDITAL FISCAL EXISTENTE
     DMSAIDA.TFiscPV.Edit;
-    DMSAIDA.TFiscPV.FieldByName('VLRTOTPROD').AsCurrency := DMServ.TOrd.FieldByName('VALOR').AsCurrency;
-    DMSAIDA.TFiscPV.FieldByName('VLRTOTDOCNF').AsCurrency := DMServ.TOrd.FieldByName('VALOR').AsCurrency;
+    DMSAIDA.TFiscPV.FieldByName('VLRTOTPROD').AsCurrency :=
+      DMServ.TOrd.FieldByName('VALOR').AsCurrency;
+    DMSAIDA.TFiscPV.FieldByName('VLRTOTDOCNF').AsCurrency :=
+      DMServ.TOrd.FieldByName('VALOR').AsCurrency;
     DMSAIDA.TFiscPV.Post;
   end;
 
@@ -16147,7 +18951,8 @@ begin
     DMServ.TOrd.FieldByName('GARANTIA').AsString := '';
 
   //INFORMA CODIGO DO USUARIO
-  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger := StrToInt(FMenu.LCODUSUARIO.Caption);
+  DMServ.TOrd.FieldByName('COD_USUARIO').AsInteger :=
+    StrToInt(FMenu.LCODUSUARIO.Caption);
   //INFORMA CODIGO DO CLIENTE
   DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
   //INFORMA CODIGO DO EQUIPAMENTO
@@ -16159,7 +18964,8 @@ begin
   //INFORMA CODIGO DO VENDEDOR
   DMServ.TOrd.FieldByName('COD_VENDEDOR').AsInteger := XCOD_VENDEDOR;
   //INFORMA CODIGO DO RESPONSÁVEL
-  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
+  DMServ.TOrd.FieldByName('COD_FUNCIONARIO').AsInteger :=
+    DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
   //INFORMA CODIGO DA LOJA
   DMServ.TOrd.FieldByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
   //INFORMA FORMA DE PAGAMENTO
@@ -16177,7 +18983,8 @@ begin
   //Informa Situação do pedido
   DMServ.TOrd.FieldByName('STATUS').AsString := 'ABERTO';
   DMServ.TOrd.FieldByName('EDIT').AsString := '0';
-  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString = '') then
+  if (CBVENDABALCAO.Checked = true) and (DMServ.TOrd.FieldByName('BOX').AsString
+    = '') then
     DMServ.TOrd.FieldByName('BOX').AsString := '-1';
   if (CBVENDABALCAO.Checked = true) then
     DMServ.TOrd.FieldByName('LOCALAT').AsString := 'BALCÃO';
@@ -16191,20 +18998,29 @@ begin
     DMServ.TAlx1.Close;
     DMServ.TAlx1.SQL.Clear;
     DMServ.TAlx1.SQL.Add(' select * from equipamento where equipamento.cod_equipamento=:codigo ');
-    DMServ.TAlx1.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('cod_equipamento').AsString;
+    DMServ.TAlx1.ParamByName('codigo').AsString :=
+      DMServ.TOrd.FieldByName('cod_equipamento').AsString;
     DMServ.TAlx1.Open;
     if not DMServ.TAlx1.IsEmpty then
     begin
-      if (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> DMServ.TOrd.FieldByName('cod_cliente').AsString) and ((DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '') or (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '0')) then
+      if (DMServ.TAlx1.FieldByName('cod_cliente').AsString <>
+        DMServ.TOrd.FieldByName('cod_cliente').AsString) and
+        ((DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '') or
+        (DMServ.TAlx1.FieldByName('cod_cliente').AsString <> '0')) then
       begin
-        Mensagem('   A T E N Ç Ã O   ', 'O Equipamento selecionado na ordem não corresponde com o cliente selecionado. Altere por favor!', '', 1, 1, false, 'I');
+        Mensagem('   A T E N Ç Ã O   ',
+          'O Equipamento selecionado na ordem não corresponde com o cliente selecionado. Altere por favor!',
+          '', 1, 1, false, 'I');
         FrmCliente.EDCodigo.SetFocus;
         Exit;
       end;
     end
     else
     begin
-      Mensagem('   A T E N Ç Ã O   ', 'O Equipamento selecionado na ordem não foi encontrado', '', 1, 1, false, 'I');
+      Mensagem('   A T E N Ç Ã O   ',
+        'O Equipamento selecionado na ordem não foi encontrado', '', 1, 1,
+          false,
+        'I');
       Exit;
     end;
   end;
@@ -16248,7 +19064,8 @@ begin
   end
   else
   begin
-    MessageDlg('ATENÇÃO!' + #13 + #10 + 'O produto selecionado não foi escrito', mtWarning, [mbOK], 0);
+    MessageDlg('ATENÇÃO!' + #13 + #10 + 'O produto selecionado não foi escrito',
+      mtWarning, [mbOK], 0);
   end;
 
   EDCodFabEnter(sender);
@@ -16264,13 +19081,16 @@ begin
   DMMACS.TUsuario.Close;
   DMMACS.TUsuario.SQL.Clear;
   DMMACS.TUsuario.SQL.Add('select * from usuario where usuario.codusuario = :codusuario');
-  DMMAcs.TUsuario.ParamByName('CODUSUARIO').AsString := FMenu.LCODUSUARIO.Caption;
+  DMMAcs.TUsuario.ParamByName('CODUSUARIO').AsString :=
+    FMenu.LCODUSUARIO.Caption;
   DMMAcs.TUsuario.Open;
 
   //Djonathan 23/11/2009: SE VERDADEIRO ENTAO MENSAGEM, APENAS ADM PODE FAZER VERIFICACAO
-  if (DMMACS.TUsuario.FieldByName('ADM').AsString <> '1') and (FMenu.LCODUSUARIO.Caption <> '111522') then
+  if (DMMACS.TUsuario.FieldByName('ADM').AsString <> '1') and
+    (FMenu.LCODUSUARIO.Caption <> '111522') then
   begin
-    MessageBox(0, 'Opção disponível apenas para o Administrador!', 'Atenção', MB_ICONWARNING or MB_OK);
+    MessageBox(0, 'Opção disponível apenas para o Administrador!', 'Atenção',
+      MB_ICONWARNING or MB_OK);
     exit
   end;
   //Djonathan 23/11/2009: PASSOU PELO TESTE, ABRE PAINEL DE VALIDACOES E PREENCHE SEUS CAMPOS
@@ -16288,8 +19108,10 @@ begin
   EDataInicial.Text := ('01' + '/' + IntToStr(Month) + '/' + IntToStr(Year));
   XInicialSQL := ('01' + '/' + IntToStr(Month) + '/' + IntToStr(Year));
   //Ultimo dia
-  EDataFinal.Text := (IntToStr(UltDiaMes(Month, Year)) + '/' + IntToStr(Month) + '/' + IntToStr(Year));
-  XFinalSql := (IntToStr(UltDiaMes(Month, Year)) + '/' + IntToStr(Month) + '/' + IntToStr(Year));
+  EDataFinal.Text := (IntToStr(UltDiaMes(Month, Year)) + '/' + IntToStr(Month) +
+    '/' + IntToStr(Year));
+  XFinalSql := (IntToStr(UltDiaMes(Month, Year)) + '/' + IntToStr(Month) + '/' +
+    IntToStr(Year));
 
   XAuxA := EncontraValores('DOCFISORD', 'COD_DOCFISCORD', '', '', ' desc');
   XAuxB := EncontraValores('DOCFISSAIDA', 'COD_DOCFISC', '', '', ' desc');
@@ -16305,7 +19127,8 @@ end;
 procedure TFOrdemMec.Button2Click(Sender: TObject);
 begin
   inherited;
-  if (MessageDlg('Deseja mesmo alterar o número da proxima nota fiscal?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Deseja mesmo alterar o número da proxima nota fiscal?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     DMSAIDA.TAlx.Close;
     DMSAIDA.TAlx.SQL.Clear;
@@ -16334,8 +19157,11 @@ begin
   XFinalSQL := EDataFinal.Text;
 
   //Djonathan 23/11/2009: ENCONTRANDO MAXIMO E MINIMO
-  XAuxC := EncontraValores('DOCFISORD', 'COD_DOCFISCORD', XInicialSQL, XFinalSQL, '');
-  XAuxD := EncontraValores('DOCFISSAIDA', 'COD_DOCFISC', XInicialSQL, XFinalSQL, '');
+  XAuxC := EncontraValores('DOCFISORD', 'COD_DOCFISCORD', XInicialSQL,
+    XFinalSQL,
+    '');
+  XAuxD := EncontraValores('DOCFISSAIDA', 'COD_DOCFISC', XInicialSQL, XFinalSQL,
+    '');
   if ((XAuxD <= 0) or (XAuxC < XAuxD)) then
     XMin := IntToStr(XAuxC)
   else
@@ -16343,8 +19169,11 @@ begin
     XMin := IntToStr(XAuxD);
   end;
 
-  XAuxC := EncontraValores('DOCFISORD', 'COD_DOCFISCORD', XInicialSql, XFinalSql, ' desc');
-  XAuxD := EncontraValores('DOCFISSAIDA', 'COD_DOCFISC', XInicialSQL, XFinalSQL, ' desc');
+  XAuxC := EncontraValores('DOCFISORD', 'COD_DOCFISCORD', XInicialSql,
+    XFinalSql,
+    ' desc');
+  XAuxD := EncontraValores('DOCFISSAIDA', 'COD_DOCFISC', XInicialSQL, XFinalSQL,
+    ' desc');
   if ((XAuxC > XAuxD)) then
     XMax := IntToStr(XAuxC)
   else
@@ -16353,13 +19182,17 @@ begin
   //Djonathan 23/11/2009: VARRE AS TABELAS CODFISORD E DOCFISSAIDA ATRAVES DE NUMEROS QUE NAO ESTEJAM SENDO USADOS EM NOTAS
   for XCount := StrToInt(XMax) downto StrToInt(XMin) do
   begin
-    if ((ComparaValores('DOCFISORD', 'COD_DOCFISCORD', XCount)) and (ComparaValores('DOCFISSAIDA', 'COD_DOCFISC', XCount))) then
+    if ((ComparaValores('DOCFISORD', 'COD_DOCFISCORD', XCount)) and
+      (ComparaValores('DOCFISSAIDA', 'COD_DOCFISC', XCount))) then
       MBrechas.Lines.Add(intToStr(XCount));
-    if ((not (ComparaValores('DOCFISORD', 'COD_DOCFISCORD', XCount))) and ((not (ComparaValores('DOCFISSAIDA', 'COD_DOCFISC', XCount))))) then
+    if ((not (ComparaValores('DOCFISORD', 'COD_DOCFISCORD', XCount))) and ((not
+      (ComparaValores('DOCFISSAIDA', 'COD_DOCFISC', XCount))))) then
       MDuplicados.Lines.Add(intToStr(XCount));
-    if (ComparaValoresInternos('DOCFISORD', 'VWORDEM', 'COD_ORDEM', 'COD_ORDEM', XCount) = true) then
+    if (ComparaValoresInternos('DOCFISORD', 'VWORDEM', 'COD_ORDEM', 'COD_ORDEM',
+      XCount) = true) then
       MDuplicados.Lines.Add(intToStr(XCount));
-    if ((ComparaValoresInternos('DOCFISSAIDA', 'VWPEDV', 'COD_PEDVENDA', 'COD_PEDIDO', XCount) = true)) then
+    if ((ComparaValoresInternos('DOCFISSAIDA', 'VWPEDV', 'COD_PEDVENDA',
+      'COD_PEDIDO', XCount) = true)) then
       MDuplicados.Lines.Add(intToStr(XCount));
 
   end;
@@ -16373,7 +19206,8 @@ begin
   //DJ 27/11/2009: VERIFICA SE USUARIO INFORMOU A PLACA
   if Length(Trim(edNome.Text)) <= 0 then
   begin
-    Mensagem('   A T E N Ç Ã O   ', 'Informe um nome para o cliente!', '', 1, 1, false, 'I');
+    Mensagem('   A T E N Ç Ã O   ', 'Informe um nome para o cliente!', '', 1, 1,
+      false, 'I');
     edNome.SetFocus;
     Exit;
   end;
@@ -16402,7 +19236,8 @@ begin
       XCOD_CLIENTE := DMMACS.TCodigo.FieldByName('COD_CLIENTE').AsInteger;
       //XCOD_CIDADE:=DMMACS.TCodigo.FieldByName('COD_CIDADE').AsInteger;
       if edPlaca.Text <> '' then
-        XCOD_EQUIPAMENTO := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger
+        XCOD_EQUIPAMENTO :=
+          DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger
       else
         XCOD_EQUIPAMENTO := -1;
 
@@ -16536,7 +19371,8 @@ begin
         DMMACS.TCodigo.Post;
         DMMACS.IBTCodigo.CommitRetaining;
       except
-        MessageDlg('ERRO: 278' + #13 + #10 + 'Conflito ao atualizar o código de pessoa', mtWarning, [mbOK], 0);
+        MessageDlg('ERRO: 278' + #13 + #10 +
+          'Conflito ao atualizar o código de pessoa', mtWarning, [mbOK], 0);
       end;
 
       XCOD_CLIENTE := DMMACS.TCodigo.FieldByName('COD_cliente').AsInteger;
@@ -16579,7 +19415,8 @@ begin
       DMPESSOA.TCliente.ParamByName('COD_PESSOA').AsInteger := XCOD_PESSOA;
       DMPESSOA.TCliente.ParamByName('COD_INTERNO').AsInteger := XCOD_CLIENTE;
       DMPESSOA.TCliente.ParamByName('DATA_CAD').AsDateTime := Date();
-      DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsString := FMenu.LCODUSUARIO.Caption;
+      DMPESSOA.TCliente.ParamByName('COD_USUARIO').AsString :=
+        FMenu.LCODUSUARIO.Caption;
 
       if cbConsumidor.Checked then
       begin
@@ -16605,7 +19442,8 @@ begin
         DMMACS.TCodigo.Post;
         DMMACS.IBTCodigo.CommitRetaining;
       except
-        MessageDlg('ERRO: 356' + #13 + #10 + 'Conflito ao atualizar o código de cliente', mtWarning, [mbOK], 0);
+        MessageDlg('ERRO: 356' + #13 + #10 +
+          'Conflito ao atualizar o código de cliente', mtWarning, [mbOK], 0);
       end;
 
       if RGTIPO.ItemIndex = 0 then
@@ -16655,11 +19493,15 @@ begin
         // add proximo codigo
         try
           DMMACS.TCodigo.Edit;
-          DMMACS.TCodigo.FieldByName('COD_PESSOAF').AsInteger := XCOD_PESSOAF + 1;
+          DMMACS.TCodigo.FieldByName('COD_PESSOAF').AsInteger := XCOD_PESSOAF +
+            1;
           DMMACS.TCodigo.Post;
           DMMACS.IBTCodigo.CommitRetaining;
         except
-          MessageDlg('ERRO: 421' + #13 + #10 + 'Conflito ao atualizar o código de pessoa fisica', mtWarning, [mbOK], 0);
+          MessageDlg('ERRO: 421' + #13 + #10 +
+            'Conflito ao atualizar o código de pessoa fisica', mtWarning,
+              [mbOK],
+            0);
         end;
       end
       else
@@ -16708,11 +19550,14 @@ begin
         // add proximo codigo
         try
           DMMACS.TCodigo.Edit;
-          DMMACS.TCodigo.FieldByName('COD_PESSOAJ').AsInteger := XCOD_PESSOAJ + 1;
+          DMMACS.TCodigo.FieldByName('COD_PESSOAJ').AsInteger := XCOD_PESSOAJ +
+            1;
           DMMACS.TCodigo.Post;
           DMMACS.IBTCodigo.CommitRetaining;
         except
-          MessageDlg('ERRO: 483' + #13 + #10 + 'Conflito ao atualizar o código de pessoa juridica', mtWarning, [mbOK], 0);
+          MessageDlg('ERRO: 483' + #13 + #10 +
+            'Conflito ao atualizar o código de pessoa juridica', mtWarning,
+            [mbOK], 0);
         end;
 
       end;
@@ -16744,7 +19589,8 @@ begin
         DMPESSOA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
         DMPESSOA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX)');
 
-        DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO;
+        DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+          XCOD_EQUIPAMENTO;
         DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
         DMPESSOA.TEquip.ParamByName('MODELO').AsString := edModelo.Text;
         DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString := edModelo.Text;
@@ -16764,9 +19610,11 @@ begin
   else
   begin
     //se o cliente é cadastrado, altera suas informações
-    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', IntToStr(XCOD_CLIENTE), '') = True then
+    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+      IntToStr(XCOD_CLIENTE), '') = True then
     begin
-      if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TCliente.FieldByName('COD_PESSOA').AsString, '') = True then
+      if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+        DMPESSOA.TCliente.FieldByName('COD_PESSOA').AsString, '') = True then
       begin
         DMPESSOA.TPessoa.Edit;
         DMPESSOA.TPessoa.FieldByName('NOME').AsString := edNome.Text;
@@ -16781,7 +19629,8 @@ begin
   begin
     if (edPlaca.Text <> '') or (edModelo.Text <> '') then
     begin
-      XCOD_EQUIPAMENTO := DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger;
+      XCOD_EQUIPAMENTO :=
+        DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger;
       //verifica se este codigo de PESSOAF já esta sendo usado, se estiver sendo usado ele vai incrementando até encontrar um sem uso
       XFlag := 0;
       while XFlag = 0 do
@@ -16809,7 +19658,8 @@ begin
       DMPESSOA.TEquip.SQL.Add(':CHASSI, :PLACA, :DTAQUISICAO, :CONCESSIONARIA, :MOTOR, :ANOMOTOR, :CHASSIMOTOR,');
       DMPESSOA.TEquip.SQL.Add(':KMATUAL, :UNIDRODAGEM, :NUM_FROTA, :ALTURAMAX)');
 
-      DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO;
+      DMPESSOA.TEquip.ParamByName('COD_EQUIPAMENTO').AsInteger :=
+        XCOD_EQUIPAMENTO;
       DMPESSOA.TEquip.ParamByName('COD_CLIENTE').AsInteger := XCOD_CLIENTE;
       DMPESSOA.TEquip.ParamByName('MODELO').AsString := edModelo.Text;
       DMPESSOA.TEquip.ParamByName('DESCRICAO').AsString := edModelo.Text;
@@ -16827,11 +19677,14 @@ begin
       // add proximo codigo
       try
         DMMACS.TCodigo.Edit;
-        DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger := XCOD_EQUIPAMENTO + 1;
+        DMMACS.TCodigo.FieldByName('COD_EQUIPAMENTO').AsInteger :=
+          XCOD_EQUIPAMENTO + 1;
         DMMACS.TCodigo.Post;
         DMMACS.IBTCodigo.CommitRetaining;
       except
-        MessageDlg('ERRO: 548' + #13 + #10 + 'Conflito ao atualizar o código de equipamento', mtWarning, [mbOK], 0);
+        MessageDlg('ERRO: 548' + #13 + #10 +
+          'Conflito ao atualizar o código de equipamento', mtWarning, [mbOK],
+            0);
       end;
     end
     else
@@ -16841,11 +19694,14 @@ begin
   end;
 
   //seleciona informações para a tela principal
-  if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', IntToStr(XCOD_CLIENTE), '') then
+  if FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+    IntToStr(XCOD_CLIENTE), '') then
   begin
-    FrmCliente.EDCodigo.Text := DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
+    FrmCliente.EDCodigo.Text :=
+      DMPESSOA.WCliente.FieldByName('COD_INTERNO').AsString;
     FrmCliente.EDCodigo.Hint := DMPESSOA.WCliente.FieldByName('NOME').AsString;
-    FrmCliente.EdDescricao.Text := DMPESSOA.WCliente.FieldByName('NOME').AsString;
+    FrmCliente.EdDescricao.Text :=
+      DMPESSOA.WCliente.FieldByName('NOME').AsString;
 
     SelecionaFormaPagamento;
 
@@ -16860,13 +19716,16 @@ begin
     FrmCliente.EdDescricao.Text := '';
   end;
 
-  if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', IntToStr(XCOD_EQUIPAMENTO), '') then
+  if FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+    IntToStr(XCOD_EQUIPAMENTO), '') then
   begin
     FBEquipPlaca.EDCodigo.Text := DMPESSOA.TEquip.FieldByName('PLACA').AsString;
-    FBEquipPlaca.EdDescricao.Text := DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
+    FBEquipPlaca.EdDescricao.Text :=
+      DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString;
     if DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString <> '' then
     begin
-      lbNumFrota.Caption := 'Número Frota: ' + DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
+      lbNumFrota.Caption := 'Número Frota: ' +
+        DMPESSOA.TEquip.FieldByName('NUM_FROTA').AsString;
     end
     else
     begin
@@ -16900,10 +19759,12 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.edPlacaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.edPlacaKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
-  if (EDPlaca.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY = 27) then
+  if (EDPlaca.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY =
+    27) then
   begin
     EDPlaca.Text := '';
   end;
@@ -16919,7 +19780,8 @@ var
   xPlacaLimpa: string;
 begin
   inherited;
-  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EDPlaca.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EDPlaca.Text, '-',
+    '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
 
   if (Length(xPlacaLimpa) = 4) and not (Key = #8)
     and not (Key = #13) and not (Key = #27) then
@@ -16929,12 +19791,14 @@ begin
       and (xPlacaLimpa[2] in ['a'..'z', 'A'..'Z'])
       and (xPlacaLimpa[3] in ['a'..'z', 'A'..'Z']) then // PADRÃO ANTIGO ABC 1234
     begin
-      EDPlaca.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
+      EDPlaca.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' +
+        xPlacaLimpa[4];
       EDPlaca.SelStart := 5;
     end;
   end;
 
-  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not (Key = #27) then
+  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not
+    (Key = #27) then
     Key := #0;
   {If Not (key In ['a'..'z', 'A'..'Z', '0'..'9', #8, #13, #27])
       Then
@@ -16972,7 +19836,8 @@ begin
 
   //Testa se existe documento fiscal para o pedido
   if (DMServ.WOrdem.FieldByName('numfiscal').AsString = '') then
-    MessageBox(0, 'Não foi localizado documento fiscal referente a esta ordem!', 'Atenção', MB_ICONWARNING or MB_OK)
+    MessageBox(0, 'Não foi localizado documento fiscal referente a esta ordem!',
+      'Atenção', MB_ICONWARNING or MB_OK)
   else
   begin
     FSRel.LoadFromFile('C:\MZR\Macs\Rel\FrfEspelhoNf.frf');
@@ -17020,7 +19885,8 @@ begin
   FMenu.TIPOREL := '';
 end;
 
-procedure TFOrdemMec.DBGridConsultaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.DBGridConsultaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   inherited;
   if (shift = [ssCtrl]) and (key = 83) then
@@ -17031,27 +19897,33 @@ begin
         ForceDirectories('C:\MZR\Arquivos\LayoutGrid\');
       end;
       DBGridConsulta.Columns.SaveToFile('C:\MZR\Arquivos\LayoutGrid\Ordemmec.lgm');
-      Mensagem('Mzr Sistemas - INFORMAÇÃO', 'Layout da Grid foi salvo com sucesso!', '', 1, 1, false, 'i');
+      Mensagem('Mzr Sistemas - INFORMAÇÃO',
+        'Layout da Grid foi salvo com sucesso!', '', 1, 1, false, 'i');
     except
-      Mensagem('Mzr Sistemas - INFORMAÇÃO', 'Falha na tentativa de salvar o layout da grid!', '', 1, 1, false, 'i');
+      Mensagem('Mzr Sistemas - INFORMAÇÃO',
+        'Falha na tentativa de salvar o layout da grid!', '', 1, 1, false, 'i');
     end;
   end;
   if (shift = [ssCtrl]) and (key = 67) then
   begin
     try
-      if FiltraTabela(DMServ.TFiscOrd, 'docfisord', 'COD_ORDEM', XView.FieldByName('cod_ordem').AsString, '') = True then
+      if FiltraTabela(DMServ.TFiscOrd, 'docfisord', 'COD_ORDEM',
+        XView.FieldByName('cod_ordem').AsString, '') = True then
       begin
         Clipboard.AsText := DMServ.TFiscOrd.FieldByName('nfechave').AsString;
-        MessageDlg('A Chave da Nfe foi Copiada (' + Clipboard.AsText + ')' + #13 + #10 + 'para colar pressione Ctrl+v', mtWarning, [mbOK], 0);
+        MessageDlg('A Chave da Nfe foi Copiada (' + Clipboard.AsText + ')' + #13
+          + #10 + 'para colar pressione Ctrl+v', mtWarning, [mbOK], 0);
       end;
     except
-      Mensagem('Mzr Sistemas - INFORMAÇÃO', 'Falha na tentativa de copiar a chave de Nfe!', '', 1, 1, false, 'i');
+      Mensagem('Mzr Sistemas - INFORMAÇÃO',
+        'Falha na tentativa de copiar a chave de Nfe!', '', 1, 1, false, 'i');
     end;
   end;
   if (shift = [ssCtrl]) and (key = 65) then
   begin
     MessageDlg('ESTA FUNÇÃO REABRE A O.S. POSSIBILITANDO ALTERAR INFORMAÇÕES IMPORTANTES. CONTINUE APENAS EM CASO DE CERTEZA', mtWarning, [mbOK], 0);
-    if Mensagem('Confirmação do usuário', 'Deseja Reabrir a O.S para correção', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('Confirmação do usuário', 'Deseja Reabrir a O.S para correção',
+      '', 2, 3, False, 'c') = 2 then
     begin
       AbrirForm(TFSENHA, FSENHA, 0);
       //repassa resultado da tela de autenticação de senha para as variáveis de controle
@@ -17061,7 +19933,9 @@ begin
         begin
           if DMServ.TOrd.FieldByName('EDIT').AsString = '1' then
           begin
-            Mensagem('    A T E N Ç Ã O   ', 'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13 + 'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
+            Mensagem('    A T E N Ç Ã O   ',
+              'A ORDEM ESTÁ SENDO USADA NO MOMENTO.' + #13 +
+              'Use Ctrl+D para destravar', '', 1, 1, false, 'I');
             AtualizaGridConsulta('ORIGEM');
             Exit;
           end
@@ -17114,18 +19988,24 @@ begin
   }
 
 //Edmar - 20/03/2015 - busca o cliente do pedido
-  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMServ.WOrdem.FieldByname('COD_CLIENTE').AsString, '');
+  FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
+    DMServ.WOrdem.FieldByname('COD_CLIENTE').AsString, '');
 
-  if not FiltraTabela(DMPESSOA.WFornecedor, 'VWFORNEC', 'COD_PESSOA', DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsString, '') then
+  if not FiltraTabela(DMPESSOA.WFornecedor, 'VWFORNEC', 'COD_PESSOA',
+    DMPESSOA.WCliente.FieldByName('COD_PESSOA').AsString, '') then
   begin
     //se não estiver, dá uma mensagem para o usuario informando que deve cadastra-lo como cliente antes de devolver
-    MessageDlg('O cliente ' + DMPESSOA.WCliente.FieldByName('NOME').AsString + ' deve estar cadastrado como fornecedor para efetuar a devolução da NF-e.', mtWarning, [mbOK], 0);
+    MessageDlg('O cliente ' + DMPESSOA.WCliente.FieldByName('NOME').AsString +
+      ' deve estar cadastrado como fornecedor para efetuar a devolução da NF-e.',
+      mtWarning, [mbOK], 0);
 
     Exit;
   end;
 
-  FMenu.XCOD_CLIENTE_DEVOLUCAO := DMPESSOA.WFornecedor.FieldByName('COD_FORNEC').AsString;
-  FMenu.XNUM_FISCAL_DEVOLUCAO := DMServ.WOrdem.FieldByName('NUMFISCAL').AsString;
+  FMenu.XCOD_CLIENTE_DEVOLUCAO :=
+    DMPESSOA.WFornecedor.FieldByName('COD_FORNEC').AsString;
+  FMenu.XNUM_FISCAL_DEVOLUCAO :=
+    DMServ.WOrdem.FieldByName('NUMFISCAL').AsString;
   FMenu.XCOD_PK_DEVOLVIDO := DMServ.WOrdem.FieldByName('COD_ORDEM').AsString;
 
   FMenu.XTABELA_DEVOLUCAO := 'ORDEM';
@@ -17137,14 +20017,16 @@ procedure TFOrdemMec.VisualizarDanfe1Click(Sender: TObject);
 begin
   inherited;
   //Filtra se o pedido tem serviço cadastrado
-  if (FiltraTabela(DMSAIDA.TAlx, 'DESPADIC', 'COD_GERADOR', IntToStr(XView.FieldByName('cod_ordem').AsInteger), '')) = True then
+  if (FiltraTabela(DMSAIDA.TAlx, 'DESPADIC', 'COD_GERADOR',
+    IntToStr(XView.FieldByName('cod_ordem').AsInteger), '')) = True then
   begin
     if DMMACS.TLoja.FieldByName('SERVNFE').AsString <> '1' then
       XServicoOp := True;
 
   end;
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-  FMzrNfe.SetInFiscal('', XView.FieldByName('COD_ORDEM').AsInteger, 0, 'ORDEM', '', 1, '', '', '', 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  FMzrNfe.SetInFiscal('', XView.FieldByName('COD_ORDEM').AsInteger, 0, 'ORDEM',
+    '', 1, '', '', '', 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   FMzrNfe.DanfeVisualizar;
   FMzrNfe := nil;
 end;
@@ -17153,7 +20035,10 @@ procedure TFOrdemMec.VisualizarnoSefaz1Click(Sender: TObject);
 begin
   inherited;
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-  FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger, XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'SEFAZ', 1, '', '', '', XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger,
+    XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'SEFAZ', 1, '', '', '',
+    XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0);
   FMzrNfe.ShowModal;
 end;
 
@@ -17161,7 +20046,11 @@ procedure TFOrdemMec.ConsultarStatusNFe1Click(Sender: TObject);
 begin
   inherited;
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-  FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger, XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'CONSULTAR', 1, '', '', '', XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger,
+    XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'CONSULTAR', 1, '', '',
+    '', XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0, 0,
+      0,
+    0, 0, 0, 0, 0, 0, 0, 0);
   FMzrNfe.ShowModal;
 end;
 
@@ -17170,21 +20059,34 @@ var
   XChaveNfe: string;
 begin
   inherited;
-  if FiltraTabela(DMServ.TFiscOrd, 'docfisord', 'cod_ordem', XView.FieldByName('cod_ordem').AsString, '') = True then
+  if FiltraTabela(DMServ.TFiscOrd, 'docfisord', 'cod_ordem',
+    XView.FieldByName('cod_ordem').AsString, '') = True then
   begin
     if DMServ.TFiscOrd.FieldByName('nfestatus').AsInteger = 2 then
     begin
-      if Mensagem('Confirmação do usuário', 'Deseja realmente Retornar os dados para a Ordem de Número ' + XView.FieldByName('numero').AsString + '?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('Confirmação do usuário',
+        'Deseja realmente Retornar os dados para a Ordem de Número ' +
+        XView.FieldByName('numero').AsString + '?', '', 2, 3, False, 'c') = 2
+          then
       begin
-        if InputQuery('Chave de Acesso', 'Informe a Chave de Acesso da NFe para recuperar os Dados', XChaveNfe) = True then
+        if InputQuery('Chave de Acesso',
+          'Informe a Chave de Acesso da NFe para recuperar os Dados', XChaveNfe)
+            =
+          True then
         begin
           if DMServ.TFiscOrd.FieldByName('MODELONF').AsString = '65' then
             XEmiteNFCe := True
           else
             XEmiteNFCe := False;
-          FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-          //Function TFMzrNfe.SetInFiscal(NomePeriodo: String; CodigoPedido: Integer; CodigoDestinatario: Integer; tipopedido: String; tipoacao: String; tipoemissao: Integer; Cfop: String; NatOperacao: String; FormPagamento: String; NumFiscal: Integer; DtEmissao: TDate; CodigoIbge: String; Municipio: String; Uf: String; BaseIcms, VlrIcm, VlrIpi, BaseIcmsSt, VlrIcmsSt, VlrProduto, VlrFrete, VlrSeguro, Desconto, VlrOutros, VlrNotaFiscal: Real): Boolean;
-          FMzrNfe.SetInFiscal(XChaveNfe, XView.FieldByName('cod_ordem').AsInteger, XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'RETORNADADOS', 1, '', '', '', 0, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+          FMzrNfe := TFMzrNFe.Create(FMzrNfe);
+          //cria o formulario de transmissão da Nfe
+        //Function TFMzrNfe.SetInFiscal(NomePeriodo: String; CodigoPedido: Integer; CodigoDestinatario: Integer; tipopedido: String; tipoacao: String; tipoemissao: Integer; Cfop: String; NatOperacao: String; FormPagamento: String; NumFiscal: Integer; DtEmissao: TDate; CodigoIbge: String; Municipio: String; Uf: String; BaseIcms, VlrIcm, VlrIpi, BaseIcmsSt, VlrIcmsSt, VlrProduto, VlrFrete, VlrSeguro, Desconto, VlrOutros, VlrNotaFiscal: Real): Boolean;
+          FMzrNfe.SetInFiscal(XChaveNfe,
+            XView.FieldByName('cod_ordem').AsInteger,
+            XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'RETORNADADOS',
+              1,
+            '', '', '', 0, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0);
           FMzrNfe.ShowModal;
         end;
       end;
@@ -17192,7 +20094,8 @@ begin
     end
     else
     begin
-      MessageDlg('Os dados não podem ser recuperados devido ao fato que a OS esta marcada como NFe enviada e homologada' + #13 + #10 + 'NFeStatus = 1 ou 3', mtWarning, [mbOK], 0);
+      MessageDlg('Os dados não podem ser recuperados devido ao fato que a OS esta marcada como NFe enviada e homologada'
+        + #13 + #10 + 'NFeStatus = 1 ou 3', mtWarning, [mbOK], 0);
     end;
   end;
 end;
@@ -17201,7 +20104,8 @@ procedure TFOrdemMec.VerificarServidorSefaz1Click(Sender: TObject);
 begin
   inherited;
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-  FMzrNfe.SetInFiscal('', 0, 0, 'ORDEM', 'STATUSSERV', 1, '', '', '', 0, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  FMzrNfe.SetInFiscal('', 0, 0, 'ORDEM', 'STATUSSERV', 1, '', '', '', 0, DATE(),
+    '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   FMzrNfe.ShowModal;
 end;
 
@@ -17216,17 +20120,30 @@ begin
   begin
     if XView.FieldByName('numfiscal').AsString = '' then
     begin
-      MessageDlg('Documento fiscal da Ordem ' + XView.FieldByName('NUMERO').AsString + ' não foi emitido corretamente.', mtWarning, [mbOK], 0);
+      MessageDlg('Documento fiscal da Ordem ' +
+        XView.FieldByName('NUMERO').AsString + ' não foi emitido corretamente.',
+        mtWarning, [mbOK], 0);
       Exit;
     end;
-    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja realmente cancelar a Nota Fiscal Eletrônica Nº ' + XView.FieldByName('numfiscal').AsString + '?', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('CONFIRMAÇÃO DO USUÁRIO',
+      'Deseja realmente cancelar a Nota Fiscal Eletrônica Nº ' +
+      XView.FieldByName('numfiscal').AsString + '?', '', 2, 3, False, 'c') = 2
+        then
     begin
-      if FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, ' AND (MODELONF = ''65'')') then
+      if FiltraTabela(DMServ.TFiscOrd, 'DOCFISORD', 'COD_ORDEM',
+        XView.FieldByName('COD_ORDEM').AsString, ' AND (MODELONF = ''65'')')
+          then
         XEmiteNFCe := True
       else
         XEmiteNFCe := False;
-      FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-      FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger, XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'CANCELAR', 1, '', '', '', XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      FMzrNfe := TFMzrNFe.Create(FMzrNfe);
+      //cria o formulario de transmissão da Nfe
+      FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger,
+        XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'CANCELAR', 1, '',
+          '',
+        '', XView.FieldByName('numfiscal').AsInteger, DATE(), '', '', '', 0, 0,
+          0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0);
       FMzrNfe.ShowModal;
     end;
   end;
@@ -17251,15 +20168,23 @@ end;
 procedure TFOrdemMec.InutilizarNumerao1Click(Sender: TObject);
 begin
   inherited;
-  if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja realmente Inutilizar Numeração de Nota Fiscal Eletrônica ?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem('CONFIRMAÇÃO DO USUÁRIO',
+    'Deseja realmente Inutilizar Numeração de Nota Fiscal Eletrônica ?', '', 2,
+      3,
+    False, 'c') = 2 then
   begin
-    FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-    FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger, XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'INUTILIZAR', 1, '', '', '', 0, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    FMzrNfe := TFMzrNFe.Create(FMzrNfe);
+    //cria o formulario de transmissão da Nfe
+    FMzrNfe.SetInFiscal('', XView.FieldByName('cod_ordem').AsInteger,
+      XView.FieldByName('cod_cliente').AsInteger, 'ORDEM', 'INUTILIZAR', 1, '',
+        '',
+      '', 0, DATE(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     FMzrNfe.ShowModal;
   end;
 end;
 
-procedure TFOrdemMec.EDCodFabKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EDCodFabKeyUp(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   PListaProdutos.Top := 46;
@@ -17306,7 +20231,8 @@ begin
       EDQuantidade.Text := '1,00';
     end
     else
-      MessageDlg('ATENÇÃO!' + #13 + #10 + 'O produto selecionado não foi escrito', mtWarning, [mbOK], 0);
+      MessageDlg('ATENÇÃO!' + #13 + #10 +
+        'O produto selecionado não foi escrito', mtWarning, [mbOK], 0);
 
     EDCodFabEnter(sender);
     Exit;
@@ -17328,7 +20254,8 @@ begin
     Exit;
   end;
 
-  if DMESTOQUE.WSimilar.Locate('DESCRICAO', EDCodFab.Text, [loCaseInsensitive, loPartialKey]) then
+  if DMESTOQUE.WSimilar.Locate('DESCRICAO', EDCodFab.Text, [loCaseInsensitive,
+      loPartialKey]) then
   begin
     if xPesquisaDesc = false then
     begin
@@ -17342,7 +20269,8 @@ begin
       xPesquisaCodFabr := False;
     end;
 
-    DMESTOQUE.WSimilar.Locate('DESCRICAO', EDCodFab.Text, [loCaseInsensitive, loPartialKey]);
+    DMESTOQUE.WSimilar.Locate('DESCRICAO', EDCodFab.Text, [loCaseInsensitive,
+        loPartialKey]);
 
     lPesquisa.Caption := 'Descrição:';
     XCodTmpEstoque := DBGrid1.Columns[0].Field.Text;
@@ -17350,7 +20278,8 @@ begin
     Exit;
   end;
 
-  if DMESTOQUE.WSimilar.Locate('CODFABRICANTE', EDCodFab.Text, [loCaseInsensitive, loPartialKey]) then
+  if DMESTOQUE.WSimilar.Locate('CODFABRICANTE', EDCodFab.Text,
+    [loCaseInsensitive, loPartialKey]) then
   begin
     if xPesquisaCodFabr = false then
     begin
@@ -17364,7 +20293,8 @@ begin
       xPesquisaCtrlInt := False;
     end;
 
-    DMESTOQUE.WSimilar.Locate('CODFABRICANTE', EDCodFab.Text, [loCaseInsensitive, loPartialKey]);
+    DMESTOQUE.WSimilar.Locate('CODFABRICANTE', EDCodFab.Text,
+      [loCaseInsensitive, loPartialKey]);
 
     lPesquisa.Caption := 'Cod. Fabricante:';
     XCodTmpEstoque := DBGrid1.Columns[0].Field.Text;
@@ -17372,7 +20302,8 @@ begin
     Exit;
   end;
 
-  if DMESTOQUE.WSimilar.Locate('CONTRINT', EDCodFab.Text, [loCaseInsensitive, loPartialKey]) then
+  if DMESTOQUE.WSimilar.Locate('CONTRINT', EDCodFab.Text, [loCaseInsensitive,
+      loPartialKey]) then
   begin
     if xPesquisaCtrlInt = false then
     begin
@@ -17386,7 +20317,8 @@ begin
       xPesquisaDesc := False;
     end;
 
-    DMESTOQUE.WSimilar.Locate('CONTRINT', EDCodFab.Text, [loCaseInsensitive, loPartialKey]);
+    DMESTOQUE.WSimilar.Locate('CONTRINT', EDCodFab.Text, [loCaseInsensitive,
+        loPartialKey]);
 
     lPesquisa.Caption := 'Ctrl. Interno:';
     XCodTmpEstoque := DBGrid1.Columns[0].Field.Text;
@@ -17599,47 +20531,74 @@ begin
   //Paulo 13/01/2011: Gera Nfe distribuição base no pedido selecionado
   //Seta os dados para chamar a função
   FiltraTabela(DMMACS.TPeriodoFiscal, 'PERIODOFISCAL', 'FECHADO', 'N', '');
-  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
-  FiltraTabela(DMServ.Alx, 'DOCFISORD', 'COD_ORDEM', IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx, 'CFOP', 'COD_CFOP', IntToStr(DMServ.Alx.FieldByName('COD_CFOP').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx1, 'CFOP', 'COD_CFOP', IntToStr(DMServ.Alx.FieldByName('COD_CFOP1').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx2, 'CFOP', 'COD_CFOP', IntToStr(DMServ.Alx.FieldByName('COD_CFOP2').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx3, 'VWCLIENTE', 'COD_CLIENTE', IntToStr(DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx4, 'CIDADE', 'COD_CIDADE', IntToStr(DMESTOQUE.Alx3.FieldByName('COD_CIDADE').AsInteger), '');
-  FiltraTabela(DMESTOQUE.Alx5, 'ESTADO', 'COD_ESTADO', IntToStr(DMESTOQUE.Alx4.FieldByName('COD_ESTADO').AsInteger), '');
+  FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
+  FiltraTabela(DMServ.Alx, 'DOCFISORD', 'COD_ORDEM',
+    IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx, 'CFOP', 'COD_CFOP',
+    IntToStr(DMServ.Alx.FieldByName('COD_CFOP').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx1, 'CFOP', 'COD_CFOP',
+    IntToStr(DMServ.Alx.FieldByName('COD_CFOP1').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx2, 'CFOP', 'COD_CFOP',
+    IntToStr(DMServ.Alx.FieldByName('COD_CFOP2').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx3, 'VWCLIENTE', 'COD_CLIENTE',
+    IntToStr(DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx4, 'CIDADE', 'COD_CIDADE',
+    IntToStr(DMESTOQUE.Alx3.FieldByName('COD_CIDADE').AsInteger), '');
+  FiltraTabela(DMESTOQUE.Alx5, 'ESTADO', 'COD_ESTADO',
+    IntToStr(DMESTOQUE.Alx4.FieldByName('COD_ESTADO').AsInteger), '');
 
   if DMServ.Alx.FieldByName('MODELONF').AsString = '65' then
     XEmiteNFCe := True
   else
     XEmiteNFCe := False;
 
-  Xcfop := DMESTOQUE.Alx.FieldByName('CFOP').AsString + '/' + DMESTOQUE.Alx1.FieldByName('CFOP').AsString + '/' + DMESTOQUE.Alx2.FieldByName('CFOP').AsString;
+  Xcfop := DMESTOQUE.Alx.FieldByName('CFOP').AsString + '/' +
+    DMESTOQUE.Alx1.FieldByName('CFOP').AsString + '/' +
+    DMESTOQUE.Alx2.FieldByName('CFOP').AsString;
   XXmlNfe := DMServ.Alx.FieldByName('NFEXML').AsString;
   XNfeRecibo := DMServ.Alx.FieldByName('NFERECIBO').AsString;
   XNfeTipoAmbiente := DMServ.Alx.FieldByName('NFEAMBIENTE').AsInteger;
   XUfLocal := 'PR';
   XNfeChave := DMServ.Alx.FieldByName('NFECHAVE').AsString;
-  XSetInPeriodoFiscal := DMMACS.TPeriodoFiscal.FieldByName('DESCRICAO').AsString;
+  XSetInPeriodoFiscal :=
+    DMMACS.TPeriodoFiscal.FieldByName('DESCRICAO').AsString;
 
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
 
-  FMzrNfe.SetInFiscal(XSetInPeriodoFiscal, XView.FieldByName('COD_ORDEM').AsInteger, XView.FieldByName('COD_CLIENTE').AsInteger, 'ORDEM', 'EMITIR', 1, Xcfop,
-    DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString, XView.FieldByName('FORMAPAG').AsString, StrToInt(DMServ.Alx.FieldByName('NUMDOCFIS').AsString),
-    XView.FieldByName('DTABERT').AsDateTime, IntToStr(DMESTOQUE.Alx4.FieldByName('COD_IBGE').AsInteger), DMESTOQUE.Alx4.FieldByName('NOME').AsString,
-    DMESTOQUE.Alx5.FieldByName('UF_ESTADO').AsString, DMServ.Alx.FieldByName('BASEICMS').AsFloat, DMServ.Alx.FieldByName('VLRICMS').AsFloat,
-    DMServ.Alx.FieldByName('VLRTOTIPI').AsFloat, DMServ.Alx.FieldByName('BASCALSUBS').AsFloat, DMServ.Alx.FieldByName('VLRICMSUBS').AsFloat,
-    DMServ.Alx.FieldByName('VLRTOTPROD').AsFloat, DMServ.Alx.FieldByName('VLRFRETE').AsFloat, DMServ.Alx.FieldByName('VLRSEG').AsFloat,
-    DMServ.Alx.FieldByName('VLRDESCONTO').AsFloat, DMServ.Alx.FieldByName('VLROUTRASDESP').AsFloat, DMServ.Alx.FieldByName('VLRTOTDOCNF').AsFloat,
+  FMzrNfe.SetInFiscal(XSetInPeriodoFiscal,
+    XView.FieldByName('COD_ORDEM').AsInteger,
+    XView.FieldByName('COD_CLIENTE').AsInteger, 'ORDEM', 'EMITIR', 1, Xcfop,
+    DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString,
+    XView.FieldByName('FORMAPAG').AsString,
+    StrToInt(DMServ.Alx.FieldByName('NUMDOCFIS').AsString),
+    XView.FieldByName('DTABERT').AsDateTime,
+    IntToStr(DMESTOQUE.Alx4.FieldByName('COD_IBGE').AsInteger),
+    DMESTOQUE.Alx4.FieldByName('NOME').AsString,
+    DMESTOQUE.Alx5.FieldByName('UF_ESTADO').AsString,
+    DMServ.Alx.FieldByName('BASEICMS').AsFloat,
+    DMServ.Alx.FieldByName('VLRICMS').AsFloat,
+    DMServ.Alx.FieldByName('VLRTOTIPI').AsFloat,
+    DMServ.Alx.FieldByName('BASCALSUBS').AsFloat,
+    DMServ.Alx.FieldByName('VLRICMSUBS').AsFloat,
+    DMServ.Alx.FieldByName('VLRTOTPROD').AsFloat,
+    DMServ.Alx.FieldByName('VLRFRETE').AsFloat,
+    DMServ.Alx.FieldByName('VLRSEG').AsFloat,
+    DMServ.Alx.FieldByName('VLRDESCONTO').AsFloat,
+    DMServ.Alx.FieldByName('VLROUTRASDESP').AsFloat,
+    DMServ.Alx.FieldByName('VLRTOTDOCNF').AsFloat,
     DMServ.Alx.FieldByName('valortotaltributa').AsFloat);
   FMzrNfe.ShowModal;
 
 end;
 
-procedure TFOrdemMec.DBGrid4DrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+procedure TFOrdemMec.DBGrid4DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
   inherited;
   try
-    if (DMESTOQUE.Alx3.FieldByName('qtd').AsCurrency = 0) or (DMESTOQUE.Alx3.FieldByName('VLRTOTFIN').AsCurrency = 0) then
+    if (DMESTOQUE.Alx3.FieldByName('qtd').AsCurrency = 0) or
+      (DMESTOQUE.Alx3.FieldByName('VLRTOTFIN').AsCurrency = 0) then
     begin
       DBGrid4.Canvas.Font.Color := clRed;
       DBGrid4.DefaultDrawColumnCell(Rect, DataCol, Column, State);
@@ -17698,9 +20657,11 @@ begin
   DMMACS.TALX.Last;
 
   if FrmFormPag1.EdDescricao.Text = 'À VISTA' then
-    lbComissaoServ.Caption := FormatFloat('0.00', DMMACS.TALX.FieldByName('COMISSAO_VVSER').AsFloat)
+    lbComissaoServ.Caption := FormatFloat('0.00',
+      DMMACS.TALX.FieldByName('COMISSAO_VVSER').AsFloat)
   else
-    lbComissaoServ.Caption := FormatFloat('0.00', DMMACS.TALX.FieldByName('COMISSAO_VPSER').AsFloat);
+    lbComissaoServ.Caption := FormatFloat('0.00',
+      DMMACS.TALX.FieldByName('COMISSAO_VPSER').AsFloat);
 
 end;
 
@@ -17724,22 +20685,28 @@ begin
   XtotalProd := 0;
   XLinha := 0.3;
   //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
-  if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+  if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+    FMenu.LCODEMPRESA.Caption, '') = False then
     Exit;
   //Paulo 15/03/2011: busca mecanico responsavel
-  FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR', DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 + 'ORDEM' + #39 + ')');
-  FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE', DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
+  FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR',
+    DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 + 'ORDEM'
+    + #39 + ')');
+  FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE',
+    DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
   //Alex 04/05/2014: Verifica a quantidade de itens a serem impressos
   DMFINANC.TAlx.Close;
   DMFINANC.TAlx.SQL.Clear;
   DMFINANC.TAlx.SQL.Add(' Select count(despadic.cod_despadic) as qtd from despadic where (despadic.gerador=''ORDEM'') and (despadic.cod_gerador=:codigo)');
-  DMFINANC.TAlx.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
+  DMFINANC.TAlx.ParamByName('codigo').AsString :=
+    DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
   DMFINANC.TAlx.Open;
   XQuantServicosImprimir := DMFINANC.TAlx.FieldByName('qtd').AsInteger;
   DMFINANC.TAlx.Close;
   DMFINANC.TAlx.SQL.Clear;
   DMFINANC.TAlx.SQL.Add(' Select count(itprodord.cod_itprodord) as qtd from itprodord where (itprodord.cod_ordem = :codigo) ');
-  DMFINANC.TAlx.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
+  DMFINANC.TAlx.ParamByName('codigo').AsString :=
+    DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
   DMFINANC.TAlx.Open;
   XQuantProdutosImprimir := DMFINANC.TAlx.FieldByName('qtd').AsInteger;
   //Alex 02/05/2014: Verifica o tipo da pagina a ser usada na impressão
@@ -17811,7 +20778,8 @@ begin
         while not DMMACS.TMP.Eof do
         begin
           PrintLeft(DMMACS.TMP.FieldByName('DESC2').AsString, 3.0);
-          PrintRight(FormatFloat('#,###0.00', DMMACS.TMP.FieldByName('VLR1').AsCurrency), PageWidth - 2.0);
+          PrintRight(FormatFloat('#,###0.00',
+            DMMACS.TMP.FieldByName('VLR1').AsCurrency), PageWidth - 2.0);
           PrintRight(DMMACS.TMP.FieldByName('DESC1').AsString, PageWidth - 0.8);
           NewLine;
           xcont := xcont + 1;
@@ -17847,7 +20815,8 @@ begin
       Bold := True;
       PrintLeft('Sub-Total Serviços R$:', 0.3);
       Bold := False;
-      PrintLeft(FormatFloat('#,###0.00', DMESTOQUE.ALX2.FieldByName('VLRTOTFIN').AsCurrency), 2.0);
+      PrintLeft(FormatFloat('#,###0.00',
+        DMESTOQUE.ALX2.FieldByName('VLRTOTFIN').AsCurrency), 2.0);
       Bold := True;
       PrintRight('Sub-Total Peças R$:', PageWidth - 1.2);
       Bold := False;
@@ -17858,11 +20827,14 @@ begin
       Bold := True;
       PrintLeft('Desconto Serviços R$:', 0.3);
       Bold := False;
-      PrintLeft(FormatFloat('#,###0.00', (DMServ.TOrd.FieldByName('TOTSERV').AsCurrency - DMESTOQUE.ALX2.FieldByName('VLRTOTFIN').AsCurrency)), 2.0);
+      PrintLeft(FormatFloat('#,###0.00',
+        (DMServ.TOrd.FieldByName('TOTSERV').AsCurrency -
+        DMESTOQUE.ALX2.FieldByName('VLRTOTFIN').AsCurrency)), 2.0);
       Bold := True;
       PrintRight('Desconto Peças R$:', PageWidth - 1.2);
       Bold := False;
-      PrintRight(FormatFloat('#,###0.00', (XtotalProd - DMServ.TOrd.FieldByName('TOTPROD').AsCurrency)), PageWidth - 0.5);
+      PrintRight(FormatFloat('#,###0.00', (XtotalProd -
+        DMServ.TOrd.FieldByName('TOTPROD').AsCurrency)), PageWidth - 0.5);
       xcont := xcont + 1;
       NewLine;
       Bold := True;
@@ -17888,9 +20860,11 @@ begin
       end;
 
       PrintLeft('Total Serviços R$:', 0.3);
-      PrintLeft(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTSERV').AsCurrency), 2.0);
+      PrintLeft(FormatFloat('#,###0.00',
+        DMServ.TOrd.FieldByName('TOTSERV').AsCurrency), 2.0);
       PrintRight('Total Peças R$:', PageWidth - 1.2);
-      PrintRight(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTPROD').AsCurrency), PageWidth - 0.5);
+      PrintRight(FormatFloat('#,###0.00',
+        DMServ.TOrd.FieldByName('TOTPROD').AsCurrency), PageWidth - 0.5);
       xcont := xcont + 1;
       NewLine;
       SetFont('Arial', 7);
@@ -17919,7 +20893,8 @@ begin
       SetFont('Verdana', 9);
       Bold := True;
       PrintRight('Total Ordem R$:', PageWidth - 1.2);
-      PrintRight(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTORD').AsCurrency), PageWidth - 0.5);
+      PrintRight(FormatFloat('#,###0.00',
+        DMServ.TOrd.FieldByName('TOTORD').AsCurrency), PageWidth - 0.5);
       NewLine;
       //Edmar - 12/02/2015 - Copia a observação e separa em quatro variaveis
       //para imprimir quatro linhas de observação (reduz espaço para impressão de mais itens
@@ -18000,12 +20975,17 @@ begin
        //Xcop:=1;
     XLinha := 0.3;
     //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
-    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+      FMenu.LCODEMPRESA.Caption, '') = False then
       Exit;
 
     //Paulo 15/03/2011: busca mecanico responsavel
-    FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR', DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 + 'ORDEM' + #39 + ')');
-    FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE', DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
+    FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR',
+      DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 +
+        'ORDEM'
+      + #39 + ')');
+    FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE',
+      DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
 
     //Paulo 19/01/2011: Cabeçalho do relatório
     with RvSystem1.BaseReport do
@@ -18031,13 +21011,15 @@ begin
         //Titulo centralizado
         SetFont('Arial', 12);
         Bold := True;
-        PrintXY((PageWidth / 2) - 1.3, XLinha + 0.2, DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString);
+        PrintXY((PageWidth / 2) - 1.3, XLinha + 0.2,
+          DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString);
         //PrintCenter(DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString,PageWidth/2);
 
         //data e hora
         SetFont('Arial', 7);
         Bold := True;
-        PrintXY(PageWidth - 1.5, XLinha + 0.2, DateToStr(Date()) + ' - ' + TimeToStr(Time()));
+        PrintXY(PageWidth - 1.5, XLinha + 0.2, DateToStr(Date()) + ' - ' +
+          TimeToStr(Time()));
         //PrintRight(DateToStr(Date())+' - '+TimeToStr(Time()),PageWidth-0.5);
 
         NewLine;
@@ -18045,15 +21027,18 @@ begin
         //cnpj e endereço centralizado
         SetFont('Arial', 8);
         Bold := False;
-        PrintCenter('CNPJ: ' + DMMACS.TEmpresa.FieldByName('CNPJ').AsString, PageWidth / 2);
+        PrintCenter('CNPJ: ' + DMMACS.TEmpresa.FieldByName('CNPJ').AsString,
+          PageWidth / 2);
         //Imprime modelo do relatorio
         PrintRight('Mod. Imp: 17', PageWidth - 0.5);
         NewLine;
-        PrintCenter('Endereço: ' + DMMACS.TEmpresa.FieldByName('ENDERECO').AsString + ' Bairro: ' +
+        PrintCenter('Endereço: ' +
+          DMMACS.TEmpresa.FieldByName('ENDERECO').AsString + ' Bairro: ' +
           DMMACS.TEmpresa.FieldByName('BAIRRO').AsString, PageWidth / 2);
         NewLine;
 
-        PrintCenter('Fone: ' + DMMACS.TEmpresa.FieldByName('FONE').AsString, PageWidth / 2);
+        PrintCenter('Fone: ' + DMMACS.TEmpresa.FieldByName('FONE').AsString,
+          PageWidth / 2);
         NewLine;
 
         XLinha := XLinha + 0.8;
@@ -18070,17 +21055,24 @@ begin
         SetFont('Arial', 8);
         Bold := True;
         PrintLeft('O.S nº.' + DMServ.TOrd.FieldByName('NUMERO').AsString, 0.3);
-        PrintLeft('Emissão: ' + DMServ.TOrd.FieldByName('DTABERT').AsString, 1.1);
+        PrintLeft('Emissão: ' + DMServ.TOrd.FieldByName('DTABERT').AsString,
+          1.1);
         PrintLeft('Cliente: ' + DMServ.Alx.FieldByName('NOME').AsString, 2.5);
-        PrintRight('CPF/CNPJ: ' + DMServ.Alx.FieldByName('CPFCNPJ').AsString, PageWidth - 1.3);
+        PrintRight('CPF/CNPJ: ' + DMServ.Alx.FieldByName('CPFCNPJ').AsString,
+          PageWidth - 1.3);
         NewLine;
         PrintLeft('Tel.:' + DMServ.Alx.FieldByName('TELREL').AsString, 0.3);
-        PrintLeft('Endereço:' + DMServ.Alx.FieldByName('ENDERECO').AsString + ', ' + DMServ.Alx.FieldByName('ENDNUMERO').AsString, 2.5);
-        PrintRight('Bairro: ' + DMServ.Alx.FieldByName('BAIRRO').AsString, PageWidth - 1.3);
+        PrintLeft('Endereço:' + DMServ.Alx.FieldByName('ENDERECO').AsString +
+          ', ' + DMServ.Alx.FieldByName('ENDNUMERO').AsString, 2.5);
+        PrintRight('Bairro: ' + DMServ.Alx.FieldByName('BAIRRO').AsString,
+          PageWidth - 1.3);
         NewLine;
-        PrintLeft('Cidade:' + DMServ.Alx.FieldByName('CIDADE').AsString + ' - ' + DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.3);
-        PrintLeft('Veiculo:' + DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString, 3.0);
-        PrintRight('Placa: ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString, PageWidth - 1.3);
+        PrintLeft('Cidade:' + DMServ.Alx.FieldByName('CIDADE').AsString + ' - '
+          + DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.3);
+        PrintLeft('Veiculo:' +
+          DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString, 3.0);
+        PrintRight('Placa: ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString,
+          PageWidth - 1.3);
         //NewLine;
 
         XLinha := XLinha + 0.8;
@@ -18114,9 +21106,14 @@ begin
             PrintLeft(DMESTOQUE.TSlave.FieldByName('PRIMCOD').AsString, 1.0);
             PrintLeft(DMESTOQUE.TSlave.FieldByName('QTD').AsString, 1.8);
             PrintLeft(DMESTOQUE.TSlave.FieldByName('DESCRICAO').AsString, 2.5);
-            PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth - 1.2);
-            PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth - 0.5);
-            XtotalProd := XtotalProd + DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
+            PrintRight(FormatFloat('#,###0.00',
+              DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth -
+              1.2);
+            PrintRight(FormatFloat('#,###0.00',
+              DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth -
+                0.5);
+            XtotalProd := XtotalProd +
+              DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
             NewLine;
             xcont := xcont + 1;
             DMESTOQUE.TSlave.Next;
@@ -18147,8 +21144,12 @@ begin
             SetFont('Arial', 7);
             PrintLeft(DMESTOQUE.TDesp.FieldByName('QTD').AsString, 1.8);
             PrintLeft(DMESTOQUE.TDesp.FieldByName('DESPESA').AsString, 2.5);
-            PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth - 1.2);
-            PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth - 0.5);
+            PrintRight(FormatFloat('#,###0.00',
+              DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth -
+              1.2);
+            PrintRight(FormatFloat('#,###0.00',
+              DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth -
+              0.5);
             NewLine;
             xcont := xcont + 1;
             DMESTOQUE.TDesp.Next;
@@ -18177,8 +21178,10 @@ begin
           while not DMMACS.TMP.Eof do
           begin
             PrintLeft(DMMACS.TMP.FieldByName('DESC2').AsString, 3.0);
-            PrintRight(FormatFloat('#,###0.00', DMMACS.TMP.FieldByName('VLR1').AsCurrency), PageWidth - 2.0);
-            PrintRight(DMMACS.TMP.FieldByName('DESC1').AsString, PageWidth - 0.8);
+            PrintRight(FormatFloat('#,###0.00',
+              DMMACS.TMP.FieldByName('VLR1').AsCurrency), PageWidth - 2.0);
+            PrintRight(DMMACS.TMP.FieldByName('DESC1').AsString, PageWidth -
+              0.8);
             NewLine;
             xcont := xcont + 1;
             DMMACS.TMP.Next;
@@ -18200,12 +21203,15 @@ begin
         SetFont('Verdana', 8);
         Bold := True;
         PrintLeft('Total Serviços R$:', 0.3);
-        PrintLeft(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTSERV').AsCurrency), 2.0);
+        PrintLeft(FormatFloat('#,###0.00',
+          DMServ.TOrd.FieldByName('TOTSERV').AsCurrency), 2.0);
         PrintRight('Total Ordem R$:', PageWidth - 1.2);
-        PrintRight(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTORD').AsCurrency), PageWidth - 0.5);
+        PrintRight(FormatFloat('#,###0.00',
+          DMServ.TOrd.FieldByName('TOTORD').AsCurrency), PageWidth - 0.5);
         NewLine;
         PrintLeft('Total Peças R$:', 0.3);
-        PrintLeft(FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('TOTPROD').AsCurrency), 2.0);
+        PrintLeft(FormatFloat('#,###0.00',
+          DMServ.TOrd.FieldByName('TOTPROD').AsCurrency), 2.0);
         xcont := xcont + 1;
         NewLine;
         SetFont('Arial', 7);
@@ -18299,7 +21305,10 @@ begin
       //Titulo esquerda
       SetFont('Arial', 10);
       Bold := False;
-      PrintXY(3.3, XLinha + 0.2, DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString + '            Fone: ' + DMMACS.TEmpresa.FieldByName('FONE').AsString);
+      PrintXY(3.3, XLinha + 0.2,
+        DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString +
+          '            Fone: '
+        + DMMACS.TEmpresa.FieldByName('FONE').AsString);
       //data e hora
       SetFont('Arial', 10);
       Bold := false;
@@ -18310,7 +21319,8 @@ begin
       //cnpj e endereço centralizado
       SetFont('Arial', 10);
       Bold := False;
-      PrintXY(3.3, XLinha + 0.2, DMMACS.TEmpresa.FieldByName('ENDERECO').AsString + ' - ' + DMMACS.TEmpresa.FieldByName('NUMERO').AsString);
+      PrintXY(3.3, XLinha + 0.2, DMMACS.TEmpresa.FieldByName('ENDERECO').AsString
+        + ' - ' + DMMACS.TEmpresa.FieldByName('NUMERO').AsString);
       NewLine;
       XLinha := XLinha + 0.4;
       //Imprime o site
@@ -18320,15 +21330,18 @@ begin
       //Imprime modelo do relatorio
       SetFont('Arial', 12);
       Bold := True;
-      PrintRight('OS Nº' + DMServ.TOrd.FieldByName('NUMERO').AsString, PageWidth - 0.5);
+      PrintRight('OS Nº' + DMServ.TOrd.FieldByName('NUMERO').AsString, PageWidth
+        - 0.5);
       NewLine;
       XLinha := XLinha + 0.2;
       //Imprime o Status da OS
       SetFont('Arial', 10);
       if DMServ.TOrd.FieldByName('STATUS').AsString = 'ABERTO' then
-        PrintRight(DMServ.TOrd.FieldByName('STATUS').AsString + ' - ' + DMServ.TOrd.FieldByName('dtabert').AsString, PageWidth - 0.5)
+        PrintRight(DMServ.TOrd.FieldByName('STATUS').AsString + ' - ' +
+          DMServ.TOrd.FieldByName('dtabert').AsString, PageWidth - 0.5)
       else
-        PrintRight(DMServ.TOrd.FieldByName('STATUS').AsString + ' - ' + DMServ.TOrd.FieldByName('dtfech').AsString, PageWidth - 0.5);
+        PrintRight(DMServ.TOrd.FieldByName('STATUS').AsString + ' - ' +
+          DMServ.TOrd.FieldByName('dtfech').AsString, PageWidth - 0.5);
 
       MoveTo(0.3, XLinha); //Xlinha = 1.0
       LineTo(PageWidth - 0.5, XLinha);
@@ -18356,7 +21369,8 @@ begin
       PrintLeft('CPF:', 3.6);
       Bold := False;
       PrintLeft(Copy(DMServ.Alx.FieldByName('NOME').AsString, 0, 32), 0.8);
-      PrintLeft(Copy(DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString, 0, 24), 6.7);
+      PrintLeft(Copy(DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString, 0, 24),
+        6.7);
       PrintLeft(DMServ.Alx.FieldByName('cpfcnpj').AsString, 4.0);
       //2º LINHA
       SetFont('Arial', 9);
@@ -18367,7 +21381,8 @@ begin
       PrintLeft('Placa:', 6.1);
       Bold := False;
       PrintLeft(DMServ.Alx.FieldByName('TELREL').AsString, 0.8);
-      PrintLeft(Copy(DMPESSOA.TEquip.FieldByName('PLACA').AsString, 0, 24), 6.6);
+      PrintLeft(Copy(DMPESSOA.TEquip.FieldByName('PLACA').AsString, 0, 24),
+        6.6);
       PrintLeft(DMServ.Alx.FieldByName('BAIRRO').AsString, 4.1);
       //3º LINHA
       NEWLINE;
@@ -18376,15 +21391,18 @@ begin
       PrintLeft('OBS: ', 3.6);
       PrintLeft('Km: ', 6.1);
       Bold := False;
-      PrintLeft(DMServ.Alx.FieldByName('CIDADE').AsString + ' - ' + DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.8);
-      PrintLeft(FormatFloat('0,000', DMServ.TOrd.FieldByName('totkm').AsCurrency), 6.5);
+      PrintLeft(DMServ.Alx.FieldByName('CIDADE').AsString + ' - ' +
+        DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.8);
+      PrintLeft(FormatFloat('0,000',
+        DMServ.TOrd.FieldByName('totkm').AsCurrency), 6.5);
       PrintLeft(Copy(MObsOrdem.Lines[0], 0, 40), 4.0); //Imprime Linha 1 de Obs
       //4º Linha
       Newline;
       Bold := True;
       PrintLeft('Endereço:', 0.3);
       Bold := False;
-      PrintLeft(DMServ.Alx.FieldByName('ENDERECO').AsString + ', ' + DMServ.Alx.FieldByName('ENDNUMERO').AsString, 1.0);
+      PrintLeft(DMServ.Alx.FieldByName('ENDERECO').AsString + ', ' +
+        DMServ.Alx.FieldByName('ENDNUMERO').AsString, 1.0);
       PrintLeft(Copy(MObsOrdem.Lines[1], 0, 26), 4.0); //Imprime Linha 2 de Obs
       newline;
       XLinha := XLinha + 0.4;
@@ -18425,17 +21443,22 @@ begin
       Bold := False;
       PrintLeft(DMESTOQUE.TSlave.FieldByName('PRIMCOD').AsString, 0.3);
       PrintLeft('| ', 0.9);
-      PrintLeft(Copy(DMESTOQUE.TSlave.FieldByName('SEGCOD').AsString, 1, 10), 1.0);
+      PrintLeft(Copy(DMESTOQUE.TSlave.FieldByName('SEGCOD').AsString, 1, 10),
+        1.0);
       PrintLeft('|', 1.7);
-      PrintLeft(Copy(DMESTOQUE.TSlave.FieldByName('DESCRICAO').AsString, 1, 53), 1.8);
+      PrintLeft(Copy(DMESTOQUE.TSlave.FieldByName('DESCRICAO').AsString, 1, 53),
+        1.8);
       PrintLeft('|', 5.3);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth - 2.3);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth - 2.3);
       PrintLeft('|', 6.1);
       PrintRight(DMESTOQUE.TSlave.FieldByName('QTD').AsString, PageWidth - 1.7);
       PrintLeft('|', 6.7);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth - 0.9);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth - 0.9);
       PrintLeft('|', 7.4);
-      XtotalProd := XtotalProd + DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
+      XtotalProd := XtotalProd +
+        DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
       SetFont('Arial', 5);
       NewLine;
     end;
@@ -18454,15 +21477,19 @@ begin
       PrintLeft('|', 1.7);
       PrintLeft(DMESTOQUE.TDesp.FieldByName('DESPESA').AsString, 1.8);
       PrintLeft('|', 5.3);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth - 2.3);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth - 2.3);
       PrintLeft('|', 6.1);
       PrintRight(DMESTOQUE.TDesp.FieldByName('QTD').AsString, PageWidth - 1.7);
       PrintLeft('|', 6.7);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth - 0.9);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth - 0.9);
       //Edmar - 07/05/2014 - Adicionado o incremento da váriavel para o calculo de desconto correto.
-      xTotalServ := xTotalServ + DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency;
+      xTotalServ := xTotalServ +
+        DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency;
       PrintRight('| ', PageWidth - 0.8);
-      PrintRight(DMESTOQUE.TDesp.FieldByName('cod_equipe').AsString, PageWidth - 0.5);
+      PrintRight(DMESTOQUE.TDesp.FieldByName('cod_equipe').AsString, PageWidth -
+        0.5);
     end;
   except
   end;
@@ -18497,10 +21524,12 @@ begin
       //          PrintLeft('Total Ordem R$:', 5.5);
       Bold := False;
       PrintLeft(DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString, 2.0);
-      if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+      if ((xTotalProd + xTotalServ) -
+        DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
         PrintLeft('0,00', 5.9)
       else
-        PrintLeft(FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency), 5.0);
+        PrintLeft(FormatFloat('####,##0.00', (xTotalProd + xTotalServ) -
+          DMServ.TOrd.fieldByName('TOTORD').AsCurrency), 5.0);
       xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
       PrintLeft(FormatFloat('####,##0.00', xTotalFinalOrdem), 6.8);
       NewLine;
@@ -18510,7 +21539,8 @@ begin
       LineTo(PageWidth - 0.5, XLinha + 2.3);
       NewLine;
       NewLine;
-      RvSystem1.BaseReport.Printleft('_______________________________________', (RvSystem1.BaseReport.PageWidth / 2) - 1.7 {2.5});
+      RvSystem1.BaseReport.Printleft('_______________________________________',
+        (RvSystem1.BaseReport.PageWidth / 2) - 1.7 {2.5});
       xcont := xcont + 1;
       NewLine;
       //Edmar - 07/05/2014 - Zera as variaveis de total devido ao calculo incorreto do desconto
@@ -18519,7 +21549,8 @@ begin
 
       RvSystem1.BaseReport.SetFont('Verdana', 8);
       RvSystem1.BaseReport.Bold := false;
-      RvSystem1.BaseReport.Printleft(DMServ.Alx.FieldByName('NOME').AsString, (RvSystem1.BaseReport.PageWidth / 2) - 1.0 {3.0});
+      RvSystem1.BaseReport.Printleft(DMServ.Alx.FieldByName('NOME').AsString,
+        (RvSystem1.BaseReport.PageWidth / 2) - 1.0 {3.0});
       xcont := xcont + 1;
       NewLine;
       RvSystem1.BaseReport.SetFont('Arial', 7);
@@ -18543,22 +21574,29 @@ begin
   try
     XLinha := 0.1;
     //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
-    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+    if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+      FMenu.LCODEMPRESA.Caption, '') = False then
       Exit;
     //Alex 25/04/2014: busca mecanico responsavel
-    FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR', DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 + 'ORDEM' + #39 + ')');
-    FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE', DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
+    FiltraTabela(DMESTOQUE.TDesp, 'DESPADIC', 'COD_GERADOR',
+      DMServ.TOrd.FieldByName('COD_ORDEM').AsString, 'AND(GERADOR=' + #39 +
+        'ORDEM'
+      + #39 + ')');
+    FiltraTabela(DMPESSOA.TEquipe, 'EQUIPE', 'COD_EQUIPE',
+      DMESTOQUE.TDesp.FieldByName('COD_EQUIPE').AsString, '');
     //Alex 04/05/2014: Verifica a quantidade de itens a serem impressos
     DMFINANC.TAlx.Close;
     DMFINANC.TAlx.SQL.Clear;
     DMFINANC.TAlx.SQL.Add(' Select count(despadic.cod_despadic) as qtd from despadic where (despadic.gerador=''ORDEM'') and (despadic.cod_gerador=:codigo)');
-    DMFINANC.TAlx.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
+    DMFINANC.TAlx.ParamByName('codigo').AsString :=
+      DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
     DMFINANC.TAlx.Open;
     XQuantServicosImprimir := DMFINANC.TAlx.FieldByName('qtd').AsInteger;
     DMFINANC.TAlx.Close;
     DMFINANC.TAlx.SQL.Clear;
     DMFINANC.TAlx.SQL.Add(' Select count(itprodord.cod_itprodord) as qtd from itprodord where (itprodord.cod_ordem = :codigo) ');
-    DMFINANC.TAlx.ParamByName('codigo').AsString := DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
+    DMFINANC.TAlx.ParamByName('codigo').AsString :=
+      DMServ.TOrd.FieldByName('COD_ORDEM').AsString;
     DMFINANC.TAlx.Open;
     XQuantProdutosImprimir := DMFINANC.TAlx.FieldByName('qtd').AsInteger;
     //Alex 02/05/2014: Verifica o tipo da pagina a ser usada na impressão
@@ -18575,7 +21613,8 @@ begin
       XQtdPagina := '';
       while PmRelatorio.Tag < 2 do
       begin
-        xContaLinha := 0; //Variavel para controle de linhas de produtos e serviços
+        xContaLinha := 0;
+        //Variavel para controle de linhas de produtos e serviços
         XtotalProd := 0;
         PmRelatorio.Tag := PmRelatorio.Tag + 1;
         //Imprime cabeçalho da Empresa
@@ -18650,7 +21689,8 @@ end;
 
 //Paulo 20/01/2012: Insere uma imagem no relatório
 
-procedure TFOrdemMec.PrintImage(RVSystem: TRvSystem; Row, Col, ImageWidth, ImageHeight: Double; Bitmap: TBitmap; FileName: string = '');
+procedure TFOrdemMec.PrintImage(RVSystem: TRvSystem; Row, Col, ImageWidth,
+  ImageHeight: Double; Bitmap: TBitmap; FileName: string = '');
 var
   Calc, L1, C1, L2, C2: Double;
   InternalBitmap: TBitmap;
@@ -18670,7 +21710,8 @@ begin
       begin
         if ImageWidth <= 0.0 then
         begin
-          Calc := ImageHeight * (InternalBitmap.Width / XDPI) / (InternalBitmap.Height / YDPI);
+          Calc := ImageHeight * (InternalBitmap.Width / XDPI) /
+            (InternalBitmap.Height / YDPI);
           C1 := Col;
           L1 := Row;
           C2 := Col + Calc;
@@ -18678,7 +21719,8 @@ begin
         end
         else if ImageHeight <= 0.0 then
         begin
-          Calc := ImageWidth * (InternalBitmap.Height / YDPI) / (InternalBitmap.Width / XDPI);
+          Calc := ImageWidth * (InternalBitmap.Height / YDPI) /
+            (InternalBitmap.Width / XDPI);
           C1 := Col;
           L1 := Row;
           C2 := Col + ImageWidth;
@@ -18709,8 +21751,10 @@ begin
 
   Xcop := 1;
   RVSystem1.SystemPreview.FormState := wsMaximized;
-  RVSystem1.DefaultDest := rdPreview; { poderia ser rdPrinter para impressora    }
-  RVSystem1.SystemPReview.RulerType := rtBothCm; // Para mostrar a reguá n preview
+  RVSystem1.DefaultDest := rdPreview;
+  { poderia ser rdPrinter para impressora    }
+  RVSystem1.SystemPReview.RulerType := rtBothCm;
+  // Para mostrar a reguá n preview
   RVSystem1.Execute;
 end;
 
@@ -18754,19 +21798,23 @@ begin
   AbrirForm(TFListaNfe, FListaNfe, 0);
 end;
 
-procedure TFOrdemMec.BandFinalBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.BandFinalBeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrAbertOrdem13Desc.Caption := '0,00'
   else
-    QrAbertOrdem13Desc.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrAbertOrdem13Desc.Caption := FormatFloat('####,##0.00', (xTotalProd +
+      xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
 
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
   QRLTotalFinalOrdem.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
 end;
 
-procedure TFOrdemMec.QrAbertOrdem13BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem13BeforePrint(Sender: TCustomQuickRep; var
+  PrintReport: Boolean);
 begin
   inherited;
   qrmObservacao.Lines.Clear;
@@ -18777,7 +21825,8 @@ begin
   xTotalDescServ := 0;
 end;
 
-procedure TFOrdemMec.BandProdBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.BandProdBeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
@@ -18793,7 +21842,8 @@ begin
   AbrirForm(TFRelData, FRelData, 0);
 end;
 
-procedure TFOrdemMec.QrAbertOrdem14MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem14MeiaPaginaBeforePrint(Sender:
+  TCustomQuickRep; var PrintReport: Boolean);
 begin
   inherited;
   xTotalProd := 0;
@@ -18802,31 +21852,38 @@ begin
   xTotalDescServ := 0;
 end;
 
-procedure TFOrdemMec.QRSubDetail1BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail1BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand6BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand6BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrlDescontoOrdem14MeiaPagina.Caption := '0,00'
   else
-    QrlDescontoOrdem14MeiaPagina.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrlDescontoOrdem14MeiaPagina.Caption := FormatFloat('####,##0.00',
+      (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
-  QRLTotalFinalOrdem14MeiaPagina.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
+  QRLTotalFinalOrdem14MeiaPagina.Caption := FormatFloat('####,##0.00',
+    xTotalFinalOrdem);
 end;
 
-procedure TFOrdemMec.QRBand3BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand3BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs14MeiaPagina.Lines.Clear;
   QrObs14MeiaPagina.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QrAbertOrdem14CompletoBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem14CompletoBeforePrint(Sender: TCustomQuickRep;
+  var PrintReport: Boolean);
 begin
   inherited;
   xTotalProd := 0;
@@ -18835,52 +21892,66 @@ begin
   xTotalDescServ := 0;
 end;
 
-procedure TFOrdemMec.QRBand8BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand8BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs14PaginaCompleta.Lines.Clear;
   QrObs14PaginaCompleta.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRSubDetail3BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail3BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
   //     xTotalFinalProd:=DMServ.TOrd.fieldByName('TOTPROD').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand12BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand12BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrlDescontoOrdem14PaginaToda.Caption := '0,00'
   else
-    QrlDescontoOrdem14PaginaToda.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrlDescontoOrdem14PaginaToda.Caption := FormatFloat('####,##0.00',
+      (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
-  QRLTotalFinalOrdem14PaginaCompleta.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
+  QRLTotalFinalOrdem14PaginaCompleta.Caption := FormatFloat('####,##0.00',
+    xTotalFinalOrdem);
 end;
 
 procedure TFOrdemMec.RecuperareEnviarXMLdeCancelamento1Click(Sender: TObject);
 begin
   inherited;
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-  FMzrNfe.SetInFiscal('', XView.FieldByName('COD_ORDEM').AsInteger, XView.FieldByName('COD_CLIENTE').AsInteger, 'ORDEM', 'XMLCANCELAMENTO', 0, '', '', '', 0, Date(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  FMzrNfe.SetInFiscal('', XView.FieldByName('COD_ORDEM').AsInteger,
+    XView.FieldByName('COD_CLIENTE').AsInteger, 'ORDEM', 'XMLCANCELAMENTO', 0,
+      '',
+    '', '', 0, Date(), '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   FMzrNfe.ShowModal;
 end;
 
-procedure TFOrdemMec.QRSubDetail2BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail2BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRSubDetail4BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail4BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
-procedure TFOrdemMec.QrAbertOrdem15MeiaPaginaBeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem15MeiaPaginaBeforePrint(Sender:
+  TCustomQuickRep; var PrintReport: Boolean);
 begin
   inherited;
   xTotalProd := 0;
@@ -18889,76 +21960,95 @@ begin
   xTotalDescServ := 0;
 end;
 
-procedure TFOrdemMec.QRBand14BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand14BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs15MeiaPagina.Lines.Clear;
   QrObs15MeiaPagina.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRSubDetail5BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail5BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRSubDetail6BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail6BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand17BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand17BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrlDescontoOrdem15MeiaPagina.Caption := '0,00'
   else
-    QrlDescontoOrdem15MeiaPagina.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrlDescontoOrdem15MeiaPagina.Caption := FormatFloat('####,##0.00',
+      (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
-  QRLTotalFinalOrdem15MeiaPagina.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
+  QRLTotalFinalOrdem15MeiaPagina.Caption := FormatFloat('####,##0.00',
+    xTotalFinalOrdem);
 end;
 
-procedure TFOrdemMec.QRBand19BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand19BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs15PaginaCompleta.Lines.Clear;
   QrObs15PaginaCompleta.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRSubDetail7BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail7BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRSubDetail8BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail8BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand22BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand22BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrlDescontoOrdem15PaginaToda.Caption := '0,00'
   else
-    QrlDescontoOrdem15PaginaToda.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrlDescontoOrdem15PaginaToda.Caption := FormatFloat('####,##0.00',
+      (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
   TotalTermoContratacao.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
-  QRLTotalFinalOrdem15PaginaCompleta.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
+  QRLTotalFinalOrdem15PaginaCompleta.Caption := FormatFloat('####,##0.00',
+    xTotalFinalOrdem);
 end;
 
-procedure TFOrdemMec.BandServBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.BandServBeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
   try
     DMESTOQUE.Alx.Close;
     DMESTOQUE.Alx.SQL.Clear;
     DMESTOQUE.Alx.SQL.Add(' select equipe.descricao from equipe where equipe.cod_equipe=:codigo ');
-    DMESTOQUE.Alx.ParamByName('codigo').AsInteger := DMESTOQUE.TDesp.FieldByName('cod_equipe').AsInteger;
+    DMESTOQUE.Alx.ParamByName('codigo').AsInteger :=
+      DMESTOQUE.TDesp.FieldByName('cod_equipe').AsInteger;
     DMESTOQUE.Alx.Open;
     if not DMESTOQUE.Alx.IsEmpty then
       QRLEquipe.Caption := DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString
@@ -18969,13 +22059,15 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.QRSubDetail11BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail11BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalFinalProd := DMServ.TOrd.fieldByName('TOTPROD').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand32BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand32BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
@@ -18984,7 +22076,8 @@ end;
 
 //Jônatas 26/06/2013 - Coloca máscara no formato do texto do edit pelo keydown
 
-procedure TFOrdemMec.EdPlaca2KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EdPlaca2KeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if (EdPlaca2.SelLength > 0) and not (KEY = 8) and not (KEY = 13) then
@@ -19004,7 +22097,8 @@ var
   xPlacaLimpa: string;
 begin
   inherited;
-  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EdPlaca2.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EdPlaca2.Text, '-',
+    '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
 
   if (Length(xPlacaLimpa) = 4) and not (Key = #8)
     and not (Key = #13) and not (Key = #27) then
@@ -19014,12 +22108,14 @@ begin
       and (xPlacaLimpa[2] in ['a'..'z', 'A'..'Z'])
       and (xPlacaLimpa[3] in ['a'..'z', 'A'..'Z']) then // PADRÃO ANTIGO ABC 1234
     begin
-      EdPlaca2.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
+      EdPlaca2.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' +
+        xPlacaLimpa[4];
       EdPlaca2.SelStart := 5;
     end;
   end;
 
-  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not (Key = #27) then
+  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not
+    (Key = #27) then
     Key := #0;
   //checa se o que foi digitado se encontra nos intervalos
    {If Not (key In ['a'..'z', 'A'..'Z', '0'..'9', #8, #13])
@@ -19039,7 +22135,8 @@ end;
 
 //Jônatas 26/06/2013 - faz a máscara no texto do edit pelo keypress
 
-procedure TFOrdemMec.EdPlaca3KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EdPlaca3KeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if (EdPlaca3.SelLength > 0) and not (KEY = 8) and not (KEY = 13) then
@@ -19060,7 +22157,8 @@ var
   xPlacaLimpa: string;
 begin
   inherited;
-  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EdPlaca3.Text, '-', '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
+  xPlacaLimpa := Trim(UpperCase(StringReplace(StringReplace(EdPlaca3.Text, '-',
+    '', [rfReplaceAll]), ' ', '', [rfReplaceAll])));
 
   if (Length(xPlacaLimpa) = 4) and not (Key = #8)
     and not (Key = #13) and not (Key = #27) then
@@ -19070,12 +22168,14 @@ begin
       and (xPlacaLimpa[2] in ['a'..'z', 'A'..'Z'])
       and (xPlacaLimpa[3] in ['a'..'z', 'A'..'Z']) then // PADRÃO ANTIGO ABC 1234
     begin
-      EdPlaca3.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' + xPlacaLimpa[4];
+      EdPlaca3.Text := xPlacaLimpa[1] + xPlacaLimpa[2] + xPlacaLimpa[3] + '-' +
+        xPlacaLimpa[4];
       EdPlaca3.SelStart := 5;
     end;
   end;
 
-  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not (Key = #27) then
+  if (Length(xPlacaLimpa) = 7) and not (Key = #8) and not (Key = #13) and not
+    (Key = #27) then
     Key := #0;
   //checa se o que foi digitado se encontra nos intervalos
    {If Not (key In ['a'..'z', 'A'..'Z', '0'..'9', #8, #13])
@@ -19132,7 +22232,8 @@ begin
   DMBANCO.TAlx.Close;
   DMBANCO.TAlx.SQL.Clear;
   DMBANCO.TAlx.SQL.Add('SELECT * FROM CAIXA where caixa.cod_loja=:CODLOJA');
-  DMBANCO.TAlx.ParamByName('CODLOJA').AsInteger := StrToInt(FMenu.LCODLOJA.Caption);
+  DMBANCO.TAlx.ParamByName('CODLOJA').AsInteger :=
+    StrToInt(FMenu.LCODLOJA.Caption);
   DMBANCO.TAlx.Open;
   AbrirForm(TFRelData, FRelData, 0);
 end;
@@ -19146,7 +22247,8 @@ begin
   DMBANCO.TAlx.Close;
   DMBANCO.TAlx.SQL.Clear;
   DMBANCO.TAlx.SQL.Add('SELECT * FROM CAIXA where caixa.cod_loja=:CODLOJA');
-  DMBANCO.TAlx.ParamByName('CODLOJA').AsInteger := StrToInt(FMenu.LCODLOJA.Caption);
+  DMBANCO.TAlx.ParamByName('CODLOJA').AsInteger :=
+    StrToInt(FMenu.LCODLOJA.Caption);
   DMBANCO.TAlx.Open;
   AbrirForm(TFRelData, FRelData, 0);
 end;
@@ -19157,17 +22259,23 @@ begin
   DMESTOQUE.Alx5.Close;
   DMESTOQUE.Alx5.SQL.Clear;
   DMESTOQUE.Alx5.SQL.Add('select docfisord.nfse_numerodocumento from docfisord where docfisord.cod_ordem = :ordem');
-  DMESTOQUE.Alx5.ParamByName('ordem').AsInteger := DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
+  DMESTOQUE.Alx5.ParamByName('ordem').AsInteger :=
+    DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
   DMESTOQUE.Alx5.Open;
 
   if DMESTOQUE.Alx5.IsEmpty then
   begin
-    Mensagem('A T E N Ç Ã O ', 'Essa Nfse ainda não foi gerada. Escolha uma ordem válida.', '', 1, 1, false, 'A');
+    Mensagem('A T E N Ç Ã O ',
+      'Essa Nfse ainda não foi gerada. Escolha uma ordem válida.', '', 1, 1,
+        false,
+      'A');
     Exit;
   end
   else
   begin
-    if Mensagem('A T E N Ç Ã O', 'DESEJA REALMENTE CANCELAR A NFS-E DE NÚMERO ' + DMESTOQUE.Alx5.FieldByName('nfse_numerodocumento').AsString, '', 2, 3, False, 'c') = 2 then
+    if Mensagem('A T E N Ç Ã O', 'DESEJA REALMENTE CANCELAR A NFS-E DE NÚMERO '
+      + DMESTOQUE.Alx5.FieldByName('nfse_numerodocumento').AsString, '', 2, 3,
+      False, 'c') = 2 then
       FMzrNFSe.CancelarNFSe(DMESTOQUE.Alx5.FieldByName('nfse_numerodocumento').AsString);
   end;
 end;
@@ -19186,18 +22294,27 @@ begin
   DMESTOQUE.Alx5.Close;
   DMESTOQUE.Alx5.SQL.Clear;
   DMESTOQUE.Alx5.SQL.Add('select docfisord.nfse_numerodocumento from docfisord where docfisord.cod_ordem = :ordem');
-  DMESTOQUE.Alx5.ParamByName('ordem').AsInteger := DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
+  DMESTOQUE.Alx5.ParamByName('ordem').AsInteger :=
+    DMServ.WOrdem.FieldByName('cod_ordem').AsInteger;
   DMESTOQUE.Alx5.Open;
 
   if DMESTOQUE.Alx5.IsEmpty then
   begin
-    Mensagem('A T E N Ç Ã O ', 'Essa Nfse ainda não foi gerada. Escolha uma ordem válida.', '', 1, 1, false, 'A');
+    Mensagem('A T E N Ç Ã O ',
+      'Essa Nfse ainda não foi gerada. Escolha uma ordem válida.', '', 1, 1,
+        false,
+      'A');
     Exit;
   end
-  else if not FMzrNFSe.ConsultaNfse(DMESTOQUE.Alx5.FieldByName('nfse_numerodocumento').AsString) then
-    Mensagem('A T E N Ç Ã O ', 'Essa Nfse ainda não foi gerada. Escolha uma ordem válida', '', 1, 1, false, 'A')
+  else if not
+    FMzrNFSe.ConsultaNfse(DMESTOQUE.Alx5.FieldByName('nfse_numerodocumento').AsString) then
+    Mensagem('A T E N Ç Ã O ',
+      'Essa Nfse ainda não foi gerada. Escolha uma ordem válida', '', 1, 1,
+        false,
+      'A')
   else
-    Mensagem('I N F O R M A Ç Ã O', 'A Nfse está ativa no servidor.', '', 1, 1, false, 'I');
+    Mensagem('I N F O R M A Ç Ã O', 'A Nfse está ativa no servidor.', '', 1, 1,
+      false, 'I');
 
   Exit;
 end;
@@ -19223,27 +22340,38 @@ begin
     PCadastro.Visible := False;}
   if XView.FieldByName('STATUS').AsString = 'ABERTO' then
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'PARA EFETUAR A IMPRESSÃO FISCAL O PEDIDO DEVE ESTAR FECHADO.' + #13 + 'Antes de fechar confira todas as informações do pedido.', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'PARA EFETUAR A IMPRESSÃO FISCAL O PEDIDO DEVE ESTAR FECHADO.' + #13 +
+      'Antes de fechar confira todas as informações do pedido.', '', 1, 1,
+        False,
+      'a');
     Exit;
   end;
 
-  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '') = True then
+  if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+    XView.FieldByName('COD_ORDEM').AsString, '') = True then
   begin
-    if Mensagem('A T E N Ç Ã O', 'DESEJA IMPRIMIR O DOCUMENTO FISCAL PARA O PEDIDO:' + #13 + 'Nº ' + XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
+    if Mensagem('A T E N Ç Ã O',
+      'DESEJA IMPRIMIR O DOCUMENTO FISCAL PARA O PEDIDO:' + #13 + 'Nº ' +
+      XView.FieldByName('NUMERO').AsString + '?', '', 2, 3, False, 'c') = 2 then
     begin
-      FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA', FMenu.LCODCAIXA.Caption, '');
+      FiltraTabela(DMCAIXA.TCaixa, 'CAIXA', 'COD_CAIXA',
+        FMenu.LCODCAIXA.Caption,
+        '');
 
       if DMMACS.TLoja.FieldByName('SERVNFE').AsString = '0' then
       begin
         DMServ.TFiscOrd.Close;
         DMServ.TFiscOrd.SQL.Clear;
         DMServ.TFiscOrd.SQL.Add(' Select * from docfisord where docfisord.cod_ordem=:Codigo ');
-        DMServ.TFiscOrd.ParamByName('Codigo').AsInteger := XView.FieldByName('COD_ORDEM').AsInteger;
+        DMServ.TFiscOrd.ParamByName('Codigo').AsInteger :=
+          XView.FieldByName('COD_ORDEM').AsInteger;
         DMServ.TFiscOrd.Open;
 
         if not DMServ.TFiscOrd.IsEmpty then
         begin
-          if (DMServ.TFiscOrd.FieldByName('NFSE_STATUSGERAL').AsString = '1') then
+          if (DMServ.TFiscOrd.FieldByName('NFSE_STATUSGERAL').AsString = '1')
+            then
           begin
             //Se Documento Fiscal Enviado ou Cancelado
             MessageDlg('Esta O.S já gerou uma NFS-e. Portanto, não pode ser transmitida.', mtWarning, [mbOK], 0);
@@ -19255,15 +22383,22 @@ begin
           //sendo assim, muda-se o tipo
           FMenu.TIPOREL := 'NFSER';
 
-        if MessageDlg('Impressora NF Pronta?', mtConfirmation, [mbYes, mbNo], 0) = mryes then
+        if MessageDlg('Impressora NF Pronta?', mtConfirmation, [mbYes, mbNo], 0)
+          = mryes then
         begin
           AbreFiscal;
-          Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+          Registra('ORDEM DE SERVIÇO', 'NF',
+            XView.FieldByName('dtabert').AsString, 'Nº ' +
+            XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+            XView.FieldByName('total').AsString);
         end;
       end;
     end
     else
-      Mensagem('A T E N Ç Ã O', 'Sua empresa não está autorizada a emitir nota fiscal de serviço.', '', 2, 3, False, 'I');
+      Mensagem('A T E N Ç Ã O',
+        'Sua empresa não está autorizada a emitir nota fiscal de serviço.', '',
+          2,
+        3, False, 'I');
   end;
 end;
 
@@ -19275,16 +22410,20 @@ begin
   //Edmar - 26/03/2014 - Se for equiplano a mensagem é outra
   if DMMACS.TLoja.FieldByName('nfseadministradora').AsString = 'EQUIPLANO' then
   begin
-    if InputQuery('Número documento', 'Informe o número RPS da NFS-e que deseja retornar', xNumNfse) = True then
+    if InputQuery('Número documento',
+      'Informe o número RPS da NFS-e que deseja retornar', xNumNfse) = True then
     begin
-      FMzrNFSe.RetornaDadosNfse(DMServ.WOrdem.FieldByName('cod_ordem').AsString, xNumNfse);
+      FMzrNFSe.RetornaDadosNfse(DMServ.WOrdem.FieldByName('cod_ordem').AsString,
+        xNumNfse);
     end;
   end
   else
   begin
-    if InputQuery('Número documento', 'Informe o número da NFS-e que deseja retornar', xNumNfse) = True then
+    if InputQuery('Número documento',
+      'Informe o número da NFS-e que deseja retornar', xNumNfse) = True then
     begin
-      FMzrNFSe.RetornaDadosNfse(DMServ.WOrdem.FieldByName('cod_ordem').AsString, xNumNfse);
+      FMzrNFSe.RetornaDadosNfse(DMServ.WOrdem.FieldByName('cod_ordem').AsString,
+        xNumNfse);
     end;
   end;
 end;
@@ -19298,9 +22437,12 @@ function TFOrdemMec.RetemIss: Boolean;
 begin
   if cbRtIss.Checked then
   begin
-    EdTotalserv.ValueNumeric := EdTotalserv.ValueNumeric - EdTotIss.ValueNumeric;
-    EdTotalOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric;
-    EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric;
+    EdTotalserv.ValueNumeric := EdTotalserv.ValueNumeric -
+      EdTotIss.ValueNumeric;
+    EdTotalOrd.ValueNumeric := EdTotalserv.ValueNumeric +
+      EdtotalProd.ValueNumeric;
+    EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric +
+      EdtotalProd.ValueNumeric;
   end;
 end;
 
@@ -19310,19 +22452,24 @@ begin
   if cbRtIss.Checked then
     EdTotalserv.ValueNumeric := EdTotalserv.ValueNumeric - EdTotIss.ValueNumeric
   else
-    EdTotalserv.ValueNumeric := EdTotalserv.ValueNumeric + EdTotIss.ValueNumeric;
+    EdTotalserv.ValueNumeric := EdTotalserv.ValueNumeric +
+      EdTotIss.ValueNumeric;
 
-  EdTotalOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric;
-  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric + EdtotalProd.ValueNumeric;
+  EdTotalOrd.ValueNumeric := EdTotalserv.ValueNumeric +
+    EdtotalProd.ValueNumeric;
+  EdValorOrd.ValueNumeric := EdTotalserv.ValueNumeric +
+    EdtotalProd.ValueNumeric;
 end;
 
-procedure TFOrdemMec.edDtInicialKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.edDtInicialKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if key = vk_return then
   begin
     //Edmar - 07/02/2014 - Teste se foi informado as duas datas
-    if (edDtInicial.Text <> '  /  /    ') and (edDtFinal.Text <> '  /  /    ') then
+    if (edDtInicial.Text <> '  /  /    ') and (edDtFinal.Text <> '  /  /    ')
+      then
     begin
       //Edmar - 07/02/2014 - Verifica se pesquisa por data de abertura ou de fechamento
          //e passa a informação correspondente
@@ -19336,13 +22483,15 @@ begin
     AtualizaGridConsulta('');
 end;
 
-procedure TFOrdemMec.edDtFinalKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.edDtFinalKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if key = vk_return then
   begin
     //Edmar - 07/02/2014 - Teste se foi informado as duas datas
-    if (edDtInicial.Text <> '  /  /    ') and (edDtFinal.Text <> '  /  /    ') then
+    if (edDtInicial.Text <> '  /  /    ') and (edDtFinal.Text <> '  /  /    ')
+      then
     begin
       //Edmar - 07/02/2014 - Verifica se pesquisa por data de abertura ou de fechamento
          //e passa a informação correspondente
@@ -19356,7 +22505,8 @@ begin
     AtualizaGridConsulta('');
 end;
 
-procedure TFOrdemMec.FiltraOrdemData(xDataInicial, xDataFinal, xSituacao: string);
+procedure TFOrdemMec.FiltraOrdemData(xDataInicial, xDataFinal, xSituacao:
+  string);
 begin
   DMServ.WOrdem.Close;
   DMServ.WOrdem.SQL.Clear;
@@ -19466,16 +22616,20 @@ begin
   IniciaCCe(XView.FieldByName('cod_ordem').AsInteger, 'ORDEM');
 end;
 
-procedure TFOrdemMec.QRBand36BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand36BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency) <= 0 then
+  if ((xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency)
+    <= 0 then
     QrAbertOrdem13CompletoDesconto.Caption := '0,00'
   else
-    QrAbertOrdem13CompletoDesconto.Caption := FormatFloat('####,##0.00', (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
+    QrAbertOrdem13CompletoDesconto.Caption := FormatFloat('####,##0.00',
+      (xTotalProd + xTotalServ) - DMServ.TOrd.fieldByName('TOTORD').AsCurrency);
 
   xTotalFinalOrdem := DMServ.TOrd.fieldByName('TOTORD').AsCurrency;
-  QRLTotalFinalOrdem13Completo.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
+  QRLTotalFinalOrdem13Completo.Caption := FormatFloat('####,##0.00',
+    xTotalFinalOrdem);
 end;
 
 procedure TFOrdemMec.ProdutosVendidosModelo011Click(Sender: TObject);
@@ -19492,11 +22646,13 @@ begin
   inherited;
   DMESTOQUE.WSimilar.Close;
   DMESTOQUE.WSimilar.SQL.Clear;
-  DMESTOQUE.WSimilar.SQL.Add('SELECT * FROM VWSIMILAR WHERE (VWSIMILAR.ATIVO =' + #39 + 'S' + #39 + ') ORDER BY DESCRICAO');
+  DMESTOQUE.WSimilar.SQL.Add('SELECT * FROM VWSIMILAR WHERE (VWSIMILAR.ATIVO ='
+    + #39 + 'S' + #39 + ') ORDER BY DESCRICAO');
   DMESTOQUE.WSimilar.Open;
 end;
 
-procedure TFOrdemMec.ApplicationEvents1Message(var Msg: tagMSG; var Handled: Boolean);
+procedure TFOrdemMec.ApplicationEvents1Message(var Msg: tagMSG; var Handled:
+  Boolean);
 begin
   inherited;
   if (Msg.Message = WM_KEYDOWN) and (Msg.wParam = VK_TAB) then
@@ -19511,7 +22667,8 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if Key = Vk_Return then
@@ -19521,11 +22678,13 @@ end;
 procedure TFOrdemMec.InsereClassificacaoServico;
 begin
   if DbServicoClassificacao.Text <> '' then
-    XCOD_SERVICOCLASSIFICACAO := DMServ.WSubServ.FieldByName('COD_SUBSERVICO').AsInteger
+    XCOD_SERVICOCLASSIFICACAO :=
+      DMServ.WSubServ.FieldByName('COD_SUBSERVICO').AsInteger
   else
     XCOD_SERVICOCLASSIFICACAO := -1;
 
-  EValorServ.ValueNumeric := DMServ.WSubServ.FieldByName('VLRTOTSUBSERV').AsCurrency;
+  EValorServ.ValueNumeric :=
+    DMServ.WSubServ.FieldByName('VLRTOTSUBSERV').AsCurrency;
   EDesricaoServico.Text := DMServ.WSubServ.FieldByName('DESCRICAO').AsString;
 end;
 
@@ -19552,13 +22711,15 @@ begin
     //Titulo centralizado
     SetFont('Arial', 12);
     Bold := True;
-    PrintXY((PageWidth / 2) - 1.3, XLinha + 0.2, DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString);
+    PrintXY((PageWidth / 2) - 1.3, XLinha + 0.2,
+      DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString);
     //PrintCenter(DMMACS.TEmpresa.FieldByName('RAZAO_SOCIAL').AsString,PageWidth/2);
 
     //data e hora
     SetFont('Arial', 7);
     Bold := True;
-    PrintXY(PageWidth - 1.5, XLinha + 0.2, DateToStr(Date()) + ' - ' + TimeToStr(Time()));
+    PrintXY(PageWidth - 1.5, XLinha + 0.2, DateToStr(Date()) + ' - ' +
+      TimeToStr(Time()));
     //PrintRight(DateToStr(Date())+' - '+TimeToStr(Time()),PageWidth-0.5);
 
     NewLine;
@@ -19566,15 +22727,19 @@ begin
     //cnpj e endereço centralizado
     SetFont('Arial', 8);
     Bold := False;
-    PrintCenter('CNPJ: ' + DMMACS.TEmpresa.FieldByName('CNPJ').AsString, PageWidth / 2);
+    PrintCenter('CNPJ: ' + DMMACS.TEmpresa.FieldByName('CNPJ').AsString,
+      PageWidth / 2);
     //Imprime modelo do relatorio
     PrintRight('Mod. Imp: 10', PageWidth - 0.5);
     NewLine;
-    PrintCenter('Endereço: ' + DMMACS.TEmpresa.FieldByName('ENDERECO').AsString + ' Bairro: ' +
+    PrintCenter('Endereço: ' + DMMACS.TEmpresa.FieldByName('ENDERECO').AsString
+      +
+      ' Bairro: ' +
       DMMACS.TEmpresa.FieldByName('BAIRRO').AsString, PageWidth / 2);
     NewLine;
 
-    PrintCenter('Fone: ' + DMMACS.TEmpresa.FieldByName('FONE').AsString, PageWidth / 2);
+    PrintCenter('Fone: ' + DMMACS.TEmpresa.FieldByName('FONE').AsString,
+      PageWidth / 2);
     NewLine;
 
     XLinha := XLinha + 0.8;
@@ -19595,18 +22760,25 @@ begin
     Bold := True;
     PrintLeft('O.S nº.' + DMServ.TOrd.FieldByName('NUMERO').AsString, 0.3);
     PrintLeft('Emissão: ' + DMServ.TOrd.FieldByName('DTABERT').AsString, 1.1);
-    PrintLeft('Cliente: ' + DMServ.Alx.FieldByName('NOME').AsString + '      CPF/CNPJ: ' + DMServ.Alx.FieldByName('CPFCNPJ').AsString, 2.5);
+    PrintLeft('Cliente: ' + DMServ.Alx.FieldByName('NOME').AsString +
+      '      CPF/CNPJ: ' + DMServ.Alx.FieldByName('CPFCNPJ').AsString, 2.5);
     //PrintRight('CPF/CNPJ: ' + DMServ.Alx.FieldByName('CPFCNPJ').AsString, PageWidth - 1.3);
     NewLine;
     PrintLeft('Tel.:' + DMServ.Alx.FieldByName('TELREL').AsString, 0.3);
-    PrintLeft('Endereço:' + DMServ.Alx.FieldByName('ENDERECO').AsString + ', ' + DMServ.Alx.FieldByName('ENDNUMERO').AsString, 2.5);
-    PrintRight('Bairro: ' + DMServ.Alx.FieldByName('BAIRRO').AsString, PageWidth - 1.3);
+    PrintLeft('Endereço:' + DMServ.Alx.FieldByName('ENDERECO').AsString + ', ' +
+      DMServ.Alx.FieldByName('ENDNUMERO').AsString, 2.5);
+    PrintRight('Bairro: ' + DMServ.Alx.FieldByName('BAIRRO').AsString, PageWidth
+      - 1.3);
     NewLine;
-    PrintLeft('Cidade:' + DMServ.Alx.FieldByName('CIDADE').AsString + ' - ' + DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.3);
-    PrintLeft('Veiculo: ' + DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString + '     Placa: ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString + '     Km Atual: ' + DMServ.TOrd.FieldByName('TOTKM').AsString, 3.0);
+    PrintLeft('Cidade:' + DMServ.Alx.FieldByName('CIDADE').AsString + ' - ' +
+      DMServ.Alx.FieldByName('UF_ESTADO').AsString, 0.3);
+    PrintLeft('Veiculo: ' + DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString +
+      '     Placa: ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString +
+      '     Km Atual: ' + DMServ.TOrd.FieldByName('TOTKM').AsString, 3.0);
     //PrintRight('Placa: ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString, PageWidth - 1.3);
     NewLine;
-    PrintLeft('Mecânico Responsável: ' + DMPESSOA.TEquipe.FieldByName('DESCRICAO').AsString, 0.3);
+    PrintLeft('Mecânico Responsável: ' +
+      DMPESSOA.TEquipe.FieldByName('DESCRICAO').AsString, 0.3);
     NewLine;
 
     XLinha := XLinha + 0.8;
@@ -19670,9 +22842,12 @@ begin
       PrintLeft(DMESTOQUE.TSlave.FieldByName('PRIMCOD').AsString, 1.0);
       PrintLeft(DMESTOQUE.TSlave.FieldByName('QTD').AsString, 1.8);
       PrintLeft(DMESTOQUE.TSlave.FieldByName('DESCRICAO').AsString, 2.5);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth - 1.2);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth - 0.5);
-      XtotalProd := XtotalProd + DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TSlave.FieldByName('VLRUNIT').AsCurrency), PageWidth - 1.2);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency), PageWidth - 0.5);
+      XtotalProd := XtotalProd +
+        DMESTOQUE.TSlave.FieldByName('TOTAL').AsCurrency;
       NewLine;
       xcont := xcont + 1;
       DMESTOQUE.TSlave.Next;
@@ -19731,8 +22906,10 @@ begin
       SetFont('Arial', 7);
       PrintLeft(DMESTOQUE.TDesp.FieldByName('QTD').AsString, 1.8);
       PrintLeft(DMESTOQUE.TDesp.FieldByName('DESPESA').AsString, 2.5);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth - 1.2);
-      PrintRight(FormatFloat('#,###0.00', DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth - 0.5);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TDesp.FieldByName('VLRFINAL').AsCurrency), PageWidth - 1.2);
+      PrintRight(FormatFloat('#,###0.00',
+        DMESTOQUE.TDesp.FieldByName('VLRTOTFIN').AsCurrency), PageWidth - 0.5);
       xcont := xcont + 1;
       NewLine;
       DMESTOQUE.TDesp.Next;
@@ -19763,7 +22940,8 @@ begin
   QRLTotalFinalProd19.Caption := FormatFloat('####,##0.00', xTotalFinalOrdem);
 end;
 
-procedure TFOrdemMec.QrAbertOrdem19BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem19BeforePrint(Sender: TCustomQuickRep; var
+  PrintReport: Boolean);
 var
   xPrimParcela, xIntervalo, xQtdeParcela, I: Integer;
   xObsParcela, xVencimento: string;
@@ -19777,7 +22955,8 @@ begin
   qrObservacaoFinanc.Lines.Clear;
 
   xObsParcela := '';
-  DecodeDate(StrToDate(DMServ.TOrd.FieldByName('dtabert').AsString), Ano, Mes, Dia);
+  DecodeDate(StrToDate(DMServ.TOrd.FieldByName('dtabert').AsString), Ano, Mes,
+    Dia);
 
   //Edmar - 03/09/2014 - Se for diferente de à vista monta a string que mostrará as informações da fatura
   if DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString <> 'À VISTA' then
@@ -19786,20 +22965,25 @@ begin
     xIntervalo := DMFINANC.TFormPag.FieldByName('Intervalo').AsInteger;
     xQtdeParcela := DMFINANC.TFormPag.FieldByName('QuantParcela').AsInteger;
 
-    xVlrParcela := StrToFloat(FormatFloat('#,##0.00', DMServ.TOrd.fieldByName('TOTORD').AsCurrency / xQtdeParcela));
+    xVlrParcela := StrToFloat(FormatFloat('#,##0.00',
+      DMServ.TOrd.fieldByName('TOTORD').AsCurrency / xQtdeParcela));
 
-    xVencimento := DateToStr(DMServ.TOrd.FieldByName('DTABERT').AsDateTime + xPrimParcela);
+    xVencimento := DateToStr(DMServ.TOrd.FieldByName('DTABERT').AsDateTime +
+      xPrimParcela);
 
     if (xPrimParcela = 0) then
-      xObsParcela := 'R$ ' + FormatFloat('#,##0.00', xVlrParcela) + ' Entrada' + #13
+      xObsParcela := 'R$ ' + FormatFloat('#,##0.00', xVlrParcela) + ' Entrada' +
+        #13
     else
-      xObsParcela := 'R$ ' + FormatFloat('#,##0.00', xVlrParcela) + ' ' + xVencimento + #13;
+      xObsParcela := 'R$ ' + FormatFloat('#,##0.00', xVlrParcela) + ' ' +
+        xVencimento + #13;
 
     for I := 2 to xQtdeParcela do
     begin
       xVencimento := DateToStr(StrToDate(xVencimento) + xIntervalo);
 
-      xObsParcela := (xObsParcela + 'R$ ' + FormatFloat('#,##0.00', xVlrParcela) + ' ' + xVencimento) + #13;
+      xObsParcela := (xObsParcela + 'R$ ' + FormatFloat('#,##0.00', xVlrParcela)
+        + ' ' + xVencimento) + #13;
     end;
 
     qrObservacaoFinanc.Lines.Add(xObsParcela);
@@ -19846,7 +23030,8 @@ begin
   inherited;
 
   //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
-  if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+  if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+    FMenu.LCODEMPRESA.Caption, '') = False then
     Exit;
 
   DMServ.TAlx3.Close;
@@ -19855,7 +23040,8 @@ begin
   DMServ.TAlx3.SQL.Add(' LEFT JOIN CIDADE ON CIDADE.COD_CIDADE = EMPRESA.COD_CIDADE ');
   DMServ.TAlx3.SQL.Add(' LEFT JOIN ESTADO ON ESTADO.COD_ESTADO = CIDADE.COD_ESTADO ');
   DMServ.TAlx3.SQL.Add(' WHERE EMPRESA.COD_EMPRESA = :EMPRESA ');
-  DMServ.TAlx3.ParamByName('EMPRESA').AsInteger := DMMACS.TEmpresa.FieldByName('COD_EMPRESA').AsInteger;
+  DMServ.TAlx3.ParamByName('EMPRESA').AsInteger :=
+    DMMACS.TEmpresa.FieldByName('COD_EMPRESA').AsInteger;
   DMServ.TAlx3.Open;
 
   //FILTRA DADOS PARA CABEÇALHO DA ORDEM
@@ -19868,50 +23054,62 @@ begin
   DMServ.Alx.SQL.Add(' left join pessoa on cliente.cod_pessoa = pessoa.cod_pessoa ');
   DMServ.Alx.SQL.Add(' left join pessoaj on pessoa.cod_pessoa = pessoaj.cod_pessoa ');
   DMServ.Alx.SQL.Add(' left join vwcidade on pessoa.cod_cidade = vwcidade.cod_cidade where ordem.cod_ordem=:codigo ');
-  DMServ.Alx.ParamByName('codigo').AsInteger := DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsInteger;
+  DMServ.Alx.ParamByName('codigo').AsInteger :=
+    DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsInteger;
   DMServ.Alx.Open;
   //FILTRA CLIENTE PARA ENCONTRAR PESSOA
-  if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE', DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = False then
+  if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+    DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = False then
   begin
     MessageDlg('Verifique o cliente para a ordem', mtWarning, [mbOK], 0);
     Exit;
   end;
 
   //FILTRA PESSOA PARA IMPRESSÃO DE CLIENTE
-  if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA', DMPESSOA.TCliente.FieldByNAme('COD_PESSOA').AsString, '') = False then
+  if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+    DMPESSOA.TCliente.FieldByNAme('COD_PESSOA').AsString, '') = False then
   begin
     MessageDlg('Por favor, cadastre novamente o cliente', mtWarning, [mbOK], 0);
     Exit;
   end;
 
   //Edmar - 11/12/2014 - filtra os dados da pessoa fisica
-  FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByName('COD_PESSOA').AsString, '');
+  FiltraTabela(DMPESSOA.TPessoaF, 'PESSOAF', 'COD_PESSOA',
+    DMPESSOA.TPessoa.FieldByName('COD_PESSOA').AsString, '');
 
   //FILTRA PESSOA JURIDICA CASO EXISTA UMA PARA IMPRESSÃO DE CLIENTE
-  FiltraTabela(DMPESSOA.TPessoaj, 'PESSOAJ', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+  FiltraTabela(DMPESSOA.TPessoaj, 'PESSOAJ', 'COD_PESSOA',
+    DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
 
   //FILTRA CIDADE DO CLIENTE
-  FiltraTabela(DMGEOGRAFIA.TCidade, 'CIDADE', 'COD_CIDADE', DMPESSOA.TPessoa.FieldByNAme('COD_CIDADE').AsString, '');
+  FiltraTabela(DMGEOGRAFIA.TCidade, 'CIDADE', 'COD_CIDADE',
+    DMPESSOA.TPessoa.FieldByNAme('COD_CIDADE').AsString, '');
 
   //FILTRA ESTADO DO CLIENTE
-  FiltraTabela(DMGEOGRAFIA.TEstado, 'ESTADO', 'COD_ESTADO', DMGEOGRAFIA.TCidade.FieldByName('COD_ESTADO').AsString, '');
+  FiltraTabela(DMGEOGRAFIA.TEstado, 'ESTADO', 'COD_ESTADO',
+    DMGEOGRAFIA.TCidade.FieldByName('COD_ESTADO').AsString, '');
 
   //FILTRA TELEFONE PARA IMPRESSÃO DE CLIENTE
-  FiltraTabela(DMPESSOA.TALX, 'TELEFONE', 'COD_PESSOA', DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+  FiltraTabela(DMPESSOA.TALX, 'TELEFONE', 'COD_PESSOA',
+    DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
 
   //FILTRA ORDEM PARA IMPRESSÃO
-  if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM', DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
+  if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+    DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
     Exit;
 
   //FILTRA EQUIPAMENTO PARA IMPRESSÃO
   if DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString <> '' then
-    FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO', DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString, '');
+    FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+      DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString, '');
 
   //FILTRA FORMA DE PAGAMENTO
-  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG', DMSERV.TOrd.FieldByNAme('COD_FORMPAG').AsString, '');
+  FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+    DMSERV.TOrd.FieldByNAme('COD_FORMPAG').AsString, '');
 
   //FILTRA FUNCIONARIO RESPONSAVEL
-  FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC', IntToStr(DMSERV.WOrdem.FieldByNAme('COD_FUNCIONARIO').AsInteger), '');
+  FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC',
+    IntToStr(DMSERV.WOrdem.FieldByNAme('COD_FUNCIONARIO').AsInteger), '');
 
   XCOD_ORDEM := DMSERV.WOrdem.fieldbyname('COD_ORDEM').AsInteger;
 
@@ -19919,7 +23117,8 @@ begin
   FiltraSlave;
   RetornaValoresBanco;
   // se a atividade for EQUIPE, eh selecionado as despesas
-  if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') and (DMMACS.TLoja.FieldByName('MODELOORDEM').AsString = '6') then
+  if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') and
+    (DMMACS.TLoja.FieldByName('MODELOORDEM').AsString = '6') then
   begin
     DMESTOQUE.Alx4.Close;
     DMESTOQUE.Alx4.SQL.Clear;
@@ -19931,10 +23130,15 @@ begin
   end;
 
   //Edmar - 11/12/2014 - Formata o endereço da Empresa
-  XEnderecoEmpresa := DMServ.TAlx3.FieldByName('ENDERECO').AsString + ', ' + DMServ.TAlx3.FieldByName('NUMERO').AsString + ', ' + DMServ.TAlx3.FieldByName('BAIRRO').AsString + ', ' + DMServ.TAlx3.FieldByName('CIDADE').AsString + '/' + DMServ.TAlx3.FieldByName('UF_ESTADO').AsString;
+  XEnderecoEmpresa := DMServ.TAlx3.FieldByName('ENDERECO').AsString + ', ' +
+    DMServ.TAlx3.FieldByName('NUMERO').AsString + ', ' +
+    DMServ.TAlx3.FieldByName('BAIRRO').AsString + ', ' +
+    DMServ.TAlx3.FieldByName('CIDADE').AsString + '/' +
+    DMServ.TAlx3.FieldByName('UF_ESTADO').AsString;
 
   try
-    Data := DayOfWeek(Date()); //Volta um número inteiro que representa o dia da semana
+    Data := DayOfWeek(Date());
+    //Volta um número inteiro que representa o dia da semana
     DecodeDate(Date(), Year, Month, Day);
     case Month of
       1: Mes := 'Janeiro';
@@ -19956,16 +23160,42 @@ begin
   xTextoContratacao := '';
 
   //Edmar - 11/12/2014 - Monta o conteudo do texto complementar de contratação
-  xTextoContratacao := xTextoContratacao + 'Eu, ' + DMPESSOA.TPessoa.FieldByName('NOME').AsString + ', brasileiro, portador do RG ' + DMPESSOA.TPessoaF.FieldByName('RG').AsString + ' inscrito no CPF ' + DMPESSOA.TPessoa.FieldByName('CPFCNPJ').AsString + ', proprietário do veículo ';
-  xTextoContratacao := xTextoContratacao + DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString + ', placas ' + DMPESSOA.TEquip.FieldByName('PLACA').AsString + ', declaro para os devidos fins e a quem possa interessar, que no dia ' + DMServ.TOrd.FieldByName('DTABERT').AsString + ', deixei na ';
-  xTextoContratacao := xTextoContratacao + 'sede da empresa ' + DMMACS.TEmpresa.FieldByName('FANTASIA').AsString + ', pessoa jurídica de direito privado, inscrita no CNPJ ' + DMMACS.TEmpresa.FieldByName('CNPJ').AsString + ', com endereço na ';
-  xTextoContratacao := xTextoContratacao + XEnderecoEmpresa + ', os produtos conforme descritos na ordem de serviço acima.' + #13;
-  xTextoContratacao := xTextoContratacao + 'Estou ciente de que deverei retirar as rodas ou pneus acima descritos num prazo máximo de 60 (sessenta) dias.' + #13;
-  xTextoContratacao := xTextoContratacao + 'Também estou ciente e concordo que, se por qualquer motivo as rodas ou pneus não forem por mim retirados no prazo combinado, a ';
-  xTextoContratacao := xTextoContratacao + DMMACS.TEmpresa.FieldByName('FANTASIA').AsString + ' está autorizada a descartar os produtos sem que eu tenha qualquer direito a indenização.' + #13;
-  xTextoContratacao := xTextoContratacao + 'Caso o prazo de 60 (sessenta) dias para retirada dos produtos não seja respeitado e a ' + DMMACS.TEmpresa.FieldByName('FANTASIA').AsString + ' opte por manter os ';
-  xTextoContratacao := xTextoContratacao + 'produtos armazenados, fica acordado que pagarei pelo armazenamento dos produtos uma taxa de R$ 50,00 (cinquenta reais) mensais.' + #13 + #13;
-  xTextoContratacao := xTextoContratacao + DMServ.TAlx3.FieldByName('CIDADE').AsString + ', ' + IntToStr(Day) + ' de ' + Mes + ' de ' + IntToStr(Year);
+  xTextoContratacao := xTextoContratacao + 'Eu, ' +
+    DMPESSOA.TPessoa.FieldByName('NOME').AsString +
+      ', brasileiro, portador do RG '
+    + DMPESSOA.TPessoaF.FieldByName('RG').AsString + ' inscrito no CPF ' +
+    DMPESSOA.TPessoa.FieldByName('CPFCNPJ').AsString +
+    ', proprietário do veículo ';
+  xTextoContratacao := xTextoContratacao +
+    DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString + ', placas ' +
+    DMPESSOA.TEquip.FieldByName('PLACA').AsString +
+    ', declaro para os devidos fins e a quem possa interessar, que no dia ' +
+    DMServ.TOrd.FieldByName('DTABERT').AsString + ', deixei na ';
+  xTextoContratacao := xTextoContratacao + 'sede da empresa ' +
+    DMMACS.TEmpresa.FieldByName('FANTASIA').AsString +
+    ', pessoa jurídica de direito privado, inscrita no CNPJ ' +
+    DMMACS.TEmpresa.FieldByName('CNPJ').AsString + ', com endereço na ';
+  xTextoContratacao := xTextoContratacao + XEnderecoEmpresa +
+    ', os produtos conforme descritos na ordem de serviço acima.' + #13;
+  xTextoContratacao := xTextoContratacao +
+    'Estou ciente de que deverei retirar as rodas ou pneus acima descritos num prazo máximo de 60 (sessenta) dias.' +
+    #13;
+  xTextoContratacao := xTextoContratacao +
+    'Também estou ciente e concordo que, se por qualquer motivo as rodas ou pneus não forem por mim retirados no prazo combinado, a ';
+  xTextoContratacao := xTextoContratacao +
+    DMMACS.TEmpresa.FieldByName('FANTASIA').AsString +
+    ' está autorizada a descartar os produtos sem que eu tenha qualquer direito a indenização.' +
+    #13;
+  xTextoContratacao := xTextoContratacao +
+    'Caso o prazo de 60 (sessenta) dias para retirada dos produtos não seja respeitado e a ' +
+    DMMACS.TEmpresa.FieldByName('FANTASIA').AsString + ' opte por manter os ';
+  xTextoContratacao := xTextoContratacao +
+    'produtos armazenados, fica acordado que pagarei pelo armazenamento dos produtos uma taxa de R$ 50,00 (cinquenta reais) mensais.' + #13
+    + #13;
+  xTextoContratacao := xTextoContratacao +
+    DMServ.TAlx3.FieldByName('CIDADE').AsString + ', ' + IntToStr(Day) + ' de '
+      +
+    Mes + ' de ' + IntToStr(Year);
 
   //a situação financeira será gerado na tabela tmp para ser impressa
   DMMACS.TMP.Close;
@@ -19986,13 +23216,17 @@ begin
     DMMACS.TMP.FieldByName('DESC1').AsString := 'À Vista';
     if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger <> 10 then
     begin
-      DMMACS.TMP.FieldByName('DESC2').AsString := DMServ.TOrd.FieldByName('TIPOPAG').AsString;
-      DMMACS.TMP.FieldByName('VLR1').AsCurrency := DMServ.TOrd.FieldByName('totord').AsCurrency;
+      DMMACS.TMP.FieldByName('DESC2').AsString :=
+        DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+      DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+        DMServ.TOrd.FieldByName('totord').AsCurrency;
     end
     else
     begin
-      DMMACS.TMP.FieldByName('OBS').AsString := DMServ.TOrd.FieldByName('TIPOPAG').AsString;
-      DMMACS.TMP.FieldByName('DESC3').AsString := FormatFloat('#,###0.00', DMServ.TOrd.FieldByName('totord').AsCurrency);
+      DMMACS.TMP.FieldByName('OBS').AsString :=
+        DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+      DMMACS.TMP.FieldByName('DESC3').AsString := FormatFloat('#,###0.00',
+        DMServ.TOrd.FieldByName('totord').AsCurrency);
     end;
     DMMACS.TMP.FieldByName('OBS').AsString := xTextoContratacao;
     DMMACS.TMP.Post;
@@ -20004,7 +23238,8 @@ begin
     DMMacs.TALX.Close;
     DMMacs.TALX.sql.Clear;
     DMMacs.TALX.SQL.Add('SELECT parcelacr.dtvenc, parcelacr.cobranca, parcelacr.valor FROM parcelacr left join ctareceber on ctareceber.cod_ctareceber = parcelacr.cod_ctareceber ');
-    DMMacs.TALX.SQL.Add(' Where (ctareceber.tipogerador=' + #39 + 'ORD' + #39 + ') And (ctareceber.cod_gerador=:CODGERADOR) ');
+    DMMacs.TALX.SQL.Add(' Where (ctareceber.tipogerador=' + #39 + 'ORD' + #39 +
+      ') And (ctareceber.cod_gerador=:CODGERADOR) ');
     DMMacs.TALX.ParamByName('CODGERADOR').AsInteger := XCOD_ORDEM;
     DMMacs.TALX.Open;
 
@@ -20022,9 +23257,12 @@ begin
       begin
         DMMACS.TMP.Insert;
         DMMACS.TMP.FieldByName('COD_TMP').AsInteger := Cod_Tmp;
-        DMMACS.TMP.FieldByName('DESC1').AsString := DMMacs.TALX.FieldByName('dtvenc').AsString;
-        DMMACS.TMP.FieldByName('DESC2').AsString := DMMacs.TALX.FieldByName('cobranca').AsString;
-        DMMACS.TMP.FieldByName('VLR1').AsCurrency := DMMacs.TALX.FieldByName('valor').AsCurrency;
+        DMMACS.TMP.FieldByName('DESC1').AsString :=
+          DMMacs.TALX.FieldByName('dtvenc').AsString;
+        DMMACS.TMP.FieldByName('DESC2').AsString :=
+          DMMacs.TALX.FieldByName('cobranca').AsString;
+        DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+          DMMacs.TALX.FieldByName('valor').AsCurrency;
         DMMACS.TMP.FieldByName('OBS').AsString := xTextoContratacao;
         DMMACS.TMP.Post;
         Cod_Tmp := Cod_Tmp + 1;
@@ -20061,12 +23299,14 @@ begin
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TFOrdemMec.EDCodBarraKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.EDCodBarraKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if Key = VK_RETURN then
   begin
-    if FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'UPPER(CONTRINT)', UpperCase(EDCodBarra.Text), '') then
+    if FiltraTabela(DMESTOQUE.WSimilar, 'VWSIMILAR', 'UPPER(CONTRINT)',
+      UpperCase(EDCodBarra.Text), '') then
       EscreveLabelsPROD
     else
     begin
@@ -20093,7 +23333,9 @@ end;
 
 procedure TFOrdemMec.CancelarDevoluo1Click(Sender: TObject);
 begin
-  if Mensagem(' I N F O R M A Ç Ã O ', 'Ao cancelar a devolução da ordem, o sistema irá apenas retornar os itens para que possam ser devolvidos novamente. Deseja continuar?', '', 2, 3, False, 'c') = 2 then
+  if Mensagem(' I N F O R M A Ç Ã O ',
+    'Ao cancelar a devolução da ordem, o sistema irá apenas retornar os itens para que possam ser devolvidos novamente. Deseja continuar?',
+    '', 2, 3, False, 'c') = 2 then
   begin
     //Edmar - 14/04/2015 - Efetua o cancelamento da ordem extornando o financeiro e retornando o estoque se preciso
     CancFechaClick(Sender);
@@ -20104,34 +23346,42 @@ begin
       MDO.QAlx1.Close;
       MDO.QAlx1.SQL.Clear;
       MDO.QAlx1.SQL.Add(' UPDATE ITPRODORD SET ITPRODORD.IT_DEV = '''' WHERE ITPRODORD.COD_ORDEM = :COD_ORDEM ');
-      MDO.QAlx1.ParamByName('COD_ORDEM').AsInteger := DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger;
+      MDO.QAlx1.ParamByName('COD_ORDEM').AsInteger :=
+        DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger;
       MDO.QAlx1.ExecSQL;
 
       MDO.QAlx2.Close;
       MDO.QAlx2.SQL.Clear;
       MDO.QAlx2.SQL.Add(' UPDATE ORDEM SET ORDEM.NUMFISCAL_DEVOLVIDA = '''' WHERE ORDEM.COD_ORDEM = :ORDEM ');
-      MDO.QAlx2.ParamByName('ORDEM').AsInteger := DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger;
+      MDO.QAlx2.ParamByName('ORDEM').AsInteger :=
+        DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger;
       MDO.QAlx2.ExecSQL;
 
       MDO.Transac.CommitRetaining;
 
-      Mensagem(' I N F O R M A Ç Ã O ', 'Devolução cancelada com sucesso.', '', 1, 1, False, 'I');
+      Mensagem(' I N F O R M A Ç Ã O ', 'Devolução cancelada com sucesso.', '',
+        1, 1, False, 'I');
     except
       MDO.Transac.RollbackRetaining;
-      Mensagem(' I N F O R M A Ç Ã O ', 'Não foi possível cancelar a devolução. Contate o suporte.', '', 1, 1, False, 'I');
+      Mensagem(' I N F O R M A Ç Ã O ',
+        'Não foi possível cancelar a devolução. Contate o suporte.', '', 1, 1,
+        False, 'I');
     end;
   end;
 end;
 
-procedure TFOrdemMec.QRSubDetail14BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail14BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
   try
     DMESTOQUE.Alx.Close;
     DMESTOQUE.Alx.SQL.Clear;
     DMESTOQUE.Alx.SQL.Add(' select equipe.descricao from equipe where equipe.cod_equipe=:codigo ');
-    DMESTOQUE.Alx.ParamByName('codigo').AsInteger := DMESTOQUE.TDesp.FieldByName('cod_equipe').AsInteger;
+    DMESTOQUE.Alx.ParamByName('codigo').AsInteger :=
+      DMESTOQUE.TDesp.FieldByName('cod_equipe').AsInteger;
     DMESTOQUE.Alx.Open;
     if not DMESTOQUE.Alx.IsEmpty then
       QRLabel254.Caption := DMESTOQUE.Alx.FieldByName('DESCRICAO').AsString
@@ -20222,17 +23472,21 @@ begin
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TFOrdemMec.FrmVendedorEDCodigoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.FrmVendedorEDCodigoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   inherited;
   if Key = VK_return then
   begin
     //If FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_INTERNO', '', ' COD_INTERNO='+#39+FrmVendedor.EDCodigo.Text+#39)=True
-    if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_INTERNO', Trim(FrmVendedor.EDCodigo.Text), '') = True then
+    if FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_INTERNO',
+      Trim(FrmVendedor.EDCodigo.Text), '') = True then
     begin //CASO CONSEGUIU SELECIONAR CLIENTE
       XCOD_VENDEDOR := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
-      FrmVendedor.EdDescricao.Text := DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
-      FrmVendedor.EDCodigo.Text := DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
+      FrmVendedor.EdDescricao.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
+      FrmVendedor.EDCodigo.Text :=
+        DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
 
       // busca a comissão do funcionario
       DMPESSOA.TALX.Close;
@@ -20266,8 +23520,10 @@ begin
   if AbrirForm(TFFuncionario, FFuncionario, 1) = 'Selected' then
   begin
     XCOD_VENDEDOR := DMPESSOA.VWFuncionario.FieldByName('COD_FUNC').AsInteger;
-    FrmVendedor.EDCodigo.Text := DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
-    FrmVendedor.EdDescricao.Text := DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
+    FrmVendedor.EDCodigo.Text :=
+      DMPESSOA.VWFuncionario.FieldByName('COD_INTERNO').AsString;
+    FrmVendedor.EdDescricao.Text :=
+      DMPESSOA.VWFuncionario.FieldByName('NOME').AsString;
 
     // busca a comissão do funcionario
     DMPESSOA.TALX.Close;
@@ -20288,7 +23544,8 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.QrAbertOrdem21BeforePrint(Sender: TCustomQuickRep; var PrintReport: Boolean);
+procedure TFOrdemMec.QrAbertOrdem21BeforePrint(Sender: TCustomQuickRep; var
+  PrintReport: Boolean);
 begin
   inherited;
   xTotalProd := 0;
@@ -20297,18 +23554,23 @@ begin
   xTotalDescServ := 0;
 end;
 
-procedure TFOrdemMec.QRSubDetail21BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail21BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand55BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand55BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  QRSubTotalOrdem21.Caption := FormatFloat('####,##0.00', (xTotalServ + xTotalProd));
-  QrlTotalOrdem21.Caption := FormatFloat('####,##0.00', DMServ.TOrd.FieldByName('totord').AsCurrency);
-  QrlTotaldesconto21.Caption := FormatFloat('####,##0.00', (xTotalServ + xTotalProd) - DMServ.TOrd.FieldByName('totord').AsCurrency);
+  QRSubTotalOrdem21.Caption := FormatFloat('####,##0.00', (xTotalServ +
+    xTotalProd));
+  QrlTotalOrdem21.Caption := FormatFloat('####,##0.00',
+    DMServ.TOrd.FieldByName('totord').AsCurrency);
+  QrlTotaldesconto21.Caption := FormatFloat('####,##0.00', (xTotalServ +
+    xTotalProd) - DMServ.TOrd.FieldByName('totord').AsCurrency);
   QrObservacao.Lines.Text := DMServ.TOrd.FieldByName('obsordem').AsString;
 end;
 
@@ -20339,13 +23601,16 @@ begin
   MEVeiculo.Font.Color := clGray;
 end;
 
-procedure TFOrdemMec.MEVeiculoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFOrdemMec.MEVeiculoKeyDown(Sender: TObject; var Key: Word; Shift:
+  TShiftState);
 begin
   inherited;
   if (shift = [ssCtrl]) and (key = 70) {//CTRL+F} then
   begin
-    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div 2;
-    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div 2;
+    PInfoCliente.Top := (PConsulta.Height - PInfoCliente.PPrincipal.Height) div
+      2;
+    PInfoCliente.left := (PConsulta.Width - PInfoCliente.PPrincipal.Width) div
+      2;
     PInfoCliente.OnExit := LimpaInfoCliente;
     PInfoCliente.PesquisaPlaca(MEPLACA.Text);
     PInfoCliente.Visible := True;
@@ -20357,7 +23622,8 @@ begin
   if (shift = [ssCtrl]) then
     Exit;
 
-  if (MEPLACA.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY = 27) then
+  if (MEPLACA.SelLength > 0) and not (KEY = 8) and not (KEY = 13) and not (KEY =
+    27) then
   begin
     MEPLACA.Text := '';
   end;
@@ -20392,7 +23658,7 @@ begin
   inherited;
   IniciaPagamento('ORDEM', XView.FieldByName('COD_ORDEM').AsInteger);
 
-  if xResultadoPagamento = False then
+  if xResultadoPagamento = 'ERRO' then
     Exit;
 
   //Nota Fiscal
@@ -20402,16 +23668,23 @@ begin
     or (DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'NFe-NFCe')
     or ((DMCAIXA.TCaixa.FieldByName('TIPOCUPOM').AsString = 'ECF'))) then
   begin
-    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM', XView.FieldByName('COD_ORDEM').AsString, '') = True then
+    if FiltraTabela(DMServ.TOrd, 'ORDEM', 'COD_ORDEM',
+      XView.FieldByName('COD_ORDEM').AsString, '') = True then
     begin
       //Atualiza o Valor da NF
-      FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '');
+      FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA',
+        FMenu.LCODEMPRESA.Caption, '');
       FMenu.TIPOREL := 'NF';
-      if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2, 3, False, 'c') = 2 then
+      if Mensagem('C O N F I R M A Ç Ã O', 'A Impressora esta pronta?', '', 2,
+        3, False, 'c') = 2 then
       begin
-        FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM', IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
+        FiltraTabela(DMServ.WOrdem, 'VWORDEM', 'COD_ORDEM',
+          IntToStr(XView.FieldByName('COD_ORDEM').AsInteger), '');
         AbreFiscal;
-        Registra('ORDEM DE SERVIÇO', 'NF', XView.FieldByName('dtabert').AsString, 'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' + XView.FieldByName('total').AsString);
+        Registra('ORDEM DE SERVIÇO', 'NF',
+          XView.FieldByName('dtabert').AsString,
+          'Nº ' + XView.FieldByName('NUMERO').AsString, 'Valor: ' +
+          XView.FieldByName('total').AsString);
       end;
     end;
   end;
@@ -20425,75 +23698,92 @@ begin
   // verifica se o pedido está mesmo em contingencia
   if XView.FieldByName('FISCO').AsString = 'CONT' then
   begin
-    FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
-    FMzrNfe.SetRetransmissaoNFCe(XView.FieldByName('COD_ORDEM').AsInteger, 'ORDEM', XView.FieldByName('NUMFISCAL').AsInteger);
+    FMzrNfe := TFMzrNFe.Create(FMzrNfe);
+    //cria o formulario de transmissão da Nfe
+    FMzrNfe.SetRetransmissaoNFCe(XView.FieldByName('COD_ORDEM').AsInteger,
+      'ORDEM', XView.FieldByName('NUMFISCAL').AsInteger);
     FMzrNfe.ShowModal;
   end
   else
   begin
-    Mensagem('OPÇÃO BLOQUEADA', 'Apenas NFCe em contingência pode ser reimpresso.', '', 1, 1, False, 'a');
+    Mensagem('OPÇÃO BLOQUEADA',
+      'Apenas NFCe em contingência pode ser reimpresso.', '', 1, 1, False, 'a');
   end;
 end;
 
-procedure TFOrdemMec.QRBand60BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand60BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs22MeiaPagina.Lines.Clear;
   QrObs22MeiaPagina.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRSubDetail25BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail25BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRSubDetail26BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail26BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRBand63BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand63BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
-  QrlTotalOrdem22MeiaPagina.Caption := FormatFloat('####,##0.00', DMServ.TOrd.FieldByName('totord').AsCurrency);
-  QrlTotalDescon22MeiaPagina.Caption := FormatFloat('####,##0.00', DMServ.TOrd.FieldByName('desconto').AsCurrency);
+  QrlTotalOrdem22MeiaPagina.Caption := FormatFloat('####,##0.00',
+    DMServ.TOrd.FieldByName('totord').AsCurrency);
+  QrlTotalDescon22MeiaPagina.Caption := FormatFloat('####,##0.00',
+    DMServ.TOrd.FieldByName('desconto').AsCurrency);
   QrObs22MeiaPagina.Lines.Text := DMServ.TOrd.FieldByName('obsordem').AsString;
 end;
 
-procedure TFOrdemMec.QRBand43BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand43BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrObs15MeiaPagina.Lines.Clear;
   QrObs15MeiaPagina.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRBand56BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRBand56BeforePrint(Sender: TQRCustomBand; var PrintBand:
+  Boolean);
 begin
   inherited;
   QrlObs22.Lines.Clear;
   QrlObs22.Lines.Add(DMServ.TOrd.FieldByName('OBSORDEM').AsString);
 end;
 
-procedure TFOrdemMec.QRSubDetail23BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail23BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
   xTotalProd := xTotalProd + DMESTOQUE.TSlave.fieldByName('TOTAL').AsCurrency;
 end;
 
-procedure TFOrdemMec.QRSubDetail24BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+procedure TFOrdemMec.QRSubDetail24BeforePrint(Sender: TQRCustomBand; var
+  PrintBand: Boolean);
 begin
   inherited;
-  xTotalServ := xTotalServ + DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
+  xTotalServ := xTotalServ +
+    DMESTOQUE.TDesp.fieldByName('VLRTOTFIN').AsCurrency;
 end;
 
 procedure TFOrdemMec.QRBand59BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
   inherited;
-  QrlTotalOrdem22.Caption := FormatFloat('####,##0.00', DMServ.TOrd.FieldByName('totord').AsCurrency);
-  QrlTotalDesconto22.Caption := FormatFloat('####,##0.00', DMServ.TOrd.FieldByName('desconto').AsCurrency);
+  QrlTotalOrdem22.Caption := FormatFloat('####,##0.00',
+    DMServ.TOrd.FieldByName('totord').AsCurrency);
+  QrlTotalDesconto22.Caption := FormatFloat('####,##0.00',
+    DMServ.TOrd.FieldByName('desconto').AsCurrency);
   QrlObs22.Lines.Text := DMServ.TOrd.FieldByName('obsordem').AsString;
 end;
 
@@ -20512,7 +23802,10 @@ begin
   DMServ.TAlx2.SQL.Add(' Select vwfuncionario.cod_func, vwfuncionario.nome, vwfuncionario.ativo from vwfuncionario ');
   DMServ.TAlx2.SQL.Add(' left join funcargo on vwfuncionario.cod_func = funcargo.cod_funcionario ');
   DMServ.TAlx2.SQL.Add(' left join cargo on funcargo.cod_cargo = cargo.cod_cargo ');
-  DMServ.TAlx2.SQL.Add(' Where (upper(cargo.descricao) Like ' + #39 + 'VENDEDOR%' + #39') and ((vwfuncionario.ativo is null) or (vwfuncionario.ativo <> ' + #39 + '1' + #39 + '))');
+  DMServ.TAlx2.SQL.Add(' Where (upper(cargo.descricao) Like ' + #39 + 'VENDEDOR%'
+    + #39') and ((vwfuncionario.ativo is null) or (vwfuncionario.ativo <> ' + #39
+      +
+    '1' + #39 + '))');
   DMServ.TAlx2.Open;
   if not DMServ.TAlx2.IsEmpty then
   begin
@@ -20544,12 +23837,14 @@ begin
       DBGMultiploVendedor.SetFocus;
       Exit;
     end;
-    InsereMultiploVendedor(DMServ.TAlx2.FieldByName('COD_FUNC').AsInteger, xTipoComissaoVendedor);
+    InsereMultiploVendedor(DMServ.TAlx2.FieldByName('COD_FUNC').AsInteger,
+      xTipoComissaoVendedor);
   except
   end;
 end;
 
-procedure TFOrdemMec.DBGMultiploVendedorKeyPress(Sender: TObject; var Key: Char);
+procedure TFOrdemMec.DBGMultiploVendedorKeyPress(Sender: TObject; var Key:
+  Char);
 begin
   inherited;
   if Key = #13 then
@@ -20564,7 +23859,8 @@ begin
   end;
 end;
 
-procedure TFOrdemMec.btnAdicionaMultiploVendedorKeyPress(Sender: TObject; var Key: Char);
+procedure TFOrdemMec.btnAdicionaMultiploVendedorKeyPress(Sender: TObject; var
+  Key: Char);
 begin
   inherited;
   if Key = #27 then
@@ -20617,7 +23913,8 @@ begin
     DMESTOQUE.TRel.SQL.Add(' left join vwfuncionario on comprod.cod_funcionario = vwfuncionario.cod_func ');
     DMESTOQUE.TRel.SQL.Add(' where (comprod.tipo = ''COMOSSERV'') and (vwordem.cod_ordem = :cod_ordem) ');
     DMESTOQUE.TRel.ParamByName('cod_ordem').AsInteger := XCOD_ORDEM;
-    DMESTOQUE.TRel.ParamByName('descserv').AsCurrency := EdDescTServ.ValueNumeric;
+    DMESTOQUE.TRel.ParamByName('descserv').AsCurrency :=
+      EdDescTServ.ValueNumeric;
     DMESTOQUE.TRel.Open;
 
     DMMACS.TLoja.Edit;
@@ -20628,7 +23925,8 @@ begin
     // se o relatorio retornou vazio
     if DMESTOQUE.TRel.IsEmpty then
     begin
-      Mensagem('   A T E N Ç Ã O   ', 'O relatório retornou vazio.', '', 1, 1, false, 'I');
+      Mensagem('   A T E N Ç Ã O   ', 'O relatório retornou vazio.', '', 1, 1,
+        false, 'I');
       Exit;
     end;
 
@@ -20657,7 +23955,8 @@ begin
     DMESTOQUE.TRel.SQL.Add(' left join vwfuncionario on comprod.cod_funcionario = vwfuncionario.cod_func ');
     DMESTOQUE.TRel.SQL.Add(' WHERE (comprod.tipo = ''COMOS'') and (vwordem.cod_ordem = :cod_ordem) ');
     DMESTOQUE.TRel.ParamByName('cod_ordem').AsInteger := XCOD_ORDEM;
-    DMESTOQUE.TRel.ParamByName('descprod').AsCurrency := EdDescTProd.ValueNumeric;
+    DMESTOQUE.TRel.ParamByName('descprod').AsCurrency :=
+      EdDescTProd.ValueNumeric;
     DMESTOQUE.TRel.Open;
 
     DMMACS.TLoja.Edit;
@@ -20668,7 +23967,8 @@ begin
     // se o relatorio retornou vazio
     if DMESTOQUE.TRel.IsEmpty then
     begin
-      Mensagem('   A T E N Ç Ã O   ', 'O relatório retornou vazio.', '', 1, 1, false, 'I');
+      Mensagem('   A T E N Ç Ã O   ', 'O relatório retornou vazio.', '', 1, 1,
+        false, 'I');
       Exit;
     end;
 
@@ -20682,7 +23982,8 @@ end;
 procedure TFOrdemMec.ActSearchPlacaUpdate(Sender: TObject);
 begin
   inherited;
-  ActSearchPlaca.Enabled := ((XCOD_CLIENTE >= 0) and (XCOD_EQUIPAMENTO < 0) and (Length(Trim(FBEquipPlaca.EDCodigo.Text)) > 0));
+  ActSearchPlaca.Enabled := ((XCOD_CLIENTE >= 0) and (XCOD_EQUIPAMENTO < 0) and
+    (Length(Trim(FBEquipPlaca.EDCodigo.Text)) > 0));
 end;
 
 procedure TFOrdemMec.ActSearchPlacaExecute(Sender: TObject);
@@ -20692,11 +23993,13 @@ begin
   inherited;
   cds := GetPlacaInfo(Trim(FBEquipPlaca.EDCodigo.Text));
   try
-    DMPESSOA.InsertNewEquipamento(MDO.InsertNewEquipamento, DMPESSOA.WCliente.FieldByNAme('COD_CLIENTE').Value,
-      cds.FieldByNAme('MARCAMODELO').Value, cds.FieldByNAme('MARCA').Value, cds.FieldByNAme('MODELO').Value,
-      cds.FieldByNAme('ANO').Value, cds.FieldByNAme('COR').Value, cds.FieldByNAme('CHASSI').Value,
+    DMPESSOA.InsertNewEquipamento(MDO.InsertNewEquipamento, XCOD_CLIENTE,
+      cds.FieldByNAme('MARCAMODELO').Value, cds.FieldByNAme('MARCA').Value,
+      cds.FieldByNAme('MODELO').Value,
+      cds.FieldByNAme('ANO').Value, cds.FieldByNAme('COR').Value,
+      cds.FieldByNAme('CHASSI').Value,
       Trim(FBEquipPlaca.EDCodigo.Text), Null, Null, 1, Null
-    );
+      );
 
     if FBEquipPlaca.EDCodigo.Text <> '' then
       PesquisaCodigoEquipamento(FBEquipPlaca.EDCodigo.Text, true);
@@ -20705,4 +24008,266 @@ begin
   end;
 end;
 
+procedure TFOrdemMec.BtnProcuraPlacaClick(Sender: TObject);
+var
+  cds: TClientDataSet;
+begin
+  inherited;
+  cds := GetPlacaInfo(Trim(FBEquipPlaca.EDCodigo.Text));
+  try
+    if FBEquipPlaca.EDCodigo.Text <> '' then
+      PesquisaCodigoEquipamento(FBEquipPlaca.EDCodigo.Text, true);
+
+    if XCOD_CLIENTE > 0 then
+    begin
+      if XCOD_EQUIPAMENTO <= 0 then
+      begin
+        if MessageDlg('Cadastrar o veículo ' + FBEquipPlaca.EDCodigo.Text + '/'
+          + cds.FieldByNAme('MARCAMODELO').Value + '  para a pessoa ' +
+          FrmCliente.EdDescricao.Text + ' ?', mtConfirmation, [mbYes, mbNo], 0) =
+          mrYes then
+        begin
+          DMPESSOA.InsertNewEquipamento(MDO.InsertNewEquipamento, XCOD_CLIENTE,
+            cds.FieldByNAme('MARCAMODELO').Value, cds.FieldByNAme('MARCA').Value,
+            cds.FieldByNAme('MODELO').Value, cds.FieldByNAme('ANO').Value,
+              cds.FieldByNAme('COR').Value, cds.FieldByNAme('CHASSI').Value,
+              Trim(FBEquipPlaca.EDCodigo.Text), Null, Null, 1, Null);
+
+          if FBEquipPlaca.EDCodigo.Text <> '' then
+          begin
+            PesquisaCodigoEquipamento(FBEquipPlaca.EDCodigo.Text, true);
+            XCOD_EQUIPAMENTO :=
+              DMPESSOA.TEquip.FieldByName('COD_EQUIPAMENTO').AsInteger;
+          end;
+        end;
+      end;
+    end
+    else
+    begin
+      MessageDlg('Selecione o clienta para poder cadastrar o veículo',
+        mtInformation, [mbOK], 0);
+      FrmCliente.BTNOPEN.SetFocus;
+    end;
+  finally
+    cds.Free;
+  end;
+end;
+
+procedure TFOrdemMec.C1Click(Sender: TObject);
+var
+  ContParc, Cod_Tmp: Integer;
+  Xdesc1, Xdesc2, Xdesc3: string;
+begin
+   inherited;
+   FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
+   PmRelatorio.Tag := 0;
+   //EFETUA CONTROLE DE ACESSO
+   if ControlAccess('RELABERTORD', 'M') = False then
+       Exit;
+
+   //FILTRA EMPRESA PARA IMPRIMIR CABEÇALHO
+   if FiltraTabela(DMMACS.TEmpresa, 'EMPRESA', 'COD_EMPRESA', FMenu.LCODEMPRESA.Caption, '') = False then
+       Exit;
+
+    //FILTRA DADOS PARA CABEÇALHO DA ORDEM
+    DMServ.Alx.Close;
+    DMServ.Alx.SQL.Clear;
+    DMServ.Alx.SQL.Add(' Select ordem.cod_ordem, pessoa.nome, pessoaj.razao_social, pessoa.cpfcnpj, vwcidade.nome as cidade, ');
+    DMServ.Alx.SQL.Add(' vwcidade.uf AS UF_ESTADO, pessoa.CEP, pessoa.bairro, pessoa.telrel, pessoa.endereco, pessoa.endnumero, vwfuncionario.nome as vendedor ');
+    DMServ.Alx.SQL.Add(' from ordem ');
+    DMServ.Alx.SQL.Add(' Left Join cliente on ordem.cod_cliente = cliente.cod_cliente ');
+    DMServ.Alx.SQL.Add(' left join pessoa on cliente.cod_pessoa = pessoa.cod_pessoa ');
+    DMServ.Alx.SQL.Add(' left join pessoaj on pessoa.cod_pessoa = pessoaj.cod_pessoa ');
+    DMServ.Alx.SQL.Add(' left join vwcidade on pessoa.cod_cidade = vwcidade.cod_cidade  ');
+    DMServ.Alx.SQL.Add(' left join vwfuncionario on ordem.cod_vendedor = vwfuncionario.cod_func where ordem.cod_ordem=:codigo');
+    DMServ.Alx.ParamByName('codigo').AsInteger :=
+      DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsInteger;
+    DMServ.Alx.Open;
+    //FILTRA CLIENTE PARA ENCONTRAR PESSOA
+    if FiltraTabela(DMPESSOA.TCliente, 'CLIENTE', 'COD_CLIENTE',
+      DMSERV.WOrdem.FieldByNAme('COD_CLIENTE').AsString, '') = False then
+    begin
+      MessageDlg('Verifique o cliente para a ordem', mtWarning, [mbOK], 0);
+      Exit;
+    end;
+
+    //FILTRA PESSOA PARA IMPRESSÃO DE CLIENTE
+    if FiltraTabela(DMPESSOA.TPessoa, 'PESSOA', 'COD_PESSOA',
+      DMPESSOA.TCliente.FieldByNAme('COD_PESSOA').AsString, '') = False then
+    begin
+      MessageDlg('Por favor, cadastre novamente o cliente', mtWarning, [mbOK],
+        0);
+      Exit;
+    end;
+    //FILTRA PESSOA JURIDICA CASO EXISTA UMA PARA IMPRESSÃO DE CLIENTE
+    FiltraTabela(DMPESSOA.TPessoaj, 'PESSOAJ', 'COD_PESSOA',
+      DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+
+    //FILTRA CIDADE DO CLIENTE
+    FiltraTabela(DMGEOGRAFIA.TCidade, 'CIDADE', 'COD_CIDADE',
+      DMPESSOA.TPessoa.FieldByNAme('COD_CIDADE').AsString, '');
+
+    //FILTRA ESTADO DO CLIENTE
+    FiltraTabela(DMGEOGRAFIA.TEstado, 'ESTADO', 'COD_ESTADO',
+      DMGEOGRAFIA.TCidade.FieldByName('COD_ESTADO').AsString, '');
+
+    //FILTRA TELEFONE PARA IMPRESSÃO DE CLIENTE
+    FiltraTabela(DMPESSOA.TALX, 'TELEFONE', 'COD_PESSOA',
+      DMPESSOA.TPessoa.FieldByNAme('COD_PESSOA').AsString, '');
+
+    //FILTRA ORDEM PARA IMPRESSÃO
+    if FiltraTabela(DMSERV.TOrd, 'ORDEM', 'COD_ORDEM',
+      DMSERV.WOrdem.FieldByNAme('COD_ORDEM').AsString, '') = False then
+      Exit;
+
+    //FILTRA EQUIPAMENTO PARA IMPRESSÃO
+    if DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString <> '' then
+      FiltraTabela(DMPESSOA.TEquip, 'EQUIPAMENTO', 'COD_EQUIPAMENTO',
+        DMSERV.WOrdem.FieldByNAme('COD_EQUIPAMENTO').AsString, '');
+
+    //FILTRA FORMA DE PAGAMENTO
+    FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'COD_FORMPAG',
+      DMSERV.TOrd.FieldByNAme('COD_FORMPAG').AsString, '');
+
+    //FILTRA FUNCIONARIO RESPONSAVEL
+    FiltraTabela(DMPESSOA.VWFuncionario, 'VWFUNCIONARIO', 'COD_FUNC',
+      IntToStr(DMSERV.WOrdem.FieldByNAme('COD_FUNCIONARIO').AsInteger), '');
+
+    XCOD_ORDEM := DMSERV.WOrdem.fieldbyname('COD_ORDEM').AsInteger;
+
+    //FILTRA PRODUTOS, SERVIÇOS E DESPESAS
+    FiltraSlave;
+    RetornaValoresBanco;
+    // se a atividade for EQUIPE, eh selecionado as despesas
+    if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') and
+      (DMMACS.TLoja.FieldByName('MODELOORDEM').AsString = '6') then
+    begin
+      DMESTOQUE.Alx4.Close;
+      DMESTOQUE.Alx4.SQL.Clear;
+      DMESTOQUE.Alx4.SQL.Add('select despadic.cod_gerador, despadic.despesa, equipe.cod_equipe, equipe.descricao from despadic');
+      DMESTOQUE.Alx4.SQL.Add('left join equipe on despadic.cod_equipe = equipe.cod_equipe');
+      DMESTOQUE.Alx4.SQL.Add('where despadic.cod_gerador = :codigo');
+      DMESTOQUE.Alx4.ParamByName('codigo').AsInteger := XCOD_ORDEM;
+      DMESTOQUE.Alx4.Open;
+    end;
+
+    //a situação financeira será gerado na tabela tmp para ser impressa
+    DMMACS.TMP.Close;
+    DMMACS.TMP.SQL.Clear;
+    DMMACS.TMP.SQL.Add(' delete from tmp ');
+    DMMACS.TMP.ExecSQL;
+    DMMACS.Transaction.CommitRetaining;
+    DMMACS.TMP.Close;
+    DMMACS.TMP.SQL.Clear;
+    DMMACS.TMP.SQL.Add(' SELECT * FROM TMP ');
+    DMMACS.TMP.Open;
+
+    Cod_Tmp := 1;
+    if DMFINANC.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA' then
+    begin
+      DMMACS.TMP.Insert;
+      DMMACS.TMP.FieldByName('COD_TMP').AsInteger := Cod_Tmp;
+      DMMACS.TMP.FieldByName('DESC1').AsString := 'À Vista';
+      if DMMACS.TLoja.FieldByName('MODELOORDEM').AsInteger <> 10 then
+      begin
+        DMMACS.TMP.FieldByName('DESC2').AsString :=
+          DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+        DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+          DMServ.TOrd.FieldByName('totord').AsCurrency;
+      end
+      else
+      begin
+        DMMACS.TMP.FieldByName('OBS').AsString :=
+          DMServ.TOrd.FieldByName('TIPOPAG').AsString;
+        DMMACS.TMP.FieldByName('DESC3').AsString := FormatFloat('#,###0.00',
+          DMServ.TOrd.FieldByName('totord').AsCurrency);
+      end;
+      DMMACS.TMP.Post;
+      Cod_Tmp := Cod_Tmp + 1;
+    end
+    else
+    begin
+      //insere sql necessária para filtrar parcelas da conta
+      DMMacs.TALX.Close;
+      DMMacs.TALX.sql.Clear;
+      DMMacs.TALX.SQL.Add('SELECT parcelacr.dtvenc, parcelacr.cobranca, parcelacr.valor FROM parcelacr left join ctareceber on ctareceber.cod_ctareceber = parcelacr.cod_ctareceber ');
+      DMMacs.TALX.SQL.Add(' Where (ctareceber.tipogerador=' + #39 + 'ORD' + #39
+        +
+        ') And (ctareceber.cod_gerador=:CODGERADOR) ');
+      DMMacs.TALX.ParamByName('CODGERADOR').AsInteger := XCOD_ORDEM;
+      DMMacs.TALX.Open;
+
+      //Assume parcelas em campo blob de loja para após ser passado em relatóri
+      Xdesc1 := '';
+      Xdesc2 := '';
+      Xdesc3 := '';
+
+      DMMACS.TALX.First;
+      ContParc := 0;
+      while not DMMACS.TALX.Eof do
+      begin
+        DMMACS.TMP.Insert;
+        DMMACS.TMP.FieldByName('COD_TMP').AsInteger := Cod_Tmp;
+        DMMACS.TMP.FieldByName('DESC1').AsString :=
+          DMMacs.TALX.FieldByName('dtvenc').AsString;
+        DMMACS.TMP.FieldByName('DESC2').AsString :=
+          DMMacs.TALX.FieldByName('cobranca').AsString;
+        DMMACS.TMP.FieldByName('VLR1').AsCurrency :=
+          DMMacs.TALX.FieldByName('valor').AsCurrency;
+        DMMACS.TMP.Post;
+        Cod_Tmp := Cod_Tmp + 1;
+        //  end;
+        DMMACS.TALX.Next;
+        ContParc := ContParc + 1;
+      end;
+
+    end;
+    DMMACS.Transaction.CommitRetaining;
+    DMMACS.TMP.Close;
+    DMMACS.TMP.SQL.Clear;
+    DMMACS.TMP.SQL.Add(' SELECT * FROM TMP ');
+    DMMACS.TMP.Open;
+
+    //Visualiza Comprovante
+    FSRel.LoadFromFile('C:\MZR\MACS\Rel\FrfAbertOrdem23Cupom.frf');
+    FSRel.ShowReport;
+end;
+
 end.
+
+
+    if (xCampo = 'NumeroOrdem')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (vwordem.Numero like ' + #39 + '%' + edFiltroNumeroOrdem.Text + '%' + #39 + ')');
+    end;
+
+    if (xCampo = 'NumeroNFe')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (vwordem.numfiscal like ' + #39 + '%' + edFiltroNumeroNfe.Text + '%' + #39 + ')');
+    end;
+
+    if (xCampo = 'NumeroNFSe')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (vwordem.numfiscalnfse like ' + #39 + '%' +
+        edFiltroNumeroNfse.Text + '%' + #39 + ')');
+    end;
+
+    if (xCampo = 'Placa')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (upper(vwordem.Placa) like ' + #39 + '%' +
+        UpperCase(edFiltroPlaca.Text) + '%' + #39 + ')');
+    end;
+    if (xCampo = 'Veiculo')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (upper(vwordem.equipamento) like ' + #39 + '%' +
+        UpperCase(edFiltroVeiculo.Text) + '%' + #39 + ')');
+    end;
+    if (xCampo = 'Cliente')
+    then begin
+      DMServ.WOrdem.SQL.Add(' And (upper(vwordem.Cliente) like ' + #39 + '%' +
+        UpperCase(edFiltroCliente.Text) + '%' + #39 + ')');
+    end;
+    DMServ.WOrdem.SQL.Add('  order by vwordem.cod_ordem desc ');
+    DMServ.WOrdem.SQL.Text;
+    DMServ.WOrdem.Open;
+

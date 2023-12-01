@@ -1,11 +1,11 @@
 object DMServ: TDMServ
   OldCreateOrder = False
-  Left = 466
-  Top = 65
-  Height = 465
-  Width = 1068
+  Left = 3
+  Top = 2
+  Height = 509
+  Width = 873
   object DbServ: TIBDatabase
-    DatabaseName = 'note:C:\MZR\MACS\DBMACS.GDB'
+    DatabaseName = 'NOTE:C:\MZR\MACS\DBMACS.GDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -17,7 +17,7 @@ object DMServ: TDMServ
     SQLDialect = 3
     TraceFlags = []
     Left = 16
-    Top = 8
+    Top = 12
   end
   object IBT: TIBTransaction
     Active = False
@@ -487,6 +487,10 @@ object DMServ: TDMServ
       FieldName = 'DTAGENDADO'
       Origin = 'ORDEM.DTAGENDADO'
     end
+    object TOrdFORMAFECHAMENTOOS: TIBStringField
+      FieldName = 'FORMAFECHAMENTOOS'
+      Origin = 'ORDEM.FORMAFECHAMENTOOS'
+    end
   end
   object UOrd: TIBUpdateSQL
     RefreshSQL.Strings = (
@@ -569,7 +573,8 @@ object DMServ: TDMServ
       '  NOMECLI,'
       '  CPFCNPJ,'
       '  GERANFSE,'
-      '  DTAGENDADO'
+      '  DTAGENDADO,'
+      '  FORMAFECHAMENTOOS'
       'from ORDEM '
       'where'
       '  COD_ORDEM = :COD_ORDEM')
@@ -654,73 +659,83 @@ object DMServ: TDMServ
       '  NOMECLI = :NOMECLI,'
       '  CPFCNPJ = :CPFCNPJ,'
       '  GERANFSE = :GERANFSE,'
-      '  DTAGENDADO = :DTAGENDADO'
+      '  DTAGENDADO = :DTAGENDADO,'
+      '  FORMAFECHAMENTOOS = :FORMAFECHAMENTOOS'
       'where'
       '  COD_ORDEM = :OLD_COD_ORDEM')
     InsertSQL.Strings = (
       'insert into ORDEM'
-      '  (COD_ORDEM, COD_CLIENTE, COD_EQUIPAMENTO, COD_VENDEDOR, '
-      'DTABERT, HRABERT, '
-      '   DTPREV, HRPREV, COD_FUNCIONARIO, OBSERVACAO, DTENTREGA, '
-      'HRENTREGA, NIVELCOMP, '
-      '   PROBREC, SOLUCAO, STATUS, NUMERO, DESCONTO, COD_USUARIO, '
-      'TOTPROD, TOTSERV, '
-      '   TOTORD, COD_LOJA, MOTIVOPARADA, COD_FORMPAG, LOCALAT, '
-      'COMISSAO, GARANTIA, '
-      '   TOTDESP, COMSOBVENDA, DTFECH, DESCPROD, DESCSERV, NUMORC, '
-      'MOUSE, TECLADO, '
-      '   KITMM, CABOS, IMPRESSORA, CDRECUPERA, MONITOR, FONES, '
-      'ESTADOEQUIP, MARK, '
+      
+        '  (COD_ORDEM, COD_CLIENTE, COD_EQUIPAMENTO, COD_VENDEDOR, DTABER' +
+        'T, HRABERT, '
+      
+        '   DTPREV, HRPREV, COD_FUNCIONARIO, OBSERVACAO, DTENTREGA, HRENT' +
+        'REGA, NIVELCOMP, '
+      
+        '   PROBREC, SOLUCAO, STATUS, NUMERO, DESCONTO, COD_USUARIO, TOTP' +
+        'ROD, TOTSERV, '
+      
+        '   TOTORD, COD_LOJA, MOTIVOPARADA, COD_FORMPAG, LOCALAT, COMISSA' +
+        'O, GARANTIA, '
+      
+        '   TOTDESP, COMSOBVENDA, DTFECH, DESCPROD, DESCSERV, NUMORC, MOU' +
+        'SE, TECLADO, '
+      
+        '   KITMM, CABOS, IMPRESSORA, CDRECUPERA, MONITOR, FONES, ESTADOE' +
+        'QUIP, MARK, '
       
         '   FISCO, NUMFISCAL, TIPOPAG, DOCUMENTOS, DESKTOP, EMAILS, OUTRO' +
-        'S, '
-      'DESCBACKUP, '
-      '   COD_TABELAPRECO, BOX, EXP, EXPORTADO, TOTKM, DESCKM, '
-      'TOTAJUDANTE, DESCAJUDANTE, '
-      '   CONTATO, EDIT, NUMFISCALAUX, TIPO, NUMFISCALINT, OBSORDEM, '
-      'VLRADIANTAMENTO, '
-      '   PLACA2, PLACA3, NUMFISCALNFSE, STATUSNFSE, RT_ISS, TOTISS, '
-      'NRCONTRATO, '
-      '   NUMFISCAL_DEVOLVIDA, NOMECLI, CPFCNPJ, GERANFSE, DTAGENDADO)'
+        'S, DESCBACKUP, '
+      
+        '   COD_TABELAPRECO, BOX, EXP, EXPORTADO, TOTKM, DESCKM, TOTAJUDA' +
+        'NTE, DESCAJUDANTE, '
+      
+        '   CONTATO, EDIT, NUMFISCALAUX, TIPO, NUMFISCALINT, OBSORDEM, VL' +
+        'RADIANTAMENTO, '
+      
+        '   PLACA2, PLACA3, NUMFISCALNFSE, STATUSNFSE, RT_ISS, TOTISS, NR' +
+        'CONTRATO, '
+      
+        '   NUMFISCAL_DEVOLVIDA, NOMECLI, CPFCNPJ, GERANFSE, DTAGENDADO, ' +
+        'FORMAFECHAMENTOOS)'
       'values'
-      '  (:COD_ORDEM, :COD_CLIENTE, :COD_EQUIPAMENTO, :COD_VENDEDOR, '
-      ':DTABERT, '
-      '   :HRABERT, :DTPREV, :HRPREV, :COD_FUNCIONARIO, :OBSERVACAO, '
-      ':DTENTREGA, '
+      
+        '  (:COD_ORDEM, :COD_CLIENTE, :COD_EQUIPAMENTO, :COD_VENDEDOR, :D' +
+        'TABERT, '
+      
+        '   :HRABERT, :DTPREV, :HRPREV, :COD_FUNCIONARIO, :OBSERVACAO, :D' +
+        'TENTREGA, '
       
         '   :HRENTREGA, :NIVELCOMP, :PROBREC, :SOLUCAO, :STATUS, :NUMERO,' +
-        ' '
-      ':DESCONTO, '
-      '   :COD_USUARIO, :TOTPROD, :TOTSERV, :TOTORD, :COD_LOJA, '
-      ':MOTIVOPARADA, '
-      '   :COD_FORMPAG, :LOCALAT, :COMISSAO, :GARANTIA, :TOTDESP, '
-      ':COMSOBVENDA, '
+        ' :DESCONTO, '
+      
+        '   :COD_USUARIO, :TOTPROD, :TOTSERV, :TOTORD, :COD_LOJA, :MOTIVO' +
+        'PARADA, '
+      
+        '   :COD_FORMPAG, :LOCALAT, :COMISSAO, :GARANTIA, :TOTDESP, :COMS' +
+        'OBVENDA, '
       
         '   :DTFECH, :DESCPROD, :DESCSERV, :NUMORC, :MOUSE, :TECLADO, :KI' +
-        'TMM, '
-      ':CABOS, '
+        'TMM, :CABOS, '
       
         '   :IMPRESSORA, :CDRECUPERA, :MONITOR, :FONES, :ESTADOEQUIP, :MA' +
-        'RK, '
-      ':FISCO, '
+        'RK, :FISCO, '
       
         '   :NUMFISCAL, :TIPOPAG, :DOCUMENTOS, :DESKTOP, :EMAILS, :OUTROS' +
-        ', '
-      ':DESCBACKUP, '
-      '   :COD_TABELAPRECO, :BOX, :EXP, :EXPORTADO, :TOTKM, :DESCKM, '
-      ':TOTAJUDANTE, '
+        ', :DESCBACKUP, '
+      
+        '   :COD_TABELAPRECO, :BOX, :EXP, :EXPORTADO, :TOTKM, :DESCKM, :T' +
+        'OTAJUDANTE, '
       
         '   :DESCAJUDANTE, :CONTATO, :EDIT, :NUMFISCALAUX, :TIPO, :NUMFIS' +
         'CALINT, '
       
         '   :OBSORDEM, :VLRADIANTAMENTO, :PLACA2, :PLACA3, :NUMFISCALNFSE' +
-        ', '
-      ':STATUSNFSE, '
+        ', :STATUSNFSE, '
       
         '   :RT_ISS, :TOTISS, :NRCONTRATO, :NUMFISCAL_DEVOLVIDA, :NOMECLI' +
-        ', '
-      ':CPFCNPJ, '
-      '   :GERANFSE, :DTAGENDADO)')
+        ', :CPFCNPJ, '
+      '   :GERANFSE, :DTAGENDADO, :FORMAFECHAMENTOOS)')
     DeleteSQL.Strings = (
       'delete from ORDEM'
       'where'
@@ -2180,9 +2195,15 @@ object DMServ: TDMServ
       Origin = 'VWORDEM.STATUS'
       Size = 15
     end
+    object WOrdemMONITOR: TIBStringField
+      FieldName = 'MONITOR'
+      Origin = 'VWORDEM.MONITOR'
+      Size = 10
+    end
     object WOrdemTOTAL: TIBBCDField
       FieldName = 'TOTAL'
       Origin = 'VWORDEM.TOTAL'
+      DisplayFormat = '#,###,##0.00'
       Precision = 18
       Size = 2
     end
@@ -2222,6 +2243,11 @@ object DMServ: TDMServ
       Origin = 'VWORDEM.FISCO'
       Size = 10
     end
+    object WOrdemNUMFISCAL: TIBStringField
+      FieldName = 'NUMFISCAL'
+      Origin = 'VWORDEM.NUMFISCAL'
+      Size = 10
+    end
     object WOrdemFORMAPAG: TIBStringField
       FieldName = 'FORMAPAG'
       Origin = 'VWORDEM.FORMAPAG'
@@ -2254,11 +2280,6 @@ object DMServ: TDMServ
       FixedChar = True
       Size = 1
     end
-    object WOrdemNUMFISCAL: TIBStringField
-      FieldName = 'NUMFISCAL'
-      Origin = 'VWORDEM.NUMFISCAL'
-      Size = 10
-    end
     object WOrdemSTATUSNFSE: TIBStringField
       FieldName = 'STATUSNFSE'
       Origin = 'VWORDEM.STATUSNFSE'
@@ -2281,6 +2302,20 @@ object DMServ: TDMServ
     object WOrdemDTAGENDADO: TDateField
       FieldName = 'DTAGENDADO'
       Origin = 'VWORDEM.DTAGENDADO'
+    end
+    object WOrdemTPROD: TIBBCDField
+      FieldName = 'TPROD'
+      Origin = 'VWORDEM.TPROD'
+      DisplayFormat = '#,###,##0.00'
+      Precision = 18
+      Size = 2
+    end
+    object WOrdemTSERV: TIBBCDField
+      FieldName = 'TSERV'
+      Origin = 'VWORDEM.TSERV'
+      DisplayFormat = '#,###,##0.00'
+      Precision = 18
+      Size = 2
     end
   end
   object DWOrdem: TDataSource
@@ -3185,8 +3220,8 @@ object DMServ: TDMServ
       'lc_ctype=ISO8859_1')
     SQLDialect = 3
     TraceFlags = []
-    Left = 552
-    Top = 216
+    Left = 548
+    Top = 240
   end
   object TMdo: TMDOTransaction
     Active = False

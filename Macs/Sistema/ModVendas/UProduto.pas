@@ -156,16 +156,12 @@ type
     TabSheet3: TTabSheet;
     Label24: TLabel;
     Label28: TLabel;
-    Label12: TLabel;
-    Label27: TLabel;
     Label30: TLabel;
     Label29: TLabel;
     Label13: TLabel;
     Label68: TLabel;
     DBColorEdit15: TDBColorEdit;
     DBColorEdit14: TDBColorEdit;
-    DBEstIni: TDBColorEdit;
-    DBESTFISICO: TDBColorEdit;
     DBColorEdit21: TDBColorEdit;
     DBColorEdit20: TDBColorEdit;
     DBDtCad: TDBColorEdit;
@@ -219,22 +215,6 @@ type
     DBCOMVISTAATAC: TDBColorEdit;
     CBComissao: TCheckBox;
     TabSheet6: TTabSheet;
-    Shape4: TShape;
-    Label100: TLabel;
-    LEstFisico: TLabel;
-    Label102: TLabel;
-    LEstCalc: TLabel;
-    PageControl2: TPageControl;
-    TabSheet7: TTabSheet;
-    DBGrid2: TDBGrid;
-    TabSheet8: TTabSheet;
-    DBGrid5: TDBGrid;
-    TabSheet9: TTabSheet;
-    DBGrid3: TDBGrid;
-    TabSheet10: TTabSheet;
-    DBGrid4: TDBGrid;
-    TabSheet11: TTabSheet;
-    DBGrid6: TDBGrid;
     TabSheet12: TTabSheet;
     Label103: TLabel;
     LTextoAuxProd: TLabel;
@@ -264,7 +244,6 @@ type
     Label137: TLabel;
     Estoqueemlote1: TMenuItem;
     MatriaPrima1: TMenuItem;
-    RvSystem1: TRvSystem;
     ProdutosFin: TMenuItem;
     TabSheet13: TTabSheet;
     DbGridContas: TDBGrid;
@@ -414,8 +393,6 @@ type
     Button3: TButton;
     DBColorEdit7: TDBColorEdit;
     Label58: TLabel;
-    TabSheet16: TTabSheet;
-    DbGCustoEstoqueEmpresa: TDBGrid;
     PageControl1: TPageControl;
     TabSheet17: TTabSheet;
     pCfopDentroEstado: TFrmBusca;
@@ -444,6 +421,18 @@ type
     DBColorEdit23: TDBColorEdit;
     DBColorEdit24: TDBColorEdit;
     Label85: TLabel;
+    DBGrid2: TDBGrid;
+    Label27: TLabel;
+    edFiltroHistoricoIni: TMaskEdit;
+    edFiltroHistoricoFim: TMaskEdit;
+    BitBtn16: TBitBtn;
+    RgFiltroTipoHistorico: TRadioGroup;
+    RvSystem1: TRvSystem;
+    cbRetemPisCofins: TCheckBox;
+    SpeedButton1: TSpeedButton;
+    edEstoqueFisico: TFloatEdit;
+    AjustarEstoque1: TMenuItem;
+    N4: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure EDSimilarEnter(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
@@ -674,10 +663,15 @@ type
     procedure Button3Click(Sender: TObject);
     procedure dbvalorunitarioExit(Sender: TObject);
     procedure DbGCustoEstoqueEmpresaExit(Sender: TObject);
+    procedure BitBtn16Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure btnEditaEstoqueClick(Sender: TObject);
+    procedure AjustarEstoque1Click(Sender: TObject);
 
   private
     { Private declarations }
 	 Procedure PrepInsert;//nesta procedure vai os comandos comuns para inserção de produto ou similar
+    function  InsereNovoSubrodutoEstoque: Boolean;
 	 Procedure SelectSim;//Seleciona similares de acordo com wProduto
 	 Procedure InfoCores;//Informa a combo de cores as cores configuradas na loja
     Procedure GeraHist;//Procedure utilizada para lançar sql para filtrara e calcular os historicos do produto corrente
@@ -743,6 +737,7 @@ type
 	 	 Procedure ReparoRegistroEstoque;
   	 //Angelo 01/06/2015 - Permite a cópia de um produto selecionado
 		 Procedure CadastrarProdutoSelecionado(UltimoInserido : Boolean);
+    Function RetornaProximoControleInterno: String;
     Function UltimoRegistroInserido(Tabela , Coluna : String):integer;
     Function InsereNovoSubProdCopiado(xCodSubProduto : Integer):Integer;
     Function InsereNovoEstoqueCopiado(xCodEstoque, xCodSubProd : Integer):Integer;
@@ -784,7 +779,8 @@ uses UMenu, UDMEstoque, UCadGrupo, UCadSubgrupo, AlxMessage, Alxor32,
   UCadProduto, UNcm, UDMCaixa, UDMConta, UConsPlncta, URelData, UMDO,
   Variants, UCadAcessorios, USenha, USolicitarCompra, UCadCFOP,
   UFichaTecnica, UDMFAST, URelHistVenda, UDMPessoa, UFORNECEDOR, StrUtils,
-  URelProdutosNcm, URelEtiqEstoque;
+  URelProdutosNcm, URelEtiqEstoque, UHistoricoMovimentoEstoque,
+  ULancamentoEstoque;
 
 {$R *.DFM}
 
@@ -1237,171 +1233,22 @@ End;
 
 //Procedure utilizada para lançar sql para filtrara e calcular os historicos do produto corrente
 Procedure TFProduto.GeraHist;
-VAR
-	QtdEntradas, QtdSaidas, ResultEst, TotComi, TotLuc, TOTCOMP, TOTVEND, QtdDev, TotDev: Real;
 Begin
-	QtdEntradas:=0;
-   QtdSaidas:=0;
-   ResultEst:=0;
-   TotComi:=0;
-   TotLuc:=0;
-   TOTCOMP:=0;
-   TOTVEND:=0;
-	//TOTALIZA SOMATÓRIAS
-   /////////////////////
-	//FILTRA E TOTALIZA LANÇAMENTOS DE ENTRADA PARA CORREÇÃO
    DMESTOQUE.Alx.Close;
    DMESTOQUE.Alx.SQL.Clear;
-   DMESTOQUE.Alx.SQL.Add('SELECT SUM(VWlancent.quantidade) AS TOTENT FROM VWlancent where VWlancent.cod_estoque=:CODESTOQUE');
-   DMESTOQUE.Alx.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
+   DMESTOQUE.Alx.SQL.Add(' select * from movimentoestoque ');
+   DMESTOQUE.Alx.SQL.Add(' Where (movimentoestoque.datamovimento >= :Dt1)  and (movimentoestoque.datamovimento <= :Dt2) ');
+   DMESTOQUE.Alx.SQL.Add(' and (movimentoestoque.cod_estoque = :CODESTOQUE) ');
+   DMESTOQUE.Alx.ParamByName('Dt1').AsString := edFiltroHistoricoIni.Text;
+   DMESTOQUE.Alx.ParamByName('Dt2').AsString := edFiltroHistoricoFim.Text;
+   If RgFiltroTipoHistorico.ItemIndex = 1 Then
+       DMESTOQUE.Alx.SQL.Add(' AND (movimentoestoque.operacao = ''ENTRADA'') ');
+   If RgFiltroTipoHistorico.ItemIndex = 2 Then
+       DMESTOQUE.Alx.SQL.Add(' AND (movimentoestoque.operacao = ''SAIDA'') ');
+
+   DMESTOQUE.Alx.ParamByName('CODESTOQUE').AsInteger := XCOD_ESTOQUE;
+   DMESTOQUE.Alx.SQL.Add(' order by movimentoestoque.datamovimento desc, movimentoestoque.horamovimento desc ');
    DMESTOQUE.Alx.Open;
-   QtdEntradas:=QtdEntradas+DMESTOQUE.ALX.FieldByName('TOTENT').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE SAIDA PARA CORREÇÃO
-   DMESTOQUE.Alx1.Close;
-   DMESTOQUE.Alx1.SQL.Clear;
-   DMESTOQUE.Alx1.SQL.Add('select SUM(VWlancsai.quantidade) AS TOTSAI  from vwlancsai where vwlancsai.cod_estoque=:CODESTOQUE');
-   DMESTOQUE.Alx1.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx1.Open;
-   QtdSaidas:=QtdSaidas+DMESTOQUE.ALX1.FieldByName('TOTSAI').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE Producao
-   DMMACS.TALX.Close;
-   DMMACS.TALX.SQL.Clear;
-   DMMACS.TALX.SQL.Add('  select SUM(iprdmat.qtd) AS TOTSAI  from iprdmat ');
-   DMMACS.TALX.SQL.Add('   left join subproduto on iprdmat.cod_subproduto = subproduto.cod_subproduto ');
-   DMMACS.TALX.SQL.Add('   left join estoque on subproduto.cod_subproduto = estoque.cod_subprod ');
-   DMMACS.TALX.SQL.Add('   left join producao on iprdmat.cod_iprdmat = producao.cod_producao ');
-   DMMACS.TALX.SQL.Add('   where estoque.cod_estoque=:CODIGO ');
-   DMMACS.TALX.ParamByName('CODIGO').AsInteger:=XCOD_ESTOQUE;
-   DMMACS.TALX.Open;
-   QtdSaidas:=QtdSaidas+DMMACS.TALX.FieldByName('TOTSAI').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE COMPRAS
-   DMESTOQUE.Alx3.Close;
-   DMESTOQUE.Alx3.SQL.Clear;
-   DMESTOQUE.Alx3.SQL.Add(' Select SUM(itenspedc.valortotal) AS TOTCOMP, SUM(itenspedc.qtdest) AS TOTENT ');
-   DMESTOQUE.Alx3.SQL.Add(' From itenspedc ');
-   DMESTOQUE.Alx3.SQL.Add(' left Join estoque on itenspedc.cod_estoque = estoque.cod_estoque');
-   DMESTOQUE.Alx3.SQL.Add(' Where (Estoque.Cod_Estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx3.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx3.Open;
-   QtdEntradas:=QtdEntradas+DMESTOQUE.Alx3.FieldByName('TOTENT').AsCurrency;
-   TOTCOMP:=TOTCOMP+DMESTOQUE.Alx3.FieldByName('TOTCOMP').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE DEVOLUÇÃO DE VENDAS
-   DMESTOQUE.Alx2.Close;
-   DMESTOQUE.Alx2.SQL.Clear;
-   DMESTOQUE.Alx2.SQL.Add(' Select SUM(itenspedven.vlrunitdev*itenspedven.qtddev) AS TOTVEND, SUM(itenspedven.qtddev) AS TOTSAI ');
-   DMESTOQUE.Alx2.SQL.Add(' From itenspedven left join pedvenda on itenspedven.cod_pedven = pedvenda.cod_pedvenda');
-   DMESTOQUE.Alx2.SQL.Add(' left Join estoque on itenspedven.cod_estoque = estoque.cod_estoque');
-   DMESTOQUE.Alx2.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod');
-   DMESTOQUE.Alx2.SQL.Add(' Where (Estoque.Cod_Estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx2.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx2.Open;
-   QtdDev:=QtdDev+DMESTOQUE.Alx2.FieldByNAme('TOTSAI').AsCurrency;
-   TotDev:=TotLuc+DMESTOQUE.Alx2.FieldByNAme('TOTVEND').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE VENDAS
-   DMESTOQUE.Alx2.Close;
-   DMESTOQUE.Alx2.SQL.Clear;
-   DMESTOQUE.Alx2.SQL.Add(' Select SUM(itenspedven.valortotal) AS TOTVEND, SUM(itenspedven.qtdeprod) AS TOTSAI, SUM(itenspedven.comissao) AS TOTCOMI, SUM(itenspedven.lucmoe) AS TOTLUCMOE');
-   DMESTOQUE.Alx2.SQL.Add(' From itenspedven left join pedvenda on itenspedven.cod_pedven = pedvenda.cod_pedvenda');
-   DMESTOQUE.Alx2.SQL.Add(' left Join estoque on itenspedven.cod_estoque = estoque.cod_estoque');
-   DMESTOQUE.Alx2.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod');
-   DMESTOQUE.Alx2.SQL.Add(' Where (Estoque.Cod_Estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx2.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx2.Open;
-   QtdSaidas:=QtdSaidas+DMESTOQUE.Alx2.FieldByNAme('TOTSAI').AsCurrency;
-   TotComi:=TotComi+DMESTOQUE.Alx2.FieldByNAme('TOTCOMI').AsCurrency;
-   TotLuc:=TotLuc+DMESTOQUE.Alx2.FieldByNAme('TOTLUCMOE').AsCurrency;
-   TOTVEND:=TOTVEND+DMESTOQUE.Alx2.FieldByNAme('TOTVEND').AsCurrency;
-
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE ordens de serviço
-   DMESTOQUE.Alx4.Close;
-   DMESTOQUE.Alx4.SQL.Clear;
-   DMESTOQUE.Alx4.SQL.Add(' Select SUM(itprodord.total) AS TOTVEND, SUM(itprodord.qtd) AS TOTSAI ');
-   DMESTOQUE.Alx4.SQL.Add(' From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
-   DMESTOQUE.Alx4.SQL.Add(' Where (itprodord.cod_estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx4.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx4.Open;
-   QtdSaidas:=QtdSaidas+DMESTOQUE.Alx4.FieldByNAme('TOTSAI').AsCurrency;
-   TOTVEND:=TOTVEND+DMESTOQUE.Alx4.FieldByNAme('TOTVEND').AsCurrency;
-
-   //FILTRA REGISTROS
-   ///////////////////
-	//FILTRA LANÇAMENTOS DE ENTRADA PARA CORREÇÃO
-   DMESTOQUE.Alx.Close;
-   DMESTOQUE.Alx.SQL.Clear;
-   DMESTOQUE.Alx.SQL.Add('SELECT * FROM VWlancent where VWlancent.cod_estoque=:CODESTOQUE');
-   DMESTOQUE.Alx.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx.Open;
-
-
-	//FILTRA LANÇAMENTOS DE SAIDA PARA CORREÇÃO
-   DMESTOQUE.Alx1.Close;
-   DMESTOQUE.Alx1.SQL.Clear;
-   DMESTOQUE.Alx1.SQL.Add('select * from vwlancsai where vwlancsai.cod_estoque=:CODESTOQUE');
-   DMESTOQUE.Alx1.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx1.Open;
-
-	//FILTRA DE Producao
-   DMMACS.TALX.Close;
-   DMMACS.TALX.SQL.Clear;
-   DMMACS.TALX.SQL.Add(' select producao.dtproduc, iprdmat.qtd, iprdmat.vlrunit, iprdmat.vlrtot from iprdmat ');
-   DMMACS.TALX.SQL.Add('    left join subproduto on iprdmat.cod_subproduto = subproduto.cod_subproduto ');
-   DMMACS.TALX.SQL.Add('    left join estoque on subproduto.cod_subproduto = estoque.cod_subprod ');
-   DMMACS.TALX.SQL.Add('    left join producao on iprdmat.cod_producao = producao.cod_producao ');
-   DMMACS.TALX.SQL.Add('   where estoque.cod_estoque=:CODIGO ');
-   DMMACS.TALX.ParamByName('CODIGO').AsInteger:=XCOD_ESTOQUE;
-   DMMACS.TALX.Open;
-	//FILTRA  E TOTALIZA LANÇAMENTOS DE ordens de serviço
-   DMESTOQUE.Alx4.Close;
-   DMESTOQUE.Alx4.SQL.Clear;
-   DMESTOQUE.Alx4.SQL.Add(' Select ordem.numero,  vwcliente.nome AS CLIENTE, itprodord.cod_itprodord, itprodord.cod_ordem, itprodord.cod_estoque,  itprodord.numreq, itprodord.qtd, itprodord.qtdRET, itprodord.total, ');
-   DMESTOQUE.Alx4.SQL.Add(' itprodord.desconto, ORDEM.DTABERT AS DATA, itprodord.cod_funcionario, pessoa.nome, itprodord.vlrunit UNITARIO, subproduto.descricao, subproduto.marca, SubProduto.CODPRODFABR ');
-   DMESTOQUE.Alx4.SQL.Add(' From itprodord left Join estoque on itprodord.cod_estoque = estoque.cod_estoque ');
-   DMESTOQUE.Alx4.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod ');
-   DMESTOQUE.Alx4.SQL.Add(' Left Join funcionario on funcionario.cod_func = itprodord.cod_funcionario ');
-   DMESTOQUE.Alx4.SQL.Add(' Left Join pessoa on funcionario.cod_pessoa = pessoa.COD_PESSOA ');
-   DMESTOQUE.Alx4.SQL.Add(' left join ordem on itprodord.cod_ordem=ordem.cod_ordem ');
-   DMESTOQUE.Alx4.SQL.Add(' left join vwcliente on ordem.cod_cliente = vwcliente.cod_cliente ');
-   DMESTOQUE.Alx4.SQL.Add(' Where (itprodord.cod_estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx4.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx4.Open;
-
-	//FILTRA LANÇAMENTOS DE COMPRAS
-   DMESTOQUE.Alx3.Close;
-   DMESTOQUE.Alx3.SQL.Clear;
-   DMESTOQUE.Alx3.SQL.Add(' Select pedcompra.numped, SUBPRODUTO.CONTRINT, pedcompra.DTPEDCOMP AS DATA, ');
-   DMESTOQUE.Alx3.SQL.Add(' itenspedc.qtdeprod, itenspedc.qtdest, subproduto.descricao, ');
-   DMESTOQUE.Alx3.SQL.Add(' itenspedc.valortotal AS TOTPROD, itenspedc.valunit UNITARIO, pessoa.nome, pessoa.cpfcnpj ');
-   DMESTOQUE.Alx3.SQL.Add(' From itenspedc left join pedcompra on itenspedc.cod_pedcompra = pedcompra.cod_pedcomp');
-   DMESTOQUE.Alx3.SQL.Add(' left Join estoque on itenspedc.cod_estoque = estoque.cod_estoque');
-   DMESTOQUE.Alx3.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod');
-   DMESTOQUE.Alx3.SQL.Add(' Left Join produto on produto.cod_produto = subproduto.cod_produto');
-   DMESTOQUE.Alx3.SQL.Add(' left join fornecedor on fornecedor.cod_fornec = pedcompra.cod_fornec');
-   DMESTOQUE.Alx3.SQL.Add(' left join pessoa on pessoa.cod_pessoa = fornecedor.cod_pessoa');
-   DMESTOQUE.Alx3.SQL.Add(' Where (Estoque.Cod_Estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx3.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx3.Open;
-	//FILTRA LANÇAMENTOS DE VENDAS
-   DMESTOQUE.Alx2.Close;
-   DMESTOQUE.Alx2.SQL.Clear;
-   DMESTOQUE.Alx2.SQL.Add(' Select pedvenda.numped, SUBPRODUTO.CONTRINT, lote.numero, pedvenda.dtpedven ,');
-   DMESTOQUE.Alx2.SQL.Add(' itenspedven.qtdeprod, subproduto.descricao , Itenspedven.OPERACAO,');
-   DMESTOQUE.Alx2.SQL.Add(' itenspedven.valortotal AS TOTPROD, itenspedven.valunit UNITARIO, pedvenda.nomecli, pedvenda.cpfcnpj');
-   DMESTOQUE.Alx2.SQL.Add(' From itenspedven left join pedvenda on itenspedven.cod_pedven = pedvenda.cod_pedvenda');
-   DMESTOQUE.Alx2.SQL.Add(' left Join estoque on itenspedven.cod_estoque = estoque.cod_estoque');
-   DMESTOQUE.Alx2.SQL.Add(' Left Join subproduto on subproduto.cod_subproduto = estoque.cod_subprod');
-   DMESTOQUE.Alx2.SQL.Add(' Left Join produto on produto.cod_produto = subproduto.cod_produto');
-   DMESTOQUE.Alx2.SQL.Add('  left join lote on itenspedven.cod_lote = lote.cod_lote ');
-   DMESTOQUE.Alx2.SQL.Add(' Where (Estoque.Cod_Estoque=:CODESTOQUE) ');
-   DMESTOQUE.Alx2.ParamByName('CODESTOQUE').AsInteger:=XCOD_ESTOQUE;
-   DMESTOQUE.Alx2.Open;
-   //PASSA VALORES PARA AS LABELS DE INFORMAÇÕES
-   LEstCalc.Caption:=FormatFloat('####,##0.00', DMESTOQUE.TEstoque.FieldByName('ESTINI').AsCurrency+QtdEntradas-QtdSaidas);
-	LEstFisico.Caption:=FormatFloat('####,##0.00', DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency);
 End;
 
 //Informa a combo de cores as cores configuradas na lojagt
@@ -1462,23 +1309,85 @@ Begin
    DMESTOQUE.WSimilar.Open;
 End;
 
+function TFProduto.InsereNovoSubrodutoEstoque: Boolean;
+Begin
+   Try
+    Result := true;
+
+    //*************************
+    MDO.Transac.CommitRetaining;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add('  select gen_id(GEN_SUBPRODUTO_ID, 0) as codigo from rdb$database ');
+    MDO.Query.Open;
+    XCODSUBPROD := MDO.Query.FieldByName('CODIGO').AsInteger + 1;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add(' select max(subproduto.cod_produto) as codigo from subproduto ');
+    MDO.Query.Open;
+    XCOD_PRODUTO := MDO.Query.FieldByName('codigo').AsInteger;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add(' INSERT INTO SUBPRODUTO ');
+    MDO.Query.SQL.Add('        (CONTRINT, cod_produto ) ');
+    MDO.Query.SQL.Add(' VALUES ');
+    MDO.Query.SQL.Add('        (:CONTRINT, :cod_produto');
+    MDO.Query.ParamByName('cod_produto').AsInteger := XCOD_PRODUTO;
+    MDO.Query.ParamByName('CONTRINT').AsString := RetornaProximoControleInterno;
+    MDO.Query.ExecSQL;
+
+    //********************************
+
+
+    MDO.Transac.Commit;
+    MDO.Transac.CommitRetaining;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add('  select gen_id(GEN_ESTOQUE_ID, 0) as codigo from rdb$database ');
+    MDO.Query.Open;
+    XCOD_ESTOQUE := MDO.Query.FieldByName('CODIGO').AsInteger + 1;
+
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add(' INSERT INTO ESTOQUE ');
+    MDO.Query.SQL.Add('        (COD_LOJA, COD_SUBPROD, ESTFISICO,  ');
+    MDO.Query.SQL.Add('         ESTRESERV, ESTPED, ESTSALDO, DTCAD, ESTINI ) ');
+    MDO.Query.SQL.Add(' VALUES ');
+    MDO.Query.SQL.Add('        (:COD_LOJA, :COD_SUBPROD, :ESTFISICO, ');
+    MDO.Query.SQL.Add('         :ESTRESERV, :ESTPED, :ESTSALDO, :DTCAD, :ESTINI ) ');
+
+    MDO.Query.ParamByName('COD_LOJA').AsString := FMenu.LCODLOJA.Caption;
+    If FMenu.LCODLOJA.Caption = '' Then
+       MDO.Query.ParamByName('COD_LOJA').AsInteger := 1;
+    MDO.Query.ParamByName('COD_SUBPROD').AsInteger := XCODSUBPROD;
+    MDO.Query.ParamByName('ESTFISICO').AsInteger := 0;
+    MDO.Query.ParamByName('ESTRESERV').AsInteger := 0;
+    MDO.Query.ParamByName('ESTPED').AsInteger := 0;
+    MDO.Query.ParamByName('ESTSALDO').AsInteger := 0;
+    MDO.Query.ParamByName('DTCAD').AsDate := Date();
+    MDO.Query.ParamByName('ESTINI').AsInteger := 0;
+    MDO.Query.ExecSQL;
+
+    MDO.Transac.CommitRetaining;
+
+
+
+  except
+    MDO.Transac.RollbackRetaining;
+    Result := False;
+  end;
+End;
+
 //nesta procedure vai os comandos comuns para inserção de produto ou similar
 Procedure TFProduto.PrepInsert;
 Begin
 	 //Filtra Loja
     FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
     CBProdutoConsumo.Checked := False;
-
-    //limpa os edits de seleção
-    If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString<>'SEMENTES'
-    Then Begin
-    	DBESTFISICO.Enabled:=True;
-       DBEstIni.Enabled:=True;
-    End
-    Else Begin
-    	DBESTFISICO.Enabled:=False;
-       DBEstIni.Enabled:=False;
-    End;
 
     //filtra os lançamentos de custos dos itens
     SelecionaItensCustoProduto;
@@ -1523,6 +1432,14 @@ Begin
     LAtacVista.Caption := '0,00';
     // ULTIMO VALOR DE VENDA A PRAZO NO ATACADO
     LAtacPrazo.Caption := '0,00';
+
+    If XCOD_ESTOQUE > 0
+    Then Begin
+       //Repassa aos componentes os valores de descontos para o produto que eh configurado em empresa
+       RepassaDescontos;
+    End;
+
+  	 //EDCODGRUPO.SetFocus;
 
     PConsulta.Visible:=False;
     PCadastro.Visible:=TRUE;
@@ -1771,7 +1688,10 @@ End;
 procedure TFProduto.FormActivate(Sender: TObject);
 begin
   inherited;
-	 Caption:='Produtos';  
+	 Caption:='Produtos';
+   XCOD_ESTOQUE := -1;
+   XCODSUBPROD := -1;
+   XCODPKMESTRE := -1;
   XCOPIAITEM := False;
   //Limpa os edits de consulta
   EDProduto.Text:='';
@@ -1953,6 +1873,8 @@ begin
   DMESTOQUE.TProduto.SQL.Add(' SELECT FIRST 1 * FROM PRODUTO ');
   DMESTOQUE.TProduto.Open;
 
+  cbRetemPisCofins.Checked := False;
+    
   XAcessorio:=False;
   PcAdicionais.ActivePage:=TabSheet1;
   PAdicionaTabelaFaixa.Visible:=False;
@@ -2002,10 +1924,6 @@ end;
 procedure TFProduto.BtnCancelarClick(Sender: TObject);
 begin
 //  inherited;
-
-	 //Cancela Operações
-    DBESTFISICO.Enabled:=False;
-    DBEstIni.Enabled:=False;
 
     if(XCOD_ULTPROD>=0) and (XConsulta = false) THEN
     begin
@@ -2374,6 +2292,11 @@ begin
      DMESTOQUE.TEstoque.FieldByName('ULTVLR_VNDPVAR').AsCurrency := StrToFloat(LVarejoPrazo.Caption);
      DMESTOQUE.TEstoque.FieldByName('ULTVLR_VNDVATAC').AsCurrency := StrToFloat(LAtacVista.Caption);
      DMESTOQUE.TEstoque.FieldByName('ULTVLR_VPATAC').AsCurrency := StrToFloat(LAtacPrazo.Caption);
+     DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsInteger := 0;
+     DMESTOQUE.TEstoque.FieldByName('ESTRESERV').AsInteger := 0;
+     DMESTOQUE.TEstoque.FieldByName('ESTSALDO').AsInteger := 0;
+     DMESTOQUE.TEstoque.FieldByName('ESTPED').AsInteger := 0;
+     DMESTOQUE.TEstoque.FieldByName('ESTOQUE4CASAS').AsInteger := 0;
 
      //Alex 17/07/2019 - Verificamos se ocorreu alteração de preço e registramos na tabela
      If (XVALOR_VISTAVAREJO <> EdVlrVarejoVista.ValueNumeric) OR  (XVALOR_PRAZOVAREJO <> EdVlrVarejoPrazo.ValueNumeric) OR (XVALOR_VISTAATAC <> EdVlrAtacadoVista.ValueNumeric) OR (XVALOR_PRAZOATAC <> EdVlrAtacadoPrazo.ValueNumeric) Then
@@ -2437,6 +2360,15 @@ begin
     else begin
         DMESTOQUE.TSubProd.FieldByName('GERARPISCOFINS').AsString := '0';
     end;
+
+    if cbRetemPisCofins.Checked=True
+    then begin
+        DMESTOQUE.TSubProd.FieldByName('RETEM_PIS_COFINS').AsString := 'S';
+    end
+    else begin
+        DMESTOQUE.TSubProd.FieldByName('RETEM_PIS_COFINS').AsString := 'N';
+    end;
+
 
     //Edmar - 23/05/2014 - Salva se o produto é de controle de desgaste
     if cbCtrlDesgaste.Checked then
@@ -2507,14 +2439,9 @@ begin
        // Alex - 20/05/2009: O trecho de codigo abaixo foi atualizado para garantir a atualização de estoque de acordo com o lote
     Except
     End; // - 05/04/2009: comentado por atualização do alex por fora do código fonte original
-    DMESTOQUE.TEstoque.Edit;
-    DMESTOQUE.TEstoque.FieldByName('ESTSALDO').AsCurrency:=(DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMESTOQUE.TEstoque.FieldByName('ESTPED').AsCurrency)-DMESTOQUE.TEstoque.FieldByName('ESTRESERV').AsCurrency;
-    DMESTOQUE.TEstoque.Post;
     DMESTOQUE.TransacEstoque.CommitRetaining;
     XSTATE:='POST';
     //Habilitando Paineis;
-    DBESTFISICO.Enabled:=False;
-    DBEstIni.Enabled:=False;
     PCadastro.Visible:=False;
     PConsulta.Visible:=true;
     PConsulta.BringToFront;
@@ -2734,19 +2661,6 @@ begin
   		Exit;
 
   inherited;
-	 //VERIFICA SE DEVE LIBERAR O EDIT PARA O SUAURIO ALTERAR MANUALMENTE O ESTOQUE DO PRODUTO
-	 If DMMacs.Tloja.FieldByName('ZEROCODPRODUTO').AsInteger=1
-    Then Begin
-    	If ControlAccess('ECF', 'M')=True Then// Utilizamos o campo ECF pp não estava sendo utilizado
-       	DBESTFISICO.Enabled:=True
-       Else
-           DBESTFISICO.Enabled:=False;
-    End
-    Else Begin
-       DBESTFISICO.Enabled:=False;
-    End;
-
-
     //Verifica se esta trabalhando com grade ou da forma simples
     if DMMACS.TLoja.FieldByName('OPERADESCCUPOM').AsInteger=1
     Then Begin
@@ -2775,6 +2689,8 @@ begin
 
     // codigo de estoque
     XCOD_ESTOQUE:=DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger;
+
+    edEstoqueFisico.ValueNumeric := DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency;
 
     //filtra os lançamentos de custos dos itens
     SelecionaItensCustoProduto;
@@ -2931,12 +2847,6 @@ begin
         DescSitTrib.Text:='';
     End;
     XSTATE:='EDIT';
-    //CASO O OPERADOR SEJA O SENHOR DO SISTEMA ELE PODE ALTERAR ALGUNS VLRS PERTINENTES A ESTOQUE
-    If FMenu.EdUsuario.Text='SYSTEM LORD'
-    Then Begin
-       DBESTFISICO.Enabled:=True;
-       DBEstIni.Enabled:=True;
-    End;
     DMESTOQUE.TSubProd.Edit;
     DMESTOQUE.TEstoque.Edit;
     //controla combo de produto frete
@@ -2953,6 +2863,11 @@ begin
     		CBProdutoConsumo.Checked:=True
 	 Else
     		CBProdutoConsumo.Checked:=False;
+
+	 If DmEstoque.TSubProd.FieldByName('RETEM_PIS_COFINS').AsString='S' Then
+    		cbRetemPisCofins.Checked:=True
+	 Else
+    		cbRetemPisCofins.Checked:=False;
 
     // Controla PIS/COFINS
     If DMESTOQUE.TSubProd.FieldByName('GERARPISCOFINS').AsString = '1' Then
@@ -3182,14 +3097,16 @@ begin
    XCOD_ESTOQUE:=InserReg(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE');
    DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger:=XCOD_ESTOQUE;
    DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency:=0;
+   DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:=0;
 
 	XCOD_PRODUTO:=InserReg(DMESTOQUE.TProduto, 'PRODUTO', 'COD_PRODUTO');
    DMESTOQUE.TProduto.FieldByName('COD_PRODUTO').AsInteger:=XCOD_PRODUTO;
 
 	XCOD_SIMILAR:=InserReg(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO');
    DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger:=XCOD_SIMILAR;
-   DBCODINTERNO.Text := DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsString;
-      
+   DMESTOQUE.TEstoque.FieldByName('COD_SUBPROD').AsInteger:=XCOD_SIMILAR;
+   DBCODINTERNO.Text := DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsString;   
+
    XSTATE:='INSERT';
    //CONTROLA NUMERAÇÃO CORRETA DO CONTROLEINTERNO
    XNovoContrint:=DMMACS.TLoja.FieldByName('PROXCTRINT').AsString;
@@ -3259,6 +3176,7 @@ begin
 	EdUnidadeCompra.Text:='';
 	EdCodUnidadeVenda.Text:='';
 	EdUnidadeVenda.Text:='';
+
 
    //Repassa aos componentes os valores de descontos para o produto que eh configurado em empresa
    RepassaDescontos;
@@ -3422,7 +3340,7 @@ Begin
 		   MDO.Query.SQL.Add('VENDINDV,VENDINDP,AVVPROIND,AVPPROIND, ESTMIN, ESTMAX, FRETE, ');
       MDO.Query.SQL.Add('ICMS,IPI_VND,MVA,MEDIABASEICMST,MEDIAVLRICMST,VLRBONIFIC,PERCMARGSEG,REDUCBASE,VALCUSDESP) ');
 
-      MDO.Query.SQL.Add('VALUES (:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTFISICO, :ESTSALDO, :VENDATAP, :VENDATAV, :VENDVARP, ');
+      MDO.Query.SQL.Add('VALUES (:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ESTFISICO, :ESTSALDO,  :ULTVENDA, :VENDATAP, :VENDATAV, :VENDVARP, ');
       MDO.Query.SQL.Add(':VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVVPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS, :DTCAD, :VLRUNITCOMP, ');
       MDO.Query.SQL.Add(':INDICE, :BONIFICACAO, :DESCONTO, :CLNC, :MARGEMSEG, :VLRCOMPSD, :DATAATU, :HORAATU, :COD_USUARIOALT, :ULTVLR_VNDVVAR, ');
       MDO.Query.SQL.Add(':ULTVLR_VNDPVAR, :ULTVLR_VNDVATAC, :ULTVLR_VPATAC, :GERACOMIS, :ATUALIZAR, :VENDINDV, :VENDINDP, :AVVPROIND, :AVPPROIND, :ESTMIN, :ESTMAX, :FRETE, ');
@@ -3677,7 +3595,60 @@ Begin
     End;
 End;
 
+Function TFProduto.RetornaProximoControleInterno: String;
+var
+tmpcontrint: string;
+xflagcontrint: integer;
+Begin
+   Try
+       MDO.Transac.CommitRetaining;
+       mdo.QConsulta.Close;
+       mdo.QConsulta.SQL.Clear;
+       MDO.QConsulta.sql.Add(' Select loja.proxctrint from loja ');
+       mdo.QConsulta.Open;
 
+       tmpcontrint := MDO.QConsulta.FieldByName('PROXCTRINT').AsString;
+
+       If tmpcontrint='' Then
+           tmpcontrint:='1';
+
+       xflagcontrint:=1;
+
+       While xflagcontrint=1 do
+       Begin
+           Result := tmpcontrint;
+           mdo.QConsulta.Close;
+           mdo.QConsulta.SQL.Clear;
+           MDO.QConsulta.sql.Add(' Select subproduto.contrint from subproduto ');
+           MDO.QConsulta.sql.Add(' WHERE (SUBPRODUTO.CONTRINT=:FAB) AND (SUBPRODUTO.COD_SUBPRODUTO<>:COD) ');
+           MDO.QConsulta.ParamByName('FAB').AsString   :=  tmpcontrint;
+           MDO.QConsulta.ParamByName('COD').AsInteger  :=  XCODSUBPROD;
+           MDO.QConsulta.SQL.Text;
+           MDO.QConsulta.Open;
+
+
+           If Not MDO.QConsulta.IsEmpty
+           Then Begin
+			If Length(tmpcontrint)>14 Then
+             tmpcontrint := IncStrNum(1, Copy(tmpcontrint, 0, 12))
+			Else
+             tmpcontrint := IncStrNum(1, tmpcontrint);
+         end
+         Else Begin
+             xflagcontrint:=0;
+         End;
+       End;
+       mdo.Query.Close;
+       mdo.Query.SQL.Clear;
+       MDO.Query.sql.Add(' update loja set loja.proxctrint = :Contrint ');
+       mdo.Query.ParamByName('Contrint').AsString := tmpcontrint;
+       mdo.Query.ExecSQL;
+
+       mdo.Transac.CommitRetaining
+   Except
+       Result := '';
+   End;
+End;
 
 procedure TFProduto.CadastrarumProdutoSimilar1Click(Sender: TObject);
 Var
@@ -3685,15 +3656,31 @@ Var
 	XNovoContrint: String;
 	XFlacContrint: Integer;
 begin
-	   PrepInsert;//Prepara a inserção de produto
+    PrepInsert;//Prepara a inserção de produto
+
+	 PrepInsert;//Prepara a inserção de produto
     //Insere REGISTROS NA TABELA DE SUBPRODUTO E ESTOQUE E LOCALIZA PRODUTO
     XCOD_ESTOQUE:=InserReg(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE');
     DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger:=XCOD_ESTOQUE;
+    DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:=0;    
     //Insere dados na Tabela SubProduto
     XCOD_SIMILAR:=InserReg(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO');
     DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger:=XCOD_SIMILAR;
 	   DBCODINTERNO.Text:=DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsString;
+{
+    If InsereNovoSubrodutoEstoque = True
+    Then Begin
+       If FiltraTabela(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO', IntToStr(XCODSUBPROD), '')=True
+       Then Begin
 
+       End;
+       If FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', IntToStr(XCOD_ESTOQUE), '')=True
+       then Begin
+
+       End;
+
+    End;
+}
     //Verifica se esta trabalhando com grade ou da forma simples
     if DMMACS.TLoja.FieldByName('OPERADESCCUPOM').AsInteger=1
     Then Begin
@@ -3706,69 +3693,19 @@ begin
        BtnGrupo.Visible:=False;
        BtnSubGrupo.Visible:=False;
     end;
-       //Paulo 02/06/2010: seta os dados do ultimo registro gravado para mostrar na tela
-       if (XCOD_ULTPROD=-1) Then
-           XCOD_PRODUTO:=DMESTOQUE.WProduto.FieldByName('COD_PRODUTO').AsInteger;
+    //Paulo 02/06/2010: seta os dados do ultimo registro gravado para mostrar na tela
+    if (XCOD_ULTPROD=-1) Then
+       XCOD_PRODUTO:=DMESTOQUE.WProduto.FieldByName('COD_PRODUTO').AsInteger;
 
     If DMMACS.TLoja.FieldByName('OPERADESCCUPOM').AsInteger=1
     Then Begin
        CadastrarNovoProduto1Click(sender);
     end;
 
+
     XSTATE:='INSERT';
     DMMACS.TLoja.Transaction.CommitRetaining;
-    //CONTROLA NUMERAÇÃO CORRETA DO CONTROLEINTERNO
-    XNovoContrint:=DMMACS.TLoja.FieldByName('PROXCTRINT').AsString;
-    If XNovoContrint='' Then
-       XNovoContrint:='1';
 
-    XFlacContrint:=1;
-    While XFlacContrint=1 do
-    Begin
-         DMESTOQUE.Alx.Close;
-         DMESTOQUE.Alx.SQL.Clear;
-         DMESTOQUE.Alx.SQL.Add('SELECT * FROM SUBPRODUTO WHERE (SUBPRODUTO.CONTRINT=:FAB) AND (SUBPRODUTO.COD_SUBPRODUTO<>:COD)');
-         DMESTOQUE.Alx.ParamByName('FAB').AsString:=XNovoContrint;
-         DMESTOQUE.Alx.ParamByName('COD').AsString:=IntToStr(XCOD_SIMILAR);
-         DMESTOQUE.Alx.SQL.Text;
-         DMESTOQUE.Alx.Open;
-
-         If Not DMESTOQUE.Alx.IsEmpty
-         Then Begin
-			If Length(XNovoContrint)>14 Then
-             XNovoContrint := IncStrNum(1, Copy(XNovoContrint, 0, 12))
-			Else
-             XNovoContrint := IncStrNum(1,XNovoContrint);
-         end
-         Else Begin
-             XFlacContrint:=0;
-         End;
-    End;
-
-    If DMMACS.TLoja.FIELDBYNAME('REDE').ASSTRING='1'
-    Then Begin
-     	//REACUCULA O PRÓXIMO CONTROLE INTERNO
-     	CONTRINTOK:=0;
-     	While CONTRINTOK=0 do
-     	Begin
-     		Try
-       		DMESTOQUE.Alx.Close;
-       		DMESTOQUE.Alx.SQL.Clear;
-       		DMESTOQUE.Alx.SQL.Add('SELECT * FROM SUBPRODUTO WHERE (SUBPRODUTO.CONTRINT=:FAB)');
-       		DMESTOQUE.Alx.ParamByName('FAB').AsString:=XNovoContrint;
-       		DMESTOQUE.Alx.SQL.Text;
-       		DMESTOQUE.Alx.Open;
-	    		If (DMESTOQUE.Alx.IsEmpty){ AND (DMESTOQUE.TSubProd.FieldByNAme('CONTRINT').AsString<>DMMACS.TLoja.FieldByName('PROXCTRINT').AsString)} Then
-           	  	CONTRINTOK:=1;
-       	except
-       	End;
-     	end;
-       DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString:=XNovoContrint;
-    End
-    Else Begin
-    	FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
-     	DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString:=XNovoContrint;
-    End;
 
     if(XCOD_ULTPROD>=0) THEN
     begin
@@ -3839,6 +3776,8 @@ begin
            CODSITTRIB.Text:=DMEstoque.TCst.FieldByName('COD_SIT_TRIB').AsString;
        end;
 
+       DMESTOQUE.TSubProd.edit;
+       DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString := RetornaProximoControleInterno;
        DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString := Copy(XPRXDESC, 1, 60);
        //DMESTOQUE.TSubProd.FieldByName('CODPRODFABR').AsString:=XPRXCODFAB;
        DMESTOQUE.TSubProd.FieldByName('FABRICANTE').AsString:=XPRXFAB;
@@ -6045,10 +5984,21 @@ begin
 end;
 
 procedure TFProduto.PcAdicionaisChange(Sender: TObject);
+VAR
+  Data: Integer;
+  Mes:String;
+  Year, Month, Day:word;
 begin
   inherited;
-	If PcAdicionais.ActivePage=TabSheet6 Then
+	If PcAdicionais.ActivePage=TabSheet6
+   Then Begin
+   	DecodeDate(Date(), Year, Month, Day);
+       edFiltroHistoricoIni.Text:=DateToStr(StrToDate('01/'+IntToStr(Month)+'/'+IntToStr(Year)));
+       edFiltroHistoricoFim.Text:=DateToStr(StrToDate(IntToStr(UltDiaMes(Month, Year))+'/'+IntToStr(Month)+'/'+IntToStr(Year)));
+       RgFiltroTipoHistorico.ItemIndex := 0;
        GeraHist;
+   End;
+
 	If PcAdicionais.ActivePage=TabSheet14
    Then Begin
        MontaTabelaPreco(XCOD_ESTOQUE);
@@ -8136,11 +8086,16 @@ procedure TFProduto.DBGrid1DrawColumnCell(Sender: TObject;
   State: TGridDrawState);
 begin
   inherited;
+
 	if (DMESTOQUE.WSimilar.FieldByName('MARK').AsString='X') then
 		DBGrid1.Canvas.Brush.Color := $004D4DFF;
-             
+
 	DBGrid1.Canvas.FillRect(Rect);
    DBGrid1.DefaultDrawDataCell(Rect, DBGrid1.Columns[datacol].Field, State);
+//   TFloatField(DMESTOQUE.WSimilar.FieldByName('ESTFISICO')).DisplayFormat:=#,###,##0.00;
+//   DBGrid1.Fields[3].EditMask := '!999.99;1;_';
+   //DBGrid1.Fields[8].EditMask := '!999.99;1;_';
+   
 end;
 
 procedure TFProduto.btnFornecedorClick(Sender: TObject);
@@ -8376,6 +8331,39 @@ begin
        DMENTRADA.IBT.RollbackRetaining;
    end;
    SelecionaItensCustoProduto();
+end;
+
+procedure TFProduto.BitBtn16Click(Sender: TObject);
+begin
+  //inherited;
+   GeraHist;
+end;
+
+procedure TFProduto.SpeedButton1Click(Sender: TObject);
+begin
+  inherited;
+   FMenu.XCodSlave := XCOD_ESTOQUE;
+   frmHistoricoMovimentoEstoque.showmodal;
+end;
+
+procedure TFProduto.btnEditaEstoqueClick(Sender: TObject);
+begin
+  inherited;
+	//EFETUA CONTROLE DE ACESSO
+   If ControlAccess('ACERTESTOQUE', 'M')=False Then
+  		Exit;
+
+   AbrirForm(TFLancamentoEstoque, FLancamentoEstoque, 0);
+end;
+
+procedure TFProduto.AjustarEstoque1Click(Sender: TObject);
+begin
+  inherited;
+	//EFETUA CONTROLE DE ACESSO
+   If ControlAccess('ACERTESTOQUE', 'M')=False Then
+  		Exit;
+
+   AbrirForm(TFLancamentoEstoque, FLancamentoEstoque, 0);
 end;
 
 end.

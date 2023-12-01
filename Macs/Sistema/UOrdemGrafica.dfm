@@ -103,35 +103,30 @@ inherited FOrdemGrafica: TFOrdemGrafica
           Expanded = False
           FieldName = 'DTFECH'
           Title.Caption = 'Dt. Fech.'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'DTPREV'
           Title.Caption = 'Dt. Prev.'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'NUMERO'
           Title.Caption = 'N'#250'mero'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'NUMFISCAL'
           Title.Caption = 'N'#186' Fiscal'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'STATUS'
           Title.Caption = 'Status'
-          Width = 64
           Visible = True
         end
         item
@@ -145,7 +140,6 @@ inherited FOrdemGrafica: TFOrdemGrafica
           Expanded = False
           FieldName = 'TOTAL'
           Title.Caption = 'Total'
-          Width = 64
           Visible = True
         end
         item
@@ -159,14 +153,12 @@ inherited FOrdemGrafica: TFOrdemGrafica
           Expanded = False
           FieldName = 'TIPOPAG'
           Title.Caption = 'Pagamento'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'EQUIPAMENTO'
           Title.Caption = 'Departamento'
-          Width = 64
           Visible = True
         end>
     end
@@ -3086,7 +3078,7 @@ inherited FOrdemGrafica: TFOrdemGrafica
         inherited LTextoBusca: TLabel
           Left = 2
           Top = -1
-          Width = 68
+          Width = 67
           Caption = 'Vendedor:'
         end
         inherited LUZOPEN: TShape

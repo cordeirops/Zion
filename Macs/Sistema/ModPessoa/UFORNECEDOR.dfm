@@ -1,15 +1,12 @@
 inherited FFornecedor: TFFornecedor
-  Left = 704
-  Top = 130
+  Left = 119
+  Top = 140
   Caption = 'FFornecedor'
   ClientHeight = 503
   OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PComunica: TPanel [0]
-    Top = 140
-  end
-  object PRel: TPanel [1]
+  object PRel: TPanel [0]
     Left = 200
     Top = 89
     Width = 380
@@ -176,7 +173,10 @@ inherited FFornecedor: TFFornecedor
         FFFFFFFFFFFFFFFF0000}
     end
   end
-  inherited PConsulta: TPanel [2]
+  inherited PComunica: TPanel
+    Top = 140
+  end
+  inherited PConsulta: TPanel
     Top = 7
     inherited GroupBox1: TGroupBox
       Left = 156
@@ -298,7 +298,7 @@ inherited FFornecedor: TFFornecedor
       Width = 150
     end
   end
-  inherited PCadastro: TPanel [3]
+  inherited PCadastro: TPanel
     Top = 7
     inherited Panel4: TPanel
       inherited PTipoPessoa: TPanel
@@ -311,7 +311,225 @@ inherited FFornecedor: TFFornecedor
           'C&omplemento'
           '&Espec'#237'fico'
           '&Hist'#243'rico')
-        object PHistorico: TPanel [0]
+        inherited PCompletoFisica: TPanel [0]
+          Height = 412
+          object labelcontabilpffornec: TLabel [0]
+            Left = 14
+            Top = 365
+            Width = 103
+            Height = 16
+            Caption = 'Conta Cont'#225'bil:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          inherited lbanexopf: TLabel
+            Left = 178
+            Top = 365
+          end
+          inherited btnanexopf: TButton
+            Left = 628
+            Top = 381
+            TabOrder = 7
+          end
+          inherited eddocpf: TFlatEdit
+            Left = 176
+            Top = 381
+          end
+          object edCtaContabilFornPf: TDBColorEdit
+            Left = 14
+            Top = 381
+            Width = 153
+            Height = 24
+            Color = clWhite
+            Ctl3D = True
+            DataField = 'CONTA_CONTABIL'
+            DataSource = DMPESSOA.DSFornecedor
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 5
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+        end
+        inherited PEspecifico: TPanel [1]
+          Height = 413
+          object PVeiculos: TGroupBox
+            Left = 7
+            Top = 33
+            Width = 737
+            Height = 233
+            Caption = 'Ve'#237'culos: '
+            TabOrder = 0
+            object DBGVeiculos: TDBGrid
+              Left = 8
+              Top = 16
+              Width = 721
+              Height = 177
+              DataSource = DMPESSOA.DEquip
+              TabOrder = 0
+              TitleFont.Charset = ANSI_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -13
+              TitleFont.Name = 'Arial'
+              TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  FieldName = 'COD_CLIENTE'
+                  Title.Caption = 'Cod.'
+                  Width = 40
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'PLACA'
+                  Title.Caption = 'Placa'
+                  Width = 100
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'DESCRICAO'
+                  Title.Caption = 'Descri'#231#227'o'
+                  Width = 560
+                  Visible = True
+                end>
+            end
+            object BtRemover: TBitBtn
+              Left = 624
+              Top = 200
+              Width = 89
+              Height = 25
+              Caption = 'Excluir'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              Glyph.Data = {
+                B6030000424DB603000000000000360000002800000012000000100000000100
+                18000000000080030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF00009FFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFF
+                0000FFFFFFFFFFFF3030CF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+                3030CF309FFF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FF0000FFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF3030CF0060
+                FF0000CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFF
+                FFFFFFFFFFFFFFFFFFFFFF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFF
+                0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009F0000FF00009FFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF00
+                00FF00009F0000CF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFF
+                0000CF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+                FFFFFF0000CF0000FF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000
+                9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF0000CF309FFF0000
+                FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF00009FFFFFFFFF
+                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFF60609F0000CF60609FFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CFFFFFFFFFFFFFFFFFFF
+                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
+            end
+          end
+          object Panel2: TPanel
+            Left = 1
+            Top = 2
+            Width = 749
+            Height = 29
+            BevelInner = bvLowered
+            Color = 16772332
+            TabOrder = 1
+            object btnEquip: TBitBtn
+              Left = 2
+              Top = 2
+              Width = 127
+              Height = 25
+              Cursor = crHandPoint
+              Hint = 'Pressione este bot'#227'o para filtrar os registros'
+              Caption = '&Equipamentos'
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 0
+              OnClick = btnEquipClick
+              Glyph.Data = {
+                8E050000424D8E05000000000000360000002800000017000000130000000100
+                18000000000058050000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00
+                0000BFBFBFBFBFBFBFBFBFBEBEBEAEAEAEBABABABFBFBF5F5F6041414D545456
+                BFBFBFBCBCBCAEAEAEBCBCBCBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF8B8BAC1A1A48646464BFBFBF3C
+                3C6600007F2B2B61BFBFBF7373731919407E7EA4BFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF4D4D9F0909
+                9817174D3B3B4B21217B0E0E8F2222813B3B4B1C1C530808833E3EA4BFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBFBCBCBC
+                7373733737870000A300005600007F0C0C8D7D7DFF1C1C9800007F1212573535
+                9C2D2D8E737373B6B6B6BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00
+                0000BFBFBF61616411116B0606483F3FCE4242C411114313138C7C7CFF39399C
+                1313437878B66C6CD21C1C4F10106B53535DBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBF000000BFBFBF48484C00007F00007A2F2F6E8181ED7D7DCB2E
+                2E874949875858874141C16565F300005A00006C00007F383846BFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBF6464945555CA3C3CD18585
+                E28989D1626262B1B1B182828257575717172E4A4AC47C7CE66F6FBA5656B74A
+                4A4CBFBFBFB6B6B69E9E9EBDBDBDBFBFBFBFBFBFBFBFBF000000BFBFBFBCBCBE
+                7171A532326A3333B27F7FA07F7F7FDADADAA1A1A16C6C6C3D3D3D2B2B957F7F
+                DE121E27003F3F383F3FBFBFBF5D69692351517D8080BFBFBFBFBFBFBFBFBF00
+                0000BFBFBFBFBFBFBFBFBF48485C6161C27575F99191A1DADADAA1A1A16C6C6C
+                00005A7171F31A1ACB001E341E9B9B192B2B2945451C7575078181434A4ABFBF
+                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF55559F8080EB6F6F93444466DE
+                DEDEA1A1A16C6C6C00001C1414847F7FFF2E46577EFFFF0D3A3A007F7F229090
+                369A9A282F2F636363BCBCBCBFBFBF000000BFBFBFBFBFBFBFBFBFABABB95353
+                A29595A6A6A6A6A0A0A0A3A3A37D7D7D4C5C5C44BED13150AF209EA981FFFF3B
+                8D8D244F4F75DDDD6CC2C20A4040167777565959BFBFBF000000BFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFB9B9B9B1B1B1B7B7B79E9E9E8FAAAA7AF5F57EB4
+                B4266F6F326F6F496F6F3FC1C167F0F0004F4F007777007F7F484C4CBFBFBF00
+                0000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF76AAAA7EC9C950D9D9
+                8CFFFF89B4B4696969CACACA8D8D8D5757572836363EC2C26AF0F071B3B35097
+                976B6B6BBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFB8
+                BCBC86ABAB2F68687BD7D7A0A0A0737373DFDFDF9C9C9C6161613A3A3A2FADAD
+                7AD1D1343838797979BCBCBCBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBF4463637DD1D177F5F58EA1A1DFDFDF9C9C9C61
+                616100717180FAFA26CACA434C4CBFBFBFBFBFBFBFBFBF000000BFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF5CA6A684E2E25C7575536A
+                6AE2E2E29C9C9C6464640B26262E888882DFDF494E4EBFBFBFBFBFBFBFBFBF00
+                0000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFAFB9B9
+                65A2A2ABB4B4AEAEAE9E9E9EABABAB7979797171719E9F9F525353B5B5B5BFBF
+                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBABABAAEAEAEABABABA3A3A3A5A5A5BFBFBF
+                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000}
+            end
+            object BtRefresh: TBitBtn
+              Left = 672
+              Top = 2
+              Width = 75
+              Height = 25
+              Caption = 'Refresh'
+              TabOrder = 1
+              OnClick = BtRefreshClick
+            end
+          end
+        end
+        object PHistorico: TPanel [2]
           Left = 2
           Top = 18
           Width = 748
@@ -551,375 +769,7 @@ inherited FFornecedor: TFFornecedor
             OnClick = BitBtn6Click
           end
         end
-        inherited PCompletoFisica: TPanel
-          Height = 412
-          object labelcontabilpffornec: TLabel [0]
-            Left = 14
-            Top = 365
-            Width = 103
-            Height = 16
-            Caption = 'Conta Cont'#225'bil:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          inherited lbanexopf: TLabel
-            Left = 178
-            Top = 365
-          end
-          inherited btnanexopf: TButton
-            Left = 628
-            Top = 381
-            TabOrder = 7
-          end
-          inherited eddocpf: TFlatEdit
-            Left = 176
-            Top = 381
-          end
-          object edCtaContabilFornPf: TDBColorEdit
-            Left = 14
-            Top = 381
-            Width = 153
-            Height = 24
-            Color = clWhite
-            Ctl3D = True
-            DataField = 'CONTA_CONTABIL'
-            DataSource = DMPESSOA.DSFornecedor
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 5
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-        end
-        inherited PEspecifico: TPanel
-          Height = 413
-          object PVeiculos: TGroupBox
-            Left = 7
-            Top = 33
-            Width = 737
-            Height = 233
-            Caption = 'Ve'#237'culos: '
-            TabOrder = 0
-            object DBGVeiculos: TDBGrid
-              Left = 8
-              Top = 16
-              Width = 721
-              Height = 177
-              DataSource = DMPESSOA.DEquip
-              TabOrder = 0
-              TitleFont.Charset = ANSI_CHARSET
-              TitleFont.Color = clWindowText
-              TitleFont.Height = -13
-              TitleFont.Name = 'Arial'
-              TitleFont.Style = []
-              Columns = <
-                item
-                  Expanded = False
-                  FieldName = 'COD_CLIENTE'
-                  Title.Caption = 'Cod.'
-                  Width = 40
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  FieldName = 'PLACA'
-                  Title.Caption = 'Placa'
-                  Width = 100
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  FieldName = 'DESCRICAO'
-                  Title.Caption = 'Descri'#231#227'o'
-                  Width = 560
-                  Visible = True
-                end>
-            end
-            object BtRemover: TBitBtn
-              Left = 624
-              Top = 200
-              Width = 89
-              Height = 25
-              Caption = 'Excluir'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -11
-              Font.Name = 'MS Sans Serif'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-              Glyph.Data = {
-                B6030000424DB603000000000000360000002800000012000000100000000100
-                18000000000080030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF00009FFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFF
-                0000FFFFFFFFFFFF3030CF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
-                3030CF309FFF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FF0000FFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF3030CF0060
-                FF0000CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFF
-                FFFFFFFFFFFFFFFFFFFFFF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFF
-                0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009F0000FF00009FFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF00
-                00FF00009F0000CF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000FF00009FFFFFFFFFFFFF
-                0000CF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
-                FFFFFF0000CF0000FF0000FF00009FFFFFFFFFFFFFFFFFFFFFFFFF0000CF0000
-                9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF0000CF309FFF0000
-                FF00009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CF00009FFFFFFFFF
-                FFFFFFFFFFFFFFFF0000FFFFFFFFFFFF60609F0000CF60609FFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000CFFFFFFFFFFFFFFFFFFF
-                0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000}
-            end
-          end
-          object Panel2: TPanel
-            Left = 1
-            Top = 2
-            Width = 749
-            Height = 29
-            BevelInner = bvLowered
-            Color = 16772332
-            TabOrder = 1
-            object btnEquip: TBitBtn
-              Left = 2
-              Top = 2
-              Width = 127
-              Height = 25
-              Cursor = crHandPoint
-              Hint = 'Pressione este bot'#227'o para filtrar os registros'
-              Caption = '&Equipamentos'
-              ParentShowHint = False
-              ShowHint = True
-              TabOrder = 0
-              OnClick = btnEquipClick
-              Glyph.Data = {
-                8E050000424D8E05000000000000360000002800000017000000130000000100
-                18000000000058050000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00
-                0000BFBFBFBFBFBFBFBFBFBEBEBEAEAEAEBABABABFBFBF5F5F6041414D545456
-                BFBFBFBCBCBCAEAEAEBCBCBCBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF8B8BAC1A1A48646464BFBFBF3C
-                3C6600007F2B2B61BFBFBF7373731919407E7EA4BFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF4D4D9F0909
-                9817174D3B3B4B21217B0E0E8F2222813B3B4B1C1C530808833E3EA4BFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBFBCBCBC
-                7373733737870000A300005600007F0C0C8D7D7DFF1C1C9800007F1212573535
-                9C2D2D8E737373B6B6B6BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00
-                0000BFBFBF61616411116B0606483F3FCE4242C411114313138C7C7CFF39399C
-                1313437878B66C6CD21C1C4F10106B53535DBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBF000000BFBFBF48484C00007F00007A2F2F6E8181ED7D7DCB2E
-                2E874949875858874141C16565F300005A00006C00007F383846BFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBF6464945555CA3C3CD18585
-                E28989D1626262B1B1B182828257575717172E4A4AC47C7CE66F6FBA5656B74A
-                4A4CBFBFBFB6B6B69E9E9EBDBDBDBFBFBFBFBFBFBFBFBF000000BFBFBFBCBCBE
-                7171A532326A3333B27F7FA07F7F7FDADADAA1A1A16C6C6C3D3D3D2B2B957F7F
-                DE121E27003F3F383F3FBFBFBF5D69692351517D8080BFBFBFBFBFBFBFBFBF00
-                0000BFBFBFBFBFBFBFBFBF48485C6161C27575F99191A1DADADAA1A1A16C6C6C
-                00005A7171F31A1ACB001E341E9B9B192B2B2945451C7575078181434A4ABFBF
-                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF55559F8080EB6F6F93444466DE
-                DEDEA1A1A16C6C6C00001C1414847F7FFF2E46577EFFFF0D3A3A007F7F229090
-                369A9A282F2F636363BCBCBCBFBFBF000000BFBFBFBFBFBFBFBFBFABABB95353
-                A29595A6A6A6A6A0A0A0A3A3A37D7D7D4C5C5C44BED13150AF209EA981FFFF3B
-                8D8D244F4F75DDDD6CC2C20A4040167777565959BFBFBF000000BFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFB9B9B9B1B1B1B7B7B79E9E9E8FAAAA7AF5F57EB4
-                B4266F6F326F6F496F6F3FC1C167F0F0004F4F007777007F7F484C4CBFBFBF00
-                0000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF76AAAA7EC9C950D9D9
-                8CFFFF89B4B4696969CACACA8D8D8D5757572836363EC2C26AF0F071B3B35097
-                976B6B6BBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFB8
-                BCBC86ABAB2F68687BD7D7A0A0A0737373DFDFDF9C9C9C6161613A3A3A2FADAD
-                7AD1D1343838797979BCBCBCBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBF4463637DD1D177F5F58EA1A1DFDFDF9C9C9C61
-                616100717180FAFA26CACA434C4CBFBFBFBFBFBFBFBFBF000000BFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF5CA6A684E2E25C7575536A
-                6AE2E2E29C9C9C6464640B26262E888882DFDF494E4EBFBFBFBFBFBFBFBFBF00
-                0000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFAFB9B9
-                65A2A2ABB4B4AEAEAE9E9E9EABABAB7979797171719E9F9F525353B5B5B5BFBF
-                BFBFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBABABAAEAEAEABABABA3A3A3A5A5A5BFBFBF
-                BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000}
-            end
-            object BtRefresh: TBitBtn
-              Left = 672
-              Top = 2
-              Width = 75
-              Height = 25
-              Caption = 'Refresh'
-              TabOrder = 1
-              OnClick = BtRefreshClick
-            end
-          end
-        end
-        inherited PComplementoJURIDICA: TPanel
-          Width = 748
-          Height = 414
-          inherited lbanexopj: TLabel
-            Left = 8
-          end
-          object labelcontabilpjfornec: TLabel [1]
-            Left = 8
-            Top = 51
-            Width = 103
-            Height = 16
-            Caption = 'Conta Cont'#225'bil:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentFont = False
-          end
-          inherited btnanexopj: TButton
-            Left = 461
-            TabOrder = 4
-          end
-          inherited eddocpj: TFlatEdit
-            Left = 8
-            TabOrder = 5
-          end
-          inline FrmTransp: TFrmBusca
-            Left = 8
-            Top = 9
-            Width = 553
-            Height = 39
-            Color = 16772332
-            ParentColor = False
-            TabOrder = 0
-            inherited LTextoBusca: TLabel
-              Width = 106
-              Caption = 'Transportadora:'
-            end
-            inherited LUZOPEN: TShape
-              Left = 502
-              Width = 23
-              Height = 22
-            end
-            inherited LUZMINUS: TShape
-              Left = 526
-            end
-            inherited EdDescricao: TFlatEdit
-              Left = 130
-              Width = 371
-              ColorFlat = clWhite
-            end
-            inherited BTNOPEN: TBitBtn
-              Left = 501
-              OnClick = FrmTranspBTNOPENClick
-            end
-            inherited BTNMINUS: TBitBtn
-              Left = 523
-              OnClick = FrmContaBTNMINUSClick
-            end
-            inherited EDCodigo: TFlatEdit
-              Width = 127
-              ColorFlat = clLightGreen
-              OnKeyPress = FrmTranspEDCodigoKeyPress
-            end
-          end
-          object GroupBox11: TGroupBox
-            Left = 10
-            Top = 96
-            Width = 543
-            Height = 177
-            Caption = 'Observa'#231#245'es'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'BankGothic Md BT'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            object DBMemo1: TDBMemo
-              Left = 8
-              Top = 24
-              Width = 529
-              Height = 145
-              DataField = 'OBS'
-              DataSource = DMPESSOA.DSFornecedor
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'BankGothic Md BT'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-            end
-          end
-          object GroupBox13: TGroupBox
-            Left = 10
-            Top = 278
-            Width = 233
-            Height = 62
-            Caption = 'Cr'#233'dito de antecipa'#231#245'es'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
-            Font.Height = -16
-            Font.Name = 'BankGothic Md BT'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-            object DBColorEdit52: TDBColorEdit
-              Left = 8
-              Top = 21
-              Width = 217
-              Height = 38
-              DataField = 'VLRCREDITO'
-              DataSource = DMPESSOA.DSPessoa
-              Enabled = False
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clGreen
-              Font.Height = -27
-              Font.Name = 'BankGothic Md BT'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object edCtaContabilFornPj: TDBColorEdit
-            Left = 8
-            Top = 67
-            Width = 153
-            Height = 24
-            Color = clWhite
-            Ctl3D = True
-            DataField = 'CONTA_CONTABIL'
-            DataSource = DMPESSOA.DSFornecedor
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Verdana'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 3
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-        end
-        inherited PPrincipal: TPanel
+        inherited PPrincipal: TPanel [3]
           Height = 414
           inherited Label14: TLabel
             Left = 324
@@ -1344,6 +1194,170 @@ inherited FFornecedor: TFFornecedor
             TabOrder = 4
           end
         end
+        inherited PComplementoJURIDICA: TPanel
+          Width = 748
+          Height = 414
+          inherited lbanexopj: TLabel
+            Left = 8
+          end
+          object labelcontabilpjfornec: TLabel [1]
+            Left = 8
+            Top = 51
+            Width = 103
+            Height = 16
+            Caption = 'Conta Cont'#225'bil:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+          end
+          inherited lbOrgaoPessoa: TLabel
+            Left = 558
+            Top = 20
+          end
+          inherited btnanexopj: TButton
+            Left = 461
+            TabOrder = 4
+          end
+          inherited eddocpj: TFlatEdit
+            Left = 8
+            TabOrder = 5
+          end
+          inherited CBOrgao_Municipal_Estadual: TCheckBox
+            Left = 558
+            Top = 44
+            TabOrder = 6
+          end
+          inherited cbOrgao_Federal: TCheckBox
+            Left = 558
+            Top = 68
+            TabOrder = 7
+          end
+          inline FrmTransp: TFrmBusca
+            Left = 8
+            Top = 6
+            Width = 489
+            Height = 39
+            Color = 16772332
+            ParentColor = False
+            TabOrder = 0
+            inherited LTextoBusca: TLabel
+              Width = 106
+              Caption = 'Transportadora:'
+            end
+            inherited LUZOPEN: TShape
+              Left = 438
+              Width = 23
+              Height = 22
+            end
+            inherited LUZMINUS: TShape
+              Left = 462
+            end
+            inherited EdDescricao: TFlatEdit
+              Left = 130
+              Width = 307
+              ColorFlat = clWhite
+            end
+            inherited BTNOPEN: TBitBtn
+              Left = 437
+              OnClick = FrmTranspBTNOPENClick
+            end
+            inherited BTNMINUS: TBitBtn
+              Left = 459
+              OnClick = FrmContaBTNMINUSClick
+            end
+            inherited EDCodigo: TFlatEdit
+              Width = 127
+              ColorFlat = clLightGreen
+              OnKeyPress = FrmTranspEDCodigoKeyPress
+            end
+          end
+          object GroupBox11: TGroupBox
+            Left = 10
+            Top = 96
+            Width = 483
+            Height = 177
+            Caption = 'Observa'#231#245'es'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'BankGothic Md BT'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            object DBMemo1: TDBMemo
+              Left = 8
+              Top = 24
+              Width = 469
+              Height = 145
+              DataField = 'OBS'
+              DataSource = DMPESSOA.DSFornecedor
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'BankGothic Md BT'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+            end
+          end
+          object GroupBox13: TGroupBox
+            Left = 10
+            Top = 278
+            Width = 233
+            Height = 62
+            Caption = 'Cr'#233'dito de antecipa'#231#245'es'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -16
+            Font.Name = 'BankGothic Md BT'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            object DBColorEdit52: TDBColorEdit
+              Left = 8
+              Top = 21
+              Width = 217
+              Height = 38
+              DataField = 'VLRCREDITO'
+              DataSource = DMPESSOA.DSPessoa
+              Enabled = False
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clGreen
+              Font.Height = -27
+              Font.Name = 'BankGothic Md BT'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object edCtaContabilFornPj: TDBColorEdit
+            Left = 8
+            Top = 67
+            Width = 153
+            Height = 24
+            Color = clWhite
+            Ctl3D = True
+            DataField = 'CONTA_CONTABIL'
+            DataSource = DMPESSOA.DSFornecedor
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 3
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+        end
       end
     end
     inherited Panel1: TPanel
@@ -1361,7 +1375,8 @@ inherited FFornecedor: TFFornecedor
     end
   end
   inherited XMLDocument1: TXMLDocument
-    Top = 46
+    Left = 474
+    Top = 42
   end
   inherited AlteraPessoa: TPopupMenu
     Top = 65535

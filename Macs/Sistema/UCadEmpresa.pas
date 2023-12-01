@@ -156,6 +156,16 @@ type
     Label65: TLabel;
     DBEdit29: TDBEdit;
     Label66: TLabel;
+    cbRetemImpostos: TCheckBox;
+    pRetemImpostos: TPanel;
+    Label67: TLabel;
+    DBColorEdit11: TDBColorEdit;
+    Label68: TLabel;
+    DBColorEdit12: TDBColorEdit;
+    Label69: TLabel;
+    DBColorEdit13: TDBColorEdit;
+    Label70: TLabel;
+    DBColorEdit14: TDBColorEdit;
     procedure FormActivate(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
@@ -173,6 +183,7 @@ type
     procedure FrmBuscaBTNMINUSClick(Sender: TObject);
     procedure cbIndustriaClick(Sender: TObject);
     procedure cbNCIClick(Sender: TObject);
+    procedure cbRetemImpostosClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -301,6 +312,17 @@ begin
     Else
        CBZEROPES.Checked:=False;
 
+    If XTabela.FieldByName('RETEM_IMPOSTOS').AsString = 'S'
+    Then Begin
+       cbRetemImpostos.Checked := True;
+       pRetemImpostos.Visible := True;
+       pRetemImpostos.BringToFront;
+    end
+    Else Begin
+       cbRetemImpostos.Checked := False;
+       pRetemImpostos.Visible := False;
+    End;
+
     //Atribui valores para pis/cofins
     If XTabela.FieldByName('APLICAPISCONFINSSAIDA').AsString='1' Then
        CBPisCofins.Checked:=True
@@ -395,6 +417,14 @@ begin
        DMMACS.TEmpresa.FieldByName('CALCULAIPI').AsString:='1'
     Else
        DMMACS.TEmpresa.FieldByName('CALCULAIPI').AsString:='0';
+
+    If cbRetemImpostos.Checked = True
+    Then Begin
+       DMMACS.TEmpresa.FieldByName('RETEM_IMPOSTOS').AsString:='S'
+    End
+    Else Begin
+       DMMACS.TEmpresa.FieldByName('RETEM_IMPOSTOS').AsString:='N'
+    End;
 
     //PIS/COFINS
     If CBPisCofins.Checked=True Then
@@ -543,6 +573,19 @@ begin
       XTabela.FieldByName('NCI').AsString := '1'
   Else
       XTabela.FieldByName('NCI').AsString := '0';
+end;
+
+procedure TFCadEmpresa.cbRetemImpostosClick(Sender: TObject);
+begin
+  inherited;
+   If cbRetemImpostos.Checked = True
+   Then Begin
+       pRetemImpostos.Visible := True;
+       pRetemImpostos.BringToFront;
+   End
+   Else Begin
+       pRetemImpostos.Visible := False;
+   End;
 end;
 
 end.

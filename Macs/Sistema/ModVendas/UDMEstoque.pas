@@ -52,7 +52,6 @@ type
     UPEstoque: TIBUpdateSQL;
     DSEstoque: TDataSource;
     TUnidadeDESC_UNID: TIBStringField;
-    Alx: TIBQuery;
     DSAlx: TDataSource;
     WProduto: TIBQuery;
     DWProduto: TDataSource;
@@ -539,6 +538,17 @@ type
     TEstoqueCOMPVLRBCST: TIBBCDField;
     TEstoqueCOMPVLRICMS: TIBBCDField;
     TSubProdCODIGOBENEFICIOFISCAL: TIBStringField;
+    Alx: TIBQuery;
+    TSubProdRETEM_PIS_COFINS: TIBStringField;
+    TItensContagem: TIBQuery;
+    dItensContagem: TDataSource;
+    TItensContagemCOD_ESTOQUE: TIntegerField;
+    TItensContagemCONTRINT: TIBStringField;
+    TItensContagemCODPRODFABR: TIBStringField;
+    TItensContagemDESCRICAO: TIBStringField;
+    TItensContagemESTFISICO: TFloatField;
+    TItensContagemCONTAGEM: TIBBCDField;
+    TItensContagemEXPORTAR: TIBStringField;
     procedure EventEstoqueEventAlert(Sender: TObject; EventName: String;
       EventCount: Integer; var CancelAlerts: Boolean);
   private

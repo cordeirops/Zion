@@ -422,6 +422,11 @@ type
     TPessoaCAMINHODOCS: TIBStringField;
     TEmailEMAIL: TIBStringField;
     il16x16: TImageList;
+    TPessoaJNOMERESPONSAVEL: TIBStringField;
+    TPessoaJCPFRESPONSAVEL: TIBStringField;
+    TPessoaJRGRESPONSAVEL: TIBStringField;
+    TPessoaJORGAO_MUNICIPAL_ESTADUAL: TIBStringField;
+    TPessoaJORGAO_FEDERAL: TIBStringField;
     procedure TTelefoneBeforePost(DataSet: TDataSet);
     procedure TEmailBeforePost(DataSet: TDataSet);
     procedure TALXFilterRecord(DataSet: TDataSet; var Accept: Boolean);

@@ -2029,10 +2029,6 @@ Begin
 			DMENTRADA.TItemPC.FieldByName('COD_CST').AsInteger:=DMESTOQUE.TSlave.FieldByName('COD_CST').AsInteger;
            DMENTRADA.TItemPC.FieldByName('CFOP').AsString:=XCfopDev;
            DMENTRADA.TItemPC.Post;
-           //ATULIZA ESTOQUE
-           DMESTOQUE.TEstoque.Edit;
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMSAIDA.TItemPV.FieldByName('QTDEPROD').AsCurrency;
-           DMESTOQUE.TEstoque.Post;
            DMESTOQUE.TSlave.Next;
        End;
 
@@ -2659,12 +2655,6 @@ Begin
            DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency:=DMServ.TPOrd.FieldByName('total').AsCurrency;
            XTotPedDev:=XTotPedDev+DMENTRADA.TItemPC.FieldByName('VALORTOTAL').AsCurrency;
            DMENTRADA.TItemPC.Post;
-           //ATULIZA ESTOQUE
-           DMESTOQUE.TEstoque.Edit;
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMServ.TPOrd.FieldByName('QTD').AsCurrency;
-           DMESTOQUE.TEstoque.Post;
-           DMESTOQUE.TransacEstoque.CommitRetaining;
-           
            DMESTOQUE.TSlave.Next;
 		End;
        DMENTRADA.TPedC.Edit;
@@ -4421,7 +4411,6 @@ begin
                End;
        		//Atualiza Estoque
        		DMEstoque.TEstoque.edit;
-               DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-EDQuantidade.ValueNumeric;
                DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                DMESTOQUE.TEstoque.Post;
                DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -4535,14 +4524,6 @@ begin
        DMSERV.TPOrd.FieldByName('ALIQIPI').AsCurrency:=0;
        DMSERV.TPOrd.FieldByName('VLRIPI').AsCurrency:=0;
 
-
-       //Atualiza Estoque
-       DMEstoque.TEstoque.edit;
-       //atualiza estoque físico
-       If DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString='' Then
-       	DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=(EDQuantidade.ValueNumeric) * -1
-       Else
-       	DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-EDQuantidade.ValueNumeric;
 
        //Atualiza saldo de estoque
       	DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMEstoque.TEstoque.FieldByName('ESTPED').Value)-DMEstoque.TEstoque.FieldByName('ESTRESERV').Value;
@@ -4867,18 +4848,8 @@ begin
            FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
            //Atualiza Estoque
            DMEstoque.TEstoque.edit;
-           DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMServ.TPOrd.FieldByName('QTD').Value;
-           DMEstoque.TEstoque.FieldByName('ESTRESERV').Value:=DMEstoque.TEstoque.FieldByName('ESTRESERV').Value-DMServ.TPOrd.FieldByName('QTD').Value;
            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
            DMEstoque.TEstoque.Post;
-           //Atualiza saldo de estoque
-           //prepara estoque em pedido de compra
-           Try
-               DMEstoque.TEstoque.Edit;
-               DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency-DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency)+DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
-               DMEstoque.TEstoque.Post;
-           Except
-           End;
            DMESTOQUE.TransacEstoque.CommitRetaining;
 
            // essa variavel eh soh para fazer verificação na função "calcula comissao" e nao precisar usar o mesmo filtratabela igual ao debaixo
@@ -4922,26 +4893,12 @@ begin
               // FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
                //Atualiza Estoque
                DMEstoque.TEstoque.edit;
-               DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMServ.TPOrd.FieldByName('QTD').Value;
-               DMEstoque.TEstoque.FieldByName('ESTRESERV').Value:=DMEstoque.TEstoque.FieldByName('ESTRESERV').Value-DMServ.TPOrd.FieldByName('QTD').Value;
                DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
                DMEstoque.TEstoque.Post;
-               //Atualiza saldo de estoque
-               //prepara estoque em pedido de compra
-               Try
-                   DMEstoque.TEstoque.Edit;
-                   DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency-DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency)+DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
-                   DMEstoque.TEstoque.Post;
-               Except
-               End;
                DMESTOQUE.TransacEstoque.CommitRetaining;
 
                // essa variavel eh soh para fazer verificação na função "calcula comissao" e nao precisar usar o mesmo filtratabela igual ao debaixo
                XCampo := '1';
-               // filtra estoque para buscar os valores das porcentagens das comissoes
-            //   FiltraTabela(DMESTOQUE.Alx4,'ESTOQUE','COD_ESTOQUE',DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsString,'');
-           //    XCOD_ULTPROD := DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsInteger;
-
                //APAGA ITEM
                DMSERV.TPOrd.Delete;
                DMSERV.TPOrd.ApplyUpdates;
@@ -7147,10 +7104,6 @@ begin
                        DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency:=DMServ.TPOrd.FieldByName('qtd').AsCurrency;
                        DMENTRADA.TLancENT.FieldByName('QTDANT').AsString:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
                        DMENTRADA.TLancEnt.POST;
-                       DMESTOQUE.TEstoque.Edit;
-                       DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-                       DMESTOQUE.TEstoque.POST;
-                       DMESTOQUE.TransacEstoque.CommitRetaining;
                    End;
                End;
                DMESTOQUE.Alx.Next;
@@ -8009,7 +7962,7 @@ try
                        DMEXPORTA.TEstoque.SQL.Clear;
                        DMEXPORTA.TEstoque.SQL.Add('insert into ESTOQUE');
                        DMEXPORTA.TEstoque.SQL.Add('(COD_ESTOQUE, COD_LOJA, COD_SUBPROD, ULTCOMPRA, ULTVENDA, ESTMAX, ESTMIN,');
-                       DMEXPORTA.TEstoque.SQL.Add('ICMS, FRETE, ESTFISICO, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
+                       DMEXPORTA.TEstoque.SQL.Add('ICMS, FRETE, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
                        DMEXPORTA.TEstoque.SQL.Add('CVVPROVAR, CVPPROVAR, VENDATAP, VENDATAV, VENDVARP, VENDVARV, VALUNIT,');
                        DMEXPORTA.TEstoque.SQL.Add('VALREP, VALCUSTO, AVVPROAT, AVPPROAT, AVVPROVAR, AVPPROVAR, LUCRATIVIDADE,');
                        DMEXPORTA.TEstoque.SQL.Add('COEFDIV, VALOREST, OUTROS, QUANT2, DTCAD, ESTINI, VALCUSDESP, ESTANTCONT,');
@@ -8019,7 +7972,7 @@ try
                        DMEXPORTA.TEstoque.SQL.Add('PRECOOFERTA, DATAOFERTA, VENCIMENTOOFERTA)');
                        DMEXPORTA.TEstoque.SQL.Add('values');
                        DMEXPORTA.TEstoque.SQL.Add('(:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTMAX,');
-                       DMEXPORTA.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTFISICO, :ESTRESERV, :ESTPED, :ESTSALDO,');
+                       DMEXPORTA.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTRESERV, :ESTPED, :ESTSALDO,');
                        DMEXPORTA.TEstoque.SQL.Add(':CVVPROAT, :CVPPROAT, :CVVPROVAR, :CVPPROVAR, :VENDATAP, :VENDATAV,');
                        DMEXPORTA.TEstoque.SQL.Add(':VENDVARP, :VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVPPROAT,');
                        DMEXPORTA.TEstoque.SQL.Add(':AVVPROVAR, :AVPPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS,');
@@ -8404,15 +8357,6 @@ try
                    DMEXPORTA.TEstoque.ParamByName('codigo').AsInteger := XCOD_ESTOQUE;
                    DMEXPORTA.TEstoque.Open;
 
-                   If not DMEXPORTA.TEstoque.IsEmpty
-                   Then Begin
-                       DMEXPORTA.TEstoque.edit;
-                       DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEXPORTA.TEstoque.FieldByName('ESTFISICO').AsCurrency-DMServ.TPOrd.FieldByName('QTD').AsCurrency;
-                       DMEXPORTA.TEstoque.Post;
-                   End
-                   Else Begin
-						MessageDlg('O produto de código: '+DMESTOQUE.TEstoque.FieldByName('contrint').AsString+' Não teve estoque atualziado na base de destino.', mtWarning, [mbOK], 0);
-                   End;
                    DMEXPORTA.IBTExporta.CommitRetaining;
                Except
                	MessageDlg('FALHA 532', mtWarning, [mbOK], 0);
@@ -10948,10 +10892,6 @@ begin
                        DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency:=DMServ.TPOrd.FieldByName('qtd').AsCurrency;
                        DMENTRADA.TLancENT.FieldByName('QTDANT').AsString:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsString;
                        DMENTRADA.TLancEnt.POST;
-                       DMESTOQUE.TEstoque.Edit;
-                       DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMENTRADA.TLancENT.FieldByName('QUANTIDADE').AsCurrency;
-                       DMESTOQUE.TEstoque.POST;
-                       DMESTOQUE.TransacEstoque.CommitRetaining;
                    End;
                End;
                DMESTOQUE.Alx.Next;
@@ -11928,7 +11868,7 @@ try
                DMESTOQUE.TEstoque.SQL.Clear;
                DMESTOQUE.TEstoque.SQL.Add('insert into ESTOQUE');
                DMESTOQUE.TEstoque.SQL.Add('(COD_ESTOQUE, COD_LOJA, COD_SUBPROD, ULTCOMPRA, ULTVENDA, ESTMAX, ESTMIN,');
-               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTFISICO, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
+               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add('CVVPROVAR, CVPPROVAR, VENDATAP, VENDATAV, VENDVARP, VENDVARV, VALUNIT,');
                DMESTOQUE.TEstoque.SQL.Add('VALREP, VALCUSTO, AVVPROAT, AVPPROAT, AVVPROVAR, AVPPROVAR, LUCRATIVIDADE,');
                DMESTOQUE.TEstoque.SQL.Add('COEFDIV, VALOREST, OUTROS, QUANT2, DTCAD, ESTINI, VALCUSDESP, ESTANTCONT,');
@@ -11938,7 +11878,7 @@ try
                DMESTOQUE.TEstoque.SQL.Add('PRECOOFERTA, DATAOFERTA, VENCIMENTOOFERTA)');
                DMESTOQUE.TEstoque.SQL.Add('values');
                DMESTOQUE.TEstoque.SQL.Add('(:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTMAX,');
-               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTFISICO, :ESTRESERV, :ESTPED, :ESTSALDO,');
+               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTRESERV, :ESTPED, :ESTSALDO,');
                DMESTOQUE.TEstoque.SQL.Add(':CVVPROAT, :CVPPROAT, :CVVPROVAR, :CVPPROVAR, :VENDATAP, :VENDATAV,');
                DMESTOQUE.TEstoque.SQL.Add(':VENDVARP, :VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add(':AVVPROVAR, :AVPPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS,');
@@ -11958,7 +11898,6 @@ try
                DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-               DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
@@ -12031,7 +11970,7 @@ try
                DMESTOQUE.TEstoque.SQL.Clear;
                DMESTOQUE.TEstoque.SQL.Add('insert into ESTOQUE');
                DMESTOQUE.TEstoque.SQL.Add('(COD_ESTOQUE, COD_LOJA, COD_SUBPROD, ULTCOMPRA, ULTVENDA, ESTMAX, ESTMIN,');
-               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTFISICO, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
+               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add('CVVPROVAR, CVPPROVAR, VENDATAP, VENDATAV, VENDVARP, VENDVARV, VALUNIT,');
                DMESTOQUE.TEstoque.SQL.Add('VALREP, VALCUSTO, AVVPROAT, AVPPROAT, AVVPROVAR, AVPPROVAR, LUCRATIVIDADE,');
                DMESTOQUE.TEstoque.SQL.Add('COEFDIV, VALOREST, OUTROS, QUANT2, DTCAD, ESTINI, VALCUSDESP, ESTANTCONT,');
@@ -12041,7 +11980,7 @@ try
                DMESTOQUE.TEstoque.SQL.Add('PRECOOFERTA, DATAOFERTA, VENCIMENTOOFERTA)');
                DMESTOQUE.TEstoque.SQL.Add('values');
                DMESTOQUE.TEstoque.SQL.Add('(:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTMAX,');
-               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTFISICO, :ESTRESERV, :ESTPED, :ESTSALDO,');
+               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTRESERV, :ESTPED, :ESTSALDO,');
                DMESTOQUE.TEstoque.SQL.Add(':CVVPROAT, :CVPPROAT, :CVVPROVAR, :CVPPROVAR, :VENDATAP, :VENDATAV,');
                DMESTOQUE.TEstoque.SQL.Add(':VENDVARP, :VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add(':AVVPROVAR, :AVPPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS,');
@@ -12061,7 +12000,6 @@ try
                DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-               DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
@@ -12124,7 +12062,7 @@ try
                DMESTOQUE.TEstoque.SQL.Clear;
                DMESTOQUE.TEstoque.SQL.Add('insert into ESTOQUE');
                DMESTOQUE.TEstoque.SQL.Add('(COD_ESTOQUE, COD_LOJA, COD_SUBPROD, ULTCOMPRA, ULTVENDA, ESTMAX, ESTMIN,');
-               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTFISICO, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
+               DMESTOQUE.TEstoque.SQL.Add('ICMS, FRETE, ESTRESERV, ESTPED, ESTSALDO, CVVPROAT, CVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add('CVVPROVAR, CVPPROVAR, VENDATAP, VENDATAV, VENDVARP, VENDVARV, VALUNIT,');
                DMESTOQUE.TEstoque.SQL.Add('VALREP, VALCUSTO, AVVPROAT, AVPPROAT, AVVPROVAR, AVPPROVAR, LUCRATIVIDADE,');
                DMESTOQUE.TEstoque.SQL.Add('COEFDIV, VALOREST, OUTROS, QUANT2, DTCAD, ESTINI, VALCUSDESP, ESTANTCONT,');
@@ -12134,7 +12072,7 @@ try
                DMESTOQUE.TEstoque.SQL.Add('PRECOOFERTA, DATAOFERTA, VENCIMENTOOFERTA)');
                DMESTOQUE.TEstoque.SQL.Add('values');
                DMESTOQUE.TEstoque.SQL.Add('(:COD_ESTOQUE, :COD_LOJA, :COD_SUBPROD, :ULTCOMPRA, :ULTVENDA, :ESTMAX,');
-               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTFISICO, :ESTRESERV, :ESTPED, :ESTSALDO,');
+               DMESTOQUE.TEstoque.SQL.Add(':ESTMIN, :ICMS, :FRETE, :ESTRESERV, :ESTPED, :ESTSALDO,');
                DMESTOQUE.TEstoque.SQL.Add(':CVVPROAT, :CVPPROAT, :CVVPROVAR, :CVPPROVAR, :VENDATAP, :VENDATAV,');
                DMESTOQUE.TEstoque.SQL.Add(':VENDVARP, :VENDVARV, :VALUNIT, :VALREP, :VALCUSTO, :AVVPROAT, :AVPPROAT,');
                DMESTOQUE.TEstoque.SQL.Add(':AVVPROVAR, :AVPPROVAR, :LUCRATIVIDADE, :COEFDIV, :VALOREST, :OUTROS,');
@@ -12154,7 +12092,6 @@ try
                DMESTOQUE.TEstoque.ParamByName('ESTMIN').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTMIN').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ICMS').AsCurrency := DMPESSOA.TAux1.FieldByName('ICMS').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('FRETE').AsCurrency := DMPESSOA.TAux1.FieldByName('FRETE').AsCurrency;
-               DMESTOQUE.TEstoque.ParamByName('ESTFISICO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTFISICO').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTRESERV').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTRESERV').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTPED').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTPED').AsCurrency;
                DMESTOQUE.TEstoque.ParamByName('ESTSALDO').AsCurrency := DMPESSOA.TAux1.FieldByName('ESTSALDO').AsCurrency;
@@ -13003,8 +12940,6 @@ begin
        					//Atualiza Estoque
        					DMEstoque.TEstoque.edit;
                            DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-          					//atualiza estoque físico
-							DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
               				//Atualiza data da ultima venda
 							DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString:=DateToStr(Date());
                              DMESTOQUE.TEstoque.Post;

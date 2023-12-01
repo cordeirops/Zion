@@ -325,27 +325,26 @@ Procedure TFImpNfe.DBProdutosDrawColumnCell(Sender: TObject;
     State: TGridDrawState);
 Begin
    try
-// Or (MDO.QConsulta.FieldByName('status').AsString = 'DESC') Then
+       If MDO.QConsulta.Fields.FindField('status') <> NIL
+       Then Begin
+           if (MDO.QConsulta.FieldByName('status').AsString = 'NCAD') Then//Somente itens não cadastrados
+               DBProdutos.Canvas.Brush.Color := $004D4DFF;
 
-    if (MDO.QConsulta.FieldByName('status').AsString = 'NCAD') Then//Somente itens não cadastrados
-        DBProdutos.Canvas.Brush.Color := $004D4DFF;
+           If MDO.QConsulta.FieldByName('status').AsString = 'NOME' Then //Descrição ou Valor de venda alterado
+               DBProdutos.Canvas.Brush.Color := $00FFBB5C;
 
+           If MDO.QConsulta.FieldByName('status').AsString = 'OK' Then // Itens anteriormentes cadastrados
+               DBProdutos.Canvas.Brush.Color := clMoneyGreen;
 
-    If MDO.QConsulta.FieldByName('status').AsString = 'NOME' Then //Descrição ou Valor de venda alterado
-        DBProdutos.Canvas.Brush.Color := $00FFBB5C;
+           If MDO.QConsulta.FieldByName('valorvenda').AsFloat = 0 Then  //Itens sem valor de venda
+           Begin
+               DBProdutos.Canvas.Brush.COlor := $004EDFF5;
+               XFlagVlr := 1;
+           End;
 
-
-    If MDO.QConsulta.FieldByName('status').AsString = 'OK' Then // Itens anteriormentes cadastrados
-        DBProdutos.Canvas.Brush.Color := clMoneyGreen;
-
-    If MDO.QConsulta.FieldByName('valorvenda').AsFloat = 0 Then  //Itens sem valor de venda
-    Begin
-        DBProdutos.Canvas.Brush.COlor := $004EDFF5;
-        XFlagVlr := 1;
-    End;
-
-    DBProdutos.Canvas.FillRect(Rect);
-    DBProdutos.DefaultDrawDataCell(Rect, DBProdutos.Columns[datacol].Field, State);
+           DBProdutos.Canvas.FillRect(Rect);
+           DBProdutos.DefaultDrawDataCell(Rect, DBProdutos.Columns[datacol].Field, State);
+       End
    except
    end;
 End;
@@ -721,119 +720,90 @@ Begin
                 ComVistaVar:= DMMACS.TEmpresa.FieldByName('CVVPROVAR').AsCurrency;
 
                 FiltraTabela(DMESTOQUE.TSubProd, 'SUBPRODUTO', '', '', '');
-              //Paulo 27/09/2010: Insere registro na tabela subporduto
                 XcodSub := InserReg(DMESTOQUE.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO');
-                DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger := XcodSub;
+                   DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger := XcodSub;
 
-              //Jônatas 04/10/2013 - função para cadastrar NCM caso ele não exista na tabela NCM
-                AchaNCM(DMESTOQUE.Alx3.FieldByName('NCM').AsString);
+                   AchaNCM(DMESTOQUE.Alx3.FieldByName('NCM').AsString);
 
-                DMESTOQUE.TSubProd.Edit;
-              //DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger:=XcodSub ;
-                If DMESTOQUE.Alx3.FieldByName('DESCPRODVINCULADO').AsString <> '' Then
-                   DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString := DMESTOQUE.Alx3.FieldByName('DESCPRODVINCULADO').AsString
-                ELSE
-                   DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString := DMESTOQUE.Alx3.FieldByName('DESCPROD').AsString;
-                DMESTOQUE.TSubProd.FieldByName('CODBARRA').AsString := DMESTOQUE.Alx3.FieldByName('CODBARRA').AsString;
-                DMESTOQUE.TSubProd.FieldByName('CODPRODFABR').AsString := DMESTOQUE.Alx3.FieldByName('CODPRODFORN').AsString;
-                DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString := IntToStr(XcodSub);
-                //Angelo - 19/05/2015 - Adicionando campo marca
-                DMESTOQUE.TSubProd.FieldByName('MARCA').AsString := DMESTOQUE.Alx3.FieldByName('MARCA').AsString;
-                {try
-                  DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString := RetornaValorValido('SUBPRODUTO', 'COD_INTERNO');//IntToStr(XcodSub);
-                except
-                  on e : Exception do
-                   begin
-                    if e.Message = 'ERRO CONVERSÃO' then
-                      DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString := IntToStr(XcodSub);
-                   end;
-                end;}
-              //Seleciona o código de unidade
-              //FiltraTabela(DMESTOQUE.Alx4,'UNIDADE','SIGLA_UNID',DMESTOQUE.Alx3.FieldByName('TIPOUNIDADE').AsString,'');
-                FiltraTabela(DMESTOQUE.Alx4, 'UNIDADE', 'SIGLA_UNID', 'UN', '');
-                DMESTOQUE.TSubProd.FieldByName('COD_UNIDCOMPRA').AsInteger := DMESTOQUE.Alx4.FieldByName('COD_UNIDADE').AsInteger;
-                DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger := DMESTOQUE.Alx4.FieldByName('COD_UNIDADE').AsInteger;
+                   DMESTOQUE.TSubProd.Edit;
+                   If DMESTOQUE.Alx3.FieldByName('DESCPRODVINCULADO').AsString <> '' Then
+                       DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString := DMESTOQUE.Alx3.FieldByName('DESCPRODVINCULADO').AsString
+                   ELSE
+                       DMESTOQUE.TSubProd.FieldByName('DESCRICAO').AsString := DMESTOQUE.Alx3.FieldByName('DESCPROD').AsString;
+                   DMESTOQUE.TSubProd.FieldByName('CODBARRA').AsString := DMESTOQUE.Alx3.FieldByName('CODBARRA').AsString;
+                   DMESTOQUE.TSubProd.FieldByName('CODPRODFABR').AsString := DMESTOQUE.Alx3.FieldByName('CODPRODFORN').AsString;
+                   DMESTOQUE.TSubProd.FieldByName('COD_INTERNO').AsString := IntToStr(XcodSub);
+                   DMESTOQUE.TSubProd.FieldByName('MARCA').AsString := DMESTOQUE.Alx3.FieldByName('MARCA').AsString;
 
-                FiltraTabela(DMMACS.TALX, 'CST', 'cod_sit_trib', EncontraCSTVenda(DMESTOQUE.Alx3.FieldByName('CST').AsString, DMESTOQUE.Alx3.FieldByName('CFOP').AsString), '');
-                 //Angelo - 22/05/2015 - CST de venda baseada na coluna cstvenda da impnfetmp
-                //Em caso de não ter sido alterada, é preenchida com EncontraCSTVenda
-                if (DMESTOQUE.Alx3.FieldByName('CSTVENDA').AsString = '')
-                then
-                	DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger := DMMACS.TALX.FieldByName('cod_cst').AsInteger
-                else
-                   DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger := EncontraCst(DMESTOQUE.Alx3.FieldByName('CSTVENDA').AsString);
+                   FiltraTabela(DMESTOQUE.Alx4, 'UNIDADE', 'SIGLA_UNID', 'UN', '');
+                   DMESTOQUE.TSubProd.FieldByName('COD_UNIDCOMPRA').AsInteger := DMESTOQUE.Alx4.FieldByName('COD_UNIDADE').AsInteger;
+                   DMESTOQUE.TSubProd.FieldByName('COD_UNIDVENDA').AsInteger := DMESTOQUE.Alx4.FieldByName('COD_UNIDADE').AsInteger;
 
-                DmEstoque.TSubProd.FieldByName('DTCAD').AsString := DateToStr(Date());
-              //Seleciona o contrint
-                FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
-                DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString := DMMACS.TLoja.FieldByName('PROXCTRINT').AsString;
-                DMESTOQUE.TSubProd.FieldByName('NCM').AsString := DMESTOQUE.Alx3.FieldByName('NCM').AsString;
-                DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsFloat := DMESTOQUE.Alx3.FieldByName('IPI').AsFloat;
+                   FiltraTabela(DMMACS.TALX, 'CST', 'cod_sit_trib', EncontraCSTVenda(DMESTOQUE.Alx3.FieldByName('CST').AsString, DMESTOQUE.Alx3.FieldByName('CFOP').AsString), '');
+                   if (DMESTOQUE.Alx3.FieldByName('CSTVENDA').AsString = '')
+                   then
+                	    DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger := DMMACS.TALX.FieldByName('cod_cst').AsInteger
+                   else
+                       DMESTOQUE.TSubProd.FieldByName('COD_CST').AsInteger := EncontraCst(DMESTOQUE.Alx3.FieldByName('CSTVENDA').AsString);
 
-              //o cod composto
-         //DMESTOQUE.TSubProd.FieldByName('CODCOMPOSTO').AsString := concatenaComposto(DMESTOQUE.Alx3.FieldByName('codproduto').AsInteger) + '-' + IntToStr(XcodSub);
-                If DMESTOQUE.Alx3.FieldByName('CODPRODUTO').AsInteger = 0 Then
-                  DMESTOQUE.TSubProd.FieldByName('COD_PRODUTO').AsInteger := VerificaProdutoImporta
-                Else
-                  DMESTOQUE.TSubProd.FieldByName('COD_PRODUTO').AsInteger := DMESTOQUE.Alx3.FieldByName('CODPRODUTO').AsInteger;
+                   DmEstoque.TSubProd.FieldByName('DTCAD').AsString := DateToStr(Date());
+                   FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
+                   DMESTOQUE.TSubProd.FieldByName('CONTRINT').AsString := DMMACS.TLoja.FieldByName('PROXCTRINT').AsString;
+                   DMESTOQUE.TSubProd.FieldByName('NCM').AsString := DMESTOQUE.Alx3.FieldByName('NCM').AsString;
+                   DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsFloat := DMESTOQUE.Alx3.FieldByName('IPI').AsFloat;
 
-                //Paulo 27/09/2010: Insere Registro na tabela Estoque
+                   If DMESTOQUE.Alx3.FieldByName('CODPRODUTO').AsInteger = 0 Then
+                       DMESTOQUE.TSubProd.FieldByName('COD_PRODUTO').AsInteger := VerificaProdutoImporta
+                   Else
+                       DMESTOQUE.TSubProd.FieldByName('COD_PRODUTO').AsInteger := DMESTOQUE.Alx3.FieldByName('CODPRODUTO').AsInteger;
+
+                   DMESTOQUE.TSubProd.Post;
+
                 XCodest := InserReg(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE');
-                DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger := XCodest;
-                DMESTOQUE.TEstoque.FieldByName('COD_LOJA').AsInteger := DMMACS.TLoja.FieldByName('COD_LOJA').AsInteger;
-                DMESTOQUE.TEstoque.FieldByName('COD_SUBPROD').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger;
-                DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency := DMESTOQUE.Alx3.FieldByName('ALIQICMS').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDAAT').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDA').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDA').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDAAT').AsCurrency;
-                If (CBAlteraValordeCompra.Checked=True) or (DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency<=0)
-                Then Begin
-                  DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
-                  DMESTOQUE.TEstoque.FieldByName('VLRCOMPSD').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
-                  DMESTOQUE.TEstoque.FieldByName('VALUNIT').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency;
-                End;
+                   DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger := XCodest;
+                   DMESTOQUE.TEstoque.FieldByName('COD_LOJA').AsInteger := DMMACS.TLoja.FieldByName('COD_LOJA').AsInteger;
+                   DMESTOQUE.TEstoque.FieldByName('COD_SUBPROD').AsInteger := DMESTOQUE.TSubProd.FieldByName('COD_SUBPRODUTO').AsInteger;
+                   DMESTOQUE.TEstoque.FieldByName('VALCUSTO').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('ICMS').AsCurrency := DMESTOQUE.Alx3.FieldByName('ALIQICMS').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('estfisico').AsCurrency := 0;
+                   DMESTOQUE.TEstoque.FieldByName('VENDATAV').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDAAT').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('VENDVARP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDA').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('VENDVARV').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDA').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('VENDATAP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORVENDAAT').AsCurrency;
+                   If (CBAlteraValordeCompra.Checked=True) or (DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency<=0)
+                   Then Begin
+                       DMESTOQUE.TEstoque.FieldByName('VLRUNITCOMP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
+                       DMESTOQUE.TEstoque.FieldByName('VLRCOMPSD').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
+                       DMESTOQUE.TEstoque.FieldByName('VALUNIT').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency;
+                   End;
 
-                if DMESTOQUE.Alx3.FieldByName('ALIQFRETE').AsCurrency <> 0 then
-                   DMESTOQUE.TEstoque.FieldByName('FRETE').AsCurrency := DMESTOQUE.Alx3.FieldByName('ALIQFRETE').AsCurrency;
+                   if DMESTOQUE.Alx3.FieldByName('ALIQFRETE').AsCurrency <> 0 then
+                       DMESTOQUE.TEstoque.FieldByName('FRETE').AsCurrency := DMESTOQUE.Alx3.FieldByName('ALIQFRETE').AsCurrency;
 
-                if DMESTOQUE.Alx3.FieldByName('IPI').AsCurrency <> 0 then
-                   DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsCurrency := DMESTOQUE.Alx3.FieldByName('IPI').AsCurrency;
+                   if DMESTOQUE.Alx3.FieldByName('IPI').AsCurrency <> 0 then
+                       DMESTOQUE.TSubProd.FieldByName('IPIPROD').AsCurrency := DMESTOQUE.Alx3.FieldByName('IPI').AsCurrency;
 
-                try
-                   //(DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency * (((DMESTOQUE.Alx3.FieldByName('ICMSSUBST').AsCurrency * 100) / DMESTOQUE.Alx3.FieldByName('BASESUBST').AsCurrency) / 100));
-                   //recupera a aliquota de ST real vinda no xml
-                   XAliqSt := DMESTOQUE.Alx3.FieldByName('ALIQST').AsCurrency;
-                except
-                   XAliqSt := 0;
-                end;
+                   try
+                       XAliqSt := DMESTOQUE.Alx3.FieldByName('ALIQST').AsCurrency;
+                   except
+                       XAliqSt := 0;
+                   end;
 
-                if XAliqSt <> 0 then
-                   DMESTOQUE.TEstoque.FieldByName('PIS').AsCurrency := XAliqSt;
+                   if XAliqSt <> 0 then
+                       DMESTOQUE.TEstoque.FieldByName('PIS').AsCurrency := XAliqSt;
 
-                If DMESTOQUE.Alx3.FieldByName('MARCA').AsString='15' Then
-                   XAliqInternaEstDest:=XAliqInternaEstDest;
+                   If DMESTOQUE.Alx3.FieldByName('MARCA').AsString='15' Then
+                       XAliqInternaEstDest:=XAliqInternaEstDest;
 
-                DMESTOQUE.TEstoque.FieldByName('COMPVLRBCST').AsCurrency := DMESTOQUE.Alx3.FieldByName('BASESUBST').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('COMPALIQST').AsCurrency  := XAliqSt+DMESTOQUE.Alx3.FieldByName('ALIQFCP').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('COMPVLRST').AsCurrency   := DMESTOQUE.Alx3.FieldByName('ICMSSUBST').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('COMPVLRICMS').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORICMS').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
-
-                //Alex 22/05/2019 - Se o usuário já alterou o valor de custo da nfe pela edição individual, mantemos essa edição
-                {If DMESTOQUE.Alx3.FieldByName('CUSTONFE').AsCurrency=0
-                Then Begin
-				    //Alex 07/03/2018: Na linha abaixo Somamos todos os custos da compra
-                   DMESTOQUE.TEstoque.FieldByName('valcustonfe').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORTOTAL').AsCurrency+DMESTOQUE.Alx3.FieldByName('VALORIPI').AsCurrency+DMESTOQUE.Alx3.FieldByName('VALORFRETE').AsCurrency+DMESTOQUE.Alx3.FieldByName('ICMSSUBST').AsCurrency;
-				    //Alex 07/03/2018: Na linha abaixo, descobrimos o custo por unidade
-                   DMESTOQUE.TEstoque.FieldByName('valcustonfe').AsCurrency := DMESTOQUE.TEstoque.FieldByName('valcustonfe').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
-                End
-                Else Begin}
+                   DMESTOQUE.TEstoque.FieldByName('COMPVLRBCST').AsCurrency := DMESTOQUE.Alx3.FieldByName('BASESUBST').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('COMPALIQST').AsCurrency  := XAliqSt+DMESTOQUE.Alx3.FieldByName('ALIQFCP').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('COMPVLRST').AsCurrency   := DMESTOQUE.Alx3.FieldByName('ICMSSUBST').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('COMPVLRICMS').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORICMS').AsCurrency / DMESTOQUE.Alx3.FieldByName('QUANTIDADE').AsCurrency;
                    DMESTOQUE.TEstoque.FieldByName('valcustonfe').AsCurrency :=  DMESTOQUE.Alx3.FieldByName('CUSTONFE').AsCurrency;
-                {End;}
-                DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORREP').AsCurrency; //DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
-                DMESTOQUE.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
-                //Paulo 27/09/2010: Insere registro na tabela codbarra
+                   DMESTOQUE.TEstoque.FieldByName('VALREP').AsCurrency := DMESTOQUE.Alx3.FieldByName('VALORREP').AsCurrency; //DMESTOQUE.Alx3.FieldByName('VALORUN').AsCurrency/DMESTOQUE.Alx3.FieldByName('QTDEMB').AsCurrency;
+                   DMESTOQUE.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
+                   DMESTOQUE.TEstoque.Post;
+
                 DMESTOQUE.TCodBarra.Close;
                 DMESTOQUE.TCodBarra.SQL.Clear;
                 dmestoque.TCodBarra.SQL.Add('insert into codigobarra(cod_estoque,codbarra,codfornerc)');
@@ -842,15 +812,15 @@ Begin
                 DMESTOQUE.TCodBarra.ParamByName('CODBARRA').AsString := DMESTOQUE.Alx3.FieldByName('CODPRODFORN').AsString;
                 DMESTOQUE.TCodBarra.ParamByName('CODFORNERC').AsInteger := StrToInt(EdCodForn.Text);
                 DMESTOQUE.TCodBarra.ExecSQL;
-                //Paulo 28/09/2010: Atualiza a tabela tmp
+
                 DMENTRADA.TImpNfeTMP.Close;
                 DMENTRADA.TImpNfeTMP.SQL.Clear;
                 DMENTRADA.TImpNfeTMP.SQL.Add('update IMPNFETMP set IMPNFETMP.CODPRODUTO = :CODPRODUTO, IMPNFETMP.COD_ESTOQUE = :CODESTOQUE');
                 DMENTRADA.TImpNfeTMP.SQL.Add('where IMPNFETMP.CODPRODFORN = :CODBARRA');
                 If DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger = 0 Then
-                  DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger := VerificaProdutoImporta
+                   DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger := VerificaProdutoImporta
                 Else
-                  DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger := DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger;
+                   DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger := DMENTRADA.TImpNfeTMP.ParamByName('CODPRODUTO').AsInteger;
 
                 DMENTRADA.TImpNfeTMP.ParamByName('CODESTOQUE').AsInteger := DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger;
                 DMENTRADA.TImpNfeTMP.ParamByName('CODBARRA').AsString := DMESTOQUE.Alx3.FieldByName('CODPRODFORN').AsString;
@@ -858,20 +828,17 @@ Begin
                 DMENTRADA.IBT.CommitRetaining;
                 DMENTRADA.TImpNfeTMP.Open;
 
-               // Para controle do contrint, salva o proximo contrint na loja
                 DMMACS.TLoja.Edit;
                 DMMACS.TLoja.FieldByName('PROXCTRINT').AsString := INCSTRNUM(1, DMMACS.TLoja.FieldByName('PROXCTRINT').AsString);
                 DMMACS.TLoja.Post;
                 DMMACS.Transaction.CommitRetaining;
 
-                DMESTOQUE.TSubProd.Post;
-                DMESTOQUE.TEstoque.Post;
-                //Efetua Calculo de Lucratividade
-                //CalculoVenda(DescVistaVar, 0, 0, 0, ComVistaVar, 0, 0, 0, 1, 1);
                 CalculaLucratividade(DMESTOQUE.TEstoque.FieldByName('COD_ESTOQUE').AsInteger);
                 DMESTOQUE.TransacEstoque.CommitRetaining;
             Except
                 DMESTOQUE.TransacEstoque.RollbackRetaining;
+                MessageDlg('Verifique estoque para o item:' + #13 +
+                           DMESTOQUE.Alx3.FieldByName('DESCPROD').AsString, mtWarning, [mbOK], 0);
             End;
 
         End;

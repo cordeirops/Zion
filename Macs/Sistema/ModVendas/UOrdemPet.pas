@@ -2689,30 +2689,6 @@ begin
                End;
            end;
 
-           //Atualiza Estoque
-           DMEstoque.TEstoque.edit;
-           //atualiza estoque físico
-           If DMEstoque.TEstoque.FieldByName('ESTFISICO').AsString='' Then
-               DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=(EDQtdProd.ValueNumeric) * -1
-           Else
-               DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value-EDQtdProd.ValueNumeric;
-
-           //Atualiza saldo de estoque
-           DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMEstoque.TEstoque.FieldByName('ESTPED').Value)-DMEstoque.TEstoque.FieldByName('ESTRESERV').Value;
-           //prepara estoque em pedido de compra
-
-               
-           Try
-               DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-               DMESTOQUE.TEstoque.Post;
-               DMESTOQUE.TransacEstoque.CommitRetaining;
-
-           Except
-               DMESTOQUE.TransacEstoque.RollbackRetaining;
-               MessageDlg('O ESTOQUE NÃO FOI ATUALIZADO', mtWarning, [mbOK], 0);
-           End;
-
-
            DMSERV.TPOrd.Post;
            DMSERV.IBT.CommitRetaining;
            BtnProcProd.SetFocus;
@@ -2776,22 +2752,8 @@ begin
          FiltraTabela(DMEstoque.TEstoque, 'ESTOQUE', 'COD_ESTOQUE', DMESTOQUE.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
          FiltraTabela(DMEstoque.WSimilar, 'VWSIMILAR', 'COD_ESTOQUE', DMEstoque.TSlave.FieldByName('COD_ESTOQUE').AsString, '');
          FiltraTabela(DMSERV.TPOrd, 'ITPRODORD', 'COD_ITPRODORD', DMESTOQUE.TSlave.FieldByName('COD_ITPRODORD').AsString, '');
-         //Atualiza Estoque
-         DMEstoque.TEstoque.edit;
-         DMEstoque.TEstoque.FieldByName('ESTFISICO').Value:=DMEstoque.TEstoque.FieldByName('ESTFISICO').Value+DMServ.TPOrd.FieldByName('QTD').Value;
-         DMEstoque.TEstoque.FieldByName('ESTRESERV').Value:=DMEstoque.TEstoque.FieldByName('ESTRESERV').Value-DMServ.TPOrd.FieldByName('QTD').Value;
-         DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-         //Atualiza saldo de estoque
-         //prepara estoque em pedido de compra
-         Try
-             DMEstoque.TEstoque.FieldByName('ESTSALDO').Value:=(DMEstoque.TEstoque.FieldByName('ESTSALDO').AsCurrency-DMEstoque.TEstoque.FieldByName('ESTRESERV').AsCurrency)+DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency;
-         Except
-         End;
 
-         DMEstoque.TEstoque.Post;
-         DMESTOQUE.TransacEstoque.CommitRetaining;
-
-                  // filtra estoque para buscar os valores das porcentagens das comissoes
+         // filtra estoque para buscar os valores das porcentagens das comissoes
          FiltraTabela(DMESTOQUE.Alx4,'ESTOQUE','COD_ESTOQUE',DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsString,'');
          XCOD_ULTPROD := DMSERV.TPOrd.FieldByName('COD_ESTOQUE').AsInteger;
 

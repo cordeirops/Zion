@@ -96,6 +96,11 @@ type
     ListagemdeLanamentosporCaixa1: TMenuItem;
     ransferirTodososCheques1: TMenuItem;
     BalanceteMensalporPerodo1: TMenuItem;
+    Listagemdelanamentosporcontas1: TMenuItem;
+    PListContas: TPanel;
+    Panel1: TPanel;
+    DBGListContas: TDBGrid;
+    SpeedButton1: TSpeedButton;
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DBTIPOKeyPress(Sender: TObject; var Key: Char);
@@ -155,6 +160,8 @@ type
     procedure ListagemdeLanamentosporCaixa1Click(Sender: TObject);
     procedure ransferirTodososCheques1Click(Sender: TObject);
     procedure BalanceteMensalporPerodo1Click(Sender: TObject);
+    procedure Listagemdelanamentosporcontas1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
     procedure AtualizaInfoCaixa;
@@ -246,7 +253,7 @@ var
    XTotal,XVlrEnt, XVlrSaidas:Real;
 begin
   inherited;
-	 Caption:='Lançamentos em Caixa' ;  
+	 Caption:='Lançamentos em Caixa' ;
     AtualizaInfoCaixa;
 
     //Paulo 05/04/2012: verificar se arquivo de layout foi salvo anteriormente
@@ -416,6 +423,14 @@ begin
                        	DMCAIXA.TLanCaixa.Delete;
                            DMCAIXA.IBT.CommitRetaining;
                            DMFINANC.Transaction.CommitRetaining;
+
+                           MDO.Transac.CommitRetaining;
+                           MDO.Query.Close;
+                           MDO.Query.SQL.Clear;
+                           MDO.Query.SQL.Add('DELETE FROM LANCAIXACTA WHERE COD_LANCAIXA = :CODIGO');
+                           MDO.Query.ParamByName('CODIGO').AsInteger:=DMCAIXA.WLancCaixa.FieldByName('cod_lanc').AsInteger;
+                           MDO.Query.ExecSQL;
+                           MDO.Transac.CommitRetaining;
 						end;                   
                     End;
     				 //Filtra Lançamentos por Empresa
@@ -487,30 +502,31 @@ end;
 
 procedure TFLancCaixa.BtnGravarClick(Sender: TObject);
 Var
-XCod_LancamentoCX: Integer;
-XDocCreditoCliente: String;
+  XCod_LancamentoCX: Integer;
+  XDocCreditoCliente: String;
+  xValor, xValorTotal, xPorcentagem, xNewValor: Double;
 begin
   inherited;
    BtnGravar.SetFocus;
-    If (XCod_Conta<=0)
-    Then Begin //bloqueia caso não tenha sido informado o plano de contas
+   If (XCod_Conta<=0)
+   Then Begin //bloqueia caso não tenha sido informado o plano de contas
         Mensagem('OPÇÃO BLOQUEADA', 'É necessario que você informe a conta do Plano de Contas para que o lançamento seja efetuado!', '', 1, 1, False, 'a');
         exit;
-    End;
-    If DBHISTORICO.Text=''
-    Then Begin //bloqueia caso não tenha sido informado o histórico
+   End;
+   If DBHISTORICO.Text=''
+   Then Begin //bloqueia caso não tenha sido informado o histórico
         Mensagem('OPÇÃO BLOQUEADA', 'É necessario que você informe o Histórico referente ao lançamento para que o mesmo seja efetuado!', '', 1, 1, False, 'a');
         DBHISTORICO.SetFocus;
         exit;
-    End;
-    If DBTIPO.Text=''
-    Then Begin //bloqueia caso não tenha sido informado o tipo
+   End;
+   If DBTIPO.Text=''
+   Then Begin //bloqueia caso não tenha sido informado o tipo
         Mensagem('OPÇÃO BLOQUEADA', 'É necessario que você informe o Tipo de Pagamento utilizado neste lançamento!', '', 1, 1, False, 'a');
         DBTIPO.SetFocus;
         exit;
-    End;
-    If DBVALOR.Text<>''
-    Then Begin
+   End;
+   If DBVALOR.Text<>''
+   Then Begin
         //If StrToFloat(DBVALOR.)=0
         if DBVALOR.ValueNumeric = 0
         Then Begin //bloqueia caso não tenha sido informado o Valor do lançamento
@@ -518,72 +534,153 @@ begin
             DBVALOR.SetFocus;
             exit;
         End;
-    End
-    Else Begin
+   End
+   Else Begin
         Mensagem('OPÇÃO BLOQUEADA', 'É necessario que você informe o Valor do Lançamento para que ele seja efetivado!', '', 1, 1, False, 'a');
         DBVALOR.SetFocus;
         exit;
-    End;
-    If DBTIPOCAI.Text=''
-    Then Begin //bloqueia caso não tenha sido informado o tipo Caixa
+   End;
+   If DBTIPOCAI.Text=''
+   Then Begin //bloqueia caso não tenha sido informado o tipo Caixa
         Mensagem('OPÇÃO BLOQUEADA', 'É necessario que você informe o Tipo da Operação em Caixa ([E] Entrada/[S] Saída), para que o Lançamento seja esfetuado!', '', 1, 1, False, 'a');
         DBTIPOCAI.SetFocus;
         exit;
-    End;
-    If (DBTIPO.Text='Crédito') and (XCOD_PESSOACRED<=0)
-    Then Begin
+   End;
+   If (DBTIPO.Text='Crédito') and (XCOD_PESSOACRED<=0)
+   Then Begin
         Mensagem('OPÇÃO BLOQUEADA', 'Para efetuar um lançamento de crédito é necessário selecionar um cliente/fornecedor!', '', 1, 1, False, 'a');
         DBTIPO.SetFocus;
         exit;
-    End;
-    //grava informações em lançamento
+   End;
 
-    //Retorna codigo do lançamento
-    DMCAIXA.TAlx.Close;
-    DMCAIXA.TAlx.SQL.Clear;
-    DMCAIXA.TAlx.SQL.Add('  select gen_id(GEN_LANCAIXA_ID, 0) as codigo from rdb$database ');
-    DMCAIXA.TAlx.Open;
-    XCod_LancamentoCX:=DMCAIXA.TAlx.FieldByName('codigo').AsInteger;
+   Try
+       MDO.Transac.CommitRetaining;
 
-    DMCAIXA.TAlx.Close;
-    DMCAIXA.TAlx.SQL.Clear;
-    If XState='INSERT'
-    Then Begin
-        DMCAIXA.TAlx.SQL.Add('  insert into lancaixa (DTLANC, DTREFER, COD_PLNCTAFIL, ESTRU, HISTORICO, VALOR, SALDOANT, TIPOGERADOR, COD_GERADOR, ');
-        DMCAIXA.TAlx.SQL.Add('                         TIPO, TIPCAI, COD_ABCAIXA, COD_USUARIO, DOC) ');
-        DMCAIXA.TAlx.SQL.Add('          values (:DTLANC, :DTREFER, :COD_PLNCTAFIL, :ESTRU, :HISTORICO, :VALOR, :SALDOANT, :TIPOGERADOR, :COD_GERADOR, ');
-        DMCAIXA.TAlx.SQL.Add('                         :TIPO, :TIPCAI, :COD_ABCAIXA, :COD_USUARIO, :DOC) ');
-    	 DMCAIXA.TAlx.ParamByName('ESTRU').AsString:='1';
-	     DMCAIXA.TAlx.ParamByName('COD_ABCAIXA').AsString:=FMenu.LABCAIXA.Caption;
-    	 DMCAIXA.TAlx.ParamByName('SALDOANT').AsCurrency:=SaldoAtu+SaldoIni;
-    End
-    Else Begin
-        DMCAIXA.TAlx.SQL.Add('  update lancaixa set DTLANC = :DTLANC, DTREFER = :DTREFER, COD_PLNCTAFIL = :COD_PLNCTAFIL, HISTORICO = :HISTORICO, ');
-        DMCAIXA.TAlx.SQL.Add('                      VALOR = :VALOR, TIPO = :TIPO, ');
-        DMCAIXA.TAlx.SQL.Add('                      TIPCAI = :TIPCAI, lancaixa.cod_usuario = :COD_USUARIO, DOC=:DOC ');
-        DMCAIXA.TAlx.SQL.Add('          where lancaixa.cod_lanc=:CODIGO ');
-        DMCAIXA.TAlx.ParamByName('CODIGO').AsInteger:=XCodLancCaixa;
-	 End;
-    DMCAIXA.TAlx.ParamByName('DTLANC').AsString:=DateToStr(Date());
-    DMCAIXA.TAlx.ParamByName('DTREFER').AsString:=EdDtRefer.Text;
-    DMCAIXA.TAlx.ParamByName('COD_PLNCTAFIL').AsInteger:=XCod_Conta;
-    DMCAIXA.TAlx.ParamByName('HISTORICO').AsString:= Copy(DBHISTORICO.Text,0,100);
-    DMCAIXA.TAlx.ParamByName('VALOR').Value:=DBVALOR.ValueNumeric;
-    DMCAIXA.TAlx.ParamByName('TIPO').AsString:=DBTIPO.Text;
-    DMCAIXA.TAlx.ParamByName('TIPCAI').AsString:=DBTIPOCAI.Text;
-    DMCAIXA.TAlx.ParamByName('COD_USUARIO').AsString:=FMenu.LCODUSUARIO.Caption;
-    DMCAIXA.TAlx.ParamByName('DOC').AsString:=DBDoc.Text;
-    DMCAIXA.TAlx.ExecSQL;
-	 XDocCreditoCliente:=DBDoc.Text;
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add('  select gen_id(GEN_LANCAIXA_ID, 0) as codigo from rdb$database ');
+       MDO.QConsulta.Open;
+       XCod_LancamentoCX:=MDO.QConsulta.FieldByName('codigo').AsInteger;
 
-     //Paulo 25/10/2011: Incrementa o nº documento
-     DMMACS.TLoja.Edit;
-     DMMACS.TLoja.FieldByName('PROXDOCCTAREC').AsInteger:=DMMACS.TLoja.FieldByName('PROXDOCCTAREC').AsInteger+1;
-     DMMACS.TLoja.Post;
+       xValor := DBVALOR.ValueNumeric;
 
-     //SE TIPO LANÇAMENTO = CREDITO O SISTEMA DEVE LANÇAR NO CREDITO DA PESSOA
-     If DBTIPO.Text='Crédito'
-     Then Begin
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       If XState='INSERT'
+       Then Begin
+           MDO.Query.SQL.Add('  insert into lancaixa (DTLANC, DTREFER, COD_PLNCTAFIL, ESTRU, HISTORICO, VALOR, SALDOANT, TIPOGERADOR, COD_GERADOR, ');
+           MDO.Query.SQL.Add('                         TIPO, TIPCAI, COD_ABCAIXA, COD_USUARIO, DOC) ');
+           MDO.Query.SQL.Add('          values (:DTLANC, :DTREFER, :COD_PLNCTAFIL, :ESTRU, :HISTORICO, :VALOR, :SALDOANT, :TIPOGERADOR, :COD_GERADOR, ');
+           MDO.Query.SQL.Add('                         :TIPO, :TIPCAI, :COD_ABCAIXA, :COD_USUARIO, :DOC) ');
+    	    MDO.Query.ParamByName('ESTRU').AsString:='1';
+	        MDO.Query.ParamByName('COD_ABCAIXA').AsString:=FMenu.LABCAIXA.Caption;
+    	    MDO.Query.ParamByName('SALDOANT').AsCurrency:=SaldoAtu+SaldoIni;
+       End
+       Else Begin
+           MDO.Query.SQL.Add('  update lancaixa set DTLANC = :DTLANC, DTREFER = :DTREFER, COD_PLNCTAFIL = :COD_PLNCTAFIL, HISTORICO = :HISTORICO, ');
+           MDO.Query.SQL.Add('                      VALOR = :VALOR, TIPO = :TIPO, ');
+           MDO.Query.SQL.Add('                      TIPCAI = :TIPCAI, lancaixa.cod_usuario = :COD_USUARIO, DOC=:DOC ');
+           MDO.Query.SQL.Add('          where lancaixa.cod_lanc=:CODIGO ');
+           MDO.Query.ParamByName('CODIGO').AsInteger:= XCodLancCaixa;
+
+	    End;
+       MDO.Query.ParamByName('DTLANC').AsString:=DateToStr(Date());
+       MDO.Query.ParamByName('DTREFER').AsString:=EdDtRefer.Text;
+       MDO.Query.ParamByName('COD_PLNCTAFIL').AsInteger:=XCod_Conta;
+       MDO.Query.ParamByName('HISTORICO').AsString:= Copy(DBHISTORICO.Text,0,100);
+       MDO.Query.ParamByName('VALOR').Value:=xValor;
+       MDO.Query.ParamByName('TIPO').AsString:=DBTIPO.Text;
+       MDO.Query.ParamByName('TIPCAI').AsString:=DBTIPOCAI.Text;
+       MDO.Query.ParamByName('COD_USUARIO').AsString:=FMenu.LCODUSUARIO.Caption;
+       MDO.Query.ParamByName('DOC').AsString:=DBDoc.Text;
+       MDO.Query.ExecSQL;
+
+       MDO.Transac.CommitRetaining;
+
+   Except
+       MDO.Transac.RollbackRetaining;
+       MessageDlg('Falha ao efetuar lançamento em caixa', mtWarning, [mbOK], 0);
+   End;
+
+   Try
+       If XState='INSERT'
+       Then Begin
+           MDO.Query.Close;
+           MDO.Query.SQL.Clear;
+           MDO.Query.SQL.Add('INSERT INTO LANCAIXACTA (COD_LANCAIXA, VALOR, COD_PLNCTA) ');
+           MDO.Query.SQL.Add('VALUES (:CODIGO, :VALOR, :COD_PLNCTA) ');
+           MDO.Query.ParamByName('CODIGO').AsInteger:=XCodLancCaixa;
+           MDO.Query.ParamByName('VALOR').Value:=xValor;
+           MDO.Query.ParamByName('COD_PLNCTA').AsInteger:=XCod_Conta;
+           MDO.Query.ExecSQL;
+       End
+       Else Begin
+           MDO.QConsulta.Close;
+           MDO.QConsulta.SQL.Clear;
+           MDO.QConsulta.SQL.Add('SELECT SUM(VALOR) AS VALOR, COD_LANCAIXA FROM LANCAIXACTA WHERE COD_LANCAIXA = :CODIGO GROUP BY COD_LANCAIXA');
+           MDO.QConsulta.ParamByName('CODIGO').AsInteger:= XCodLancCaixa;
+           MDO.QConsulta.Open;
+           xValorTotal := MDO.QConsulta.FieldValues['VALOR'];
+
+           MDO.QConsulta.Close;
+           MDO.QConsulta.SQL.Clear;
+           MDO.QConsulta.SQL.Add('SELECT COD_LANCAIXACTA, VALOR FROM LANCAIXACTA WHERE COD_LANCAIXA = :CODIGO ');
+           MDO.QConsulta.ParamByName('CODIGO').AsInteger:= XCodLancCaixa;
+           MDO.QConsulta.Open;
+
+           if not MDO.QConsulta.IsEmpty then
+           begin
+               MDO.Transac.CommitRetaining;
+               MDO.Query.Close;
+               MDO.Query.SQL.Clear;
+               MDO.Query.SQL.Add('UPDATE LANCAIXACTA SET VALOR = :VALOR WHERE COD_LANCAIXACTA = :CODIGO');
+               while not MDO.QConsulta.Eof do
+               begin
+                   xPorcentagem := MDO.QConsulta.FieldValues['VALOR'] * 100 / xValorTotal;
+                   xNewValor := xValor * xPorcentagem / 100;
+                   MDO.Query.ParamByName('VALOR').AsFloat := xNewValor;
+                   MDO.Query.ParamByName('CODIGO').AsInteger:= MDO.QConsulta.FieldValues['COD_LANCAIXACTA'];
+                   MDO.Query.ExecSQL;
+                   MDO.QConsulta.Next;
+               end;
+           End;
+       End;
+       MDO.Transac.CommitRetaining;
+   Except
+       MDO.Transac.RollbackRetaining;
+       MessageDlg('Falha ao efetuar distribuição de valores entre as contas', mtWarning, [mbOK], 0);
+   End;
+
+   Try
+       MDO.Transac.CommitRetaining;
+
+       MDO.QConsulta.Close;
+       MDO.QConsulta.SQL.Clear;
+       MDO.QConsulta.SQL.Add(' select loja.PROXDOCCTAREC from loja where loja.cod_loja = :CodigoLoja ');
+       MDO.QConsulta.ParamByName('CodigoLoja').AsString := FMenu.LCODLOJA.Caption;
+       MDO.QConsulta.Open;
+       If MDO.QConsulta.IsEmpty Then
+           FMenu.XCOUNRECORD := 1
+       Else
+           FMenu.XCOUNRECORD := MDO.QConsulta.FieldByName('PROXDOCCTAREC').AsInteger;
+
+
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' Update loja set loja.PROXDOCCTAREC = :PROXDOCCTAREC where loja.cod_loja = :CodigoLoja');
+       MDO.Query.ParamByName('PROXDOCCTAREC').AsInteger := FMenu.XCOUNRECORD + 1;
+       MDO.Query.ParamByName('CodigoLoja').AsString := FMenu.LCODLOJA.Caption;
+       MDO.Query.ExecSQL;
+
+       MDO.Transac.CommitRetaining;
+   Except
+       MDO.Transac.RollbackRetaining
+   End;
+
+   XDocCreditoCliente:=DBDoc.Text;
+
+   If DBTIPO.Text='Crédito'
+   Then Begin
        //Lança controle de creditos de cliente/fornecedor
        If DBTIPOCAI.Text='E'
        Then Begin
@@ -661,16 +758,16 @@ begin
        //Edmar - 30/01/2015 - TransReg comentado pois ocorria um erro, agora é feito o commit manualmente
 		//TransReg(DMCAIXA.TLanCaixa, DMCAIXA.IBT, 'g');
        DMMACS.Transaction.CommitRetaining;
-     End;
-     //SE TIPO = TRANSFERENCIA BANCÁRIA O SISTEMA DEVE EFETUAR A TRANSFERENCIA
-     If UpperCase(DBTIPO.Text)='T. BANCO'
-     Then Begin
+   End;
+   //SE TIPO = TRANSFERENCIA BANCÁRIA O SISTEMA DEVE EFETUAR A TRANSFERENCIA
+   If UpperCase(DBTIPO.Text)='T. BANCO'
+   Then Begin
 	 	If LanBanco(XCOD_CONTABANCO, DMMACS.TLoja.FieldByName('PLNCTATRANSFBANCO').AsInteger, DBHISTORICO.Text, DBVALOR.ValueNumeric , 'CX', XCod_LancamentoCX, 'ENTRADA', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', EdDtRefer.Text)=True
        Then Begin
            MDO.Transac.CommitRetaining;
            DMBANCO.IBT.CommitRetaining;
            DMCAIXA.IBT.CommitRetaining;
-       	//Edmar - 30/01/2015 - TransReg comentado pois ocorria um erro, agora é feito o commit manualmente           
+       	//Edmar - 30/01/2015 - TransReg comentado pois ocorria um erro, agora é feito o commit manualmente
     		//TransReg(DMCAIXA.TLanCaixa, DMCAIXA.IBT, 'g');
        	DMMACS.Transaction.CommitRetaining;
        End
@@ -679,8 +776,8 @@ begin
            DMCAIXA.IBT.RollbackRetaining;
            MDO.Transac.RollbackRetaining;
        End;
-     End
-     Else Begin
+   End
+   Else Begin
     	If UpperCase(DBTIPO.Text)= 'T. CAIXA'
     	Then Begin
  			If LanCaixa (XCOD_CONTABANCO, DateToStr(Date()), DMMACS.TLoja.FieldByName('PLNCTATRANSFCXCX').AsInteger, 'Transf Cx -> Cx '+ FMenu.EdCaixa.Text,  DBVALOR.ValueNumeric , 'TCXCX', XCod_LancamentoCX, DBTIPO.Text, 'E', DBDoc.Text, Date(), '1')=True
@@ -703,19 +800,19 @@ begin
     	Else Begin
     		//TransReg(DMCAIXA.TLanCaixa, DMCAIXA.IBT, 'g');
     	End;
-	  End;
+	End;
      //Verifica para abrir gaveta
-	  If UpperCase(DBTIPO.Text)= 'CARTEIRA'
-     Then Begin
+	If UpperCase(DBTIPO.Text)= 'CARTEIRA'
+   Then Begin
      	ecfOpenGaveta;
      	DMCAIXA.IBT.CommitRetaining;
-       //Edmar - 30/01/2015 - TransReg comentado pois ocorria um erro, agora é feito o commit manualmente            
+       //Edmar - 30/01/2015 - TransReg comentado pois ocorria um erro, agora é feito o commit manualmente
 		//TransReg(DMCAIXA.TLanCaixa, DMCAIXA.IBT, 'g');
-       DMMACS.Transaction.CommitRetaining;       
-     End;
+       DMMACS.Transaction.CommitRetaining;
+   End;
 
      dbs(False);
-     
+
      // aTUALIZA VIEW DE CONSULTA FILTRANDO POR LOJA
      FiltraTabela(DMCAIXA.WLancCaixa, 'VWLANCAIXA', 'COD_ABCAIXA', FMenu.LABCAIXA.Caption, ' ORDER BY COD_LANC DESC');
      //Efetua Calculo de Saudos de cx
@@ -1584,4 +1681,31 @@ begin
    AbrirForm(TFRelData, FRelData, 0);
 end;
 
-End.
+procedure TFLancCaixa.Listagemdelanamentosporcontas1Click(Sender: TObject);
+begin
+  inherited;
+   PListContas.Visible := True;
+   PListContas.BringToFront;
+   PListContas.Top := 192;
+   PListContas.Left := 200;
+
+   MDO.QConsulta.Close;
+   MDO.QConsulta.SQL.Clear;
+   MDO.QConsulta.SQL.Add('select lancaixacta.valor AS VALOR, lancaixacta.cod_plncta AS CONTA, plncta.descricao as DESCRICAO, lancaixa.historico AS HISTORICO from lancaixa ');
+   MDO.QConsulta.SQL.Add('join lancaixacta on lancaixa.cod_lanc = lancaixacta.cod_lancaixa ');
+   MDO.QConsulta.SQL.Add('join plncta on plncta.cod_plncta = lancaixacta.cod_plncta ');
+   MDO.QConsulta.SQL.Add('where lancaixa.cod_lanc = :CODIGO');
+   MDO.QConsulta.ParamByName('CODIGO').AsInteger := DMCAIXA.WLancCaixa.FieldByName('cod_lanc').AsInteger;
+   MDO.QConsulta.Open;
+
+end;
+
+procedure TFLancCaixa.SpeedButton1Click(Sender: TObject);
+begin
+  inherited;
+   PListContas.Visible := False;
+   MDO.QConsulta.Close;
+end;
+
+end.
+

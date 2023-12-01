@@ -598,14 +598,6 @@ begin
   end;
   
   try
-       //Edmar - 03/01/2014 - Atualiza estoque dando baixa no estoque do produto
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-		MDO.Query.SQL.Add('update estoque set estoque.estfisico = estoque.estfisico - :est where estoque.cod_subprod = :codsub');
-		MDO.Query.ParamByName('est').AsInteger:=DMESTOQUE.Alx4.FieldByName('qtd').AsInteger;
-		MDO.Query.ParamByName('codsub').AsInteger:=DMESTOQUE.Alx4.FieldByName('cod_subproduto').AsInteger;
-		MDO.Query.ExecSQL;
-		
        //Edmar - 03/01/2014 - Atualiza itprodord setando que o produto já foi retirado
 		MDO.Query.Close;
 		MDO.Query.SQL.Clear;
@@ -660,14 +652,6 @@ begin
       MDO.Query.ParamByName('codigo').AsInteger:=DMESTOQUE.Alx4.FieldByName('ordem').AsInteger;
       MDO.Query.ExecSQL;
 
-      //Edmar - 03/01/2014 - Atualiza estoque aumentando o estoque do produto
-      MDO.Query.Close;
-      MDO.Query.sql.Clear;
-      MDO.Query.SQL.Add('update estoque set estoque.estfisico = estoque.estfisico + :est where estoque.cod_subprod = :codsub');
-      MDO.Query.ParamByName('est').AsInteger:=DMESTOQUE.Alx4.FieldByName('qtd').AsInteger;
-      MDO.Query.ParamByName('codsub').AsInteger:=DMESTOQUE.Alx4.FieldByName('cod_subproduto').AsInteger;
-      MDO.Query.ExecSQL;
-
       MDO.Query.Transaction.CommitRetaining;
   EXCEPT
   		ShowMessage('Erro ao atualizar estoque');
@@ -714,13 +698,6 @@ begin
   If Mensagem('A T E N Ç Ã O', 'DESEJA EFETUAR O CANCELAMENTO DO RETORNO DO ITEM '#13+DMESTOQUE.Alx4.FieldByName('descricao').AsString+'?'  , '', 2, 3, False, 'c') = 2 then
   begin
       try
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add('update estoque set estoque.estfisico = estoque.estfisico - :est where estoque.cod_subprod = :codsub');
-       MDO.Query.ParamByName('est').AsInteger:=DMESTOQUE.Alx4.FieldByName('qtd').AsInteger;
-       MDO.Query.ParamByName('codsub').AsInteger:=DMESTOQUE.Alx4.FieldByName('cod_subproduto').AsInteger;
-       MDO.Query.ExecSQL;
-
        //Edmar - 03/01/2014 - Atualiza itprodord setando que o produto já foi retirado
        MDO.Query.Close;
        MDO.Query.SQL.Clear;
@@ -1312,32 +1289,11 @@ begin
        DMESTOQUE.Alx4.Open;
        DMESTOQUE.Alx4.First;
 
-      	if xTipo = '-' then
+      	if xTipo <> '-' then
        begin
        	//percorre os itens buscados atualizando seu estoque
            while not DMESTOQUE.Alx4.Eof do
            begin
-               DMESTOQUE.Alx3.Close;
-               DMESTOQUE.Alx3.SQL.Clear;
-               DMESTOQUE.Alx3.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO - :QUANTIDADE WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-               DMESTOQUE.Alx3.ParamByName('QUANTIDADE').AsCurrency := DMESTOQUE.Alx4.FieldByName('QTD').AsCurrency;
-               DMESTOQUE.Alx3.ParamByName('ESTOQUE').AsCurrency := DMESTOQUE.Alx4.FieldByName('COD_ESTOQUE').AsCurrency;
-               DMESTOQUE.Alx3.ExecSQL;
-
-               DMESTOQUE.Alx4.Next;
-           end;
-       end
-       else begin
-       	//percorre os itens buscados atualizando seu estoque
-           while not DMESTOQUE.Alx4.Eof do
-           begin
-               DMESTOQUE.Alx3.Close;
-               DMESTOQUE.Alx3.SQL.Clear;
-               DMESTOQUE.Alx3.SQL.Add(' UPDATE ESTOQUE SET ESTOQUE.ESTFISICO = ESTOQUE.ESTFISICO + :QUANTIDADE WHERE ESTOQUE.COD_ESTOQUE = :ESTOQUE ');
-               DMESTOQUE.Alx3.ParamByName('QUANTIDADE').AsCurrency := DMESTOQUE.Alx4.FieldByName('QTD').AsCurrency;
-               DMESTOQUE.Alx3.ParamByName('ESTOQUE').AsCurrency := DMESTOQUE.Alx4.FieldByName('COD_ESTOQUE').AsCurrency;
-               DMESTOQUE.Alx3.ExecSQL;
-
                //lança agora uma entrada de correção para cada item
                LancaEstoqueCorrecaoGeneric('E', DMESTOQUE.Alx4.FieldByName('QTD').AsCurrency,
                	DMESTOQUE.Alx4.FieldByName('COD_ESTOQUE').AsInteger, 'Retorno da Ordem de Serviço Número '+DMESTOQUE.Alx4.FieldByName('NUMERO').AsString);

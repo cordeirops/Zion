@@ -6,7 +6,10 @@ inherited FCadPadraoPes: TFCadPadraoPes
   ClientWidth = 784
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PConsulta: TPanel
+  inherited PComunica: TPanel [0]
+    Left = 135
+  end
+  inherited PConsulta: TPanel [1]
     Left = 6
     Top = 6
     Width = 772
@@ -104,7 +107,7 @@ inherited FCadPadraoPes: TFCadPadraoPes
       OnClick = RGORDEMClick
     end
   end
-  inherited PCadastro: TPanel [1]
+  inherited PCadastro: TPanel
     Left = 6
     Top = 6
     Width = 772
@@ -223,702 +226,6 @@ inherited FCadPadraoPes: TFCadPadraoPes
         ParentFont = False
         TabOrder = 0
         OnTabChanged = TCPessoaTabChanged
-        object PCompletoFisica: TPanel
-          Left = 1
-          Top = 17
-          Width = 751
-          Height = 417
-          BevelOuter = bvNone
-          Color = clWhite
-          Ctl3D = False
-          ParentCtl3D = False
-          TabOrder = 1
-          Visible = False
-          object lbanexopf: TLabel
-            Left = 40
-            Top = 368
-            Width = 94
-            Height = 16
-            Caption = 'Caminho anexo:'
-          end
-          object RGCivil: TRadioGroup
-            Left = 8
-            Top = 9
-            Width = 281
-            Height = 56
-            Caption = 'Estado Civil'
-            Columns = 2
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = []
-            Items.Strings = (
-              'Casado '
-              'Solteiro'
-              'Vi'#250'vo'
-              'Desquitado')
-            ParentFont = False
-            TabOrder = 0
-            OnClick = RGCivilClick
-          end
-          object GBLOCALTRABALHO: TGroupBox
-            Left = 8
-            Top = 65
-            Width = 737
-            Height = 105
-            Caption = 'Local de Trabalho'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 2
-            object Label21: TLabel
-              Left = 6
-              Top = 24
-              Width = 56
-              Height = 16
-              Caption = 'Empresa:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label22: TLabel
-              Left = 390
-              Top = 24
-              Width = 59
-              Height = 16
-              Caption = 'Endere'#231'o:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label23: TLabel
-              Left = 6
-              Top = 61
-              Width = 38
-              Height = 16
-              Caption = 'Bairro:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label24: TLabel
-              Left = 300
-              Top = 61
-              Width = 38
-              Height = 16
-              Caption = 'Cargo:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label25: TLabel
-              Left = 582
-              Top = 61
-              Width = 110
-              Height = 16
-              Caption = 'Data de Admiss'#227'o:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object DBColorEdit12: TDBColorEdit
-              Left = 5
-              Top = 40
-              Width = 380
-              Height = 22
-              Color = 15658717
-              DataField = 'EMP_TRAB'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit15: TDBColorEdit
-              Left = 389
-              Top = 40
-              Width = 340
-              Height = 22
-              Color = 15658717
-              DataField = 'END_TRAB'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit16: TDBColorEdit
-              Left = 5
-              Top = 77
-              Width = 290
-              Height = 22
-              Color = 15658717
-              DataField = 'BAIRRO_TRAB'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit17: TDBColorEdit
-              Left = 299
-              Top = 77
-              Width = 278
-              Height = 22
-              Color = 15658717
-              DataField = 'CARGO'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit18: TDBColorEdit
-              Left = 581
-              Top = 77
-              Width = 148
-              Height = 22
-              Color = 15658717
-              DataField = 'DATA_ADMIS'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              MaxLength = 10
-              ParentFont = False
-              TabOrder = 4
-              OnKeyPress = DBColorEdit18KeyPress
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object GroupBox5: TGroupBox
-            Left = 296
-            Top = 9
-            Width = 449
-            Height = 56
-            Caption = 'Registro Geral (RG)'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 1
-            object Label26: TLabel
-              Left = 206
-              Top = 13
-              Width = 114
-              Height = 16
-              Caption = 'Data de Expedi'#231#227'o:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label27: TLabel
-              Left = 334
-              Top = 13
-              Width = 101
-              Height = 16
-              Caption = #211'rg'#227'o Expedidor:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label28: TLabel
-              Left = 6
-              Top = 14
-              Width = 49
-              Height = 16
-              Caption = 'N'#250'mero:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object DBColorEdit19: TDBColorEdit
-              Left = 205
-              Top = 29
-              Width = 124
-              Height = 22
-              Color = 15658717
-              DataField = 'DATA_EXPED'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              MaxLength = 10
-              ParentFont = False
-              TabOrder = 1
-              OnKeyPress = DBColorEdit19KeyPress
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit20: TDBColorEdit
-              Left = 333
-              Top = 29
-              Width = 108
-              Height = 22
-              Color = 15658717
-              DataField = 'ORGAO_EXPED'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit21: TDBColorEdit
-              Left = 5
-              Top = 29
-              Width = 196
-              Height = 22
-              Color = 15658717
-              DataField = 'RG'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object GroupBox6: TGroupBox
-            Left = 9
-            Top = 170
-            Width = 737
-            Height = 97
-            Caption = 'Conjuge:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 3
-            object Label29: TLabel
-              Left = 6
-              Top = 15
-              Width = 38
-              Height = 16
-              Caption = 'Nome:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label30: TLabel
-              Left = 390
-              Top = 15
-              Width = 104
-              Height = 16
-              Caption = 'Data Nascimento:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label31: TLabel
-              Left = 502
-              Top = 15
-              Width = 23
-              Height = 16
-              Caption = 'RG:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label32: TLabel
-              Left = 222
-              Top = 53
-              Width = 127
-              Height = 16
-              Caption = 'Empresa de Trabalho:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label34: TLabel
-              Left = 6
-              Top = 53
-              Width = 30
-              Height = 16
-              Caption = 'CPF:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object DBColorEdit22: TDBColorEdit
-              Left = 5
-              Top = 31
-              Width = 380
-              Height = 22
-              Color = 15658717
-              DataField = 'NOME_CONJ'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit23: TDBColorEdit
-              Left = 389
-              Top = 31
-              Width = 108
-              Height = 22
-              Color = 15658717
-              DataField = 'DATANASC_CONJ'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              MaxLength = 10
-              ParentFont = False
-              TabOrder = 1
-              OnKeyPress = DBColorEdit23KeyPress
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit24: TDBColorEdit
-              Left = 501
-              Top = 31
-              Width = 228
-              Height = 22
-              Color = 15658717
-              DataField = 'RG_CONJ'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit25: TDBColorEdit
-              Left = 221
-              Top = 69
-              Width = 508
-              Height = 22
-              Color = 15658717
-              DataField = 'EMP_CONJ'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 4
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBCONJUGECPF: TDBColorEdit
-              Left = 5
-              Top = 69
-              Width = 212
-              Height = 22
-              Color = 15658717
-              DataField = 'CPF_CONJ'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              OnExit = DBCONJUGECPFExit
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object GroupBox7: TGroupBox
-            Left = 9
-            Top = 267
-            Width = 737
-            Height = 95
-            Caption = 'Filia'#231#227'o:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 4
-            object Label33: TLabel
-              Left = 6
-              Top = 15
-              Width = 23
-              Height = 16
-              Caption = 'Pai:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label35: TLabel
-              Left = 371
-              Top = 15
-              Width = 29
-              Height = 16
-              Caption = 'M'#227'e:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object Label36: TLabel
-              Left = 6
-              Top = 55
-              Width = 59
-              Height = 16
-              Caption = 'Endere'#231'o:'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-            end
-            object DBColorEdit26: TDBColorEdit
-              Left = 5
-              Top = 31
-              Width = 360
-              Height = 22
-              Color = 15658717
-              DataField = 'NOME_PAI'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit28: TDBColorEdit
-              Left = 370
-              Top = 31
-              Width = 360
-              Height = 22
-              Color = 15658717
-              DataField = 'NOME_MAE'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 1
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-            object DBColorEdit29: TDBColorEdit
-              Left = 5
-              Top = 71
-              Width = 724
-              Height = 22
-              Color = 15658717
-              DataField = 'ENDE_FILIACAO'
-              DataSource = DMPESSOA.DSPessoaF
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              NotFoundText = 'N'#227'o Existe'
-              InputText = 'Por favor entre na procura pelo crit'#233'rio'
-              ButtonCaption = 'Ok'
-            end
-          end
-          object btnanexopf: TButton
-            Left = 493
-            Top = 384
-            Width = 28
-            Height = 21
-            Caption = '...'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 5
-            OnClick = btnanexopfClick
-          end
-          object eddocpf: TFlatEdit
-            Left = 40
-            Top = 384
-            Width = 450
-            Height = 22
-            ColorBorder = clBlack
-            ColorFlat = clWhite
-            ParentColor = True
-            TabOrder = 6
-          end
-        end
-        object PEspecifico: TPanel
-          Left = 1
-          Top = 17
-          Width = 751
-          Height = 417
-          BevelOuter = bvNone
-          Color = clWhite
-          Ctl3D = False
-          ParentCtl3D = False
-          TabOrder = 2
-          Visible = False
-        end
-        object PComplementoJURIDICA: TPanel
-          Left = 2
-          Top = 18
-          Width = 747
-          Height = 416
-          BevelOuter = bvNone
-          Color = clWhite
-          Ctl3D = False
-          ParentCtl3D = False
-          TabOrder = 3
-          Visible = False
-          object lbanexopj: TLabel
-            Left = 80
-            Top = 368
-            Width = 94
-            Height = 16
-            Caption = 'Caminho anexo:'
-          end
-          object btnanexopj: TButton
-            Left = 533
-            Top = 384
-            Width = 28
-            Height = 21
-            Caption = '...'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 0
-            OnClick = btnanexopjClick
-          end
-          object eddocpj: TFlatEdit
-            Left = 80
-            Top = 384
-            Width = 450
-            Height = 22
-            ColorBorder = clBlack
-            ColorFlat = clWhite
-            ParentColor = True
-            TabOrder = 1
-          end
-        end
         object PPrincipal: TPanel
           Left = 1
           Top = 17
@@ -2352,6 +1659,658 @@ inherited FCadPadraoPes: TFCadPadraoPes
             OnKeyDown = Edit1KeyDown
           end
         end
+        object PCompletoFisica: TPanel
+          Left = 1
+          Top = 17
+          Width = 751
+          Height = 417
+          BevelOuter = bvNone
+          Color = clWhite
+          Ctl3D = False
+          ParentCtl3D = False
+          TabOrder = 1
+          Visible = False
+          object lbanexopf: TLabel
+            Left = 40
+            Top = 368
+            Width = 94
+            Height = 16
+            Caption = 'Caminho anexo:'
+          end
+          object RGCivil: TRadioGroup
+            Left = 8
+            Top = 9
+            Width = 281
+            Height = 56
+            Caption = 'Estado Civil'
+            Columns = 2
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = []
+            Items.Strings = (
+              'Casado '
+              'Solteiro'
+              'Vi'#250'vo'
+              'Desquitado')
+            ParentFont = False
+            TabOrder = 0
+            OnClick = RGCivilClick
+          end
+          object GBLOCALTRABALHO: TGroupBox
+            Left = 8
+            Top = 65
+            Width = 737
+            Height = 105
+            Caption = 'Local de Trabalho'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 2
+            object Label21: TLabel
+              Left = 6
+              Top = 24
+              Width = 56
+              Height = 16
+              Caption = 'Empresa:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label22: TLabel
+              Left = 390
+              Top = 24
+              Width = 59
+              Height = 16
+              Caption = 'Endere'#231'o:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label23: TLabel
+              Left = 6
+              Top = 61
+              Width = 38
+              Height = 16
+              Caption = 'Bairro:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label24: TLabel
+              Left = 300
+              Top = 61
+              Width = 38
+              Height = 16
+              Caption = 'Cargo:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label25: TLabel
+              Left = 582
+              Top = 61
+              Width = 110
+              Height = 16
+              Caption = 'Data de Admiss'#227'o:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object DBColorEdit12: TDBColorEdit
+              Left = 5
+              Top = 40
+              Width = 380
+              Height = 22
+              Color = 15658717
+              DataField = 'EMP_TRAB'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit15: TDBColorEdit
+              Left = 389
+              Top = 40
+              Width = 340
+              Height = 22
+              Color = 15658717
+              DataField = 'END_TRAB'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit16: TDBColorEdit
+              Left = 5
+              Top = 77
+              Width = 290
+              Height = 22
+              Color = 15658717
+              DataField = 'BAIRRO_TRAB'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit17: TDBColorEdit
+              Left = 299
+              Top = 77
+              Width = 278
+              Height = 22
+              Color = 15658717
+              DataField = 'CARGO'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 3
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit18: TDBColorEdit
+              Left = 581
+              Top = 77
+              Width = 148
+              Height = 22
+              Color = 15658717
+              DataField = 'DATA_ADMIS'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              MaxLength = 10
+              ParentFont = False
+              TabOrder = 4
+              OnKeyPress = DBColorEdit18KeyPress
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object GroupBox5: TGroupBox
+            Left = 296
+            Top = 9
+            Width = 449
+            Height = 56
+            Caption = 'Registro Geral (RG)'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 1
+            object Label26: TLabel
+              Left = 206
+              Top = 13
+              Width = 114
+              Height = 16
+              Caption = 'Data de Expedi'#231#227'o:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label27: TLabel
+              Left = 334
+              Top = 13
+              Width = 101
+              Height = 16
+              Caption = #211'rg'#227'o Expedidor:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label28: TLabel
+              Left = 6
+              Top = 14
+              Width = 49
+              Height = 16
+              Caption = 'N'#250'mero:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object DBColorEdit19: TDBColorEdit
+              Left = 205
+              Top = 29
+              Width = 124
+              Height = 22
+              Color = 15658717
+              DataField = 'DATA_EXPED'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              MaxLength = 10
+              ParentFont = False
+              TabOrder = 1
+              OnKeyPress = DBColorEdit19KeyPress
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit20: TDBColorEdit
+              Left = 333
+              Top = 29
+              Width = 108
+              Height = 22
+              Color = 15658717
+              DataField = 'ORGAO_EXPED'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit21: TDBColorEdit
+              Left = 5
+              Top = 29
+              Width = 196
+              Height = 22
+              Color = 15658717
+              DataField = 'RG'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object GroupBox6: TGroupBox
+            Left = 9
+            Top = 170
+            Width = 737
+            Height = 97
+            Caption = 'Conjuge:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 3
+            object Label29: TLabel
+              Left = 6
+              Top = 15
+              Width = 38
+              Height = 16
+              Caption = 'Nome:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label30: TLabel
+              Left = 390
+              Top = 15
+              Width = 104
+              Height = 16
+              Caption = 'Data Nascimento:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label31: TLabel
+              Left = 502
+              Top = 15
+              Width = 23
+              Height = 16
+              Caption = 'RG:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label32: TLabel
+              Left = 222
+              Top = 53
+              Width = 127
+              Height = 16
+              Caption = 'Empresa de Trabalho:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label34: TLabel
+              Left = 6
+              Top = 53
+              Width = 30
+              Height = 16
+              Caption = 'CPF:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object DBColorEdit22: TDBColorEdit
+              Left = 5
+              Top = 31
+              Width = 380
+              Height = 22
+              Color = 15658717
+              DataField = 'NOME_CONJ'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit23: TDBColorEdit
+              Left = 389
+              Top = 31
+              Width = 108
+              Height = 22
+              Color = 15658717
+              DataField = 'DATANASC_CONJ'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              MaxLength = 10
+              ParentFont = False
+              TabOrder = 1
+              OnKeyPress = DBColorEdit23KeyPress
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit24: TDBColorEdit
+              Left = 501
+              Top = 31
+              Width = 228
+              Height = 22
+              Color = 15658717
+              DataField = 'RG_CONJ'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit25: TDBColorEdit
+              Left = 221
+              Top = 69
+              Width = 508
+              Height = 22
+              Color = 15658717
+              DataField = 'EMP_CONJ'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 4
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBCONJUGECPF: TDBColorEdit
+              Left = 5
+              Top = 69
+              Width = 212
+              Height = 22
+              Color = 15658717
+              DataField = 'CPF_CONJ'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 3
+              OnExit = DBCONJUGECPFExit
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object GroupBox7: TGroupBox
+            Left = 9
+            Top = 267
+            Width = 737
+            Height = 95
+            Caption = 'Filia'#231#227'o:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 4
+            object Label33: TLabel
+              Left = 6
+              Top = 15
+              Width = 23
+              Height = 16
+              Caption = 'Pai:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label35: TLabel
+              Left = 371
+              Top = 15
+              Width = 29
+              Height = 16
+              Caption = 'M'#227'e:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label36: TLabel
+              Left = 6
+              Top = 55
+              Width = 59
+              Height = 16
+              Caption = 'Endere'#231'o:'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+            end
+            object DBColorEdit26: TDBColorEdit
+              Left = 5
+              Top = 31
+              Width = 360
+              Height = 22
+              Color = 15658717
+              DataField = 'NOME_PAI'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit28: TDBColorEdit
+              Left = 370
+              Top = 31
+              Width = 360
+              Height = 22
+              Color = 15658717
+              DataField = 'NOME_MAE'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+            object DBColorEdit29: TDBColorEdit
+              Left = 5
+              Top = 71
+              Width = 724
+              Height = 22
+              Color = 15658717
+              DataField = 'ENDE_FILIACAO'
+              DataSource = DMPESSOA.DSPessoaF
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              NotFoundText = 'N'#227'o Existe'
+              InputText = 'Por favor entre na procura pelo crit'#233'rio'
+              ButtonCaption = 'Ok'
+            end
+          end
+          object btnanexopf: TButton
+            Left = 493
+            Top = 384
+            Width = 28
+            Height = 21
+            Caption = '...'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 5
+            OnClick = btnanexopfClick
+          end
+          object eddocpf: TFlatEdit
+            Left = 40
+            Top = 384
+            Width = 450
+            Height = 22
+            ColorBorder = clBlack
+            ColorFlat = clWhite
+            ParentColor = True
+            TabOrder = 6
+          end
+        end
+        object PEspecifico: TPanel
+          Left = 1
+          Top = 17
+          Width = 751
+          Height = 417
+          BevelOuter = bvNone
+          Color = clWhite
+          Ctl3D = False
+          ParentCtl3D = False
+          TabOrder = 2
+          Visible = False
+        end
         object cbEstrangeiro: TCheckBox
           Left = 658
           Top = -2
@@ -2365,6 +2324,93 @@ inherited FCadPadraoPes: TFCadPadraoPes
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 4
+        end
+        object PComplementoJURIDICA: TPanel
+          Left = 2
+          Top = 18
+          Width = 747
+          Height = 416
+          BevelOuter = bvNone
+          Color = clWhite
+          Ctl3D = False
+          ParentCtl3D = False
+          TabOrder = 3
+          Visible = False
+          object lbanexopj: TLabel
+            Left = 80
+            Top = 368
+            Width = 94
+            Height = 16
+            Caption = 'Caminho anexo:'
+          end
+          object lbOrgaoPessoa: TLabel
+            Left = 96
+            Top = 192
+            Width = 115
+            Height = 16
+            Caption = 'Esta Pessoa '#233' um:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object btnanexopj: TButton
+            Left = 533
+            Top = 384
+            Width = 28
+            Height = 21
+            Caption = '...'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 0
+            OnClick = btnanexopjClick
+          end
+          object eddocpj: TFlatEdit
+            Left = 80
+            Top = 384
+            Width = 450
+            Height = 22
+            ColorBorder = clBlack
+            ColorFlat = clWhite
+            ParentColor = True
+            TabOrder = 1
+          end
+          object CBOrgao_Municipal_Estadual: TCheckBox
+            Left = 96
+            Top = 224
+            Width = 209
+            Height = 17
+            Caption = 'Org'#227'o Municipal/Estadual'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 2
+            OnClick = CBOrgao_Municipal_EstadualClick
+          end
+          object cbOrgao_Federal: TCheckBox
+            Left = 96
+            Top = 248
+            Width = 137
+            Height = 17
+            Caption = 'Org'#227'o Federal'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 3
+            OnClick = cbOrgao_FederalClick
+          end
         end
       end
     end
@@ -2437,9 +2483,6 @@ inherited FCadPadraoPes: TFCadPadraoPes
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFF0000}
     end
-  end
-  inherited PComunica: TPanel [2]
-    Left = 135
   end
   object Relatorio: TPopupMenu
     Left = 443

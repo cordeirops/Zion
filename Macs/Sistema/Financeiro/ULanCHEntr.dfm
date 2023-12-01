@@ -7,12 +7,612 @@ inherited FLanCHEntr: TFLanCHEntr
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PComunica: TPanel [0]
+  inherited PCadastro: TPanel
+    Width = 670
+    Height = 432
+    inherited PLanUnic: TPanel
+      Width = 668
+      Height = 399
+      inherited Label7: TLabel
+        Left = 239
+        Top = 112
+      end
+      inherited Label9: TLabel
+        Left = 452
+        Top = 111
+      end
+      inherited Label1: TLabel
+        Top = 211
+      end
+      inherited Label2: TLabel
+        Left = 353
+        Top = 112
+      end
+      object Label8: TLabel [4]
+        Left = 35
+        Top = 112
+        Width = 83
+        Height = 20
+        Caption = 'N'#186' Agencia:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label10: TLabel [5]
+        Left = 137
+        Top = 112
+        Width = 68
+        Height = 20
+        Caption = 'N'#186' Conta:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label12: TLabel [6]
+        Left = 35
+        Top = 160
+        Width = 68
+        Height = 20
+        Caption = 'Emitente:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label13: TLabel [7]
+        Left = 465
+        Top = 160
+        Width = 79
+        Height = 20
+        Caption = 'CPF/CNPJ:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label15: TLabel [8]
+        Left = 315
+        Top = 275
+        Width = 68
+        Height = 20
+        Caption = 'Dt. Lan'#231'.:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      inherited FrmBusca1: TFrmBusca
+        Top = 23
+        inherited EDCodigo: TFlatEdit
+          OnEnter = FrmBusca1EDCodigoEnter
+        end
+      end
+      inherited DBDTVENC: TDBColorEdit
+        Left = 239
+        Top = 131
+        Width = 106
+        TabOrder = 4
+      end
+      inherited DBNUMCHEQUEEMIT: TDBColorEdit
+        Left = 452
+        Top = 131
+        Width = 141
+        TabOrder = 6
+      end
+      inherited DBColorEdit3: TDBColorEdit
+        Top = 230
+        DataField = 'HISTORICO'
+        TabOrder = 9
+      end
+      inherited DBColorEdit4: TDBColorEdit
+        Left = 353
+        Top = 131
+        Width = 90
+        DataField = 'VALOR'
+        TabOrder = 5
+      end
+      inherited RGMOVIMENTO: TRadioGroup
+        Top = 271
+        TabOrder = 10
+        OnClick = RGMOVIMENTOClick
+        OnExit = RGMOVIMENTOExit
+      end
+      inline FrmBuscaBanco: TFrmBusca
+        Left = 32
+        Top = 64
+        Width = 504
+        Height = 40
+        Color = 16772332
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        inherited LTextoBusca: TLabel
+          Width = 46
+          Caption = 'Banco:'
+        end
+        inherited LUZOPEN: TShape
+          Left = 455
+        end
+        inherited LUZMINUS: TShape
+          Left = 473
+        end
+        inherited EdDescricao: TFlatEdit
+          Left = 73
+          Width = 383
+          ColorFlat = 15395583
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 456
+          OnClick = FrmBuscaBancoBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 474
+          Hint = 'Pressione para apagar o banco'
+          OnClick = FrmBuscaBancoBTNMINUSClick
+        end
+        inherited EDCodigo: TFlatEdit
+          ColorFlat = 14803455
+          OnKeyPress = FrmBuscaBancoEDCodigoKeyPress
+        end
+      end
+      object DBNUMAG: TDBColorEdit
+        Left = 35
+        Top = 131
+        Width = 94
+        Height = 22
+        Ctl3D = False
+        DataField = 'NUMAGENCIA'
+        DataSource = DMBANCO.DChequeRec
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        OnExit = DBDTVENCExit
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object DBNUMCTA: TDBColorEdit
+        Left = 137
+        Top = 131
+        Width = 94
+        Height = 22
+        Ctl3D = False
+        DataField = 'NUMCONTA'
+        DataSource = DMBANCO.DChequeRec
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 3
+        OnExit = DBDTVENCExit
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object DBColorEdit5: TDBColorEdit
+        Left = 35
+        Top = 179
+        Width = 422
+        Height = 22
+        Ctl3D = False
+        DataField = 'EMITENTE'
+        DataSource = DMBANCO.DChequeRec
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 7
+        OnExit = DBDTVENCExit
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object DBColorEdit6: TDBColorEdit
+        Left = 465
+        Top = 179
+        Width = 128
+        Height = 22
+        Ctl3D = False
+        DataField = 'CPFEMIT'
+        DataSource = DMBANCO.DChequeRec
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 8
+        OnExit = DBColorEdit6Exit
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object EdDtLanc: TColorMaskEdit
+        Left = 315
+        Top = 296
+        Width = 82
+        Height = 22
+        Ctl3D = False
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 11
+        Text = 'EdDtLanc'
+        NotFoundText = 'N'#227'o Existe'
+        InputText = 'Por favor entre na procura pelo crit'#233'rio'
+        ButtonCaption = 'Ok'
+      end
+      object PDTDep: TPanel
+        Left = 403
+        Top = 264
+        Width = 109
+        Height = 65
+        BevelOuter = bvNone
+        Color = 16772332
+        TabOrder = 12
+        Visible = False
+        object Label16: TLabel
+          Left = 0
+          Top = 12
+          Width = 93
+          Height = 20
+          Caption = 'Dt. Dep'#243'sito:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object EdDtDep: TColorMaskEdit
+          Left = 1
+          Top = 32
+          Width = 82
+          Height = 22
+          Ctl3D = False
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 0
+          Text = 'EdDtLanc'
+          NotFoundText = 'N'#227'o Existe'
+          InputText = 'Por favor entre na procura pelo crit'#233'rio'
+          ButtonCaption = 'Ok'
+        end
+      end
+    end
+    inherited PLancmult: TPanel [1]
+      Width = 668
+      Height = 398
+      Color = 16772332
+      inherited LTextoBusca: TLabel
+        Left = 9
+        Top = 53
+      end
+      inherited Label3: TLabel
+        Left = 9
+        Top = 101
+        Width = 70
+        Caption = 'Vlr. Tot.:'
+      end
+      inherited Label4: TLabel
+        Left = 90
+        Top = 101
+        Width = 61
+        Caption = 'N'#186' fol.:'
+      end
+      inherited Label5: TLabel
+        Left = 154
+        Top = 101
+        Width = 37
+        Caption = 'Int.:'
+      end
+      inherited Label6: TLabel
+        Left = 399
+        Top = 53
+      end
+      object Label11: TLabel [5]
+        Left = 206
+        Top = 97
+        Width = 49
+        Height = 20
+        Caption = 'N'#186' Ag.:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label14: TLabel [6]
+        Left = 263
+        Top = 97
+        Width = 68
+        Height = 20
+        Caption = 'N'#186' Conta:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label17: TLabel [7]
+        Left = 498
+        Top = 50
+        Width = 100
+        Height = 20
+        Caption = 'N'#186' 1'#186' Cheque:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label18: TLabel [8]
+        Left = 8
+        Top = 148
+        Width = 68
+        Height = 20
+        Caption = 'Emitente:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      object Label19: TLabel [9]
+        Left = 446
+        Top = 148
+        Width = 35
+        Height = 20
+        Caption = 'CPF:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        OnClick = BitBtn1Click
+      end
+      inherited BitBtn1: TBitBtn
+        Left = 399
+        Top = 204
+        TabOrder = 12
+        OnClick = BitBtn1Click
+      end
+      inherited DBGParc: TDBGrid
+        Top = 232
+        Height = 158
+        TabOrder = 13
+      end
+      inherited FrmBusca2: TFrmBusca
+        Left = 8
+        Top = 8
+        Width = 601
+        Color = 16772332
+        inherited LUZOPEN: TShape
+          Left = 554
+        end
+        inherited LUZMINUS: TShape
+          Left = 575
+        end
+        inherited EdDescricao: TFlatEdit
+          Width = 457
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 555
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 577
+        end
+        inherited EDCodigo: TFlatEdit
+          Width = 92
+        end
+      end
+      inherited EdHistorico: TFlatEdit
+        Left = 9
+        Top = 71
+        Width = 387
+      end
+      inherited EdVlrTotal: TColorEditFloat
+        Left = 8
+        Top = 119
+        Width = 77
+        TabOrder = 4
+      end
+      inherited EdNumFolha: TSpinEdit
+        Left = 89
+        Top = 117
+        TabOrder = 5
+      end
+      inherited EdIntervalo: TSpinEdit
+        Left = 153
+        Top = 117
+        Width = 48
+        TabOrder = 6
+      end
+      inherited EdPrimeiroCH: TMaskEdit
+        Left = 399
+        Top = 71
+        TabOrder = 2
+      end
+      object EdNumAg: TFlatEdit
+        Left = 207
+        Top = 117
+        Width = 51
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = 15794169
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 7
+      end
+      object EdNumCta: TFlatEdit
+        Left = 263
+        Top = 117
+        Width = 75
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = 15794169
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 8
+      end
+      object EdNumPrimCh: TFlatEdit
+        Left = 498
+        Top = 71
+        Width = 108
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = 15794169
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+      end
+      object EdPortador: TFlatEdit
+        Left = 9
+        Top = 168
+        Width = 432
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = 15794169
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 10
+      end
+      object Edfone: TFlatEdit
+        Left = 445
+        Top = 168
+        Width = 162
+        Height = 22
+        ColorBorder = clBlack
+        ColorFlat = 15794169
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 11
+      end
+      inline FrmBuscaBancoMult: TFrmBusca
+        Left = 340
+        Top = 99
+        Width = 273
+        Height = 40
+        Color = 16772332
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 9
+        inherited LTextoBusca: TLabel
+          Width = 46
+          Caption = 'Banco:'
+        end
+        inherited EdDescricao: TFlatEdit
+          Left = 57
+          Width = 190
+          ColorFlat = 15395583
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 248
+          OnClick = FrmBuscaBancoBTNOPENClick
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 296
+          Hint = 'Pressione para apagar o banco'
+          Visible = False
+        end
+        inherited EDCodigo: TFlatEdit
+          Width = 55
+          ColorFlat = 14803455
+          OnKeyPress = FrmBuscaBancoLMEDCodigoKeyPress
+        end
+      end
+    end
+    inherited Panel4: TPanel [2]
+      Width = 668
+      Height = 399
+    end
+    inherited Panel1: TPanel
+      Width = 668
+    end
+  end
+  inherited PComunica: TPanel
     Left = 85
     Top = 99
     TabOrder = 3
   end
-  object PMovCheque: TPanel [1]
+  object PMovCheque: TPanel [2]
     Left = 80
     Top = 23
     Width = 530
@@ -78,7 +678,7 @@ inherited FLanCHEntr: TFLanCHEntr
       object Label21: TLabel
         Left = 325
         Top = 184
-        Width = 74
+        Width = 73
         Height = 16
         Caption = 'Data Mov.:'
         Font.Charset = ANSI_CHARSET
@@ -353,7 +953,7 @@ inherited FLanCHEntr: TFLanCHEntr
       end
     end
   end
-  inherited PConsulta: TPanel [2]
+  inherited PConsulta: TPanel
     Width = 667
     inherited DBGridCadastroPadrao: TDBGrid
       Height = 257
@@ -924,606 +1524,6 @@ inherited FLanCHEntr: TFLanCHEntr
       Height = 41
       Caption = 'Panel3'
       TabOrder = 5
-    end
-  end
-  inherited PCadastro: TPanel [3]
-    Width = 670
-    Height = 432
-    inherited PLanUnic: TPanel
-      Width = 668
-      Height = 399
-      inherited Label7: TLabel
-        Left = 239
-        Top = 112
-      end
-      inherited Label9: TLabel
-        Left = 452
-        Top = 111
-      end
-      inherited Label1: TLabel
-        Top = 211
-      end
-      inherited Label2: TLabel
-        Left = 353
-        Top = 112
-      end
-      object Label8: TLabel [4]
-        Left = 35
-        Top = 112
-        Width = 83
-        Height = 20
-        Caption = 'N'#186' Agencia:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label10: TLabel [5]
-        Left = 137
-        Top = 112
-        Width = 68
-        Height = 20
-        Caption = 'N'#186' Conta:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label12: TLabel [6]
-        Left = 35
-        Top = 160
-        Width = 68
-        Height = 20
-        Caption = 'Emitente:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label13: TLabel [7]
-        Left = 465
-        Top = 160
-        Width = 79
-        Height = 20
-        Caption = 'CPF/CNPJ:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label15: TLabel [8]
-        Left = 315
-        Top = 275
-        Width = 68
-        Height = 20
-        Caption = 'Dt. Lan'#231'.:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      inherited FrmBusca1: TFrmBusca
-        Top = 23
-        inherited EDCodigo: TFlatEdit
-          OnEnter = FrmBusca1EDCodigoEnter
-        end
-      end
-      inherited DBDTVENC: TDBColorEdit
-        Left = 239
-        Top = 131
-        Width = 106
-        TabOrder = 4
-      end
-      inherited DBNUMCHEQUEEMIT: TDBColorEdit
-        Left = 452
-        Top = 131
-        Width = 141
-        TabOrder = 6
-      end
-      inherited DBColorEdit3: TDBColorEdit
-        Top = 230
-        DataField = 'HISTORICO'
-        TabOrder = 9
-      end
-      inherited DBColorEdit4: TDBColorEdit
-        Left = 353
-        Top = 131
-        Width = 90
-        DataField = 'VALOR'
-        TabOrder = 5
-      end
-      inherited RGMOVIMENTO: TRadioGroup
-        Top = 271
-        TabOrder = 10
-        OnClick = RGMOVIMENTOClick
-        OnExit = RGMOVIMENTOExit
-      end
-      inline FrmBuscaBanco: TFrmBusca
-        Left = 32
-        Top = 64
-        Width = 504
-        Height = 40
-        Color = 16772332
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        TabOrder = 1
-        inherited LTextoBusca: TLabel
-          Width = 46
-          Caption = 'Banco:'
-        end
-        inherited LUZOPEN: TShape
-          Left = 455
-        end
-        inherited LUZMINUS: TShape
-          Left = 473
-        end
-        inherited EdDescricao: TFlatEdit
-          Left = 73
-          Width = 383
-          ColorFlat = 15395583
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 456
-          OnClick = FrmBuscaBancoBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 474
-          Hint = 'Pressione para apagar o banco'
-          OnClick = FrmBuscaBancoBTNMINUSClick
-        end
-        inherited EDCodigo: TFlatEdit
-          ColorFlat = 14803455
-          OnKeyPress = FrmBuscaBancoEDCodigoKeyPress
-        end
-      end
-      object DBNUMAG: TDBColorEdit
-        Left = 35
-        Top = 131
-        Width = 94
-        Height = 22
-        Ctl3D = False
-        DataField = 'NUMAGENCIA'
-        DataSource = DMBANCO.DChequeRec
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 2
-        OnExit = DBDTVENCExit
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object DBNUMCTA: TDBColorEdit
-        Left = 137
-        Top = 131
-        Width = 94
-        Height = 22
-        Ctl3D = False
-        DataField = 'NUMCONTA'
-        DataSource = DMBANCO.DChequeRec
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 3
-        OnExit = DBDTVENCExit
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object DBColorEdit5: TDBColorEdit
-        Left = 35
-        Top = 179
-        Width = 422
-        Height = 22
-        Ctl3D = False
-        DataField = 'EMITENTE'
-        DataSource = DMBANCO.DChequeRec
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 7
-        OnExit = DBDTVENCExit
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object DBColorEdit6: TDBColorEdit
-        Left = 465
-        Top = 179
-        Width = 128
-        Height = 22
-        Ctl3D = False
-        DataField = 'CPFEMIT'
-        DataSource = DMBANCO.DChequeRec
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 8
-        OnExit = DBColorEdit6Exit
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object EdDtLanc: TColorMaskEdit
-        Left = 315
-        Top = 296
-        Width = 82
-        Height = 22
-        Ctl3D = False
-        Enabled = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentCtl3D = False
-        ParentFont = False
-        TabOrder = 11
-        Text = 'EdDtLanc'
-        NotFoundText = 'N'#227'o Existe'
-        InputText = 'Por favor entre na procura pelo crit'#233'rio'
-        ButtonCaption = 'Ok'
-      end
-      object PDTDep: TPanel
-        Left = 403
-        Top = 264
-        Width = 109
-        Height = 65
-        BevelOuter = bvNone
-        Color = 16772332
-        TabOrder = 12
-        Visible = False
-        object Label16: TLabel
-          Left = 0
-          Top = 12
-          Width = 93
-          Height = 20
-          Caption = 'Dt. Dep'#243'sito:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
-        object EdDtDep: TColorMaskEdit
-          Left = 1
-          Top = 32
-          Width = 82
-          Height = 22
-          Ctl3D = False
-          Enabled = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 0
-          Text = 'EdDtLanc'
-          NotFoundText = 'N'#227'o Existe'
-          InputText = 'Por favor entre na procura pelo crit'#233'rio'
-          ButtonCaption = 'Ok'
-        end
-      end
-    end
-    inherited PLancmult: TPanel [1]
-      Width = 668
-      Height = 398
-      Color = 16772332
-      inherited LTextoBusca: TLabel
-        Left = 9
-        Top = 53
-      end
-      inherited Label3: TLabel
-        Left = 9
-        Top = 101
-        Width = 74
-        Caption = 'Vlr. Tot.:'
-      end
-      inherited Label4: TLabel
-        Left = 90
-        Top = 101
-        Width = 61
-        Caption = 'N'#186' fol.:'
-      end
-      inherited Label5: TLabel
-        Left = 154
-        Top = 101
-        Width = 37
-        Caption = 'Int.:'
-      end
-      inherited Label6: TLabel
-        Left = 399
-        Top = 53
-      end
-      object Label11: TLabel [5]
-        Left = 206
-        Top = 97
-        Width = 49
-        Height = 20
-        Caption = 'N'#186' Ag.:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label14: TLabel [6]
-        Left = 263
-        Top = 97
-        Width = 68
-        Height = 20
-        Caption = 'N'#186' Conta:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label17: TLabel [7]
-        Left = 498
-        Top = 50
-        Width = 100
-        Height = 20
-        Caption = 'N'#186' 1'#186' Cheque:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label18: TLabel [8]
-        Left = 8
-        Top = 148
-        Width = 68
-        Height = 20
-        Caption = 'Emitente:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      object Label19: TLabel [9]
-        Left = 446
-        Top = 148
-        Width = 35
-        Height = 20
-        Caption = 'CPF:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        OnClick = BitBtn1Click
-      end
-      inherited BitBtn1: TBitBtn
-        Left = 399
-        Top = 204
-        TabOrder = 12
-        OnClick = BitBtn1Click
-      end
-      inherited DBGParc: TDBGrid
-        Top = 232
-        Height = 158
-        TabOrder = 13
-      end
-      inherited FrmBusca2: TFrmBusca
-        Left = 8
-        Top = 8
-        Width = 601
-        Color = 16772332
-        inherited LUZOPEN: TShape
-          Left = 554
-        end
-        inherited LUZMINUS: TShape
-          Left = 575
-        end
-        inherited EdDescricao: TFlatEdit
-          Width = 457
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 555
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 577
-        end
-        inherited EDCodigo: TFlatEdit
-          Width = 92
-        end
-      end
-      inherited EdHistorico: TFlatEdit
-        Left = 9
-        Top = 71
-        Width = 387
-      end
-      inherited EdVlrTotal: TColorEditFloat
-        Left = 8
-        Top = 119
-        Width = 77
-        TabOrder = 4
-      end
-      inherited EdNumFolha: TSpinEdit
-        Left = 89
-        Top = 117
-        TabOrder = 5
-      end
-      inherited EdIntervalo: TSpinEdit
-        Left = 153
-        Top = 117
-        Width = 48
-        TabOrder = 6
-      end
-      inherited EdPrimeiroCH: TMaskEdit
-        Left = 399
-        Top = 71
-        TabOrder = 2
-      end
-      object EdNumAg: TFlatEdit
-        Left = 207
-        Top = 117
-        Width = 51
-        Height = 22
-        ColorBorder = clBlack
-        ColorFlat = 15794169
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 7
-      end
-      object EdNumCta: TFlatEdit
-        Left = 263
-        Top = 117
-        Width = 75
-        Height = 22
-        ColorBorder = clBlack
-        ColorFlat = 15794169
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 8
-      end
-      object EdNumPrimCh: TFlatEdit
-        Left = 498
-        Top = 71
-        Width = 108
-        Height = 22
-        ColorBorder = clBlack
-        ColorFlat = 15794169
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 3
-      end
-      object EdPortador: TFlatEdit
-        Left = 9
-        Top = 168
-        Width = 432
-        Height = 22
-        ColorBorder = clBlack
-        ColorFlat = 15794169
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 10
-      end
-      object Edfone: TFlatEdit
-        Left = 445
-        Top = 168
-        Width = 162
-        Height = 22
-        ColorBorder = clBlack
-        ColorFlat = 15794169
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 11
-      end
-      inline FrmBuscaBancoMult: TFrmBusca
-        Left = 340
-        Top = 99
-        Width = 273
-        Height = 40
-        Color = 16772332
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        TabOrder = 9
-        inherited LTextoBusca: TLabel
-          Width = 46
-          Caption = 'Banco:'
-        end
-        inherited EdDescricao: TFlatEdit
-          Left = 57
-          Width = 190
-          ColorFlat = 15395583
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 248
-          OnClick = FrmBuscaBancoBTNOPENClick
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 296
-          Hint = 'Pressione para apagar o banco'
-          Visible = False
-        end
-        inherited EDCodigo: TFlatEdit
-          Width = 55
-          ColorFlat = 14803455
-          OnKeyPress = FrmBuscaBancoLMEDCodigoKeyPress
-        end
-      end
-    end
-    inherited Panel4: TPanel [2]
-      Width = 668
-      Height = 399
-    end
-    inherited Panel1: TPanel
-      Width = 668
     end
   end
   inherited PMNovo: TPopupMenu

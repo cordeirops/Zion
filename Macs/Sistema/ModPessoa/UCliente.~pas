@@ -337,7 +337,6 @@ type
     AbrirPasta1: TMenuItem;
     EdQtdeEtqPagina: TEdit;
     Label84: TLabel;
-    SearchCNPJ: TSpeedButton;
     ActionList1: TActionList;
     actSearchCNPJ: TAction;
     btnBuscaCnpj: TBitBtn;
@@ -469,6 +468,7 @@ type
     procedure actSearchCNPJExecute(Sender: TObject);
     procedure actSearchCNPJUpdate(Sender: TObject);
     procedure btnBuscaCnpjClick(Sender: TObject);
+    procedure DBCnpjExit(Sender: TObject);
 
   private
     { Private declarations }
@@ -5143,6 +5143,12 @@ begin
   finally
     cds.Free;
   end; 
+end;
+
+procedure TFCliente.DBCnpjExit(Sender: TObject);
+begin
+  inherited;
+   btnBuscaCnpj.SetFocus;
 end;
 
 end.

@@ -1,7 +1,7 @@
 object DMCONTA: TDMCONTA
   OldCreateOrder = False
-  Left = 476
-  Top = 46
+  Left = 480
+  Top = 48
   Height = 407
   Width = 416
   object IBDB: TIBDatabase

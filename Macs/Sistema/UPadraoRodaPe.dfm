@@ -1,6 +1,6 @@
 inherited FPadraoRodaPe: TFPadraoRodaPe
-  Left = 4
-  Top = 1
+  Left = 6
+  Top = 2
   Caption = 'FPadraoRodaPe'
   ClientHeight = 400
   ClientWidth = 622

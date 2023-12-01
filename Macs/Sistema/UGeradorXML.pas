@@ -1385,7 +1385,6 @@ begin
             DMMacs.cdsEstoque.FieldByName('COD_ESTOQUE').AsInteger:=DMMACS.TConsulta.FieldByName('COD_ESTOQUE').AsInteger;
             DMMacs.cdsEstoque.FieldByName('COD_LOJA').AsInteger:=DMMACS.TConsulta.FieldByName('COD_LOJA').AsInteger;
             DMMacs.cdsEstoque.FieldByName('COD_SUBPROD').AsInteger:=DMMACS.TConsulta.FieldByName('COD_SUBPROD').AsInteger;
-            DMMacs.cdsEstoque.FieldByName('ESTFISICO').AsFloat:=DMMACS.TConsulta.FieldByName('ESTFISICO').AsFloat;
             DMMacs.cdsEstoque.FieldByName('CVVPROAT').AsFloat:=DMMacs.TConsulta.FieldByName('CVVPROAT').AsFloat;
             DMMacs.cdsEstoque.FieldByName('CVPPROAT').AsFloat:=DMMacs.TConsulta.FieldByName('CVPPROAT').AsFloat;
             DMMacs.cdsEstoque.FieldByName('CVVPROVAR').AsFloat:=DMMacs.TConsulta.FieldByName('CVVPROVAR').AsFloat;
@@ -3519,11 +3518,11 @@ Begin
                    DMMACS.QTabela.SQL.Add('insert into ESTOQUE(COD_ESTOQUE,COD_SUBPROD,COD_LOJA,AVPPROAT,AVPPROVAR,AVVPROAT,AVVPROVAR,');
                    DMMACS.QTabela.SQL.Add('     CVPPROAT,CVPPROVAR,CVVPROAT,CVVPROVAR,DATAOFERTA,DESCONTO,DTCAD,MARGEMSEG,PERCMARGSEG,');
                    DMMACS.QTabela.SQL.Add('     PRECOOFERTA,VALUNIT,VENCIMENTOOFERTA,VENDATAP,VENDATAV,VENDVARP,VENDVARV,');
-                   DMMACS.QTabela.SQL.Add('     ESTLOJA,ESTFISICO,VLRUNITCOMP,VLRCOMPSD)');
+                   DMMACS.QTabela.SQL.Add('     ESTLOJA, VLRUNITCOMP,VLRCOMPSD)');
                    DMMACS.QTabela.SQL.Add(' values (:COD_ESTOQUE,:COD_SUBPROD,:COD_LOJA,:AVPPROAT,:AVPPROVAR,:AVVPROAT,:AVVPROVAR,');
                    DMMACS.QTabela.SQL.Add('     :CVPPROAT,:CVPPROVAR,:CVVPROAT,:CVVPROVAR,:DATAOFERTA,:DESCONTO,:DTCAD,:MARGEMSEG,');
                    DMMACS.QTabela.SQL.Add('     :PERCMARGSEG,:PRECOOFERTA,:VALUNIT,:VENCIMENTOOFERTA,:VENDATAP,:VENDATAV,:VENDVARP,');
-                   DMMACS.QTabela.SQL.Add('     :VENDVARV,:ESTLOJA,:ESTFISICO,:VLRUNITCOMP,:VLRCOMPSD)');
+                   DMMACS.QTabela.SQL.Add('     :VENDVARV,:ESTLOJA, :VLRUNITCOMP,:VLRCOMPSD)');
                    EncontraChavePrim('ESTOQUE','COD_ESTOQUE');
                    DMMACS.QTabela.ParamByName('COD_ESTOQUE').AsInteger := XCodPrim;;
                    XCod_NovoEstoque:=XCod_NovoEstoque+1;
@@ -3537,7 +3536,7 @@ Begin
                        DMMACS.QTabela.SQL.Add('     DATAOFERTA = :DATAOFERTA,DESCONTO = :DESCONTO,DTCAD = :DTCAD,MARGEMSEG = :MARGEMSEG,');
                        DMMACS.QTabela.SQL.Add('     PERCMARGSEG = :PERCMARGSEG,PRECOOFERTA = :PRECOOFERTA,');
                        DMMACS.QTabela.SQL.Add('     VALUNIT = :VALUNIT,VENCIMENTOOFERTA = :VENCIMENTOOFERTA,VENDATAP = :VENDATAP,VENDATAV = :VENDATAV,');
-                       DMMACS.QTabela.SQL.Add('     VENDVARP = :VENDVARP,VENDVARV = :VENDVARV,ESTLOJA = :ESTLOJA,ESTFISICO = :ESTFISICO,');
+                       DMMACS.QTabela.SQL.Add('     VENDVARP = :VENDVARP,VENDVARV = :VENDVARV,ESTLOJA = :ESTLOJA, ');
                        DMMACS.QTabela.SQL.Add('     VLRUNITCOMP = :VLRUNITCOMP,VLRCOMPSD = :VLRCOMPSD');
                        DMMACS.QTabela.SQL.Add(' where ESTOQUE.COD_SUBPROD = :COD_SUBPROD' );
                        DMMACS.QTabela.ParamByName('COD_SUBPROD').AsInteger := XCodSubGrupo ;
@@ -3566,7 +3565,6 @@ Begin
                DMMACS.QTabela.ParamByName('VENDVARP').AsFloat := DMMACS.cdsAtualizaBanco.FieldByName('VENDVARP').AsFloat;
                DMMACS.QTabela.ParamByName('VENDVARV').AsFloat := DMMACS.cdsAtualizaBanco.FieldByName('VENDVARV').AsFloat;
                DMMACS.QTabela.ParamByName('ESTLOJA').AsFloat := DMMACS.cdsAtualizaBanco.FieldByName('ESTLOJA').AsFloat;
-               DMMACS.QTabela.ParamByName('ESTFISICO').AsFloat := DMMACS.cdsAtualizaBanco.FieldByName('ESTFISICO').AsFloat;
 
                Try
                	DMMACS.QTabela.ExecSQL;
@@ -3865,7 +3863,6 @@ Begin
           if not DMESTOQUE.TEstoque.IsEmpty
           then begin
               DMESTOQUE.TEstoque.Edit;
-              DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-XQTDEPROD;
               DMEstoque.TEstoque.FieldByName('ULTVENDA').AsString:=DateToStr(Date());
               DMESTOQUE.TEstoque.Post;
               DMESTOQUE.TransacEstoque.CommitRetaining;

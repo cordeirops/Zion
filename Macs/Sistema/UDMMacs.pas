@@ -1192,9 +1192,15 @@ type
     TMPDESC7: TIBStringField;
     TMPDESC8: TIBStringField;
     TEtqProdTEXTOPERSONALIZADO: TIBStringField;
-    TRegFIELD1: TIBStringField;
     TLojaUsuALTERACIDADEPESSOA: TIBStringField;
     TEtqProdNOMEIMPRESSORA: TIBStringField;
+    TEmpresaALIQ_RETEM_PIS: TIBBCDField;
+    TEmpresaALIQ_RETEM_COFINS: TIBBCDField;
+    TEmpresaALIQ_RETEM_IRRF: TIBBCDField;
+    TEmpresaALIQ_RETEM_CSLL: TIBBCDField;
+    TEmpresaRETEM_IMPOSTOS: TIBStringField;
+    TRegFIELD1: TIBStringField;
+    TLojaFORMAFECHAMENTOOS: TIBStringField;
     procedure EVENTEventAlert(Sender: TObject; EventName: String;
       EventCount: Integer; var CancelAlerts: Boolean);
     procedure DataModuleCreate(Sender: TObject);

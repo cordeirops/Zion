@@ -1,6 +1,6 @@
 object FImpNfe: TFImpNfe
-  Left = 238
-  Top = 79
+  Left = 106
+  Top = 101
   BorderStyle = bsSingle
   Caption = 'FImpNfe'
   ClientHeight = 514

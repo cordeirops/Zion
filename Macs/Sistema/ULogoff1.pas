@@ -65,7 +65,7 @@ var
 implementation
 
 uses UMenu, UDMMacs, UDMCaixa, USPlash, AlxMessage, Alxor32, UResumoMov,
-  Alxorprn, UExpedicao;
+  Alxorprn, UExpedicao, UMDO, UDMEntrada, UDMEstoque, UDMSaida;
 
 {$R *.dfm}
 
@@ -509,7 +509,30 @@ begin
 	        FMenu.LCODCAIXA.Caption:=DMCAIXA.TCaixaPAcess.FieldByName('COD_CAIXA').AsString;
            FMenu.LCaixaLogado.Caption:=DMCAIXA.TCaixaPAcess.FieldByName('DESCRICAO').AsString;
 
-	        //End;
+           //Criar variavel de contexto para o usuário
+           MDO.Query.Close;
+           MDO.Query.SQL.Clear;
+           MDO.Query.SQL.Add(' select rdb$set_context(''USER_SESSION'', ''COD_USUARIO'', ' + #39 + FMenu.LCODUSUARIO.Caption + #39 + ') from RDB$DATABASE ');
+           MDO.Query.Open;
+
+           //Criar variavel de contexto para o usuário
+           DMSAIDA.TAlx.Close;
+           DMSAIDA.TAlx.SQL.Clear;
+           DMSAIDA.TAlx.SQL.Add(' select rdb$set_context(''USER_SESSION'', ''COD_USUARIO'', ' + #39 + FMenu.LCODUSUARIO.Caption + #39 + ') from RDB$DATABASE ');
+           DMSAIDA.TAlx.Open;
+
+           //Criar variavel de contexto para o usuário
+           DMENTRADA.TAlx.Close;
+           DMENTRADA.TAlx.SQL.Clear;
+           DMENTRADA.TAlx.SQL.Add(' select rdb$set_context(''USER_SESSION'', ''COD_USUARIO'', ' + #39 + FMenu.LCODUSUARIO.Caption + #39 + ') from RDB$DATABASE ');
+           DMENTRADA.TAlx.Open;
+
+           //Criar variavel de contexto para o usuário
+           DMESTOQUE.Alx.Close;
+           DMESTOQUE.Alx.SQL.Clear;
+           DMESTOQUE.Alx.SQL.Add(' select rdb$set_context(''USER_SESSION'', ''COD_USUARIO'', ' + #39 + FMenu.LCODUSUARIO.Caption + #39 + ') from RDB$DATABASE ');
+           DMESTOQUE.Alx.Open;
+
            DMCAIXA.VerifAbCaixa;
   			FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
 
@@ -544,6 +567,15 @@ begin
 
   TamLabel:=Length(Fmenu.EdUsuario.Text);
   FMenu.LRUsuario.Caption:=FMenu.EdUsuario.Text;
+  Try
+       MDO.Query.Close;
+       MDO.Query.SQL.Clear;
+       MDO.Query.SQL.Add(' select rdb$set_context(''USER_SESSION'', ''COD_USUARIO'', ' + #39 + FMenu.LCODUSUARIO.Caption + #39 + ') from RDB$DATABASE');
+       MDO.Query.Open;
+       MDO.Transac.CommitRetaining;
+  Except
+  End;
+
   if FMenu.EdUsuario.Text <> 'SYSTEM LORD'
   then begin
        FiltraTabela(DMMACS.TUsuario, 'USUARIO', 'LOGIN', FMenu.EdUsuario.Text, '');

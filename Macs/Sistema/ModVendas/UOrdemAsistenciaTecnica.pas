@@ -1975,7 +1975,6 @@ Begin
                 If FiltraTabela(DMESTOQUE.TEstoque, 'ESTOQUE', 'COD_ESTOQUE',  IntToStr(XCOD_ESTOQUE), '')
                 Then Begin
                 	DMEstoque.TEstoque.edit;
-                	DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency := DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency - EDQuantidade.ValueNumeric;
                 	DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
                 	DMESTOQUE.TEstoque.Post;
                 	DMESTOQUE.TransacEstoque.CommitRetaining;
@@ -2220,8 +2219,6 @@ begin
         Try
             //Atualiza Estoque
             DMEstoque.TEstoque.edit;
-            DMEstoque.TEstoque.FieldByName('ESTFISICO').Value := DMEstoque.TEstoque.FieldByName('ESTFISICO').Value + DMServ.TPOrd.FieldByName('QTD').Value;
-            DMEstoque.TEstoque.FieldByName('ESTRESERV').Value := DMEstoque.TEstoque.FieldByName('ESTRESERV').Value - DMServ.TPOrd.FieldByName('QTD').Value;
             DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString := '1';
             DMEstoque.TEstoque.Post;
 

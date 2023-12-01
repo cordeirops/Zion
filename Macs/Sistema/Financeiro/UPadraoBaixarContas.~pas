@@ -1435,7 +1435,7 @@ begin
 
     	FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE', DMCONTA.WParR.FieldByName('COD_CLIENTE').AsString, '');
     	//CONTAS A RECEBER
-    	if (DBCOB.Text='Banco') or (DBCOB.Text='Boleto') or (DBCOB.Text='Boleto') then
+    	if (DBCOB.Text='Banco') or (DBCOB.Text='Boleto') or (DBCOB.Text='Pix') then
        begin
        	//SE PAGAMENTO EM BANCO DEVE-SE VERIFICAR SE O USUARIO TEM PERMISSAO PARA ISSO
    		if ControlAccess('BAIXACTABANCO', '')=False then

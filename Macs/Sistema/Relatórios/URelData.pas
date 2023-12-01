@@ -3697,7 +3697,7 @@ Begin
        DMSaida.TAlx.close;
        DMSaida.TAlx.SQL.Clear;
        //seleciona os itens em dmsaida.talx
-       If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE'
+       If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE') AND (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MECANICA')
        then begin
            //OS que usa serviços de ITServOrd
            DMSaida.TAlx.SQL.Add(' select itservord.cod_itservord, itservord.cod_ordem, ordem.dtfech as DATA, ordem.numero,  ');
@@ -3726,7 +3726,7 @@ Begin
        DMServ.Alx.SQL.Clear;
 
        //armazenamos a quantidade de registros a serem trabalhados em dmserv.alx
-       If DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE'
+       If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'EQUIPE') AND (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString <> 'MECANICA')
        then begin
            //OS que usa serviços de ITServOrd
            DMServ.Alx.SQL.Add('select count(ordem.dtfech) as QuantServicos');

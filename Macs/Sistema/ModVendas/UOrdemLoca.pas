@@ -1729,11 +1729,6 @@ begin
        		//Atualiza Estoque se o combo box estiver checkado
                //if CBItemRetiradoEstoque.Checked then Edmar - 09/01/2014 - Trecho comentado para retornar a dar baixa no estoque
                //begin
-       			DMEstoque.TEstoque.edit;
-       			DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-EdQuantProd.ValueNumeric;
-               	DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-               	DMESTOQUE.TEstoque.Post;
-               	DMESTOQUE.TransacEstoque.CommitRetaining;
                //end;
            Except
                DMESTOQUE.TransacEstoque.RollbackRetaining;

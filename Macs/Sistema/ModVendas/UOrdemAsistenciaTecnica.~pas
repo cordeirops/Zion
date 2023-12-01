@@ -3749,7 +3749,7 @@ Begin
            {******************}           
            NewLine;
            XLinha := XLinha + 0.2;           
-           PrintRight(DateToStr(Date()) + ' - ' + TimeToStr(Time()) + ' [18]', PageWidth - 0.4);
+           PrintRight('Abertura: ' + DMServ.TOrd.FieldByName('DTABERT').AsString + ' - Fechamento:' + DMServ.TOrd.FieldByName('DTFECH').AsString + ' [18]', PageWidth - 0.4);
 
            NewLine;
            XLinha := XLinha + 0.3;

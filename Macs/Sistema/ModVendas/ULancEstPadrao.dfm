@@ -1,6 +1,6 @@
 inherited FLancEstPadrao: TFLancEstPadrao
-  Left = 350
-  Top = 127
+  Left = 99
+  Top = 180
   Caption = 'FLancEstPadrao'
   ClientHeight = 401
   ClientWidth = 760
@@ -517,6 +517,43 @@ inherited FLancEstPadrao: TFLancEstPadrao
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object PCodInterno: TPanel
+          Left = 551
+          Top = 25
+          Width = 134
+          Height = 37
+          BevelOuter = bvNone
+          Color = 16772332
+          TabOrder = 4
+          object Label3: TLabel
+            Left = 1
+            Top = 0
+            Width = 108
+            Height = 16
+            Caption = 'Contr. Interno:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object EdCodInterno: TMaskEdit
+            Left = 1
+            Top = 15
+            Width = 132
+            Height = 22
+            Hint = 'Pressione enter ao terminar e o cursor j'#225' ca'#237'ra em quantidade'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'BankGothic Md BT'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            OnKeyPress = EdCodInternoKeyPress
+          end
+        end
         object PCodFab: TPanel
           Left = 552
           Top = 22
@@ -555,43 +592,6 @@ inherited FLancEstPadrao: TFLancEstPadrao
             NotFoundText = 'N'#227'o Existe'
             InputText = 'Por favor entre na procura pelo crit'#233'rio'
             ButtonCaption = 'Ok'
-          end
-        end
-        object PCodInterno: TPanel
-          Left = 551
-          Top = 25
-          Width = 134
-          Height = 37
-          BevelOuter = bvNone
-          Color = 16772332
-          TabOrder = 4
-          object Label3: TLabel
-            Left = 1
-            Top = 0
-            Width = 108
-            Height = 16
-            Caption = 'Contr. Interno:'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Verdana'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object EdCodInterno: TMaskEdit
-            Left = 1
-            Top = 15
-            Width = 132
-            Height = 22
-            Hint = 'Pressione enter ao terminar e o cursor j'#225' ca'#237'ra em quantidade'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'BankGothic Md BT'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            OnKeyPress = EdCodInternoKeyPress
           end
         end
         object btnprocprod: TBitBtn
@@ -746,16 +746,16 @@ inherited FLancEstPadrao: TFLancEstPadrao
         ButtonCaption = 'Ok'
       end
       object pPesquisaRapida: TPanel
-        Left = 16
-        Top = 71
+        Left = 80
+        Top = 183
         Width = 608
         Height = 124
         BevelOuter = bvNone
         TabOrder = 8
         Visible = False
         object dgPesquisaRapida: TDBGrid
-          Left = 0
-          Top = 0
+          Left = 96
+          Top = 20
           Width = 609
           Height = 124
           Color = clMenu

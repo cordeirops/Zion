@@ -2223,17 +2223,6 @@ begin
        	MDO.Query.ExecSQL;
            mdo.Transac.CommitRetaining;
            FiltraSlave;
-           Try
-       		//Atualiza Estoque
-       		DMEstoque.TEstoque.edit;
-       		DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMEstoque.TEstoque.FieldByName('ESTFISICO').AsCurrency-EdQuantProd.ValueNumeric;
-               DMEstoque.TEstoque.FieldByName('ATUALIZAR').AsString:='1';
-               DMESTOQUE.TEstoque.Post;
-               DMESTOQUE.TransacEstoque.CommitRetaining;
-           Except
-               DMESTOQUE.TransacEstoque.RollbackRetaining;
-               MessageDlg('O ESTOQUE NÃO FOI ATUALIZADO', mtWarning, [mbOK], 0);
-           End;
        Except
            mdo.Transac.CommitRetaining;
            MessageDlg('O ITEM NÃO FOI INSERIDO A LISTA', mtWarning, [mbOK], 0);
@@ -2288,9 +2277,6 @@ begin
            If FiltraTabela(DMServ.TPOrd, 'itprodord', 'cod_itprodord', DMESTOQUE.TSlave.FieldByName('cod_itprodord').AsString, '')
            Then Begin
                XCOD_ESTOQUE:=DMESTOQUE.WSimilar.FieldByName('COD_ESTOQUE').AsInteger;
-               DMESTOQUE.TEstoque.Edit;
-               DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency:=DMESTOQUE.TEstoque.FieldByName('ESTFISICO').AsCurrency+DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;
-               DMESTOQUE.TEstoque.Post;
                //Escreve texto nos componentes
                LProduto.Caption:=DMESTOQUE.TSlave.FieldByName('DESCRICAO').AsString;
                EdQuantProd.ValueNumeric:=DMESTOQUE.TSlave.FieldByName('QTD').AsCurrency;

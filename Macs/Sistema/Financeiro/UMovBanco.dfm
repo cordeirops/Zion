@@ -1174,12 +1174,14 @@ inherited FMovBanco: TFMovBanco
               Expanded = False
               FieldName = 'CLASSIFICACAO'
               Title.Caption = 'Classifica'#231#227'o'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CONTA'
               Title.Caption = 'Conta'
+              Width = 64
               Visible = True
             end
             item
@@ -1275,12 +1277,14 @@ inherited FMovBanco: TFMovBanco
               Expanded = False
               FieldName = 'CLASSIFICACAO'
               Title.Caption = 'Classifica'#231#227'o'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CONTA'
               Title.Caption = 'Conta'
+              Width = 64
               Visible = True
             end
             item
@@ -1374,12 +1378,14 @@ inherited FMovBanco: TFMovBanco
               Expanded = False
               FieldName = 'CLASSIFICACAO'
               Title.Caption = 'Classifica'#231#227'o'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CONTA'
               Title.Caption = 'Conta'
+              Width = 64
               Visible = True
             end
             item

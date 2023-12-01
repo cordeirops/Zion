@@ -1531,14 +1531,12 @@ inherited FOrdemAssitenciaTecnica: TFOrdemAssitenciaTecnica
               Expanded = False
               FieldName = 'BAIRRO'
               Title.Caption = 'Bairro'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'TELREL'
               Title.Caption = 'Telefone'
-              Width = 64
               Visible = True
             end>
         end

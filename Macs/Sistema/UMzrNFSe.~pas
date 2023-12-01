@@ -1990,7 +1990,7 @@ begin
 
 	    DMESTOQUE.TRel.Close;
        DMESTOQUE.TRel.SQL.Clear;
-       DMESTOQUE.TRel.SQL.Add('select docfisord.dtemissao, docfisord.dadosad01, docfisord.horasaid, docfisord.vlrdesconto, despadic.aliqissqn, despadic.nfse_status, docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, ');
+       DMESTOQUE.TRel.SQL.Add('select  docfisord.nfse_dtemissao as dtemissao, docfisord.dadosad01, docfisord.horasaid, docfisord.vlrdesconto, despadic.aliqissqn, despadic.nfse_status, docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, ');
        DMESTOQUE.TRel.SQL.Add(' docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, docfisord.nfse_numerodocumento, ');
        DMESTOQUE.TRel.SQL.Add('despadic.despesa, despadic.vlrfinal, despadic.qtd, despadic.desconto, despadic.vlrtotfin, docfisord.vlrtotserv, docfisord.vlrtotiss, ordem.totiss, docfisord.impostonfse, ');
        DMESTOQUE.TRel.SQL.Add('ordem.totserv, docfisord.reter_iss from docfisord left join despadic on docfisord.cod_ordem = despadic.cod_gerador ');
@@ -2125,7 +2125,7 @@ begin
 
 	DMPESSOA.TALX.Close;
    DMPESSOA.TALX.SQL.Clear;
-   DMPESSOA.TALX.SQL.Add('select docfisord.dtemissao, pessoa.cpfcnpj, pessoaj.insc_mun from despadic ');
+   DMPESSOA.TALX.SQL.Add('select  docfisord.nfse_dtemissao as dtemissao, pessoa.cpfcnpj, pessoaj.insc_mun from despadic ');
    DMPESSOA.TALX.SQL.Add(' left join docfisord on docfisord.cod_ordem = despadic.cod_gerador ');
    DMPESSOA.TALX.SQL.Add(' left join ordem on docfisord.cod_ordem = ordem.cod_ordem ');
    DMPESSOA.TALX.SQL.Add(' left join cliente on ordem.cod_cliente = cliente.cod_cliente ');
@@ -2531,7 +2531,7 @@ var
    arqtxt: TextFile;
    xTexto: TextFile;
    xNrDoc, xRetorno, xCodAut, xLicensa, xNumRps, xLote:string;
-   xPosEncontrada, i, xHomolog: integer;
+   xPosEncontrada, xPosEncontradaFinal, i, xHomolog: integer;
    xArquivo: TSHFileOpStruct;
    XmlDoc: TXMLDocument;
    FRNfse: TfrReport;
@@ -2588,7 +2588,11 @@ try
 
        //Edmar - 12/02/2014 - Recupera número da nfse
        xPosEncontrada := StrPosicao('<nrNfse>', xResultadoConsulta, 1);
-       xRetorno := Copy(xResultadoConsulta, xPosEncontrada+8, 4);
+       xPosEncontradaFinal := StrPosicao('</nrNfse>', xResultadoConsulta, 1);
+
+       xPosEncontradaFinal := xPosEncontradaFinal - xPosEncontrada;
+       xRetorno := Copy(xResultadoConsulta, xPosEncontrada, xPosEncontradaFinal);
+       xRetorno := ExtraiNumeros(xRetorno);
 
        xRetorno := TiraCaracter(xRetorno, '<');
        xRetorno := TiraCaracter(xRetorno, '/');
@@ -2679,7 +2683,7 @@ begin
       //Edmar - 03/12/2013 - Select usado para impressão da nfse
       DMESTOQUE.TRel.Close;
       DMESTOQUE.TRel.SQL.Clear;
-      DMESTOQUE.TRel.SQL.Add('select docfisord.dtemissao, docfisord.dadosad01, docfisord.horasaid, docfisord.vlrdesconto, despadic.aliqissqn, despadic.nfse_status, docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, despadic.nfse_numerodocumento, ');
+      DMESTOQUE.TRel.SQL.Add('select  docfisord.nfse_dtemissao as dtemissao,  docfisord.nfse_dtemissao, docfisord.dadosad01, docfisord.horasaid, docfisord.vlrdesconto, despadic.aliqissqn, despadic.nfse_status, docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, despadic.nfse_numerodocumento, ');
       DMESTOQUE.TRel.SQL.Add(' docfisord.nfse_codigoautenticidade, despadic.nfse_codservico, servico_nfse.descricao, despadic.nfse_numerodocumento, docfisord.nfse_numerodocumento, ');
       DMESTOQUE.TRel.SQL.Add('despadic.despesa, despadic.vlrfinal, despadic.qtd, despadic.desconto, despadic.vlrtotfin, docfisord.vlrtotserv, docfisord.vlrtotiss, ordem.totiss, docfisord.impostonfse, ');
       DMESTOQUE.TRel.SQL.Add('ordem.totserv, docfisord.reter_iss from docfisord left join despadic on docfisord.cod_ordem = despadic.cod_gerador ');
@@ -2829,7 +2833,7 @@ begin
 
        DMPESSOA.TALX.Close;
        DMPESSOA.TALX.SQL.Clear;
-       DMPESSOA.TALX.SQL.Add('select docfisord.dtemissao, pessoa.cpfcnpj, pessoaj.insc_mun from docfisord ');
+       DMPESSOA.TALX.SQL.Add('select  docfisord.nfse_dtemissao as dtemissao, pessoa.cpfcnpj, pessoaj.insc_mun from docfisord ');
        DMPESSOA.TALX.SQL.Add('left join ordem on ordem.cod_ordem = docfisord.cod_ordem ');
        DMPESSOA.TALX.SQL.Add('left join cliente on cliente.cod_cliente = ordem.cod_cliente ');
        DMPESSOA.TALX.SQL.Add('left join pessoa on pessoa.cod_pessoa = cliente.cod_pessoa ');
@@ -3089,11 +3093,12 @@ begin
        	begin
 				if DMMACS.TLoja.FieldByName('EMAIL_EMPRESA').AsString = '' then
                begin
-                   SMTPxml.Username := 'xmlnfe@mzrsistemas.com';
-                   XEmail := 'xmlnfe@mzrsistemas.com';
-                   SMTPxml.Password :='M357ZR'; // senha do usuario
-                   SMTPxml.Host :=  'smtp.mzrsistemas.com';
+                   SMTPxml.Username := 'noreply@resulterp.com.br';
+                   XEmail := 'noreply@resulterp.com.br';
+                   SMTPxml.Password :='Mzrking@771'; // senha do usuario
+                   SMTPxml.Host :=  'smtp.resulterp.com.br';
                    SMTPxml.Port := 587;
+
                    //
                    SMTPxml.UseTLS := utNoTLSSupport;                                      
                end

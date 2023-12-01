@@ -1,10 +1,10 @@
 inherited FCtaReceber: TFCtaReceber
-  Left = 216
-  Top = 56
+  Left = 177
+  Top = 131
   Hint = ' o'
   Caption = 'FCtaReceber'
-  ClientHeight = 495
-  ClientWidth = 877
+  ClientHeight = 498
+  ClientWidth = 875
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -58,284 +58,7 @@ inherited FCtaReceber: TFCtaReceber
     Left = 242
     Top = 194
   end
-  inherited PCADASTRO: TPanel [2]
-    Left = 5
-    Top = 5
-    Width = 871
-    Height = 491
-    inherited Panel4: TPanel [0]
-      Width = 864
-      Height = 455
-      Color = clWhite
-      object lbNumeroCartao: TLabel [6]
-        Left = 529
-        Top = 99
-        Width = 60
-        Height = 16
-        Caption = 'N'#186' Cart'#227'o:'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'BankGothic Md BT'
-        Font.Style = []
-        ParentFont = False
-        Visible = False
-      end
-      inherited PCartoes: TPanel [9]
-        Left = 2
-        Top = 0
-        TabOrder = 21
-      end
-      inherited PBanco: TPanel [10]
-        Left = 426
-        Top = 91
-        TabOrder = 19
-      end
-      inherited RGTipo: TRadioGroup [11]
-        TabOrder = 20
-      end
-      inherited GroupBox9: TGroupBox [12]
-        Width = 855
-        Height = 270
-        TabOrder = 22
-        inherited DBGrid3: TDBGrid
-          Left = 0
-          Top = 8
-          Width = 855
-          Height = 254
-          DataSource = DMCONTA.DParcCR
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'NUMPARC'
-              Title.Caption = 'N'#186' Parcela'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NUMBOLETO'
-              Title.Caption = 'N'#186' Boleto'
-              Width = 71
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DTVENC'
-              Title.Caption = 'Venc.:'
-              Width = 111
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DTREF'
-              Title.Caption = 'Ref.:'
-              Width = 97
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALOR'
-              Title.Caption = 'Valor'
-              Width = 106
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALORPROD'
-              Title.Caption = 'Vlr. Produto'
-              Width = 101
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALORSERV'
-              Title.Caption = 'Vlr. Servi'#231'o'
-              Width = 94
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'HISTORICO'
-              Title.Caption = 'Hist'#243'rico'
-              Width = 277
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'COBRANCA'
-              PickList.Strings = (
-                'Carteira'
-                'Banco'
-                'Cheque'
-                'Chq. Terc.'
-                'Boleto'
-                'Cr'#233'dito'
-                'Cart'#227'o'
-                'C - Cart'#227'o'
-                'D - Cart'#227'o')
-              Title.Caption = 'Cobran'#231'a'
-              Width = 109
-              Visible = True
-            end>
-        end
-      end
-      inherited Panel7: TPanel [13]
-        Left = 723
-        Top = 157
-        Width = 131
-        TabOrder = 16
-        inherited btngerar: TBitBtn
-          Width = 127
-        end
-      end
-      inherited DBMOEDA: TDBLookupComboBox [14]
-        TabOrder = 17
-      end
-      inherited DBNumDoc: TDBColorEdit [15]
-        DataField = 'NUMDOC'
-        DataSource = DMCONTA.DCtaR
-        TabOrder = 6
-      end
-      inherited FrmCliFor: TFrmBusca [16]
-        Color = clWhite
-        inherited LTextoBusca: TLabel
-          Width = 44
-          Caption = 'Cliente:'
-        end
-      end
-      inherited FrmConta: TFrmBusca [17]
-        Color = clWhite
-      end
-      inherited frmFormPag: TFrmBusca [18]
-        Width = 339
-        Color = clWhite
-        TabOrder = 8
-        inherited LUZOPEN: TShape
-          Left = 297
-        end
-        inherited LUZMINUS: TShape
-          Left = 315
-        end
-        inherited EdDescricao: TFlatEdit
-          Left = 62
-          Width = 237
-        end
-        inherited BTNOPEN: TBitBtn
-          Left = 299
-        end
-        inherited BTNMINUS: TBitBtn
-          Left = 317
-        end
-        inherited EDCodigo: TFlatEdit
-          Width = 59
-          OnKeyPress = frmFormPagEDCodigoKeyPress
-        end
-      end
-      inherited RGJuros: TRadioGroup [19]
-        Left = 716
-        Width = 117
-        TabOrder = 15
-      end
-      inherited DBHISTORICO: TEdit [20]
-        TabOrder = 2
-        OnExit = DBHISTORICOExit
-      end
-      inherited DBCobranca: TComboBox [21]
-        TabOrder = 3
-        Items.Strings = (
-          'Carteira'
-          'Banco'
-          'Cheque'
-          'Chq. Terc.'
-          'Boleto'
-          'Cr'#233'dito'
-          'Cart'#227'o'
-          'C - Cart'#227'o'
-          'D - Cart'#227'o')
-      end
-      inherited DBData: TColorMaskEdit [22]
-        TabOrder = 4
-      end
-      inherited DBValor: TColorEditFloat [23]
-        TabOrder = 5
-      end
-      inherited edfiscalpagar: TEdit [24]
-        TabOrder = 7
-      end
-      inherited CbDiaMes: TCheckBox [25]
-        Left = 354
-        TabOrder = 9
-      end
-      inherited EdDiaMes: TColorEditFloat [26]
-        Left = 355
-        TabOrder = 10
-      end
-      inherited CdDtReferencia: TCheckBox [27]
-        Left = 473
-        Top = 170
-        TabOrder = 11
-      end
-      object RBDuplicata: TRadioButton
-        Left = 591
-        Top = 155
-        Width = 68
-        Height = 17
-        Caption = 'Duplicata'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -9
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 12
-      end
-      object RBBoleto: TRadioButton
-        Left = 591
-        Top = 171
-        Width = 68
-        Height = 17
-        Caption = 'Boleto'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -9
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 13
-        OnExit = RBBoletoExit
-      end
-      object edNumeroCartao: TEdit
-        Left = 527
-        Top = 116
-        Width = 121
-        Height = 21
-        MaxLength = 15
-        TabOrder = 18
-        Visible = False
-      end
-      object RdCarne: TRadioButton
-        Left = 663
-        Top = 155
-        Width = 57
-        Height = 17
-        Caption = 'Carn'#234
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -9
-        Font.Name = 'Verdana'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 14
-        OnExit = RdCarneExit
-      end
-    end
-    inherited Panel1: TPanel [1]
-      Width = 864
-      Color = clWhite
-    end
-  end
-  object pListaRetorno: TPanel [3]
+  object pListaRetorno: TPanel [2]
     Left = 24
     Top = 9
     Width = 833
@@ -833,6 +556,284 @@ inherited FCtaReceber: TFCtaReceber
       Height = 108
       ScrollBars = ssVertical
       TabOrder = 5
+    end
+  end
+  inherited PCADASTRO: TPanel [3]
+    Left = 5
+    Top = 5
+    Width = 871
+    Height = 491
+    inherited Panel4: TPanel [0]
+      Width = 864
+      Height = 455
+      Color = clWhite
+      object lbNumeroCartao: TLabel [6]
+        Left = 529
+        Top = 99
+        Width = 60
+        Height = 16
+        Caption = 'N'#186' Cart'#227'o:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'BankGothic Md BT'
+        Font.Style = []
+        ParentFont = False
+        Visible = False
+      end
+      inherited PCartoes: TPanel [9]
+        Left = 2
+        Top = 0
+        TabOrder = 21
+      end
+      inherited PBanco: TPanel [10]
+        Left = 426
+        Top = 91
+        TabOrder = 19
+      end
+      inherited RGTipo: TRadioGroup [11]
+        TabOrder = 20
+      end
+      inherited GroupBox9: TGroupBox [12]
+        Width = 855
+        Height = 270
+        TabOrder = 22
+        inherited DBGrid3: TDBGrid
+          Left = 0
+          Top = 24
+          Width = 855
+          Height = 241
+          DataSource = DMCONTA.DParcCR
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NUMPARC'
+              Title.Caption = 'N'#186' Parcela'
+              Width = 91
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMBOLETO'
+              Title.Caption = 'N'#186' Boleto'
+              Width = 71
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTVENC'
+              Title.Caption = 'Venc.:'
+              Width = 111
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTREF'
+              Title.Caption = 'Ref.:'
+              Width = 97
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALOR'
+              Title.Caption = 'Valor'
+              Width = 106
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPROD'
+              Title.Caption = 'Vlr. Produto'
+              Width = 101
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORSERV'
+              Title.Caption = 'Vlr. Servi'#231'o'
+              Width = 94
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'HISTORICO'
+              Title.Caption = 'Hist'#243'rico'
+              Width = 277
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'COBRANCA'
+              PickList.Strings = (
+                'Carteira'
+                'Pix'
+                'Banco'
+                'Cheque'
+                'Chq. Terc.'
+                'Boleto'
+                'Cr'#233'dito'
+                'Cart'#227'o'
+                'C - Cart'#227'o'
+                'D - Cart'#227'o')
+              Title.Caption = 'Cobran'#231'a'
+              Width = 109
+              Visible = True
+            end>
+        end
+      end
+      inherited Panel7: TPanel [13]
+        Left = 723
+        Top = 157
+        Width = 131
+        TabOrder = 16
+        inherited btngerar: TBitBtn
+          Width = 127
+        end
+      end
+      inherited DBMOEDA: TDBLookupComboBox [14]
+        TabOrder = 17
+      end
+      inherited DBNumDoc: TDBColorEdit [15]
+        DataField = 'NUMDOC'
+        DataSource = DMCONTA.DCtaR
+        TabOrder = 6
+      end
+      inherited FrmCliFor: TFrmBusca [16]
+        Color = clWhite
+        inherited LTextoBusca: TLabel
+          Width = 44
+          Caption = 'Cliente:'
+        end
+      end
+      inherited FrmConta: TFrmBusca [17]
+        Color = clWhite
+      end
+      inherited frmFormPag: TFrmBusca [18]
+        Width = 339
+        Color = clWhite
+        TabOrder = 8
+        inherited LUZOPEN: TShape
+          Left = 297
+        end
+        inherited LUZMINUS: TShape
+          Left = 315
+        end
+        inherited EdDescricao: TFlatEdit
+          Left = 62
+          Width = 237
+        end
+        inherited BTNOPEN: TBitBtn
+          Left = 299
+        end
+        inherited BTNMINUS: TBitBtn
+          Left = 317
+        end
+        inherited EDCodigo: TFlatEdit
+          Width = 59
+          OnKeyPress = frmFormPagEDCodigoKeyPress
+        end
+      end
+      inherited RGJuros: TRadioGroup [19]
+        Left = 716
+        Width = 117
+        TabOrder = 15
+      end
+      inherited DBHISTORICO: TEdit [20]
+        TabOrder = 2
+        OnExit = DBHISTORICOExit
+      end
+      inherited DBCobranca: TComboBox [21]
+        TabOrder = 3
+        Items.Strings = (
+          'Carteira'
+          'Banco'
+          'Cheque'
+          'Chq. Terc.'
+          'Boleto'
+          'Cr'#233'dito'
+          'Cart'#227'o'
+          'C - Cart'#227'o'
+          'D - Cart'#227'o')
+      end
+      inherited DBData: TColorMaskEdit [22]
+        TabOrder = 4
+      end
+      inherited DBValor: TColorEditFloat [23]
+        TabOrder = 5
+      end
+      inherited edfiscalpagar: TEdit [24]
+        TabOrder = 7
+      end
+      inherited CbDiaMes: TCheckBox [25]
+        Left = 354
+        TabOrder = 9
+      end
+      inherited EdDiaMes: TColorEditFloat [26]
+        Left = 355
+        TabOrder = 10
+      end
+      inherited CdDtReferencia: TCheckBox [27]
+        Left = 473
+        Top = 170
+        TabOrder = 11
+      end
+      object RBDuplicata: TRadioButton
+        Left = 591
+        Top = 155
+        Width = 68
+        Height = 17
+        Caption = 'Duplicata'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -9
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 12
+      end
+      object RBBoleto: TRadioButton
+        Left = 591
+        Top = 171
+        Width = 68
+        Height = 17
+        Caption = 'Boleto'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -9
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 13
+        OnExit = RBBoletoExit
+      end
+      object edNumeroCartao: TEdit
+        Left = 527
+        Top = 116
+        Width = 121
+        Height = 21
+        MaxLength = 15
+        TabOrder = 18
+        Visible = False
+      end
+      object RdCarne: TRadioButton
+        Left = 663
+        Top = 155
+        Width = 57
+        Height = 17
+        Caption = 'Carn'#234
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -9
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 14
+        OnExit = RdCarneExit
+      end
+    end
+    inherited Panel1: TPanel [1]
+      Width = 864
+      Color = clWhite
     end
   end
   inherited PConsultParc: TPanel [4]
@@ -2135,7 +2136,433 @@ inherited FCtaReceber: TFCtaReceber
         '&Remessa'
         '&SCPC'
         'Car&t'#227'o')
-      object PConfere: TPanel [0]
+      inherited PAgrupados: TPanel
+        Width = 860
+        Height = 421
+        inherited GroupBox1: TGroupBox
+          Left = 6
+          Width = 847
+          inherited DBGMestre: TDBGrid
+            Left = 0
+            Width = 847
+            Height = 170
+            DataSource = DMCONTA.DWCtaR
+            OnDrawColumnCell = DBGMestreDrawColumnCell
+            OnKeyDown = DBGMestreKeyDown
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'NUMDOC'
+                Title.Caption = 'Documento'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VALOR'
+                Title.Caption = 'Valor'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'DTLANC'
+                Title.Caption = 'Lan'#231'amento'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'COBRANCA'
+                Title.Caption = 'Cobran'#231'a'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'HISTORICO'
+                Title.Caption = 'Hist'#243'rico'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'COD_USUARIO'
+                Title.Caption = 'C'#243'd. Usu'#225'rio'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'LOGIN'
+                Title.Caption = 'Usu'#225'rio'
+                Visible = True
+              end>
+          end
+        end
+        inherited GroupBox2: TGroupBox
+          Left = 6
+          Width = 848
+          Height = 200
+          inherited DBGSLAVE: TDBGrid
+            Left = 0
+            Top = 17
+            Width = 848
+            Height = 183
+            OnDrawColumnCell = DBGSLAVEDrawColumnCell
+            OnKeyDown = DBGSLAVEKeyDown
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'NUMPARC'
+                Title.Caption = 'Parcela'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'DTVENC'
+                Title.Caption = 'Vencimento'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VALOR'
+                Title.Caption = 'Valor'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'VALORPG'
+                Title.Caption = 'Pago'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'NOME'
+                Title.Caption = 'Cliente'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'COBRANCA'
+                Title.Caption = 'Cobran'#231'a'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'FORMPAG'
+                Title.Caption = 'Pagamento'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'CLASSIFICACAO'
+                Title.Caption = 'Class. Conta'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'DESCRICAO'
+                Title.Caption = 'Desc. Conta'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'HISTORICO'
+                Title.Caption = 'Hist'#243'rico'
+                Visible = True
+              end>
+          end
+        end
+        inherited EDTotAgrup: TFloatEdit
+          Left = 672
+          Top = 391
+        end
+      end
+      inherited PBaixadas: TPanel [1]
+        Width = 859
+        Height = 420
+        inherited DBGBAIXADAS: TDBGrid
+          Top = 88
+          Width = 849
+          Height = 301
+          PopupMenu = PopupMenu1
+          TabOrder = 10
+          OnDrawColumnCell = DBGBAIXADASDrawColumnCell
+          OnKeyDown = DBGBAIXADASKeyDown
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'FECH'
+              Title.Caption = 'X'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMPARC'
+              Title.Caption = 'Parcela'
+              Width = 90
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMBOLETO'
+              Title.Caption = 'Boleto'
+              Width = 52
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMFISC'
+              Title.Caption = 'Fiscal'
+              Width = 41
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTLANC'
+              Title.Caption = 'Lan'#231'amento'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTVENC'
+              Title.Caption = 'Vencimento'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTDEBITO'
+              Title.Caption = 'D'#233'bito'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALOR'
+              Title.Caption = 'Valor'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPG'
+              Title.Caption = 'Pago'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NOME'
+              Title.Caption = 'Cliente'
+              Width = 167
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'COBRANCA'
+              Title.Caption = 'Cobran'#231'a'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CLASSIFICACAO'
+              Title.Caption = 'Class. Conta'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DESCRICAO'
+              Title.Caption = 'Desc. Conta'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'HISTORICO'
+              Title.Caption = 'Hist'#243'rico'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMCARTAO'
+              Title.Caption = 'N'#186' Cart'#227'o:'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VENDEDOR'
+              Title.Caption = 'Vendedor'
+              Width = 92
+              Visible = True
+            end>
+        end
+        inherited Panel9: TPanel
+          Left = 2
+          Top = 391
+          Width = 665
+          TabOrder = 12
+        end
+        inherited GroupBox10: TGroupBox
+          Left = 198
+          Width = 83
+          TabOrder = 4
+          inherited EdLancBaixa: TColorMaskEdit
+            Width = 76
+          end
+        end
+        inherited GroupBox11: TGroupBox
+          Left = 284
+          Width = 89
+          Height = 78
+          TabOrder = 6
+          inherited EdVencBaixa: TColorMaskEdit
+            Width = 80
+          end
+          inherited EdVencBaixa2: TColorMaskEdit
+            Left = 4
+            Top = 44
+            Width = 80
+          end
+        end
+        inherited GroupBox6: TGroupBox
+          Left = 3
+          Top = 43
+          Width = 94
+          Caption = 'Doc'
+          TabOrder = 1
+          inherited EdNumpracB: TColorMaskEdit
+            Left = 3
+            Width = 90
+          end
+        end
+        inherited EdTotBaixadas: TFloatEdit
+          Left = 669
+          Top = 392
+          Width = 184
+          Height = 25
+          TabOrder = 11
+        end
+        inherited GroupBox8: TGroupBox
+          Left = 376
+          Top = 43
+          Width = 220
+          TabOrder = 8
+          inherited EdHistFornec: TColorMaskEdit
+            Width = 213
+          end
+        end
+        inherited GroupBox15: TGroupBox
+          Left = 101
+          Top = 3
+          Width = 94
+          Height = 38
+          TabOrder = 2
+          inherited EdNumBoletoB: TColorMaskEdit
+            Left = 3
+            Width = 87
+          end
+        end
+        inherited GroupBox16: TGroupBox
+          Left = 101
+          Top = 43
+          Width = 94
+          Height = 38
+          TabOrder = 3
+          inherited EdNumFiscalB: TColorMaskEdit
+            Width = 87
+          end
+        end
+        inherited GroupBox12: TGroupBox
+          Left = 376
+          Width = 220
+          TabOrder = 7
+          inherited EdFornecBaixa: TColorMaskEdit
+            Left = 3
+            Width = 213
+          end
+        end
+        inherited GroupBox200: TGroupBox
+          Left = 4
+          Width = 94
+          TabOrder = 0
+          inherited cbFiltroCobrBaixadas: TComboBox
+            Top = 15
+            Width = 90
+          end
+        end
+        object GBBaixa: TGroupBox
+          Left = 198
+          Top = 43
+          Width = 83
+          Height = 38
+          Caption = 'Baixa'
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'BankGothic Md BT'
+          Font.Style = []
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 5
+          object MEBaixa: TColorMaskEdit
+            Left = 4
+            Top = 13
+            Width = 76
+            Height = 24
+            Hint = 'Press ENTER para filtrar. Press ESC para mostrar todos ordenados'
+            Ctl3D = True
+            EditMask = '!99/99/0000;1;_'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'BankGothic Md BT'
+            Font.Style = []
+            MaxLength = 10
+            ParentCtl3D = False
+            ParentFont = False
+            TabOrder = 0
+            Text = '  /  /    '
+            OnKeyDown = MEBaixaKeyDown
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+        end
+        object GroupBox36: TGroupBox
+          Left = 600
+          Top = 3
+          Width = 254
+          Height = 39
+          Caption = 'Vendedor'
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'BankGothic Md BT'
+          Font.Style = []
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 9
+          object EdNomeVendedorBaixada: TColorMaskEdit
+            Left = 4
+            Top = 13
+            Width = 245
+            Height = 24
+            Hint = 
+              'Press ENTER para filtrar. Press ESC para mostrar todos ordenados' +
+              '. Pressione Ctrl+Enter para procurar pelo n'#250'mero do cart'#227'o'
+            Ctl3D = True
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'BankGothic Md BT'
+            Font.Style = []
+            ParentCtl3D = False
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            OnKeyDown = EDLANCAMENTOKeyDown
+            OnKeyPress = EdNomeVendedorBaixadaKeyPress
+            NotFoundText = 'N'#227'o Existe'
+            InputText = 'Por favor entre na procura pelo crit'#233'rio'
+            ButtonCaption = 'Ok'
+          end
+        end
+      end
+      object PConfere: TPanel [2]
         Left = 1
         Top = 17
         Width = 859
@@ -2475,7 +2902,7 @@ inherited FCtaReceber: TFCtaReceber
           ButtonCaption = 'Ok'
         end
       end
-      inherited PIndividual: TPanel [1]
+      inherited PIndividual: TPanel [3]
         Width = 859
         Height = 421
         object Bevel6: TBevel [0]
@@ -2566,14 +2993,14 @@ inherited FCtaReceber: TFCtaReceber
         object Bevel1: TBevel [6]
           Left = 178
           Top = 393
-          Width = 353
+          Width = 327
           Height = 23
           Hint = 'Simula'#231#227'o por parcelas acumuladas'
           ParentShowHint = False
           ShowHint = True
         end
         object LTotJurMultaCalc: TLabel [7]
-          Left = 404
+          Left = 380
           Top = 402
           Width = 122
           Height = 13
@@ -2591,13 +3018,13 @@ inherited FCtaReceber: TFCtaReceber
           ShowHint = True
         end
         object Bevel2: TBevel [8]
-          Left = 392
+          Left = 372
           Top = 395
           Width = 4
           Height = 19
         end
         object LTotJuroCalc: TLabel [9]
-          Left = 206
+          Left = 195
           Top = 402
           Width = 74
           Height = 13
@@ -2615,7 +3042,7 @@ inherited FCtaReceber: TFCtaReceber
           ShowHint = True
         end
         object LTotMultaCalc: TLabel [10]
-          Left = 315
+          Left = 291
           Top = 402
           Width = 74
           Height = 13
@@ -2633,13 +3060,13 @@ inherited FCtaReceber: TFCtaReceber
           ShowHint = True
         end
         object Bevel3: TBevel [11]
-          Left = 282
+          Left = 271
           Top = 395
           Width = 4
           Height = 19
         end
         object Label23: TLabel [12]
-          Left = 251
+          Left = 240
           Top = 395
           Width = 27
           Height = 10
@@ -2656,7 +3083,7 @@ inherited FCtaReceber: TFCtaReceber
           ShowHint = True
         end
         object Label24: TLabel [13]
-          Left = 363
+          Left = 339
           Top = 395
           Width = 26
           Height = 10
@@ -2673,13 +3100,13 @@ inherited FCtaReceber: TFCtaReceber
           ShowHint = True
         end
         object Label25: TLabel [14]
-          Left = 472
+          Left = 406
           Top = 395
-          Width = 51
+          Width = 93
           Height = 10
           Hint = 'Simula'#231#227'o por parcelas acumuladas'
           Alignment = taRightJustify
-          Caption = 'TOTAL FINAL'
+          Caption = 'TOTAL FINAL (c/ juros)'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -8
@@ -2698,7 +3125,51 @@ inherited FCtaReceber: TFCtaReceber
           ParentShowHint = False
           ShowHint = True
         end
-        object PTextoBlt: TPanel [16]
+        object Bevel7: TBevel [16]
+          Left = 506
+          Top = 393
+          Width = 144
+          Height = 24
+          Hint = 'Simula'#231#227'o por parcelas acumuladas'
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object LTotSemJurMultaCalc: TLabel [17]
+          Left = 524
+          Top = 402
+          Width = 122
+          Height = 13
+          Hint = 'Simula'#231#227'o por parcelas acumuladas'
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'R$ 0,00'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -12
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label55: TLabel [18]
+          Left = 541
+          Top = 395
+          Width = 102
+          Height = 10
+          Hint = 'Simula'#231#227'o por parcelas acumuladas'
+          Alignment = taRightJustify
+          Caption = 'TOTAL FINAL (sem juros)'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object PTextoBlt: TPanel [19]
           Left = 120
           Top = 24
           Width = 590
@@ -3068,7 +3539,7 @@ inherited FCtaReceber: TFCtaReceber
             ButtonCaption = 'Ok'
           end
         end
-        object PBoletoManual: TPanel [17]
+        object PBoletoManual: TPanel [20]
           Left = 5
           Top = 181
           Width = 344
@@ -3543,144 +4014,7 @@ inherited FCtaReceber: TFCtaReceber
           end
         end
       end
-      inherited PAgrupados: TPanel [2]
-        Width = 860
-        Height = 421
-        inherited GroupBox1: TGroupBox
-          Left = 6
-          Width = 847
-          inherited DBGMestre: TDBGrid
-            Left = 0
-            Width = 847
-            Height = 170
-            DataSource = DMCONTA.DWCtaR
-            OnDrawColumnCell = DBGMestreDrawColumnCell
-            OnKeyDown = DBGMestreKeyDown
-            Columns = <
-              item
-                Expanded = False
-                FieldName = 'NUMDOC'
-                Title.Caption = 'Documento'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VALOR'
-                Title.Caption = 'Valor'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'DTLANC'
-                Title.Caption = 'Lan'#231'amento'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'COBRANCA'
-                Title.Caption = 'Cobran'#231'a'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'HISTORICO'
-                Title.Caption = 'Hist'#243'rico'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'COD_USUARIO'
-                Title.Caption = 'C'#243'd. Usu'#225'rio'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'LOGIN'
-                Title.Caption = 'Usu'#225'rio'
-                Visible = True
-              end>
-          end
-        end
-        inherited GroupBox2: TGroupBox
-          Left = 6
-          Width = 848
-          Height = 200
-          inherited DBGSLAVE: TDBGrid
-            Left = 0
-            Top = 17
-            Width = 848
-            Height = 183
-            OnDrawColumnCell = DBGSLAVEDrawColumnCell
-            OnKeyDown = DBGSLAVEKeyDown
-            Columns = <
-              item
-                Expanded = False
-                FieldName = 'NUMPARC'
-                Title.Caption = 'Parcela'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'DTVENC'
-                Title.Caption = 'Vencimento'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VALOR'
-                Title.Caption = 'Valor'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'VALORPG'
-                Title.Caption = 'Pago'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'NOME'
-                Title.Caption = 'Cliente'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'COBRANCA'
-                Title.Caption = 'Cobran'#231'a'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'FORMPAG'
-                Title.Caption = 'Pagamento'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'CLASSIFICACAO'
-                Title.Caption = 'Class. Conta'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'DESCRICAO'
-                Title.Caption = 'Desc. Conta'
-                Visible = True
-              end
-              item
-                Expanded = False
-                FieldName = 'HISTORICO'
-                Title.Caption = 'Hist'#243'rico'
-                Visible = True
-              end>
-          end
-        end
-        inherited EDTotAgrup: TFloatEdit
-          Left = 672
-          Top = 391
-        end
-      end
-      object PRemessa: TPanel [3]
+      object PRemessa: TPanel
         Left = 1
         Top = 16
         Width = 861
@@ -4132,295 +4466,6 @@ inherited FCtaReceber: TFCtaReceber
           Mask = '*.ret'
           TabOrder = 9
           Visible = False
-        end
-      end
-      inherited PBaixadas: TPanel
-        Width = 859
-        Height = 420
-        inherited DBGBAIXADAS: TDBGrid
-          Top = 88
-          Width = 849
-          Height = 301
-          PopupMenu = PopupMenu1
-          TabOrder = 10
-          OnDrawColumnCell = DBGBAIXADASDrawColumnCell
-          OnKeyDown = DBGBAIXADASKeyDown
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'FECH'
-              Title.Caption = 'X'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NUMPARC'
-              Title.Caption = 'Parcela'
-              Width = 90
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NUMBOLETO'
-              Title.Caption = 'Boleto'
-              Width = 52
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NUMFISC'
-              Title.Caption = 'Fiscal'
-              Width = 41
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DTLANC'
-              Title.Caption = 'Lan'#231'amento'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DTVENC'
-              Title.Caption = 'Vencimento'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DTDEBITO'
-              Title.Caption = 'D'#233'bito'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALOR'
-              Title.Caption = 'Valor'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VALORPG'
-              Title.Caption = 'Pago'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NOME'
-              Title.Caption = 'Cliente'
-              Width = 167
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'COBRANCA'
-              Title.Caption = 'Cobran'#231'a'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'CLASSIFICACAO'
-              Title.Caption = 'Class. Conta'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'DESCRICAO'
-              Title.Caption = 'Desc. Conta'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'HISTORICO'
-              Title.Caption = 'Hist'#243'rico'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'NUMCARTAO'
-              Title.Caption = 'N'#186' Cart'#227'o:'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'VENDEDOR'
-              Title.Caption = 'Vendedor'
-              Width = 92
-              Visible = True
-            end>
-        end
-        inherited Panel9: TPanel
-          Left = 2
-          Top = 391
-          Width = 665
-          TabOrder = 12
-        end
-        inherited GroupBox10: TGroupBox
-          Left = 198
-          Width = 83
-          TabOrder = 4
-          inherited EdLancBaixa: TColorMaskEdit
-            Width = 76
-          end
-        end
-        inherited GroupBox11: TGroupBox
-          Left = 284
-          Width = 89
-          Height = 78
-          TabOrder = 6
-          inherited EdVencBaixa: TColorMaskEdit
-            Width = 80
-          end
-          inherited EdVencBaixa2: TColorMaskEdit
-            Left = 4
-            Top = 44
-            Width = 80
-          end
-        end
-        inherited GroupBox6: TGroupBox
-          Left = 3
-          Top = 43
-          Width = 94
-          Caption = 'Doc'
-          TabOrder = 1
-          inherited EdNumpracB: TColorMaskEdit
-            Left = 3
-            Width = 90
-          end
-        end
-        inherited EdTotBaixadas: TFloatEdit
-          Left = 669
-          Top = 392
-          Width = 184
-          Height = 25
-          TabOrder = 11
-        end
-        inherited GroupBox8: TGroupBox
-          Left = 376
-          Top = 43
-          Width = 220
-          TabOrder = 8
-          inherited EdHistFornec: TColorMaskEdit
-            Width = 213
-          end
-        end
-        inherited GroupBox15: TGroupBox
-          Left = 101
-          Top = 3
-          Width = 94
-          Height = 38
-          TabOrder = 2
-          inherited EdNumBoletoB: TColorMaskEdit
-            Left = 3
-            Width = 87
-          end
-        end
-        inherited GroupBox16: TGroupBox
-          Left = 101
-          Top = 43
-          Width = 94
-          Height = 38
-          TabOrder = 3
-          inherited EdNumFiscalB: TColorMaskEdit
-            Width = 87
-          end
-        end
-        inherited GroupBox12: TGroupBox
-          Left = 376
-          Width = 220
-          TabOrder = 7
-          inherited EdFornecBaixa: TColorMaskEdit
-            Left = 3
-            Width = 213
-          end
-        end
-        inherited GroupBox200: TGroupBox
-          Left = 4
-          Width = 94
-          TabOrder = 0
-          inherited cbFiltroCobrBaixadas: TComboBox
-            Top = 15
-            Width = 90
-          end
-        end
-        object GBBaixa: TGroupBox
-          Left = 198
-          Top = 43
-          Width = 83
-          Height = 38
-          Caption = 'Baixa'
-          Ctl3D = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'BankGothic Md BT'
-          Font.Style = []
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 5
-          object MEBaixa: TColorMaskEdit
-            Left = 4
-            Top = 13
-            Width = 76
-            Height = 24
-            Hint = 'Press ENTER para filtrar. Press ESC para mostrar todos ordenados'
-            Ctl3D = True
-            EditMask = '!99/99/0000;1;_'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'BankGothic Md BT'
-            Font.Style = []
-            MaxLength = 10
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 0
-            Text = '  /  /    '
-            OnKeyDown = MEBaixaKeyDown
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
-        end
-        object GroupBox36: TGroupBox
-          Left = 600
-          Top = 3
-          Width = 254
-          Height = 39
-          Caption = 'Vendedor'
-          Ctl3D = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'BankGothic Md BT'
-          Font.Style = []
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 9
-          object EdNomeVendedorBaixada: TColorMaskEdit
-            Left = 4
-            Top = 13
-            Width = 245
-            Height = 24
-            Hint = 
-              'Press ENTER para filtrar. Press ESC para mostrar todos ordenados' +
-              '. Pressione Ctrl+Enter para procurar pelo n'#250'mero do cart'#227'o'
-            Ctl3D = True
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'BankGothic Md BT'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 0
-            OnKeyDown = EDLANCAMENTOKeyDown
-            OnKeyPress = EdNomeVendedorBaixadaKeyPress
-            NotFoundText = 'N'#227'o Existe'
-            InputText = 'Por favor entre na procura pelo crit'#233'rio'
-            ButtonCaption = 'Ok'
-          end
         end
       end
     end

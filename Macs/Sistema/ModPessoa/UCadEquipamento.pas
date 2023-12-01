@@ -96,9 +96,9 @@ type
     DBColorEdit20: TDBColorEdit;
     DBGEletronico: TDBGrid;
     CBTodos: TCheckBox;
-    cxButton1: TcxButton;
     actMain: TActionList;
     ActSearchPlaca: TAction;
+    btnConsultaPlaca: TBitBtn;
     procedure BtnGravarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure DBColorComboBox1KeyPress(Sender: TObject; var Key: Char);
@@ -152,6 +152,7 @@ type
     procedure CBTodosClick(Sender: TObject);
     procedure ActSearchPlacaUpdate(Sender: TObject);
     procedure ActSearchPlacaExecute(Sender: TObject);
+    procedure btnConsultaPlacaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -202,7 +203,7 @@ begin
        end;
 
         // - 05/02/2009:  se for equipe verificar placa
-       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'DESPACHANTE')
+       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'DESPACHANTE')  or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA')
        then begin
             if (Trim(EDPlaca.Text) = '' ) or (Length(EDPlaca.Text) < 7)
             then begin
@@ -340,7 +341,7 @@ begin
     End;
 
     //Edmar - 29/09/2015 - quando equipe, filtrar os equipamentos do cliente
-   if DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE' then
+   if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'EQUIPE')   or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA') then
        XLiberaDados := ' WHERE (EQUIPAMENTO.COD_CLIENTE = '+DMPESSOA.WCliente.FieldByName('COD_CLIENTE').AsString + ') and (equipamento.ativo=1) ';
 
     //PETSHOP - Controles específicos para petshops
@@ -571,7 +572,7 @@ begin
            end;
        end;
 
-       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE') then
+       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE')   or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA') then
        begin
        	if DMPESSOA.TEquip.IsEmpty then
            begin
@@ -615,7 +616,7 @@ begin
            Dbcoloredit17.setfocus;
        end;
 
-       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE') then
+       if (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE')   or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA') then
        begin
            Panel4.Visible:=True;
            Panel4.BringToFront;
@@ -658,8 +659,6 @@ begin
   except
     Exit;
   end;
-
-
     PConsulta.Visible:=False;
     PCadastro.Visible:=TRUE;
     PCadastro.BringToFront;
@@ -682,7 +681,7 @@ begin
        PObra.BringToFront;
 		Dbcoloredit17.setfocus;
     end;
-    If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE')
+    If (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='EQUIPE') or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString ='DESPACHANTE')   or (DMMACS.TLoja.FieldByName('ATIVIDADE').AsString = 'MECANICA')
     Then Begin
        Panel4.Visible:=True;
        Panel4.BringToFront;
@@ -1717,6 +1716,33 @@ begin
     DBColorEdit2.Text := cds.FieldByNAme('ANO').AsString;
     DBColorEdit3.Text := cds.FieldByNAme('COR').AsString;
     DBColorEdit4.Text := cds.FieldByNAme('CHASSI').AsString;
+  finally
+    cds.Free;
+  end;
+end;
+
+procedure TFCadEquipamento.btnConsultaPlacaClick(Sender: TObject);
+var
+  cds: TClientDataSet;
+begin
+  inherited;
+  cds := GetPlacaInfo(Trim(EDPlaca.Text));
+  try
+       DBPRIMEIRO.Text := cds.FieldByNAme('MARCAMODELO').AsString;
+       DBDESC.Text := cds.FieldByNAme('MARCA').AsString;
+       DBColorEdit1.Text := cds.FieldByNAme('MODELO').AsString;
+       DBColorEdit2.Text := cds.FieldByNAme('ANO').AsString;
+       DBColorEdit3.Text := cds.FieldByNAme('COR').AsString;
+       DBColorEdit4.Text := cds.FieldByNAme('CHASSI').AsString;
+
+       DMPESSOA.TEquip.edit;
+       DMPESSOA.TEquip.FieldByName('DESCRICAO').AsString := cds.FieldByNAme('MARCAMODELO').AsString;
+       DMPESSOA.TEquip.FieldByName('MARCA').AsString := cds.FieldByNAme('MARCA').AsString;
+       DMPESSOA.TEquip.FieldByName('MODELO').AsString := cds.FieldByNAme('MODELO').AsString;
+       DMPESSOA.TEquip.FieldByName('ANO').AsString := cds.FieldByNAme('ANO').AsString;
+       DMPESSOA.TEquip.FieldByName('COR').AsString := cds.FieldByNAme('COR').AsString;
+       DMPESSOA.TEquip.FieldByName('CHASSI').AsString := cds.FieldByNAme('CHASSI').AsString;
+       DMPESSOA.TEquip.Post;
   finally
     cds.Free;
   end;

@@ -12,7 +12,7 @@ type
     LArquivos: TLabel;
     Label1: TLabel;
     LVERSAO: TLabel;
-    Image1: TImage;                
+    Image1: TImage;
     barra: TFlatProgressBar;
   private
     { Private declarations }

@@ -298,7 +298,6 @@ type
     CBConverUnitVenda: TCheckBox;
     Label93: TLabel;
     DBEdit23: TDBEdit;
-    cbDesativaSite: TCheckBox;
     cbDesativaFeed: TCheckBox;
     cbAtivaConsultaRapida: TCheckBox;
     cbAtivaGrid: TCheckBox;
@@ -533,6 +532,9 @@ type
     DBEdit36: TDBEdit;
     Label107: TLabel;
     CbImpSubstituicaoXML: TCheckBox;
+    cbDesativaSite: TCheckBox;
+    Label109: TLabel;
+    DBComboBox4: TDBComboBox;
     procedure BtnNovoClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure CDVENDSALDONEGClick(Sender: TObject);

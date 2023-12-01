@@ -1,6 +1,6 @@
 inherited FConfigLoja: TFConfigLoja
-  Left = 288
-  Top = 78
+  Left = 82
+  Top = 94
   ClientHeight = 538
   ClientWidth = 876
   OldCreateOrder = True
@@ -90,7 +90,7 @@ inherited FConfigLoja: TFConfigLoja
       Top = 32
       Width = 846
       Height = 449
-      ActivePage = TabSheet2
+      ActivePage = TabSheet7
       MultiLine = True
       TabOrder = 1
       TabPosition = tpBottom
@@ -3534,21 +3534,13 @@ inherited FConfigLoja: TFConfigLoja
             TabOrder = 10
           end
         end
-        object cbDesativaSite: TCheckBox
-          Left = 556
-          Top = 220
-          Width = 233
-          Height = 17
-          Caption = 'Desativar P'#225'gina Inicial no Navegador'
-          TabOrder = 13
-        end
         object cbDesativaFeed: TCheckBox
           Left = 556
           Top = 239
           Width = 209
           Height = 17
           Caption = 'Desativar Feed do Menu Principal'
-          TabOrder = 14
+          TabOrder = 13
         end
         object cbAtivaConsultaRapida: TCheckBox
           Left = 556
@@ -3558,7 +3550,7 @@ inherited FConfigLoja: TFConfigLoja
           Caption = 'Ativar Consulta R'#225'pida'
           Color = 16772332
           ParentColor = False
-          TabOrder = 15
+          TabOrder = 14
         end
         object cbAtivaGrid: TCheckBox
           Left = 556
@@ -3568,7 +3560,7 @@ inherited FConfigLoja: TFConfigLoja
           Caption = 'Ativar Grid Zebrada'
           Color = 16772332
           ParentColor = False
-          TabOrder = 16
+          TabOrder = 15
         end
         object DBColorComboBox1: TDBColorComboBox
           Left = 557
@@ -3587,7 +3579,7 @@ inherited FConfigLoja: TFConfigLoja
             'VALCUSTO'
             'VALCOMP')
           ParentFont = False
-          TabOrder = 17
+          TabOrder = 16
           OnClick = DBCBATIVIDADEClick
           NotFoundText = 'N'#227'o Existe'
           InputText = 'Por favor entre na procura pelo crit'#233'rio'
@@ -3601,7 +3593,7 @@ inherited FConfigLoja: TFConfigLoja
           Caption = 'Caminho Documentos'
           Ctl3D = False
           ParentCtl3D = False
-          TabOrder = 18
+          TabOrder = 17
           object Label106: TLabel
             Left = 10
             Top = 35
@@ -3673,7 +3665,7 @@ inherited FConfigLoja: TFConfigLoja
           Caption = 'Usar 4 Casas ap'#243's a virgula nas quantidades'
           Color = 16772332
           ParentColor = False
-          TabOrder = 19
+          TabOrder = 18
         end
       end
       object TabSheet6: TTabSheet
@@ -3938,6 +3930,13 @@ inherited FConfigLoja: TFConfigLoja
           Height = 13
           Caption = 'Ordena'#231#227'o da Grid de OS'
         end
+        object Label109: TLabel
+          Left = 155
+          Top = 294
+          Width = 83
+          Height = 13
+          Caption = 'Tipo Fechamento'
+        end
         object pCadServico: TPanel
           Left = 240
           Top = -88
@@ -4117,7 +4116,7 @@ inherited FConfigLoja: TFConfigLoja
           end
         end
         object GroupBox13: TGroupBox
-          Left = 265
+          Left = 301
           Top = 255
           Width = 160
           Height = 78
@@ -4621,7 +4620,7 @@ inherited FConfigLoja: TFConfigLoja
         object GroupBox16: TGroupBox
           Left = 8
           Top = 193
-          Width = 414
+          Width = 453
           Height = 59
           Caption = 'Nota Fiscal de Servi'#231'os Eletr'#244'nica '
           Font.Charset = DEFAULT_CHARSET
@@ -4647,7 +4646,7 @@ inherited FConfigLoja: TFConfigLoja
           object DBEdit32: TDBEdit
             Left = 10
             Top = 32
-            Width = 397
+            Width = 435
             Height = 21
             DataField = 'NFSE_LICENSA'
             DataSource = DMMACS.DSLoja
@@ -4710,6 +4709,27 @@ inherited FConfigLoja: TFConfigLoja
           Font.Style = []
           ParentFont = False
           TabOrder = 30
+        end
+        object cbDesativaSite: TCheckBox
+          Left = 480
+          Top = 292
+          Width = 233
+          Height = 17
+          Caption = 'Desativar Ve'#237'culo em Ordem de Servi'#231'o'
+          TabOrder = 31
+        end
+        object DBComboBox4: TDBComboBox
+          Left = 156
+          Top = 308
+          Width = 125
+          Height = 21
+          DataField = 'FORMAFECHAMENTOOS'
+          DataSource = DMMACS.DSLoja
+          ItemHeight = 13
+          Items.Strings = (
+            'TELA PAGAMENTOS'
+            'FORMA PAGAMENTO')
+          TabOrder = 32
         end
       end
       object TabSheet8: TTabSheet

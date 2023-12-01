@@ -1090,6 +1090,8 @@ object DMENTRADA: TDMENTRADA
     end
     object WLancEntQUANTIDADE: TFloatField
       FieldName = 'QUANTIDADE'
+      DisplayFormat = '#,###,####0.0000'
+      EditFormat = '#,##0.####'
     end
     object WLancEntCTRLINT: TIBStringField
       FieldName = 'CTRLINT'
