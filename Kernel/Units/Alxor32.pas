@@ -2717,13 +2717,15 @@ Begin
       MDO.Query.SQL.Add('    left join ordem on vwordem.cod_ordem = ordem.cod_ordem ');
       MDO.Query.SQL.Add('    where vwordem.cod_ordem = :codigo');;
       MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
-      xTipoGerador := 'ORDEM';
+      xTipoGerador := 'ADIANTAORDEM';
     End;
     MDO.Query.SQL.Text;
     MDO.Query.Open;
     // Agora, atribuir o nome do cliente à variável XNome_Cliente
     XNome_Cliente := MDO.Query.FieldByName('cliente').AsString;
-    
+    XNumeroOS := MDO.Query.FieldByName('NUMERO').AsInteger;
+    XValorTotalOS := MDO.Query.FieldByName('TOTAL').AsFloat;
+
     If xControleFechaTela = False Then
        AbrirForm(TfrmAntecipa, frmAntecipa, 0);
   Except

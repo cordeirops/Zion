@@ -23,11 +23,13 @@ type
     Label9: TLabel;
     LblNumero: TLabel;
     Label11: TLabel;
-    BtnFializarPgto: TSpeedButton;
+    BtnFinalizarAntecipacao: TSpeedButton;
     Panel2: TPanel;
     Label3: TLabel;
     LblNomeCliente: TLabel;
-    edValorAntecipacao: TColorEditFloat;
+    edValorAntecipacao: TFloatEdit;
+    Label4: TLabel;
+    Label5: TLabel;
     procedure dbgContaCorrenteKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure cbEspecieExit(Sender: TObject);
@@ -35,13 +37,12 @@ type
     procedure BtnCancelarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cbEspecieChange(Sender: TObject);
-    procedure BtnFializarPgtoClick(Sender: TObject);
+    procedure BtnFinalizarAntecipacaoClick(Sender: TObject);
 
   private
     { Private declarations }
   public
     { Public declarations }
-    NumeroOS: Integer;
   end;
 
 var
@@ -57,6 +58,9 @@ var
    xExisteProd, xExisteServ: Boolean;
 
    XVLR_ANTECIPACAO: Real;
+   XNumeroOS: Integer;
+   XValorTotalOS: Real;
+
 
 implementation
 
@@ -75,10 +79,13 @@ procedure TfrmAntecipa.FormActivate(Sender: TObject);
 begin
    PContaCorrente.Visible := False;
    LblTipoServico.Caption := 'Adiantamento';
-   LblNumero.Caption := IntToStr(xCod_PedidoPagamento);
+   LblNumero.Caption := IntToStr(xNumeroOS);
+   MDO.Query.Close;
    LblNomeCliente.Caption := xNome_Cliente;
    xPkFormaPagamento := 1;
    xDATA_ANTECIPACAO := Date;
+   edValorAntecipacao.ValueNumeric := 0;
+   Label5.caption := FloatToStr(xValorTotalOS);
 
 end;
 
@@ -165,98 +172,25 @@ begin
    end;
 end;
 
-procedure TfrmAntecipa.BtnFializarPgtoClick(Sender: TObject);
+procedure TfrmAntecipa.BtnFinalizarAntecipacaoClick(Sender: TObject);
 begin
+XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
    try
-       XCOD_ORDEM := xCod_PedidoPagamento;
+       begin
+       MDO.Transac.CommitRetaining;
        MDO.Query.Close;
        MDO.Query.SQL.Clear;
-       mdo.Query.SQL.Add(' update ordem set ordem.cod_formpag = :CodigoFormaPagamento ');
-       mdo.Query.SQL.Add('        where ordem.cod_ordem = :CodigoOrdem ');
-       MDO.Query.ParamByName('CodigoFormaPagamento').AsInteger := xPkFormaPagamento;
+       // INSERE VALOR ANTECIPACAO
+       MDO.Query.SQL.Add('UPDATE ordem SET ordem.vlradiantamento = :XVLR_ANTECIPACAO');
+       MDO.Query.SQL.Add('        where ordem.cod_ordem = :CodigoOrdem ');
+       MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
        MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
        MDO.Query.ExecSQL;
-       XVLR_ANTECIPACAO := StrToFloat(edValorAntecipacao.Text);
-       begin
-           begin
-               if FiltraTabela(DMFinanc.TFormPag, 'FORMPAG', 'COD_FORMPAG', IntToStr(xPkFormaPagamento), '') = True then
-               begin // Encontrou forma de pagamento, continua processo
-                   if DMFinanc.TFormPag.FieldByName('DESCRICAO').AsString = 'À VISTA' then
-                   begin
-                       if cbEspecie.Text = 'Cheque' then
-                       begin //LANÇAMENTO EM CONTROLE DE CHEQUE
-                           if LancChEnt('Adiantamento. Ordem' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, xDATA_ANTECIPACAO, '', XVLR_ANTECIPACAO, '', '', 0, '', '', 'ORDEM', IntToStr(XCOD_ORDEM)) = True then
-                               Result := True
-                           else //informa que a finalização do financeiro falhou
-                               Result := False;
-                       end;
-
-                       if cbEspecie.Text = 'Cartão' then
-                       begin
-                           if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD, 'TOTPROD', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
-                               Result := True
-                           else
-                           begin //informa que a finalização do financeiro falhou
-                               Result := False;
-                               Exit;
-                           end;
-                           if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaServico, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV, 'TOTSERV', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. AUTO.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
-                               Result := True
-                           else
-                               Result := False;
-                       end;
-
-                       if cbEspecie.Text = 'Pix' then
-                       begin
-                           if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALPROD, 'TOTPROD', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
-                               Result := True
-                           else
-                           begin //informa que a finalização do financeiro falhou
-                               Result := False;
-                               Exit;
-                           end;
-
-                           if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaServico, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString, XVLR_FINALSERV, 'TOTSERV', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. Pix. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
-                               Result := True
-                           else
-                               Result := False;
-                       end;
-
-                       if (cbEspecie.Text <> 'Cheque') and (cbEspecie.Text <> 'Cartão') and (cbEspecie.Text <> 'Pix') then
-                       begin
-                           if (DMServ.TOrd.FieldByName('TOTPROD').Value) > 0 then
-                           begin
-                               if LanCaixa(-1, DateToStr(Date()), xPkContaProduto, '(Produtos) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString,  XVLR_FINALPROD, 'ORDSERV', XCOD_ORDEM, cbEspecie.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(edFechamentoData.Text), '1') = True then
-                                   Result := True
-                               else
-                                   Result := False;
-                           end;
-
-                           if (DMServ.TOrd.FieldByName('TOTSERV').Value) > 0
-                           then begin
-                               if LanCaixa(-1, DateToStr(Date()), xPkContaServico, '(Serviços) Fech. Ordem Serv. ' + DMServ.TOrd.FieldByName('NUMERO').AsString + ' - Cli. ' + DMPESSOA.WCliente.FieldByName('NOME').AsString,  XVLR_FINALSERV, 'ORDSERV', XCOD_ORDEM, cbEspecie.Text, 'E', DMServ.TOrd.FieldByName('NUMERO').AsString, StrToDate(edFechamentoData.Text), '1') = True then
-                                   Result := True
-                               else
-                                   Result := False;
-                           end;
-                       end;
-                   end
-                   else begin
-                       if LancConta('ORDEM', XCOD_ORDEM, DMServ.TOrd.FieldByName('COD_CLIENTE').AsInteger, cbEspecie.Text, XVLR_FINALPROD, XVLR_FINALSERV, xPkContaProduto, xPkContaServico, -1, 'Fech. Ordem de Serviço ' + DMServ.TOrd.FieldByName('NUMERO').AsString, xPkFormaPagamento, DMServ.TOrd.FieldByName('NUMERO').AsString, 'O', Date(), 0, edFechamentoData.Text, DMServ.TOrd.FieldByName('numfiscal').AsString) = True then
-                           Result := True
-                       else
-                           Result := False;
-                   end;
-               End;
-           End;
+       MDO.Transac.CommitRetaining;
        end;
    Except
-       Result := True;
-   end;
+   End;
 End;
-
-
-
 
 
 

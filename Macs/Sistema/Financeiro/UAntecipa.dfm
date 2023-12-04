@@ -1,8 +1,8 @@
 object frmAntecipa: TfrmAntecipa
-  Left = 1385
-  Top = 156
+  Left = 823
+  Top = 142
   Width = 397
-  Height = 348
+  Height = 443
   BorderIcons = [biSystemMenu]
   Caption = 'Antecipa'#231#227'o'
   Color = clBtnFace
@@ -17,6 +17,20 @@ object frmAntecipa: TfrmAntecipa
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label4: TLabel
+    Left = 24
+    Top = 320
+    Width = 32
+    Height = 13
+    Caption = 'Label4'
+  end
+  object Label5: TLabel
+    Left = 76
+    Top = 320
+    Width = 32
+    Height = 13
+    Caption = 'Label5'
+  end
   object PEspecie: TPanel
     Left = 16
     Top = 80
@@ -192,13 +206,13 @@ object frmAntecipa: TfrmAntecipa
       ParentFont = False
       OnClick = BtnCancelarClick
     end
-    object BtnFializarPgto: TSpeedButton
-      Left = 188
-      Top = 17
+    object BtnFinalizarAntecipacao: TSpeedButton
+      Left = 176
+      Top = 13
       Width = 167
       Height = 38
       Anchors = [akLeft, akTop, akBottom]
-      Caption = 'Finalzar'
+      Caption = 'Finalizar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = 0
@@ -251,6 +265,7 @@ object frmAntecipa: TfrmAntecipa
         E3C693D8AF8CD5A99CDBB5C5E9D4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000}
       ParentFont = False
+      OnClick = BtnFinalizarAntecipacaoClick
     end
   end
   object Panel1: TPanel
@@ -368,24 +383,20 @@ object frmAntecipa: TfrmAntecipa
       ParentFont = False
     end
   end
-  object edValorAntecipacao: TColorEditFloat
-    Left = 89
+  object edValorAntecipacao: TFloatEdit
+    Left = 92
     Top = 176
-    Width = 268
-    Height = 32
-    Color = 16777100
-    Font.Charset = DEFAULT_CHARSET
+    Width = 265
+    Height = 30
+    Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -19
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
     Text = '0,00'
     ValueFormat = '##,##0.00'
     ValueInteger = 0
-    NotFoundText = 'N'#227'o Existe'
-    InputText = 'Por favor entre na procura pelo crit'#233'rio'
-    ButtonCaption = 'Ok'
   end
 end
