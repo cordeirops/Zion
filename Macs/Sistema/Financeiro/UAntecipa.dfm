@@ -14,6 +14,7 @@ object frmAntecipa: TfrmAntecipa
   OldCreateOrder = False
   Position = poDesktopCenter
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PEspecie: TPanel
@@ -53,19 +54,15 @@ object frmAntecipa: TfrmAntecipa
       ParentFont = False
       TabOrder = 0
       Text = 'Carteira'
-      OnExit = cbEspecieExit
+      OnChange = cbEspecieChange
       Items.Strings = (
         'Carteira'
         'Pix'
         'Banco'
         'Cheque'
-        'Chq. Terc.'
-        'Boleto'
-        'Cr'#233'dito'
         'Cart'#227'o'
         'C - Cart'#227'o'
-        'D - Cart'#227'o'
-        'Multiplo')
+        'D - Cart'#227'o')
     end
   end
   object PContaCorrente: TPanel
@@ -112,7 +109,6 @@ object frmAntecipa: TfrmAntecipa
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = []
-      OnKeyDown = dbgContaCorrenteKeyDown
       Columns = <
         item
           Expanded = False
@@ -197,8 +193,8 @@ object frmAntecipa: TfrmAntecipa
       OnClick = BtnCancelarClick
     end
     object BtnFializarPgto: TSpeedButton
-      Left = 180
-      Top = 13
+      Left = 188
+      Top = 17
       Width = 167
       Height = 38
       Anchors = [akLeft, akTop, akBottom]
@@ -358,25 +354,38 @@ object frmAntecipa: TfrmAntecipa
     BevelOuter = bvNone
     TabOrder = 4
     object Label3: TLabel
-      Left = 6
+      Left = 4
       Top = 17
-      Width = 60
-      Height = 18
+      Width = 66
+      Height = 21
       Alignment = taRightJustify
       Caption = 'Valor:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -16
+      Font.Height = -19
       Font.Name = 'Courier New'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
-    object Edit1: TEdit
-      Left = 76
-      Top = 12
-      Width = 261
-      Height = 21
-      TabOrder = 0
-    end
+  end
+  object edValorAntecipacao: TColorEditFloat
+    Left = 89
+    Top = 176
+    Width = 268
+    Height = 32
+    Color = 16777100
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    Text = '0,00'
+    ValueFormat = '##,##0.00'
+    ValueInteger = 0
+    NotFoundText = 'N'#227'o Existe'
+    InputText = 'Por favor entre na procura pelo crit'#233'rio'
+    ButtonCaption = 'Ok'
   end
 end
