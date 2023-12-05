@@ -28,8 +28,6 @@ type
     Label3: TLabel;
     LblNomeCliente: TLabel;
     edValorAntecipacao: TFloatEdit;
-    Label4: TLabel;
-    Label5: TLabel;
     procedure dbgContaCorrenteKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure cbEspecieExit(Sender: TObject);
@@ -38,6 +36,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure cbEspecieChange(Sender: TObject);
     procedure BtnFinalizarAntecipacaoClick(Sender: TObject);
+    function GeraAdiantamentoOrdemServico: Boolean;
 
   private
     { Private declarations }
@@ -48,18 +47,16 @@ type
 var
    frmAntecipa: TfrmAntecipa;
 
+
    xDATA_ANTECIPACAO: TDate;
-
-   xPKContaCorrente, xPkFormaPagamento: Integer;
+   xPkContaProduto, xPKContaCorrente, xPkFormaPagamento: Integer;
    XCOD_ORDEM: Integer;
-
    XTipoGerador: string;
-
-   xExisteProd, xExisteServ: Boolean;
-
    XVLR_ANTECIPACAO: Real;
    XNumeroOS: Integer;
    XValorTotalOS: Real;
+
+
 
 
 implementation
@@ -85,7 +82,6 @@ begin
    xPkFormaPagamento := 1;
    xDATA_ANTECIPACAO := Date;
    edValorAntecipacao.ValueNumeric := 0;
-   Label5.caption := FloatToStr(xValorTotalOS);
 
 end;
 
@@ -93,7 +89,7 @@ end;
 procedure TfrmAntecipa.dbgContaCorrenteKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if not ((cbEspecie.Text = 'Cartão') or (cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco')) then
+  if not ((cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco')) then
   begin
     PContaCorrente.Visible := False;
     PContaCorrente.SendToBack;
@@ -120,7 +116,7 @@ end;
 
 procedure TfrmAntecipa.cbEspecieChange(Sender: TObject);
 begin
-   if (cbEspecie.Text = 'Cartão') or (cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco') then
+   if(cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco') then
   begin
     If FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') then
     begin
@@ -140,7 +136,7 @@ end;
 
 procedure TfrmAntecipa.cbEspecieExit(Sender: TObject);
 begin
-  if (cbEspecie.Text = 'Cartão') or (cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco') then
+  if(cbEspecie.Text = 'Pix') or (cbEspecie.Text = 'Banco') then
   begin
     If FiltraTabela(DMFINANC.TFormPag, 'FORMPAG', 'DESCRICAO', 'À VISTA', '') then
     begin
@@ -159,8 +155,6 @@ begin
 end;
 
 
-
-
 procedure TfrmAntecipa.BtnCancelarClick(Sender: TObject);
 begin
    if Mensagem('CONFIRMAÇÃO DO USUÁRIO', 'Deseja Realmente cancelar o adiantamento?',
@@ -172,9 +166,36 @@ begin
    end;
 end;
 
+Function TfrmAntecipa.GeraAdiantamentoOrdemServico: Boolean;
+Begin
+   xPkContaProduto := DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsInteger;
+   Try
+       Result := True;
+         if cbEspecie.Text = 'Pix' then
+         begin
+             if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' +  IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORDEM', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. PIX.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
+                 Result := True
+             else
+             begin //informa que a finalização do financeiro falhou
+                 Result := False;
+                 Exit;
+             end;
+
+             if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' +  IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORDEM', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. PIX.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
+                 Result := True
+             else
+                 Result := False
+             end;
+   Except
+       Result := False
+   End;
+End;
+
+
 procedure TfrmAntecipa.BtnFinalizarAntecipacaoClick(Sender: TObject);
 begin
 XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
+
    try
        begin
        MDO.Transac.CommitRetaining;
@@ -187,6 +208,8 @@ XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
        MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
        MDO.Query.ExecSQL;
        MDO.Transac.CommitRetaining;
+       GeraAdiantamentoOrdemServico;
+
        end;
    Except
    End;

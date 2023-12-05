@@ -17,20 +17,6 @@ object frmAntecipa: TfrmAntecipa
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Label4: TLabel
-    Left = 24
-    Top = 320
-    Width = 32
-    Height = 13
-    Caption = 'Label4'
-  end
-  object Label5: TLabel
-    Left = 76
-    Top = 320
-    Width = 32
-    Height = 13
-    Caption = 'Label5'
-  end
   object PEspecie: TPanel
     Left = 16
     Top = 80
@@ -73,10 +59,7 @@ object frmAntecipa: TfrmAntecipa
         'Carteira'
         'Pix'
         'Banco'
-        'Cheque'
-        'Cart'#227'o'
-        'C - Cart'#227'o'
-        'D - Cart'#227'o')
+        'Cheque')
     end
   end
   object PContaCorrente: TPanel
