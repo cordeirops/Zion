@@ -206,7 +206,7 @@ Begin
                                Result := False;
                        end;
 
-               if (cbEspecie.Text <> 'Cheque') and (cbEspecie.Text <> 'Cartão') and (cbEspecie.Text <> 'Pix') then
+               if (cbEspecie.Text <> 'Cheque') and (cbEspecie.Text <> 'Banco') and (cbEspecie.Text <> 'Pix') then
                        begin
                            if LanCaixa(-1, DateToStr(Date()), xPkContaProduto, 'Adiantamento ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente,  XVLR_ANTECIPACAO, 'ADIANTAORD', 1, cbEspecie.Text, 'E', IntToStr(xNumeroOS), Date(), '1') = True then
                                Result := True

@@ -57,8 +57,8 @@ object frmAntecipa: TfrmAntecipa
       OnChange = cbEspecieChange
       Items.Strings = (
         'Carteira'
-        'Pix'
         'Banco'
+        'Pix'
         'Cheque')
     end
   end
