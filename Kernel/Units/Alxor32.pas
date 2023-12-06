@@ -2717,7 +2717,7 @@ Begin
       MDO.Query.SQL.Add('    left join ordem on vwordem.cod_ordem = ordem.cod_ordem ');
       MDO.Query.SQL.Add('    where vwordem.cod_ordem = :codigo');;
       MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
-      xTipoGerador := 'ADIANTAORDEM';
+      xTipoGerador := 'ADIANTAORD';
     End;
     MDO.Query.SQL.Text;
     MDO.Query.Open;

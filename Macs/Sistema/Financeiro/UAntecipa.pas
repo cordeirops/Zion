@@ -55,6 +55,7 @@ var
    XVLR_ANTECIPACAO: Real;
    XNumeroOS: Integer;
    XValorTotalOS: Real;
+   XExisteValorAntecipacao: Real;
 
 
 
@@ -82,6 +83,16 @@ begin
    xPkFormaPagamento := 1;
    xDATA_ANTECIPACAO := Date;
    edValorAntecipacao.ValueNumeric := 0;
+
+   MDO.Transac.CommitRetaining;
+   MDO.Query.Close;
+   MDO.Query.SQL.Clear;
+   MDO.Query.SQL.Add('SELECT ordem.vlradiantamento FROM ordem WHERE ordem.cod_ordem = :CodigoOrdem');
+   MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
+   MDO.Query.Open;
+   XExisteValorAntecipacao := MDO.Query.FieldByName('vlradiantamento').AsCurrency;
+
+
 
 end;
 
@@ -168,53 +179,76 @@ end;
 
 Function TfrmAntecipa.GeraAdiantamentoOrdemServico: Boolean;
 Begin
-   xPkContaProduto := DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsInteger;
-   Try
-       Result := True;
-         if cbEspecie.Text = 'Pix' then
-         begin
-             if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' +  IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORDEM', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. PIX.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
-                 Result := True
-             else
-             begin //informa que a finalização do financeiro falhou
-                 Result := False;
-                 Exit;
-             end;
+   if DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA') <> nil then
+       begin
+       xPkContaProduto := DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsInteger;
+         Try
+             Result := True;
+               if cbEspecie.Text = 'Pix' then
+               begin
+                   if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORD', 1, 'ADIANTAORD', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. PIX. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
+                       Result := True
+                   else
+                       Result := False;
+                   End;
+               if cbEspecie.Text = 'Banco' then
+               begin
+                   if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORD', 1, 'ADIANTAORD', StrToInt(FMenu.LCODUSUARIO.Caption), 'TRANSF. ', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = True then
+                       Result := True
+                   else
+                       Result := False;
+                   End;
+               if cbEspecie.Text = 'Cheque' then
+                       begin
+                           if LancChEnt(xPkContaProduto, xPkContaProduto, 'Adiantamento ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, Date(), '', 0, XVLR_ANTECIPACAO, '', '', xPKContaCorrente, '', '', 'ADIANTAORD', '1') = True then
+                               Result := True
+                           else
+                               Result := False;
+                       end;
 
-             if LanBanco(DMBANCO.WCtaCor.FieldByName('COD_CTACOR').AsInteger, xPkContaProduto, 'Adiantamento Ordem Serv. ' +  IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, XVLR_ANTECIPACAO, 'ADIANTAORDEM', XCOD_ORDEM, 'ORDSERV', StrToInt(FMenu.LCODUSUARIO.Caption), 'DEP. PIX.', 'S', DateToStr(Date()), '', DateToStr(Date()), '1', DateToStr(Date())) = TRUE then
-                 Result := True
-             else
-                 Result := False
-             end;
-   Except
-       Result := False
-   End;
+               if (cbEspecie.Text <> 'Cheque') and (cbEspecie.Text <> 'Cartão') and (cbEspecie.Text <> 'Pix') then
+                       begin
+                           if LanCaixa(-1, DateToStr(Date()), xPkContaProduto, 'Adiantamento ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente,  XVLR_ANTECIPACAO, 'ADIANTAORD', 1, cbEspecie.Text, 'E', IntToStr(xNumeroOS), Date(), '1') = True then
+                               Result := True
+                           else
+                               Result := False;
+                       end;
+
+         Except
+             Result := False
+         End;
+   end
+   else
+       begin
+       ShowMessage('A conta para lançamentos não foi definida!');
+       Result := False;
+   end;
 End;
 
 
 procedure TfrmAntecipa.BtnFinalizarAntecipacaoClick(Sender: TObject);
-begin
-XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
 
-   try
+begin
+  XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
+  try
+       If GeraAdiantamentoOrdemServico then
        begin
-       MDO.Transac.CommitRetaining;
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       // INSERE VALOR ANTECIPACAO
-       MDO.Query.SQL.Add('UPDATE ordem SET ordem.vlradiantamento = :XVLR_ANTECIPACAO');
-       MDO.Query.SQL.Add('        where ordem.cod_ordem = :CodigoOrdem ');
-       MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
-       MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-       GeraAdiantamentoOrdemServico;
+         MDO.Transac.CommitRetaining;
+         MDO.Query.Close;
+         MDO.Query.SQL.Clear;
+         MDO.Query.SQL.Add('UPDATE ordem SET ordem.vlradiantamento = :XVLR_ANTECIPACAO');
+         MDO.Query.SQL.Add('        where ordem.cod_ordem = :CodigoOrdem ');
+         MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO + XExisteValorAntecipacao;
+         MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
+         MDO.Query.ExecSQL;
+         MDO.Transac.CommitRetaining;
+
+         ShowMessage('Antecipação bem sucedida!');
+         Close;
 
        end;
    Except
+       MDO.Transac.Rollback;
    End;
-End;
-
-
-
+  End;
 end.
