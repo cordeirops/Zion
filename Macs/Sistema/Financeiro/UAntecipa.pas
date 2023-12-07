@@ -92,8 +92,6 @@ begin
    MDO.Query.Open;
    XExisteValorAntecipacao := MDO.Query.FieldByName('vlradiantamento').AsCurrency;
 
-
-
 end;
 
 
@@ -182,6 +180,13 @@ Begin
    if DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA') <> nil then
        begin
        xPkContaProduto := DMMACS.TLoja.FieldByName('PLNCTA_VENDVISTA').AsInteger;
+       DMPESSOA.WCliente.Close;
+       DMPESSOA.WCliente.SQL.Clear;
+       DMPESSOA.WCliente.SQL.Add('SELECT * FROM vwcliente WHERE vwcliente.cod_cliente = :CodigoCliente');
+       DMPESSOA.WCliente.ParamByName('CodigoCliente').AsInteger := XCod_Cliente;
+       DMPESSOA.WCliente.Open;
+       XNome_Cliente := DMPESSOA.WCliente.FieldByName('NOME').AsString;
+       DMPESSOA.WCliente.Close;
          Try
              Result := True;
                if cbEspecie.Text = 'Pix' then
@@ -200,7 +205,7 @@ Begin
                    End;
                if cbEspecie.Text = 'Cheque' then
                        begin
-                           if LancChEnt(xPkContaProduto, xPkContaProduto, 'Adiantamento ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, Date(), '', 0, XVLR_ANTECIPACAO, '', '', xPKContaCorrente, '', '', 'ADIANTAORD', '1') = True then
+                           if LancChEnt(xPkContaProduto, xPkContaProduto, 'Adiantamento ordem Serv. ' + IntToStr(xNumeroOS) + ' - Cli. ' + XNome_Cliente, Date(), '', 0, XVLR_ANTECIPACAO, '', '', xPKContaCorrente, '', '', 'ADIANTAORD', IntToStr(xPkContaProduto)) = True then
                                Result := True
                            else
                                Result := False;
