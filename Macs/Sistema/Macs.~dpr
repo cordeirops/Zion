@@ -225,7 +225,8 @@ uses
   UPgto in 'UPgto.pas' {FPgto},
   UPagamentosRealizados in 'Financeiro\UPagamentosRealizados.pas' {FPagamentosRealizados},
   UFechamento in 'Financeiro\UFechamento.pas' {frmFechamento},
-  UHistoricoMovimentoEstoque in 'ModVendas\UHistoricoMovimentoEstoque.pas' {frmHistoricoMovimentoEstoque};
+  UHistoricoMovimentoEstoque in 'ModVendas\UHistoricoMovimentoEstoque.pas' {frmHistoricoMovimentoEstoque},
+  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa};
 
 {FExpedicao}
 
@@ -262,6 +263,7 @@ begin
   Application.CreateForm(TFContagemEstoque, FContagemEstoque);
   Application.CreateForm(TFRelServicosPet, FRelServicosPet);
   Application.CreateForm(TfrmHistoricoMovimentoEstoque, frmHistoricoMovimentoEstoque);
+  Application.CreateForm(TfrmAntecipa, frmAntecipa);
   FSplash.LVERSAO.Caption := XVersaoSistema;
     FMenu.Caption := 'Versão: ' + XVersaoSistema;
     FSplash.Show;

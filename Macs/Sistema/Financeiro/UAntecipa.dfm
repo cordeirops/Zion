@@ -1,6 +1,6 @@
 object frmAntecipa: TfrmAntecipa
-  Left = 823
-  Top = 142
+  Left = 824
+  Top = 146
   Width = 397
   Height = 443
   BorderIcons = [biSystemMenu]

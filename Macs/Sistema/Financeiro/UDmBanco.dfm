@@ -1,6 +1,6 @@
 object DMBANCO: TDMBANCO
   OldCreateOrder = False
-  Left = 24
+  Left = 26
   Height = 404
   Width = 638
   object IBDB: TIBDatabase

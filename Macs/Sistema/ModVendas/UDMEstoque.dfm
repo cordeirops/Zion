@@ -1,6 +1,6 @@
 object DMESTOQUE: TDMESTOQUE
   OldCreateOrder = False
-  Left = 765
+  Left = 664
   Height = 404
   Width = 776
   object UPGrupo: TIBUpdateSQL

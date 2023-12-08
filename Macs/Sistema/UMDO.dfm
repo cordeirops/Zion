@@ -6,7 +6,7 @@ object MDO: TMDO
   Width = 562
   object DB: TMDODatabase
     ClientLib = clGDS32
-    DatabaseName = 'NOTE:C:\MZR\MACS\DBMACS.GDB'
+    DatabaseName = 'C:\MZR\MACS\DBMACS.GDB'
     DefaultTransaction = Transac
     IdleTimer = 0
     LoginPrompt = False

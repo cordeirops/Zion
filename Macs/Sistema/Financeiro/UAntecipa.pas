@@ -248,6 +248,21 @@ begin
          MDO.Query.ExecSQL;
          MDO.Transac.CommitRetaining;
 
+         MDO.Transac.CommitRetaining;
+         MDO.Query.Close;
+         MDO.Query.SQL.Clear;
+         MDO.Query.SQL.Add('INSERT INTO antecipacoes (COD_ORDEM, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO) VALUES (:COD_ORDEM, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO)');
+         MDO.Query.ParamByName('COD_ORDEM').AsInteger := xNumeroOs;
+         MDO.Query.ParamByName('DATA_ANTECIPACAO').AsDateTime := Now;
+         MDO.Query.ParamByName('USUARIO').AsString := FMenu.edusuario.Text;
+         MDO.Query.ParamByName('VALOR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+         MDO.Query.ExecSQL;
+         MDO.Transac.CommitRetaining;
+
+
+
+
+
          ShowMessage('Antecipação bem sucedida!');
          Close;
 

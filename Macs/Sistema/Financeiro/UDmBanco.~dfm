@@ -1,8 +1,7 @@
 object DMBANCO: TDMBANCO
   OldCreateOrder = False
-  Left = 6
-  Top = 4
-  Height = 438
+  Left = 24
+  Height = 404
   Width = 638
   object IBDB: TIBDatabase
     DatabaseName = 'NOTE:C:\MZR\MACS\dbmacs.gdb'

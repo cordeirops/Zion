@@ -1,7 +1,7 @@
 object DMMACS: TDMMACS
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 24
+  Left = 26
   Height = 404
   Width = 953
   object TLojaAc: TIBQuery

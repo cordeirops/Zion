@@ -1,7 +1,7 @@
 object DMServ: TDMServ
   OldCreateOrder = False
   Left = 3
-  Top = 2
+  Top = 3
   Height = 509
   Width = 873
   object DbServ: TIBDatabase

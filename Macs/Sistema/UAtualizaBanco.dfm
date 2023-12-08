@@ -1,10 +1,10 @@
 object FAtualizaBanco: TFAtualizaBanco
-  Left = 843
-  Top = 0
+  Left = 428
+  Top = 8
   BorderStyle = bsNone
   Caption = 'FAtualizaBanco'
-  ClientHeight = 366
-  ClientWidth = 523
+  ClientHeight = 536
+  ClientWidth = 526
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

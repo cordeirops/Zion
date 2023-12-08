@@ -122,6 +122,10 @@ type
     procedure CriaPeriodoFatura;
     //Função utilizada para criar estrutura de tabelas de antecipação de contas a receber
     procedure CriaTabelaAntecipacaoCR;
+
+    //cria tabela que registra as antecipacoes das OS
+    procedure CriaTabelaAntecipacoes;
+
     //cria tabela que registra as os computadores que acessaram o sistema
     procedure CriaTabelaAcessoBanco;
     Procedure AtualizaVersaoBanco;    
@@ -247,6 +251,35 @@ Begin
    End;
 End;
 
+Procedure TFAtualizaBanco.CriaTabelaAntecipacoes;
+Begin
+	Try
+		MDO.QConsulta.Close;
+     	MDO.QConsulta.SQL.Clear;
+     	MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
+     	MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA;');
+     	MDO.QConsulta.ParamByName('NOMETABELA').AsString:='ANTECIPACOES';
+     	MDO.QConsulta.Open;
+     	if MDO.QConsulta.IsEmpty
+		Then Begin
+      		If not InsereTabelaNova('ANTECIPACOES', 'COD_ANTECIPACAO INTEGER NOT NULL') Then
+       		MPainel.Lines.Add('Erro ao gerar nova tabela: ANTECIPACOES');
+           if not AtualizaTabela('ANTECIPACOES', 'COD_ORDEM', 'INTERCER') then
+       		MPainel.Lines.Add('Erro ao atualizar o campo: COD_ORDEM da tabela: ANTECIPACOES');
+           if not AtualizaTabela('ANTECIPACOES', 'COD_MOV', 'INTERCER') then
+       		MPainel.Lines.Add('Erro ao atualizar o campo: COD_MOV da tabela: ANTECIPACOES');
+       	if not AtualizaTabela('ANTECIPACOES', 'DATA_ANTECIPACAO', 'DATE') then
+       		MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ANTECIPACAO da tabela: ANTECIPACOES');
+       	if not AtualizaTabela('ANTECIPACOES', 'USUARIO', 'VARCHAR(50)') then
+       		MPainel.Lines.Add('Erro ao atualizar o campo: USUARIO da tabela: ANTECIPACOES');
+       	if not AtualizaTabela('ANTECIPACOES', 'VALOR_ANTECIPACAO', 'NUMERIC(14,2)') then
+       		MPainel.Lines.Add('Erro ao atualizar o campo: VALOR_ANTECIPACAO da tabela: ANTECIPACOES');
+     	End;
+   Except
+   End;
+End;
+
+
 Procedure TFAtualizaBanco.CriaTabelaAcessoBanco;
 Begin
 	Try
@@ -278,6 +311,8 @@ Begin
        		MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_COMPILACAO da tabela: ACESSOBANCO');
            if not AtualizaTabela('ACESSOBANCO', 'CAMINHO_BANCO', 'VARCHAR(200)') then
            MPainel.Lines.Add('Erro ao atualizar o campo: CAMINHO_BANCO da tabela: ACESSOBANCO');
+
+
      	End;
    Except
    End;
@@ -524,7 +559,9 @@ begin
    // apenas chamar a função AtualizaTabela                                //
    //////////////////////////////////////////////////////////////////////////
 
+   CriaTabelaAntecipacoes;
    CriaTabelaAcessoBanco;
+
 
    CriaTabelaLANCAIXACTA;
 
@@ -2880,6 +2917,7 @@ begin
 
        end;
     end; }
+
 
     //Alex - 22/11/2016 - VWORÇAMENTO - Verifica para atualizar VWORCAMENTO
   if CBOrcamento.Checked = True then
@@ -5417,5 +5455,6 @@ procedure TFAtualizaBanco.BitBtn15Click(Sender: TObject);
 begin
 SetTriggerLANCSAI_AIUD0;
 end;
+
 
 end.
