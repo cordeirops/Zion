@@ -103,8 +103,8 @@ type
     function SetPksSubproduto: Boolean;
     function SetPksOrdem: Boolean;
     function SetPksItemProdOrdem: Boolean;
-    function SetTableMovimentoEstoque: Boolean;    
-    function SetFksItemProdOrdem: Boolean;                
+    function SetTableMovimentoEstoque: Boolean;
+    function SetFksItemProdOrdem: Boolean;
     procedure StartMelhoriasEstoque2023;
     //FunÁ„o para ajustar as chaves primarias de itservord para poder trasnformar este campo em indice unique
     function PreparaIndiceItservordCodigo: Boolean;
@@ -128,7 +128,7 @@ type
 
     //cria tabela que registra as os computadores que acessaram o sistema
     procedure CriaTabelaAcessoBanco;
-    Procedure AtualizaVersaoBanco;    
+    procedure AtualizaVersaoBanco;
     //FunÁ„o utilizada para criar estrutura de tabelas de CUSTOESTOQUEEMPRESA
     procedure CriaTabelaCustoEstoqueEmpresa;
     //FunÁ„o utilizada para criar estrutura de tabelas LANCAIXACTA
@@ -224,95 +224,105 @@ begin
   end;
 end;
 
-Procedure TFAtualizaBanco.AtualizaVersaoBanco;
-Begin
-	Try
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$FIELD_NAME FROM RDB$RELATION_FIELDS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA and RDB$FIELD_NAME = :NOMECAMPO');
-       MDO.QConsulta.ParamByName('NOMETABELA').AsString := 'LOJA';
-       MDO.QConsulta.ParamByName('NOMECAMPO').AsString := 'VERSAO_COMPILACAO_BD';
-       MDO.QConsulta.Open;
-       if NOT MDO.QConsulta.IsEmpty then
-       begin
-           try
-               MDO.Query.Close;
-               MDO.Query.SQL.Clear;
-               MDO.Query.SQL.Add('update loja set LOJA.VERSAO_COMPILACAO_BD = :Versao');
-               MDO.Query.ParamByName('Versao').AsInteger := XVersaoCompilacao;
-               MDO.Query.ExecSQL;
-               MDO.Transac.CommitRetaining;
-           except
-               MDO.Transac.RollbackRetaining;
-           End;
-       End;
-   Except
-   End;
-End;
+procedure TFAtualizaBanco.AtualizaVersaoBanco;
+begin
+  try
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$FIELD_NAME FROM RDB$RELATION_FIELDS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA and RDB$FIELD_NAME = :NOMECAMPO');
+    MDO.QConsulta.ParamByName('NOMETABELA').AsString := 'LOJA';
+    MDO.QConsulta.ParamByName('NOMECAMPO').AsString := 'VERSAO_COMPILACAO_BD';
+    MDO.QConsulta.Open;
+    if not MDO.QConsulta.IsEmpty then
+    begin
+      try
+        MDO.Query.Close;
+        MDO.Query.SQL.Clear;
+        MDO.Query.SQL.Add('update loja set LOJA.VERSAO_COMPILACAO_BD = :Versao');
+        MDO.Query.ParamByName('Versao').AsInteger := XVersaoCompilacao;
+        MDO.Query.ExecSQL;
+        MDO.Transac.CommitRetaining;
+      except
+        MDO.Transac.RollbackRetaining;
+      end;
+    end;
+  except
+  end;
+end;
 
-Procedure TFAtualizaBanco.CriaTabelaAntecipacoes;
-Begin
-	Try
-		MDO.QConsulta.Close;
-     	MDO.QConsulta.SQL.Clear;
-     	MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
-     	MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA;');
-     	MDO.QConsulta.ParamByName('NOMETABELA').AsString:='ANTECIPACOES';
-     	MDO.QConsulta.Open;
-     	if MDO.QConsulta.IsEmpty
-		Then Begin
-      		If not InsereTabelaNova('ANTECIPACOES', 'COD_ORDEM INTEGER') Then
-       		MPainel.Lines.Add('Erro ao gerar nova tabela: ANTECIPACOES');
-       	if not AtualizaTabela('ANTECIPACOES', 'DATA_ANTECIPACAO', 'DATE') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ANTECIPACAO da tabela: ANTECIPACOES');
-       	if not AtualizaTabela('ANTECIPACOES', 'USUARIO', 'VARCHAR(50)') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: USUARIO da tabela: ANTECIPACOES');
-       	if not AtualizaTabela('ANTECIPACOES', 'VALOR_ANTECIPACAO', 'NUMERIC(14,2)') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: VALOR_ANTECIPACAO da tabela: ANTECIPACOES');
-     	End;
-   Except
-   End;
-End;
+procedure TFAtualizaBanco.CriaTabelaAntecipacoes;
+begin
+  try
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA;');
+    MDO.QConsulta.ParamByName('NOMETABELA').AsString := 'ANTECIPACOES';
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      if not InsereTabelaNova('ANTECIPACOES', 'COD_ANTECIPACAO INTEGER NOT NULL') then
+        MPainel.Lines.Add('Erro ao gerar nova tabela: ANTECIPACOES');
+      if InsereGeneration('ANTECIPACOES', 'COD_ANTECIPACAO') = False then
+        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_ANTECIPACAO da tabela ANTECIPACOES');
+      if InsereTrigger('ANTECIPACOES', 'gen_antecipacoes_id', 'COD_ANTECIPACAO') = False then
+        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_ANTECIPACOES da tabela ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'NUMERO_ORDEM', 'INTEGER') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: NUMERO_ORDEM da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'DATA_ANTECIPACAO', 'DATE') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ANTECIPACAO da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'USUARIO', 'VARCHAR(50)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: USUARIO da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'VALOR_ANTECIPACAO', 'NUMERIC(14,2)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: VALOR_ANTECIPACAO da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'TIPO_MOVIMENTO', 'VARCHAR(15)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: TIPO_MOVIMENTO da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'COD_MOVIMENTO', 'INTEGER') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: COD_MOVIMENTO da tabela: ANTECIPACOES');
+    end;
+  except
+  end;
+end;
 
+procedure TFAtualizaBanco.CriaTabelaAcessoBanco;
+begin
+  try
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA;');
+    MDO.QConsulta.ParamByName('NOMETABELA').AsString := 'ACESSOBANCO';
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      if not InsereTabelaNova('ACESSOBANCO', 'COD_ACESSO INTEGER NOT NULL') then
+        MPainel.Lines.Add('Erro ao gerar nova tabela: ACESSOBANCO');
+      if InsereGeneration('ACESSOBANCO', 'COD_ACESSO') = False then
+        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_ACESSO da tabela ACESSO_BANCO');
+      if InsereTrigger('ACESSOBANCO', 'gen_ACESSOBANCO_id', 'COD_ACESSO') = False
+        then
+        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_ACESSO da tabela ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'HORA_ACESSO', 'TIME') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: COD_USUARIO da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'DATA_ACESSO', 'DATE') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ACESSO da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'LOGIN', 'VARCHAR(50)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: LOGIN da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'NOME_COMPUTADOR', 'VARCHAR(100)')
+        then
+        MPainel.Lines.Add('Erro ao atualizar o campo: NOME_COMPUTADOR da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'VERSAO_SISTEMA', 'VARCHAR(30)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_SISTEMA da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'VERSAO_COMPILACAO', 'INTEGER') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_COMPILACAO da tabela: ACESSOBANCO');
+      if not AtualizaTabela('ACESSOBANCO', 'CAMINHO_BANCO', 'VARCHAR(200)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: CAMINHO_BANCO da tabela: ACESSOBANCO');
 
-Procedure TFAtualizaBanco.CriaTabelaAcessoBanco;
-Begin
-	Try
-		MDO.QConsulta.Close;
-     	MDO.QConsulta.SQL.Clear;
-     	MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
-     	MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME=:NOMETABELA;');
-     	MDO.QConsulta.ParamByName('NOMETABELA').AsString:='ACESSOBANCO';
-     	MDO.QConsulta.Open;
-     	if MDO.QConsulta.IsEmpty
-		Then Begin
-      		If not InsereTabelaNova('ACESSOBANCO', 'COD_ACESSO INTEGER NOT NULL') Then
-       		MPainel.Lines.Add('Erro ao gerar nova tabela: ACESSOBANCO');
-       	if InsereGeneration('ACESSOBANCO','COD_ACESSO')=False then
-           	MPainel.Lines.Add('Erro ao criar gerador para o campo COD_ACESSO da tabela ACESSO_BANCO');
-       	if InsereTrigger('ACESSOBANCO', 'gen_ACESSOBANCO_id', 'COD_ACESSO')=False then
-           	MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_ACESSO da tabela ACESSOBANCO');
-       	if not AtualizaTabela('ACESSOBANCO', 'HORA_ACESSO', 'TIME') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: COD_USUARIO da tabela: ACESSOBANCO');
-       	if not AtualizaTabela('ACESSOBANCO', 'DATA_ACESSO', 'DATE') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ACESSO da tabela: ACESSOBANCO');
-       	if not AtualizaTabela('ACESSOBANCO', 'LOGIN', 'VARCHAR(50)') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: LOGIN da tabela: ACESSOBANCO');
-       	if not AtualizaTabela('ACESSOBANCO', 'NOME_COMPUTADOR', 'VARCHAR(100)') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: NOME_COMPUTADOR da tabela: ACESSOBANCO');
-           if not AtualizaTabela('ACESSOBANCO', 'VERSAO_SISTEMA', 'VARCHAR(30)') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_SISTEMA da tabela: ACESSOBANCO');
-           if not AtualizaTabela('ACESSOBANCO', 'VERSAO_COMPILACAO', 'INTEGER') then
-       		MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_COMPILACAO da tabela: ACESSOBANCO');
-           if not AtualizaTabela('ACESSOBANCO', 'CAMINHO_BANCO', 'VARCHAR(200)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: CAMINHO_BANCO da tabela: ACESSOBANCO');
-
-
-     	End;
-   Except
-   End;
-End;
+    end;
+  except
+  end;
+end;
 
 //FunÁ„o utilizada para criar estrutura de tabelas de antecipaÁ„o de contas a receber
 procedure TFAtualizaBanco.CriaTabelaAntecipacaoCR;
@@ -371,37 +381,37 @@ begin
     MDO.QConsulta.Open;
     if MDO.QConsulta.IsEmpty then
     begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' CREATE TABLE LANCAIXACTA ( ');
-       MDO.Query.SQL.Add('     COD_LANCAIXACTA INTEGER NOT NULL, ');
-       MDO.Query.SQL.Add('     COD_LANCAIXA INTEGER, ');
-       MDO.Query.SQL.Add('     VALOR MOEDA, ');
-       MDO.Query.SQL.Add('     COD_PLNCTA INTEGER) ');
-       MDO.Query.ExecSQL;
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE TABLE LANCAIXACTA ( ');
+      MDO.Query.SQL.Add('     COD_LANCAIXACTA INTEGER NOT NULL, ');
+      MDO.Query.SQL.Add('     COD_LANCAIXA INTEGER, ');
+      MDO.Query.SQL.Add('     VALOR MOEDA, ');
+      MDO.Query.SQL.Add('     COD_PLNCTA INTEGER) ');
+      MDO.Query.ExecSQL;
 
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' CREATE SEQUENCE GEN_LANCAIXACTA_ID ');
-       MDO.Query.ExecSQL;
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE SEQUENCE GEN_LANCAIXACTA_ID ');
+      MDO.Query.ExecSQL;
 
-       MDO.Transac.CommitRetaining;
-              
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' CREATE trigger lancaixacta_bi for lancaixacta ');
-       MDO.Query.SQL.Add(' active before insert position 0 ');
-       MDO.Query.SQL.Add(' AS ');
-       MDO.Query.SQL.Add(' BEGIN ');
-       MDO.Query.SQL.Add('   IF (NEW.cod_lancaixacta IS NULL) THEN ');
-       MDO.Query.SQL.Add('     NEW.cod_lancaixacta = GEN_ID(gen_lancaixacta_id,1); ');
-       MDO.Query.SQL.Add(' End ');       
-       MDO.Query.ExecSQL;
-    End;
+      MDO.Transac.CommitRetaining;
+
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE trigger lancaixacta_bi for lancaixacta ');
+      MDO.Query.SQL.Add(' active before insert position 0 ');
+      MDO.Query.SQL.Add(' AS ');
+      MDO.Query.SQL.Add(' BEGIN ');
+      MDO.Query.SQL.Add('   IF (NEW.cod_lancaixacta IS NULL) THEN ');
+      MDO.Query.SQL.Add('     NEW.cod_lancaixacta = GEN_ID(gen_lancaixacta_id,1); ');
+      MDO.Query.SQL.Add(' End ');
+      MDO.Query.ExecSQL;
+    end;
     MDO.Transac.CommitRetaining;
-  Except
-  End;
-END;
+  except
+  end;
+end;
 
 //FunÁ„o utilizada para criar estrutura de tabelas de CUSTOESTOQUEEMPRESA
 procedure TFAtualizaBanco.CriaTabelaCustoEstoqueEmpresa;
@@ -555,151 +565,150 @@ begin
    // apenas chamar a funÁ„o AtualizaTabela                                //
    //////////////////////////////////////////////////////////////////////////
 
-   CriaTabelaAntecipacoes;
-   CriaTabelaAcessoBanco;
+  CriaTabelaAntecipacoes;
+  CriaTabelaAcessoBanco;
 
+  CriaTabelaLANCAIXACTA;
 
-   CriaTabelaLANCAIXACTA;
+  if not AtualizaTabela('REGISTRO', 'COD_MODULO', 'INTEGER') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: COD_MODULO da tabela: REGISTRO');
 
-   if not AtualizaTabela('REGISTRO', 'COD_MODULO', 'INTEGER') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: COD_MODULO da tabela: REGISTRO');
+  if not AtualizaTabela('LOJA', 'VERSAO_COMPILACAO_BD', 'INTEGER') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_COMPILACAO_BD da tabela: LOJA');
 
-   if not AtualizaTabela('LOJA', 'VERSAO_COMPILACAO_BD', 'INTEGER') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: VERSAO_COMPILACAO_BD da tabela: LOJA');
+  AtualizaVersaoBanco;
 
-   AtualizaVersaoBanco;
+  if not AtualizaTabela('LOJA', 'FORMAFECHAMENTOOS', 'VARCHAR(20)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: FORMAFECHAMENTOOS da tabela: LOJA');
 
-   if not AtualizaTabela('LOJA', 'FORMAFECHAMENTOOS', 'VARCHAR(20)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: FORMAFECHAMENTOOS da tabela: LOJA');
+  if not AtualizaTabela('ORDEM', 'FORMAFECHAMENTOOS', 'VARCHAR(20)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: FORMAFECHAMENTOOS da tabela: ORDEM');
 
-   if not AtualizaTabela('ORDEM', 'FORMAFECHAMENTOOS', 'VARCHAR(20)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: FORMAFECHAMENTOOS da tabela: ORDEM');
+  if InsereGeneration('LANCAIXA', 'COD_LANC') = False then
+    MPainel.Lines.Add('Erro ao criar gerador para o campo COD_LANC da tabela LANCAIXA');
+  if InsereTrigger('LANCAIXA', 'GEN_LANCAIXA_ID', 'COD_LANC') = False then
+    MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_LANC da tabela COD_LANC');
 
+  if InsereGeneration('CTARECEBER', 'COD_CTARECEBER') = False then
+    MPainel.Lines.Add('Erro ao criar gerador para o campo COD_CTARECEBER da tabela CTARECEBER');
 
-   if InsereGeneration('LANCAIXA', 'COD_LANC') = False then
-        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_LANC da tabela LANCAIXA');
-   if InsereTrigger('LANCAIXA', 'GEN_LANCAIXA_ID', 'COD_LANC') = False then
-        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_LANC da tabela COD_LANC');
+  if InsereTrigger('CTARECEBER', 'GEN_CTARECEBER_ID', 'COD_CTARECEBER') = False
+    then
+    MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_CTARECEBER da tabela CTARECEBER');
 
-   if InsereGeneration('CTARECEBER', 'COD_CTARECEBER') = False then
-        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_CTARECEBER da tabela CTARECEBER');
+  if InsereGeneration('CTAPAGAR', 'COD_CTAPAGAR') = False then
+    MPainel.Lines.Add('Erro ao criar gerador para o campo COD_CTAPAGAR da tabela CTAPAGAR');
 
-   if InsereTrigger('CTARECEBER', 'GEN_CTARECEBER_ID', 'COD_CTARECEBER') = False then
-        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_CTARECEBER da tabela CTARECEBER');
+  if InsereTrigger('CTAPAGAR', 'GEN_CTAPAGAR_ID', 'COD_CTAPAGAR') = False then
+    MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_CTAPAGAR da tabela CTAPAGAR');
 
-   if InsereGeneration('CTAPAGAR', 'COD_CTAPAGAR') = False then
-        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_CTAPAGAR da tabela CTAPAGAR');
+  if InsereGeneration('PARCELACR', 'COD_PARCELACR') = False then
+    MPainel.Lines.Add('Erro ao criar gerador para o campo COD_PARCELACR da tabela PARCELACR');
 
-   if InsereTrigger('CTAPAGAR', 'GEN_CTAPAGAR_ID', 'COD_CTAPAGAR') = False then
-        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_CTAPAGAR da tabela CTAPAGAR');
+  if InsereTrigger('PARCELACR', 'GEN_PARCELACR_ID', 'COD_PARCELACR') = False
+    then
+    MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_PARCELACR da tabela PARCELACR');
 
+  if InsereGeneration('PARCELACP', 'COD_PARCELACP') = False then
+    MPainel.Lines.Add('Erro ao criar gerador para o campo COD_PARCELACP da tabela PARCELACP');
 
-   if InsereGeneration('PARCELACR', 'COD_PARCELACR') = False then
-        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_PARCELACR da tabela PARCELACR');
+  if InsereTrigger('PARCELACP', 'GEN_PARCELACP_ID', 'COD_PARCELACP') = False
+    then
+    MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_PARCELACP da tabela PARCELACP');
 
-   if InsereTrigger('PARCELACR', 'GEN_PARCELACR_ID', 'COD_PARCELACR') = False then
-        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_PARCELACR da tabela PARCELACR');
+  if not AtualizaTabela('SUBPRODUTO', 'RETEM_PIS_COFINS', 'VARCHAR(1)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: RETEM_PIS_COFINS da tabela: SUBPRODUTO');
 
-   if InsereGeneration('PARCELACP', 'COD_PARCELACP') = False then
-        MPainel.Lines.Add('Erro ao criar gerador para o campo COD_PARCELACP da tabela PARCELACP');
+  if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_PIS', 'NUMERIC(10,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_PIS da tabela: EMPRESA');
 
-   if InsereTrigger('PARCELACP', 'GEN_PARCELACP_ID', 'COD_PARCELACP') = False then
-        MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_PARCELACP da tabela PARCELACP');
+  if not AtualizaTabela('EMPRESA', 'RETEM_IMPOSTOS', 'VARCHAR(1)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: RETEM_IMPOSTOS da tabela: EMPRESA');
 
-   if not AtualizaTabela('SUBPRODUTO', 'RETEM_PIS_COFINS', 'VARCHAR(1)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: RETEM_PIS_COFINS da tabela: SUBPRODUTO');
+  if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_CSLL', 'NUMERIC(10,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_CSLL da tabela: EMPRESA');
 
-   if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_PIS', 'NUMERIC(10,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_PIS da tabela: EMPRESA');
+  if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_IRRF', 'NUMERIC(10,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_IRRF da tabela: EMPRESA');
 
-   if not AtualizaTabela('EMPRESA', 'RETEM_IMPOSTOS', 'VARCHAR(1)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: RETEM_IMPOSTOS da tabela: EMPRESA');
+  if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_COFINS', 'NUMERIC(10,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_COFINS da tabela: EMPRESA');
 
-   if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_CSLL', 'NUMERIC(10,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_CSLL da tabela: EMPRESA');
+  //Alex - 21/08/2023 - Adiciona campo  ORGAO_FEDERAL na tabela PESSOAJ
+  if not AtualizaTabela('PESSOAJ', 'ORGAO_FEDERAL', 'VARCHAR(1)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ORGAO_FEDERAL da tabela: PESSOAJ');
+  //Alex - 21/08/2023 - Adiciona campo  ORGAO_MUNICIPAL_ESTADUAL na tabela PESSOAJ
+  if not AtualizaTabela('PESSOAJ', 'ORGAO_MUNICIPAL_ESTADUAL', 'VARCHAR(1)')
+    then
+    MPainel.Lines.Add('Erro ao atualizar o campo: ORGAO_MUNICIPAL_ESTADUAL da tabela: PESSOAJ');
 
-   if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_IRRF', 'NUMERIC(10,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_IRRF da tabela: EMPRESA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETPIS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFISSAIDA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFISSAIDA');
 
-   if not AtualizaTabela('EMPRESA', 'ALIQ_RETEM_COFINS', 'NUMERIC(10,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ALIQ_RETEM_COFINS da tabela: EMPRESA');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVRETPIS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFISORD');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFISORD', 'NFEVRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFISORD');
 
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVRETPIS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVIRRF', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFIS');
+  //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
+  if not AtualizaTabela('DOCFIS', 'NFEVRETPREV', 'DECIMAL(15,2)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFIS');
 
-   //Alex - 21/08/2023 - Adiciona campo  ORGAO_FEDERAL na tabela PESSOAJ
-   if not AtualizaTabela('PESSOAJ', 'ORGAO_FEDERAL', 'VARCHAR(1)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ORGAO_FEDERAL da tabela: PESSOAJ');
-   //Alex - 21/08/2023 - Adiciona campo  ORGAO_MUNICIPAL_ESTADUAL na tabela PESSOAJ
-   if not AtualizaTabela('PESSOAJ', 'ORGAO_MUNICIPAL_ESTADUAL', 'VARCHAR(1)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: ORGAO_MUNICIPAL_ESTADUAL da tabela: PESSOAJ');
-
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETPIS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFISSAIDA');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISSAIDA', 'NFEVRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFISSAIDA');
-
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVRETPIS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFISORD');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFISORD', 'NFEVRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFISORD');
-
-
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVRETPIS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPIS da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVRETCOFINS', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCOFINS da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVRETCSLL', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETCSLL da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVBCIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCIRRF da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVIRRF', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVIRRF da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVBCRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVBCRETPREV da tabela: DOCFIS');
-   //Alex - 14/08/2023 - Adiciona campo na tabela documento fiscal
-   if not AtualizaTabela('DOCFIS', 'NFEVRETPREV', 'DECIMAL(15,2)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: NFEVRETPREV da tabela: DOCFIS');
-
-   //Alex - 30/12/2021 - Adiciona campo para nome da etiqueta nas configuraÁıes
+  //Alex - 30/12/2021 - Adiciona campo para nome da etiqueta nas configuraÁıes
   if not AtualizaTabela('ETQPROD', 'NOMEIMPRESSORA', 'VARCHAR(60)') then
     MPainel.Lines.Add('Erro ao adicionar o campo: NOMEIMPRESSORA na tabela: ETQPROD');
 
@@ -757,11 +766,11 @@ begin
   if not AtualizaTabela('IMPNFETMP', 'NITEM', 'SMALLINT') then
     MPainel.Lines.Add('Erro ao adicionar o campo: NITEM na tabela: IMPNFETMP');
 
- { //Edmar - 14/05/2019 - Atualiza campo FIELD1 em REGISTRO
-  if not AtualizaTabelaCampo('REGISTRO', 'FIELD1', 'VARCHAR(500)') then
-    MPainel.Lines.Add('Erro ao atualizar o campo: FIELD1 na tabela: REGISTRO');
-  }
-  //Edmar - 20/03/2019 - Adiciona campo VALORCUSTOANTERIOR em CUSTOITEMPEDIDO
+  { //Edmar - 14/05/2019 - Atualiza campo FIELD1 em REGISTRO
+   if not AtualizaTabelaCampo('REGISTRO', 'FIELD1', 'VARCHAR(500)') then
+     MPainel.Lines.Add('Erro ao atualizar o campo: FIELD1 na tabela: REGISTRO');
+   }
+   //Edmar - 20/03/2019 - Adiciona campo VALORCUSTOANTERIOR em CUSTOITEMPEDIDO
   if not AtualizaTabela('CUSTOITEMPEDIDO', 'VALORCUSTOANTERIOR',
     'NUMERIC(14, 2)') then
     MPainel.Lines.Add('Erro ao adicionar o campo: VALORCUSTOANTERIOR na tabela: CUSTOITEMPEDIDO');
@@ -1136,8 +1145,8 @@ begin
   // ## END_BLOCK;
 
    //Alex - 14/07/2023 - Altera o tamanho do campo FIELD1 para VARCHAR(500)
-   if not AtualizaTabela('REGISTRO', 'FIELD1', 'VARCHAR(500)') then
-           MPainel.Lines.Add('Erro ao atualizar o campo: FIELD1 da tabela: REGISTRO');
+  if not AtualizaTabela('REGISTRO', 'FIELD1', 'VARCHAR(500)') then
+    MPainel.Lines.Add('Erro ao atualizar o campo: FIELD1 da tabela: REGISTRO');
 
   //Matheus - 04/02/2016 - Cria campo CIDADE na tabela ORCAMENTO
   if not AtualizaTabela('ORCAMENTO', 'CIDADE', 'VARCHAR(150)') then
@@ -1333,7 +1342,8 @@ begin
   //
 
   //Edmar - 13/08/2015 - Cria a tabela ADICAOIMPORTACAO
-  if not InsereTabelaNova('ADICAOIMPORTACAO', 'COD_ADICAO INTEGER NOT NULL') then
+  if not InsereTabelaNova('ADICAOIMPORTACAO', 'COD_ADICAO INTEGER NOT NULL')
+    then
     //cria a pk da tabela
     MPainel.Lines.Add('Erro ao gerar nova tabela: ADICAOIMPORTACAO')
   else
@@ -1442,7 +1452,8 @@ begin
   end;
 
   //Angelo - 06/07/2015 - Cria a tabela ITENSVOLUME
-  if not InsereTabelaNova('ITENSVOLUME', 'COD_ITENSVOLUME INTEGER NOT NULL') then
+  if not InsereTabelaNova('ITENSVOLUME', 'COD_ITENSVOLUME INTEGER NOT NULL')
+    then
     //cria a pk da tabela
     MPainel.Lines.Add('Erro ao gerar nova tabela: ITENSVOLUME')
   else
@@ -2914,7 +2925,6 @@ begin
        end;
     end; }
 
-
     //Alex - 22/11/2016 - VWOR«AMENTO - Verifica para atualizar VWORCAMENTO
   if CBOrcamento.Checked = True then
   begin
@@ -3207,10 +3217,14 @@ begin
   //VWORDEM - Verifica para atualizar VWOrdem
   if CbAtualizaVwOrdem.Checked = True then
   begin
-    XCAMPOS := ' COD_ORDEM, COD_CLIENTE, COD_EQUIPAMENTO, COD_FUNCIONARIO, COD_VENDEDOR, ';
-    XCAMPOS := XCAMPOS + ' DTABERT, DTPREV, DTFECH, NUMERO, NUMORC, STATUS, MONITOR, TOTAL, TPROD, TSERV, CI_CLIENTE, ';
-    XCAMPOS := XCAMPOS + ' CLIENTE, EQUIPAMENTO, COD_LOJA, GARANT, MARK, FISCO, NUMFISCAL, FORMAPAG, ';
-    XCAMPOS := XCAMPOS + ' TIPOPAG, PLACA, BOX, EXP, EXPORTADO, STATUSNFSE, NUMFISCALNFSE, NUMFISCAL_DEVOLVIDA, ';
+    XCAMPOS :=
+      ' COD_ORDEM, COD_CLIENTE, COD_EQUIPAMENTO, COD_FUNCIONARIO, COD_VENDEDOR, ';
+    XCAMPOS := XCAMPOS +
+      ' DTABERT, DTPREV, DTFECH, NUMERO, NUMORC, STATUS, MONITOR, TOTAL, TPROD, TSERV, CI_CLIENTE, ';
+    XCAMPOS := XCAMPOS +
+      ' CLIENTE, EQUIPAMENTO, COD_LOJA, GARANT, MARK, FISCO, NUMFISCAL, FORMAPAG, ';
+    XCAMPOS := XCAMPOS +
+      ' TIPOPAG, PLACA, BOX, EXP, EXPORTADO, STATUSNFSE, NUMFISCALNFSE, NUMFISCAL_DEVOLVIDA, ';
     XCAMPOS := XCAMPOS + ' NUMFISCALINT, DTAGENDADO ';
 
     XSQL_VIEW := ' SELECT ordem.cod_ordem, ordem.cod_cliente, ordem.cod_equipamento, '
@@ -3863,16 +3877,17 @@ function TFAtualizaBanco.InsereGeneration(XTABELA: string; XPK: string):
 var
   XCOD: Integer;
 begin
-   Result := True;
-   //Paulo 09/04/2012: Verifica se j· existe a generation
-   MDO.QConsulta.Close;
-   MDO.QConsulta.SQL.Clear;
-   MDO.QConsulta.SQL.Add('SELECT RDB$GENERATOR_NAME FROM RDB$GENERATORS');
-   MDO.QConsulta.SQL.Add('WHERE RDB$GENERATOR_NAME = :NOMEGENERATION');
-   MDO.QConsulta.ParamByName('NOMEGENERATION').AsString := 'GEN_' + XTABELA + '_ID';
-   MDO.QConsulta.Open;
-   if MDO.QConsulta.IsEmpty then
-   begin
+  Result := True;
+  //Paulo 09/04/2012: Verifica se j· existe a generation
+  MDO.QConsulta.Close;
+  MDO.QConsulta.SQL.Clear;
+  MDO.QConsulta.SQL.Add('SELECT RDB$GENERATOR_NAME FROM RDB$GENERATORS');
+  MDO.QConsulta.SQL.Add('WHERE RDB$GENERATOR_NAME = :NOMEGENERATION');
+  MDO.QConsulta.ParamByName('NOMEGENERATION').AsString := 'GEN_' + XTABELA +
+    '_ID';
+  MDO.QConsulta.Open;
+  if MDO.QConsulta.IsEmpty then
+  begin
 
     //Paulo 02/04/2012: Verifica o ultimo cÛdigo da tabela
     MDO.QConsulta.Close;
@@ -3883,17 +3898,17 @@ begin
 
     //Paulo 02/04/2012: Cria a GENERATOR
     try
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add('CREATE GENERATOR GEN_' + XTABELA + '_ID');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add('CREATE GENERATOR GEN_' + XTABELA + '_ID');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
 
-       If  (XTABELA = 'CTARECEBER')    or
-           (XTABELA = 'CTAPAGAR')      or
-           (XTABELA = 'PARCELACR')     or
-           (XTABELA = 'PARCELACP')     Then
-           XCOD := XCOD + 100000;           
+      if (XTABELA = 'CTARECEBER') or
+        (XTABELA = 'CTAPAGAR') or
+        (XTABELA = 'PARCELACR') or
+        (XTABELA = 'PARCELACP') then
+        XCOD := XCOD + 100000;
 
       //Paulo 02/04/2012: Adiciona o cÛdigo a generation
       MDO.QConsulta.Close;
@@ -4252,24 +4267,24 @@ end;
 
 procedure TFAtualizaBanco.StartMelhoriasEstoque2023;
 begin
-{
-   SetPksEstoque;
-   //SetPksSubproduto;
-   //setSetFksEstoque;
-   SetPksOrdem;
-   SetPksItemProdOrdem;
-   SetFksItemProdOrdem;
-   SetTableMovimentoEstoque;
-   {
-   SetTriggerESTOQUE_AI0;
-   SetTriggerITENSPEDC_AIUD0;
-   SetTriggerESTOQUE_AI0;
-   SetTriggerITENSPEDVEN_AIUD0;
-   SetTriggerITPRODORD_AIUD0;
-   SetTriggerLANCENT_AIUD0;
-   SetTriggerLANCSAI_AIUD0;
-    }
-    
+  {
+     SetPksEstoque;
+     //SetPksSubproduto;
+     //setSetFksEstoque;
+     SetPksOrdem;
+     SetPksItemProdOrdem;
+     SetFksItemProdOrdem;
+     SetTableMovimentoEstoque;
+     {
+     SetTriggerESTOQUE_AI0;
+     SetTriggerITENSPEDC_AIUD0;
+     SetTriggerESTOQUE_AI0;
+     SetTriggerITENSPEDVEN_AIUD0;
+     SetTriggerITPRODORD_AIUD0;
+     SetTriggerLANCENT_AIUD0;
+     SetTriggerLANCSAI_AIUD0;
+      }
+
 end;
 
 function TFAtualizaBanco.SetPksEstoque: Boolean;
@@ -4283,16 +4298,17 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''PK_ESTOQUE''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ESTOQUE ADD CONSTRAINT PK_ESTOQUE PRIMARY KEY (COD_ESTOQUE) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ESTOQUE ADD CONSTRAINT PK_ESTOQUE PRIMARY KEY (COD_ESTOQUE) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar chave prim·ria para a tabela estoque.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar chave prim·ria para a tabela estoque.', mtWarning,
+      [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4301,33 +4317,34 @@ function TFAtualizaBanco.SetTriggerESTOQUE_AI0: Boolean;
 begin
   try
     Result := True;
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ESTOQUE_AI0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ESTOQUE_AI0 FOR ESTOQUE ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT POSITION 0 ');
-           MDO.Query.SQL.Add(' AS ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('     update ESTOQUE E set ');
-           MDO.Query.SQL.Add('         E.ESTFISICO = 0, ');
-           MDO.Query.SQL.Add('         E.ESTRESERV = 0, ');
-           MDO.Query.SQL.Add('         E.ESTSALDO = 0, ');
-           MDO.Query.SQL.Add('         E.ESTPED = 0, ');
-           MDO.Query.SQL.Add('         E.ESTOQUE4CASAS = 0 ');
-           MDO.Query.SQL.Add('     where ');
-           MDO.Query.SQL.Add('         E.COD_ESTOQUE = new.COD_ESTOQUE; ');
-           MDO.Query.SQL.Add(' end ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ESTOQUE_AI0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ESTOQUE_AI0 FOR ESTOQUE ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT POSITION 0 ');
+      MDO.Query.SQL.Add(' AS ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('     update ESTOQUE E set ');
+      MDO.Query.SQL.Add('         E.ESTFISICO = 0, ');
+      MDO.Query.SQL.Add('         E.ESTRESERV = 0, ');
+      MDO.Query.SQL.Add('         E.ESTSALDO = 0, ');
+      MDO.Query.SQL.Add('         E.ESTPED = 0, ');
+      MDO.Query.SQL.Add('         E.ESTOQUE4CASAS = 0 ');
+      MDO.Query.SQL.Add('     where ');
+      MDO.Query.SQL.Add('         E.COD_ESTOQUE = new.COD_ESTOQUE; ');
+      MDO.Query.SQL.Add(' end ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar Trigger ESTOQUE_AI0 para a tabela estoque.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar Trigger ESTOQUE_AI0 para a tabela estoque.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4336,39 +4353,39 @@ function TFAtualizaBanco.SetTriggerITENSPEDC_AIUD0: Boolean;
 begin
   try
     Result := True;
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITENSPEDC_AIUD0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITENSPEDC_AIUD0 FOR ITENSPEDC ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
-           MDO.Query.SQL.Add(' as ');
-           MDO.Query.SQL.Add(' declare MSG varchar(100); ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
-           MDO.Query.SQL.Add('    exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE);');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   MSG = ''item de pedido de compra''; ');
-           MDO.Query.SQL.Add('   if (inserting) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''ENTRADA'', new.QTDEPROD, ''Incluindo'' || MSG, new.COD_ITENSPEDC, ''ITENSPEDC''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   else ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''SAIDA'', old.QTDEPROD, ''Excluindo'' || MSG, old.COD_ITENSPEDC, ''ITENSPEDC''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('end');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITENSPEDC_AIUD0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITENSPEDC_AIUD0 FOR ITENSPEDC ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
+      MDO.Query.SQL.Add(' as ');
+      MDO.Query.SQL.Add(' declare MSG varchar(100); ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
+      MDO.Query.SQL.Add('    exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE);');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   MSG = ''item de pedido de compra''; ');
+      MDO.Query.SQL.Add('   if (inserting) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''ENTRADA'', new.QTDEPROD, ''Incluindo'' || MSG, new.COD_ITENSPEDC, ''ITENSPEDC''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   else ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''SAIDA'', old.QTDEPROD, ''Excluindo'' || MSG, old.COD_ITENSPEDC, ''ITENSPEDC''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('end');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
     MessageDlg('Falha ao criar Trigger ITENSPEDC_AIUD0 para a tabela ITENSPEDC.', mtWarning, [mbOK], 0);
     Result := False;
@@ -4380,39 +4397,39 @@ begin
   try
     Result := True;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITENSPEDVEN_AIUD0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITENSPEDVEN_AIUD0 FOR ITENSPEDVEN ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
-           MDO.Query.SQL.Add(' as ');
-           MDO.Query.SQL.Add(' declare MSG varchar(100); ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   MSG = ''item de pedido de venda''; ');
-           MDO.Query.SQL.Add('   if (inserting) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTDEPROD, ''Incluindo'' || MSG, new.COD_ITENSPEDVEN, ''ITENSPEDVEN''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   else ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTDEPROD, ''Excluindo'' || MSG, old.COD_ITENSPEDVEN, ''ITENSPEDVEN''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add(' end ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITENSPEDVEN_AIUD0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITENSPEDVEN_AIUD0 FOR ITENSPEDVEN ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
+      MDO.Query.SQL.Add(' as ');
+      MDO.Query.SQL.Add(' declare MSG varchar(100); ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   MSG = ''item de pedido de venda''; ');
+      MDO.Query.SQL.Add('   if (inserting) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTDEPROD, ''Incluindo'' || MSG, new.COD_ITENSPEDVEN, ''ITENSPEDVEN''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   else ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTDEPROD, ''Excluindo'' || MSG, old.COD_ITENSPEDVEN, ''ITENSPEDVEN''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add(' end ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
     MessageDlg('Falha ao criar Trigger ITENSPEDVEN_AIUD0 para a tabela ITENSPEDVEN.', mtWarning, [mbOK], 0);
     Result := False;
@@ -4423,46 +4440,46 @@ function TFAtualizaBanco.SetTriggerITPRODORD_AIUD0: Boolean;
 begin
   try
     Result := True;
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITPRODORD_AIUD0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           {/* Trigger: MOVIMENTOESTOQUE_BI */}
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITPRODORD_AIUD0 FOR ITPRODORD ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
-           MDO.Query.SQL.Add(' as ');
-           MDO.Query.SQL.Add(' declare MSG varchar(100); ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   MSG = ''item de ordem de servi√ßo''; ');
-           MDO.Query.SQL.Add('   if (inserting) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTD, ''Incluindo'' || MSG, new.COD_ITPRODORD, ''ITPRODORD''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   else if ((updating) and ((old.COD_ESTOQUE is distinct from new.COD_ESTOQUE) or (old.QTD is distinct from new.QTD))) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTD, ''Alterando'' || MSG, old.COD_ITPRODORD, ''ITPRODORD''); ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTD, ''Alterando'' || MSG, new.COD_ITPRODORD, ''ITPRODORD''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   else ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTD, ''Excluindo'' || MSG, old.COD_ITPRODORD, ''ITPRODORD''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add(' end ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''ITPRODORD_AIUD0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      {/* Trigger: MOVIMENTOESTOQUE_BI */}
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER ITPRODORD_AIUD0 FOR ITPRODORD ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
+      MDO.Query.SQL.Add(' as ');
+      MDO.Query.SQL.Add(' declare MSG varchar(100); ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   MSG = ''item de ordem de servi√ßo''; ');
+      MDO.Query.SQL.Add('   if (inserting) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTD, ''Incluindo'' || MSG, new.COD_ITPRODORD, ''ITPRODORD''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   else if ((updating) and ((old.COD_ESTOQUE is distinct from new.COD_ESTOQUE) or (old.QTD is distinct from new.QTD))) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTD, ''Alterando'' || MSG, old.COD_ITPRODORD, ''ITPRODORD''); ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QTD, ''Alterando'' || MSG, new.COD_ITPRODORD, ''ITPRODORD''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   else ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QTD, ''Excluindo'' || MSG, old.COD_ITPRODORD, ''ITPRODORD''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add(' end ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
     MessageDlg('Falha ao criar Trigger ITPRODORD_AIUD0 para a tabela ITPRODORD.', mtWarning, [mbOK], 0);
     Result := False;
@@ -4473,42 +4490,43 @@ function TFAtualizaBanco.SetTriggerLANCENT_AIUD0: Boolean;
 begin
   try
     Result := True;
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''LANCENT_AIUD0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           {/* Trigger: MOVIMENTOESTOQUE_BI */}
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER LANCENT_AIUD0 FOR LANCENT ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
-           MDO.Query.SQL.Add(' as ');
-           MDO.Query.SQL.Add(' declare MSG varchar(100); ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   MSG = ''lan√ßamento corretivo manual para entradas de estoque''; ');
-           MDO.Query.SQL.Add('   if (inserting) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''ENTRADA'', new.QUANTIDADE, ''Incluindo'' || MSG, new.COD_LANENT, ''LANCENT''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''SAIDA'', old.QUANTIDADE, ''Excluindo'' || MSG, old.COD_LANENT, ''LANCENT''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add(' end ');
-           MDO.Query.SQL.Add('  ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''LANCENT_AIUD0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      {/* Trigger: MOVIMENTOESTOQUE_BI */}
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER LANCENT_AIUD0 FOR LANCENT ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
+      MDO.Query.SQL.Add(' as ');
+      MDO.Query.SQL.Add(' declare MSG varchar(100); ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   MSG = ''lan√ßamento corretivo manual para entradas de estoque''; ');
+      MDO.Query.SQL.Add('   if (inserting) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''ENTRADA'', new.QUANTIDADE, ''Incluindo'' || MSG, new.COD_LANENT, ''LANCENT''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''SAIDA'', old.QUANTIDADE, ''Excluindo'' || MSG, old.COD_LANENT, ''LANCENT''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add(' end ');
+      MDO.Query.SQL.Add('  ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar Trigger LANCENT_AIUD0 para a tabela LANCENT.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar Trigger LANCENT_AIUD0 para a tabela LANCENT.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4517,43 +4535,44 @@ function TFAtualizaBanco.SetTriggerLANCSAI_AIUD0: Boolean;
 begin
   try
     Result := True;
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''LANCSAI_AIUD0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           {/* Trigger: MOVIMENTOESTOQUE_BI */}
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER LANCSAI_AIUD0 FOR LANCSAI ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
-           MDO.Query.SQL.Add(' AS ');
-           MDO.Query.SQL.Add(' declare MSG varchar(100); ');
-           MDO.Query.SQL.Add(' begin ');
-           MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
-           MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   MSG = ''lan√ßamento corretivo manual para saidas de estoque''; ');
-           MDO.Query.SQL.Add('   if (inserting) then ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QUANTIDADE, ''Incluindo'' || MSG, new.COD_LANCSAI, ''LANCSAI''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add('   else ');
-           MDO.Query.SQL.Add('   begin ');
-           MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QUANTIDADE, ''Excluindo'' || MSG, new.COD_LANCSAI, ''LANCSAI''); ');
-           MDO.Query.SQL.Add('   end ');
-           MDO.Query.SQL.Add(' end ');
-           MDO.Query.SQL.Add('  ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''LANCSAI_AIUD0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      {/* Trigger: MOVIMENTOESTOQUE_BI */}
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER LANCSAI_AIUD0 FOR LANCSAI ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0 ');
+      MDO.Query.SQL.Add(' AS ');
+      MDO.Query.SQL.Add(' declare MSG varchar(100); ');
+      MDO.Query.SQL.Add(' begin ');
+      MDO.Query.SQL.Add('   if ((inserting or updating) and new.COD_ESTOQUE is null) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''C√≥digo do estoque n√£o pode ser null''; ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if (not exists(select * from ESTOQUE E where E.COD_ESTOQUE = coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE))) then ');
+      MDO.Query.SQL.Add('     exception USER_EXCEPTION ''N√£o foi encontrado um estoque com o c√≥digo '' || coalesce(new.COD_ESTOQUE, old.COD_ESTOQUE); ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   MSG = ''lan√ßamento corretivo manual para saidas de estoque''; ');
+      MDO.Query.SQL.Add('   if (inserting) then ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(new.COD_ESTOQUE, ''SAIDA'', new.QUANTIDADE, ''Incluindo'' || MSG, new.COD_LANCSAI, ''LANCSAI''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add('   else ');
+      MDO.Query.SQL.Add('   begin ');
+      MDO.Query.SQL.Add('     execute procedure MOVIMENTO_ESTOQUE_CREATE(old.COD_ESTOQUE, ''ENTRADA'', old.QUANTIDADE, ''Excluindo'' || MSG, new.COD_LANCSAI, ''LANCSAI''); ');
+      MDO.Query.SQL.Add('   end ');
+      MDO.Query.SQL.Add(' end ');
+      MDO.Query.SQL.Add('  ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar Trigger LANCSAI para a tabela LANCSAI.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar Trigger LANCSAI para a tabela LANCSAI.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4575,20 +4594,19 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''FK_ESTOQUE_1''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ESTOQUE ADD CONSTRAINT FK_ESTOQUE_1 FOREIGN KEY (COD_SUBPROD) REFERENCES SUBPRODUTO (COD_SUBPRODUTO) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ESTOQUE ADD CONSTRAINT FK_ESTOQUE_1 FOREIGN KEY (COD_SUBPROD) REFERENCES SUBPRODUTO (COD_SUBPRODUTO) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
     MessageDlg('Falha ao criar chave estrangeira subproduto para a tabela estoque.', mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
-
 
 function TFAtualizaBanco.SetPksSubproduto: Boolean;
 begin
@@ -4607,16 +4625,17 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''PK_SUBPRODUTO''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE SUBPRODUTO ADD CONSTRAINT PK_SUBPRODUTO PRIMARY KEY (COD_SUBPRODUTO) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE SUBPRODUTO ADD CONSTRAINT PK_SUBPRODUTO PRIMARY KEY (COD_SUBPRODUTO) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar chave prim·ria para a tabela subproduto.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar chave prim·ria para a tabela subproduto.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4632,203 +4651,204 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''PK_ORDEM''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ORDEM ADD CONSTRAINT PK_ORDEM PRIMARY KEY (COD_ORDEM) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ORDEM ADD CONSTRAINT PK_ORDEM PRIMARY KEY (COD_ORDEM) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
   except
-    MessageDlg('Falha ao criar chave prim·ria para a tabela Ordem.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar chave prim·ria para a tabela Ordem.', mtWarning,
+      [mbOK], 0);
     Result := False;
   end;
 end;
 
 function TFAtualizaBanco.SetTableMovimentoEstoque: Boolean;
 begin
-   try
-       Result := True;
+  try
+    Result := True;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$GENERATOR_NAME FROM RDB$GENERATORS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$GENERATOR_NAME = GEN_MOVIMENTOESTOQUE_ID');
-       MDO.QConsulta.Open;
-       
-       If MDO.QConsulta.IsEmpty then
-       begin
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$GENERATOR_NAME FROM RDB$GENERATORS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$GENERATOR_NAME = GEN_MOVIMENTOESTOQUE_ID');
+    MDO.QConsulta.Open;
 
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add('CREATE GENERATOR ''GEN_MOVIMENTOESTOQUE_ID');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
+    if MDO.QConsulta.IsEmpty then
+    begin
 
-           MDO.QConsulta.Close;
-           MDO.QConsulta.SQL.Clear;
-           MDO.QConsulta.SQL.Add('SET GENERATOR ''GEN_MOVIMENTOESTOQUE_ID'' TO 1 ');
-           MDO.QConsulta.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add('CREATE GENERATOR ''GEN_MOVIMENTOESTOQUE_ID');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME = ''MOVIMENTOESTOQUE''');
-       MDO.QConsulta.Open;
+      MDO.QConsulta.Close;
+      MDO.QConsulta.SQL.Clear;
+      MDO.QConsulta.SQL.Add('SET GENERATOR ''GEN_MOVIMENTOESTOQUE_ID'' TO 1 ');
+      MDO.QConsulta.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
-       if MDO.QConsulta.IsEmpty then
-       begin
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE TABLE MOVIMENTOESTOQUE (                ');
-           MDO.Query.SQL.Add('     COD_MOVIMENTOESTOQUE   INTEGER NOT NULL,   ');
-           MDO.Query.SQL.Add('     COD_ESTOQUE            CHAVE,              ');
-           MDO.Query.SQL.Add('     OPERACAO               VARCHAR(10),        ');
-           MDO.Query.SQL.Add('     OPERADOR               VARCHAR(10),        ');
-           MDO.Query.SQL.Add('     DATAMOVIMENTO          DATE,               ');
-           MDO.Query.SQL.Add('     HORAMOVIMENTO          TIME,               ');
-           MDO.Query.SQL.Add('     COD_USUARIO            INTEGER,            ');
-           MDO.Query.SQL.Add('     QUANTIDADEANTERIOR     NUMERIC(15,4),      ');
-           MDO.Query.SQL.Add('     QUANTIDADEMOVIMENTADO  NUMERIC(15,4),      ');
-           MDO.Query.SQL.Add('     QUANTIDADEPOSTERIOR    NUMERIC(15,4),      ');
-           MDO.Query.SQL.Add('     HISTORICO              VARCHAR(100),       ');
-           MDO.Query.SQL.Add('     ORIGEM_ID              INTEGER,            ');
-           MDO.Query.SQL.Add('     ORIGEM_TIPO            VARCHAR(100))       ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$RELATION_NAME FROM RDB$RELATIONS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$RELATION_NAME = ''MOVIMENTOESTOQUE''');
+    MDO.QConsulta.Open;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add(' select r.RDB$INDEX_NAME from RDB$INDICES r ');
-       MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''FK_MOVIMENTOESTOQUE_1''      ');
-       MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE TABLE MOVIMENTOESTOQUE (                ');
+      MDO.Query.SQL.Add('     COD_MOVIMENTOESTOQUE   INTEGER NOT NULL,   ');
+      MDO.Query.SQL.Add('     COD_ESTOQUE            CHAVE,              ');
+      MDO.Query.SQL.Add('     OPERACAO               VARCHAR(10),        ');
+      MDO.Query.SQL.Add('     OPERADOR               VARCHAR(10),        ');
+      MDO.Query.SQL.Add('     DATAMOVIMENTO          DATE,               ');
+      MDO.Query.SQL.Add('     HORAMOVIMENTO          TIME,               ');
+      MDO.Query.SQL.Add('     COD_USUARIO            INTEGER,            ');
+      MDO.Query.SQL.Add('     QUANTIDADEANTERIOR     NUMERIC(15,4),      ');
+      MDO.Query.SQL.Add('     QUANTIDADEMOVIMENTADO  NUMERIC(15,4),      ');
+      MDO.Query.SQL.Add('     QUANTIDADEPOSTERIOR    NUMERIC(15,4),      ');
+      MDO.Query.SQL.Add('     HISTORICO              VARCHAR(100),       ');
+      MDO.Query.SQL.Add('     ORIGEM_ID              INTEGER,            ');
+      MDO.Query.SQL.Add('     ORIGEM_TIPO            VARCHAR(100))       ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
-       If MDO.QConsulta.IsEmpty
-       Then Begin
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' ALTER TABLE MOVIMENTOESTOQUE ADD CONSTRAINT        ');
-           MDO.Query.SQL.Add('     FK_MOVIMENTOESTOQUE_1 FOREIGN KEY (COD_ESTOQUE)');
-           MDO.Query.SQL.Add('     REFERENCES ESTOQUE (COD_ESTOQUE)               ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add(' select r.RDB$INDEX_NAME from RDB$INDICES r ');
+    MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''FK_MOVIMENTOESTOQUE_1''      ');
+    MDO.QConsulta.Open;
 
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE UNIQUE INDEX MOVIMENTOESTOQUE_IDX1 ON   ');
-           MDO.Query.SQL.Add('  MOVIMENTOESTOQUE (COD_MOVIMENTOESTOQUE)       ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE MOVIMENTOESTOQUE ADD CONSTRAINT        ');
+      MDO.Query.SQL.Add('     FK_MOVIMENTOESTOQUE_1 FOREIGN KEY (COD_ESTOQUE)');
+      MDO.Query.SQL.Add('     REFERENCES ESTOQUE (COD_ESTOQUE)               ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
 
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE UNIQUE INDEX MOVIMENTOESTOQUE_IDX1 ON   ');
+      MDO.Query.SQL.Add('  MOVIMENTOESTOQUE (COD_MOVIMENTOESTOQUE)       ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
 
-       End;
+    end;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''MOVIMENTOESTOQUE_AID0');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           {/* Trigger: MOVIMENTOESTOQUE_AID0 */}
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER MOVIMENTOESTOQUE_AID0          ');
-           MDO.Query.SQL.Add('     FOR MOVIMENTOESTOQUE                               ');
-           MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0               ');
-           MDO.Query.SQL.Add(' AS                                                     ');
-           MDO.Query.SQL.Add(' declare variable VALOR_NEW float;                      ');
-           MDO.Query.SQL.Add(' declare variable VALOR_OLD float;                      ');
-           MDO.Query.SQL.Add(' begin                                                  ');
-           MDO.Query.SQL.Add('   VALOR_NEW = new.QUANTIDADEMOVIMENTADO;               ');
-           MDO.Query.SQL.Add('   VALOR_OLD = old.QUANTIDADEMOVIMENTADO;               ');
-           MDO.Query.SQL.Add(' ');
-           MDO.Query.SQL.Add('   if ((inserting)                                      ');
-           MDO.Query.SQL.Add('       AND (new.OPERACAO = ''ENTRADA'')) then           ');
-           MDO.Query.SQL.Add('   begin                                                ');
-           MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
-           MDO.Query.SQL.Add('         E.ESTFISICO = E.ESTFISICO + :VALOR_NEW,        ');
-           MDO.Query.SQL.Add('         E.ESTRESERV = E.ESTRESERV + :VALOR_NEW,        ');
-           MDO.Query.SQL.Add('         E.ESTSALDO = E.ESTSALDO + :VALOR_NEW,          ');
-           MDO.Query.SQL.Add('         E.ESTPED = E.ESTPED + :VALOR_NEW,              ');
-           MDO.Query.SQL.Add('         E.ESTOQUE4CASAS = cast(E.ESTSALDO + :VALOR_NEW ');
-           MDO.Query.SQL.Add('                            as numeric(18,4)),          ');
-           MDO.Query.SQL.Add('         E.exportar = ''1''                             ');
-           MDO.Query.SQL.Add('     where                                              ');
-           MDO.Query.SQL.Add('         E.COD_ESTOQUE = new.COD_ESTOQUE;               ');
-           MDO.Query.SQL.Add('   end                                                  ');
-           MDO.Query.SQL.Add('   if ((deleting) and (new.OPERACAO = ''ENTRADA'')) then ');
-           MDO.Query.SQL.Add('   begin                                                ');
-           MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
-           MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO - :VALOR_OLD,          ');
-           MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV - :VALOR_OLD,          ');
-           MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO - :VALOR_OLD,            ');
-           MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED - :VALOR_OLD,                ');
-           MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO - :VALOR_OLD   ');
-           MDO.Query.SQL.Add('                         as numeric(18,4)),             ');
-           MDO.Query.SQL.Add('       E.exportar = ''2''                               ');
-           MDO.Query.SQL.Add('     where                                              ');
-           MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
-           MDO.Query.SQL.Add('   end                                                  ');
-           MDO.Query.SQL.Add('   if ((inserting) and (new.OPERACAO = ''SAIDA'')) then ');
-           MDO.Query.SQL.Add('   begin                                                ');
-           MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
-           MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO - :VALOR_NEW,          ');
-           MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV - :VALOR_NEW,          ');
-           MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO - :VALOR_NEW,            ');
-           MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED - :VALOR_NEW,                ');
-           MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO - :VALOR_NEW   ');
-           MDO.Query.SQL.Add('                         as numeric(18,4)),             ');
-           MDO.Query.SQL.Add('       E.exportar = ''3''                               ');
-           MDO.Query.SQL.Add('     where                                              ');
-           MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
-           MDO.Query.SQL.Add('   end                                                  ');
-           MDO.Query.SQL.Add('   if ((deleting) and (new.OPERACAO = ''SAIDA''))  then ');
-           MDO.Query.SQL.Add('   begin                                                ');
-           MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
-           MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO + :VALOR_OLD,          ');
-           MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV + :VALOR_OLD,          ');
-           MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO + :VALOR_OLD,            ');
-           MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED + :VALOR_OLD,                ');
-           MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO                ');
-           MDO.Query.SQL.Add('           + :VALOR_OLD as numeric(18,4)),              ');
-           MDO.Query.SQL.Add('       E.exportar = ''4''                               ');
-           MDO.Query.SQL.Add('     where                                              ');
-           MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
-           MDO.Query.SQL.Add('   end                                                  ');
-           MDO.Query.SQL.Add(' end                                                    ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''MOVIMENTOESTOQUE_AID0');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      {/* Trigger: MOVIMENTOESTOQUE_AID0 */}
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER MOVIMENTOESTOQUE_AID0          ');
+      MDO.Query.SQL.Add('     FOR MOVIMENTOESTOQUE                               ');
+      MDO.Query.SQL.Add(' ACTIVE AFTER INSERT OR DELETE POSITION 0               ');
+      MDO.Query.SQL.Add(' AS                                                     ');
+      MDO.Query.SQL.Add(' declare variable VALOR_NEW float;                      ');
+      MDO.Query.SQL.Add(' declare variable VALOR_OLD float;                      ');
+      MDO.Query.SQL.Add(' begin                                                  ');
+      MDO.Query.SQL.Add('   VALOR_NEW = new.QUANTIDADEMOVIMENTADO;               ');
+      MDO.Query.SQL.Add('   VALOR_OLD = old.QUANTIDADEMOVIMENTADO;               ');
+      MDO.Query.SQL.Add(' ');
+      MDO.Query.SQL.Add('   if ((inserting)                                      ');
+      MDO.Query.SQL.Add('       AND (new.OPERACAO = ''ENTRADA'')) then           ');
+      MDO.Query.SQL.Add('   begin                                                ');
+      MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
+      MDO.Query.SQL.Add('         E.ESTFISICO = E.ESTFISICO + :VALOR_NEW,        ');
+      MDO.Query.SQL.Add('         E.ESTRESERV = E.ESTRESERV + :VALOR_NEW,        ');
+      MDO.Query.SQL.Add('         E.ESTSALDO = E.ESTSALDO + :VALOR_NEW,          ');
+      MDO.Query.SQL.Add('         E.ESTPED = E.ESTPED + :VALOR_NEW,              ');
+      MDO.Query.SQL.Add('         E.ESTOQUE4CASAS = cast(E.ESTSALDO + :VALOR_NEW ');
+      MDO.Query.SQL.Add('                            as numeric(18,4)),          ');
+      MDO.Query.SQL.Add('         E.exportar = ''1''                             ');
+      MDO.Query.SQL.Add('     where                                              ');
+      MDO.Query.SQL.Add('         E.COD_ESTOQUE = new.COD_ESTOQUE;               ');
+      MDO.Query.SQL.Add('   end                                                  ');
+      MDO.Query.SQL.Add('   if ((deleting) and (new.OPERACAO = ''ENTRADA'')) then ');
+      MDO.Query.SQL.Add('   begin                                                ');
+      MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
+      MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO - :VALOR_OLD,          ');
+      MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV - :VALOR_OLD,          ');
+      MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO - :VALOR_OLD,            ');
+      MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED - :VALOR_OLD,                ');
+      MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO - :VALOR_OLD   ');
+      MDO.Query.SQL.Add('                         as numeric(18,4)),             ');
+      MDO.Query.SQL.Add('       E.exportar = ''2''                               ');
+      MDO.Query.SQL.Add('     where                                              ');
+      MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
+      MDO.Query.SQL.Add('   end                                                  ');
+      MDO.Query.SQL.Add('   if ((inserting) and (new.OPERACAO = ''SAIDA'')) then ');
+      MDO.Query.SQL.Add('   begin                                                ');
+      MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
+      MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO - :VALOR_NEW,          ');
+      MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV - :VALOR_NEW,          ');
+      MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO - :VALOR_NEW,            ');
+      MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED - :VALOR_NEW,                ');
+      MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO - :VALOR_NEW   ');
+      MDO.Query.SQL.Add('                         as numeric(18,4)),             ');
+      MDO.Query.SQL.Add('       E.exportar = ''3''                               ');
+      MDO.Query.SQL.Add('     where                                              ');
+      MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
+      MDO.Query.SQL.Add('   end                                                  ');
+      MDO.Query.SQL.Add('   if ((deleting) and (new.OPERACAO = ''SAIDA''))  then ');
+      MDO.Query.SQL.Add('   begin                                                ');
+      MDO.Query.SQL.Add('     update ESTOQUE E set                               ');
+      MDO.Query.SQL.Add('       E.ESTFISICO = E.ESTFISICO + :VALOR_OLD,          ');
+      MDO.Query.SQL.Add('       E.ESTRESERV = E.ESTRESERV + :VALOR_OLD,          ');
+      MDO.Query.SQL.Add('       E.ESTSALDO = E.ESTSALDO + :VALOR_OLD,            ');
+      MDO.Query.SQL.Add('       E.ESTPED = E.ESTPED + :VALOR_OLD,                ');
+      MDO.Query.SQL.Add('       E.ESTOQUE4CASAS = cast(E.ESTSALDO                ');
+      MDO.Query.SQL.Add('           + :VALOR_OLD as numeric(18,4)),              ');
+      MDO.Query.SQL.Add('       E.exportar = ''4''                               ');
+      MDO.Query.SQL.Add('     where                                              ');
+      MDO.Query.SQL.Add('       E.COD_ESTOQUE = new.COD_ESTOQUE;                 ');
+      MDO.Query.SQL.Add('   end                                                  ');
+      MDO.Query.SQL.Add(' end                                                    ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
-       MDO.QConsulta.Close;
-       MDO.QConsulta.SQL.Clear;
-       MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
-       MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''MOVIMENTOESTOQUE_BI');
-       MDO.QConsulta.Open;
-       if MDO.QConsulta.IsEmpty then
-       begin
-           {/* Trigger: MOVIMENTOESTOQUE_BI */}
-           MDO.Query.Close;
-           MDO.Query.SQL.Clear;
-           MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER MOVIMENTOESTOQUE_BI    ');
-           MDO.Query.SQL.Add('        FOR MOVIMENTOESTOQUE                    ');
-           MDO.Query.SQL.Add(' ACTIVE BEFORE INSERT POSITION 0                ');
-           MDO.Query.SQL.Add(' as                                             ');
-           MDO.Query.SQL.Add(' begin                                          ');
-           MDO.Query.SQL.Add('   if (new.cod_movimentoestoque is null) then   ');
-           MDO.Query.SQL.Add('     new.cod_movimentoestoque =                 ');
-           MDO.Query.SQL.Add('     gen_id(gen_movimentoestoque_id,1);         ');
-           MDO.Query.SQL.Add(' end                                            ');
-           MDO.Query.ExecSQL;
-           MDO.Transac.CommitRetaining;
-       End;
-   except
-    MessageDlg('Falha ao criar estrutura de Movimento de Estoque.', mtWarning, [mbOK], 0);
+    MDO.QConsulta.Close;
+    MDO.QConsulta.SQL.Clear;
+    MDO.QConsulta.SQL.Add('SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS');
+    MDO.QConsulta.SQL.Add('WHERE RDB$TRIGGER_NAME = ''MOVIMENTOESTOQUE_BI');
+    MDO.QConsulta.Open;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      {/* Trigger: MOVIMENTOESTOQUE_BI */}
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE OR ALTER TRIGGER MOVIMENTOESTOQUE_BI    ');
+      MDO.Query.SQL.Add('        FOR MOVIMENTOESTOQUE                    ');
+      MDO.Query.SQL.Add(' ACTIVE BEFORE INSERT POSITION 0                ');
+      MDO.Query.SQL.Add(' as                                             ');
+      MDO.Query.SQL.Add(' begin                                          ');
+      MDO.Query.SQL.Add('   if (new.cod_movimentoestoque is null) then   ');
+      MDO.Query.SQL.Add('     new.cod_movimentoestoque =                 ');
+      MDO.Query.SQL.Add('     gen_id(gen_movimentoestoque_id,1);         ');
+      MDO.Query.SQL.Add(' end                                            ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
+  except
+    MessageDlg('Falha ao criar estrutura de Movimento de Estoque.', mtWarning,
+      [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4844,14 +4864,14 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''ITPRODORD_IDX1''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' CREATE UNIQUE INDEX ITPRODORD_IDX1 ON ITPRODORD (COD_ITPRODORD) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' CREATE UNIQUE INDEX ITPRODORD_IDX1 ON ITPRODORD (COD_ITPRODORD) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
     MDO.Query.Close;
     MDO.Query.SQL.Clear;
@@ -4859,24 +4879,24 @@ begin
     MDO.Query.ExecSQL;
     MDO.Transac.CommitRetaining;
 
-
     MDO.QConsulta.Close;
     MDO.QConsulta.SQL.Clear;
     MDO.QConsulta.SQL.Add(' select r.RDB$INDEX_NAME from RDB$INDICES r ');
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''PK_ITPRODORD''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT PK_ITPRODORD PRIMARY KEY (COD_ITPRODORD) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT PK_ITPRODORD PRIMARY KEY (COD_ITPRODORD) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
   except
-    MessageDlg('Falha ao criar chave prim·ria para a tabela ITProdOrd.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar chave prim·ria para a tabela ITProdOrd.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
@@ -4898,14 +4918,14 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''FK_ITPRODORD_1''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT FK_ITPRODORD_1 FOREIGN KEY (COD_ORDEM) REFERENCES ORDEM (COD_ORDEM) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT FK_ITPRODORD_1 FOREIGN KEY (COD_ORDEM) REFERENCES ORDEM (COD_ORDEM) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
     MDO.QConsulta.Close;
     MDO.QConsulta.SQL.Clear;
@@ -4913,31 +4933,31 @@ begin
     MDO.QConsulta.SQL.Add(' where r.RDB$INDEX_NAME = ''FK_ITPRODORD_2''      ');
     MDO.QConsulta.Open;
 
-    If MDO.QConsulta.IsEmpty
-    Then Begin
-       MDO.Query.Close;
-       MDO.Query.SQL.Clear;
-       MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT FK_ITPRODORD_2 FOREIGN KEY (cod_estoque) REFERENCES ESTOQUE (cod_estoque) ');
-       MDO.Query.ExecSQL;
-       MDO.Transac.CommitRetaining;
-    End;
+    if MDO.QConsulta.IsEmpty then
+    begin
+      MDO.Query.Close;
+      MDO.Query.SQL.Clear;
+      MDO.Query.SQL.Add(' ALTER TABLE ITPRODORD ADD CONSTRAINT FK_ITPRODORD_2 FOREIGN KEY (cod_estoque) REFERENCES ESTOQUE (cod_estoque) ');
+      MDO.Query.ExecSQL;
+      MDO.Transac.CommitRetaining;
+    end;
 
   except
-    MessageDlg('Falha ao criar chave prim·ria para a tabela ITProdOrd.', mtWarning, [mbOK], 0);
+    MessageDlg('Falha ao criar chave prim·ria para a tabela ITProdOrd.',
+      mtWarning, [mbOK], 0);
     Result := False;
   end;
 end;
-
 
 //Edmar - 18/11/2015 - inicia as rotinas especiais (aumento de campo que esteja em alguma view por exemplo)
 procedure TFAtualizaBanco.StartEspecial;
 var
   XCAMPOS, XSQL_VIEW: string;
 begin
-    if cbMelhoriasEstoque2023.Checked = True then
-       //StartMelhoriasEstoque2023;
+  if cbMelhoriasEstoque2023.Checked = True then
+    //StartMelhoriasEstoque2023;
 
-    //Edmar - 29/09/2015 - Verifica se È preciso atualizar a view VWCHEQUEREC
+ //Edmar - 29/09/2015 - Verifica se È preciso atualizar a view VWCHEQUEREC
     if cbChequeRec.Checked then
     begin
       ApagaView('VWCHEQUEREC');
@@ -5237,7 +5257,7 @@ begin
             := (
             MDO.QAlx1.FieldByName('VALORTOTAL').AsCurrency
             + (MDO.QAlx1.FieldByName('VALORTOTAL').AsCurrency /
-              MDO.QAlx2.FieldByName('VALORTOTALITENS').AsCurrency)
+            MDO.QAlx2.FieldByName('VALORTOTALITENS').AsCurrency)
             * MDO.QAlx2.FieldByName('DIFF').AsCurrency
             ) / MDO.QAlx1.FieldByName('QTDE').AsCurrency;
 
@@ -5261,7 +5281,7 @@ begin
           //
           InserirItemCustoProduto(MDO.QAlx1.FieldByName('COD_ESTOQUE').AsInteger, MDO.QAlx1.FieldByName('COD_ITENSPEDC').AsInteger,
             xValorCustoProduto, xQuantidadeLancada,
-              MDO.QAlx1.FieldByName('DATA').AsDateTime, 'PEDCOMPRA');
+            MDO.QAlx1.FieldByName('DATA').AsDateTime, 'PEDCOMPRA');
         end;
         MDO.QAlx1.Next;
       end;
@@ -5308,7 +5328,7 @@ begin
     begin
       AplicaSaidaCustoEstoque(DMESTOQUE.Alx.FieldByName('COD_ESTOQUE').AsInteger,
         DMESTOQUE.Alx.FieldByName('COD_ITEM').AsInteger, 'ORDEM',
-          DMESTOQUE.Alx.FieldByName('QTDE').AsInteger);
+        DMESTOQUE.Alx.FieldByName('QTDE').AsInteger);
 
       DMESTOQUE.Alx.Next;
     end;
@@ -5384,73 +5404,72 @@ end;
 
 procedure TFAtualizaBanco.BitBtn1Click(Sender: TObject);
 begin
-   SetPksEstoque;
+  SetPksEstoque;
 end;
 
 procedure TFAtualizaBanco.BitBtn11Click(Sender: TObject);
 begin
-SetTriggerITENSPEDVEN_AIUD0;
+  SetTriggerITENSPEDVEN_AIUD0;
 end;
 
 procedure TFAtualizaBanco.BitBtn2Click(Sender: TObject);
 begin
-SetPksSubproduto;
+  SetPksSubproduto;
 end;
 
 procedure TFAtualizaBanco.BitBtn3Click(Sender: TObject);
 begin
-SetFksEstoque;
+  SetFksEstoque;
 end;
 
 procedure TFAtualizaBanco.BitBtn9Click(Sender: TObject);
 begin
-SetPksOrdem;
+  SetPksOrdem;
 end;
 
 procedure TFAtualizaBanco.BitBtn4Click(Sender: TObject);
 begin
-SetPksItemProdOrdem;
+  SetPksItemProdOrdem;
 end;
 
 procedure TFAtualizaBanco.BitBtn5Click(Sender: TObject);
 begin
-SetFksItemProdOrdem;
+  SetFksItemProdOrdem;
 end;
 
 procedure TFAtualizaBanco.BitBtn6Click(Sender: TObject);
 begin
-SetTableMovimentoEstoque;
+  SetTableMovimentoEstoque;
 end;
 
 procedure TFAtualizaBanco.BitBtn7Click(Sender: TObject);
 begin
-SetTriggerESTOQUE_AI0;
+  SetTriggerESTOQUE_AI0;
 end;
 
 procedure TFAtualizaBanco.BitBtn8Click(Sender: TObject);
 begin
-SetTriggerITENSPEDC_AIUD0;
+  SetTriggerITENSPEDC_AIUD0;
 end;
 
 procedure TFAtualizaBanco.BitBtn10Click(Sender: TObject);
 begin
-SetTriggerESTOQUE_AI0;
+  SetTriggerESTOQUE_AI0;
 end;
 
 procedure TFAtualizaBanco.BitBtn12Click(Sender: TObject);
 begin
-SetTriggerITPRODORD_AIUD0;
+  SetTriggerITPRODORD_AIUD0;
 end;
 
 procedure TFAtualizaBanco.BitBtn13Click(Sender: TObject);
 begin
-SetTriggerLANCENT_AIUD0;
+  SetTriggerLANCENT_AIUD0;
 end;
 
 procedure TFAtualizaBanco.BitBtn15Click(Sender: TObject);
 begin
-SetTriggerLANCSAI_AIUD0;
+  SetTriggerLANCSAI_AIUD0;
 end;
-
 
 end.

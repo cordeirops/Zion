@@ -232,7 +232,9 @@ End;
 
 
 procedure TfrmAntecipa.BtnFinalizarAntecipacaoClick(Sender: TObject);
-
+var
+   COD_MOVIMENTO: Integer;
+   TIPO_MOVIMENTO: String;
 begin
   XVLR_ANTECIPACAO:= edValorAntecipacao.ValueNumeric;
   try
@@ -248,20 +250,91 @@ begin
          MDO.Query.ExecSQL;
          MDO.Transac.CommitRetaining;
 
+         if cbEspecie.Text = 'Pix' then
+         begin
+            MDO.Transac.CommitRetaining;
+            MDO.Query.Close;
+            MDO.Query.SQL.Clear;
+            MDO.Query.SQL.Add('SELECT COD_MOVBANCO FROM MOVBANCO');
+            MDO.Query.SQL.Add('WHERE MOVBANCO.VALOR = :XVLR_ANTECIPACAO');
+            MDO.Query.SQL.Add('AND TIPOGERADOR = :tipogerador');
+            MDO.Query.SQL.Add('ORDER BY COD_MOVBANCO DESC ROWS 1');
+            MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+            MDO.Query.ParamByName('tipogerador').AsString := 'ADIANTAORD';
+            MDO.Query.SQL.Text;
+            MDO.Query.Open;
+            COD_MOVIMENTO := MDO.Query.FieldByName('COD_MOVBANCO').AsInteger;
+            TIPO_MOVIMENTO := 'Pix';
+            MDO.Transac.CommitRetaining;
+         end;
+
+         if cbEspecie.Text = 'Banco' then
+         begin
+            MDO.Transac.CommitRetaining;
+            MDO.Query.Close;
+            MDO.Query.SQL.Clear;
+            MDO.Query.SQL.Add('SELECT COD_MOVBANCO FROM MOVBANCO');
+            MDO.Query.SQL.Add('WHERE MOVBANCO.VALOR = :XVLR_ANTECIPACAO');
+            MDO.Query.SQL.Add('AND TIPOGERADOR = :tipogerador');
+            MDO.Query.SQL.Add('ORDER BY COD_MOVBANCO DESC ROWS 1');
+            MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+            MDO.Query.ParamByName('tipogerador').AsString := 'ADIANTAORD';
+            MDO.Query.SQL.Text;
+            MDO.Query.Open;
+            COD_MOVIMENTO := MDO.Query.FieldByName('COD_MOVBANCO').AsInteger;
+            TIPO_MOVIMENTO := 'Banco';
+            MDO.Transac.CommitRetaining;
+         end;
+
+
+         if cbEspecie.Text = 'Cheque' then
+         begin
+            MDO.Transac.CommitRetaining;
+            MDO.Query.Close;
+            MDO.Query.SQL.Clear;
+            MDO.Query.SQL.Add('SELECT COD_CHEQUREC FROM CHEQUEREC');
+            MDO.Query.SQL.Add('WHERE CHEQUEREC.VALOR = :XVLR_ANTECIPACAO');
+            MDO.Query.SQL.Add('ORDER BY COD_CHEQUEREC DESC ROWS 1');
+            MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+
+            MDO.Query.SQL.Text;
+            MDO.Query.Open;
+            COD_MOVIMENTO := MDO.Query.FieldByName('COD_CHEQUEREC').AsInteger;
+            TIPO_MOVIMENTO := 'Cheque';
+            MDO.Transac.CommitRetaining;
+         end;
+
+         if (cbEspecie.Text <> 'Cheque') and (cbEspecie.Text <> 'Banco') and (cbEspecie.Text <> 'Pix') then
+         begin
+            MDO.Transac.CommitRetaining;
+            MDO.Query.Close;
+            MDO.Query.SQL.Clear;
+            MDO.Query.SQL.Add('SELECT COD_LANC FROM LANCAIXA');
+            MDO.Query.SQL.Add('WHERE LANCAIXA.VALOR = :XVLR_ANTECIPACAO');
+            MDO.Query.SQL.Add('AND TIPOGERADOR = :tipogerador');
+            MDO.Query.SQL.Add('ORDER BY COD_CHEQUEREC DESC ROWS 1');
+            MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+            MDO.Query.ParamByName('tipogerador').AsString := 'ADIANTAORD';
+
+            MDO.Query.SQL.Text;
+            MDO.Query.Open;
+            COD_MOVIMENTO := MDO.Query.FieldByName('COD_LANC').AsInteger;
+            TIPO_MOVIMENTO := 'Carteira';
+            MDO.Transac.CommitRetaining;
+         end;
+
          MDO.Transac.CommitRetaining;
          MDO.Query.Close;
          MDO.Query.SQL.Clear;
-         MDO.Query.SQL.Add('INSERT INTO antecipacoes (COD_ORDEM, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO) VALUES (:COD_ORDEM, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO)');
-         MDO.Query.ParamByName('COD_ORDEM').AsInteger := xNumeroOs;
+         MDO.Query.SQL.Add('INSERT INTO antecipacoes (numero_ordem, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO, TIPO_MOVIMENTO, COD_MOVIMENTO) VALUES (:numero_ordem, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO, :TIPO_MOVIMENTO, :COD_MOVIMENTO)');
+         MDO.Query.ParamByName('numero_ordem').AsInteger := xNumeroOs;
          MDO.Query.ParamByName('DATA_ANTECIPACAO').AsDateTime := Now;
          MDO.Query.ParamByName('USUARIO').AsString := FMenu.edusuario.Text;
          MDO.Query.ParamByName('VALOR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
+         MDO.Query.ParamByName('TIPO_MOVIMENTO').AsString := TIPO_MOVIMENTO;
+         MDO.Query.ParamByName('COD_MOVIMENTO').AsInteger := COD_MOVIMENTO;
          MDO.Query.ExecSQL;
          MDO.Transac.CommitRetaining;
-
-
-
-
 
          ShowMessage('Antecipação bem sucedida!');
          Close;
