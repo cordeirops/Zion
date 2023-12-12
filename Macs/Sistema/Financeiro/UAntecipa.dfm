@@ -2,7 +2,7 @@ object frmAntecipa: TfrmAntecipa
   Left = 824
   Top = 146
   Width = 397
-  Height = 443
+  Height = 334
   BorderIcons = [biSystemMenu]
   Caption = 'Antecipa'#231#227'o'
   Color = clBtnFace

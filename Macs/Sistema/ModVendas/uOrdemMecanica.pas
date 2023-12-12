@@ -362,6 +362,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure LanarAntecipao1Click(Sender: TObject);
+    procedure ConsultarAtencipaes1Click(Sender: TObject);
   private
     { Private declarations }
     function FiltraOrdem: Boolean;
@@ -424,6 +425,8 @@ type
     procedure FechaOSTelaFormaPagamentos;
     procedure Adiantamento;
     procedure ChamaAdiantamento;
+    procedure ChamaListaAntacipacao;
+    procedure ListarAntecip;
 
 
   public
@@ -477,7 +480,7 @@ uses
   UDMConta, UConsPlncta, UFiscalOrdem, URelOrdemServMec, UDMEntrada,
   UDMSaida, UOrcamentoMac, UOrcamento3, UOrcamento, UMzrNfe, UDevolucao,
   UListaNfe, UMzrNFSe, UControllerRelOrdemVendaMec, UDMGEOGRAFIA,
-  URelMecanica, URelEquipe, URelData, ULogoff1, UAntecipa;
+  URelMecanica, URelEquipe, URelData, ULogoff1, UAntecipa, UListaAntecipacao;
 
 {$R *.dfm}
 
@@ -6765,6 +6768,65 @@ procedure TfrmOrdemMecanica.LanarAntecipao1Click(Sender: TObject);
 var antecipa:TfrmAntecipa;
 begin
    ChamaAdiantamento;
+end;
+
+
+procedure TfrmOrdemMecanica.ListarAntecip;
+begin
+   try
+       begin
+
+           Auditoria(IntToStr(pkCodigoOrdem), 'Comanda Fechamento FP OS', 'Tela de consulta',
+               'Número: ' + DmServ.WOrdem.FieldByName('NUMERO').AsString +
+               '; Data OS: ' + DmServ.WOrdem.FieldByName('DTABERT').AsString +
+               '; Cliente: ' + DmServ.WOrdem.FieldByName('CLIENTE').AsString +
+               '; Veículo: ' + DmServ.WOrdem.FieldByName('PLACA').AsString + ' : ' + DmServ.WOrdem.FieldByName('EQUIPAMENTO').AsString +
+               '; Forma Pagamento: ' + DmServ.WOrdem.FieldByName('FORMAPAG').AsString +
+               '; Tipo Fechamento: ' + DMMACS.TLoja.FieldByName('FORMAFECHAMENTOOS').AsString +
+               '; Tipo Pagamento: ' + DmServ.WOrdem.FieldByName('TIPOPAG').AsString +
+               '; Valor Produtos: ' + FormatFloat('0.00', DmServ.WOrdem.FieldByName('TPROD').AsCurrency)  +
+               '; Valor Serviços: ' + FormatFloat('0.00', DmServ.WOrdem.FieldByName('TSERV').AsCurrency)  +
+               '; Valor OS: ' + FormatFloat('0.00', DmServ.WOrdem.FieldByName('TOTAL').AsCurrency)) ;
+
+           ListarAntecipacao('ORDEM', DmServ.WOrdem.FieldByName('COD_ORDEM').AsInteger);
+       End
+   except
+
+   end;
+end;
+
+
+procedure TfrmOrdemMecanica.ChamaListaAntacipacao;
+var
+  xContinua: Boolean;
+begin
+   try
+       xContinua := True;
+
+       if ControlAccess('FECHORD', 'M') = False then
+           Exit;
+       pkCodigoOrdem := DMServ.WOrdem.FieldByname('cod_ordem').AsInteger;
+       RefreshOrdem;
+//       if xPermiteFechar = false then
+//       begin
+//           MessageDlg('Esta ordem de serviço já se encontra em processo de fechamento.', mtInformation, [mbOK], 0);
+//           xContinua := False;
+//       end;
+       if xContinua = True then
+       begin
+               FiltraTabela(DMMACS.TLoja, 'LOJA', 'COD_LOJA', FMenu.LCODLOJA.Caption, '');
+               ListarAntecip;
+       End;
+   except
+       MessageDlg('Ocorreu uma falha durante o processo. Ferifique o resultado das ações.', mtWarning, [mbOK], 0);
+   end;
+end;
+
+
+procedure TfrmOrdemMecanica.ConsultarAtencipaes1Click(Sender: TObject);
+var listaAntecipa:TfrmListaAntecipacao;
+begin
+   ChamaListaAntacipacao;
 end;
 
 end.

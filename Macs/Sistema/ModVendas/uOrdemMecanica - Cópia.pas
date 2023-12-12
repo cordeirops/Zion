@@ -1,4 +1,4 @@
-unit uListaAntecipa;
+unit uOrdemMecanica;
 
 interface
 
@@ -6,12 +6,16 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, Grids, DBGrids, Mask, EditFloat,
   ComCtrls, DBClient, ColorEditFloat, ColorMaskEdit, UFrmBusca,
-  FashionPanel, Menus, XMLDoc, XMLIntf, UMDO;
+  FashionPanel, Menus, XMLDoc, XMLIntf;
 
 type
-  TfrmListaAntecipa = class(TForm)
+  TfrmOrdemMecanica = class(TForm)
     pConsulta: TPanel;
     PBotoesConsulta: TPanel;
+    BtnNovo: TBitBtn;
+    btnOrcamento: TBitBtn;                                        
+    btnRelatorio: TBitBtn;
+    BtnFechaPed: TBitBtn;
     BtnConsultar: TBitBtn;
     pFiltro: TPanel;
     DBGridConsulta: TDBGrid;
@@ -21,7 +25,13 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
     edFiltroNumeroOrdem: TEdit;
+    edFiltroNumeroNfe: TEdit;
+    edFiltroNumeroNfse: TEdit;
+    edFiltroPlaca: TEdit;
     Label7: TLabel;
     edFiltroCliente: TEdit;
     edFiltroDataIni: TMaskEdit;
@@ -118,21 +128,91 @@ type
     btnInsereResponsavel: TBitBtn;
     lInsereServicoResponsavel: TLabel;
     btnAtualizaDadosCadastro: TBitBtn;
+    MenuListaOrdens: TPopupMenu;
+    AjustaAndamento1: TMenuItem;
+    Iniciado1: TMenuItem;
+    Paralizado1: TMenuItem;
+    erminado1: TMenuItem;
     edKmAtual: TFloatEdit;
     Label38: TLabel;
+    MenuRelatorios: TPopupMenu;
+    Relatrios1: TMenuItem;
+    ListagemdeOrdensdeServio1: TMenuItem;
+    Financeiro1: TMenuItem;
+    CancelaFechamento1: TMenuItem;
+    NotaFiscalEletrnicaProdutos1: TMenuItem;
+    NotaFiscalEletrnicaServios1: TMenuItem;
+    ReenviarNFe1: TMenuItem;
+    ReenviarNFSe1: TMenuItem;
+    RecuperarDadosdeNFecomachave1: TMenuItem;
+    N1: TMenuItem;
+    VisualizarDanfe1: TMenuItem;
+    ConsultarStatusdaNFenoSefaz1: TMenuItem;
+    N2: TMenuItem;
+    ConsultarStatusServioSefaz1: TMenuItem;
+    ListarNFescontidasnoSefaz1: TMenuItem;
+    InutilizarNumeraodeNFe1: TMenuItem;
+    EfetuardevoluodeNFe1: TMenuItem;
+    ReenviarNFeemcontingncia1: TMenuItem;
+    CancelarNFe1: TMenuItem;
+    EnviarCartadeCorreoEletrnica1: TMenuItem;
+    XML1: TMenuItem;
+    N3: TMenuItem;
+    EnviarXMLdeNFeporEmail1: TMenuItem;
+    CancelarNFSe1: TMenuItem;
+    N4: TMenuItem;
+    VisualizarNFSe1: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    XML2: TMenuItem;
+    EnviarXMLdeNFSeporEmail1: TMenuItem;
+    N7: TMenuItem;
+    RecuperarDadosdeNFSe1: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    DuplicarOrdemdeServio1: TMenuItem;
+    NFCeNotaFiscalConsumidor1: TMenuItem;
+    ReenviarNFCeemContingncia1: TMenuItem;
+    N11: TMenuItem;
+    Consultar1: TMenuItem;
+    EnviarXMLdeCancelamentoporEmail1: TMenuItem;
+    Comprovantemeiapgina1: TMenuItem;
+    Comprovantepginainteira1: TMenuItem;
+    Cupomnofiscal1: TMenuItem;
+    Comprovantes1: TMenuItem;
+    N8: TMenuItem;
+    N12: TMenuItem;
+    Auditoria1: TMenuItem;
+    Auditoriadeusurio1: TMenuItem;
+    ermodecontratao1: TMenuItem;
+    N13: TMenuItem;
+    N14: TMenuItem;
+    pmImpressaoInterna: TPopupMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem14: TMenuItem;
     Shape1: TShape;
     Shape2: TShape;
+    edFiltroVeiculo: TEdit;
+    Label20: TLabel;
     cbTerceiros: TCheckBox;
     edInsereServicoCustoTerceirizacao: TFloatEdit;
     Shape3: TShape;
     lbCustoTerceirizacao: TLabel;
     Label22: TLabel;
     edDataAbertura: TMaskEdit;
+    ListarpagamentosRealizados1: TMenuItem;
     TabSheet4: TTabSheet;
     Label21: TLabel;
     edProblemaReclamado: TMemo;
     Label24: TLabel;
     edSolucaoApresentada: TMemo;
+    LaudoTcnico1: TMenuItem;
+    N15: TMenuItem;
     CBVENDABALCAO: TCheckBox;
     pInsereProdutoValorCusto: TPanel;
     Label39: TLabel;
@@ -144,6 +224,24 @@ type
     edPagamentoCodigo: TEdit;
     edPercentoDescontoProduto: TFloatEdit;
     edPercentoDescontoServico: TFloatEdit;
+    Servios1: TMenuItem;
+    Serviosporequipe011: TMenuItem;
+    Serviosporequipe021: TMenuItem;
+    N16: TMenuItem;
+    Serviosporclassificao1: TMenuItem;
+    ServiosporclassificaoGrfico1: TMenuItem;
+    Produtos1: TMenuItem;
+    ProdutosvendidoscomCusto1: TMenuItem;
+    ProdutosvendidoscomcustodeNFe1: TMenuItem;
+    OrdemdeServios1: TMenuItem;
+    Sinttico1: TMenuItem;
+    Analtico1: TMenuItem;
+    Extrato1: TMenuItem;
+    N17: TMenuItem;
+    LaudoTcnico2: TMenuItem;
+    PagamentosAntecipados1: TMenuItem;
+    LanarAntecipao1: TMenuItem;
+    ConsultarAtencipaes1: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -331,16 +429,9 @@ type
   public
     { Public declarations }
   end;
- { TODO : 
-Gravar o COD_MOVBANCO, COD_LAN, COD_CHEQREC
-Validações:
-- Caixa não pode estar fechado
-- Banco não pode estar fechado
-- Cr não pode estar baixada
-*Negar estorno nessas situações
-- Controlar acesso se o usuário tem permissão }
+
 var
-  frmListaAntecipa: TfrmListaAntecipa;
+  frmOrdemMecanica: TfrmOrdemMecanica;
 
   //Chaves estrangeiras
   pkCodigoOrdem, pkTmpCodigoOrdem, pkCodigoEstoque, pkCodigoCst, pkCodigoResponsavel: Integer;
@@ -390,7 +481,7 @@ uses
 
 {$R *.dfm}
 
-function TfrmListaAntecipa.CancelaFechamentoOrdemServicoAntiga: Boolean;
+function TfrmOrdemMecanica.CancelaFechamentoOrdemServicoAntiga: Boolean;
 begin
    Result := True;
 
@@ -490,7 +581,7 @@ begin
    End;
 End;
 
-function TfrmListaAntecipa.CancelaLancamentosCR(Codigo: Integer): Boolean;
+function TfrmOrdemMecanica.CancelaLancamentosCR(Codigo: Integer): Boolean;
 Var
    xTmpTexto: String;
 begin
@@ -559,7 +650,7 @@ begin
    End;
 End;
 
-function TfrmListaAntecipa.CancelaLancamentosCaixa(Codigo: Integer): Boolean;
+function TfrmOrdemMecanica.CancelaLancamentosCaixa(Codigo: Integer): Boolean;
 begin
    Result := True;
 
@@ -608,7 +699,7 @@ begin
    End;
 End;
 
-Function TfrmListaAntecipa.BancoAberto(xVerificaCodigoCaixa: Integer): Boolean;
+Function TfrmOrdemMecanica.BancoAberto(xVerificaCodigoCaixa: Integer): Boolean;
 Begin
   Try
     DMCAIXA.TAlx.Close;
@@ -630,7 +721,7 @@ Begin
   End;
 End;
 
-function TfrmListaAntecipa.CancelaLancamentosBanco(Codigo: Integer): Boolean;
+function TfrmOrdemMecanica.CancelaLancamentosBanco(Codigo: Integer): Boolean;
 begin
    Result := True;
    try
@@ -665,7 +756,7 @@ begin
    End;
 End;
 
-function TfrmListaAntecipa.CancelaFechamento: Boolean;
+function TfrmOrdemMecanica.CancelaFechamento: Boolean;
 var
   XCodPedidoTroca: string;
 begin
@@ -816,7 +907,7 @@ begin
    End
 End;
 
-function TfrmListaAntecipa.CancelaFechamentoOrdemServico: Boolean;
+function TfrmOrdemMecanica.CancelaFechamentoOrdemServico: Boolean;
 begin
    Result := True;
 
@@ -944,7 +1035,7 @@ begin
 End;
 
 
-function TfrmListaAntecipa.CancelLanOrd(CodPedido: string): Boolean;
+function TfrmOrdemMecanica.CancelLanOrd(CodPedido: string): Boolean;
 var
   xcod_chequerec: string;
 begin
@@ -1386,7 +1477,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.AbreFiscal: Boolean;
+function TfrmOrdemMecanica.AbreFiscal: Boolean;
 begin
    Result := True;
    try
@@ -1399,7 +1490,7 @@ begin
    end
 end;
 
-procedure TfrmListaAntecipa.EscreveLabelsPROD;
+procedure TfrmOrdemMecanica.EscreveLabelsPROD;
 begin
   if FiltraTabela(DMEstoque.TSubProd, 'SUBPRODUTO', 'COD_SUBPRODUTO',
     DMEstoque.WSimilar.FieldByName('COD_SUBPRODUTO').AsString, '') = False then
@@ -1478,7 +1569,7 @@ begin
        edInsereProdutoQuantidade.SetFocus;
 end;
 
-function TfrmListaAntecipa.RemoveDadosProduto: Boolean;
+function TfrmOrdemMecanica.RemoveDadosProduto: Boolean;
 begin
   try
     Result := True;
@@ -1489,7 +1580,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.InsereDadosProduto: Boolean;
+function TfrmOrdemMecanica.InsereDadosProduto: Boolean;
 begin
   try
     Result := True;
@@ -1564,7 +1655,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.InsereDadosServico: Boolean;
+function TfrmOrdemMecanica.InsereDadosServico: Boolean;
 begin
   try
     Result := True;
@@ -1619,7 +1710,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.InsereDadosInsereOrdemServico: Boolean;
+function TfrmOrdemMecanica.InsereDadosInsereOrdemServico: Boolean;
 var
   xtmpPkOrdem: Integer;
 begin
@@ -1706,7 +1797,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ValidaDadosInsereOrdemServico: Boolean;
+function TfrmOrdemMecanica.ValidaDadosInsereOrdemServico: Boolean;
 begin
   try
     Result := True;
@@ -1747,7 +1838,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ValidaDadosInsereProdutoDuplicadoLista: Boolean;
+function TfrmOrdemMecanica.ValidaDadosInsereProdutoDuplicadoLista: Boolean;
 Var
    xQuantidade: Real;
 begin
@@ -1800,7 +1891,7 @@ begin
    end;
 End;
 
-function TfrmListaAntecipa.ValidaDadosInsereProdutoOrdemServico: Boolean;
+function TfrmOrdemMecanica.ValidaDadosInsereProdutoOrdemServico: Boolean;
 begin
    try
        Result := True;
@@ -1845,7 +1936,7 @@ begin
    end;
 end;
 
-function TfrmListaAntecipa.IncrementaNumeroOS: Boolean;
+function TfrmOrdemMecanica.IncrementaNumeroOS: Boolean;
 var xFlag: Integer;
 begin
   try
@@ -1890,7 +1981,7 @@ begin
 end;
 
 //pesquisa codigo equipamento
-procedure TfrmListaAntecipa.PesquisaCodigoEquipamento(codigo: string; cliente:
+procedure TfrmOrdemMecanica.PesquisaCodigoEquipamento(codigo: string; cliente:
   boolean);
 var
   Tmp: Boolean;
@@ -1965,7 +2056,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.EfetuaDesconto(OrigemDesconto: string; TipoDesconto:
+function TfrmOrdemMecanica.EfetuaDesconto(OrigemDesconto: string; TipoDesconto:
   string): Boolean;
 begin
   //se nao tiver nenhum desconto zerar o desconto de produto
@@ -2017,7 +2108,7 @@ begin
        edValorDescontoOS.ValueNumeric := 0;
 end;
 
-function TfrmListaAntecipa.AplicaDescontos: Boolean;
+function TfrmOrdemMecanica.AplicaDescontos: Boolean;
 begin
    //se nao tiver nenhum desconto zerar o desconto de produto
    if MDO.Query1.IsEmpty
@@ -2047,7 +2138,7 @@ begin
   edValorDescontoOS.ValueNumeric := xValorTotalOS - edValorTotalOS.ValueNumeric;
 end;
 
-function TfrmListaAntecipa.AplicaDescontosPercentual: Boolean;
+function TfrmOrdemMecanica.AplicaDescontosPercentual: Boolean;
 begin
    //se nao tiver nenhum desconto zerar o desconto de produto
    if MDO.Query1.IsEmpty
@@ -2079,7 +2170,7 @@ begin
 end;
 
 
-Function TfrmListaAntecipa.RefiltraOrdem: Boolean;
+Function TfrmOrdemMecanica.RefiltraOrdem: Boolean;
 begin
   try
     Result := True;
@@ -2102,7 +2193,7 @@ begin
   End;
 End;
 
-procedure TfrmListaAntecipa.RefreshOrdem;
+procedure TfrmOrdemMecanica.RefreshOrdem;
 begin
   try
     MDO.Transac.CommitRetaining;
@@ -2154,7 +2245,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.ValidaOSDuplicada;
+procedure TfrmOrdemMecanica.ValidaOSDuplicada;
 begin
   try
     MDO.Transac.CommitRetaining;
@@ -2179,7 +2270,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ValidaOSNumeroDuplicado: Boolean;
+function TfrmOrdemMecanica.ValidaOSNumeroDuplicado: Boolean;
 begin
   try
     Result := True;
@@ -2203,7 +2294,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.FiltraItens;
+procedure TfrmOrdemMecanica.FiltraItens;
 begin
   try
     MDO.Transac.CommitRetaining;
@@ -2263,7 +2354,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.AtivaPainelConsulta(xParam: Boolean): Boolean;
+function TfrmOrdemMecanica.AtivaPainelConsulta(xParam: Boolean): Boolean;
 begin
    try
        if xParam = True then
@@ -2303,7 +2394,7 @@ begin
    end;
 end;
 
-function TfrmListaAntecipa.LimpaFiltros: Boolean;
+function TfrmOrdemMecanica.LimpaFiltros: Boolean;
 begin
   try
     Result := true;
@@ -2322,7 +2413,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.LimpaCamposItemServico: Boolean;
+function TfrmOrdemMecanica.LimpaCamposItemServico: Boolean;
 begin
   try
     Result := True;
@@ -2344,7 +2435,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.LimpaCamposPesquisaProduto: Boolean;
+function TfrmOrdemMecanica.LimpaCamposPesquisaProduto: Boolean;
 begin
   try
     Result := True;
@@ -2363,7 +2454,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ConsultaOrdemServicoPopulaCampos: Boolean;
+function TfrmOrdemMecanica.ConsultaOrdemServicoPopulaCampos: Boolean;
 begin
   try
     Result := true;
@@ -2417,7 +2508,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.AjustarAndamentoOrdem(StatusAndamento: string; EmPagamento: Boolean):
+function TfrmOrdemMecanica.AjustarAndamentoOrdem(StatusAndamento: string; EmPagamento: Boolean):
   Boolean;
 var
   xContinua: Boolean;
@@ -2494,7 +2585,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.FechaOrdemServico: Boolean;
+function TfrmOrdemMecanica.FechaOrdemServico: Boolean;
 begin
   try
     Result := false;
@@ -2534,7 +2625,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ReabrirOrdemServico(codigo: Integer): Boolean;
+function TfrmOrdemMecanica.ReabrirOrdemServico(codigo: Integer): Boolean;
 begin
    try
        Result := false;
@@ -2558,7 +2649,7 @@ begin
    FiltraOrdem;
 end;
 
-function TfrmListaAntecipa.FechaOrdemServicoFinal: Boolean;
+function TfrmOrdemMecanica.FechaOrdemServicoFinal: Boolean;
 begin
   try
     Result := false;
@@ -2596,7 +2687,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.CarregaFiltrosArquivo: Boolean;
+function TfrmOrdemMecanica.CarregaFiltrosArquivo: Boolean;
 Var
    Node : IXMLNode;
    XMLDocument: TXMLDocument;
@@ -2649,7 +2740,7 @@ begin
 End;
 
 
-function TfrmListaAntecipa.SalvaFiltrosArquivo: Boolean;
+function TfrmOrdemMecanica.SalvaFiltrosArquivo: Boolean;
 var
   XMLDocument: TXMLDocument;
   Node: IXMLNode;
@@ -2681,7 +2772,7 @@ begin
    end;
 End;
 
-function TfrmListaAntecipa.GravaOrdemServico: Boolean;
+function TfrmOrdemMecanica.GravaOrdemServico: Boolean;
 begin
   try
     Result := true;
@@ -2763,7 +2854,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.GravaValoresOrdemServico: Boolean;
+function TfrmOrdemMecanica.GravaValoresOrdemServico: Boolean;
 begin
   try
     Result := true;
@@ -2806,7 +2897,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.Auditoria(Cod_Ordem, Comando, funcao, Historico: String): Boolean;
+function TfrmOrdemMecanica.Auditoria(Cod_Ordem, Comando, funcao, Historico: String): Boolean;
 begin
    try
        Result := true;
@@ -2816,7 +2907,7 @@ begin
    End;
 End;
 
-function TfrmListaAntecipa.ConsultaOrdemServico: Boolean;
+function TfrmOrdemMecanica.ConsultaOrdemServico: Boolean;
 begin
   try
     Result := true;
@@ -2875,7 +2966,7 @@ end;
 
 
 
-function TfrmListaAntecipa.LimpaCamposCadastro: Boolean;
+function TfrmOrdemMecanica.LimpaCamposCadastro: Boolean;
 begin
   try
     Result := true;
@@ -2936,7 +3027,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.FiltraOrdem: Boolean;
+function TfrmOrdemMecanica.FiltraOrdem: Boolean;
 begin
   try
     Result := true;
@@ -3020,7 +3111,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.FiltraOrdemCampo(xCampo: String): Boolean;
+function TfrmOrdemMecanica.FiltraOrdemCampo(xCampo: String): Boolean;
 begin
   try
     Result := true;
@@ -3084,7 +3175,7 @@ begin
 end;
 
 
-procedure TfrmListaAntecipa.FormShow(Sender: TObject);
+procedure TfrmOrdemMecanica.FormShow(Sender: TObject);
 begin
   LimpaFiltros;
   CarregaFiltrosArquivo;  
@@ -3100,17 +3191,17 @@ begin
   xStateOrdem := '';
 end;
 
-procedure TfrmListaAntecipa.BitBtn1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn1Click(Sender: TObject);
 begin
   FiltraOrdem;
 end;
 
-procedure TfrmListaAntecipa.BitBtn2Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn2Click(Sender: TObject);
 begin
   LimpaFiltros;
 end;
 
-procedure TfrmListaAntecipa.FormClose(Sender: TObject;
+procedure TfrmOrdemMecanica.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   try
@@ -3127,7 +3218,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.cbFiltroStatusKeyDown(Sender: TObject;
+procedure TfrmOrdemMecanica.cbFiltroStatusKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
   if Key = vk_return then
@@ -3139,7 +3230,7 @@ begin
   end;
 end;
 
-function TfrmListaAntecipa.ApagarOrdemVazia: Boolean;
+function TfrmOrdemMecanica.ApagarOrdemVazia: Boolean;
 begin
   try
     Result := True;
@@ -3213,7 +3304,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.BitBtn6Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn6Click(Sender: TObject);
 begin
   try
       Auditoria(IntToStr(pkCodigoOrdem), 'Cancela Gravação de OS', 'Tela de cadastro',
@@ -3233,7 +3324,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.BitBtn3Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn3Click(Sender: TObject);
 begin
   try
     //AtivaPainelConsulta(True);
@@ -3272,7 +3363,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.BtnNovoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.BtnNovoClick(Sender: TObject);
 begin
   try
     AtivaPainelConsulta(false);
@@ -3296,7 +3387,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.BtnConsultarClick(Sender: TObject);
+procedure TfrmOrdemMecanica.BtnConsultarClick(Sender: TObject);
 begin
   try
     if ConsultaOrdemServico = True then
@@ -3326,7 +3417,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.FormActivate(Sender: TObject);
+procedure TfrmOrdemMecanica.FormActivate(Sender: TObject);
 begin
    XTipoProc := 0; //0 = procura de produtos normal 1=procura pelo nome
    xAliquotaIss := DMMACS.TEmpresa.FieldByName('ISSQN').AsCurrency;
@@ -3354,7 +3445,7 @@ begin
   AtivaPainelConsulta(True);       
 end;
 
-procedure TfrmListaAntecipa.edValorDescontoProdutoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edValorDescontoProdutoExit(Sender: TObject);
 begin
    if (edValorLiquidoProduto.ValueNumeric = 0) and (edValorDescontoProduto.ValueNumeric <> 0) then
    begin
@@ -3366,7 +3457,7 @@ begin
 //   AplicaDescontos;
 end;
 
-procedure TfrmListaAntecipa.edValorLiquidoProdutoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edValorLiquidoProdutoExit(Sender: TObject);
 begin
    //FiltraItens;
    if xValorTotalProduto <> edValorLiquidoProduto.ValueNumeric then
@@ -3389,12 +3480,12 @@ begin
    edValorDescontoOS.ValueNumeric := xValorTotalOS - edValorTotalOS.ValueNumeric;
 end;
 
-function TfrmListaAntecipa.EfetuaCalculoISS: Boolean;
+function TfrmOrdemMecanica.EfetuaCalculoISS: Boolean;
 begin
    xValorISS := edValorLiquidoServico.ValueNumeric * (xAliquotaIss / 100);
 end;
 
-function TfrmListaAntecipa.RetemIss: Boolean;
+function TfrmOrdemMecanica.RetemIss: Boolean;
 begin
    if xRetemISS then
    begin
@@ -3403,7 +3494,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.edValorDescontoServicoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edValorDescontoServicoExit(Sender: TObject);
 begin
    if (edValorLiquidoServico.ValueNumeric = 0) and (edValorDescontoServico.ValueNumeric <> 0) then
    begin
@@ -3418,7 +3509,7 @@ begin
    RetemIss;
 end;
 
-procedure TfrmListaAntecipa.edValorLiquidoServicoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edValorLiquidoServicoExit(Sender: TObject);
 begin
    if xValorTotalServico <> edValorLiquidoServico.ValueNumeric then
    begin
@@ -3439,7 +3530,7 @@ begin
    edValorDescontoOS.ValueNumeric := xValorTotalOS - edValorTotalOS.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.edPlacaExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edPlacaExit(Sender: TObject);
 begin
   if edPlaca.Text = '' then
   begin
@@ -3452,7 +3543,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edPlacaKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmOrdemMecanica.edPlacaKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if (edPlaca.SelLength > 0) and not (KEY = 8) and not (KEY = 13) then
@@ -3465,7 +3556,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.edPlacaKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edPlacaKeyPress(Sender: TObject;
   var Key: Char);
 var
   xPlacaLimpa: string;
@@ -3493,7 +3584,7 @@ begin
 end;
 
 
-function TfrmListaAntecipa.FechaOrd(CODPEDIDO: string; DTFECH: string): Boolean;
+function TfrmOrdemMecanica.FechaOrd(CODPEDIDO: string; DTFECH: string): Boolean;
 var
   ATUFINANC: Boolean; //controle financeiro foram efetivados
   XVLRDESP: Real; //O VLR DAS DESPESAS É DIV POR DOIS ENTRE PROD E SERV.
@@ -3761,7 +3852,7 @@ begin
   }
 end;
 
-procedure TfrmListaAntecipa.BitBtn7Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn7Click(Sender: TObject);
 begin
   FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
     IntToStr(pkCodigoCliente), '');
@@ -3818,7 +3909,7 @@ begin
   edPlacaExit(Sender);
 end;
 
-procedure TfrmListaAntecipa.BitBtn5Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn5Click(Sender: TObject);
 var
   cds: TClientDataSet;
   txtPlaca: String;
@@ -3866,7 +3957,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.edCodClienteKeyDown(Sender: TObject;
+procedure TfrmOrdemMecanica.edCodClienteKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
   if Key = VK_return then
@@ -3901,7 +3992,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnAbreClienteClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnAbreClienteClick(Sender: TObject);
 begin
   FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', '', '', ' ORDER BY NOME');
   if AbrirForm(TFCliente, FCliente, 1) = 'Selected' then
@@ -3941,7 +4032,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edCodVendedorKeyDown(Sender: TObject;
+procedure TfrmOrdemMecanica.edCodVendedorKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
   if Key = VK_return then
@@ -3977,7 +4068,7 @@ begin
 end;
 
 
-procedure TfrmListaAntecipa.btnGravarClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnGravarClick(Sender: TObject);
 begin
    try
        //ApagarOrdemVazia;
@@ -4021,7 +4112,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnInsereProdutoLocalizeClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnInsereProdutoLocalizeClick(Sender: TObject);
 var
   aux: string;
 begin
@@ -4042,14 +4133,14 @@ begin
   FMenu.TIPOAUX := aux;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoQuantidadeExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edInsereProdutoQuantidadeExit(Sender: TObject);
 begin
   edInsereProdutoValorTotal.ValueNumeric :=
     edInsereProdutoQuantidade.ValueNumeric *
     edInsereProdutoValorUnitario.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoValorUnitarioExit(
+procedure TfrmOrdemMecanica.edInsereProdutoValorUnitarioExit(
   Sender: TObject);
 begin
   edInsereProdutoValorTotal.ValueNumeric :=
@@ -4057,14 +4148,14 @@ begin
     edInsereProdutoValorUnitario.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoValorTotalExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edInsereProdutoValorTotalExit(Sender: TObject);
 begin
   edInsereProdutoValorUnitario.ValueNumeric :=
     edInsereProdutoValorTotal.ValueNumeric /
     edInsereProdutoQuantidade.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoDescricaoEnter(Sender: TObject);
+procedure TfrmOrdemMecanica.edInsereProdutoDescricaoEnter(Sender: TObject);
 begin
   DMESTOQUE.WSimilar.Close;
   DMESTOQUE.WSimilar.SQL.Clear;
@@ -4073,7 +4164,7 @@ begin
   DMESTOQUE.WSimilar.Open;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoDescricaoKeyDown(
+procedure TfrmOrdemMecanica.edInsereProdutoDescricaoKeyDown(
   Sender: TObject; var Key: Word; Shift: TShiftState);
 var
   str: string;
@@ -4199,7 +4290,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edInsereProdutoDescricaoKeyUp(Sender: TObject;
+procedure TfrmOrdemMecanica.edInsereProdutoDescricaoKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
   PListaProdutos.Top := 84;
@@ -4345,7 +4436,7 @@ begin
   lPesquisa.Caption := 'Fora de Pesquisa';
 end;
 
-procedure TfrmListaAntecipa.btnInsereProdutoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnInsereProdutoClick(Sender: TObject);
 var
   ResultadoValidacoes: Boolean;
 begin
@@ -4436,7 +4527,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnRemoveProdutoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnRemoveProdutoClick(Sender: TObject);
 var
    xTmpCodigoItem: Integer;
 begin
@@ -4486,12 +4577,12 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.DBGrid1CellClick(Column: TColumn);
+procedure TfrmOrdemMecanica.DBGrid1CellClick(Column: TColumn);
 begin
   XCodTmpEstoque := DBGrid1.Columns[0].Field.Text;
 end;
 
-procedure TfrmListaAntecipa.DBGrid1DblClick(Sender: TObject);
+procedure TfrmOrdemMecanica.DBGrid1DblClick(Sender: TObject);
 begin
   DMESTOQUE.WSimilar.Close;
   DMESTOQUE.WSimilar.SQL.Clear;
@@ -4516,21 +4607,21 @@ begin
   //edInsereProdutoDescricao(sender);
 end;
 
-procedure TfrmListaAntecipa.edInsereServicoQuantidadeExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edInsereServicoQuantidadeExit(Sender: TObject);
 begin
   edInsereServicoValorTotal.ValueNumeric :=
     edInsereServicoQuantidade.ValueNumeric *
     edInsereServicoValorUnitario.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.edInsereServicoValorTotalExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edInsereServicoValorTotalExit(Sender: TObject);
 begin
   edInsereServicoValorUnitario.ValueNumeric :=
     edInsereServicoValorTotal.ValueNumeric /
     edInsereServicoQuantidade.ValueNumeric;
 end;
 
-procedure TfrmListaAntecipa.PesquisaCodigoEquipe(codigo: string);
+procedure TfrmOrdemMecanica.PesquisaCodigoEquipe(codigo: string);
 begin
   // letras maiusculas
   codigo := Trim(UpperCase(codigo));
@@ -4563,7 +4654,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edInsereServicoCodigoResponsavelExit(
+procedure TfrmOrdemMecanica.edInsereServicoCodigoResponsavelExit(
   Sender: TObject);
 begin
   if edInsereServicoCodigoResponsavel.Text <> '' then
@@ -4578,7 +4669,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnInsereResponsavelClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnInsereResponsavelClick(Sender: TObject);
 begin
   if AbrirForm(TFCadEquipe, FCadEquipe, 1) = 'Selected' then
   begin
@@ -4600,7 +4691,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edInsereServicoCodigoResponsavelKeyDown(
+procedure TfrmOrdemMecanica.edInsereServicoCodigoResponsavelKeyDown(
   Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if Key = 13 then
@@ -4618,7 +4709,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnInsereServicoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnInsereServicoClick(Sender: TObject);
 var
   ResultadoValidacoes: Boolean;
 begin
@@ -4685,7 +4776,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.btnRemoveServicoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnRemoveServicoClick(Sender: TObject);
 begin
   if MessageDlg('Remover o item da listagem?' + #13 + #10 + 'Serviços: ' +
     MDO.Query2.FieldByName('despesa').AsString
@@ -4733,7 +4824,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.TravarPaines(oi: boolean);
+procedure TfrmOrdemMecanica.TravarPaines(oi: boolean);
 begin
   if oi then
   begin
@@ -4747,7 +4838,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.FinalizarPopulaComponentes;
+procedure TfrmOrdemMecanica.FinalizarPopulaComponentes;
 begin
   try
   {
@@ -4805,7 +4896,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.FinalizarVerificaCreditoCliente;
+procedure TfrmOrdemMecanica.FinalizarVerificaCreditoCliente;
 begin
   try
     DMServ.Alx.Close;
@@ -4823,7 +4914,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.ChamaMetodoFechamento;
+procedure TfrmOrdemMecanica.ChamaMetodoFechamento;
 var
   xContinua: Boolean;
 begin
@@ -4972,13 +5063,13 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.BtnFechaPedClick(Sender: TObject);
+procedure TfrmOrdemMecanica.BtnFechaPedClick(Sender: TObject);
 begin
    { TODO : Testar fechamentos de OS com forma de pagamento e tela de pagamento }
    ChamaMetodoFechamento;
 End;
 
-procedure TfrmListaAntecipa.FechaOSTelaPagamentos;
+procedure TfrmOrdemMecanica.FechaOSTelaPagamentos;
 begin
    try
        if AjustarAndamentoOrdem(xStatusAndamentoFinalizado, True) = True then
@@ -5008,7 +5099,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.FechaOSTelaFormaPagamentos;
+procedure TfrmOrdemMecanica.FechaOSTelaFormaPagamentos;
 begin
    try
        if AjustarAndamentoOrdem(xStatusAndamentoFinalizado, True) = True then
@@ -5038,12 +5129,12 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.btnAtualizaDadosCadastroClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnAtualizaDadosCadastroClick(Sender: TObject);
 begin
   FiltraItens;
 end;
 
-procedure TfrmListaAntecipa.FrmContaBTNOPENClick(Sender: TObject);
+procedure TfrmOrdemMecanica.FrmContaBTNOPENClick(Sender: TObject);
 var
   Oper: Char;
 begin
@@ -5064,28 +5155,28 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.Iniciado1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Iniciado1Click(Sender: TObject);
 begin
   RefreshOrdem;
   AjustarAndamentoOrdem(xStatusAndamentoIniciado, false);
   FiltraOrdem;
 end;
 
-procedure TfrmListaAntecipa.Paralizado1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Paralizado1Click(Sender: TObject);
 begin
   RefreshOrdem;
   AjustarAndamentoOrdem(xStatusAndamentoParalizado, false);
   FiltraOrdem;
 end;
 
-procedure TfrmListaAntecipa.erminado1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.erminado1Click(Sender: TObject);
 begin
   RefreshOrdem;
   AjustarAndamentoOrdem(xStatusAndamentoTerminado, false);
   FiltraOrdem;
 end;
 
-procedure TfrmListaAntecipa.btnRelatorioClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnRelatorioClick(Sender: TObject);
 var
   lPoint: TPoint;
 begin
@@ -5093,7 +5184,7 @@ begin
   MenuRelatorios.Popup(lPoint.x, lPoint.y);
 end;
 
-procedure TfrmListaAntecipa.ListagemdeOrdensdeServio1Click(
+procedure TfrmOrdemMecanica.ListagemdeOrdensdeServio1Click(
   Sender: TObject);
 begin
   if ControlAccess('RELABERTORD', 'M') = False then
@@ -5103,7 +5194,7 @@ begin
   AbrirForm(TFRelOrdemMecanica, FRelOrdemMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.CancelaFechamento1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.CancelaFechamento1Click(Sender: TObject);
 begin
    pkCodigoOrdem := DMServ.WOrdem.FieldByName('COD_ORDEM').AsInteger;
 
@@ -5147,7 +5238,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.btnOrcamentoClick(Sender: TObject);
+procedure TfrmOrdemMecanica.btnOrcamentoClick(Sender: TObject);
 var
   XSUCCESS: Boolean;
   XDESCERRO: string;
@@ -5436,7 +5527,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.RecuperarDadosdeNFecomachave1Click(
+procedure TfrmOrdemMecanica.RecuperarDadosdeNFecomachave1Click(
   Sender: TObject);
 var
   XChaveNfe: string;
@@ -5484,7 +5575,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.InutilizarNumeraodeNFe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.InutilizarNumeraodeNFe1Click(Sender: TObject);
 begin
   if Mensagem('CONFIRMAÇÃO DO USUÁRIO',
     'Deseja realmente Inutilizar Numeração de Nota Fiscal Eletrônica ?', '', 2,
@@ -5502,7 +5593,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.CancelarNFe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.CancelarNFe1Click(Sender: TObject);
 begin
   if DMServ.WOrdem.FieldByName('STATUS').AsString = 'CANCELADO' then
   begin
@@ -5542,13 +5633,13 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.EnviarCartadeCorreoEletrnica1Click(
+procedure TfrmOrdemMecanica.EnviarCartadeCorreoEletrnica1Click(
   Sender: TObject);
 begin
   IniciaCCe(DMServ.WOrdem.FieldByName('cod_ordem').AsInteger, 'ORDEM');
 end;
 
-procedure TfrmListaAntecipa.ReenviarNFe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.ReenviarNFe1Click(Sender: TObject);
 begin
   //AbrirForm(TFSENHA, FSENHA, 0);
   //repassa resultado da tela de autenticação de senha para as variáveis de controle
@@ -5621,7 +5712,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.ReenviarNFSe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.ReenviarNFSe1Click(Sender: TObject);
 begin
   {PCadastro.SendToBack;
     PCadastro.Visible := False;}
@@ -5691,7 +5782,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.ReenviarNFCeemContingncia1Click(
+procedure TfrmOrdemMecanica.ReenviarNFCeemContingncia1Click(
   Sender: TObject);
 begin
   // verifica se o pedido está mesmo em contingencia
@@ -5711,7 +5802,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.VisualizarDanfe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.VisualizarDanfe1Click(Sender: TObject);
 begin
    pkCodigoOrdem := DMServ.WOrdem.FieldByname('cod_ordem').AsInteger;
    RefreshOrdem;
@@ -5733,7 +5824,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.ConsultarStatusdaNFenoSefaz1Click(
+procedure TfrmOrdemMecanica.ConsultarStatusdaNFenoSefaz1Click(
   Sender: TObject);
 begin
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
@@ -5746,7 +5837,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.ConsultarStatusServioSefaz1Click(
+procedure TfrmOrdemMecanica.ConsultarStatusServioSefaz1Click(
   Sender: TObject);
 begin
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
@@ -5756,7 +5847,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.EfetuardevoluodeNFe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.EfetuardevoluodeNFe1Click(Sender: TObject);
 begin
   FiltraTabela(DMPESSOA.WCliente, 'VWCLIENTE', 'COD_CLIENTE',
     DMServ.WOrdem.FieldByname('COD_CLIENTE').AsString, '');
@@ -5784,13 +5875,13 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.ListarNFescontidasnoSefaz1Click(
+procedure TfrmOrdemMecanica.ListarNFescontidasnoSefaz1Click(
   Sender: TObject);
 begin
   AbrirForm(TFListaNfe, FListaNfe, 0);
 end;
 
-procedure TfrmListaAntecipa.CancelarNFSe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.CancelarNFSe1Click(Sender: TObject);
 begin
   DMESTOQUE.Alx5.Close;
   DMESTOQUE.Alx5.SQL.Clear;
@@ -5817,7 +5908,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.VisualizarNFSe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.VisualizarNFSe1Click(Sender: TObject);
 begin
   FMzrNFSe := TFMzrNFSe.Create(FMzrNFSe);
 
@@ -5825,7 +5916,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.Consultar1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Consultar1Click(Sender: TObject);
 begin
   DMESTOQUE.Alx5.Close;
   DMESTOQUE.Alx5.SQL.Clear;
@@ -5856,7 +5947,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.RecuperarDadosdeNFSe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.RecuperarDadosdeNFSe1Click(Sender: TObject);
 var
   xNumNfse: string;
 begin
@@ -5883,7 +5974,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.EnviarXMLdeNFSeporEmail1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.EnviarXMLdeNFSeporEmail1Click(Sender: TObject);
 begin
   //Edmar - 01/04/2015 - Cria o formulário de NFS-e
   FMzrNFSe := TFMzrNFSe.Create(FMzrNFSe);
@@ -5893,7 +5984,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.EnviarXMLdeNFeporEmail1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.EnviarXMLdeNFeporEmail1Click(Sender: TObject);
 var
   Xcfop: string;
 begin
@@ -5962,7 +6053,7 @@ begin
   FMzrNfe.ShowModal;
 end;
 
-procedure TfrmListaAntecipa.EnviarXMLdeCancelamentoporEmail1Click(
+procedure TfrmOrdemMecanica.EnviarXMLdeCancelamentoporEmail1Click(
   Sender: TObject);
 begin
   FMzrNfe := TFMzrNFe.Create(FMzrNfe); //cria o formulario de transmissão da Nfe
@@ -5974,7 +6065,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.Comprovantemeiapgina1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Comprovantemeiapgina1Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6003,7 +6094,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.Comprovantepginainteira1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Comprovantepginainteira1Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6032,7 +6123,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.Cupomnofiscal1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Cupomnofiscal1Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6061,24 +6152,24 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.Auditoriadeusurio1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Auditoriadeusurio1Click(Sender: TObject);
 begin
    FiltraRegistraRelatorio('ORDEM MECANICA', DMServ.WOrdem.FieldByName('COD_ORDEM').AsString);
 end;
 
-procedure TfrmListaAntecipa.ermodecontratao1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.ermodecontratao1Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'ORDST';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
   FMenu.TIPOREL := '';
 end;
 
-procedure TfrmListaAntecipa.Serviosporequipe1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Serviosporequipe1Click(Sender: TObject);
 begin
   AbrirForm(TFRelEquipe, FRelEquipe, 0);
 end;
 
-procedure TfrmListaAntecipa.DBGridConsultaDrawColumnCell(Sender: TObject;
+procedure TfrmOrdemMecanica.DBGridConsultaDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
 begin
@@ -6111,7 +6202,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.BitBtn11Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn11Click(Sender: TObject);
 var
   lPoint: TPoint;
 begin
@@ -6156,7 +6247,7 @@ begin
    pmImpressaoInterna.Popup(lPoint.x, lPoint.y);
 end;
 
-procedure TfrmListaAntecipa.MenuItem2Click(Sender: TObject);
+procedure TfrmOrdemMecanica.MenuItem2Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6192,7 +6283,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.MenuItem3Click(Sender: TObject);
+procedure TfrmOrdemMecanica.MenuItem3Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6226,7 +6317,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.MenuItem5Click(Sender: TObject);
+procedure TfrmOrdemMecanica.MenuItem5Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6261,14 +6352,14 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.DuplicarOrdemdeServio1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.DuplicarOrdemdeServio1Click(Sender: TObject);
 begin
    MessageDlg('em desenvolvimento...', mtWarning, [mbOK], 0);
    { TODO : Desenvolver funcionalidade para duplicar OS }MessageDlg('em desenvolvimento...', mtWarning, [mbOK], 0);
 
 end;
 
-procedure TfrmListaAntecipa.cbTerceirosClick(Sender: TObject);
+procedure TfrmOrdemMecanica.cbTerceirosClick(Sender: TObject);
 begin
    If cbTerceiros.Checked
    Then Begin
@@ -6284,7 +6375,7 @@ begin
    End;
 end;
 
-procedure TfrmListaAntecipa.pcItensChange(Sender: TObject);
+procedure TfrmOrdemMecanica.pcItensChange(Sender: TObject);
 begin
    If pcItens.ActivePageIndex = 0 Then
        edInsereProdutoDescricao.SetFocus;
@@ -6296,14 +6387,14 @@ begin
        edProblemaReclamado.SetFocus;
 end;
 
-procedure TfrmListaAntecipa.ListarpagamentosRealizados1Click(
+procedure TfrmOrdemMecanica.ListarpagamentosRealizados1Click(
   Sender: TObject);
 begin
    ListarPagamentosRealizados('ORDEM', DmServ.WOrdem.FieldByName('COD_ORDEM').AsInteger);
 //   vamos testar esta funcionalidade
 end;
 
-procedure TfrmListaAntecipa.LaudoTcnico1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.LaudoTcnico1Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6332,7 +6423,7 @@ begin
   end;
 end;
 
-procedure TfrmListaAntecipa.edFiltroNumeroOrdemKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroNumeroOrdemKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6343,7 +6434,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.edFiltroNumeroNfeKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroNumeroNfeKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6353,7 +6444,7 @@ begin
        FiltraOrdemCampo('');
 end;
 
-procedure TfrmListaAntecipa.edFiltroNumeroNfseKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroNumeroNfseKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6363,7 +6454,7 @@ begin
        FiltraOrdemCampo('');
 end;
 
-procedure TfrmListaAntecipa.edFiltroPlacaKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroPlacaKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6373,7 +6464,7 @@ begin
        FiltraOrdemCampo('');
 end;
 
-procedure TfrmListaAntecipa.edFiltroVeiculoKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroVeiculoKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6383,7 +6474,7 @@ begin
        FiltraOrdemCampo('');
 end;
 
-procedure TfrmListaAntecipa.edFiltroClienteKeyPress(Sender: TObject;
+procedure TfrmOrdemMecanica.edFiltroClienteKeyPress(Sender: TObject;
   var Key: Char);
 begin
    if key = #13 then
@@ -6393,7 +6484,7 @@ begin
        FiltraOrdemCampo('');
 end;
 
-procedure TfrmListaAntecipa.BitBtn4Click(Sender: TObject);
+procedure TfrmOrdemMecanica.BitBtn4Click(Sender: TObject);
 begin
    If AbrirForm(TFFormPag, FFormPag, 1) = 'Selected' then
    begin
@@ -6408,7 +6499,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.edPagamentoCodigoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edPagamentoCodigoExit(Sender: TObject);
 begin
    if edPagamentoCodigo.Text <> '' then
    begin
@@ -6420,7 +6511,7 @@ begin
        edPagamentoDescricao.Text := '';
    end;
 end;
-procedure TfrmListaAntecipa.PesquisaCodigoPagamento(codigo: string);
+procedure TfrmOrdemMecanica.PesquisaCodigoPagamento(codigo: string);
 begin
   // letras maiusculas
   codigo := Trim(UpperCase(codigo));
@@ -6445,7 +6536,7 @@ begin
 end;
 
 
-procedure TfrmListaAntecipa.edPagamentoCodigoKeyDown(Sender: TObject;
+procedure TfrmOrdemMecanica.edPagamentoCodigoKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
    if Key = VK_return then
@@ -6462,43 +6553,43 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.edPercentoDescontoProdutoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edPercentoDescontoProdutoExit(Sender: TObject);
 begin
    edValorDescontoProduto.ValueNumeric := (xValorTotalProduto * edPercentoDescontoProduto.ValueNumeric)/100;
    edValorDescontoProdutoExit(sender);
 end;
 
-procedure TfrmListaAntecipa.edPercentoDescontoServicoExit(Sender: TObject);
+procedure TfrmOrdemMecanica.edPercentoDescontoServicoExit(Sender: TObject);
 begin
    edValorDescontoServico.ValueNumeric := (xValorTotalServico * edPercentoDescontoServico.ValueNumeric)/100;
    edValorDescontoServicoExit(sender);
 end;
 
-procedure TfrmListaAntecipa.Sinttico1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Sinttico1Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'SINTETICO';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.Analtico1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Analtico1Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'ANALITICO';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.Serviosporequipe011Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Serviosporequipe011Click(Sender: TObject);
 begin
   AbrirForm(TFRelEquipe, FRelEquipe, 0);
 end;
 
-procedure TfrmListaAntecipa.Serviosporequipe021Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Serviosporequipe021Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'EQUIPE';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
   FMenu.TIPOREL := '';
 end;
 
-procedure TfrmListaAntecipa.Serviosporclassificao1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Serviosporclassificao1Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'RELSERVICOCLASSIFICACAO';
   DMBANCO.TAlx.Close;
@@ -6510,7 +6601,7 @@ begin
   AbrirForm(TFRelData, FRelData, 0);
 end;
 
-procedure TfrmListaAntecipa.ServiosporclassificaoGrfico1Click(
+procedure TfrmOrdemMecanica.ServiosporclassificaoGrfico1Click(
   Sender: TObject);
 begin
   FMenu.TIPOREL := 'RELSERVICOCLASSIFICACAOGRAFICO';
@@ -6523,27 +6614,27 @@ begin
   AbrirForm(TFRelData, FRelData, 0);
 end;
 
-procedure TfrmListaAntecipa.Extrato1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.Extrato1Click(Sender: TObject);
 begin
   FMenu.TIPOREL := 'EXTRATO_OS';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.ProdutosvendidoscomCusto1Click(
+procedure TfrmOrdemMecanica.ProdutosvendidoscomCusto1Click(
   Sender: TObject);
 begin
   FMenu.TIPOREL := 'RELATORIODEVENDADEPRODUTOCUSTO';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.ProdutosvendidoscomcustodeNFe1Click(
+procedure TfrmOrdemMecanica.ProdutosvendidoscomcustodeNFe1Click(
   Sender: TObject);
 begin
   FMenu.TIPOREL := 'RELATORIODEVENDADEPRODUTOCUSTONFE';
   AbrirForm(TFRelMecanica, FRelMecanica, 0);
 end;
 
-procedure TfrmListaAntecipa.LaudoTcnico2Click(Sender: TObject);
+procedure TfrmOrdemMecanica.LaudoTcnico2Click(Sender: TObject);
 var
   objRelatorioOrdemServico : TRelatorioOrdemServico;
 begin
@@ -6570,7 +6661,7 @@ begin
    end; 
 end;
 
-procedure TfrmListaAntecipa.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmOrdemMecanica.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
    //botão GRAVAR
@@ -6601,7 +6692,7 @@ begin
 
 end;
 
-procedure TfrmListaAntecipa.Adiantamento;
+procedure TfrmOrdemMecanica.Adiantamento;
 begin
    try
        begin
@@ -6625,7 +6716,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.ChamaAdiantamento;
+procedure TfrmOrdemMecanica.ChamaAdiantamento;
 var
   xContinua: Boolean;
 begin
@@ -6670,7 +6761,7 @@ begin
    end;
 end;
 
-procedure TfrmListaAntecipa.LanarAntecipao1Click(Sender: TObject);
+procedure TfrmOrdemMecanica.LanarAntecipao1Click(Sender: TObject);
 var antecipa:TfrmAntecipa;
 begin
    ChamaAdiantamento;

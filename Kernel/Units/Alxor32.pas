@@ -384,6 +384,8 @@ Function DesconectBanco: Boolean;
 
 Function LancarAdiantamentos(xModulo: String; xCodigoModulo: Integer): Boolean;
 
+Function ListarAntecipacao(xModulo: String; xCodigoModulo: Integer): Boolean;
+
 Function IniciaFechamento(xModulo: String; xCodigoModulo: Integer): Boolean;
 // DJ 05/03/2010: Gera script para atualizacao de banco de dados
 Procedure GeraScriptVisualizacao;
@@ -452,7 +454,7 @@ implementation
 uses
   SynCommons, IdMessage, UPrecoServ, Math, UFechaConta, UDMExporta, UnitDeclaracoes,
   Alxorprn, UCadReducaoZ, UMDO, UCartaCorrecaoEletronica, UDMFAST, PngImage, HTTPApp,
-  Variants, TypInfo, StrUtils, UPgto, UFechamento, UAntecipa;
+  Variants, TypInfo, StrUtils, UPgto, UFechamento, UAntecipa, UListaAntecipacao;
 
 type
   TQrImage_ErrCorrLevel = (L, M, Q, H);
@@ -2734,6 +2736,43 @@ Begin
 
   End;
 End;
+
+Function ListarAntecipacao(xModulo: String; xCodigoModulo: Integer): Boolean;
+Begin
+  Try
+    xResultadoPagamento    := 'ERRO';
+    xCod_PedidoPagamento   := xCodigoModulo;
+    xTipoPedidoPagamento   := xModulo;
+    xControleFechaTela     := False;
+    MDO.Transac.CommitRetaining;
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    If xTipoPedidoPagamento = 'ORDEM'
+    Then
+    Begin
+      MDO.Query.SQL.Add('   select vwordem.cod_ordem, ordem.Edit as USO,  vwordem.cod_cliente as CodigoCliente, vwordem.cliente as cliente, vwordem.cod_vendedor as CodigoVendedor, vwordem.numero as NumeroDocumento, ');
+      MDO.Query.SQL.Add('    vwordem.formapag as CodigoFormaPagamento, vwordem.status as SITUACAO, vwordem.cod_ordem as CODIGO, vwordem.numero as NUMERO, vwordem.total  AS TOTAL, ordem.totprod as TOTALPRODUTO, ordem.totserv as TOTALSERVICO ');
+      MDO.Query.SQL.Add('    from vwordem ');
+      MDO.Query.SQL.Add('    left join ordem on vwordem.cod_ordem = ordem.cod_ordem ');
+      MDO.Query.SQL.Add('    where vwordem.cod_ordem = :codigo');;
+      MDO.Query.ParamByName('CODIGO').AsInteger := xCod_PedidoPagamento;
+      xTipoGerador := 'ADIANTAORD';
+    End;
+    MDO.Query.SQL.Text;
+    MDO.Query.Open;
+    // Agora, atribuir o nome do cliente à variável XNome_Cliente
+    XNome_Cliente := MDO.Query.FieldByName('cliente').AsString;
+    XCod_Cliente := MDO.Query.FieldByName('CodigoCliente').AsInteger;
+    XNumeroOS := MDO.Query.FieldByName('NUMERO').AsInteger;
+    XValorTotalOS := MDO.Query.FieldByName('TOTAL').AsFloat;
+
+    If xControleFechaTela = False Then
+       AbrirForm(TfrmListaAntecipacao, frmListaAntecipacao, 0);
+  Except
+
+  End;
+End;
+
 
 
 // Função utilizada para fechar conta (TIPO=C para compra, TIPO=V para vendas e ordens de serviços)

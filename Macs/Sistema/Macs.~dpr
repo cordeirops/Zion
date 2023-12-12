@@ -210,13 +210,13 @@ uses
   Validacoes in '..\..\Kernel\Units\Validacoes.pas',
   FResultadoValidacoes in '..\..\Kernel\Units\FResultadoValidacoes.pas' {FResultadoValidacoesTestes},
   UAjuda in 'UAjuda.pas' {FAjuda},
-  NFSe_Util_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFSe_Util_TLB.pas',
+  NFSe_Util_TLB in '..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFSe_Util_TLB.pas',
   URelProdutosNcm in 'Relatórios\estoque\URelProdutosNcm.pas' {FRelProdutosNcm},
   UCredDev in 'ModVendas\UCredDev.pas' {FCredDev},
   UControleSaida in 'ModVendas\UControleSaida.pas' {FControleSaida},
   UContagemEstoque in 'UContagemEstoque.pas' {FContagemEstoque},
   UAntecipaCR in 'Financeiro\UAntecipaCR.pas' {FAntecipaCR},
-  NFe_Util_2G_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFe_Util_2G_TLB.pas',
+  NFe_Util_2G_TLB in '..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFe_Util_2G_TLB.pas',
   URelServicosPet in 'ModVendas\URelServicosPet.pas' {FRelServicosPet},
   ULancamentoEstoque in 'ULancamentoEstoque.pas' {FLancamentoEstoque},
   uOrdemMecanica in 'ModVendas\uOrdemMecanica.pas' {frmOrdemMecanica},
@@ -226,7 +226,8 @@ uses
   UPagamentosRealizados in 'Financeiro\UPagamentosRealizados.pas' {FPagamentosRealizados},
   UFechamento in 'Financeiro\UFechamento.pas' {frmFechamento},
   UHistoricoMovimentoEstoque in 'ModVendas\UHistoricoMovimentoEstoque.pas' {frmHistoricoMovimentoEstoque},
-  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa};
+  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa},
+  UListaAntecipacao in 'Financeiro\UListaAntecipacao.pas' {frmListaAntecipacao};
 
 {FExpedicao}
 
@@ -254,16 +255,193 @@ begin
   End;
 
     Application.Title := 'ZION';
-    Application.CreateForm(TFMenu, FMenu);
-  Application.CreateForm(TFSplash, FSplash);
-  Application.CreateForm(TFResultadoValidacoesTestes, FResultadoValidacoesTestes);
-  Application.CreateForm(TFRelGeralMovimentacoesFinanceiras, FRelGeralMovimentacoesFinanceiras);
+    Application.CreateForm(TFSplash, FSplash);
+  Application.CreateForm(TFMessage, FMessage);
+  Application.CreateForm(TFPadrao, FPadrao);
+  Application.CreateForm(TFECF, FECF);
+  Application.CreateForm(TFMensagem, FMensagem);
+  Application.CreateForm(TX, X);
+  Application.CreateForm(TFLogoff, FLogoff);
+  Application.CreateForm(TFPadraoRodaPe, FPadraoRodaPe);
+  Application.CreateForm(TFCadPadrao, FCadPadrao);
+  Application.CreateForm(TFCadPadraoDesc, FCadPadraoDesc);
+  Application.CreateForm(TFCadBanco, FCadBanco);
+  Application.CreateForm(TFDesliga, FDesliga);
+  Application.CreateForm(TFCadRegiao, FCadRegiao);
+  Application.CreateForm(TFCadEstado, FCadEstado);
+  Application.CreateForm(TFCadCidade, FCadCidade);
+  Application.CreateForm(TFCadLoja, FCadLoja);
+  Application.CreateForm(TFConfigLoja, FConfigLoja);
+  Application.CreateForm(TFCadEmpresa, FCadEmpresa);
+  Application.CreateForm(TFCadAgencia, FCadAgencia);
+  Application.CreateForm(TFCadCtaCor, FCadCtaCor);
+  Application.CreateForm(TFCadCargo, FCadCargo);
+  Application.CreateForm(TFCadCST, FCadCST);
+  Application.CreateForm(TFCadGrupo, FCadGrupo);
+  Application.CreateForm(TFCadMoeda, FCadMoeda);
+  Application.CreateForm(TFCadSubgrupo, FCadSubgrupo);
+  Application.CreateForm(TFCadUnidade, FCadUnidade);
+  Application.CreateForm(TFCadEquipamento, FCadEquipamento);
+  Application.CreateForm(TFAcessBase, FAcessBase);
+  Application.CreateForm(TFTroca, FTroca);
+  Application.CreateForm(TFRelMovBanco, FRelMovBanco);
+  Application.CreateForm(TFRelComissao, FRelComissao);
+  Application.CreateForm(TFConvertUnid, FConvertUnid);
+  Application.CreateForm(TFCadReducaoZ, FCadReducaoZ);
+  Application.CreateForm(TFGeraSintegra, FGeraSintegra);
+  Application.CreateForm(TFRelEstrutResult, FRelEstrutResult);
+  Application.CreateForm(TFOrcamento, FOrcamento);
+  Application.CreateForm(TFConsProduto, FConsProduto);
+  Application.CreateForm(TFRelData, FRelData);
+  Application.CreateForm(TFRelMovCaixa, FRelMovCaixa);
+  Application.CreateForm(TFExpImp, FExpImp);
+  Application.CreateForm(TFLogoff1, FLogoff1);
+  Application.CreateForm(TFFiscal, FFiscal);
+  Application.CreateForm(TFConfigNF, FConfigNF);
+  Application.CreateForm(TFRelCtasSetor, FRelCtasSetor);
+  Application.CreateForm(TFRelGraficoLine, FRelGraficoLine);
+  Application.CreateForm(TFLicita, FLicita);
+  Application.CreateForm(TFRelGraficoLine03, FRelGraficoLine03);
+  Application.CreateForm(TFBaixaMult, FBaixaMult);
+  Application.CreateForm(TFFaturaPedidos, FFaturaPedidos);
+  Application.CreateForm(TFResumoMov, FResumoMov);
+  Application.CreateForm(TFConfigEtq02, FConfigEtq02);
+  Application.CreateForm(TFRelMovBancoPeriodo, FRelMovBancoPeriodo);
+  Application.CreateForm(TFConfigDup, FConfigDup);
+  Application.CreateForm(TFRelClienteData, FRelClienteData);
+  Application.CreateForm(TFCtrlEntrega, FCtrlEntrega);
+  Application.CreateForm(TFCtasReceberLote, FCtasReceberLote);
+  Application.CreateForm(TFConfCheque, FConfCheque);
+  Application.CreateForm(TFCadOferta, FCadOferta);
+  Application.CreateForm(TFCadEquipe, FCadEquipe);
+  Application.CreateForm(TFRelEquipamento, FRelEquipamento);
+  Application.CreateForm(TFRelEquipe, FRelEquipe);
+  Application.CreateForm(TFPrecoServ, FPrecoServ);
+  Application.CreateForm(TFAtualizaValores, FAtualizaValores);
+  Application.CreateForm(TFRelProdCli, FRelProdCli);
+  Application.CreateForm(TFrmPreview, FrmPreview);
+  Application.CreateForm(TFrmPrint, FrmPrint);
+  Application.CreateForm(TFRelEstoque, FRelEstoque);
+  Application.CreateForm(TFRelComissaoProd, FRelComissaoProd);
+  Application.CreateForm(TFOrdemMec, FOrdemMec);
+  Application.CreateForm(TFRelMecanica, FRelMecanica);
+  Application.CreateForm(TFExpImpXML, FExpImpXML);
+  Application.CreateForm(TFAuditoria, FAuditoria);
+  Application.CreateForm(TFFechaConta, FFechaConta);
+  Application.CreateForm(TFPadraoFiscal, FPadraoFiscal);
+  Application.CreateForm(TFFiscalEntradas, FFiscalEntradas);
+  Application.CreateForm(TFFiscalSaidas, FFiscalSaidas);
+  Application.CreateForm(TFFiscalOrdem, FFiscalOrdem);
+  Application.CreateForm(TFPeriodoFiscal, FPeriodoFiscal);
+  Application.CreateForm(TFImpSintegra, FImpSintegra);
+  Application.CreateForm(TFMzrNfe, FMzrNfe);
+  Application.CreateForm(TFCadProduto, FCadProduto);
+  Application.CreateForm(TFCadNcm, FCadNcm);
+  Application.CreateForm(TFNovidades, FNovidades);
+  Application.CreateForm(TFListaNfe, FListaNfe);
+  Application.CreateForm(TFRelPeriodoFiscal, FRelPeriodoFiscal);
+  Application.CreateForm(TFRelLancContas, FRelLancContas);
+  Application.CreateForm(TFConsultaPedVenda, FConsultaPedVenda);
+  Application.CreateForm(TFOrdemDesp, FOrdemDesp);
+  Application.CreateForm(TFExportaDominio, FExportaDominio);
+  Application.CreateForm(TFOrdemPet, FOrdemPet);
+  Application.CreateForm(TFFreqVenda, FFreqVenda);
+  Application.CreateForm(TFOrdemLoca, FOrdemLoca);
+  Application.CreateForm(TFCadServico, FCadServico);
+  Application.CreateForm(TFOrdemRetifica, FOrdemRetifica);
+  Application.CreateForm(TFImpNfe, FImpNfe);
+  Application.CreateForm(TFCadAcessorios, FCadAcessorios);
+  Application.CreateForm(TFRelChequeEmit, FRelChequeEmit);
+  Application.CreateForm(TFAtualizaBanco, FAtualizaBanco);
+  Application.CreateForm(TFfServico, FfServico);
+  Application.CreateForm(TFMzrNFSe, FMzrNFSe);
   Application.CreateForm(TFOrcamentoMac, FOrcamentoMac);
+  Application.CreateForm(TFOrdemLocaMensal, FOrdemLocaMensal);
+  Application.CreateForm(TFCartaCorrecaoeletronica, FCartaCorrecaoeletronica);
+  Application.CreateForm(TFOrdemGrafica, FOrdemGrafica);
+  Application.CreateForm(TFGeradorXML, FGeradorXML);
+  Application.CreateForm(TFCadCartao, FCadCartao);
+  Application.CreateForm(TFFaturaContas, FFaturaContas);
+  Application.CreateForm(TFOrdemManutencao, FOrdemManutencao);
+  Application.CreateForm(TFSped, FSped);
+  Application.CreateForm(TFRelGraficoPizza, FRelGraficoPizza);
+  Application.CreateForm(TFEscolhaServico, FEscolhaServico);
+  Application.CreateForm(TFNumeroNfse, FNumeroNfse);
+  Application.CreateForm(TFRelDestinatario, FRelDestinatario);
+  Application.CreateForm(TFLancTroco, FLancTroco);
+  Application.CreateForm(TFOrcamento3, FOrcamento3);
+  Application.CreateForm(TFSolicitarCompra, FSolicitarCompra);
+  Application.CreateForm(TFFichaTecnica, FFichaTecnica);
+  Application.CreateForm(TFDevolucao, FDevolucao);
+  Application.CreateForm(TFRelBancoPlanoContas, FRelBancoPlanoContas);
+  Application.CreateForm(TFRelGeralMovimentacoesFinanceiras, FRelGeralMovimentacoesFinanceiras);
+  Application.CreateForm(TFRelProdutos, FRelProdutos);
+  Application.CreateForm(TFRelHistVenda, FRelHistVenda);
+  Application.CreateForm(TFFaturaOrdemMensal, FFaturaOrdemMensal);
+  Application.CreateForm(TFOrdemProduc, FOrdemProduc);
+  Application.CreateForm(TFOrdemAssitenciaTecnica, FOrdemAssitenciaTecnica);
+  Application.CreateForm(TFExpVenda, FExpVenda);
+  Application.CreateForm(TFRecorrenciaOs, FRecorrenciaOs);
+  Application.CreateForm(TFResultadoValidacoesTestes, FResultadoValidacoesTestes);
+  Application.CreateForm(TFAjuda, FAjuda);
+  Application.CreateForm(TFRelProdutosNcm, FRelProdutosNcm);
+  Application.CreateForm(TFCredDev, FCredDev);
   Application.CreateForm(TFControleSaida, FControleSaida);
   Application.CreateForm(TFContagemEstoque, FContagemEstoque);
+  Application.CreateForm(TFAntecipaCR, FAntecipaCR);
   Application.CreateForm(TFRelServicosPet, FRelServicosPet);
+  Application.CreateForm(TFLancamentoEstoque, FLancamentoEstoque);
+  Application.CreateForm(TfrmOrdemMecanica, frmOrdemMecanica);
+  Application.CreateForm(TFRelOrdemMecanica, FRelOrdemMecanica);
+  Application.CreateForm(TFPgto, FPgto);
+  Application.CreateForm(TFPagamentosRealizados, FPagamentosRealizados);
+  Application.CreateForm(TfrmFechamento, frmFechamento);
   Application.CreateForm(TfrmHistoricoMovimentoEstoque, frmHistoricoMovimentoEstoque);
   Application.CreateForm(TfrmAntecipa, frmAntecipa);
+  Application.CreateForm(TfrmListaAntecipacao, frmListaAntecipacao);
+  Application.CreateForm(TFRelComisPedC, FRelComisPedC);
+  Application.CreateForm(TFRelProduc, FRelProduc);
+  Application.CreateForm(TFRelOrdem, FRelOrdem);
+  Application.CreateForm(TFConfigEtqProd, FConfigEtqProd);
+  Application.CreateForm(TFComissao, FComissao);
+  Application.CreateForm(TFSenha, FSenha);
+  Application.CreateForm(TFOrdem, FOrdem);
+  Application.CreateForm(TFServico, FServico);
+  Application.CreateForm(TFLanCHSaida, FLanCHSaida);
+  Application.CreateForm(TFLanCHEntr, FLanCHEntr);
+  Application.CreateForm(TFLanCHPadrao, FLanCHPadrao);
+  Application.CreateForm(TFRelEtiqEstoque, FRelEtiqEstoque);
+  Application.CreateForm(TFRelPadraoPed, FRelPadraoPed);
+  Application.CreateForm(TFMovBanco, FMovBanco);
+  Application.CreateForm(TFCadPadraoRodaPe, FCadPadraoRodaPe);
+  Application.CreateForm(TFRelCtaPR, FRelCtaPR);
+  Application.CreateForm(TFRelPadraoPes, FRelPadraoPes);
+  Application.CreateForm(TFRelCaixa, FRelCaixa);
+  Application.CreateForm(TFPadraoRelatorio, FPadraoRelatorio);
+  Application.CreateForm(TFBaixaContaReceber, FBaixaContaReceber);
+  Application.CreateForm(TFBaixaContaPagar, FBaixaContaPagar);
+  Application.CreateForm(TFPadraoBaixaContas, FPadraoBaixaContas);
+  Application.CreateForm(TFCtaPagar, FCtaPagar);
+  Application.CreateForm(TFCtaReceber, FCtaReceber);
+  Application.CreateForm(TFPadraoContas, FPadraoContas);
+  Application.CreateForm(TFFechaCaixa, FFechaCaixa);
+  Application.CreateForm(TFLancCaixa, FLancCaixa);
+  Application.CreateForm(TFABCaixa, FABCaixa);
+  Application.CreateForm(TFPedVenda, FPedVenda);
+  Application.CreateForm(TFPedCompra, FPedCompra);
+  Application.CreateForm(TFPedidoPadrao, FPedidoPadrao);
+  Application.CreateForm(TFProduto, FProduto);
+  Application.CreateForm(TFPlanoAcesso, FPlanoAcesso);
+  Application.CreateForm(TFCadUsuario, FCadUsuario);
+  Application.CreateForm(TFFuncionario, FFuncionario);
+  Application.CreateForm(TFFornecedor, FFornecedor);
+  Application.CreateForm(TFCliente, FCliente);
+  Application.CreateForm(TFCadPadraoPes, FCadPadraoPes);
+  Application.CreateForm(TFCadCaixa, FCadCaixa);
+  Application.CreateForm(TFCadCFOP, FCadCFOP);
+  Application.CreateForm(TFConsPlnCta, FConsPlnCta);
+  Application.CreateForm(TFFormPag, FFormPag);
+  Application.CreateForm(TFMenu, FMenu);
   FSplash.LVERSAO.Caption := XVersaoSistema;
     FMenu.Caption := 'Versão: ' + XVersaoSistema;
     FSplash.Show;

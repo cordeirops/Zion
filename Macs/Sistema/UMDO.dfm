@@ -6,6 +6,7 @@ object MDO: TMDO
   Width = 562
   object DB: TMDODatabase
     ClientLib = clGDS32
+    Connected = True
     DatabaseName = 'C:\MZR\MACS\DBMACS.GDB'
     DefaultTransaction = Transac
     IdleTimer = 0
@@ -20,7 +21,7 @@ object MDO: TMDO
     Top = 8
   end
   object Transac: TMDOTransaction
-    Active = False
+    Active = True
     AutoCommit = False
     DefaultAction = TACommitRetaining
     DefaultDatabase = DB
@@ -43,54 +44,12 @@ object MDO: TMDO
   object QConsulta: TMDOQuery
     Database = DB
     Transaction = Transac
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     LoadDefaults = False
     SQL.Strings = (
-      
-        ' Select vwordem.cod_ordem, vwordem.cod_equipamento, vwordem.cod_' +
-        'cliente,'
-      
-        '        ordem.cod_formpag, vwordem.cod_vendedor, ordem.DESCPROD,' +
-        '  ordem.DESCSERV,'
-      
-        '        ordem.desconto, ordem.totprod, ordem.totserv, ordem.toto' +
-        'rd,'
-      
-        '        equipamento.placa, equipamento.descricao as veiculo, ord' +
-        'em.totkm,'
-      
-        '        equipamento.num_frota, ordem.placa2, ordem.placa3, ordem' +
-        '.LOCALAT,'
-      
-        '        vwcliente.cod_cliente, vwcliente.nome, cliente.obsfinanc' +
-        'eira,'
-      '        formpag.cod_formpag, formpag.descricao as pagamento,'
-      
-        '        vwfuncionario.cod_func as codvendedor, vwfuncionario.nom' +
-        'e as vendedor,'
-      
-        '        vwordem.dtabert, ordem.observacao, ordem.obsordem, ordem' +
-        '.SOLUCAO, ordem.PROBREC AS PROBLEMA, vwordem.numero'
-      ' from vwordem'
-      
-        ' left join ordem         on vwordem.cod_ordem        = ordem.cod' +
-        '_ordem'
-      
-        ' left join equipamento   on vwordem.cod_equipamento  = equipamen' +
-        'to.cod_equipamento'
-      
-        ' left join vwcliente     on vwordem.cod_cliente      = vwcliente' +
-        '.cod_cliente'
-      
-        ' left join cliente       on vwcliente.cod_cliente    = cliente.c' +
-        'od_cliente'
-      
-        ' left join formpag       on ordem.cod_formpag        = formpag.c' +
-        'od_formpag'
-      
-        ' left join vwfuncionario on vwordem.cod_vendedor     = vwfuncion' +
-        'ario.cod_func')
+      ' SELECT * FROM ANTECIPACOES')
     Left = 39
     Top = 104
   end

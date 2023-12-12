@@ -3565,6 +3565,7 @@ object frmOrdemMecanica: TfrmOrdemMecanica
         end
         object ConsultarAtencipaes1: TMenuItem
           Caption = 'Consultar Atencipa'#231#245'es'
+          OnClick = ConsultarAtencipaes1Click
         end
       end
     end

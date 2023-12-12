@@ -268,9 +268,10 @@ begin
         MPainel.Lines.Add('Erro ao criar gerador para o campo COD_ANTECIPACAO da tabela ANTECIPACOES');
       if InsereTrigger('ANTECIPACOES', 'gen_antecipacoes_id', 'COD_ANTECIPACAO') = False then
         MPainel.Lines.Add('Erro ao criar triger para o gerador para o campo COD_ANTECIPACao da tabela ANTECIPACOES');
-
       if not AtualizaTabela('ANTECIPACOES', 'NUMERO_ORDEM', 'INTEGER') then
         MPainel.Lines.Add('Erro ao atualizar o campo: NUMERO_ORDEM da tabela: ANTECIPACOES');
+      if not AtualizaTabela('ANTECIPACOES', 'CLIENTE', 'VARCHAR(200)') then
+        MPainel.Lines.Add('Erro ao atualizar o campo: CLIENTE da tabela: ANTECIPACOES');
       if not AtualizaTabela('ANTECIPACOES', 'DATA_ANTECIPACAO', 'DATE') then
         MPainel.Lines.Add('Erro ao atualizar o campo: DATA_ANTECIPACAO da tabela: ANTECIPACOES');
       if not AtualizaTabela('ANTECIPACOES', 'USUARIO', 'VARCHAR(50)') then

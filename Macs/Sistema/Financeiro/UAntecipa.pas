@@ -292,14 +292,15 @@ begin
             MDO.Transac.CommitRetaining;
             MDO.Query.Close;
             MDO.Query.SQL.Clear;
-            MDO.Query.SQL.Add('SELECT COD_CHEQUREC FROM CHEQUEREC');
-            MDO.Query.SQL.Add('WHERE CHEQUEREC.VALOR = :XVLR_ANTECIPACAO');
-            MDO.Query.SQL.Add('ORDER BY COD_CHEQUEREC DESC ROWS 1');
+            MDO.Query.SQL.Add('SELECT COD_MOVBANCO FROM MOVBANCO');
+            MDO.Query.SQL.Add('WHERE MOVBANCO.VALOR = :XVLR_ANTECIPACAO');
+            MDO.Query.SQL.Add('AND TIPOGERADOR = :tipogerador');
+            MDO.Query.SQL.Add('ORDER BY COD_MOVBANCO DESC ROWS 1');
             MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
-
+            MDO.Query.ParamByName('tipogerador').AsString := 'ADIANTAORD';
             MDO.Query.SQL.Text;
             MDO.Query.Open;
-            COD_MOVIMENTO := MDO.Query.FieldByName('COD_CHEQUEREC').AsInteger;
+            COD_MOVIMENTO := MDO.Query.FieldByName('COD_MOVBANCO').AsInteger;
             TIPO_MOVIMENTO := 'Cheque';
             MDO.Transac.CommitRetaining;
          end;
@@ -312,7 +313,7 @@ begin
             MDO.Query.SQL.Add('SELECT COD_LANC FROM LANCAIXA');
             MDO.Query.SQL.Add('WHERE LANCAIXA.VALOR = :XVLR_ANTECIPACAO');
             MDO.Query.SQL.Add('AND TIPOGERADOR = :tipogerador');
-            MDO.Query.SQL.Add('ORDER BY COD_CHEQUEREC DESC ROWS 1');
+            MDO.Query.SQL.Add('ORDER BY COD_LANC DESC ROWS 1');
             MDO.Query.ParamByName('XVLR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;
             MDO.Query.ParamByName('tipogerador').AsString := 'ADIANTAORD';
 
@@ -326,8 +327,9 @@ begin
          MDO.Transac.CommitRetaining;
          MDO.Query.Close;
          MDO.Query.SQL.Clear;
-         MDO.Query.SQL.Add('INSERT INTO antecipacoes (numero_ordem, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO, TIPO_MOVIMENTO, COD_MOVIMENTO) VALUES (:numero_ordem, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO, :TIPO_MOVIMENTO, :COD_MOVIMENTO)');
+         MDO.Query.SQL.Add('INSERT INTO antecipacoes (numero_ordem, CLIENTE, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO, TIPO_MOVIMENTO, COD_MOVIMENTO) VALUES (:numero_ordem, :CLIENTE, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO, :TIPO_MOVIMENTO, :COD_MOVIMENTO)');
          MDO.Query.ParamByName('numero_ordem').AsInteger := xNumeroOs;
+         MDO.Query.ParamByName('CLIENTE').AsString := xNome_Cliente;
          MDO.Query.ParamByName('DATA_ANTECIPACAO').AsDateTime := Now;
          MDO.Query.ParamByName('USUARIO').AsString := FMenu.edusuario.Text;
          MDO.Query.ParamByName('VALOR_ANTECIPACAO').AsCurrency := XVLR_ANTECIPACAO;

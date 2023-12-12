@@ -210,13 +210,13 @@ uses
   Validacoes in '..\..\Kernel\Units\Validacoes.pas',
   FResultadoValidacoes in '..\..\Kernel\Units\FResultadoValidacoes.pas' {FResultadoValidacoesTestes},
   UAjuda in 'UAjuda.pas' {FAjuda},
-  NFSe_Util_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFSe_Util_TLB.pas',
+  NFSe_Util_TLB in '..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFSe_Util_TLB.pas',
   URelProdutosNcm in 'Relatórios\estoque\URelProdutosNcm.pas' {FRelProdutosNcm},
   UCredDev in 'ModVendas\UCredDev.pas' {FCredDev},
   UControleSaida in 'ModVendas\UControleSaida.pas' {FControleSaida},
   UContagemEstoque in 'UContagemEstoque.pas' {FContagemEstoque},
   UAntecipaCR in 'Financeiro\UAntecipaCR.pas' {FAntecipaCR},
-  NFe_Util_2G_TLB in '..\..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFe_Util_2G_TLB.pas',
+  NFe_Util_2G_TLB in '..\..\..\Program Files (x86)\Borland\Delphi7\Imports\NFe_Util_2G_TLB.pas',
   URelServicosPet in 'ModVendas\URelServicosPet.pas' {FRelServicosPet},
   ULancamentoEstoque in 'ULancamentoEstoque.pas' {FLancamentoEstoque},
   uOrdemMecanica in 'ModVendas\uOrdemMecanica.pas' {frmOrdemMecanica},
@@ -226,7 +226,8 @@ uses
   UPagamentosRealizados in 'Financeiro\UPagamentosRealizados.pas' {FPagamentosRealizados},
   UFechamento in 'Financeiro\UFechamento.pas' {frmFechamento},
   UHistoricoMovimentoEstoque in 'ModVendas\UHistoricoMovimentoEstoque.pas' {frmHistoricoMovimentoEstoque},
-  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa};
+  UAntecipa in 'Financeiro\UAntecipa.pas' {frmAntecipa},
+  UListaAntecipacao in 'Financeiro\UListaAntecipacao.pas' {frmListaAntecipacao};
 
 {FExpedicao}
 
@@ -263,7 +264,6 @@ begin
   Application.CreateForm(TFContagemEstoque, FContagemEstoque);
   Application.CreateForm(TFRelServicosPet, FRelServicosPet);
   Application.CreateForm(TfrmHistoricoMovimentoEstoque, frmHistoricoMovimentoEstoque);
-  Application.CreateForm(TfrmAntecipa, frmAntecipa);
   FSplash.LVERSAO.Caption := XVersaoSistema;
     FMenu.Caption := 'Versão: ' + XVersaoSistema;
     FSplash.Show;
