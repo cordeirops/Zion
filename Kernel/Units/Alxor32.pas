@@ -98,6 +98,7 @@ Var
   XTimeoutMestre: Integer;
   XCod_Cliente: Integer;
   XNome_Cliente: String;
+  XNumeroOs: Integer;
   // Variaveis utilizados para controles de pagamento
 
   // fim de variaveis de controle de pagamento
@@ -2724,11 +2725,10 @@ Begin
     End;
     MDO.Query.SQL.Text;
     MDO.Query.Open;
-    // Agora, atribuir o nome do cliente à variável XNome_Cliente
     XNome_Cliente := MDO.Query.FieldByName('cliente').AsString;
     XCod_Cliente := MDO.Query.FieldByName('CodigoCliente').AsInteger;
-    XNumeroOS := MDO.Query.FieldByName('NUMERO').AsInteger;
     XValorTotalOS := MDO.Query.FieldByName('TOTAL').AsFloat;
+    XNumeroOs := MDO.Query.FieldByName('NUMERO').AsInteger;
 
     If xControleFechaTela = False Then
        AbrirForm(TfrmAntecipa, frmAntecipa, 0);

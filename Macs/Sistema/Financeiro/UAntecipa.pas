@@ -53,7 +53,6 @@ var
    XCOD_ORDEM: Integer;
    XTipoGerador: string;
    XVLR_ANTECIPACAO: Real;
-   XNumeroOS: Integer;
    XValorTotalOS: Real;
    XExisteValorAntecipacao: Real;
 
@@ -76,21 +75,23 @@ end;
 procedure TfrmAntecipa.FormActivate(Sender: TObject);
 begin
    PContaCorrente.Visible := False;
+   MDO.Transac.CommitRetaining;
+   MDO.Query.Close;
+   MDO.Query.SQL.Clear;
+   MDO.Query.SQL.Add('SELECT ordem.numero FROM ordem WHERE ordem.cod_ordem = :CodigoOrdem');
+   MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
+   MDO.Query.Open;
+   XNumeroOs := MDO.Query.FieldByName('numero').AsInteger;
+
    LblTipoServico.Caption := 'Adiantamento';
-   LblNumero.Caption := IntToStr(xNumeroOS);
+   LblNumero.Caption := IntToStr(XNumeroOs);
    MDO.Query.Close;
    LblNomeCliente.Caption := xNome_Cliente;
    xPkFormaPagamento := 1;
    xDATA_ANTECIPACAO := Date;
    edValorAntecipacao.ValueNumeric := 0;
 
-   MDO.Transac.CommitRetaining;
-   MDO.Query.Close;
-   MDO.Query.SQL.Clear;
-   MDO.Query.SQL.Add('SELECT ordem.vlradiantamento FROM ordem WHERE ordem.cod_ordem = :CodigoOrdem');
-   MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
-   MDO.Query.Open;
-   XExisteValorAntecipacao := MDO.Query.FieldByName('vlradiantamento').AsCurrency;
+
 
 end;
 
@@ -328,7 +329,7 @@ begin
          MDO.Query.Close;
          MDO.Query.SQL.Clear;
          MDO.Query.SQL.Add('INSERT INTO antecipacoes (numero_ordem, CLIENTE, DATA_ANTECIPACAO, USUARIO, VALOR_ANTECIPACAO, TIPO_MOVIMENTO, COD_MOVIMENTO) VALUES (:numero_ordem, :CLIENTE, :DATA_ANTECIPACAO, :USUARIO, :VALOR_ANTECIPACAO, :TIPO_MOVIMENTO, :COD_MOVIMENTO)');
-         MDO.Query.ParamByName('numero_ordem').AsInteger := xNumeroOs;
+         MDO.Query.ParamByName('numero_ordem').AsInteger := XNumeroOs;
          MDO.Query.ParamByName('CLIENTE').AsString := xNome_Cliente;
          MDO.Query.ParamByName('DATA_ANTECIPACAO').AsDateTime := Now;
          MDO.Query.ParamByName('USUARIO').AsString := FMenu.edusuario.Text;
