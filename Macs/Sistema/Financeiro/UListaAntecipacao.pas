@@ -29,13 +29,15 @@ type
 var
   frmListaAntecipacao: TfrmListaAntecipacao;
   XCOD_ORDEM: Integer;
-  XNumeroOS: Integer;
-  NumeroOS: Integer;
+  XNumeroOs: Integer;
 
   COD_MOVIMENTO: Integer;
   TIPO_MOVIMENTO: String;
 
 implementation
+
+uses
+  Alxor32, uOrdemMecanica, UAntecipa;
 
 {$R *.dfm}
 
@@ -65,8 +67,14 @@ End;
 
 procedure TfrmListaAntecipacao.FormActivate(Sender: TObject);
 begin
-    Label2.Caption := IntToStr(xNumeroOS);
-    NumeroOs := XNumeroOs;
+    MDO.Transac.CommitRetaining;
+    MDO.Query.Close;
+    MDO.Query.SQL.Clear;
+    MDO.Query.SQL.Add('SELECT ordem.numero FROM ordem WHERE ordem.cod_ordem = :CodigoOrdem');
+    MDO.Query.ParamByName('CodigoOrdem').AsInteger := xCod_PedidoPagamento;
+    MDO.Query.Open;
+    XNumeroOs := MDO.Query.FieldByName('numero').AsInteger;
+    Label2.Caption := IntToStr(XNumeroOs);
     DBGridConsulta.OnDrawColumnCell := DBGridConsultaDrawColumnCell;
     RefiltraOrdem;
 end;
@@ -91,10 +99,48 @@ procedure TfrmListaAntecipacao.BtExcluirClick(Sender: TObject);
 var
   TIPO_MOVIMENTO: string;
   COD_MOVIMENTO: Integer;
+  COD_CHEQUE: Integer;
 begin
   TIPO_MOVIMENTO := DBGridConsulta.DataSource.DataSet.FieldByName('TIPO_MOVIMENTO').AsString;
   COD_MOVIMENTO := DBGridConsulta.DataSource.DataSet.FieldByName('COD_MOVIMENTO').AsInteger;
   Try
+            if SameText(TIPO_MOVIMENTO, 'Cheque') then
+      begin
+          MDO.Transac.CommitRetaining;
+          MDO.Query2.Close;
+          MDO.Query2.SQL.Clear;
+          MDO.Query2.SQL.Add('SELECT * FROM CHEQUEREC WHERE COD_MOVBANCO = :CODIGO');
+          MDO.Query2.ParamByName('CODIGO').AsInteger := COD_MOVIMENTO;
+          MDO.Query2.Open;
+          COD_CHEQUE := MDO.Query2.FieldByName('COD_CHEQUEREC').AsInteger;
+          MDO.Query2.Close;
+
+          MDO.Query.Close;
+          MDO.Query.SQL.Clear;
+          MDO.Query.SQL.Add('DELETE FROM LANCAIXA WHERE COD_GERADOR = :CODIGO');
+          MDO.Query.ParamByName('CODIGO').AsInteger := COD_CHEQUE;
+          MDO.Query.ExecSQL;
+          MDO.Transac.CommitRetaining;
+
+          MDO.Query.Close;
+          MDO.Query.SQL.Clear;
+          MDO.Query.SQL.Add('DELETE FROM CHEQUEREC WHERE COD_CHEQUEREC = :CODIGO');
+          MDO.Query.ParamByName('CODIGO').AsInteger := COD_MOVIMENTO;
+          MDO.Query.ExecSQL;
+          MDO.Transac.CommitRetaining;
+
+          ShowMessage('SUCESSO NA EXCLUSÃO');
+          MDO.Transac.CommitRetaining;
+          MDO.Query.Close;
+          MDO.Query.SQL.Clear;
+          MDO.Query.SQL.Add('DELETE FROM ANTECIPACOES WHERE COD_MOVIMENTO = :CODIGO');
+          MDO.Query.ParamByName('CODIGO').AsInteger := COD_MOVIMENTO;
+          MDO.Query.ExecSQL;
+          MDO.Transac.CommitRetaining;
+          RefiltraOrdem;
+      end;
+
+
       if SameText(TIPO_MOVIMENTO, 'Carteira') then
       begin
           MDO.Transac.CommitRetaining;
@@ -114,6 +160,7 @@ begin
           MDO.Transac.CommitRetaining;
           RefiltraOrdem;
       end;
+
       if SameText(TIPO_MOVIMENTO, 'PIX') or SameText(TIPO_MOVIMENTO, 'Banco') then
       begin
           MDO.Transac.CommitRetaining;
